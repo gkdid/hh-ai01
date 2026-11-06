@@ -320,7 +320,7 @@ table.qa td.left { text-align: left; }
 (function() {
   var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
   var found = {};
-  function() wrap(node) {
+  function wrap(node) {
     if (node.nodeType === 3) {
       var text = node.nodeValue;
       var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
@@ -347,7 +347,7 @@ table.qa td.left { text-align: left; }
       for (var i = 0; i < kids.length; i++) wrap(kids[i]);
     }
   }
-  function() editor(detected) {
+  function editor(detected) {
     if (detected.length === 0) return;
     var panel = document.createElement('div');
     panel.id = 'name-editor';
@@ -389,13 +389,13 @@ table.qa td.left { text-align: left; }
       panel.style.display = 'none';
     });
   }
-  function() init() {
+  function init() {
     wrap(document.body);
     var detected = STUDENTS.filter(function(n) { return found[n]; });
     editor(detected);
   }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init());
+    document.addEventListener('DOMContentLoaded', init);
   } else { init(); }
 })();
 </script>

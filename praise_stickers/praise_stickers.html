@@ -1704,14 +1704,14 @@ setMode('view');
         }
       });
     }
-    document.getElementById('ne-reset').addEventListener('click()', function() {
+    document.getElementById('ne-reset').addEventListener('click', function() {
       for (var i = 0; i < inputs.length; i++) {
         inputs[i].value = inputs[i].getAttribute('data-original');
         var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
         inputs[i].dispatchEvent(evt);
       }
     });
-    document.getElementById('ne-hide').addEventListener('click()', function() {
+    document.getElementById('ne-hide').addEventListener('click', function() {
       panel.style.display = 'none';
     });
   }

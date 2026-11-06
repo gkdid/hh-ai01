@@ -1244,7 +1244,7 @@ function finalTotal() {
       '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
       '<div class="ne-row">' + cells + '</div>' +
       '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset()">원래대로</button>' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
       '<button type="button" id="ne-hide">패널 숨기기</button></div>';
     var toolbar = document.querySelector('.toolbar');
     if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
@@ -1262,7 +1262,7 @@ function finalTotal() {
         }
       });
     }
-    document.getElementById('ne-reset()').addEventListener('click', function() {
+    document.getElementById('ne-reset').addEventListener('click', function() {
       for (var i = 0; i < inputs.length; i++) {
         inputs[i].value = inputs[i].getAttribute('data-original');
         var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
@@ -1279,7 +1279,7 @@ function finalTotal() {
     editor(detected);
   }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init());
+    document.addEventListener('DOMContentLoaded', init);
   } else { init(); }
 })();
 </script>
