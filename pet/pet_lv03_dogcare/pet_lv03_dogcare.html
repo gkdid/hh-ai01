@@ -250,106 +250,106 @@ table.qa td.left { text-align: left; }
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
- padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
- box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
- font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
- padding: 4px 6px; border-radius: 4px; }
+  padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
- border-radius: 4px; font: inherit; }
+  border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
- border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function {
- var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
- var found = {};
- function wrap(node) {
- if (node.nodeType === 3) {
- var text = node.nodeValue;
- var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
- if (!re.test(text)) return;
- var parent = node.parentNode;
- var frag = document.createDocumentFragment;
- var last = 0; re.lastIndex = 0; var m;
- while ((m = re.exec(text)) !== null) {
- if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
- var span = document.createElement('span');
- span.className = 'sn';
- span.setAttribute('data-original', m[1]);
- span.textContent = m[1];
- frag.appendChild(span);
- found[m[1]] = true;
- last = m.index + m[1].length;
- }
- if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
- parent.replaceChild(frag, node);
- } else if (node.nodeType === 1 &&
- ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
- node.id !== 'name-editor') {
- var kids = Array.prototype.slice.call(node.childNodes);
- for (var i = 0; i < kids.length; i++) wrap(kids[i]);
- }
- }
- function editor(detected) {
- if (detected.length === 0) return;
- var panel = document.createElement('div');
- panel.id = 'name-editor';
- var cells = detected.map(function(n) {
- return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
- '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
- }).join('');
- panel.innerHTML =
- '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
- '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
- '<div class="ne-row">' + cells + '</div>' +
- '<div class="ne-actions">' +
- '<button type="button" id="ne-reset">원래대로</button>' +
- '<button type="button" id="ne-hide">패널 숨기기</button></div>';
- var toolbar = document.querySelector('.toolbar');
- if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
- else document.body.insertBefore(panel, document.body.firstChild);
- var inputs = panel.querySelectorAll('input');
- for (var i = 0; i < inputs.length; i++) {
- inputs[i].addEventListener('input', function(e) {
- var orig = e.target.getAttribute('data-original');
- var v = e.target.value || orig;
- var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
- for (var j = 0; j < spans.length; j++) {
- spans[j].textContent = v;
- if (v !== orig) spans[j].classList.add('changed');
- else spans[j].classList.remove('changed');
- }
- });
- }
- document.getElementById('ne-reset').addEventListener('click', function {
- for (var i = 0; i < inputs.length; i++) {
- inputs[i].value = inputs[i].getAttribute('data-original');
- var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
- inputs[i].dispatchEvent(evt);
- }
- });
- document.getElementById('ne-hide').addEventListener('click', function {
- panel.style.display = 'none';
- });
- }
- function init {
- wrap(document.body);
- var detected = STUDENTS.filter(function(n) { return found[n]; });
- editor(detected);
- }
- if (document.readyState === 'loading') {
- document.addEventListener('DOMContentLoaded', init);
- } else { init; }
-});
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
 </script>
 <!-- NAME_EDITOR_END -->
 
