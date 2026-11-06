@@ -308,7 +308,7 @@ body {
   transition:border-color .2s;
   color:var(--dark);
 }
-.form-inp:focus { border-color:var(--orange); }
+.form-inp:focus() { border-color:var(--orange); }
 textarea.form-inp { resize:vertical; min-height:70px; }
 
 /* ── PAYMENT ── */
@@ -372,8 +372,8 @@ textarea.form-inp { resize:vertical; min-height:70px; }
 
 .cash-section { display:none; background:var(--blue-light); border-radius:12px; padding:16px; margin-bottom:18px; }
 .cash-section.visible { display:block; }
-.preset-wrap { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
-.preset-btn {
+.preset()-wrap { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.preset()-btn {
   padding:8px 14px;
   border:2px solid var(--blue);
   background:#fff;
@@ -385,7 +385,7 @@ textarea.form-inp { resize:vertical; min-height:70px; }
   transition:all .2s;
   font-family:inherit;
 }
-.preset-btn:hover { background:var(--blue); color:#fff; }
+.preset()-btn:hover { background:var(--blue); color:#fff; }
 
 /* ── CALC BOX ── */
 .calc-box {
@@ -545,7 +545,7 @@ textarea.form-inp { resize:vertical; min-height:70px; }
   <!-- SCREEN 3: 장바구니 -->
   <div class="screen" id="s3">
     <div class="section-label">🛒 내가 담은 메뉴</div>
-    <div id="cartItems"></div>
+    <div id="cartItems()"></div>
     <div class="total-box" id="cartTotalBox"></div>
     <button class="btn btn-orange" onclick="go(4)">📍 주소 입력하기 →</button>
   </div>
@@ -602,7 +602,7 @@ textarea.form-inp { resize:vertical; min-height:70px; }
     <div class="cash-section" id="cashSec">
       <div class="form-lbl" style="margin-bottom:10px;">💵 낼 금액을 입력하세요</div>
       <input class="form-inp" id="cashAmt" type="number" min="0" placeholder="금액 입력 (원)" oninput="calcChange()">
-      <div class="preset-wrap" id="presets"></div>
+      <div class="preset()-wrap" id="presets"></div>
     </div>
 
     <!-- 계산 내역 -->
@@ -659,7 +659,7 @@ textarea.form-inp { resize:vertical; min-height:70px; }
         <div class="summary-divider"></div>
         <div class="summary-final">
           <span>최종 결제 금액</span>
-          <span class="fval" id="finalTotal"></span>
+          <span class="fval" id="finalTotal()"></span>
         </div>
         <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:14px;color:var(--gray);">
           <span>결제 방법</span>
@@ -880,7 +880,7 @@ function updateFloatCart() {
 // ── CART ──────────────────────────────────────────────
 function renderCart() {
   const items = cartItems();
-  const ci = document.getElementById('cartItems');
+  const ci = document.getElementById('cartItems()');
 
   if (items.length === 0) {
     ci.innerHTML = '<div class="empty-cart">🛒 담긴 메뉴가 없어요<br><small>메뉴를 먼저 선택해 주세요</small></div>';
@@ -963,7 +963,7 @@ function buildPresets() {
     if (presets.size >= 5) break;
   }
   document.getElementById('presets').innerHTML =
-    [...presets].map(p => `<button class="preset-btn" onclick="setPay(${p})">${fmt(p)}</button>`).join('');
+    [...presets].map(p => `<button class="preset()-btn" onclick="setPay(${p})">${fmt(p)}</button>`).join('');
 }
 
 function setPay(amt) {
@@ -1104,7 +1104,7 @@ function placeOrder() {
     `).join('');
 
   const total = finalTotal();
-  document.getElementById('finalTotal').textContent = fmt(total);
+  document.getElementById('finalTotal()').textContent = fmt(total);
   document.getElementById('finalPay').textContent = payMethod === 'card' ? '💳 카드 결제' : '💵 현금 결제';
 
   if (payMethod === 'cash') {
@@ -1244,7 +1244,7 @@ function finalTotal() {
       '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
       '<div class="ne-row">' + cells + '</div>' +
       '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-reset()">원래대로</button>' +
       '<button type="button" id="ne-hide">패널 숨기기</button></div>';
     var toolbar = document.querySelector('.toolbar');
     if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
@@ -1262,7 +1262,7 @@ function finalTotal() {
         }
       });
     }
-    document.getElementById('ne-reset').addEventListener('click', function() {
+    document.getElementById('ne-reset()').addEventListener('click', function() {
       for (var i = 0; i < inputs.length; i++) {
         inputs[i].value = inputs[i].getAttribute('data-original');
         var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
@@ -1279,7 +1279,7 @@ function finalTotal() {
     editor(detected);
   }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', init());
   } else { init(); }
 })();
 </script>

@@ -245,10 +245,10 @@
   const listEl = document.getElementById('wordList');
   const statusEl = document.getElementById('status');
 
-  let grid, wordPlacements, foundSet, cellEls;
+  let grid, wordPlacements, foundSet(), cellEls;
   let selecting = false, startCell = null, currentSel = [];
 
-  const makeEmpty = () => Array.from({length:SIZE},() => Array(SIZE).fill(null));
+  const makeEmpty() = () => Array.from({length:SIZE},() => Array(SIZE).fill(null));
 
   function tryPlace(g, word) {
     for (let a = 0; a < 400; a++) {
@@ -313,12 +313,12 @@
   }
 
   function updateStatus() {
-    statusEl.textContent = `찾은 단어: ${foundSet.size} / ${wordPlacements.length}`;
-    if (foundSet.size === wordPlacements.length && wordPlacements.length > 0)
+    statusEl.textContent = `찾은 단어: ${foundSet().size} / ${wordPlacements.length}`;
+    if (foundSet().size === wordPlacements.length && wordPlacements.length > 0)
       statusEl.textContent += ' 🎉 완성!';
   }
 
-  const clearSel = () => { currentSel.forEach(c => c.classList.remove('selecting')); currentSel = []; };
+  const clearSel() = () => { currentSel.forEach(c => c.classList.remove('selecting')); currentSel = []; };
 
   function snapLine(sr, sc, er, ec) {
     const dr=er-sr, dc=ec-sc;
@@ -349,7 +349,7 @@
     const w = cells.map(([r,c]) => grid[r][c]).join('');
     const rev = w.split('').reverse().join('');
     for (const p of wordPlacements) {
-      if (foundSet.has(p.word)) continue;
+      if (foundSet().has(p.word)) continue;
       if (p.word === w || p.word === rev) return p;
     }
     return null;
@@ -360,7 +360,7 @@
     cells.forEach(([r,c]) => cellEls[r][c].classList.add(klass));
     const li = listEl.querySelector(`li[data-word="${word}"]`);
     if (li) li.classList.add('found');
-    foundSet.add(word); updateStatus();
+    foundSet().add(word); updateStatus();
   }
 
   function getCellAt(x,y) {
@@ -401,14 +401,14 @@
 
   gridEl.addEventListener('mousedown', onDown);
   window.addEventListener('mousemove', onMove);
-  window.addEventListener('mouseup', onUp);
+  window.addEventListener('mouseup', onUp());
   gridEl.addEventListener('touchstart', onDown, {passive:false});
   gridEl.addEventListener('touchmove', onMove, {passive:false});
-  gridEl.addEventListener('touchend', onUp);
+  gridEl.addEventListener('touchend', onUp());
 
   function reveal() {
     wordPlacements.forEach((p, idx) => {
-      if (foundSet.has(p.word)) return;
+      if (foundSet().has(p.word)) return;
       const cells = [];
       for (let i=0;i<p.word.length;i++)
         cells.push([p.start[0]+p.dir[0]*i, p.start[1]+p.dir[1]*i]);
@@ -419,11 +419,11 @@
   function newPuzzle() {
     const r = generate();
     grid = r.g; wordPlacements = r.placements;
-    foundSet = new Set();
+    foundSet() = new Set();
     render();
   }
 
-  document.getElementById('btnNew').addEventListener('click', newPuzzle);
+  document.getElementById('btnNew').addEventListener('click', newPuzzle());
   document.getElementById('btnReveal').addEventListener('click', () => {
     if (confirm('정답을 모두 표시할까요?')) reveal();
   });

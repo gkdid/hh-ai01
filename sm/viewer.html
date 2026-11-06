@@ -125,7 +125,7 @@ article u { text-decoration: underline; text-decoration-color: #ef6c00; }
  <div class="toolbar" id="toolbar" style="display:none;">
  <a id="open-html" target="_blank" rel="noopener">🌐 HTML 원본</a>
  <a id="open-md" target="_blank" rel="noopener">📝 MD 원문</a>
- <button class="primary" onclick="window.print">🖨 인쇄</button>
+ <button class="primary" onclick="window.print()">🖨 인쇄</button>
  </div>
  <article id="content">
  <div class="empty">
@@ -149,18 +149,18 @@ const GROUPS = [
 
 let MANIFEST = [];
 
-async function loadManifest {
+async function loadManifest() {
  try {
  const res = await fetch('_build/manifest.json', { cache: 'no-cache' });
  if (!res.ok) throw new Error('manifest.json not found');
- MANIFEST = await res.json;
+ MANIFEST = await res.json();
  } catch (e) {
  document.getElementById('list').innerHTML =
  '<p style="color:#c62828;">manifest.json을 읽을 수 없어요.<br>브라우저에서 직접 파일 시스템을 열면 fetch가 막힙니다. <code>python -m http.server</code>로 sm/ 폴더를 띄워 주세요.</p>';
  return;
  }
- renderSidebar;
- loadFromHash;
+ renderSidebar();
+ loadFromHash();
 }
 
 function groupOf(item) {
@@ -176,7 +176,7 @@ function renderSidebar(filter = '') {
  const grouped = {};
  for (const item of MANIFEST) {
  const display = (item.title || item.stem).replace(/^[0-9.]+\s*/, '').replace(/_/g, ' ');
- if (filter && !(item.title + ' ' + item.stem).toLowerCase.includes(filter.toLowerCase)) continue;
+ if (filter && !(item.title + ' ' + item.stem).toLowerCase().includes(filter.toLowerCase())) continue;
  const g = groupOf(item);
  if (!grouped[g]) grouped[g] = [];
  grouped[g].push({ ...item, display });
@@ -210,7 +210,7 @@ async function loadDoc(mdPath) {
  try {
  const res = await fetch(encodeURI(item.md));
  if (!res.ok) throw new Error('fetch failed: ' + res.status);
- const md = await res.text;
+ const md = await res.text();
  document.getElementById('content').innerHTML = marked.parse(md);
  document.title = (item.title || item.stem) + ' — MD 뷰어';
  document.getElementById('toolbar').style.display = 'flex';
@@ -227,18 +227,18 @@ async function loadDoc(mdPath) {
  }
 }
 
-function loadFromHash {
+function loadFromHash() {
  const h = decodeURIComponent(location.hash.slice(1));
  if (h) loadDoc(h);
 }
 
-window.addEventListener('hashchange', loadFromHash);
+window.addEventListener('hashchange', loadFromHash());
 document.getElementById('q').addEventListener('input', e => renderSidebar(e.target.value));
 
 // marked options
 marked.setOptions({ breaks: false, gfm: true });
 
-loadManifest;
+loadManifest();
 </script>
 
 <!-- NAME_EDITOR_START -->

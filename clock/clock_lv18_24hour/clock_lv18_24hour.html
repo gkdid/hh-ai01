@@ -96,7 +96,7 @@ body { margin: 0; background: #eceff1; color: #102a2a;
 
 <div class="toolbar">
  <div><span class="title">📺 L18 주현이의 24시간제 심화</span><span class="muted">방송 편성표 · 국제 시각</span></div>
- <button onclick="window.print">🖨️ 인쇄 / PDF</button>
+ <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- 표지 -->
@@ -408,7 +408,7 @@ body { margin: 0; background: #eceff1; color: #102a2a;
 (function() {
   var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
   var found = {};
-  function wrap(node) {
+  function() wrap(node) {
     if (node.nodeType === 3) {
       var text = node.nodeValue;
       var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
@@ -435,7 +435,7 @@ body { margin: 0; background: #eceff1; color: #102a2a;
       for (var i = 0; i < kids.length; i++) wrap(kids[i]);
     }
   }
-  function editor(detected) {
+  function() editor(detected) {
     if (detected.length === 0) return;
     var panel = document.createElement('div');
     panel.id = 'name-editor';
@@ -477,13 +477,13 @@ body { margin: 0; background: #eceff1; color: #102a2a;
       panel.style.display = 'none';
     });
   }
-  function init() {
+  function() init() {
     wrap(document.body);
     var detected = STUDENTS.filter(function(n) { return found[n]; });
     editor(detected);
   }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', init());
   } else { init(); }
 })();
 </script>

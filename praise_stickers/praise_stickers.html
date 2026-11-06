@@ -847,7 +847,7 @@ const DEFAULT_DATA = {
  logs: []
 };
 
-let data = loadData;
+let data = loadData();
 let rewardEditTarget = '_default';
 
 function migrateStudents(students, legacyRewards) {
@@ -905,7 +905,7 @@ function hexToRgb(hex) {
  return `${r}, ${g}, ${b}`;
 }
 
-function pickNextColorIndex {
+function pickNextColorIndex() {
  const used = new Array(STUDENT_PALETTE.length).fill(0);
  data.students.forEach(s => {
  if (typeof s.colorIndex === 'number' && s.colorIndex >= 0 && s.colorIndex < STUDENT_PALETTE.length) {
@@ -920,7 +920,7 @@ function pickNextColorIndex {
  return picked;
 }
 
-function loadData {
+function loadData() {
  try {
  const raw = localStorage.getItem(STORAGE_KEY);
  if (!raw) return structuredClone(DEFAULT_DATA);
@@ -938,18 +938,18 @@ function loadData {
  }
 }
 
-function saveData {
+function saveData() {
  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
 function uid(prefix) {
- return prefix + '_' + Math.random.toString(36).slice(2, 9);
+ return prefix + '_' + Math.random().toString(36).slice(2, 9);
 }
 
-function nowStr {
- const d = new Date;
- return d.getFullYear + '-' + String(d.getMonth+1).padStart(2,'0') + '-' + String(d.getDate).padStart(2,'0')
- + ' ' + String(d.getHours).padStart(2,'0') + ':' + String(d.getMinutes).padStart(2,'0');
+function nowStr() {
+ const d = new Date();
+ return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0')
+ + ' ' + String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
 }
 
 function toast(msg, type) {
@@ -966,11 +966,11 @@ function studentRewards(id) {
  if (!s.rewards) s.rewards = [];
  return s.rewards;
 }
-function currentRewardList {
+function currentRewardList() {
  if (rewardEditTarget === '_default') return data.defaultRewards;
  return studentRewards(rewardEditTarget);
 }
-function currentRewardTargetLabel {
+function currentRewardTargetLabel() {
  if (rewardEditTarget === '_default') return '📋 기본 세트';
  const s = findStudent(rewardEditTarget);
  return s ? s.name : '';
@@ -978,7 +978,7 @@ function currentRewardTargetLabel {
 
 function addLog(type, studentName, detail, amount) {
  data.logs.unshift({
- ts: nowStr,
+ ts: nowStr(),
  type: type,
  studentName: studentName,
  detail: detail,
@@ -993,8 +993,8 @@ const modeTeacherBtn = document.getElementById('modeTeacher');
 const viewStickers = document.getElementById('viewStickers');
 const teacherPanel = document.getElementById('teacherPanel');
 
-modeViewBtn.addEventListener('click',  => setMode('view'));
-modeTeacherBtn.addEventListener('click',  => setMode('teacher'));
+modeViewBtn.addEventListener('click()',  => setMode('view'));
+modeTeacherBtn.addEventListener('click()',  => setMode('teacher'));
 
 function setMode(m) {
  if (m === 'view') {
@@ -1002,18 +1002,18 @@ function setMode(m) {
  modeTeacherBtn.classList.remove('active');
  viewStickers.style.display = 'grid';
  teacherPanel.style.display = 'none';
- renderViewMode;
+ renderViewMode();
  } else {
  modeTeacherBtn.classList.add('active');
  modeViewBtn.classList.remove('active');
  viewStickers.style.display = 'none';
  teacherPanel.style.display = 'grid';
- renderTeacherMode;
+ renderTeacherMode();
  }
 }
 
 /* ─── 학생 보기 모드 렌더링 ─── */
-function renderViewMode {
+function renderViewMode() {
  if (data.students.length === 0) {
  viewStickers.innerHTML = '<div class="empty" style="grid-column:1/-1;">아직 등록된 학생이 없어요.<br>👩‍🏫 교사 모드에서 학생을 추가해 주세요.</div>';
  return;
@@ -1080,15 +1080,15 @@ function escapeHtml(s) {
 }
 
 /* ─── 교사 모드 렌더링 ─── */
-function renderTeacherMode {
- renderTeacherStudents;
- renderStudentManageList;
- renderRewardTargetSelect;
- renderRewardList;
- renderActivityLog;
+function renderTeacherMode() {
+ renderTeacherStudents();
+ renderStudentManageList();
+ renderRewardTargetSelect();
+ renderRewardList();
+ renderActivityLog();
 }
 
-function renderRewardTargetSelect {
+function renderRewardTargetSelect() {
  const sel = document.getElementById('rewardStudentSelect');
  if (rewardEditTarget !== '_default' && !findStudent(rewardEditTarget)) {
  rewardEditTarget = '_default';
@@ -1101,7 +1101,7 @@ function renderRewardTargetSelect {
  sel.value = rewardEditTarget;
 }
 
-function renderTeacherStudents {
+function renderTeacherStudents() {
  const el = document.getElementById('teacherStudents');
  if (data.students.length === 0) {
  el.innerHTML = '<div class="empty">아래에서 학생을 먼저 추가해 주세요.</div>';
@@ -1147,23 +1147,23 @@ function renderTeacherStudents {
  `;
  }).join('');
  el.querySelectorAll('button[data-lib-select]').forEach(b => {
- b.addEventListener('click',  => {
+ b.addEventListener('click()',  => {
  const [sid, idx] = b.dataset.libSelect.split(':');
  selectLibraryImage(sid, parseInt(idx, 10));
  });
  });
  el.querySelectorAll('button[data-lib-del]').forEach(b => {
- b.addEventListener('click', (e) => {
- e.stopPropagation;
+ b.addEventListener('click()', (e) => {
+ e.stopPropagation();
  const [sid, idx] = b.dataset.libDel.split(':');
  deleteLibraryImage(sid, parseInt(idx, 10));
  });
  });
  el.querySelectorAll('button[data-lib-add]').forEach(b => {
- b.addEventListener('click',  => addLibraryImage(b.dataset.libAdd));
+ b.addEventListener('click()',  => addLibraryImage(b.dataset.libAdd));
  });
  el.querySelectorAll('button[data-act]').forEach(b => {
- b.addEventListener('click',  => {
+ b.addEventListener('click()',  => {
  const id = b.dataset.id;
  const act = b.dataset.act;
  if (act === 'give') giveSticker(id);
@@ -1173,7 +1173,7 @@ function renderTeacherStudents {
  });
 }
 
-function renderStudentManageList {
+function renderStudentManageList() {
  const el = document.getElementById('studentManageList');
  if (data.students.length === 0) {
  el.innerHTML = '<div class="empty" style="padding:14px;">등록된 학생이 없어요.</div>';
@@ -1197,10 +1197,10 @@ function renderStudentManageList {
  `;
  }).join('');
  el.querySelectorAll('button[data-del]').forEach(b => {
- b.addEventListener('click',  => deleteStudent(b.dataset.del));
+ b.addEventListener('click()',  => deleteStudent(b.dataset.del));
  });
  el.querySelectorAll('button[data-color]').forEach(b => {
- b.addEventListener('click',  => cycleStudentColor(b.dataset.color));
+ b.addEventListener('click()',  => cycleStudentColor(b.dataset.color));
  });
 }
 
@@ -1209,9 +1209,9 @@ function cycleStudentColor(id) {
  if (!s) return;
  const cur = (typeof s.colorIndex === 'number') ? s.colorIndex : 0;
  s.colorIndex = (cur + 1) % STUDENT_PALETTE.length;
- saveData;
- renderTeacherStudents;
- renderStudentManageList;
+ saveData();
+ renderTeacherStudents();
+ renderStudentManageList();
  toast(`🎨 ${s.name} → ${STUDENT_PALETTE[s.colorIndex].name}`);
 }
 
@@ -1230,23 +1230,23 @@ function addLibraryImage(studentId) {
  const dataUrl = await resizeImageToDataUrl(file, 180);
  s.stickerLibrary.push(dataUrl);
  s.currentStickerIdx = s.stickerLibrary.length - 1;
- saveData;
- renderTeacherStudents;
- renderStudentManageList;
+ saveData();
+ renderTeacherStudents();
+ renderStudentManageList();
  toast(`📷 ${s.name} 스티커 사진 추가 (선택됨)`);
  } catch (err) {
  toast('이미지 처리에 실패했어요', 'error');
  }
  });
- input.click;
+ input.click();
 }
 
 function selectLibraryImage(studentId, idx) {
  const s = findStudent(studentId);
  if (!s) return;
  s.currentStickerIdx = idx;
- saveData;
- renderTeacherStudents;
+ saveData();
+ renderTeacherStudents();
  const label = idx < 0 ? '기본 스티커' : `사진 #${idx + 1}`;
  toast(`✅ ${s.name} 다음 스티커: ${label}`);
 }
@@ -1258,17 +1258,17 @@ function deleteLibraryImage(studentId, idx) {
  if (!confirm(`이 스티커 사진을 라이브러리에서 삭제할까요?\n(이미 붙여진 과거 스티커는 그대로 유지돼요)`)) return;
  s.stickerLibrary[idx] = null;
  if (s.currentStickerIdx === idx) s.currentStickerIdx = -1;
- saveData;
- renderTeacherStudents;
- renderStudentManageList;
+ saveData();
+ renderTeacherStudents();
+ renderStudentManageList();
  toast(`🗑 스티커 사진을 라이브러리에서 삭제`);
 }
 
 function resizeImageToDataUrl(file, maxSize) {
  return new Promise((resolve, reject) => {
- const reader = new FileReader;
+ const reader = new FileReader();
  reader.onload = (e) => {
- const img = new Image;
+ const img = new Image();
  img.onload =  => {
  const sourceSize = Math.min(img.width, img.height);
  const sx = (img.width - sourceSize) / 2;
@@ -1289,10 +1289,10 @@ function resizeImageToDataUrl(file, maxSize) {
  });
 }
 
-function renderRewardList {
+function renderRewardList() {
  const el = document.getElementById('rewardList');
- const list = currentRewardList;
- const label = currentRewardTargetLabel;
+ const list = currentRewardList();
+ const label = currentRewardTargetLabel();
  if (list.length === 0) {
  el.innerHTML = `<div class="empty" style="padding:14px;"><b>${escapeHtml(label)}</b>에 설정된 보상이 없어요.<br>위 입력창에서 추가해 주세요.</div>`;
  return;
@@ -1307,11 +1307,11 @@ function renderRewardList {
  </div>
  `).join('');
  el.querySelectorAll('button[data-rdel]').forEach(b => {
- b.addEventListener('click',  => deleteReward(b.dataset.rdel));
+ b.addEventListener('click()',  => deleteReward(b.dataset.rdel));
  });
 }
 
-function renderActivityLog {
+function renderActivityLog() {
  const el = document.getElementById('activityLog');
  if (data.logs.length === 0) {
  el.innerHTML = '<div class="empty">아직 활동 기록이 없어요.</div>';
@@ -1342,12 +1342,12 @@ function giveSticker(id) {
  const idx = (typeof s.currentStickerIdx === 'number') ? s.currentStickerIdx : -1;
  s.stickerBoard.push(idx);
  if (!s.history) s.history = [];
- s.history.unshift({ type: 'give', amount: 1, ts: nowStr });
+ s.history.unshift({ type: 'give', amount: 1, ts: nowStr() });
  addLog('give', s.name, '칭찬', 1);
- saveData;
- renderTeacherStudents;
- renderStudentManageList;
- renderActivityLog;
+ saveData();
+ renderTeacherStudents();
+ renderStudentManageList();
+ renderActivityLog();
  toast(`✨ ${s.name} +1 스티커!`);
 }
 
@@ -1357,14 +1357,14 @@ function minusSticker(id) {
  const count = stickerCount(s);
  if (count <= 0) { toast('스티커가 0개라 회수할 수 없어요', 'warn'); return; }
  if (!confirm(`${s.name} 학생의 스티커 1개를 회수할까요?`)) return;
- s.stickerBoard.pop;
+ s.stickerBoard.pop();
  if (!s.history) s.history = [];
- s.history.unshift({ type: 'minus', amount: 1, ts: nowStr });
+ s.history.unshift({ type: 'minus', amount: 1, ts: nowStr() });
  addLog('minus', s.name, '회수', 1);
- saveData;
- renderTeacherStudents;
- renderStudentManageList;
- renderActivityLog;
+ saveData();
+ renderTeacherStudents();
+ renderStudentManageList();
+ renderActivityLog();
  toast(`↩️ ${s.name} -1 스티커`, 'warn');
 }
 
@@ -1393,17 +1393,17 @@ function openRedeemModal(studentId) {
  </button>
  `).join('');
  document.querySelectorAll('#redeemRewardList button').forEach(b => {
- b.addEventListener('click',  => redeem(b.dataset.rid));
+ b.addEventListener('click()',  => redeem(b.dataset.rid));
  });
  redeemModal.classList.add('show');
 }
 
-function closeRedeemModal {
+function closeRedeemModal() {
  redeemModal.classList.remove('show');
  redeemingStudentId = null;
 }
-document.getElementById('closeModalBtn').addEventListener('click', closeRedeemModal);
-redeemModal.addEventListener('click', (e) => { if (e.target === redeemModal) closeRedeemModal; });
+document.getElementById('closeModalBtn').addEventListener('click()', closeRedeemModal());
+redeemModal.addEventListener('click()', (e) => { if (e.target === redeemModal) closeRedeemModal(); });
 
 function redeem(rewardId) {
  const s = findStudent(redeemingStudentId);
@@ -1415,29 +1415,29 @@ function redeem(rewardId) {
  if (!confirm(`${s.name} 학생이 "${r.icon} ${r.name}"을(를) 교환합니다. 스티커 ${r.cost}개가 차감돼요. 진행할까요?`)) return;
  s.stickerBoard = s.stickerBoard.slice(0, count - r.cost);
  if (!s.history) s.history = [];
- s.history.unshift({ type: 'redeem', amount: r.cost, detail: `${r.icon} ${r.name}`, ts: nowStr });
+ s.history.unshift({ type: 'redeem', amount: r.cost, detail: `${r.icon} ${r.name}`, ts: nowStr() });
  addLog('redeem', s.name, `${r.icon} ${r.name}`, r.cost);
- saveData;
- renderTeacherStudents;
- renderStudentManageList;
- renderActivityLog;
- closeRedeemModal;
+ saveData();
+ renderTeacherStudents();
+ renderStudentManageList();
+ renderActivityLog();
+ closeRedeemModal();
  toast(`🎁 ${s.name} → ${r.name} 교환 완료!`);
 }
 
 /* ─── 학생 추가/삭제 ─── */
-document.getElementById('addStudentBtn').addEventListener('click', addStudent);
+document.getElementById('addStudentBtn').addEventListener('click()', addStudent());
 document.getElementById('newStudentName').addEventListener('keydown', (e) => {
- if (e.key === 'Enter') addStudent;
+ if (e.key === 'Enter') addStudent();
 });
 
-function addStudent {
+function addStudent() {
  const input = document.getElementById('newStudentName');
- const name = input.value.trim;
+ const name = input.value.trim();
  if (!name) { toast('이름을 입력해 주세요', 'warn'); return; }
  if (data.students.some(s => s.name === name)) { toast('이미 같은 이름의 학생이 있어요', 'warn'); return; }
  const clonedRewards = structuredClone(data.defaultRewards || []).map(r => ({ ...r, id: uid('r') }));
- const colorIndex = pickNextColorIndex;
+ const colorIndex = pickNextColorIndex();
  data.students.push({
  id: uid('s'),
  name: name,
@@ -1448,11 +1448,11 @@ function addStudent {
  rewards: clonedRewards,
  colorIndex: colorIndex
  });
- saveData;
+ saveData();
  input.value = '';
- renderTeacherStudents;
- renderStudentManageList;
- renderRewardTargetSelect;
+ renderTeacherStudents();
+ renderStudentManageList();
+ renderRewardTargetSelect();
  toast(`👤 ${name} 학생을 추가했어요 (기본 보상 ${clonedRewards.length}개 자동 지정)`);
 }
 
@@ -1462,58 +1462,58 @@ function deleteStudent(id) {
  if (!confirm(`${s.name} 학생을 명단에서 삭제할까요?\n(스티커 기록과 보상 목록도 함께 삭제됩니다)`)) return;
  if (rewardEditTarget === id) rewardEditTarget = '_default';
  data.students = data.students.filter(x => x.id !== id);
- saveData;
- renderTeacherStudents;
- renderStudentManageList;
- renderRewardTargetSelect;
- renderRewardList;
+ saveData();
+ renderTeacherStudents();
+ renderStudentManageList();
+ renderRewardTargetSelect();
+ renderRewardList();
  toast(`${s.name} 학생을 삭제했어요`, 'warn');
 }
 
 /* ─── 보상 추가/삭제 ─── */
-document.getElementById('addRewardBtn').addEventListener('click', addReward);
+document.getElementById('addRewardBtn').addEventListener('click()', addReward());
 ['newRewardIcon', 'newRewardName', 'newRewardCost'].forEach(id => {
  document.getElementById(id).addEventListener('keydown', (e) => {
- if (e.key === 'Enter') addReward;
+ if (e.key === 'Enter') addReward();
  });
 });
 document.getElementById('rewardStudentSelect').addEventListener('change', (e) => {
  rewardEditTarget = e.target.value;
- renderRewardList;
+ renderRewardList();
 });
-document.getElementById('copyRewardBtn').addEventListener('click', copyRewardsFromOther);
+document.getElementById('copyRewardBtn').addEventListener('click()', copyRewardsFromOther());
 
-function addReward {
- const icon = document.getElementById('newRewardIcon').value.trim || '🎁';
- const name = document.getElementById('newRewardName').value.trim;
+function addReward() {
+ const icon = document.getElementById('newRewardIcon').value.trim() || '🎁';
+ const name = document.getElementById('newRewardName').value.trim();
  const cost = parseInt(document.getElementById('newRewardCost').value, 10);
  if (!name) { toast('보상 이름을 입력해 주세요', 'warn'); return; }
  if (!cost || cost < 1) { toast('필요 스티커 수를 입력해 주세요', 'warn'); return; }
- const list = currentRewardList;
+ const list = currentRewardList();
  list.push({ id: uid('r'), icon, name, cost });
- saveData;
+ saveData();
  document.getElementById('newRewardIcon').value = '';
  document.getElementById('newRewardName').value = '';
  document.getElementById('newRewardCost').value = '5';
- renderRewardTargetSelect;
- renderRewardList;
- toast(`🎁 [${currentRewardTargetLabel}] "${name}" 추가`);
+ renderRewardTargetSelect();
+ renderRewardList();
+ toast(`🎁 [${currentRewardTargetLabel()}] "${name}" 추가`);
 }
 
 function deleteReward(id) {
- const list = currentRewardList;
+ const list = currentRewardList();
  const r = list.find(x => x.id === id);
  if (!r) return;
- if (!confirm(`"${r.icon} ${r.name}" 보상을 삭제할까요?\n(대상: ${currentRewardTargetLabel})`)) return;
+ if (!confirm(`"${r.icon} ${r.name}" 보상을 삭제할까요?\n(대상: ${currentRewardTargetLabel()})`)) return;
  const idx = list.findIndex(x => x.id === id);
  list.splice(idx, 1);
- saveData;
- renderRewardTargetSelect;
- renderRewardList;
+ saveData();
+ renderRewardTargetSelect();
+ renderRewardList();
  toast('보상을 삭제했어요', 'warn');
 }
 
-function copyRewardsFromOther {
+function copyRewardsFromOther() {
  const sources = [{ id: '_default', name: '📋 기본 세트' }];
  data.students.forEach(s => {
  if (s.id !== rewardEditTarget) sources.push({ id: s.id, name: s.name });
@@ -1529,7 +1529,7 @@ function copyRewardsFromOther {
  const source = validSources[idx];
  const sourceList = source.id === '_default' ? data.defaultRewards : studentRewards(source.id);
  if (!sourceList || sourceList.length === 0) { toast('복사할 보상이 없어요', 'warn'); return; }
- if (!confirm(`[${source.name}]의 보상 ${sourceList.length}개를 [${currentRewardTargetLabel}]에 덮어쓸까요?\n(현재 목록은 사라져요)`)) return;
+ if (!confirm(`[${source.name}]의 보상 ${sourceList.length}개를 [${currentRewardTargetLabel()}]에 덮어쓸까요?\n(현재 목록은 사라져요)`)) return;
  const copies = sourceList.map(r => ({ ...r, id: uid('r') }));
  if (rewardEditTarget === '_default') {
  data.defaultRewards = copies;
@@ -1537,43 +1537,43 @@ function copyRewardsFromOther {
  const s = findStudent(rewardEditTarget);
  s.rewards = copies;
  }
- saveData;
- renderRewardTargetSelect;
- renderRewardList;
+ saveData();
+ renderRewardTargetSelect();
+ renderRewardList();
  toast(`📋 ${copies.length}개 보상을 복사했어요`);
 }
 
 /* ─── 로그 비우기 ─── */
-document.getElementById('clearLogBtn').addEventListener('click',  => {
+document.getElementById('clearLogBtn').addEventListener('click()',  => {
  if (data.logs.length === 0) return;
  if (!confirm('활동 로그를 모두 지울까요?\n(학생별 스티커 수와 히스토리는 유지됩니다)')) return;
  data.logs = [];
- saveData;
- renderActivityLog;
+ saveData();
+ renderActivityLog();
  toast('로그를 비웠어요');
 });
 
 /* ─── 백업/복원 ─── */
-document.getElementById('exportBtn').addEventListener('click',  => {
+document.getElementById('exportBtn').addEventListener('click()',  => {
  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
  const url = URL.createObjectURL(blob);
- const d = new Date;
- const fname = `칭찬스티커_백업_${d.getFullYear}${String(d.getMonth+1).padStart(2,'0')}${String(d.getDate).padStart(2,'0')}.json`;
+ const d = new Date();
+ const fname = `칭찬스티커_백업_${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}.json`;
  const a = document.createElement('a');
  a.href = url;
  a.download = fname;
- a.click;
+ a.click();
  URL.revokeObjectURL(url);
  toast('📤 백업 파일을 내려받았어요');
 });
 
-document.getElementById('importBtn').addEventListener('click',  => {
- document.getElementById('importFile').click;
+document.getElementById('importBtn').addEventListener('click()',  => {
+ document.getElementById('importFile').click();
 });
 document.getElementById('importFile').addEventListener('change', (e) => {
  const file = e.target.files[0];
  if (!file) return;
- const reader = new FileReader;
+ const reader = new FileReader();
  reader.onload = (ev) => {
  try {
  const parsed = JSON.parse(ev.target.result);
@@ -1587,8 +1587,8 @@ document.getElementById('importFile').addEventListener('change', (e) => {
  logs: parsed.logs || []
  };
  rewardEditTarget = '_default';
- saveData;
- renderTeacherMode;
+ saveData();
+ renderTeacherMode();
  toast('📥 데이터를 불러왔어요');
  } catch (err) {
  toast('파일 형식이 올바르지 않아요', 'error');
@@ -1598,23 +1598,23 @@ document.getElementById('importFile').addEventListener('change', (e) => {
  e.target.value = '';
 });
 
-document.getElementById('resetBtn').addEventListener('click',  => {
+document.getElementById('resetBtn').addEventListener('click()',  => {
  if (!confirm('정말 모든 데이터를 초기화할까요?\n학생 명단, 스티커 수, 보상 항목, 로그가 모두 삭제됩니다.\n(되돌릴 수 없어요)')) return;
  if (!confirm('한 번 더 확인할게요. 정말 초기화할까요?')) return;
  data = structuredClone(DEFAULT_DATA);
- saveData;
- renderTeacherMode;
+ saveData();
+ renderTeacherMode();
  toast('전체 데이터를 초기화했어요', 'warn');
 });
 
 /* ─── 인쇄 ─── */
-document.getElementById('printBtn').addEventListener('click',  => {
+document.getElementById('printBtn').addEventListener('click()',  => {
  if (data.students.length === 0) { toast('인쇄할 학생이 없어요', 'warn'); return; }
- const d = new Date;
+ const d = new Date();
  document.querySelector('.print-date').textContent =
- `인쇄 날짜: ${d.getFullYear}. ${String(d.getMonth+1).padStart(2,'0')}. ${String(d.getDate).padStart(2,'0')}.`;
+ `인쇄 날짜: ${d.getFullYear()}. ${String(d.getMonth()+1).padStart(2,'0')}. ${String(d.getDate()).padStart(2,'0')}.`;
  if (teacherPanel.style.display !== 'none') setMode('view');
- setTimeout( => window.print, 100);
+ setTimeout( => window.print(), 100);
 });
 
 /* ─── 초기 ─── */
@@ -1704,14 +1704,14 @@ setMode('view');
         }
       });
     }
-    document.getElementById('ne-reset').addEventListener('click', function() {
+    document.getElementById('ne-reset').addEventListener('click()', function() {
       for (var i = 0; i < inputs.length; i++) {
         inputs[i].value = inputs[i].getAttribute('data-original');
         var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
         inputs[i].dispatchEvent(evt);
       }
     });
-    document.getElementById('ne-hide').addEventListener('click', function() {
+    document.getElementById('ne-hide').addEventListener('click()', function() {
       panel.style.display = 'none';
     });
   }
