@@ -389,7 +389,7 @@ table.tbl {
 <!-- =================================================== -->
 <section class="page cover">
  <div class="cover-top">
- <div><span class="subject">국어 · 진로</span> &nbsp;|&nbsp; 고등학교 </div>
+ <div><span class="subject">국어 · 진로</span></div>
  <div>2026학년도 1학기</div>
  </div>
 
@@ -699,31 +699,30 @@ table.tbl {
 </section>
 
 <!-- =================================================== -->
-<!-- 5. 삼각산고등학교 쇼콜라띠에 실습 -->
+<!-- 5. 쇼콜라띠에 실습 -->
 <!-- =================================================== -->
 <section class="page">
  <div class="ph">
  <div class="ph-num">5</div>
  <div class="ph-title">
- <h2>삼각산고등학교 쇼콜라띠에 실습</h2>
  <p>배운 것을 직접 손으로 만들어 보아요.</p>
  </div>
  </div>
 
  <div class="scene">
- <p>우리는 곧 <strong>삼각산고등학교</strong>로 가서 <strong>쇼콜라띠에 체험 실습</strong>을 해요.
+ <p>우리는 곧 <strong></strong>로 가서 <strong>쇼콜라띠에 체험 실습</strong>을 해요.
  교실에서 배운 어휘와 과정을 직접 손으로 만들어 보고, 친구·선생님과 함께 정성껏 초콜릿을 만들어 볼 거예요.</p>
  </div>
 
  <h3 class="section-h">📅 실습 안내</h3>
  <table class="tbl">
  <tr><th style="width: 18%;">구분</th><th>내용</th></tr>
- <tr><td>장소</td><td><strong>삼각산고등학교</strong> 교실</td></tr>
+ <tr><td>장소</td><td><strong></strong> 교실</td></tr>
  <tr><td>날짜·시간</td><td>( 년 월 일) 오전 8시 ~ 11시 (3시간)</td></tr>
- <tr><td>가는 길</td><td>학교 → 대중교통 이용 → 삼각산고 정문 → 교실 이동</td></tr>
+ <tr><td>가는 길</td><td>학교 → 대중교통 이용 →  정문 → 교실 이동</td></tr>
  <tr><td>준비물</td><td>앞치마, 머리 묶기, 손 닦을 수건, 학습지, 필기도구</td></tr>
  <tr><td>복장</td><td>생활복 · 운동화 · 머리는 단정히 묶기</td></tr>
- <tr><td>지도 선생님</td><td>삼각산고 특수 선생님 · 우리 학교 담임 선생님</td></tr>
+ <tr><td>지도 선생님</td><td> 특수 선생님 · 우리 학교 담임 선생님</td></tr>
  </table>
 
  <h3 class="section-h">🍫 실습 활동 — 4단계</h3>
@@ -744,7 +743,7 @@ table.tbl {
  <div class="rule"><div class="icon">🧹</div><strong>정리</strong><small>쓴 도구는 제자리에</small></div>
  </div>
 
- <div class="warm"><span class="tip-title">💗 삼각산고 선생님·선배께 드리는 약속</span>
+ <div class="warm"><span class="tip-title">💗  선생님·선배께 드리는 약속</span>
  선생님과 선배님 말씀을 잘 듣고, 도구를 정성껏 다루며, 친구와 협력해서 만들겠습니다.
  실습이 끝나면 <strong>정리·인사</strong>까지 빠뜨리지 않을게요.</div>
 
@@ -773,5 +772,110 @@ table.tbl {
  <div class="page-no">— 6 —</div>
 </section>
 
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
 </body>
 </html>
