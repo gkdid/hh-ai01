@@ -8,22 +8,22 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #00838f; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #00838f; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; } .toolbar .muted { color: #b2ebf2; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #b2ebf2 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #006064;
-  border-bottom: 2px solid #4dd0e1; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #4dd0e1; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; }
 .cover-main { text-align: center; padding: 10px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #00838f; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #00838f; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #006064; font-weight: 900; }
 .cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #00838f; font-weight: 500; }
 .cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
@@ -35,7 +35,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #006064; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #00838f; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #00838f; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #006064; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #00838f; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -59,290 +59,289 @@ table.qa th { background: #b2ebf2; color: #006064; }
 table.qa td.left { text-align: left; }
 
 .footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
-  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+ color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
 @media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div><span class="title">반려동물관리사 4차시</span><span class="muted">고양이 관리 · A4 4쪽</span></div>
-  <button onclick="window.print()">🖨 인쇄하기</button>
+ <div><span class="title">반려동물관리사 4차시</span><span class="muted">고양이 관리 · A4 4쪽</span></div>
+ <button onclick="window.print">🖨 인쇄하기</button>
 </div>
 
 <div class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">고양이 케어</span> · 반려동물 단원 4/10</div>
-    <div>혜화여자고등학교 특수학급</div>
-  </div>
-  <div class="cover-main">
-    <span class="badge">Lv.4 고양이 관리</span>
-    <h1>고양이, 특별한 케어</h1>
-    <p class="lead">사료 · 화장실 · 캣타워 · 놀이</p>
-  </div>
-  <div class="cover-emoji">🐈 🐟 🚽 🧵</div>
-  <div class="cover-info">
-    <h3>이번 시간에 배울 것</h3>
-    <ul>
-      <li>고양이의 <b>특성</b>과 강아지와의 차이</li>
-      <li>화장실·스크래처·수직 공간 등 <b>필수 환경</b></li>
-      <li>고양이 <b>급여·놀이·스트레스</b> 관리</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-    <div class="line"><span class="label">반</span></div>
-  </div>
+ <div class="cover-top">
+ <div><span class="subject">고양이 케어</span> · 반려동물 단원 4/10</div>
+ </div>
+ <div class="cover-main">
+ <span class="badge">Lv.4 고양이 관리</span>
+ <h1>고양이, 특별한 케어</h1>
+ <p class="lead">사료 · 화장실 · 캣타워 · 놀이</p>
+ </div>
+ <div class="cover-emoji">🐈 🐟 🚽 🧵</div>
+ <div class="cover-info">
+ <h3>이번 시간에 배울 것</h3>
+ <ul>
+ <li>고양이의 <b>특성</b>과 강아지와의 차이</li>
+ <li>화장실·스크래처·수직 공간 등 <b>필수 환경</b></li>
+ <li>고양이 <b>급여·놀이·스트레스</b> 관리</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ <div class="line"><span class="label">반</span></div>
+ </div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>1. 고양이의 특성</h2><span class="step">Step 1</span></div>
-  <div class="intro">
-    <b>💡 고양이는 육식성 사냥꾼.</b> 강아지와 달리 <b>완전 육식(carnivore)</b>이며, <b>수직 공간</b>과 <b>혼자 시간</b>이 필수예요.
-  </div>
+ <div class="page-head"><h2>1. 고양이의 특성</h2><span class="step">Step 1</span></div>
+ <div class="intro">
+ <b>💡 고양이는 육식성 사냥꾼.</b> 강아지와 달리 <b>완전 육식(carnivore)</b>이며, <b>수직 공간</b>과 <b>혼자 시간</b>이 필수예요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 하은이의 고양이 이해</h3><span class="tag">이해</span></div>
-    <table class="qa">
-      <tr><th>특성</th><th>내용</th></tr>
-      <tr><td>야행성</td><td class="left">밤에 활동적 · 낮에 12~16시간 수면</td></tr>
-      <tr><td>수직 공간</td><td class="left"><b>캣타워·선반</b>으로 높이 이동 · 스트레스 감소</td></tr>
-      <tr><td>영역 동물</td><td class="left">자기 영역·냄새·물건 소유</td></tr>
-      <tr><td>스크래처 본능</td><td class="left"><b>발톱 갈기</b> · 스크래처 필수 (안 주면 소파에)</td></tr>
-      <tr><td>사냥 본능</td><td class="left">움직이는 것 사냥 · <b>놀이=사냥</b></td></tr>
-      <tr><td>독립성</td><td class="left">함께지만 <b>붙어 있진 않음</b> · 거리 존중</td></tr>
-    </table>
-    <div class="tip"><b>💡 관리사 팁</b> 고양이는 <b>강제로 만지면 물림</b>. 다가올 때까지 기다려요. 손을 낮게 · 냄새 맡게 · 천천히.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 하은이의 고양이 이해</h3><span class="tag">이해</span></div>
+ <table class="qa">
+ <tr><th>특성</th><th>내용</th></tr>
+ <tr><td>야행성</td><td class="left">밤에 활동적 · 낮에 12~16시간 수면</td></tr>
+ <tr><td>수직 공간</td><td class="left"><b>캣타워·선반</b>으로 높이 이동 · 스트레스 감소</td></tr>
+ <tr><td>영역 동물</td><td class="left">자기 영역·냄새·물건 소유</td></tr>
+ <tr><td>스크래처 본능</td><td class="left"><b>발톱 갈기</b> · 스크래처 필수 (안 주면 소파에)</td></tr>
+ <tr><td>사냥 본능</td><td class="left">움직이는 것 사냥 · <b>놀이=사냥</b></td></tr>
+ <tr><td>독립성</td><td class="left">함께지만 <b>붙어 있진 않음</b> · 거리 존중</td></tr>
+ </table>
+ <div class="tip"><b>💡 관리사 팁</b> 고양이는 <b>강제로 만지면 물림</b>. 다가올 때까지 기다려요. 손을 낮게 · 냄새 맡게 · 천천히.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 하영이의 몸짓 언어</h3><span class="tag">신호</span></div>
-    <table class="qa">
-      <tr><th>몸짓</th><th>의미</th></tr>
-      <tr><td class="left">🐈 꼬리 세우고 다가옴</td><td>반가움·인사</td></tr>
-      <tr><td class="left">🐈 꼬리 흔들기 (개와 반대!)</td><td><b>불쾌·짜증</b></td></tr>
-      <tr><td class="left">🐈 골골 소리 (purr)</td><td>편안함·기분 좋음</td></tr>
-      <tr><td class="left">🐈 귀를 뒤로 젖힘</td><td><span class="blank long">경계·공격 준비</span></td></tr>
-      <tr><td class="left">🐈 배 보이며 눕기</td><td><span class="blank long">신뢰 (배는 만지지 마요!)</span></td></tr>
-      <tr><td class="left">🐈 눈을 천천히 깜빡</td><td><span class="blank long">"사랑해요" 신호</span></td></tr>
-    </table>
-    <div class="note"><b>❗ 배는 함정</b> 강아지와 달리 <b>배는 만지지 마세요</b>. 신뢰의 표시이지 만지라는 뜻이 아님. 무는 반사 발동.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 하영이의 몸짓 언어</h3><span class="tag">신호</span></div>
+ <table class="qa">
+ <tr><th>몸짓</th><th>의미</th></tr>
+ <tr><td class="left">🐈 꼬리 세우고 다가옴</td><td>반가움·인사</td></tr>
+ <tr><td class="left">🐈 꼬리 흔들기 (개와 반대!)</td><td><b>불쾌·짜증</b></td></tr>
+ <tr><td class="left">🐈 골골 소리 (purr)</td><td>편안함·기분 좋음</td></tr>
+ <tr><td class="left">🐈 귀를 뒤로 젖힘</td><td><span class="blank long">경계·공격 준비</span></td></tr>
+ <tr><td class="left">🐈 배 보이며 눕기</td><td><span class="blank long">신뢰 (배는 만지지 마요!)</span></td></tr>
+ <tr><td class="left">🐈 눈을 천천히 깜빡</td><td><span class="blank long">"사랑해요" 신호</span></td></tr>
+ </table>
+ <div class="note"><b>❗ 배는 함정</b> 강아지와 달리 <b>배는 만지지 마세요</b>. 신뢰의 표시이지 만지라는 뜻이 아님. 무는 반사 발동.</div>
+ </div>
 
-  <div class="footer-note">반려동물관리사 4차시 · 1/4쪽 · 특성</div>
+ <div class="footer-note">반려동물관리사 4차시 · 1/4쪽 · 특성</div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>2. 사료와 물</h2><span class="step">Step 2</span></div>
+ <div class="page-head"><h2>2. 사료와 물</h2><span class="step">Step 2</span></div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 주은이의 고양이 사료</h3><span class="tag">사료</span></div>
-    <table class="qa">
-      <tr><th>종류</th><th>특징</th><th>사용</th></tr>
-      <tr><td>건식 (사료)</td><td class="left">보관 편함·이빨 자극·물 별도</td><td>주식</td></tr>
-      <tr><td>습식 (파우치·캔)</td><td class="left">수분 함량 높음·기호성↑</td><td>보조·간식</td></tr>
-      <tr><td>동결건조·자연식</td><td class="left">영양가 높음·고가</td><td>선택</td></tr>
-      <tr><td>처방식</td><td class="left">신장·당뇨 등 질환용</td><td>수의사 처방</td></tr>
-    </table>
-    <p>체중 4kg 성묘 하루 사료량: 건식 <b>50~70g</b> · 습식 병행 시 <b>습식 100g + 건식 30g</b> 정도</p>
-    <div class="tip"><b>💡 자율 급식 vs 시간 급식</b> 고양이는 <b>자율 급식</b>(그릇에 두기) 가능. 다만 <b>비만 주의</b>.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 주은이의 고양이 사료</h3><span class="tag">사료</span></div>
+ <table class="qa">
+ <tr><th>종류</th><th>특징</th><th>사용</th></tr>
+ <tr><td>건식 (사료)</td><td class="left">보관 편함·이빨 자극·물 별도</td><td>주식</td></tr>
+ <tr><td>습식 (파우치·캔)</td><td class="left">수분 함량 높음·기호성↑</td><td>보조·간식</td></tr>
+ <tr><td>동결건조·자연식</td><td class="left">영양가 높음·고가</td><td>선택</td></tr>
+ <tr><td>처방식</td><td class="left">신장·당뇨 등 질환용</td><td>수의사 처방</td></tr>
+ </table>
+ <p>체중 4kg 성묘 하루 사료량: 건식 <b>50~70g</b> · 습식 병행 시 <b>습식 100g + 건식 30g</b> 정도</p>
+ <div class="tip"><b>💡 자율 급식 vs 시간 급식</b> 고양이는 <b>자율 급식</b>(그릇에 두기) 가능. 다만 <b>비만 주의</b>.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 물 관리의 중요성</h3><span class="tag">물</span></div>
-    <p>고양이는 원래 <b>물을 잘 안 마셔요</b>. 그래서 <b>비뇨기 질환</b>이 흔해요.</p>
-    <ul>
-      <li>물그릇은 <b>여러 곳에</b> 배치 (2~3곳)</li>
-      <li>사료·화장실과 <b>떨어뜨려</b> 두기</li>
-      <li>흐르는 물 좋아함 → <b>정수기·자동급수기</b> 추천</li>
-      <li>물그릇은 <b>매일 세척</b>·물 교체</li>
-      <li>습식 사료로 수분 보충</li>
-    </ul>
-    <div class="note"><b>❗ 비뇨기 질환 신호</b> 화장실 자주 감·소량 배출·혈뇨 → <b>즉시 병원</b>!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 물 관리의 중요성</h3><span class="tag">물</span></div>
+ <p>고양이는 원래 <b>물을 잘 안 마셔요</b>. 그래서 <b>비뇨기 질환</b>이 흔해요.</p>
+ <ul>
+ <li>물그릇은 <b>여러 곳에</b> 배치 (2~3곳)</li>
+ <li>사료·화장실과 <b>떨어뜨려</b> 두기</li>
+ <li>흐르는 물 좋아함 → <b>정수기·자동급수기</b> 추천</li>
+ <li>물그릇은 <b>매일 세척</b>·물 교체</li>
+ <li>습식 사료로 수분 보충</li>
+ </ul>
+ <div class="note"><b>❗ 비뇨기 질환 신호</b> 화장실 자주 감·소량 배출·혈뇨 → <b>즉시 병원</b>!</div>
+ </div>
 
-  <div class="footer-note">반려동물관리사 4차시 · 2/4쪽 · 사료·물</div>
+ <div class="footer-note">반려동물관리사 4차시 · 2/4쪽 · 사료·물</div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>3. 화장실과 환경</h2><span class="step">Step 3</span></div>
+ <div class="page-head"><h2>3. 화장실과 환경</h2><span class="step">Step 3</span></div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. 주현이의 화장실 세팅</h3><span class="tag">화장실</span></div>
-    <p>고양이 화장실 규칙: <b>고양이 수 + 1</b> (2마리면 3개). 개당 규격 · 위치 · 청소 중요!</p>
-    <table class="qa">
-      <tr><th>항목</th><th>기준</th></tr>
-      <tr><td class="left">크기</td><td>고양이 몸길이의 <b>1.5배</b> 이상</td></tr>
-      <tr><td class="left">위치</td><td>조용한 곳 · <b>사료·물과 분리</b></td></tr>
-      <tr><td class="left">모래 깊이</td><td>5~7cm</td></tr>
-      <tr><td class="left">모래 종류</td><td>벤토나이트·두부·크리스탈 (기호별)</td></tr>
-      <tr><td class="left">청소</td><td class="left"><b>매일 배설물 제거</b> · 주 1회 모래 전체 교체</td></tr>
-    </table>
-    <div class="tip"><b>💡 화장실 거부</b> 안 쓰면 → 위치 이동·모래 종류 변경·건강 문제 의심.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 주현이의 화장실 세팅</h3><span class="tag">화장실</span></div>
+ <p>고양이 화장실 규칙: <b>고양이 수 + 1</b> (2마리면 3개). 개당 규격 · 위치 · 청소 중요!</p>
+ <table class="qa">
+ <tr><th>항목</th><th>기준</th></tr>
+ <tr><td class="left">크기</td><td>고양이 몸길이의 <b>1.5배</b> 이상</td></tr>
+ <tr><td class="left">위치</td><td>조용한 곳 · <b>사료·물과 분리</b></td></tr>
+ <tr><td class="left">모래 깊이</td><td>5~7cm</td></tr>
+ <tr><td class="left">모래 종류</td><td>벤토나이트·두부·크리스탈 (기호별)</td></tr>
+ <tr><td class="left">청소</td><td class="left"><b>매일 배설물 제거</b> · 주 1회 모래 전체 교체</td></tr>
+ </table>
+ <div class="tip"><b>💡 화장실 거부</b> 안 쓰면 → 위치 이동·모래 종류 변경·건강 문제 의심.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 6. 미정이의 캣타워 · 스크래처</h3><span class="tag">환경</span></div>
-    <table class="qa">
-      <tr><th>용품</th><th>왜 필요?</th></tr>
-      <tr><td class="left">🪜 캣타워</td><td class="left">수직 공간·스트레스↓·전망 좋아함</td></tr>
-      <tr><td class="left">📏 스크래처</td><td class="left">발톱 관리·영역 표시·소파 보호</td></tr>
-      <tr><td class="left">🛏️ 숨을 곳 (박스·터널)</td><td class="left">안전·안정감</td></tr>
-      <tr><td class="left">🪟 창가 자리</td><td class="left">햇볕·바깥 구경·엔터테인먼트</td></tr>
-      <tr><td class="left">🧵 낚싯대 장난감</td><td class="left">사냥 놀이·운동</td></tr>
-    </table>
-    <div class="note"><b>❗ 스크래처 없으면</b> 소파·벽지·의자 다 파괴. <b>여러 개</b> 두고 좋아하는 스타일 파악!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 6. 미정이의 캣타워 · 스크래처</h3><span class="tag">환경</span></div>
+ <table class="qa">
+ <tr><th>용품</th><th>왜 필요?</th></tr>
+ <tr><td class="left">🪜 캣타워</td><td class="left">수직 공간·스트레스↓·전망 좋아함</td></tr>
+ <tr><td class="left">📏 스크래처</td><td class="left">발톱 관리·영역 표시·소파 보호</td></tr>
+ <tr><td class="left">🛏️ 숨을 곳 (박스·터널)</td><td class="left">안전·안정감</td></tr>
+ <tr><td class="left">🪟 창가 자리</td><td class="left">햇볕·바깥 구경·엔터테인먼트</td></tr>
+ <tr><td class="left">🧵 낚싯대 장난감</td><td class="left">사냥 놀이·운동</td></tr>
+ </table>
+ <div class="note"><b>❗ 스크래처 없으면</b> 소파·벽지·의자 다 파괴. <b>여러 개</b> 두고 좋아하는 스타일 파악!</div>
+ </div>
 
-  <div class="footer-note">반려동물관리사 4차시 · 3/4쪽 · 화장실·환경</div>
+ <div class="footer-note">반려동물관리사 4차시 · 3/4쪽 · 화장실·환경</div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>4. 놀이 · 자기점검</h2><span class="step">Step 4</span></div>
+ <div class="page-head"><h2>4. 놀이 · 자기점검</h2><span class="step">Step 4</span></div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 7. 채원이의 놀이 시간</h3><span class="tag">놀이</span></div>
-    <p>고양이 놀이 = <b>사냥 놀이</b>. 하루 <b>15~30분 × 2~3회</b>가 이상적.</p>
-    <table class="qa">
-      <tr><th>놀이</th><th>방법</th></tr>
-      <tr><td class="left">🎣 낚싯대</td><td class="left">움직임을 <b>새·쥐처럼</b> · 마지막에 잡게 해주기</td></tr>
-      <tr><td class="left">🔴 레이저 포인터</td><td class="left"><b>주의</b>: 마지막에 잡을 수 있는 <b>실물 장난감</b>으로 마무리</td></tr>
-      <tr><td class="left">🐟 킥커·인형</td><td class="left">뒷발 차기 훈련 · 캣닢 채운 것</td></tr>
-      <tr><td class="left">📦 상자·터널</td><td class="left">숨었다 나오기 놀이</td></tr>
-      <tr><td class="left">🍡 퍼즐 피더</td><td class="left">사료 안에 넣어 두뇌 자극</td></tr>
-    </table>
-    <div class="tip"><b>💡 놀이 순서</b> 사냥 놀이 → 잡기 성공 → 밥 → 그루밍 → 수면. 자연스러운 사냥 사이클!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 7. 채원이의 놀이 시간</h3><span class="tag">놀이</span></div>
+ <p>고양이 놀이 = <b>사냥 놀이</b>. 하루 <b>15~30분 × 2~3회</b>가 이상적.</p>
+ <table class="qa">
+ <tr><th>놀이</th><th>방법</th></tr>
+ <tr><td class="left">🎣 낚싯대</td><td class="left">움직임을 <b>새·쥐처럼</b> · 마지막에 잡게 해주기</td></tr>
+ <tr><td class="left">🔴 레이저 포인터</td><td class="left"><b>주의</b>: 마지막에 잡을 수 있는 <b>실물 장난감</b>으로 마무리</td></tr>
+ <tr><td class="left">🐟 킥커·인형</td><td class="left">뒷발 차기 훈련 · 캣닢 채운 것</td></tr>
+ <tr><td class="left">📦 상자·터널</td><td class="left">숨었다 나오기 놀이</td></tr>
+ <tr><td class="left">🍡 퍼즐 피더</td><td class="left">사료 안에 넣어 두뇌 자극</td></tr>
+ </table>
+ <div class="tip"><b>💡 놀이 순서</b> 사냥 놀이 → 잡기 성공 → 밥 → 그루밍 → 수면. 자연스러운 사냥 사이클!</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 8. 예은이의 이상 신호 감지</h3><span class="tag">관찰</span></div>
-    <table class="qa">
-      <tr><th>신호</th><th>의심 가능성</th></tr>
-      <tr><td class="left">화장실 자주 감·소량</td><td class="left">비뇨기 감염·결석</td></tr>
-      <tr><td class="left">2일 이상 사료 안 먹음</td><td class="left"><b>지방간</b> 위험 (즉시 병원)</td></tr>
-      <tr><td class="left">계속 구토·설사</td><td class="left">감염·중독·이물 삼킴</td></tr>
-      <tr><td class="left">그루밍(털 손질) 안 함</td><td class="left">우울·통증·질환</td></tr>
-      <tr><td class="left">숨어 안 나옴</td><td class="left">스트레스·아픔</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 8. 예은이의 이상 신호 감지</h3><span class="tag">관찰</span></div>
+ <table class="qa">
+ <tr><th>신호</th><th>의심 가능성</th></tr>
+ <tr><td class="left">화장실 자주 감·소량</td><td class="left">비뇨기 감염·결석</td></tr>
+ <tr><td class="left">2일 이상 사료 안 먹음</td><td class="left"><b>지방간</b> 위험 (즉시 병원)</td></tr>
+ <tr><td class="left">계속 구토·설사</td><td class="left">감염·중독·이물 삼킴</td></tr>
+ <tr><td class="left">그루밍(털 손질) 안 함</td><td class="left">우울·통증·질환</td></tr>
+ <tr><td class="left">숨어 안 나옴</td><td class="left">스트레스·아픔</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 9. 스스로 확인</h3><span class="tag">자기점검</span></div>
-    <table class="qa">
-      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
-      <tr><td class="left">고양이 특성을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">사료·물 관리를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">화장실·환경 세팅을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 9. 스스로 확인</h3><span class="tag">자기점검</span></div>
+ <table class="qa">
+ <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+ <tr><td class="left">고양이 특성을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">사료·물 관리를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">화장실·환경 세팅을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ </table>
+ </div>
 
-  <div class="footer-note">반려동물관리사 4차시 · 4/4쪽 · 고양이 마무리</div>
+ <div class="footer-note">반려동물관리사 4차시 · 4/4쪽 · 고양이 마무리</div>
 </div>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 11pt; line-height: 1.6; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 11pt; line-height: 1.6; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #3949ab; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #3949ab; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #c5cae9; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #c5cae9 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #1a237e;
-  border-bottom: 2px solid #7986cb; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #7986cb; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #3949ab; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #3949ab; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #3949ab; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #1a237e; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #1a237e; font-weight: 500; }
 .cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 6px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #1a237e; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #3949ab; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #3949ab; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #1a237e; font-size: 1.35em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #3949ab; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -82,261 +82,260 @@ table.qa td.left { text-align: left; }
 <body>
 
 <div class="toolbar">
-  <div><span class="title">📋 L8 시키는 일 잘 알아듣기</span><span class="muted">진로·직업 · Level 8 · 쉬운 버전</span></div>
-  <button onclick="window.print()">🖨️ 인쇄하기</button>
+ <div><span class="title">📋 L8 시키는 일 잘 알아듣기</span><span class="muted">진로·직업 · Level 8 · 쉬운 버전</span></div>
+ <button onclick="window.print">🖨️ 인쇄하기</button>
 </div>
 
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">진로·직업</span> · 자립 시리즈 · <b style="color:#1a237e;">L8</b></span>
-    <span>혜화여자고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">시키는 일 이해하기</span>
-    <h1>예은이의 사무 보조</h1>
-    <p class="lead">잘 듣고 · 적고 · 물어보고 · 확인!</p>
-  </div>
-  <div class="cover-emoji">📋 ✏️ 🗂 💼</div>
-  <div class="cover-info">
-    <h3>🎯 오늘 배울 것</h3>
-    <ul>
-      <li>일을 시킬 때 <b>4가지 순서</b> (듣기 → 적기 → 물어보기 → 다시 말하기)</li>
-      <li><b>4가지 궁금한 것</b> (무엇을 · 언제까지 · 어디서 · 어떻게)</li>
-      <li>모를 때 <b>정중하게 물어보는 법</b></li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 등장인물</h3>
-    <p style="margin:0; font-size:0.95em;">🌸 하은 · 🌼 하영 · 🌷 주은 · 🌻 주현 · 🌺 미정 · 🌹 채원 · 🌱 예은</p>
-    <p style="margin:6px 0 0; font-size:0.95em;"><b>예은이</b>가 회사에서 사무 보조를 시작해요!</p>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-    <div class="line"><span class="label">반</span></div>
-  </div>
-  <div class="footer-note">진로·직업 시리즈 · L8 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">진로·직업</span> · 자립 시리즈 · <b style="color:#1a237e;">L8</b></span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">시키는 일 이해하기</span>
+ <h1>예은이의 사무 보조</h1>
+ <p class="lead">잘 듣고 · 적고 · 물어보고 · 확인!</p>
+ </div>
+ <div class="cover-emoji">📋 ✏️ 🗂 💼</div>
+ <div class="cover-info">
+ <h3>🎯 오늘 배울 것</h3>
+ <ul>
+ <li>일을 시킬 때 <b>4가지 순서</b> (듣기 → 적기 → 물어보기 → 다시 말하기)</li>
+ <li><b>4가지 궁금한 것</b> (무엇을 · 언제까지 · 어디서 · 어떻게)</li>
+ <li>모를 때 <b>정중하게 물어보는 법</b></li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 등장인물</h3>
+ <p style="margin:0; font-size:0.95em;">🌸 하은 · 🌼 하영 · 🌷 주은 · 🌻 주현 · 🌺 미정 · 🌹 채원 · 🌱 예은</p>
+ <p style="margin:6px 0 0; font-size:0.95em;"><b>예은이</b>가 회사에서 사무 보조를 시작해요!</p>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ <div class="line"><span class="label">반</span></div>
+ </div>
+ <div class="footer-note">진로·직업 시리즈 · L8 · 표지</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>📋 일을 시킬 때 이렇게 해요</h2>
-    <span class="step">1쪽 · 4단계</span>
-  </div>
-  <div class="intro">
-    <b>💡 잘 듣는 것이 시작이에요.</b> 시키는 일을 잘 알아듣지 못하면 <b>잘못할 수 있어요</b>.
-    아래 <b>4가지 순서</b>대로 하면 잘할 수 있어요.
-  </div>
+ <div class="page-head">
+ <h2>📋 일을 시킬 때 이렇게 해요</h2>
+ <span class="step">1쪽 · 4단계</span>
+ </div>
+ <div class="intro">
+ <b>💡 잘 듣는 것이 시작이에요.</b> 시키는 일을 잘 알아듣지 못하면 <b>잘못할 수 있어요</b>.
+ 아래 <b>4가지 순서</b>대로 하면 잘할 수 있어요.
+ </div>
 
-  <div class="steps">
-    <div class="step-card">
-      <div class="n">1</div>
-      <div class="name">잘 듣기</div>
-      <div class="desc">눈을 마주치며<br>끝까지 듣기</div>
-    </div>
-    <div class="step-card">
-      <div class="n">2</div>
-      <div class="name">적기 (메모)</div>
-      <div class="desc">중요한 것을<br>바로 종이에 적기</div>
-    </div>
-    <div class="step-card">
-      <div class="n">3</div>
-      <div class="name">모르면 물어보기</div>
-      <div class="desc">"여쭤봐도<br>될까요?"</div>
-    </div>
-    <div class="step-card">
-      <div class="n">4</div>
-      <div class="name">다시 말하기</div>
-      <div class="desc">"○○를 △△까지<br>하겠습니다"</div>
-    </div>
-  </div>
+ <div class="steps">
+ <div class="step-card">
+ <div class="n">1</div>
+ <div class="name">잘 듣기</div>
+ <div class="desc">눈을 마주치며<br>끝까지 듣기</div>
+ </div>
+ <div class="step-card">
+ <div class="n">2</div>
+ <div class="name">적기 (메모)</div>
+ <div class="desc">중요한 것을<br>바로 종이에 적기</div>
+ </div>
+ <div class="step-card">
+ <div class="n">3</div>
+ <div class="name">모르면 물어보기</div>
+ <div class="desc">"여쭤봐도<br>될까요?"</div>
+ </div>
+ <div class="step-card">
+ <div class="n">4</div>
+ <div class="name">다시 말하기</div>
+ <div class="desc">"○○를 △△까지<br>하겠습니다"</div>
+ </div>
+ </div>
 
-  <div class="tip">💡 <b>일을 시킬 때 꼭 알아둘 4가지</b> — 이걸 알아야 잘할 수 있어요!</div>
+ <div class="tip">💡 <b>일을 시킬 때 꼭 알아둘 4가지</b> — 이걸 알아야 잘할 수 있어요!</div>
 
-  <div class="memo-frame">
-    <div class="title">📝 예은이의 메모 (좋은 예)</div>
-    <table>
-      <tr><td class="q">🎯 무엇을</td><td>회의 자료를 복사</td></tr>
-      <tr><td class="q">⏰ 언제까지</td><td>오후 2시까지</td></tr>
-      <tr><td class="q">📍 어디에</td><td>5층 회의실</td></tr>
-      <tr><td class="q">🛠 어떻게</td><td>20부, 양쪽 다 인쇄</td></tr>
-    </table>
-  </div>
+ <div class="memo-frame">
+ <div class="title">📝 예은이의 메모 (좋은 예)</div>
+ <table>
+ <tr><td class="q">🎯 무엇을</td><td>회의 자료를 복사</td></tr>
+ <tr><td class="q">⏰ 언제까지</td><td>오후 2시까지</td></tr>
+ <tr><td class="q">📍 어디에</td><td>5층 회의실</td></tr>
+ <tr><td class="q">🛠 어떻게</td><td>20부, 양쪽 다 인쇄</td></tr>
+ </table>
+ </div>
 
-  <div class="good"><b>💡 걱정 마세요.</b> 처음에는 다 모를 수 있어요. <b>물어보는 것이 부끄러운 것이 아니에요</b>. 오히려 <b>물어보는 사람이 잘하는 사람</b>이에요!</div>
+ <div class="good"><b>💡 걱정 마세요.</b> 처음에는 다 모를 수 있어요. <b>물어보는 것이 부끄러운 것이 아니에요</b>. 오히려 <b>물어보는 사람이 잘하는 사람</b>이에요!</div>
 
-  <div class="tip">💡 <b>모를 때 이렇게 물어봐요</b><br>
-    · "여쭤봐도 될까요?"<br>
-    · "다시 한 번 말씀해 주실 수 있을까요?"<br>
-    · "제가 잘 이해했는지 확인해 봐도 될까요?"
-  </div>
+ <div class="tip">💡 <b>모를 때 이렇게 물어봐요</b><br>
+ · "여쭤봐도 될까요?"<br>
+ · "다시 한 번 말씀해 주실 수 있을까요?"<br>
+ · "제가 잘 이해했는지 확인해 봐도 될까요?"
+ </div>
 
-  <div class="footer-note">진로·직업 시리즈 · L8 · 1/2쪽 · 방법</div>
+ <div class="footer-note">진로·직업 시리즈 · L8 · 1/2쪽 · 방법</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>💼 예은이랑 같이 해 보기</h2>
-    <span class="step">2쪽 · 실전</span>
-  </div>
+ <div class="page-head">
+ <h2>💼 예은이랑 같이 해 보기</h2>
+ <span class="step">2쪽 · 실전</span>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 메모 채워 보기</h3><span class="tag">읽기·쓰기</span></div>
-    <p><b>사장님 말:</b> "예은 씨, 오늘 <b>3시 회의</b>에 <b>과자와 물</b>을 <b>편의점</b>에서 사 와 주세요.
-    사람이 10명이니 <b>과자 5봉지, 물 10병</b> 사면 돼요. <b>2시 30분까지</b> 회의실에 두면 돼요."</p>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 메모 채워 보기</h3><span class="tag">읽기·쓰기</span></div>
+ <p><b>사장님 말:</b> "예은 씨, 오늘 <b>3시 회의</b>에 <b>과자와 물</b>을 <b>편의점</b>에서 사 와 주세요.
+ 사람이 10명이니 <b>과자 5봉지, 물 10병</b> 사면 돼요. <b>2시 30분까지</b> 회의실에 두면 돼요."</p>
 
-    <div class="memo-frame">
-      <table>
-        <tr><td class="q">🎯 무엇을</td><td><span class="example">예) 과자와 물</span></td></tr>
-        <tr><td class="q">⏰ 언제까지</td><td><span class="blank long"></span></td></tr>
-        <tr><td class="q">📍 어디에서 사서 어디에 두기</td><td><span class="blank long"></span></td></tr>
-        <tr><td class="q">🛠 어떻게 (몇 개?)</td><td><span class="blank long"></span></td></tr>
-      </table>
-    </div>
-  </div>
+ <div class="memo-frame">
+ <table>
+ <tr><td class="q">🎯 무엇을</td><td><span class="example">예) 과자와 물</span></td></tr>
+ <tr><td class="q">⏰ 언제까지</td><td><span class="blank long"></span></td></tr>
+ <tr><td class="q">📍 어디에서 사서 어디에 두기</td><td><span class="blank long"></span></td></tr>
+ <tr><td class="q">🛠 어떻게 (몇 개?)</td><td><span class="blank long"></span></td></tr>
+ </table>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 정중하게 물어보기</h3><span class="tag">쓰기</span></div>
-    <div class="choicebox">
-      <span class="cblabel">보기</span>
-      <span class="cbitem">몇 부 필요하세요?</span>
-      <span class="cbitem">언제까지 하면 될까요?</span>
-      <span class="cbitem">어디로 가면 되나요?</span>
-      <span class="cbitem">어떻게 정리할까요?</span>
-    </div>
-    <p>부족한 정보가 있어요. <b>정중하게 물어봐요</b>.</p>
-    <p><b>① 사장님:</b> "복사 좀 해 주세요." → 나: "<span class="example">예) 몇 부 필요하세요?</span>"</p>
-    <p><b>② 사장님:</b> "이거 정리해 주세요." → 나: "<span class="blank long"></span>"</p>
-    <p><b>③ 사장님:</b> "택배 좀 부쳐 주세요." → 나: "<span class="blank long"></span>"</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 정중하게 물어보기</h3><span class="tag">쓰기</span></div>
+ <div class="choicebox">
+ <span class="cblabel">보기</span>
+ <span class="cbitem">몇 부 필요하세요?</span>
+ <span class="cbitem">언제까지 하면 될까요?</span>
+ <span class="cbitem">어디로 가면 되나요?</span>
+ <span class="cbitem">어떻게 정리할까요?</span>
+ </div>
+ <p>부족한 정보가 있어요. <b>정중하게 물어봐요</b>.</p>
+ <p><b>① 사장님:</b> "복사 좀 해 주세요." → 나: "<span class="example">예) 몇 부 필요하세요?</span>"</p>
+ <p><b>② 사장님:</b> "이거 정리해 주세요." → 나: "<span class="blank long"></span>"</p>
+ <p><b>③ 사장님:</b> "택배 좀 부쳐 주세요." → 나: "<span class="blank long"></span>"</p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 맞으면 O, 틀리면 X</h3><span class="tag">판단</span></div>
-    <p>① 잘 못 알아들었어도 "네"라고 대답하고 알아서 한다. → ( <span class="blank short"></span> )</p>
-    <p>② 시킬 때 메모하면 실례가 되니 그냥 듣기만 한다. → ( <span class="blank short"></span> )</p>
-    <p>③ 일을 다 하면 사장님께 <b>다 했다고 보고</b>한다. → ( <span class="blank short"></span> )</p>
-    <p>④ 잘못했을 때 <b>숨기고 그냥 넘어간다</b>. → ( <span class="blank short"></span> )</p>
-    <p style="color:#78909c; font-size:0.9em; margin-top:6px;"><span class="example">예시 답) ① X ② X ③ O ④ X</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 맞으면 O, 틀리면 X</h3><span class="tag">판단</span></div>
+ <p>① 잘 못 알아들었어도 "네"라고 대답하고 알아서 한다. → ( <span class="blank short"></span> )</p>
+ <p>② 시킬 때 메모하면 실례가 되니 그냥 듣기만 한다. → ( <span class="blank short"></span> )</p>
+ <p>③ 일을 다 하면 사장님께 <b>다 했다고 보고</b>한다. → ( <span class="blank short"></span> )</p>
+ <p>④ 잘못했을 때 <b>숨기고 그냥 넘어간다</b>. → ( <span class="blank short"></span> )</p>
+ <p style="color:#78909c; font-size:0.9em; margin-top:6px;"><span class="example">예시 답) ① X ② X ③ O ④ X</span></p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 오늘 배운 것 확인</h3><span class="tag">자기점검</span></div>
-    <table class="qa">
-      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
-      <tr><td class="left">시키는 일 4단계 순서를 안다.</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">4가지(무엇·언제·어디·어떻게)를 안다.</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">모를 때 정중히 물어볼 수 있다.</td><td>☐</td><td>☐</td><td>☐</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 오늘 배운 것 확인</h3><span class="tag">자기점검</span></div>
+ <table class="qa">
+ <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+ <tr><td class="left">시키는 일 4단계 순서를 안다.</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">4가지(무엇·언제·어디·어떻게)를 안다.</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">모를 때 정중히 물어볼 수 있다.</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ </table>
+ </div>
 
-  <div class="good"><b>🌟 실천해요!</b> 선생님이 심부름을 시킬 때, <b>4가지</b>(무엇·언제·어디·어떻게)를 머릿속으로 생각해 봐요!</div>
+ <div class="good"><b>🌟 실천해요!</b> 선생님이 심부름을 시킬 때, <b>4가지</b>(무엇·언제·어디·어떻게)를 머릿속으로 생각해 봐요!</div>
 
-  <div class="footer-note">진로·직업 시리즈 · L8 · 2/2쪽 · 마무리</div>
+ <div class="footer-note">진로·직업 시리즈 · L8 · 2/2쪽 · 마무리</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffe0b2 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #6d4c41;
-  border-bottom: 2px solid #ffcc80; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #ffcc80; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #e65100; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #e65100; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #e65100; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #bf360c; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #6d4c41; font-weight: 500; }
 .cover-emoji { text-align:center; font-size: 4em; margin: 14px 0; letter-spacing: 8px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #4e342e; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #e65100; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #e65100; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #bf360c; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #e65100; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -90,280 +90,280 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">👋 S1 자기소개와 첫 만남</span><span class="muted">사회성 · Level 1</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">👋 S1 자기소개와 첫 만남</span><span class="muted">사회성 · Level 1</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#bf360c;">S1</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">자기소개 · 첫 만남</span>
-    <h1>하은이의 새 학년 첫날</h1>
-    <p class="lead">이름·학년·관심사를 넣어 나를 소개해요</p>
-  </div>
-  <div class="cover-emoji">🌸 👋 😊</div>
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul>
-      <li>자기소개에 꼭 들어가는 <b>네 가지 요소</b>를 안다.</li>
-      <li>첫 만남에서 <b>좋은 인상</b>을 주는 방법을 익힌다.</li>
-      <li>내가 직접 <b>나만의 자기소개</b>를 만들어 말해 본다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
-    <ul>
-      <li><b>하은이</b>가 새 학년 첫날, 새 반 친구들에게 자기소개를 해요. 어떻게 하면 좋을까요?</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">사회성 시리즈 · S1 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#bf360c;">S1</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">자기소개 · 첫 만남</span>
+ <h1>하은이의 새 학년 첫날</h1>
+ <p class="lead">이름·학년·관심사를 넣어 나를 소개해요</p>
+ </div>
+ <div class="cover-emoji">🌸 👋 😊</div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul>
+ <li>자기소개에 꼭 들어가는 <b>네 가지 요소</b>를 안다.</li>
+ <li>첫 만남에서 <b>좋은 인상</b>을 주는 방법을 익힌다.</li>
+ <li>내가 직접 <b>나만의 자기소개</b>를 만들어 말해 본다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+ <ul>
+ <li><b>하은이</b>가 새 학년 첫날, 새 반 친구들에게 자기소개를 해요. 어떻게 하면 좋을까요?</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">사회성 시리즈 · S1 · 표지</div>
 </section>
 
 <!-- 1쪽: 자기소개의 네 요소 -->
 <section class="page">
-  <div class="page-head">
-    <h2>👋 자기소개는 이렇게!</h2>
-    <span class="step">1쪽 · 네 가지 요소</span>
-  </div>
-  <div class="intro">
-    새 학년이 되면 처음 만나는 친구들과 <b>자기소개</b>를 해요. 자기소개는 <b>나를 알려 주는 짧은 말</b>이에요.
-    이름만 말하는 것보다, 몇 가지를 <b>함께 말하면</b> 훨씬 좋아요.
-  </div>
+ <div class="page-head">
+ <h2>👋 자기소개는 이렇게!</h2>
+ <span class="step">1쪽 · 네 가지 요소</span>
+ </div>
+ <div class="intro">
+ 새 학년이 되면 처음 만나는 친구들과 <b>자기소개</b>를 해요. 자기소개는 <b>나를 알려 주는 짧은 말</b>이에요.
+ 이름만 말하는 것보다, 몇 가지를 <b>함께 말하면</b> 훨씬 좋아요.
+ </div>
 
-  <div class="elements-grid">
-    <div class="el-card">
-      <div class="icon">🏷️</div>
-      <div class="name">① 이름</div>
-      <div class="ex">"안녕, 나는 하은이야."</div>
-    </div>
-    <div class="el-card">
-      <div class="icon">🎓</div>
-      <div class="name">② 학년·반</div>
-      <div class="ex">"1학년 3반이야."</div>
-    </div>
-    <div class="el-card">
-      <div class="icon">💜</div>
-      <div class="name">③ 좋아하는 것</div>
-      <div class="ex">"강아지랑 그림 그리기를 좋아해."</div>
-    </div>
-    <div class="el-card">
-      <div class="icon">🤝</div>
-      <div class="name">④ 마무리 인사</div>
-      <div class="ex">"앞으로 잘 지내자!"</div>
-    </div>
-  </div>
+ <div class="elements-grid">
+ <div class="el-card">
+ <div class="icon">🏷️</div>
+ <div class="name">① 이름</div>
+ <div class="ex">"안녕, 나는 하은이야."</div>
+ </div>
+ <div class="el-card">
+ <div class="icon">🎓</div>
+ <div class="name">② 학년·반</div>
+ <div class="ex">"1학년 3반이야."</div>
+ </div>
+ <div class="el-card">
+ <div class="icon">💜</div>
+ <div class="name">③ 좋아하는 것</div>
+ <div class="ex">"강아지랑 그림 그리기를 좋아해."</div>
+ </div>
+ <div class="el-card">
+ <div class="icon">🤝</div>
+ <div class="name">④ 마무리 인사</div>
+ <div class="ex">"앞으로 잘 지내자!"</div>
+ </div>
+ </div>
 
-  <div class="dialogue">
-    <div style="font-weight:700; color:#bf360c; margin-bottom:6px;">📖 하은이의 자기소개 예시</div>
-    <div class="speech">
-      <div class="avatar">하은</div>
-      <div class="bubble">
-        <div class="who">하은</div>
-        안녕하세요! 저는 <b>김하은</b>이에요. 1학년 3반이고요, 강아지를 좋아하고 그림 그리는 걸 좋아해요. 앞으로 <b>잘 지내요! 반가워요.</b> 😊
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">반 친구</div>
-        와, 하은아 반가워! 나도 강아지 좋아해. 같이 이야기 많이 하자~
-      </div>
-      <div class="avatar classmate">친구</div>
-    </div>
-  </div>
+ <div class="dialogue">
+ <div style="font-weight:700; color:#bf360c; margin-bottom:6px;">📖 하은이의 자기소개 예시</div>
+ <div class="speech">
+ <div class="avatar">하은</div>
+ <div class="bubble">
+ <div class="who">하은</div>
+ 안녕하세요! 저는 <b>김하은</b>이에요. 1학년 3반이고요, 강아지를 좋아하고 그림 그리는 걸 좋아해요. 앞으로 <b>잘 지내요! 반가워요.</b> 😊
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">반 친구</div>
+ 와, 하은아 반가워! 나도 강아지 좋아해. 같이 이야기 많이 하자~
+ </div>
+ <div class="avatar classmate">친구</div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 요소 찾기</h3><span class="tag">읽기</span></div>
-    <p>위 하은이 자기소개에서 <b>네 가지 요소</b>를 찾아 밑줄을 그어 보세요.</p>
-    <p>① 이름 → ( <span class="blank long">&nbsp;</span> )</p>
-    <p>② 학년·반 → ( <span class="blank long">&nbsp;</span> )</p>
-    <p>③ 좋아하는 것 → ( <span class="blank long">&nbsp;</span> )</p>
-    <p>④ 마무리 인사 → ( <span class="blank long">&nbsp;</span> )</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 요소 찾기</h3><span class="tag">읽기</span></div>
+ <p>위 하은이 자기소개에서 <b>네 가지 요소</b>를 찾아 밑줄을 그어 보세요.</p>
+ <p>① 이름 → ( <span class="blank long">&nbsp;</span> )</p>
+ <p>② 학년·반 → ( <span class="blank long">&nbsp;</span> )</p>
+ <p>③ 좋아하는 것 → ( <span class="blank long">&nbsp;</span> )</p>
+ <p>④ 마무리 인사 → ( <span class="blank long">&nbsp;</span> )</p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 좋은 자기소개 vs 아쉬운 자기소개</h3><span class="tag">비교</span></div>
-    <div class="compare">
-      <div class="good">
-        <div class="title">😊 좋은 자기소개</div>
-        <ul>
-          <li>웃는 얼굴로 <b>눈을 마주치며</b> 말한다</li>
-          <li>목소리는 <b>또렷하고 알맞은 크기</b>로</li>
-          <li>이름·학년·관심사·인사를 <b>골고루</b> 담는다</li>
-          <li>2~4문장, <b>짧고 간단하게</b></li>
-        </ul>
-      </div>
-      <div class="bad">
-        <div class="title">😐 아쉬운 자기소개</div>
-        <ul>
-          <li>바닥만 보고 <b>고개를 숙인 채</b> 말한다</li>
-          <li>목소리가 <b>너무 작거나</b> 너무 빨라 안 들린다</li>
-          <li>이름만 말하고 끝난다: "저는 하은이에요."</li>
-          <li>너무 길게 <b>자기 이야기만 한다</b> (5문장 이상)</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 좋은 자기소개 vs 아쉬운 자기소개</h3><span class="tag">비교</span></div>
+ <div class="compare">
+ <div class="good">
+ <div class="title">😊 좋은 자기소개</div>
+ <ul>
+ <li>웃는 얼굴로 <b>눈을 마주치며</b> 말한다</li>
+ <li>목소리는 <b>또렷하고 알맞은 크기</b>로</li>
+ <li>이름·학년·관심사·인사를 <b>골고루</b> 담는다</li>
+ <li>2~4문장, <b>짧고 간단하게</b></li>
+ </ul>
+ </div>
+ <div class="bad">
+ <div class="title">😐 아쉬운 자기소개</div>
+ <ul>
+ <li>바닥만 보고 <b>고개를 숙인 채</b> 말한다</li>
+ <li>목소리가 <b>너무 작거나</b> 너무 빨라 안 들린다</li>
+ <li>이름만 말하고 끝난다: "저는 하은이에요."</li>
+ <li>너무 길게 <b>자기 이야기만 한다</b> (5문장 이상)</li>
+ </ul>
+ </div>
+ </div>
+ </div>
 
-  <div class="tip">💡 <b>첫인상 3초 규칙:</b> 사람은 처음 만난 사람을 <b>3초 안에 판단</b>해요. 그래서 <b>얼굴 표정·눈맞춤·인사</b>가 이름보다 중요할 때도 있어요.</div>
+ <div class="tip">💡 <b>첫인상 3초 규칙:</b> 사람은 처음 만난 사람을 <b>3초 안에 판단</b>해요. 그래서 <b>얼굴 표정·눈맞춤·인사</b>가 이름보다 중요할 때도 있어요.</div>
 
-  <div class="page-foot">사회성 시리즈 · S1 · 1쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S1 · 1쪽 / 2</div>
 </section>
 
 <!-- 2쪽: 실전 자기소개 -->
 <section class="page">
-  <div class="page-head">
-    <h2>✨ 나만의 자기소개 만들기</h2>
-    <span class="step">2쪽 · 실전</span>
-  </div>
-  <div class="intro">
-    이제 <b>내가 직접</b> 자기소개를 만들어 봐요. 아래 카드에 하나씩 채우면 자연스러운 자기소개가 완성돼요!
-  </div>
+ <div class="page-head">
+ <h2>✨ 나만의 자기소개 만들기</h2>
+ <span class="step">2쪽 · 실전</span>
+ </div>
+ <div class="intro">
+ 이제 <b>내가 직접</b> 자기소개를 만들어 봐요. 아래 카드에 하나씩 채우면 자연스러운 자기소개가 완성돼요!
+ </div>
 
-  <div class="card-input">
-    <div style="font-weight:700; color:#bf360c; margin-bottom:6px;">📝 나의 자기소개 카드</div>
-    <div class="field"><span class="label">① 이름</span><span class="fill">저는 </span></div>
-    <div class="field"><span class="label">② 학년·반</span><span class="fill">저는 </span></div>
-    <div class="field"><span class="label">③ 좋아하는 것</span><span class="fill">저는 </span></div>
-    <div class="field"><span class="label">④ 마무리 인사</span><span class="fill"></span></div>
-    <p style="margin-top:8px; font-size:0.9em; color:#6d4c41;">💡 <b>좋아하는 것</b>은 취미, 노래, 좋아하는 음식, 좋아하는 연예인, 좋아하는 과목 등 무엇이든 좋아요.</p>
-  </div>
+ <div class="card-input">
+ <div style="font-weight:700; color:#bf360c; margin-bottom:6px;">📝 나의 자기소개 카드</div>
+ <div class="field"><span class="label">① 이름</span><span class="fill">저는 </span></div>
+ <div class="field"><span class="label">② 학년·반</span><span class="fill">저는 </span></div>
+ <div class="field"><span class="label">③ 좋아하는 것</span><span class="fill">저는 </span></div>
+ <div class="field"><span class="label">④ 마무리 인사</span><span class="fill"></span></div>
+ <p style="margin-top:8px; font-size:0.9em; color:#6d4c41;">💡 <b>좋아하는 것</b>은 취미, 노래, 좋아하는 음식, 좋아하는 연예인, 좋아하는 과목 등 무엇이든 좋아요.</p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 자기소개 연결하기</h3><span class="tag">문장 만들기</span></div>
-    <p>위에서 쓴 네 문장을 <b>이어서</b> 자연스러운 자기소개를 완성해 보세요.</p>
-    <div style="background:#fff8e1; border:1.5px dashed #ffb74d; border-radius:8px; padding:10px; min-height:90px;">
-      <div style="border-bottom:1px solid #ccc; height:22px;"></div>
-      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
-      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
-      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 자기소개 연결하기</h3><span class="tag">문장 만들기</span></div>
+ <p>위에서 쓴 네 문장을 <b>이어서</b> 자연스러운 자기소개를 완성해 보세요.</p>
+ <div style="background:#fff8e1; border:1.5px dashed #ffb74d; border-radius:8px; padding:10px; min-height:90px;">
+ <div style="border-bottom:1px solid #ccc; height:22px;"></div>
+ <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+ <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+ <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 상황별 첫인사</h3><span class="tag">역할극</span></div>
-    <p>다음 상황에서 <b>뭐라고 말</b>하면 좋을지 써 보세요.</p>
-    <p>① 새 짝꿍에게 처음 말 걸 때:<br>→ "<span class="blank long">&nbsp;</span> ! 나는 <span class="blank">&nbsp;</span>이야. 반가워."</p>
-    <p>② 조별 활동에서 처음 만난 친구들에게:<br>→ "<span class="blank long">&nbsp;</span>"</p>
-    <p>③ 동아리에 처음 들어갔을 때:<br>→ "<span class="blank long">&nbsp;</span>"</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 상황별 첫인사</h3><span class="tag">역할극</span></div>
+ <p>다음 상황에서 <b>뭐라고 말</b>하면 좋을지 써 보세요.</p>
+ <p>① 새 짝꿍에게 처음 말 걸 때:<br>→ "<span class="blank long">&nbsp;</span> ! 나는 <span class="blank">&nbsp;</span>이야. 반가워."</p>
+ <p>② 조별 활동에서 처음 만난 친구들에게:<br>→ "<span class="blank long">&nbsp;</span>"</p>
+ <p>③ 동아리에 처음 들어갔을 때:<br>→ "<span class="blank long">&nbsp;</span>"</p>
+ </div>
 
-  <div class="note">🌟 <b>실천 과제:</b> 오늘 배운 자기소개를 <b>가족 또는 선생님</b> 앞에서 <b>말로 해 보세요</b>. 그리고 잘한 점 한 가지를 스스로 칭찬해요!</div>
+ <div class="note">🌟 <b>실천 과제:</b> 오늘 배운 자기소개를 <b>가족 또는 선생님</b> 앞에서 <b>말로 해 보세요</b>. 그리고 잘한 점 한 가지를 스스로 칭찬해요!</div>
 
-  <div class="page-foot">사회성 시리즈 · S1 · 2쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S1 · 2쪽 / 2</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

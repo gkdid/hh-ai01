@@ -9,80 +9,80 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body {
-  margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  font-size: 11.5pt; line-height: 1.45;
+ margin: 0; background: #eceff1; color: #1f2d3d;
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+ font-size: 11.5pt; line-height: 1.45;
 }
 
 .toolbar {
-  position: sticky; top: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #b71c1c; color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+ position: sticky; top: 0; z-index: 50;
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 10px 18px; background: #b71c1c; color: #fff;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .toolbar .muted { color: #ffcdd2; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button {
-  background: #ffd54f; color: #7f0000; border: none; font: inherit; font-weight: 700;
-  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+ background: #ffd54f; color: #7f0000; border: none; font: inherit; font-weight: 700;
+ padding: 8px 18px; border-radius: 6px; cursor: pointer;
 }
 .toolbar button:hover { background: #ffe082; }
 
 .page {
-  width: 210mm; min-height: 297mm;
-  margin: 12mm auto; padding: 14mm 16mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  position: relative; page-break-after: always;
+ width: 210mm; min-height: 297mm;
+ margin: 12mm auto; padding: 14mm 16mm;
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+ position: relative; page-break-after: always;
 }
 .page:last-of-type { page-break-after: auto; }
 
 /* ===== 표지 ===== */
 .page.cover {
-  padding: 18mm 18mm;
-  background: linear-gradient(135deg, #fff 0%, #ffebee 100%);
+ padding: 18mm 18mm;
+ background: linear-gradient(135deg, #fff 0%, #ffebee 100%);
 }
 .cover-top {
-  display: flex; justify-content: space-between;
-  font-size: 0.9em; color: #455a64;
-  border-bottom: 2px solid #ffcdd2; padding-bottom: 10px; margin-bottom: 20px;
+ display: flex; justify-content: space-between;
+ font-size: 0.9em; color: #455a64;
+ border-bottom: 2px solid #ffcdd2; padding-bottom: 10px; margin-bottom: 20px;
 }
 .cover-top .subject { font-weight: 700; color: #b71c1c; }
 .cover-main { text-align: center; padding: 14px 0 8px; }
 .cover-main .badge {
-  display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #b71c1c; color: #fff; font-weight: 700; font-size: 0.95em;
-  margin-bottom: 12px; letter-spacing: 0.5px;
+ display: inline-block; padding: 5px 16px; border-radius: 20px;
+ background: #b71c1c; color: #fff; font-weight: 700; font-size: 0.95em;
+ margin-bottom: 12px; letter-spacing: 0.5px;
 }
 .cover-main h1 {
-  margin: 0; font-size: 2.2em; letter-spacing: -1.5px;
-  color: #7f0000; font-weight: 900;
+ margin: 0; font-size: 2.2em; letter-spacing: -1.5px;
+ color: #7f0000; font-weight: 900;
 }
 .cover-main .lead {
-  margin: 6px 0 0; font-size: 1em; color: #37474f; font-weight: 500;
+ margin: 6px 0 0; font-size: 1em; color: #37474f; font-weight: 500;
 }
 .name-box {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 8px; margin: 16px 0 8px;
+ display: grid; grid-template-columns: repeat(3, 1fr);
+ gap: 8px; margin: 16px 0 8px;
 }
 .name-cell { border: 1.5px solid #ef9a9a; border-radius: 8px; padding: 8px 10px; }
 .name-cell span { display: block; font-size: 0.78em; color: #b71c1c; font-weight: 500; }
 .name-cell em { display: block; min-height: 22px; font-style: normal; }
 
 .cast, .toc, .info {
-  border: 2px solid #ffcdd2; border-radius: 10px;
-  padding: 10px 14px; margin-top: 10px; background: #ffebee;
+ border: 2px solid #ffcdd2; border-radius: 10px;
+ padding: 10px 14px; margin-top: 10px; background: #ffebee;
 }
 .cast h2, .toc h2, .info h2 {
-  margin: 0 0 6px; font-size: 1.05em; color: #7f0000;
-  border-bottom: 1px dashed #e57373; padding-bottom: 4px;
+ margin: 0 0 6px; font-size: 1.05em; color: #7f0000;
+ border-bottom: 1px dashed #e57373; padding-bottom: 4px;
 }
 .info p { margin: 0; font-size: 0.95em; color: #263238; }
 
 .cast-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
 .person {
-  display: flex; align-items: center; gap: 6px;
-  padding: 6px 8px; background: #fff;
-  border: 1px solid #eee; border-radius: 8px;
-  font-weight: 700; color: #37474f; font-size: 0.88em;
+ display: flex; align-items: center; gap: 6px;
+ padding: 6px 8px; background: #fff;
+ border: 1px solid #eee; border-radius: 8px;
+ font-weight: 700; color: #37474f; font-size: 0.88em;
 }
 .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 .d1 { background: #FF6B6B; }
@@ -97,545 +97,545 @@ body {
 
 /* ===== 쪽 머리 ===== */
 .ph {
-  display: flex; align-items: center; gap: 14px;
-  border-bottom: 3px solid #b71c1c; padding-bottom: 10px; margin-bottom: 14px;
+ display: flex; align-items: center; gap: 14px;
+ border-bottom: 3px solid #b71c1c; padding-bottom: 10px; margin-bottom: 14px;
 }
 .ph-num {
-  flex-shrink: 0; width: 52px; height: 52px;
-  background: #b71c1c; color: #ffd54f;
-  font-family: 'Noto Serif KR', serif;
-  font-size: 1.5em; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; border-radius: 10px;
+ flex-shrink: 0; width: 52px; height: 52px;
+ background: #b71c1c; color: #ffd54f;
+ font-family: 'Noto Serif KR', serif;
+ font-size: 1.5em; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; border-radius: 10px;
 }
 .ph-title h2 { margin: 0; font-size: 1.35em; color: #7f0000; }
 .ph-title p { margin: 2px 0 0; color: #546e7a; font-size: 0.9em; }
 
 .scene {
-  background: #fff8e1; border-left: 5px solid #ffb300;
-  border-radius: 6px; padding: 10px 14px; margin-bottom: 10px;
+ background: #fff8e1; border-left: 5px solid #ffb300;
+ border-radius: 6px; padding: 10px 14px; margin-bottom: 10px;
 }
 .scene p { margin: 0; }
 
 .tip {
-  background: #e3f2fd; border-left: 5px solid #1e88e5;
-  border-radius: 6px; padding: 8px 12px; margin: 8px 0;
+ background: #e3f2fd; border-left: 5px solid #1e88e5;
+ border-radius: 6px; padding: 8px 12px; margin: 8px 0;
 }
 .tip .tip-title { display: block; font-weight: 700; color: #0d47a1; margin-bottom: 3px; }
 
 .practice h3 {
-  display: inline-block; background: #ffd54f; color: #7f0000;
-  padding: 3px 12px; border-radius: 16px; font-size: 0.98em; margin: 6px 0 10px;
+ display: inline-block; background: #ffd54f; color: #7f0000;
+ padding: 3px 12px; border-radius: 16px; font-size: 0.98em; margin: 6px 0 10px;
 }
 .q {
-  position: relative;
-  padding-left: 38px;
-  margin-bottom: 10px; padding-bottom: 8px;
-  border-bottom: 1px dashed #cfd8dc;
+ position: relative;
+ padding-left: 38px;
+ margin-bottom: 10px; padding-bottom: 8px;
+ border-bottom: 1px dashed #cfd8dc;
 }
 .q:last-child { border-bottom: none; }
 .q .no {
-  position: absolute; left: 0; top: 0;
-  width: 28px; height: 28px;
-  background: #b71c1c; color: #fff;
-  border-radius: 50%; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; font-size: 0.9em;
+ position: absolute; left: 0; top: 0;
+ width: 28px; height: 28px;
+ background: #b71c1c; color: #fff;
+ border-radius: 50%; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; font-size: 0.9em;
 }
 .q p { margin: 0 0 4px; }
 .q .sub-q { margin-top: 4px; font-weight: 500; color: #455a64; }
 
 .lines {
-  background-image: repeating-linear-gradient(
-    to bottom, transparent 0, transparent 28px, #b0bec5 28px, #b0bec5 29px
-  );
-  height: 30px; margin: 4px 0;
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 28px, #b0bec5 28px, #b0bec5 29px
+ );
+ height: 30px; margin: 4px 0;
 }
 .lines.two { height: 60px; }
 .lines.three { height: 90px; }
 
 .blank {
-  display: inline-block; border-bottom: 1.5px solid #263238;
-  min-width: 70px; height: 20px; vertical-align: baseline;
+ display: inline-block; border-bottom: 1.5px solid #263238;
+ min-width: 70px; height: 20px; vertical-align: baseline;
 }
 
 .box {
-  display: inline-block; min-width: 70px; height: 26px;
-  border: 2px solid #b71c1c; background: #fff;
-  border-radius: 4px; vertical-align: middle; margin: 0 3px;
+ display: inline-block; min-width: 70px; height: 26px;
+ border: 2px solid #b71c1c; background: #fff;
+ border-radius: 4px; vertical-align: middle; margin: 0 3px;
 }
 .box.wide { min-width: 110px; }
 .box.xwide { min-width: 160px; }
 
 .formula {
-  background: #fffde7; border: 1.5px dashed #fbc02d;
-  border-radius: 8px; padding: 8px 14px;
-  text-align: center; font-size: 1.05em; margin: 6px 0; font-weight: 500;
+ background: #fffde7; border: 1.5px dashed #fbc02d;
+ border-radius: 8px; padding: 8px 14px;
+ text-align: center; font-size: 1.05em; margin: 6px 0; font-weight: 500;
 }
 
 table { width: 100%; border-collapse: collapse; margin: 5px 0; }
 th, td {
-  border: 1.5px solid #e57373;
-  padding: 5px 8px; text-align: center; vertical-align: middle;
-  font-size: 0.95em;
+ border: 1.5px solid #e57373;
+ padding: 5px 8px; text-align: center; vertical-align: middle;
+ font-size: 0.95em;
 }
 th { background: #ffebee; font-weight: 700; color: #7f0000; }
 td.left, th.left { text-align: left; }
 .price-table .hi { background: #fff3e0; font-weight: 700; }
 
 .check { display: inline-block; width: 14px; height: 14px;
-  border: 1.5px solid #b71c1c; border-radius: 3px;
-  vertical-align: middle; margin-right: 4px;
+ border: 1.5px solid #b71c1c; border-radius: 3px;
+ vertical-align: middle; margin-right: 4px;
 }
 
 /* 미션 카드 */
 .mission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 6px 0; }
 .mission {
-  border: 2px solid #ef9a9a; border-radius: 8px; padding: 8px 10px;
-  background: #fff;
+ border: 2px solid #ef9a9a; border-radius: 8px; padding: 8px 10px;
+ background: #fff;
 }
 .mission h4 { margin: 0 0 4px; color: #b71c1c; font-size: 0.98em;
-  border-bottom: 1px dashed #ffcdd2; padding-bottom: 3px; }
+ border-bottom: 1px dashed #ffcdd2; padding-bottom: 3px; }
 .mission p { margin: 4px 0 0; font-size: 0.88em; color: #455a64; }
 
 /* 팀 카드 */
 .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0; }
 .team {
-  border: 2px solid #b71c1c; border-radius: 8px; padding: 8px 12px;
-  background: #fff8e1;
+ border: 2px solid #b71c1c; border-radius: 8px; padding: 8px 12px;
+ background: #fff8e1;
 }
 .team h4 { margin: 0 0 4px; color: #b71c1c; }
 
 /* 말풍선 옵션 */
 .choice-row {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0;
+ display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0;
 }
 .bubble {
-  background: #fff; border: 1.5px solid #cfd8dc; border-radius: 12px;
-  padding: 8px 12px; font-size: 0.92em;
+ background: #fff; border: 1.5px solid #cfd8dc; border-radius: 12px;
+ padding: 8px 12px; font-size: 0.92em;
 }
 .bubble.good { border-color: #43a047; background: #e8f5e9; }
 .bubble.bad { border-color: #e53935; background: #ffebee; }
 
 /* 마무리 */
 .wrap-up {
-  border: 3px double #b71c1c; border-radius: 10px;
-  padding: 14px 18px; background: #fff8e1; margin-top: 10px;
+ border: 3px double #b71c1c; border-radius: 10px;
+ padding: 14px 18px; background: #fff8e1; margin-top: 10px;
 }
 .wrap-up h3 { margin: 0 0 8px; color: #7f0000; font-size: 1.15em; text-align: center; }
 
 @media print {
-  body { background: #fff; }
-  .toolbar { display: none; }
-  .page { margin: 0 auto; box-shadow: none; }
-  .q, .scene, .tip, .ph, .team, tr {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
-  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+ body { background: #fff; }
+ .toolbar { display: none; }
+ .page { margin: 0 auto; box-shadow: none; }
+ .q, .scene, .tip, .ph, .team, tr {
+ page-break-inside: avoid !important;
+ break-inside: avoid !important;
+ }
+ h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
 }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div>🏃 인사동 런닝맨 체험관 — 학습지 <span class="muted">수학 융합 + 사회성</span></div>
-  <button onclick="window.print()">🖨️ 인쇄하기</button>
+ <div>🏃 인사동 런닝맨 체험관 — 학습지 <span class="muted">수학 융합 + 사회성</span></div>
+ <button onclick="window.print">🖨️ 인쇄하기</button>
 </div>
 
 <!-- ════════════ 표지 ════════════ -->
 <section class="page cover">
-  <div class="cover-top">
-    <div class="subject">사회성 · 수학 · 진로와 자립</div>
-    <div>고등학교 특수학급</div>
-  </div>
+ <div class="cover-top">
+ <div class="subject">사회성 · 수학 · 진로와 자립</div>
+ <div>고등학교 </div>
+ </div>
 
-  <div class="cover-main">
-    <span class="badge">현장 체험 학습지</span>
-    <h1>🏃 인사동 런닝맨 가는 날</h1>
-    <p class="lead">친구들과 <b>예약 · 미션 · 더치페이</b>를 함께 해요. 예의 있게 소통하면서!</p>
-  </div>
+ <div class="cover-main">
+ <span class="badge">현장 체험 학습지</span>
+ <h1>🏃 인사동 런닝맨 가는 날</h1>
+ <p class="lead">친구들과 <b>예약 · 미션 · 더치페이</b>를 함께 해요. 예의 있게 소통하면서!</p>
+ </div>
 
-  <div class="name-box">
-    <div class="name-cell"><span>학년 · 반</span><em></em></div>
-    <div class="name-cell"><span>번호</span><em></em></div>
-    <div class="name-cell"><span>이름</span><em></em></div>
-  </div>
+ <div class="name-box">
+ <div class="name-cell"><span>학년 · 반</span><em></em></div>
+ <div class="name-cell"><span>번호</span><em></em></div>
+ <div class="name-cell"><span>이름</span><em></em></div>
+ </div>
 
-  <div class="info">
-    <h2>📌 이번 학습지에서 무엇을 할까요?</h2>
-    <p>런닝맨 체험관은 인기 예능 <b>런닝맨</b>처럼 친구들과 함께 미션을 풀고 게임을 하는 곳이에요.
-       <b>요금을 계산</b>하고 <b>예약</b>한 뒤, <b>팀을 나누고 미션을 해결</b>해요.
-       함께 활동할 때 필요한 <b>예절과 소통, 갈등 해결</b>도 함께 익혀요.</p>
-  </div>
+ <div class="info">
+ <h2>📌 이번 학습지에서 무엇을 할까요?</h2>
+ <p>런닝맨 체험관은 인기 예능 <b>런닝맨</b>처럼 친구들과 함께 미션을 풀고 게임을 하는 곳이에요.
+ <b>요금을 계산</b>하고 <b>예약</b>한 뒤, <b>팀을 나누고 미션을 해결</b>해요.
+ 함께 활동할 때 필요한 <b>예절과 소통, 갈등 해결</b>도 함께 익혀요.</p>
+ </div>
 
-  <div class="cast">
-    <h2>👫 함께 가는 친구들 (5명)</h2>
-    <div class="cast-grid">
-      <div class="person"><span class="dot d1"></span>채원</div>
-      <div class="person"><span class="dot d6"></span>하영</div>
-      <div class="person"><span class="dot d2"></span>하은</div>
-      <div class="person"><span class="dot d4"></span>주은</div>
-      <div class="person"><span class="dot d5"></span>예은</div>
-    </div>
-  </div>
+ <div class="cast">
+ <h2>👫 함께 가는 친구들 (5명)</h2>
+ <div class="cast-grid">
+ <div class="person"><span class="dot d1"></span>채원</div>
+ <div class="person"><span class="dot d6"></span>하영</div>
+ <div class="person"><span class="dot d2"></span>하은</div>
+ <div class="person"><span class="dot d4"></span>주은</div>
+ <div class="person"><span class="dot d5"></span>예은</div>
+ </div>
+ </div>
 
-  <div class="toc">
-    <h2>📚 차례</h2>
-    <ol>
-      <li>런닝맨 체험관 알기 — 위치 · 시설 · 시간</li>
-      <li>요금 계산과 예약 — 1인 얼마? 5명이면?</li>
-      <li>팀 나누고 미션 시작 — 협력의 시간</li>
-      <li>매너와 갈등 해결 — 함께 즐기기 위한 약속</li>
-      <li>마무리 — 더치페이와 다짐</li>
-    </ol>
-  </div>
+ <div class="toc">
+ <h2>📚 차례</h2>
+ <ol>
+ <li>런닝맨 체험관 알기 — 위치 · 시설 · 시간</li>
+ <li>요금 계산과 예약 — 1인 얼마? 5명이면?</li>
+ <li>팀 나누고 미션 시작 — 협력의 시간</li>
+ <li>매너와 갈등 해결 — 함께 즐기기 위한 약속</li>
+ <li>마무리 — 더치페이와 다짐</li>
+ </ol>
+ </div>
 </section>
 
 <!-- ════════════ 1쪽: 체험관 알기 ════════════ -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">1</div>
-    <div class="ph-title">
-      <h2>런닝맨 체험관 알기</h2>
-      <p>어디에 있고, 무엇을 하고, 얼마나 걸릴까?</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">1</div>
+ <div class="ph-title">
+ <h2>런닝맨 체험관 알기</h2>
+ <p>어디에 있고, 무엇을 하고, 얼마나 걸릴까?</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>💬 <b>채원</b>: "런닝맨 체험관은 인사동에 있대. 1·3호선 종로3가역, 안국역에서 가깝다더라."<br>
-    💬 <b>예은</b>: "어떤 미션이 있는지 미리 알아 두면 좋겠어. 무서운 건 못해…"</p>
-  </div>
+ <div class="scene">
+ <p>💬 <b>채원</b>: "런닝맨 체험관은 인사동에 있대. 1·3호선 종로3가역, 안국역에서 가깝다더라."<br>
+ 💬 <b>예은</b>: "어떤 미션이 있는지 미리 알아 두면 좋겠어. 무서운 건 못해…"</p>
+ </div>
 
-  <div class="practice">
-    <h3>🗺️ 활동 1 — 시설 정보 정리</h3>
-    <table>
-      <tr><th class="left">항목</th><th>내용</th></tr>
-      <tr><td class="left">위치</td><td>서울 종로구 인사동 (안국역 6번 출구 도보 5분)</td></tr>
-      <tr><td class="left">운영 시간</td><td>10:00 ~ 22:00 (마지막 입장 21:00)</td></tr>
-      <tr><td class="left">소요 시간</td><td>약 80분 (1라운드)</td></tr>
-      <tr><td class="left">인원</td><td>2~8명 (1팀)</td></tr>
-      <tr><td class="left">유의사항</td><td>편한 신발, 운동복 권장 · 가방은 보관함에 보관</td></tr>
-    </table>
+ <div class="practice">
+ <h3>🗺️ 활동 1 — 시설 정보 정리</h3>
+ <table>
+ <tr><th class="left">항목</th><th>내용</th></tr>
+ <tr><td class="left">위치</td><td>서울 종로구 인사동 (안국역 6번 출구 도보 5분)</td></tr>
+ <tr><td class="left">운영 시간</td><td>10:00 ~ 22:00 (마지막 입장 21:00)</td></tr>
+ <tr><td class="left">소요 시간</td><td>약 80분 (1라운드)</td></tr>
+ <tr><td class="left">인원</td><td>2~8명 (1팀)</td></tr>
+ <tr><td class="left">유의사항</td><td>편한 신발, 운동복 권장 · 가방은 보관함에 보관</td></tr>
+ </table>
 
-    <div class="q" style="margin-top:8px;">
-      <span class="no">1</span>
-      <p>학교(혜화)에서 <b>출발 시간이 13:00</b>이에요. 지하철로 약 <b>25분</b> 걸리고,
-         걸어가는 시간이 <b>10분</b>이라면 체험관 도착 시간은? <span class="box wide"></span></p>
-    </div>
+ <div class="q" style="margin-top:8px;">
+ <span class="no">1</span>
+ <p>학교(혜화)에서 <b>출발 시간이 13:00</b>이에요. 지하철로 약 <b>25분</b> 걸리고,
+ 걸어가는 시간이 <b>10분</b>이라면 체험관 도착 시간은? <span class="box wide"></span></p>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <p>1라운드(80분) + 정리 시간(20분)을 더하면, 활동이 끝나는 시간은? (도착 시간 + 100분) <span class="box wide"></span></p>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">2</span>
+ <p>1라운드(80분) + 정리 시간(20분)을 더하면, 활동이 끝나는 시간은? (도착 시간 + 100분) <span class="box wide"></span></p>
+ </div>
+ </div>
 
-  <div class="practice">
-    <h3>🎮 활동 2 — 미션 살펴보기</h3>
-    <div class="mission-grid">
-      <div class="mission">
-        <h4>🔍 추리 미션</h4>
-        <p>단서를 모아 범인을 찾아요. 머리를 쓰는 활동.</p>
-      </div>
-      <div class="mission">
-        <h4>🏃 액션 미션</h4>
-        <p>이름표 떼기 · 코스 통과. 몸을 쓰는 활동.</p>
-      </div>
-      <div class="mission">
-        <h4>🤝 협동 미션</h4>
-        <p>팀이 함께 풀어야 하는 퀴즈와 게임.</p>
-      </div>
-    </div>
+ <div class="practice">
+ <h3>🎮 활동 2 — 미션 살펴보기</h3>
+ <div class="mission-grid">
+ <div class="mission">
+ <h4>🔍 추리 미션</h4>
+ <p>단서를 모아 범인을 찾아요. 머리를 쓰는 활동.</p>
+ </div>
+ <div class="mission">
+ <h4>🏃 액션 미션</h4>
+ <p>이름표 떼기 · 코스 통과. 몸을 쓰는 활동.</p>
+ </div>
+ <div class="mission">
+ <h4>🤝 협동 미션</h4>
+ <p>팀이 함께 풀어야 하는 퀴즈와 게임.</p>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">3</span>
-      <p>나는 어떤 미션이 가장 기대돼요? <span class="check"></span> 추리 <span class="check"></span> 액션 <span class="check"></span> 협동</p>
-      <p class="sub-q">그 이유를 한 문장으로: </p>
-      <div class="lines"></div>
-    </div>
+ <div class="q">
+ <span class="no">3</span>
+ <p>나는 어떤 미션이 가장 기대돼요? <span class="check"></span> 추리 <span class="check"></span> 액션 <span class="check"></span> 협동</p>
+ <p class="sub-q">그 이유를 한 문장으로: </p>
+ <div class="lines"></div>
+ </div>
 
-    <div class="q">
-      <span class="no">4</span>
-      <p>친구 중에 <b>액션 미션을 무서워하는 친구</b>가 있다면, 뭐라고 말해 줄 수 있을까요?</p>
-      <div class="lines two"></div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">4</span>
+ <p>친구 중에 <b>액션 미션을 무서워하는 친구</b>가 있다면, 뭐라고 말해 줄 수 있을까요?</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
 
-  <div class="tip">
-    <span class="tip-title">📍 안국역에서 길찾기</span>
-    역무원이나 인포메이션에 <b>"실례합니다. 런닝맨 체험관 가려고 하는데 어느 출구로 나가야 하나요?"</b>
-    라고 정중하게 물어요. 답을 들으면 <b>"감사합니다!"</b>로 마무리해요.
-  </div>
+ <div class="tip">
+ <span class="tip-title">📍 안국역에서 길찾기</span>
+ 역무원이나 인포메이션에 <b>"실례합니다. 런닝맨 체험관 가려고 하는데 어느 출구로 나가야 하나요?"</b>
+ 라고 정중하게 물어요. 답을 들으면 <b>"감사합니다!"</b>로 마무리해요.
+ </div>
 </section>
 
 <!-- ════════════ 2쪽: 요금·예약 ════════════ -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">2</div>
-    <div class="ph-title">
-      <h2>요금 계산과 예약</h2>
-      <p>1인 얼마? 5명이면 얼마? 학생 할인은?</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">2</div>
+ <div class="ph-title">
+ <h2>요금 계산과 예약</h2>
+ <p>1인 얼마? 5명이면 얼마? 학생 할인은?</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>💬 <b>하영</b>: "어른 요금이랑 학생 요금이 달라. 미리 알고 가야 안 헷갈리겠어."<br>
-    💬 <b>하은</b>: "온라인 예약하면 10% 할인도 된다더라. 우리 한 번 계산해 보자."</p>
-  </div>
+ <div class="scene">
+ <p>💬 <b>하영</b>: "어른 요금이랑 학생 요금이 달라. 미리 알고 가야 안 헷갈리겠어."<br>
+ 💬 <b>하은</b>: "온라인 예약하면 10% 할인도 된다더라. 우리 한 번 계산해 보자."</p>
+ </div>
 
-  <div class="practice">
-    <h3>💰 활동 3 — 요금표 읽기</h3>
-    <table class="price-table">
-      <tr><th>구분</th><th>1인 정가</th><th>학생 할인 (-10%)</th></tr>
-      <tr><td>주중 (월~목)</td><td>22,000원</td><td><span class="box wide"></span></td></tr>
-      <tr class="hi"><td>주말 (금~일·공휴일)</td><td>28,000원</td><td><span class="box wide"></span></td></tr>
-      <tr><td>단체(5인 이상) 추가 할인</td><td colspan="2">위 가격에서 추가 -2,000원 / 1인</td></tr>
-    </table>
+ <div class="practice">
+ <h3>💰 활동 3 — 요금표 읽기</h3>
+ <table class="price-table">
+ <tr><th>구분</th><th>1인 정가</th><th>학생 할인 (-10%)</th></tr>
+ <tr><td>주중 (월~목)</td><td>22,000원</td><td><span class="box wide"></span></td></tr>
+ <tr class="hi"><td>주말 (금~일·공휴일)</td><td>28,000원</td><td><span class="box wide"></span></td></tr>
+ <tr><td>단체(5인 이상) 추가 할인</td><td colspan="2">위 가격에서 추가 -2,000원 / 1인</td></tr>
+ </table>
 
-    <div class="q" style="margin-top:8px;">
-      <span class="no">5</span>
-      <p>주중 정가 <b>22,000원</b>의 학생 할인 10%는? <br>
-        22,000 × 0.1 = <span class="box wide"></span> 원<br>
-        ※ 할인 후 1인 가격 = 22,000 - (10%) = <span class="box wide"></span> 원</p>
-    </div>
+ <div class="q" style="margin-top:8px;">
+ <span class="no">5</span>
+ <p>주중 정가 <b>22,000원</b>의 학생 할인 10%는? <br>
+ 22,000 × 0.1 = <span class="box wide"></span> 원<br>
+ ※ 할인 후 1인 가격 = 22,000 - (10%) = <span class="box wide"></span> 원</p>
+ </div>
 
-    <div class="q">
-      <span class="no">6</span>
-      <p>주말 정가 <b>28,000원</b>의 학생 할인 10%는? <span class="box wide"></span> 원<br>
-        ※ 할인 후 1인 가격 = <span class="box wide"></span> 원</p>
-    </div>
+ <div class="q">
+ <span class="no">6</span>
+ <p>주말 정가 <b>28,000원</b>의 학생 할인 10%는? <span class="box wide"></span> 원<br>
+ ※ 할인 후 1인 가격 = <span class="box wide"></span> 원</p>
+ </div>
 
-    <div class="q">
-      <span class="no">7</span>
-      <p>우리 <b>5명</b>이 <b>주말</b>에 가요. 단체 추가 할인까지 적용하면 1인 가격은?<br>
-        주말 학생 할인 금액 - 2,000원 = <span class="box wide"></span> 원</p>
-    </div>
+ <div class="q">
+ <span class="no">7</span>
+ <p>우리 <b>5명</b>이 <b>주말</b>에 가요. 단체 추가 할인까지 적용하면 1인 가격은?<br>
+ 주말 학생 할인 금액 - 2,000원 = <span class="box wide"></span> 원</p>
+ </div>
 
-    <div class="q">
-      <span class="no">8</span>
-      <p>5명 전체 입장료 합계는? (1인 가격 × 5) = <span class="box wide"></span> 원</p>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">8</span>
+ <p>5명 전체 입장료 합계는? (1인 가격 × 5) = <span class="box wide"></span> 원</p>
+ </div>
+ </div>
 
-  <div class="practice">
-    <h3>📞 활동 4 — 예약하기</h3>
-    <p style="margin:0 0 6px; color:#455a64;">전화로 예약할 때 알맞은 표현을 골라 보세요.</p>
+ <div class="practice">
+ <h3>📞 활동 4 — 예약하기</h3>
+ <p style="margin:0 0 6px; color:#455a64;">전화로 예약할 때 알맞은 표현을 골라 보세요.</p>
 
-    <div class="choice-row">
-      <div class="bubble good">"안녕하세요. <b>이번 주 토요일 오후 2시</b>로 <b>5명 예약</b> 하고 싶어요. 가능할까요?"</div>
-      <div class="bubble bad">"우리 가고 싶은데요. 그냥 가면 안 되나?"</div>
-    </div>
-    <div class="choice-row">
-      <div class="bubble good">"네, 알겠습니다. 그럼 <b>토요일 2시</b>로 부탁드리겠습니다. 감사합니다!"</div>
-      <div class="bubble bad">"음… 알겠어요." (그냥 끊기)</div>
-    </div>
+ <div class="choice-row">
+ <div class="bubble good">"안녕하세요. <b>이번 주 토요일 오후 2시</b>로 <b>5명 예약</b> 하고 싶어요. 가능할까요?"</div>
+ <div class="bubble bad">"우리 가고 싶은데요. 그냥 가면 안 되나?"</div>
+ </div>
+ <div class="choice-row">
+ <div class="bubble good">"네, 알겠습니다. 그럼 <b>토요일 2시</b>로 부탁드리겠습니다. 감사합니다!"</div>
+ <div class="bubble bad">"음… 알겠어요." (그냥 끊기)</div>
+ </div>
 
-    <div class="q">
-      <span class="no">9</span>
-      <p><b>좋은 예시</b>와 <b>아쉬운 예시</b>의 차이를 한 문장으로 적어 보세요.</p>
-      <div class="lines"></div>
-    </div>
+ <div class="q">
+ <span class="no">9</span>
+ <p><b>좋은 예시</b>와 <b>아쉬운 예시</b>의 차이를 한 문장으로 적어 보세요.</p>
+ <div class="lines"></div>
+ </div>
 
-    <div class="q">
-      <span class="no">10</span>
-      <p>예약을 마치고 친구들에게 결과를 알려 줘요.
-        "<b>○월 ○일 ○시</b>로 <b>○명 예약</b> 됐어. <b>여권/학생증</b> 챙겨 오래."처럼 말해 보세요.</p>
-      <div class="lines"></div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">10</span>
+ <p>예약을 마치고 친구들에게 결과를 알려 줘요.
+ "<b>○월 ○일 ○시</b>로 <b>○명 예약</b> 됐어. <b>여권/학생증</b> 챙겨 오래."처럼 말해 보세요.</p>
+ <div class="lines"></div>
+ </div>
+ </div>
 </section>
 
 <!-- ════════════ 3쪽: 팀 나누기 + 미션 ════════════ -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">3</div>
-    <div class="ph-title">
-      <h2>팀 나누고 미션 시작</h2>
-      <p>5명이 어떻게 협력할까? 갈등은 어떻게 풀까?</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">3</div>
+ <div class="ph-title">
+ <h2>팀 나누고 미션 시작</h2>
+ <p>5명이 어떻게 협력할까? 갈등은 어떻게 풀까?</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>💬 <b>주은</b>: "팀을 어떻게 나누지? 2:3? 같이 다 다닐 수도 있나?"<br>
-    💬 <b>채원</b>: "추리는 머리 쓰는 거고, 액션은 몸을 쓰니까 <b>잘하는 친구가 나누어 맡으면</b> 좋을 것 같아."</p>
-  </div>
+ <div class="scene">
+ <p>💬 <b>주은</b>: "팀을 어떻게 나누지? 2:3? 같이 다 다닐 수도 있나?"<br>
+ 💬 <b>채원</b>: "추리는 머리 쓰는 거고, 액션은 몸을 쓰니까 <b>잘하는 친구가 나누어 맡으면</b> 좋을 것 같아."</p>
+ </div>
 
-  <div class="practice">
-    <h3>🤝 활동 5 — 팀 구성하기</h3>
+ <div class="practice">
+ <h3>🤝 활동 5 — 팀 구성하기</h3>
 
-    <div class="team-grid">
-      <div class="team">
-        <h4>🔍 추리팀 (단서 찾기)</h4>
-        <p>이름: <span class="box wide"></span>, <span class="box wide"></span></p>
-        <p>주로 할 일: </p>
-        <div class="lines"></div>
-      </div>
-      <div class="team">
-        <h4>🏃 액션팀 (이름표·코스)</h4>
-        <p>이름: <span class="box wide"></span>, <span class="box wide"></span>, <span class="box wide"></span></p>
-        <p>주로 할 일: </p>
-        <div class="lines"></div>
-      </div>
-    </div>
+ <div class="team-grid">
+ <div class="team">
+ <h4>🔍 추리팀 (단서 찾기)</h4>
+ <p>이름: <span class="box wide"></span>, <span class="box wide"></span></p>
+ <p>주로 할 일: </p>
+ <div class="lines"></div>
+ </div>
+ <div class="team">
+ <h4>🏃 액션팀 (이름표·코스)</h4>
+ <p>이름: <span class="box wide"></span>, <span class="box wide"></span>, <span class="box wide"></span></p>
+ <p>주로 할 일: </p>
+ <div class="lines"></div>
+ </div>
+ </div>
 
-    <div class="q" style="margin-top:8px;">
-      <span class="no">11</span>
-      <p>우리 팀을 위와 같이 나눈 까닭을 한 문장으로 적어 보세요.</p>
-      <div class="lines"></div>
-    </div>
+ <div class="q" style="margin-top:8px;">
+ <span class="no">11</span>
+ <p>우리 팀을 위와 같이 나눈 까닭을 한 문장으로 적어 보세요.</p>
+ <div class="lines"></div>
+ </div>
 
-    <div class="q">
-      <span class="no">12</span>
-      <p>친구가 <b>"나는 무조건 추리팀!"</b>이라고 우길 때, 친구의 마음을 다치지 않게 말해 보세요.</p>
-      <div class="lines"></div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">12</span>
+ <p>친구가 <b>"나는 무조건 추리팀!"</b>이라고 우길 때, 친구의 마음을 다치지 않게 말해 보세요.</p>
+ <div class="lines"></div>
+ </div>
+ </div>
 
-  <div class="practice">
-    <h3>🎯 활동 6 — 미션 시간 계산</h3>
-    <p style="margin:0 0 6px; color:#455a64;">전체 1라운드는 <b>80분</b>이에요. 시간을 나누어 보세요.</p>
+ <div class="practice">
+ <h3>🎯 활동 6 — 미션 시간 계산</h3>
+ <p style="margin:0 0 6px; color:#455a64;">전체 1라운드는 <b>80분</b>이에요. 시간을 나누어 보세요.</p>
 
-    <table>
-      <tr><th>단계</th><th>시간</th><th>누적</th></tr>
-      <tr><td class="left">① 설명 듣기 · 준비</td><td>10분</td><td>10분</td></tr>
-      <tr><td class="left">② 추리 미션</td><td>25분</td><td><span class="box"></span> 분</td></tr>
-      <tr><td class="left">③ 협동 퀴즈</td><td>15분</td><td><span class="box"></span> 분</td></tr>
-      <tr><td class="left">④ 액션 (이름표)</td><td>20분</td><td><span class="box"></span> 분</td></tr>
-      <tr class="hi"><td class="left">⑤ 마무리 · 사진</td><td>10분</td><td><b><span class="box"></span> 분</b></td></tr>
-    </table>
+ <table>
+ <tr><th>단계</th><th>시간</th><th>누적</th></tr>
+ <tr><td class="left">① 설명 듣기 · 준비</td><td>10분</td><td>10분</td></tr>
+ <tr><td class="left">② 추리 미션</td><td>25분</td><td><span class="box"></span> 분</td></tr>
+ <tr><td class="left">③ 협동 퀴즈</td><td>15분</td><td><span class="box"></span> 분</td></tr>
+ <tr><td class="left">④ 액션 (이름표)</td><td>20분</td><td><span class="box"></span> 분</td></tr>
+ <tr class="hi"><td class="left">⑤ 마무리 · 사진</td><td>10분</td><td><b><span class="box"></span> 분</b></td></tr>
+ </table>
 
-    <div class="q" style="margin-top:8px;">
-      <span class="no">13</span>
-      <p>모든 단계를 더하면 <b>몇 분</b>인가요? <span class="box"></span> 분 (= <span class="box"></span> 시간 <span class="box"></span> 분)</p>
-    </div>
+ <div class="q" style="margin-top:8px;">
+ <span class="no">13</span>
+ <p>모든 단계를 더하면 <b>몇 분</b>인가요? <span class="box"></span> 분 (= <span class="box"></span> 시간 <span class="box"></span> 분)</p>
+ </div>
 
-    <div class="q">
-      <span class="no">14</span>
-      <p>14:30에 시작하면 <b>모두 끝나는 시간</b>은? <span class="box wide"></span></p>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">14</span>
+ <p>14:30에 시작하면 <b>모두 끝나는 시간</b>은? <span class="box wide"></span></p>
+ </div>
+ </div>
 
-  <div class="tip">
-    <span class="tip-title">🌟 좋은 팀원의 말</span>
-    "<b>잘했어!</b>" / "<b>나도 모르겠어, 같이 다시 봐 줄래?</b>" / "<b>이번엔 네가 정해.</b>"<br>
-    이런 말이 미션 성공률을 높여 줘요.
-  </div>
+ <div class="tip">
+ <span class="tip-title">🌟 좋은 팀원의 말</span>
+ "<b>잘했어!</b>" / "<b>나도 모르겠어, 같이 다시 봐 줄래?</b>" / "<b>이번엔 네가 정해.</b>"<br>
+ 이런 말이 미션 성공률을 높여 줘요.
+ </div>
 </section>
 
 <!-- ════════════ 4쪽: 매너·갈등 ════════════ -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">4</div>
-    <div class="ph-title">
-      <h2>매너와 갈등 해결</h2>
-      <p>함께 즐기기 위한 약속 — 친구·다른 팀·직원에게</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">4</div>
+ <div class="ph-title">
+ <h2>매너와 갈등 해결</h2>
+ <p>함께 즐기기 위한 약속 — 친구·다른 팀·직원에게</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>💬 <b>예은</b>: "추리 미션에서 답이 안 맞아서 우리 팀끼리 짜증이 좀 났어…"<br>
-    💬 <b>하영</b>: "괜찮아. 그럴 때 어떻게 말하면 좋은지 미리 연습해 두자."</p>
-  </div>
+ <div class="scene">
+ <p>💬 <b>예은</b>: "추리 미션에서 답이 안 맞아서 우리 팀끼리 짜증이 좀 났어…"<br>
+ 💬 <b>하영</b>: "괜찮아. 그럴 때 어떻게 말하면 좋은지 미리 연습해 두자."</p>
+ </div>
 
-  <div class="practice">
-    <h3>📝 활동 7 — 좋은 매너 vs 아쉬운 매너</h3>
+ <div class="practice">
+ <h3>📝 활동 7 — 좋은 매너 vs 아쉬운 매너</h3>
 
-    <div class="choice-row">
-      <div class="bubble good">친구가 답을 못 찾을 때<br>"천천히 해도 돼. 우리 같이 다시 단서부터 볼까?"</div>
-      <div class="bubble bad">"왜 너만 못 풀어. 빨리 좀 해!"</div>
-    </div>
-    <div class="choice-row">
-      <div class="bubble good">다른 팀이 시끄러울 때<br>"우리는 우리 미션에 집중하자. 끝나고 같이 사진 찍자."</div>
-      <div class="bubble bad">큰 소리로 다른 팀에게 한마디 하기</div>
-    </div>
-    <div class="choice-row">
-      <div class="bubble good">직원에게 도움 요청<br>"실례합니다. 단서가 안 보여서요. 힌트 하나만 부탁드려도 될까요?"</div>
-      <div class="bubble bad">"이거 왜 이래요? 답 알려 주세요." (반말)</div>
-    </div>
+ <div class="choice-row">
+ <div class="bubble good">친구가 답을 못 찾을 때<br>"천천히 해도 돼. 우리 같이 다시 단서부터 볼까?"</div>
+ <div class="bubble bad">"왜 너만 못 풀어. 빨리 좀 해!"</div>
+ </div>
+ <div class="choice-row">
+ <div class="bubble good">다른 팀이 시끄러울 때<br>"우리는 우리 미션에 집중하자. 끝나고 같이 사진 찍자."</div>
+ <div class="bubble bad">큰 소리로 다른 팀에게 한마디 하기</div>
+ </div>
+ <div class="choice-row">
+ <div class="bubble good">직원에게 도움 요청<br>"실례합니다. 단서가 안 보여서요. 힌트 하나만 부탁드려도 될까요?"</div>
+ <div class="bubble bad">"이거 왜 이래요? 답 알려 주세요." (반말)</div>
+ </div>
 
-    <div class="q" style="margin-top:8px;">
-      <span class="no">15</span>
-      <p>위 좋은 예시 3가지 중 <b>가장 어려운 상황</b>은 무엇인가요? 그 이유는?</p>
-      <div class="lines two"></div>
-    </div>
-  </div>
+ <div class="q" style="margin-top:8px;">
+ <span class="no">15</span>
+ <p>위 좋은 예시 3가지 중 <b>가장 어려운 상황</b>은 무엇인가요? 그 이유는?</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
 
-  <div class="practice">
-    <h3>🛠️ 활동 8 — 갈등 해결 4단계</h3>
-    <table>
-      <tr><th class="left">단계</th><th class="left">행동</th></tr>
-      <tr><td class="left">① 멈춤</td><td class="left">화가 나면 <b>3초 숨을 고른다</b>. 큰 소리 내지 않는다.</td></tr>
-      <tr><td class="left">② 듣기</td><td class="left">친구 말부터 끝까지 듣는다. <b>중간에 말 끊지 않는다</b>.</td></tr>
-      <tr><td class="left">③ 말하기</td><td class="left">"<b>나는 ~해서 속상해</b>"처럼 <b>나-메시지</b>로 말한다.</td></tr>
-      <tr><td class="left">④ 해결책</td><td class="left">"<b>이번엔 ○○로 해 보고 안 되면 다른 방법 쓰자</b>" 처럼 함께 결정.</td></tr>
-    </table>
+ <div class="practice">
+ <h3>🛠️ 활동 8 — 갈등 해결 4단계</h3>
+ <table>
+ <tr><th class="left">단계</th><th class="left">행동</th></tr>
+ <tr><td class="left">① 멈춤</td><td class="left">화가 나면 <b>3초 숨을 고른다</b>. 큰 소리 내지 않는다.</td></tr>
+ <tr><td class="left">② 듣기</td><td class="left">친구 말부터 끝까지 듣는다. <b>중간에 말 끊지 않는다</b>.</td></tr>
+ <tr><td class="left">③ 말하기</td><td class="left">"<b>나는 ~해서 속상해</b>"처럼 <b>나-메시지</b>로 말한다.</td></tr>
+ <tr><td class="left">④ 해결책</td><td class="left">"<b>이번엔 ○○로 해 보고 안 되면 다른 방법 쓰자</b>" 처럼 함께 결정.</td></tr>
+ </table>
 
-    <div class="q" style="margin-top:8px;">
-      <span class="no">16</span>
-      <p>친구가 <b>"네가 답 다 가로채니까 재미없어"</b>라고 해요. <b>나-메시지</b>로 답해 보세요.</p>
-      <div class="lines two"></div>
-    </div>
+ <div class="q" style="margin-top:8px;">
+ <span class="no">16</span>
+ <p>친구가 <b>"네가 답 다 가로채니까 재미없어"</b>라고 해요. <b>나-메시지</b>로 답해 보세요.</p>
+ <div class="lines two"></div>
+ </div>
 
-    <div class="q">
-      <span class="no">17</span>
-      <p>친구가 자꾸 다른 팀의 활동을 방해해요. <b>친구의 행동을 멈추게 하는 부드러운 말</b>을 적어 보세요.</p>
-      <div class="lines two"></div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">17</span>
+ <p>친구가 자꾸 다른 팀의 활동을 방해해요. <b>친구의 행동을 멈추게 하는 부드러운 말</b>을 적어 보세요.</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
 
-  <div class="tip">
-    <span class="tip-title">🧡 직원·다른 팀에게도 예의</span>
-    체험관 직원은 우리를 도와주는 분이에요. <b>"감사합니다", "수고하셨습니다"</b>로 인사해요.
-    다른 팀과 마주치면 <b>가벼운 목례</b>만 해도 충분해요.
-  </div>
+ <div class="tip">
+ <span class="tip-title">🧡 직원·다른 팀에게도 예의</span>
+ 체험관 직원은 우리를 도와주는 분이에요. <b>"감사합니다", "수고하셨습니다"</b>로 인사해요.
+ 다른 팀과 마주치면 <b>가벼운 목례</b>만 해도 충분해요.
+ </div>
 </section>
 
 <!-- ════════════ 5쪽: 마무리 ════════════ -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">5</div>
-    <div class="ph-title">
-      <h2>마무리 — 더치페이와 다짐</h2>
-      <p>오늘 비용을 나누고, 다음에 또 가고 싶은 마음을 적어요</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">5</div>
+ <div class="ph-title">
+ <h2>마무리 — 더치페이와 다짐</h2>
+ <p>오늘 비용을 나누고, 다음에 또 가고 싶은 마음을 적어요</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>💬 <b>채원</b>: "체험 끝났으니까 정리하자. 입장료 + 간식 + 교통비 모두 더해서 똑같이 나누자."<br>
-    💬 <b>주은</b>: "맞아. 더치페이가 제일 마음 편해."</p>
-  </div>
+ <div class="scene">
+ <p>💬 <b>채원</b>: "체험 끝났으니까 정리하자. 입장료 + 간식 + 교통비 모두 더해서 똑같이 나누자."<br>
+ 💬 <b>주은</b>: "맞아. 더치페이가 제일 마음 편해."</p>
+ </div>
 
-  <div class="formula">
-    💸 <b>1인 부담금 = 오늘 쓴 모든 비용의 합 ÷ 5명</b>
-  </div>
+ <div class="formula">
+ 💸 <b>1인 부담금 = 오늘 쓴 모든 비용의 합 ÷ 5명</b>
+ </div>
 
-  <div class="practice">
-    <h3>🧮 활동 9 — 오늘의 전체 비용</h3>
-    <table class="price-table">
-      <tr><th class="left">항목</th><th>금액 (5명 합계)</th></tr>
-      <tr><td class="left">① 입장료 (단체 학생 주말)</td><td><span class="box wide"></span> 원</td></tr>
-      <tr><td class="left">② 교통비 (지하철 5명 왕복)</td><td><span class="box wide"></span> 원</td></tr>
-      <tr><td class="left">③ 간식·음료</td><td><span class="box wide"></span> 원</td></tr>
-      <tr><td class="left">④ 보관함 사용료 (1,000원 × 1개)</td><td>1,000 원</td></tr>
-      <tr class="hi"><td class="left"><b>총 합계</b></td><td><b><span class="box wide"></span> 원</b></td></tr>
-    </table>
+ <div class="practice">
+ <h3>🧮 활동 9 — 오늘의 전체 비용</h3>
+ <table class="price-table">
+ <tr><th class="left">항목</th><th>금액 (5명 합계)</th></tr>
+ <tr><td class="left">① 입장료 (단체 학생 주말)</td><td><span class="box wide"></span> 원</td></tr>
+ <tr><td class="left">② 교통비 (지하철 5명 왕복)</td><td><span class="box wide"></span> 원</td></tr>
+ <tr><td class="left">③ 간식·음료</td><td><span class="box wide"></span> 원</td></tr>
+ <tr><td class="left">④ 보관함 사용료 (1,000원 × 1개)</td><td>1,000 원</td></tr>
+ <tr class="hi"><td class="left"><b>총 합계</b></td><td><b><span class="box wide"></span> 원</b></td></tr>
+ </table>
 
-    <div class="q" style="margin-top:8px;">
-      <span class="no">18</span>
-      <p>총 합계를 <b>5명</b>으로 나눈 <b>1인 부담금</b>은? <br>
-        (총 합계) ÷ 5 = <span class="box wide"></span> 원</p>
-    </div>
+ <div class="q" style="margin-top:8px;">
+ <span class="no">18</span>
+ <p>총 합계를 <b>5명</b>으로 나눈 <b>1인 부담금</b>은? <br>
+ (총 합계) ÷ 5 = <span class="box wide"></span> 원</p>
+ </div>
 
-    <div class="q">
-      <span class="no">19</span>
-      <p>5명 중 한 명이 <b>"나는 간식을 안 먹었으니까 빼 줘"</b>라고 해요. 어떻게 정리하면 좋을까요?</p>
-      <div class="lines two"></div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">19</span>
+ <p>5명 중 한 명이 <b>"나는 간식을 안 먹었으니까 빼 줘"</b>라고 해요. 어떻게 정리하면 좋을까요?</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
 
-  <div class="wrap-up">
-    <h3>🌟 오늘 나의 다짐</h3>
-    <p style="text-align:center; margin:0 0 6px; color:#455a64;">친구들과 함께 활동할 때, 내가 꼭 지키고 싶은 약속을 적어 보세요.</p>
-    <div class="lines three"></div>
-  </div>
+ <div class="wrap-up">
+ <h3>🌟 오늘 나의 다짐</h3>
+ <p style="text-align:center; margin:0 0 6px; color:#455a64;">친구들과 함께 활동할 때, 내가 꼭 지키고 싶은 약속을 적어 보세요.</p>
+ <div class="lines three"></div>
+ </div>
 </section>
 
 </body>

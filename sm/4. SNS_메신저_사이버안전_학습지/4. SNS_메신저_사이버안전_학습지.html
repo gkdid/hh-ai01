@@ -9,29 +9,29 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 12pt; line-height: 1.65; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 12pt; line-height: 1.65; }
 
 .toolbar { position: sticky; top: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #3949ab; color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 10px 18px; background: #3949ab; color: #fff;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .muted { color: #c5cae9; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffd54f; color: #1a237e; border: none; font: inherit; font-weight: 700;
-  padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+ padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 
 .page { width: 210mm; min-height: 297mm; margin: 14mm auto; padding: 16mm 18mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 22mm 20mm; background: linear-gradient(135deg, #fff 0%, #e8eaf6 100%); }
 .cover-top { display: flex; justify-content: space-between;
-  font-size: 0.9em; color: #607d8b;
-  border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 22px; }
+ font-size: 0.9em; color: #607d8b;
+ border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 22px; }
 .cover-top .subject { font-weight: 700; color: #3949ab; }
 .cover-main { text-align: center; padding: 14px 0 12px; }
 .cover-main .badge { display: inline-block; padding: 6px 18px; border-radius: 20px;
-  background: #3949ab; color: #fff; font-weight: 700; font-size: 0.95em;
-  margin-bottom: 12px; letter-spacing: 0.5px; }
+ background: #3949ab; color: #fff; font-weight: 700; font-size: 0.95em;
+ margin-bottom: 12px; letter-spacing: 0.5px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #1a237e; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1.05em; color: #455a64; font-weight: 500; }
 
@@ -41,58 +41,58 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .name-cell em { display: block; min-height: 24px; font-style: normal; }
 
 .goal, .info, .toc, .cast { border: 2px solid #9fa8da; border-radius: 10px;
-  padding: 12px 16px; margin-top: 10px; background: #e8eaf6; }
+ padding: 12px 16px; margin-top: 10px; background: #e8eaf6; }
 .goal h2, .info h2, .toc h2, .cast h2 { margin: 0 0 6px; font-size: 1.05em; color: #1a237e;
-  border-bottom: 1px dashed #7986cb; padding-bottom: 5px; }
+ border-bottom: 1px dashed #7986cb; padding-bottom: 5px; }
 .goal ul { margin: 4px 0 0; padding-left: 20px; } .goal li { padding: 2px 0; }
 .info p { margin: 0 0 4px; font-size: 0.95em; color: #1a237e; }
 .toc ol { margin: 4px 0 0; padding-left: 24px; } .toc li { padding: 2px 0; }
 
 .cast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 .person { display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: #fff;
-  border: 1px solid #cfd8dc; border-radius: 8px; font-weight: 500; color: #37474f; font-size: 0.92em; }
+ border: 1px solid #cfd8dc; border-radius: 8px; font-weight: 500; color: #37474f; font-size: 0.92em; }
 .person strong { color: #1a237e; font-weight: 700; }
 .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 .d1 { background: #FF6B6B; } .d2 { background: #4ECDC4; } .d3 { background: #FFD166; }
 .d4 { background: #A78BFA; } .d5 { background: #6FCF97; } .d6 { background: #F48FB1; }
 
 .ph { display: flex; align-items: center; gap: 16px;
-  border-bottom: 3px solid #3949ab; padding-bottom: 12px; margin-bottom: 18px; }
+ border-bottom: 3px solid #3949ab; padding-bottom: 12px; margin-bottom: 18px; }
 .ph-num { flex-shrink: 0; width: 60px; height: 60px;
-  background: #3949ab; color: #ffd54f; font-family: 'Noto Serif KR', serif;
-  font-size: 1.5em; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; border-radius: 10px; }
+ background: #3949ab; color: #ffd54f; font-family: 'Noto Serif KR', serif;
+ font-size: 1.5em; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; border-radius: 10px; }
 .ph-title h2 { margin: 0; font-size: 1.4em; color: #1a237e; }
 .ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.95em; }
 
 .story { background: #fff; border: 2px solid #c5cae9; border-radius: 8px;
-  padding: 12px 16px; margin: 8px 0 12px; line-height: 1.85; }
+ padding: 12px 16px; margin: 8px 0 12px; line-height: 1.85; }
 .story p { margin: 0 0 6px; }
 
 .scene { background: #fff8e1; border-left: 6px solid #ffb300;
-  border-radius: 6px; padding: 12px 16px; margin-bottom: 14px; }
+ border-radius: 6px; padding: 12px 16px; margin-bottom: 14px; }
 .scene p { margin: 0; }
 
 .tip { background: #e8eaf6; border-left: 5px solid #3949ab;
-  border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
+ border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
 .tip .tip-title { display: block; font-weight: 700; color: #1a237e; margin-bottom: 4px; }
 
 .warning { background: #ffebee; border-left: 6px solid #c62828;
-  border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
+ border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
 .warning .tip-title { display: block; font-weight: 700; color: #b71c1c; margin-bottom: 4px; }
 
 /* 메신저 풍 대화 */
 .chat { background: #b2dfdb; border-radius: 12px; padding: 12px; margin: 8px 0 12px; }
 .chat .bg-label {
-  display: inline-block; background: #fff; padding: 3px 10px; border-radius: 10px;
-  font-size: 0.85em; color: #455a64; margin-bottom: 6px; font-weight: 700;
+ display: inline-block; background: #fff; padding: 3px 10px; border-radius: 10px;
+ font-size: 0.85em; color: #455a64; margin-bottom: 6px; font-weight: 700;
 }
 .msg { display: flex; align-items: flex-start; gap: 8px; margin: 4px 0; }
 .msg.right { flex-direction: row-reverse; }
 .msg .mtag {
-  flex-shrink: 0; min-width: 50px; padding: 4px 8px;
-  border-radius: 14px; font-weight: 700; font-size: 0.85em; text-align: center;
-  background: #cfd8dc; color: #263238;
+ flex-shrink: 0; min-width: 50px; padding: 4px 8px;
+ border-radius: 14px; font-weight: 700; font-size: 0.85em; text-align: center;
+ background: #cfd8dc; color: #263238;
 }
 .msg .mtag.d1 { background: #FFCDD2; }
 .msg .mtag.d2 { background: #B2EBF2; }
@@ -101,15 +101,15 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .msg .mtag.d5 { background: #C8E6C9; }
 .msg .mtag.d6 { background: #F8BBD0; }
 .mbubble { background: #fff; padding: 6px 11px;
-  border-radius: 14px; max-width: 78%; font-size: 0.95em;
-  border: 1.5px solid #cfd8dc; }
+ border-radius: 14px; max-width: 78%; font-size: 0.95em;
+ border: 1.5px solid #cfd8dc; }
 .msg.right .mbubble { background: #fff59d; border-color: #ffe082; }
 
 /* 정보 카드 grids */
 .priv-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 8px 0; }
 .priv {
-  background: #fff; border: 1.5px solid #9fa8da; border-radius: 10px;
-  padding: 9px 12px;
+ background: #fff; border: 1.5px solid #9fa8da; border-radius: 10px;
+ padding: 9px 12px;
 }
 .priv strong { color: #1a237e; }
 .priv.x { background: #ffebee; border-color: #ef9a9a; }
@@ -120,8 +120,8 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 /* 의심 신호 카드 */
 .sig-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0; }
 .sig {
-  background: #ffebee; border: 1.5px solid #ef9a9a; border-radius: 10px;
-  padding: 9px; text-align: center;
+ background: #ffebee; border: 1.5px solid #ef9a9a; border-radius: 10px;
+ padding: 9px; text-align: center;
 }
 .sig .icon { font-size: 1.4em; line-height: 1; }
 .sig strong { display: block; color: #b71c1c; margin-top: 3px; font-size: 0.9em; }
@@ -129,97 +129,97 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 /* 4단계 */
 .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0; }
 .step4 {
-  background: #e8eaf6; border: 2px solid #9fa8da; border-radius: 10px;
-  padding: 9px; text-align: center;
+ background: #e8eaf6; border: 2px solid #9fa8da; border-radius: 10px;
+ padding: 9px; text-align: center;
 }
 .step4 .step-no {
-  display: inline-block; width: 26px; height: 26px;
-  background: #3949ab; color: #ffd54f; border-radius: 50%;
-  font-weight: 700; line-height: 26px; margin-bottom: 3px; font-size: 0.9em;
+ display: inline-block; width: 26px; height: 26px;
+ background: #3949ab; color: #ffd54f; border-radius: 50%;
+ font-weight: 700; line-height: 26px; margin-bottom: 3px; font-size: 0.9em;
 }
 .step4 strong { display: block; color: #1a237e; font-size: 0.95em; }
 .step4 small { display: block; color: #455a64; font-size: 0.83em; margin-top: 2px; }
 
 .practice h3 {
-  display: inline-block; background: #ffd54f; color: #1a237e;
-  padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
+ display: inline-block; background: #ffd54f; color: #1a237e;
+ padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
 }
 .q { position: relative; padding-left: 42px;
-  margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed #cfd8dc; }
+ margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed #cfd8dc; }
 .q:last-child { border-bottom: none; }
 .q .no { position: absolute; left: 0; top: 0; width: 30px; height: 30px;
-  background: #3949ab; color: #fff; border-radius: 50%; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; font-size: 0.92em; }
+ background: #3949ab; color: #fff; border-radius: 50%; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; font-size: 0.92em; }
 .q p { margin: 0 0 6px; }
 .q .sub-q { margin-top: 5px; font-weight: 500; color: #455a64; }
 
 .choice-box { background: #fffde7; border: 1.5px solid #fdd835;
-  border-radius: 8px; padding: 7px 14px; margin: 6px 0; font-weight: 500; }
+ border-radius: 8px; padding: 7px 14px; margin: 6px 0; font-weight: 500; }
 .choice-box::before { content: "<보기> "; font-weight: 700; color: #f57f17; }
 
 .blank { display: inline-block; border-bottom: 1.5px solid #263238;
-  min-width: 70px; height: 22px; vertical-align: baseline; }
+ min-width: 70px; height: 22px; vertical-align: baseline; }
 .blank.long { min-width: 220px; }
 
 .lines { background-image: repeating-linear-gradient(
-    to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px);
-  height: 34px; margin: 4px 0; }
+ to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px);
+ height: 34px; margin: 4px 0; }
 .lines.two { height: 68px; } .lines.three { height: 102px; }
 
 .pledge { background: #fff8e1; border: 2px dashed #f57c00;
-  border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+ border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
 .pledge h4 { margin: 0 0 6px; color: #e65100; font-size: 1.05em; }
 
 .self-check { background: #f1f8e9; border: 1.5px solid #aed581;
-  border-radius: 8px; padding: 12px 16px; margin-top: 14px; }
+ border-radius: 8px; padding: 12px 16px; margin-top: 14px; }
 .self-check h4 { margin: 0 0 6px; color: #33691e; font-size: 1em; }
 .self-check label { display: block; padding: 2px 0; }
 .self-check input[type=checkbox] { margin-right: 8px; width: 16px; height: 16px;
-  accent-color: #7cb342; vertical-align: middle; }
+ accent-color: #7cb342; vertical-align: middle; }
 
 .page-no { position: absolute; bottom: 8mm; right: 18mm;
-  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px; }
+ color: #90a4ae; font-size: 0.85em; letter-spacing: 1px; }
 
 @media print {
-  @page { size: A4 portrait; margin: 0; }
-  html, body { background: #fff !important; margin: 0; padding: 0;
-    font-size: 10pt; line-height: 1.38; }
-  .toolbar, .no-print { display: none !important; }
-  .page { width: 210mm; min-height: 297mm;
-    margin: 0 !important; padding: 10mm 13mm;
-    box-shadow: none; border: none;
-    page-break-after: always; break-after: page; }
-  .page:last-of-type { page-break-after: auto; }
-  .q, .scene, .tip, .warning, .story, .chat, .priv-grid, .sig-grid, .steps4,
-  .self-check, .pledge, .name-box, .goal, .info, .toc, .cast, .ph, tr {
-    page-break-inside: avoid !important; break-inside: avoid !important; }
-  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-  h1 { font-size: 1.8em; margin: 0; }
-  h2 { font-size: 1.18em; margin: 0 0 4px; }
-  h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
-  p { margin: 0 0 3px; } ul, ol { margin: 3px 0; }
-  .page.cover { padding: 16mm 16mm; }
-  .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
-  .ph-num { width: 46px; height: 46px; font-size: 1.2em; border-radius: 8px; }
-  .ph-title h2 { font-size: 1.18em; }
-  .scene, .tip, .warning, .story { padding: 7px 12px; margin: 4px 0 8px; }
-  .chat { padding: 7px; margin: 4px 0 8px; }
-  .msg { margin: 3px 0; gap: 6px; }
-  .mtag { min-width: 44px; padding: 3px 6px; font-size: 0.82em; }
-  .mbubble { padding: 4px 8px; font-size: 0.9em; }
-  .priv-grid, .sig-grid, .steps4 { gap: 5px; }
-  .priv, .sig, .step4 { padding: 6px 9px; }
-  .sig .icon { font-size: 1.1em; }
-  .step4 .step-no { width: 22px; height: 22px; line-height: 22px; }
-  .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
-  .q .no { width: 26px; height: 26px; font-size: 0.88em; }
-  .lines { height: 26px;
-    background-image: repeating-linear-gradient(
-      to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
-  .lines.two { height: 52px; } .lines.three { height: 78px; }
-  .self-check { padding: 7px 12px; margin-top: 8px; }
-  .pledge { padding: 8px 12px; margin: 6px 0; }
-  .page-no { bottom: 6mm; right: 14mm; }
+ @page { size: A4 portrait; margin: 0; }
+ html, body { background: #fff !important; margin: 0; padding: 0;
+ font-size: 10pt; line-height: 1.38; }
+ .toolbar, .no-print { display: none !important; }
+ .page { width: 210mm; min-height: 297mm;
+ margin: 0 !important; padding: 10mm 13mm;
+ box-shadow: none; border: none;
+ page-break-after: always; break-after: page; }
+ .page:last-of-type { page-break-after: auto; }
+ .q, .scene, .tip, .warning, .story, .chat, .priv-grid, .sig-grid, .steps4,
+ .self-check, .pledge, .name-box, .goal, .info, .toc, .cast, .ph, tr {
+ page-break-inside: avoid !important; break-inside: avoid !important; }
+ h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+ h1 { font-size: 1.8em; margin: 0; }
+ h2 { font-size: 1.18em; margin: 0 0 4px; }
+ h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
+ p { margin: 0 0 3px; } ul, ol { margin: 3px 0; }
+ .page.cover { padding: 16mm 16mm; }
+ .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
+ .ph-num { width: 46px; height: 46px; font-size: 1.2em; border-radius: 8px; }
+ .ph-title h2 { font-size: 1.18em; }
+ .scene, .tip, .warning, .story { padding: 7px 12px; margin: 4px 0 8px; }
+ .chat { padding: 7px; margin: 4px 0 8px; }
+ .msg { margin: 3px 0; gap: 6px; }
+ .mtag { min-width: 44px; padding: 3px 6px; font-size: 0.82em; }
+ .mbubble { padding: 4px 8px; font-size: 0.9em; }
+ .priv-grid, .sig-grid, .steps4 { gap: 5px; }
+ .priv, .sig, .step4 { padding: 6px 9px; }
+ .sig .icon { font-size: 1.1em; }
+ .step4 .step-no { width: 22px; height: 22px; line-height: 22px; }
+ .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
+ .q .no { width: 26px; height: 26px; font-size: 0.88em; }
+ .lines { height: 26px;
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
+ .lines.two { height: 52px; } .lines.three { height: 78px; }
+ .self-check { padding: 7px 12px; margin-top: 8px; }
+ .pledge { padding: 8px 12px; margin: 6px 0; }
+ .page-no { bottom: 6mm; right: 14mm; }
 }
 
 </style>
@@ -227,308 +227,308 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar no-print">
-  <div><strong>나를 지키는 디지털 — SNS·메신저·사이버 안전</strong>
-    <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
-  </div>
-  <button onclick="window.print()">🖨️ 인쇄하기</button>
+ <div><strong>나를 지키는 디지털 — SNS·메신저·사이버 안전</strong>
+ <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
+ </div>
+ <button onclick="window.print">🖨️ 인쇄하기</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">국어 · 정보 · 사회성</span> &nbsp;|&nbsp; 고등학교 특수학급</div>
-    <div>2026학년도 1학기</div>
-  </div>
-  <div class="cover-main">
-    <span class="badge">📱 디지털 안전 학습지</span>
-    <h1>나를 지키는 디지털</h1>
-    <p class="lead">메신저·SNS 속에서도 예의 바르고 안전하게.</p>
-  </div>
-  <div class="name-box">
-    <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
-    <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
-    <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
-  </div>
-  <div class="info">
-    <h2>📲 디지털도 ‘예의’와 ‘조심’이 필요해요</h2>
-    <p>스마트폰 속 메신저·SNS도 <strong>사람과 사람이 만나는 공간</strong>이에요.
-       말로 하면 안 되는 것은 <strong>메시지로도 안 돼요</strong>. 그리고 화면 너머에는
-       <strong>나쁜 의도</strong>를 가진 사람도 있을 수 있답니다. 오늘은 디지털 속에서
-       <strong>예의 바르게 말하고</strong>, <strong>나를 안전하게 지키는</strong> 방법을 함께 배워요.</p>
-  </div>
-  <div class="cast">
-    <h2>👫 오늘의 친구들</h2>
-    <div class="cast-grid">
-      <div class="person"><span class="dot d4"></span><strong>주은</strong>(나)</div>
-      <div class="person"><span class="dot d6"></span><strong>하영</strong></div>
-      <div class="person"><span class="dot d2"></span><strong>하은</strong></div>
-      <div class="person"><span class="dot d1"></span><strong>채원</strong></div>
-      <div class="person"><span class="dot d5"></span><strong>예은</strong></div>
-      <div class="person"><span class="dot d3"></span><strong>주현</strong></div>
-    </div>
-  </div>
-  <div class="toc">
-    <h2>📚 차례</h2>
-    <ol>
-      <li>단톡방·답장 예절 — 메신저는 ‘말’과 같아요</li>
-      <li>개인정보 지키기 — 알려도 되는 것, 안 되는 것</li>
-      <li>보이스피싱·결제 사기 — 의심 신호와 대처 4단계</li>
-      <li>SNS와 마음·결제 수학 — 비교·시간·돈 관리</li>
-    </ol>
-  </div>
-  <div class="page-no">— 1 —</div>
+ <div class="cover-top">
+ <div><span class="subject">국어 · 정보 · 사회성</span> &nbsp;|&nbsp; 고등학교 </div>
+ <div>2026학년도 1학기</div>
+ </div>
+ <div class="cover-main">
+ <span class="badge">📱 디지털 안전 학습지</span>
+ <h1>나를 지키는 디지털</h1>
+ <p class="lead">메신저·SNS 속에서도 예의 바르고 안전하게.</p>
+ </div>
+ <div class="name-box">
+ <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
+ <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
+ <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
+ </div>
+ <div class="info">
+ <h2>📲 디지털도 ‘예의’와 ‘조심’이 필요해요</h2>
+ <p>스마트폰 속 메신저·SNS도 <strong>사람과 사람이 만나는 공간</strong>이에요.
+ 말로 하면 안 되는 것은 <strong>메시지로도 안 돼요</strong>. 그리고 화면 너머에는
+ <strong>나쁜 의도</strong>를 가진 사람도 있을 수 있답니다. 오늘은 디지털 속에서
+ <strong>예의 바르게 말하고</strong>, <strong>나를 안전하게 지키는</strong> 방법을 함께 배워요.</p>
+ </div>
+ <div class="cast">
+ <h2>👫 오늘의 친구들</h2>
+ <div class="cast-grid">
+ <div class="person"><span class="dot d4"></span><strong>주은</strong>(나)</div>
+ <div class="person"><span class="dot d6"></span><strong>하영</strong></div>
+ <div class="person"><span class="dot d2"></span><strong>하은</strong></div>
+ <div class="person"><span class="dot d1"></span><strong>채원</strong></div>
+ <div class="person"><span class="dot d5"></span><strong>예은</strong></div>
+ <div class="person"><span class="dot d3"></span><strong>주현</strong></div>
+ </div>
+ </div>
+ <div class="toc">
+ <h2>📚 차례</h2>
+ <ol>
+ <li>단톡방·답장 예절 — 메신저는 ‘말’과 같아요</li>
+ <li>개인정보 지키기 — 알려도 되는 것, 안 되는 것</li>
+ <li>보이스피싱·결제 사기 — 의심 신호와 대처 4단계</li>
+ <li>SNS와 마음·결제 수학 — 비교·시간·돈 관리</li>
+ </ol>
+ </div>
+ <div class="page-no">— 1 —</div>
 </section>
 
 <!-- 1. 메신저 예절 -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">1</div>
-    <div class="ph-title">
-      <h2>단톡방·답장 예절 — 메신저는 ‘말’과 같아요</h2>
-      <p>화면 너머에도 친구의 마음이 있어요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">1</div>
+ <div class="ph-title">
+ <h2>단톡방·답장 예절 — 메신저는 ‘말’과 같아요</h2>
+ <p>화면 너머에도 친구의 마음이 있어요.</p>
+ </div>
+ </div>
 
-  <div class="story">
-    <p>메신저로 보낸 글은 <strong>말과 똑같아요</strong>. 한번 보낸 메시지는 지워도 친구가 이미 본 뒤일 수 있고,
-       <strong>캡처</strong>되면 멀리 퍼질 수도 있어요. 그래서 보내기 전에 <strong>한 번 더 읽어 보는 습관</strong>이 중요해요.</p>
-  </div>
+ <div class="story">
+ <p>메신저로 보낸 글은 <strong>말과 똑같아요</strong>. 한번 보낸 메시지는 지워도 친구가 이미 본 뒤일 수 있고,
+ <strong>캡처</strong>되면 멀리 퍼질 수도 있어요. 그래서 보내기 전에 <strong>한 번 더 읽어 보는 습관</strong>이 중요해요.</p>
+ </div>
 
-  <div class="chat">
-    <div class="bg-label">📱 단톡방 — 우리 반 친구들</div>
-    <div class="msg"><span class="mtag d1">채원</span>
-      <div class="mbubble">주은아 너 왜 답장 안 해? 내 말 무시하는 거야??</div></div>
-    <div class="msg right"><span class="mtag d4">주은</span>
-      <div class="mbubble">미안! 학원 끝나고 이제 봤어 😅</div></div>
-    <div class="msg"><span class="mtag d6">하영</span>
-      <div class="mbubble">(주은이 사진을 단톡방에 올림 — 묻지 않고)</div></div>
-  </div>
+ <div class="chat">
+ <div class="bg-label">📱 단톡방 — 우리 반 친구들</div>
+ <div class="msg"><span class="mtag d1">채원</span>
+ <div class="mbubble">주은아 너 왜 답장 안 해? 내 말 무시하는 거야??</div></div>
+ <div class="msg right"><span class="mtag d4">주은</span>
+ <div class="mbubble">미안! 학원 끝나고 이제 봤어 😅</div></div>
+ <div class="msg"><span class="mtag d6">하영</span>
+ <div class="mbubble">(주은이 사진을 단톡방에 올림 — 묻지 않고)</div></div>
+ </div>
 
-  <div class="warning"><span class="tip-title">⚠️ 메신저에서 자주 일어나는 갈등</span>
-    ① 답장이 늦다고 다그치기 &nbsp; ② 친구 사진을 동의 없이 올리기 &nbsp; ③ 단톡방에서 험담·따돌림
-    &nbsp; ④ 캡처해서 다른 곳에 옮기기 &nbsp; ⑤ 화났을 때 바로 보내기</div>
+ <div class="warning"><span class="tip-title">⚠️ 메신저에서 자주 일어나는 갈등</span>
+ ① 답장이 늦다고 다그치기 &nbsp; ② 친구 사진을 동의 없이 올리기 &nbsp; ③ 단톡방에서 험담·따돌림
+ &nbsp; ④ 캡처해서 다른 곳에 옮기기 &nbsp; ⑤ 화났을 때 바로 보내기</div>
 
-  <div class="tip"><span class="tip-title">💡 메시지 보내기 전 3가지 점검</span>
-    ① <strong>꼭 지금 보내야 하나?</strong> (화났을 땐 잠시 멈추기)
-    &nbsp; ② <strong>친구 입장에서 들으면 어떨까?</strong>
-    &nbsp; ③ <strong>이 글이 캡처되어 퍼져도 괜찮을까?</strong></div>
+ <div class="tip"><span class="tip-title">💡 메시지 보내기 전 3가지 점검</span>
+ ① <strong>꼭 지금 보내야 하나?</strong> (화났을 땐 잠시 멈추기)
+ &nbsp; ② <strong>친구 입장에서 들으면 어떨까?</strong>
+ &nbsp; ③ <strong>이 글이 캡처되어 퍼져도 괜찮을까?</strong></div>
 
-  <div class="practice">
-    <h3>📝 메신저 예절 연습</h3>
+ <div class="practice">
+ <h3>📝 메신저 예절 연습</h3>
 
-    <div class="q"><div class="no">1</div>
-      <p>다음 행동이 <strong>예의 바른 행동이면 ⭕</strong>, <strong>고쳐야 할 행동이면 ❌</strong>를 표시해 봅시다.</p>
-      <p class="sub-q">① 친구가 답장을 늦게 한다고 “왜 무시해?”라고 다그친다. → ( <span class="blank"></span> )</p>
-      <p class="sub-q">② 친구 사진을 단톡방에 올리기 전에 “올려도 돼?”라고 물어본다. → ( <span class="blank"></span> )</p>
-      <p class="sub-q">③ 친구가 한 말을 캡처해서 다른 단톡방에 옮긴다. → ( <span class="blank"></span> )</p>
-      <p class="sub-q">④ 화가 났을 때 바로 길게 답장한다. → ( <span class="blank"></span> )</p>
-      <p class="sub-q">⑤ 늦게 본 메시지에는 “지금 봤어, 미안!”이라고 한 줄 보낸다. → ( <span class="blank"></span> )</p>
-    </div>
+ <div class="q"><div class="no">1</div>
+ <p>다음 행동이 <strong>예의 바른 행동이면 ⭕</strong>, <strong>고쳐야 할 행동이면 ❌</strong>를 표시해 봅시다.</p>
+ <p class="sub-q">① 친구가 답장을 늦게 한다고 “왜 무시해?”라고 다그친다. → ( <span class="blank"></span> )</p>
+ <p class="sub-q">② 친구 사진을 단톡방에 올리기 전에 “올려도 돼?”라고 물어본다. → ( <span class="blank"></span> )</p>
+ <p class="sub-q">③ 친구가 한 말을 캡처해서 다른 단톡방에 옮긴다. → ( <span class="blank"></span> )</p>
+ <p class="sub-q">④ 화가 났을 때 바로 길게 답장한다. → ( <span class="blank"></span> )</p>
+ <p class="sub-q">⑤ 늦게 본 메시지에는 “지금 봤어, 미안!”이라고 한 줄 보낸다. → ( <span class="blank"></span> )</p>
+ </div>
 
-    <div class="q"><div class="no">2</div>
-      <p>채원이의 “왜 답장 안 해?” 메시지에 <strong>주은이의 마음을 부드럽게 전하는 답장</strong>을 만들어 봅시다.
-        (나-메시지 형식)</p>
-      <div class="lines two"></div>
-    </div>
+ <div class="q"><div class="no">2</div>
+ <p>채원이의 “왜 답장 안 해?” 메시지에 <strong>주은이의 마음을 부드럽게 전하는 답장</strong>을 만들어 봅시다.
+ (나-메시지 형식)</p>
+ <div class="lines two"></div>
+ </div>
 
-    <div class="q"><div class="no">3</div>
-      <p>하영이가 동의 없이 내 사진을 단톡방에 올렸을 때, 친구를 비난하지 않으면서 <strong>부탁하는 말</strong>을 만들어 봅시다.</p>
-      <div class="lines two"></div>
-    </div>
-  </div>
+ <div class="q"><div class="no">3</div>
+ <p>하영이가 동의 없이 내 사진을 단톡방에 올렸을 때, 친구를 비난하지 않으면서 <strong>부탁하는 말</strong>을 만들어 봅시다.</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
 
-  <div class="page-no">— 2 —</div>
+ <div class="page-no">— 2 —</div>
 </section>
 
 <!-- 2. 개인정보 -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">2</div>
-    <div class="ph-title">
-      <h2>개인정보 지키기</h2>
-      <p>알려도 되는 것과 절대 알려서는 안 되는 것을 구분해요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">2</div>
+ <div class="ph-title">
+ <h2>개인정보 지키기</h2>
+ <p>알려도 되는 것과 절대 알려서는 안 되는 것을 구분해요.</p>
+ </div>
+ </div>
 
-  <div class="story">
-    <p><strong>개인정보</strong>란 ‘나’를 알아볼 수 있게 해 주는 정보예요. 인터넷·메신저에서
-       <strong>모르는 사람</strong>이나 <strong>잘 모르는 사이트</strong>에 알려 주면, 사기를 당하거나 위험한 일에
-       내 정보가 쓰일 수 있어요. 친구라도 <strong>비밀번호·계좌번호</strong>는 알려주지 않는 것이 안전해요.</p>
-  </div>
+ <div class="story">
+ <p><strong>개인정보</strong>란 ‘나’를 알아볼 수 있게 해 주는 정보예요. 인터넷·메신저에서
+ <strong>모르는 사람</strong>이나 <strong>잘 모르는 사이트</strong>에 알려 주면, 사기를 당하거나 위험한 일에
+ 내 정보가 쓰일 수 있어요. 친구라도 <strong>비밀번호·계좌번호</strong>는 알려주지 않는 것이 안전해요.</p>
+ </div>
 
-  <h3 style="display:inline-block; background:#ffd54f; color:#1a237e; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">🔒 알려도 되는 것 vs 알려서는 안 되는 것</h3>
-  <div class="priv-grid">
-    <div class="priv o"><strong>⭕ 비교적 안전</strong><br>
-      별명, 좋아하는 음식, 응원하는 팀, 좋아하는 노래</div>
-    <div class="priv x"><strong>❌ 절대 알려주지 않기</strong><br>
-      주민번호, 비밀번호, 계좌번호, 카드번호, 인증번호</div>
-    <div class="priv x"><strong>❌ 모르는 사람에게 X</strong><br>
-      집 주소, 학교 이름, 가족 정보, 핸드폰 번호</div>
-    <div class="priv x"><strong>❌ 사진·위치도 조심</strong><br>
-      집·학교가 보이는 사진, 실시간 위치, 일과 시간표</div>
-  </div>
+ <h3 style="display:inline-block; background:#ffd54f; color:#1a237e; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">🔒 알려도 되는 것 vs 알려서는 안 되는 것</h3>
+ <div class="priv-grid">
+ <div class="priv o"><strong>⭕ 비교적 안전</strong><br>
+ 별명, 좋아하는 음식, 응원하는 팀, 좋아하는 노래</div>
+ <div class="priv x"><strong>❌ 절대 알려주지 않기</strong><br>
+ 주민번호, 비밀번호, 계좌번호, 카드번호, 인증번호</div>
+ <div class="priv x"><strong>❌ 모르는 사람에게 X</strong><br>
+ 집 주소, 학교 이름, 가족 정보, 핸드폰 번호</div>
+ <div class="priv x"><strong>❌ 사진·위치도 조심</strong><br>
+ 집·학교가 보이는 사진, 실시간 위치, 일과 시간표</div>
+ </div>
 
-  <div class="tip"><span class="tip-title">💡 인증번호 · 비밀번호 절대 규칙</span>
-    은행·통신사·관공서·택배 회사는 <strong>전화·문자로 인증번호나 비밀번호를 절대 묻지 않아요</strong>.
-    누가 묻는다면 <strong>100% 사기</strong>예요!</div>
+ <div class="tip"><span class="tip-title">💡 인증번호 · 비밀번호 절대 규칙</span>
+ 은행·통신사·관공서·택배 회사는 <strong>전화·문자로 인증번호나 비밀번호를 절대 묻지 않아요</strong>.
+ 누가 묻는다면 <strong>100% 사기</strong>예요!</div>
 
-  <div class="practice">
-    <h3>📝 개인정보 골라내기</h3>
+ <div class="practice">
+ <h3>📝 개인정보 골라내기</h3>
 
-    <div class="q"><div class="no">4</div>
-      <p>다음 정보가 <strong>알려도 되는 것은 ⭕</strong>, <strong>안 되는 것은 ❌</strong>로 표시해 봅시다.</p>
-      <p class="sub-q">① 좋아하는 가수 이름 → ( <span class="blank"></span> )</p>
-      <p class="sub-q">② 우리 집 주소와 동·호수 → ( <span class="blank"></span> )</p>
-      <p class="sub-q">③ 통장 비밀번호 → ( <span class="blank"></span> )</p>
-      <p class="sub-q">④ 이번 주말에 가족과 여행 가는 날짜·장소 → ( <span class="blank"></span> )</p>
-      <p class="sub-q">⑤ 학교 친구들이 부르는 별명 → ( <span class="blank"></span> )</p>
-      <p class="sub-q">⑥ 부모님 핸드폰 번호 → ( <span class="blank"></span> )</p>
-    </div>
+ <div class="q"><div class="no">4</div>
+ <p>다음 정보가 <strong>알려도 되는 것은 ⭕</strong>, <strong>안 되는 것은 ❌</strong>로 표시해 봅시다.</p>
+ <p class="sub-q">① 좋아하는 가수 이름 → ( <span class="blank"></span> )</p>
+ <p class="sub-q">② 우리 집 주소와 동·호수 → ( <span class="blank"></span> )</p>
+ <p class="sub-q">③ 통장 비밀번호 → ( <span class="blank"></span> )</p>
+ <p class="sub-q">④ 이번 주말에 가족과 여행 가는 날짜·장소 → ( <span class="blank"></span> )</p>
+ <p class="sub-q">⑤ 학교 친구들이 부르는 별명 → ( <span class="blank"></span> )</p>
+ <p class="sub-q">⑥ 부모님 핸드폰 번호 → ( <span class="blank"></span> )</p>
+ </div>
 
-    <div class="q"><div class="no">5</div>
-      <p>다음 메시지를 받았어요. 어떻게 해야 할까요? 가장 알맞은 행동을 골라 봅시다.</p>
-      <p class="sub-q"><em>“[은행] 본인 확인이 필요합니다. 인증번호 6자리를 답장해 주세요.”</em></p>
-      <p class="sub-q">A. 빨리 답장해 준다. &nbsp; B. <strong>답장하지 않고, 부모님께 보여드린다.</strong>
-        &nbsp; C. 친구에게 물어본다. &nbsp; D. 인증번호만 절반만 알려준다.</p>
-      <p class="sub-q">▶ 정답: ( <span class="blank"></span> )</p>
-    </div>
+ <div class="q"><div class="no">5</div>
+ <p>다음 메시지를 받았어요. 어떻게 해야 할까요? 가장 알맞은 행동을 골라 봅시다.</p>
+ <p class="sub-q"><em>“[은행] 본인 확인이 필요합니다. 인증번호 6자리를 답장해 주세요.”</em></p>
+ <p class="sub-q">A. 빨리 답장해 준다. &nbsp; B. <strong>답장하지 않고, 부모님께 보여드린다.</strong>
+ &nbsp; C. 친구에게 물어본다. &nbsp; D. 인증번호만 절반만 알려준다.</p>
+ <p class="sub-q">▶ 정답: ( <span class="blank"></span> )</p>
+ </div>
 
-    <div class="q"><div class="no">6</div>
-      <p>SNS에 사진을 올릴 때, <strong>지워야 할 정보 3가지</strong>를 보기에서 골라 적어 봅시다.</p>
-      <div class="choice-box">집 주소가 보이는 우편함, 좋아하는 음식, 학교 교복 명찰, 응원하는 가수, 우리 집 현관 번호</div>
-      <p class="sub-q">① <span class="blank long"></span></p>
-      <p class="sub-q">② <span class="blank long"></span></p>
-      <p class="sub-q">③ <span class="blank long"></span></p>
-    </div>
-  </div>
+ <div class="q"><div class="no">6</div>
+ <p>SNS에 사진을 올릴 때, <strong>지워야 할 정보 3가지</strong>를 보기에서 골라 적어 봅시다.</p>
+ <div class="choice-box">집 주소가 보이는 우편함, 좋아하는 음식, 학교 교복 명찰, 응원하는 가수, 우리 집 현관 번호</div>
+ <p class="sub-q">① <span class="blank long"></span></p>
+ <p class="sub-q">② <span class="blank long"></span></p>
+ <p class="sub-q">③ <span class="blank long"></span></p>
+ </div>
+ </div>
 
-  <div class="page-no">— 3 —</div>
+ <div class="page-no">— 3 —</div>
 </section>
 
 <!-- 3. 보이스피싱 / 결제 사기 -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">3</div>
-    <div class="ph-title">
-      <h2>보이스피싱·결제 사기 — 의심 신호와 대처</h2>
-      <p>이런 메시지·전화는 ‘100% 사기’예요. 의심하는 습관이 나를 지켜요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">3</div>
+ <div class="ph-title">
+ <h2>보이스피싱·결제 사기 — 의심 신호와 대처</h2>
+ <p>이런 메시지·전화는 ‘100% 사기’예요. 의심하는 습관이 나를 지켜요.</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>요즘 <strong>“택배가 도착했습니다 → 링크 클릭”</strong>, <strong>“엄마 폰 고장 났어, 문화상품권 사 줘”</strong>,
-       <strong>“수상한 결제가 발견되었습니다”</strong> 같은 사기가 정말 많아요.
-       처음엔 진짜 같아 보여서 누구나 속을 수 있어요. 그래서 <strong>‘의심 신호’</strong>를 알아 두는 것이 중요합니다.</p>
-  </div>
+ <div class="scene">
+ <p>요즘 <strong>“택배가 도착했습니다 → 링크 클릭”</strong>, <strong>“엄마 폰 고장 났어, 문화상품권 사 줘”</strong>,
+ <strong>“수상한 결제가 발견되었습니다”</strong> 같은 사기가 정말 많아요.
+ 처음엔 진짜 같아 보여서 누구나 속을 수 있어요. 그래서 <strong>‘의심 신호’</strong>를 알아 두는 것이 중요합니다.</p>
+ </div>
 
-  <h3 style="display:inline-block; background:#ffd54f; color:#1a237e; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">🚨 사기의 6가지 의심 신호</h3>
-  <div class="sig-grid">
-    <div class="sig"><div class="icon">⚡</div><strong>너무 급하게 재촉</strong></div>
-    <div class="sig"><div class="icon">🔗</div><strong>모르는 링크 누르라고</strong></div>
-    <div class="sig"><div class="icon">💸</div><strong>돈·상품권 사라고</strong></div>
-    <div class="sig"><div class="icon">🔢</div><strong>인증번호·비번 묻기</strong></div>
-    <div class="sig"><div class="icon">📵</div><strong>전화·문자만 고집</strong></div>
-    <div class="sig"><div class="icon">😱</div><strong>겁주기·협박</strong></div>
-  </div>
+ <h3 style="display:inline-block; background:#ffd54f; color:#1a237e; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">🚨 사기의 6가지 의심 신호</h3>
+ <div class="sig-grid">
+ <div class="sig"><div class="icon">⚡</div><strong>너무 급하게 재촉</strong></div>
+ <div class="sig"><div class="icon">🔗</div><strong>모르는 링크 누르라고</strong></div>
+ <div class="sig"><div class="icon">💸</div><strong>돈·상품권 사라고</strong></div>
+ <div class="sig"><div class="icon">🔢</div><strong>인증번호·비번 묻기</strong></div>
+ <div class="sig"><div class="icon">📵</div><strong>전화·문자만 고집</strong></div>
+ <div class="sig"><div class="icon">😱</div><strong>겁주기·협박</strong></div>
+ </div>
 
-  <h3 style="display:inline-block; background:#ffd54f; color:#1a237e; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">🛡️ 의심 메시지·전화 대처 4단계</h3>
-  <div class="steps4">
-    <div class="step4"><span class="step-no">1</span><strong>멈춤</strong>
-      <small>누르지 않기,<br>답하지 않기</small></div>
-    <div class="step4"><span class="step-no">2</span><strong>확인</strong>
-      <small>가족·선생님께<br>먼저 알리기</small></div>
-    <div class="step4"><span class="step-no">3</span><strong>차단</strong>
-      <small>번호 차단·<br>메시지 신고</small></div>
-    <div class="step4"><span class="step-no">4</span><strong>신고</strong>
-      <small>112(경찰) /<br>1332(금융감독원)</small></div>
-  </div>
+ <h3 style="display:inline-block; background:#ffd54f; color:#1a237e; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">🛡️ 의심 메시지·전화 대처 4단계</h3>
+ <div class="steps4">
+ <div class="step4"><span class="step-no">1</span><strong>멈춤</strong>
+ <small>누르지 않기,<br>답하지 않기</small></div>
+ <div class="step4"><span class="step-no">2</span><strong>확인</strong>
+ <small>가족·선생님께<br>먼저 알리기</small></div>
+ <div class="step4"><span class="step-no">3</span><strong>차단</strong>
+ <small>번호 차단·<br>메시지 신고</small></div>
+ <div class="step4"><span class="step-no">4</span><strong>신고</strong>
+ <small>112(경찰) /<br>1332(금융감독원)</small></div>
+ </div>
 
-  <div class="warning"><span class="tip-title">⚠️ 친구가 “돈 좀 빌려 줘” 메시지를 보냈을 때</span>
-    아무리 친한 친구라도 <strong>SNS·메신저로만</strong> 돈을 부탁하면 의심해 보세요.
-    친구의 계정이 <strong>해킹</strong>되었을 수 있어요. 반드시 <strong>전화·영상통화로 직접 확인</strong>한 뒤에 결정하세요.</div>
+ <div class="warning"><span class="tip-title">⚠️ 친구가 “돈 좀 빌려 줘” 메시지를 보냈을 때</span>
+ 아무리 친한 친구라도 <strong>SNS·메신저로만</strong> 돈을 부탁하면 의심해 보세요.
+ 친구의 계정이 <strong>해킹</strong>되었을 수 있어요. 반드시 <strong>전화·영상통화로 직접 확인</strong>한 뒤에 결정하세요.</div>
 
-  <div class="practice">
-    <h3>📝 의심 신호 골라내기</h3>
+ <div class="practice">
+ <h3>📝 의심 신호 골라내기</h3>
 
-    <div class="q"><div class="no">7</div>
-      <p>다음 메시지에서 <strong>의심 신호 3가지</strong>를 찾아 적어 봅시다.</p>
-      <div class="scene"><p><em>“[택배] 주소 불일치로 배송 보류됨. <strong>10분 안에</strong> 아래 <strong>링크를 눌러</strong>
-        본인 인증번호 입력해 주세요. 안 하면 반송됩니다.”</em></p></div>
-      <p class="sub-q">① <span class="blank long"></span></p>
-      <p class="sub-q">② <span class="blank long"></span></p>
-      <p class="sub-q">③ <span class="blank long"></span></p>
-    </div>
+ <div class="q"><div class="no">7</div>
+ <p>다음 메시지에서 <strong>의심 신호 3가지</strong>를 찾아 적어 봅시다.</p>
+ <div class="scene"><p><em>“[택배] 주소 불일치로 배송 보류됨. <strong>10분 안에</strong> 아래 <strong>링크를 눌러</strong>
+ 본인 인증번호 입력해 주세요. 안 하면 반송됩니다.”</em></p></div>
+ <p class="sub-q">① <span class="blank long"></span></p>
+ <p class="sub-q">② <span class="blank long"></span></p>
+ <p class="sub-q">③ <span class="blank long"></span></p>
+ </div>
 
-    <div class="q"><div class="no">8</div>
-      <p>“엄마 폰이 고장 나서 그러는데, <strong>지금 문화상품권 5만 원</strong> 사서 사진으로 보내 줘”라는
-        문자를 받았어요. 어떻게 해야 할까요?</p>
-      <p class="sub-q">▶ 가장 먼저 할 일: <span class="blank long"></span></p>
-      <p class="sub-q">▶ 그 다음에 할 일: <span class="blank long"></span></p>
-    </div>
+ <div class="q"><div class="no">8</div>
+ <p>“엄마 폰이 고장 나서 그러는데, <strong>지금 문화상품권 5만 원</strong> 사서 사진으로 보내 줘”라는
+ 문자를 받았어요. 어떻게 해야 할까요?</p>
+ <p class="sub-q">▶ 가장 먼저 할 일: <span class="blank long"></span></p>
+ <p class="sub-q">▶ 그 다음에 할 일: <span class="blank long"></span></p>
+ </div>
 
-    <div class="q"><div class="no">9</div>
-      <p>대처 4단계의 빈칸을 채워 봅시다.</p>
-      <div class="choice-box">멈춤, 확인, 차단, 신고</div>
-      <p class="sub-q">1단계 — 누르지·답하지 않기 → ( <span class="blank"></span> )</p>
-      <p class="sub-q">2단계 — 가족·선생님께 알리기 → ( <span class="blank"></span> )</p>
-      <p class="sub-q">3단계 — 번호 차단·메시지 신고 → ( <span class="blank"></span> )</p>
-      <p class="sub-q">4단계 — 112 또는 1332에 신고 → ( <span class="blank"></span> )</p>
-    </div>
+ <div class="q"><div class="no">9</div>
+ <p>대처 4단계의 빈칸을 채워 봅시다.</p>
+ <div class="choice-box">멈춤, 확인, 차단, 신고</div>
+ <p class="sub-q">1단계 — 누르지·답하지 않기 → ( <span class="blank"></span> )</p>
+ <p class="sub-q">2단계 — 가족·선생님께 알리기 → ( <span class="blank"></span> )</p>
+ <p class="sub-q">3단계 — 번호 차단·메시지 신고 → ( <span class="blank"></span> )</p>
+ <p class="sub-q">4단계 — 112 또는 1332에 신고 → ( <span class="blank"></span> )</p>
+ </div>
 
-    <div class="q"><div class="no">10</div>
-      <p>친구 SNS에서 “돈 빌려 줘” 메시지가 왔어요. 친구의 계정이 해킹된 건지 <strong>확인하는 가장 좋은 방법</strong>은?</p>
-      <p class="sub-q">A. 메신저로 다시 묻기 &nbsp; B. <strong>전화나 영상통화로 직접 확인</strong> &nbsp;
-        C. 다른 친구에게 묻기 &nbsp; D. 일단 보내준다.</p>
-      <p class="sub-q">▶ 정답: ( <span class="blank"></span> )</p>
-    </div>
-  </div>
+ <div class="q"><div class="no">10</div>
+ <p>친구 SNS에서 “돈 빌려 줘” 메시지가 왔어요. 친구의 계정이 해킹된 건지 <strong>확인하는 가장 좋은 방법</strong>은?</p>
+ <p class="sub-q">A. 메신저로 다시 묻기 &nbsp; B. <strong>전화나 영상통화로 직접 확인</strong> &nbsp;
+ C. 다른 친구에게 묻기 &nbsp; D. 일단 보내준다.</p>
+ <p class="sub-q">▶ 정답: ( <span class="blank"></span> )</p>
+ </div>
+ </div>
 
-  <div class="page-no">— 4 —</div>
+ <div class="page-no">— 4 —</div>
 </section>
 
 <!-- 4. SNS와 마음 + 결제 수학 -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">4</div>
-    <div class="ph-title">
-      <h2>SNS와 마음 · 결제 수학 · 다짐</h2>
-      <p>비교에 흔들리지 않고, 시간과 돈도 똑똑하게.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">4</div>
+ <div class="ph-title">
+ <h2>SNS와 마음 · 결제 수학 · 다짐</h2>
+ <p>비교에 흔들리지 않고, 시간과 돈도 똑똑하게.</p>
+ </div>
+ </div>
 
-  <div class="tip"><span class="tip-title">💡 SNS 비교에 흔들리지 않기</span>
-    SNS에 올라오는 사진·영상은 <strong>가장 좋은 순간</strong>만 골라 올린 것이에요.
-    그 한 컷 뒤에는 평범한 하루가 있어요. <strong>‘나만 평범하다’</strong>고 느낄 필요가 없답니다.</div>
+ <div class="tip"><span class="tip-title">💡 SNS 비교에 흔들리지 않기</span>
+ SNS에 올라오는 사진·영상은 <strong>가장 좋은 순간</strong>만 골라 올린 것이에요.
+ 그 한 컷 뒤에는 평범한 하루가 있어요. <strong>‘나만 평범하다’</strong>고 느낄 필요가 없답니다.</div>
 
-  <h3 style="display:inline-block; background:#ffd54f; color:#1a237e; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">🔢 결제·시간 수학</h3>
+ <h3 style="display:inline-block; background:#ffd54f; color:#1a237e; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">🔢 결제·시간 수학</h3>
 
-  <div class="practice">
-    <h3>📝 디지털 속 수학·다짐</h3>
+ <div class="practice">
+ <h3>📝 디지털 속 수학·다짐</h3>
 
-    <div class="q"><div class="no">11</div>
-      <p><strong>구독료 계산</strong> — OTT 영상 서비스 월 <strong>9,900원</strong>을 1년 동안 결제하면 모두 얼마일까요?</p>
-      <p class="sub-q">▶ 식: 9,900 × <span class="blank"></span> 개월 = <span class="blank"></span> 원</p>
-      <p class="sub-q">▶ 그 돈으로 할 수 있는 다른 일: <span class="blank long"></span></p>
-    </div>
+ <div class="q"><div class="no">11</div>
+ <p><strong>구독료 계산</strong> — OTT 영상 서비스 월 <strong>9,900원</strong>을 1년 동안 결제하면 모두 얼마일까요?</p>
+ <p class="sub-q">▶ 식: 9,900 × <span class="blank"></span> 개월 = <span class="blank"></span> 원</p>
+ <p class="sub-q">▶ 그 돈으로 할 수 있는 다른 일: <span class="blank long"></span></p>
+ </div>
 
-    <div class="q"><div class="no">12</div>
-      <p><strong>스마트폰 사용 시간</strong> — 주은이는 하루 <strong>3시간 30분</strong>씩 SNS·짧은 영상을 봅니다.
-        일주일이면 모두 몇 시간일까요?</p>
-      <p class="sub-q">▶ 하루 3시간 30분 = <span class="blank"></span> 분</p>
-      <p class="sub-q">▶ 일주일 = <span class="blank"></span> 분 = <span class="blank"></span> 시간 <span class="blank"></span> 분</p>
-      <p class="sub-q">▶ 매일 <strong>30분만 줄이면</strong> 일주일에 <span class="blank"></span> 분이 생겨요.</p>
-    </div>
+ <div class="q"><div class="no">12</div>
+ <p><strong>스마트폰 사용 시간</strong> — 주은이는 하루 <strong>3시간 30분</strong>씩 SNS·짧은 영상을 봅니다.
+ 일주일이면 모두 몇 시간일까요?</p>
+ <p class="sub-q">▶ 하루 3시간 30분 = <span class="blank"></span> 분</p>
+ <p class="sub-q">▶ 일주일 = <span class="blank"></span> 분 = <span class="blank"></span> 시간 <span class="blank"></span> 분</p>
+ <p class="sub-q">▶ 매일 <strong>30분만 줄이면</strong> 일주일에 <span class="blank"></span> 분이 생겨요.</p>
+ </div>
 
-    <div class="q"><div class="no">13</div>
-      <p>SNS에서 친구의 멋진 일상을 보고 <strong>‘나만 평범한 것 같다’</strong>는 마음이 들었어요.
-        나에게 해 주고 싶은 <strong>응원의 한마디</strong>를 적어 봅시다.</p>
-      <div class="lines two"></div>
-    </div>
+ <div class="q"><div class="no">13</div>
+ <p>SNS에서 친구의 멋진 일상을 보고 <strong>‘나만 평범한 것 같다’</strong>는 마음이 들었어요.
+ 나에게 해 주고 싶은 <strong>응원의 한마디</strong>를 적어 봅시다.</p>
+ <div class="lines two"></div>
+ </div>
 
-  </div>
+ </div>
 
 
-  <div class="page-no">— 5 —</div>
+ <div class="page-no">— 5 —</div>
 </section>
 
 </body>

@@ -9,70 +9,70 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body {
-  margin: 0; background: #efebe9; color: #3e2723;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  font-size: 11.5pt; line-height: 1.55;
+ margin: 0; background: #efebe9; color: #3e2723;
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+ font-size: 11.5pt; line-height: 1.55;
 }
 
 .toolbar {
-  position: sticky; top: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #5d4037; color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+ position: sticky; top: 0; z-index: 50;
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 10px 18px; background: #5d4037; color: #fff;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .toolbar .muted { color: #d7ccc8; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button {
-  background: #ffb74d; color: #4e342e; border: none; font: inherit; font-weight: 700;
-  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+ background: #ffb74d; color: #4e342e; border: none; font: inherit; font-weight: 700;
+ padding: 8px 18px; border-radius: 6px; cursor: pointer;
 }
 .toolbar button:hover { background: #ffcc80; }
 
 .page {
-  width: 210mm; min-height: 297mm;
-  margin: 10mm auto; padding: 14mm 15mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  position: relative; page-break-after: always;
+ width: 210mm; min-height: 297mm;
+ margin: 10mm auto; padding: 14mm 15mm;
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+ position: relative; page-break-after: always;
 }
 .page:last-of-type { page-break-after: auto; }
 
 /* ===== 표지 ===== */
 .page.cover {
-  background: linear-gradient(135deg, #fff 0%, #efebe9 100%);
+ background: linear-gradient(135deg, #fff 0%, #efebe9 100%);
 }
 .cover-top {
-  display: flex; justify-content: space-between;
-  font-size: 0.92em; color: #6d4c41;
-  border-bottom: 2px solid #d7ccc8; padding-bottom: 10px; margin-bottom: 20px;
+ display: flex; justify-content: space-between;
+ font-size: 0.92em; color: #6d4c41;
+ border-bottom: 2px solid #d7ccc8; padding-bottom: 10px; margin-bottom: 20px;
 }
 .cover-top .subject { font-weight: 700; color: #5d4037; }
 .cover-main { text-align: center; padding: 14px 0 12px; }
 .cover-main .badge {
-  display: inline-block; padding: 6px 18px; border-radius: 20px;
-  background: #5d4037; color: #fff; font-weight: 700; font-size: 0.95em;
-  margin-bottom: 12px; letter-spacing: 0.5px;
+ display: inline-block; padding: 6px 18px; border-radius: 20px;
+ background: #5d4037; color: #fff; font-weight: 700; font-size: 0.95em;
+ margin-bottom: 12px; letter-spacing: 0.5px;
 }
 .cover-main h1 {
-  margin: 0; font-size: 2.1em; letter-spacing: -1.5px;
-  color: #3e2723; font-weight: 900;
+ margin: 0; font-size: 2.1em; letter-spacing: -1.5px;
+ color: #3e2723; font-weight: 900;
 }
 .cover-main .lead {
-  margin: 8px 0 0; font-size: 1.05em; color: #5d4037; font-weight: 500;
+ margin: 8px 0 0; font-size: 1.05em; color: #5d4037; font-weight: 500;
 }
 .name-box {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 8px; margin: 16px 0;
+ display: grid; grid-template-columns: repeat(3, 1fr);
+ gap: 8px; margin: 16px 0;
 }
 .name-cell { border: 1.5px solid #a1887f; border-radius: 8px; padding: 10px 12px; }
 .name-cell span { display: block; font-size: 0.8em; color: #5d4037; font-weight: 500; }
 .name-cell em { display: block; min-height: 22px; font-style: normal; }
 
 .goal, .info, .cast {
-  border: 2px solid #a1887f; border-radius: 10px;
-  padding: 11px 14px; margin-top: 10px; background: #efebe9;
+ border: 2px solid #a1887f; border-radius: 10px;
+ padding: 11px 14px; margin-top: 10px; background: #efebe9;
 }
 .goal h2, .info h2, .cast h2 {
-  margin: 0 0 6px; font-size: 1.02em; color: #3e2723;
-  border-bottom: 1px dashed #8d6e63; padding-bottom: 5px;
+ margin: 0 0 6px; font-size: 1.02em; color: #3e2723;
+ border-bottom: 1px dashed #8d6e63; padding-bottom: 5px;
 }
 .goal ul { margin: 4px 0 0; padding-left: 20px; }
 .goal li { padding: 1px 0; font-size: 0.95em; }
@@ -80,10 +80,10 @@ body {
 
 .cast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 .person {
-  display: flex; align-items: center; gap: 8px;
-  padding: 6px 10px; background: #fff;
-  border: 1px solid #d7ccc8; border-radius: 8px;
-  font-weight: 500; color: #4e342e; font-size: 0.9em;
+ display: flex; align-items: center; gap: 8px;
+ padding: 6px 10px; background: #fff;
+ border: 1px solid #d7ccc8; border-radius: 8px;
+ font-weight: 500; color: #4e342e; font-size: 0.9em;
 }
 .person strong { color: #3e2723; font-weight: 700; }
 .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
@@ -92,66 +92,66 @@ body {
 
 /* ===== 쪽 머리 ===== */
 .ph {
-  display: flex; align-items: center; gap: 14px;
-  border-bottom: 3px solid #5d4037; padding-bottom: 10px; margin-bottom: 14px;
+ display: flex; align-items: center; gap: 14px;
+ border-bottom: 3px solid #5d4037; padding-bottom: 10px; margin-bottom: 14px;
 }
 .ph-num {
-  flex-shrink: 0; width: 52px; height: 52px;
-  background: #5d4037; color: #ffb74d;
-  font-family: 'Noto Serif KR', serif;
-  font-size: 1.35em; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; border-radius: 10px;
-  text-align: center; line-height: 1;
+ flex-shrink: 0; width: 52px; height: 52px;
+ background: #5d4037; color: #ffb74d;
+ font-family: 'Noto Serif KR', serif;
+ font-size: 1.35em; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; border-radius: 10px;
+ text-align: center; line-height: 1;
 }
 .ph-title h2 { margin: 0; font-size: 1.3em; color: #3e2723; }
 .ph-title p { margin: 2px 0 0; color: #6d4c41; font-size: 0.92em; }
 
 h3.section-h {
-  display: inline-block; background: #ffb74d; color: #3e2723;
-  padding: 3px 12px; border-radius: 14px; font-size: 0.98em;
-  margin: 6px 0 6px;
+ display: inline-block; background: #ffb74d; color: #3e2723;
+ padding: 3px 12px; border-radius: 14px; font-size: 0.98em;
+ margin: 6px 0 6px;
 }
 
 /* ===== 본문 글 ===== */
 .story {
-  background: #fff; border: 1.5px solid #d7ccc8; border-radius: 8px;
-  padding: 10px 14px; margin: 6px 0 10px; line-height: 1.75;
+ background: #fff; border: 1.5px solid #d7ccc8; border-radius: 8px;
+ padding: 10px 14px; margin: 6px 0 10px; line-height: 1.75;
 }
 .story p { margin: 0 0 5px; }
 .story p:last-child { margin-bottom: 0; }
 
 .scene {
-  background: #fff8e1; border-left: 6px solid #ffb300;
-  border-radius: 6px; padding: 9px 14px; margin-bottom: 10px;
+ background: #fff8e1; border-left: 6px solid #ffb300;
+ border-radius: 6px; padding: 9px 14px; margin-bottom: 10px;
 }
 .scene p { margin: 0; }
 
 .tip {
-  background: #efebe9; border-left: 5px solid #6d4c41;
-  border-radius: 6px; padding: 8px 12px; margin: 8px 0;
+ background: #efebe9; border-left: 5px solid #6d4c41;
+ border-radius: 6px; padding: 8px 12px; margin: 8px 0;
 }
 .tip .tip-title { display: block; font-weight: 700; color: #3e2723; margin-bottom: 3px; }
 
 .warm {
-  background: #fce4ec; border-left: 6px solid #c2185b;
-  border-radius: 6px; padding: 8px 12px; margin: 8px 0;
+ background: #fce4ec; border-left: 6px solid #c2185b;
+ border-radius: 6px; padding: 8px 12px; margin: 8px 0;
 }
 .warm .tip-title { display: block; font-weight: 700; color: #880e4f; margin-bottom: 3px; }
 
 .warning {
-  background: #ffebee; border-left: 6px solid #c62828;
-  border-radius: 6px; padding: 8px 12px; margin: 8px 0;
+ background: #ffebee; border-left: 6px solid #c62828;
+ border-radius: 6px; padding: 8px 12px; margin: 8px 0;
 }
 .warning .tip-title { display: block; font-weight: 700; color: #b71c1c; margin-bottom: 3px; }
 
 /* ===== 어휘 카드 ===== */
 .vocab-grid {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;
-  margin: 6px 0;
+ display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;
+ margin: 6px 0;
 }
 .vocab {
-  background: #fff; border: 1.5px solid #a1887f; border-left: 6px solid #5d4037;
-  border-radius: 6px; padding: 6px 11px;
+ background: #fff; border: 1.5px solid #a1887f; border-left: 6px solid #5d4037;
+ border-radius: 6px; padding: 6px 11px;
 }
 .vocab strong { display: block; color: #3e2723; font-size: 1em; }
 .vocab small { display: block; color: #5d4037; font-size: 0.85em; margin-top: 1px; line-height: 1.35; }
@@ -161,64 +161,64 @@ h3.section-h {
 .turn { display: flex; align-items: flex-start; gap: 9px; margin: 5px 0; }
 .turn.right { flex-direction: row-reverse; }
 .tag {
-  flex-shrink: 0; min-width: 64px; padding: 4px 9px;
-  background: #d7ccc8; color: #3e2723;
-  border-radius: 16px; font-weight: 700; font-size: 0.85em; text-align: center;
+ flex-shrink: 0; min-width: 64px; padding: 4px 9px;
+ background: #d7ccc8; color: #3e2723;
+ border-radius: 16px; font-weight: 700; font-size: 0.85em; text-align: center;
 }
 .tag.d1 { background: #FFCDD2; }
 .tag.d4 { background: #E1BEE7; }
 .tag.d5 { background: #C8E6C9; }
 .tag.d6 { background: #F8BBD0; }
 .bubble {
-  background: #fff; padding: 6px 11px;
-  border: 1.5px solid #d7ccc8; border-radius: 12px;
-  max-width: 82%; font-size: 0.95em;
+ background: #fff; padding: 6px 11px;
+ border: 1.5px solid #d7ccc8; border-radius: 12px;
+ max-width: 82%; font-size: 0.95em;
 }
 .turn.right .bubble { background: #efebe9; border-color: #a1887f; }
 
 /* ===== 단계 다이어그램 ===== */
 .flow {
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px;
-  margin: 8px 0;
+ display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px;
+ margin: 8px 0;
 }
 .flow.f4 { grid-template-columns: repeat(4, 1fr); }
 .flow-step {
-  background: #fff; border: 2px solid #8d6e63;
-  border-radius: 10px; padding: 7px 5px; text-align: center;
+ background: #fff; border: 2px solid #8d6e63;
+ border-radius: 10px; padding: 7px 5px; text-align: center;
 }
 .flow-step .n {
-  display: inline-block; background: #5d4037; color: #ffb74d;
-  width: 20px; height: 20px; border-radius: 50%;
-  font-weight: 700; font-size: 0.82em; line-height: 20px;
-  margin-bottom: 3px;
+ display: inline-block; background: #5d4037; color: #ffb74d;
+ width: 20px; height: 20px; border-radius: 50%;
+ font-weight: 700; font-size: 0.82em; line-height: 20px;
+ margin-bottom: 3px;
 }
 .flow-step strong { display: block; color: #3e2723; font-size: 0.9em; }
 .flow-step small { display: block; color: #5d4037; font-size: 0.78em; margin-top: 2px; line-height: 1.3; }
 
 /* ===== 표 ===== */
 table.tbl {
-  width: 100%; border-collapse: collapse;
-  margin: 6px 0;
+ width: 100%; border-collapse: collapse;
+ margin: 6px 0;
 }
 .tbl th, .tbl td {
-  border: 1px solid #a1887f; padding: 5px 9px;
-  text-align: left; font-size: 0.93em;
+ border: 1px solid #a1887f; padding: 5px 9px;
+ text-align: left; font-size: 0.93em;
 }
 .tbl th {
-  background: #5d4037; color: #fff;
-  font-weight: 700; text-align: center;
+ background: #5d4037; color: #fff;
+ font-weight: 700; text-align: center;
 }
 .tbl tr:nth-child(even) td { background: #f5f0ee; }
 
 /* ===== 규칙 카드 ===== */
 .rule-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
-  margin: 6px 0;
+ display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+ margin: 6px 0;
 }
 .rule-grid.r6 { grid-template-columns: repeat(3, 1fr); }
 .rule {
-  background: #efebe9; border: 1.5px solid #8d6e63; border-radius: 10px;
-  padding: 8px; text-align: center;
+ background: #efebe9; border: 1.5px solid #8d6e63; border-radius: 10px;
+ padding: 8px; text-align: center;
 }
 .rule .icon { font-size: 1.4em; line-height: 1; }
 .rule strong { display: block; margin-top: 3px; color: #3e2723; font-size: 0.93em; }
@@ -226,9 +226,9 @@ table.tbl {
 
 /* ===== 표현 카드 ===== */
 .phrase-card {
-  background: #fffde7; border: 1.5px dashed #fbc02d;
-  border-radius: 8px; padding: 6px 12px; margin: 4px 0;
-  font-size: 0.95em;
+ background: #fffde7; border: 1.5px dashed #fbc02d;
+ border-radius: 8px; padding: 6px 12px; margin: 4px 0;
+ font-size: 0.95em;
 }
 .phrase-card strong { color: #f57f17; }
 
@@ -236,541 +236,541 @@ table.tbl {
 .steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin: 6px 0; }
 .steps3.s4 { grid-template-columns: repeat(4, 1fr); }
 .step3 {
-  background: #fff8e1; border: 2px solid #ffb74d; border-radius: 10px;
-  padding: 8px 6px; text-align: center;
+ background: #fff8e1; border: 2px solid #ffb74d; border-radius: 10px;
+ padding: 8px 6px; text-align: center;
 }
 .step3 .lbl {
-  display: inline-block; background: #f57c00; color: #fff;
-  padding: 2px 10px; border-radius: 10px; font-weight: 700;
-  font-size: 0.85em; margin-bottom: 3px;
+ display: inline-block; background: #f57c00; color: #fff;
+ padding: 2px 10px; border-radius: 10px; font-weight: 700;
+ font-size: 0.85em; margin-bottom: 3px;
 }
 .step3 strong { display: block; color: #4e342e; font-size: 0.93em; }
 .step3 small { display: block; color: #5d4037; font-size: 0.82em; margin-top: 2px; line-height: 1.3; }
 
 /* ===== 문제 ===== */
 .practice h3 {
-  display: inline-block; background: #ffb74d; color: #3e2723;
-  padding: 3px 12px; border-radius: 14px; font-size: 0.98em; margin: 6px 0 8px;
+ display: inline-block; background: #ffb74d; color: #3e2723;
+ padding: 3px 12px; border-radius: 14px; font-size: 0.98em; margin: 6px 0 8px;
 }
 .q {
-  position: relative;
-  padding-left: 38px;
-  margin-bottom: 8px; padding-bottom: 7px;
-  border-bottom: 1px dashed #d7ccc8;
+ position: relative;
+ padding-left: 38px;
+ margin-bottom: 8px; padding-bottom: 7px;
+ border-bottom: 1px dashed #d7ccc8;
 }
 .q:last-child { border-bottom: none; }
 .q .no {
-  position: absolute; left: 0; top: 0;
-  width: 28px; height: 28px;
-  background: #5d4037; color: #fff;
-  border-radius: 50%; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; font-size: 0.88em;
+ position: absolute; left: 0; top: 0;
+ width: 28px; height: 28px;
+ background: #5d4037; color: #fff;
+ border-radius: 50%; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; font-size: 0.88em;
 }
 .q p { margin: 0 0 4px; }
 .q .sub-q { margin-top: 4px; font-weight: 500; color: #4e342e; }
 
 /* 보기 / 빈칸 */
 .choice-box {
-  background: #fffde7; border: 1.5px solid #fdd835;
-  border-radius: 8px; padding: 6px 12px; margin: 5px 0;
-  font-weight: 500; font-size: 0.95em;
+ background: #fffde7; border: 1.5px solid #fdd835;
+ border-radius: 8px; padding: 6px 12px; margin: 5px 0;
+ font-weight: 500; font-size: 0.95em;
 }
 .choice-box::before { content: "<보기> "; font-weight: 700; color: #f57f17; }
 
 .blank {
-  display: inline-block; border-bottom: 1.5px solid #3e2723;
-  min-width: 64px; height: 20px; vertical-align: baseline;
+ display: inline-block; border-bottom: 1.5px solid #3e2723;
+ min-width: 64px; height: 20px; vertical-align: baseline;
 }
 .blank.long { min-width: 200px; }
 
 .lines {
-  background-image: repeating-linear-gradient(
-    to bottom, transparent 0, transparent 28px, #bcaaa4 28px, #bcaaa4 29px
-  );
-  height: 30px; margin: 3px 0;
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 28px, #bcaaa4 28px, #bcaaa4 29px
+ );
+ height: 30px; margin: 3px 0;
 }
 .lines.two { height: 60px; }
 
 /* 다짐문 */
 .pledge {
-  background: #fff8e1; border: 2px dashed #f57c00;
-  border-radius: 8px; padding: 10px 14px; margin: 8px 0;
+ background: #fff8e1; border: 2px dashed #f57c00;
+ border-radius: 8px; padding: 10px 14px; margin: 8px 0;
 }
 .pledge h4 { margin: 0 0 5px; color: #e65100; font-size: 1em; }
 
 /* 자기 점검 */
 .self-check {
-  background: #efebe9; border: 1.5px solid #8d6e63;
-  border-radius: 8px; padding: 10px 14px; margin-top: 10px;
+ background: #efebe9; border: 1.5px solid #8d6e63;
+ border-radius: 8px; padding: 10px 14px; margin-top: 10px;
 }
 .self-check h4 { margin: 0 0 5px; color: #3e2723; font-size: 0.98em; }
 .self-check label { display: block; padding: 1px 0; font-size: 0.93em; }
 .self-check input[type=checkbox] {
-  margin-right: 7px; width: 15px; height: 15px;
-  accent-color: #6d4c41; vertical-align: middle;
+ margin-right: 7px; width: 15px; height: 15px;
+ accent-color: #6d4c41; vertical-align: middle;
 }
 
 .page-no {
-  position: absolute; bottom: 7mm; right: 15mm;
-  color: #a1887f; font-size: 0.85em; letter-spacing: 1px;
+ position: absolute; bottom: 7mm; right: 15mm;
+ color: #a1887f; font-size: 0.85em; letter-spacing: 1px;
 }
 
 /* ===== 인쇄 ===== */
 @media print {
-  @page { size: A4 portrait; margin: 0; }
-  html, body {
-    background: #fff !important; margin: 0; padding: 0;
-    font-size: 10pt; line-height: 1.38;
-  }
-  .toolbar, .no-print { display: none !important; }
-  .page {
-    width: 210mm; min-height: 297mm;
-    margin: 0 !important; padding: 10mm 13mm;
-    box-shadow: none; border: none;
-    page-break-after: always; break-after: page;
-  }
-  .page:last-of-type { page-break-after: auto; }
-  .q, .scene, .tip, .warm, .warning, .story, .dialogue, .rule-grid,
-  .steps3, .flow, .phrase-card, .self-check, .pledge,
-  .name-box, .goal, .info, .cast, .ph, table.tbl, tr, .vocab-grid {
-    page-break-inside: avoid !important; break-inside: avoid !important;
-  }
-  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-  .ph { padding-bottom: 7px; margin-bottom: 9px; gap: 10px; }
-  .ph-num { width: 42px; height: 42px; font-size: 1.12em; border-radius: 8px; }
-  .ph-title h2 { font-size: 1.12em; }
-  .ph-title p { font-size: 0.85em; }
-  .scene, .tip, .warm, .warning, .story { padding: 6px 11px; margin: 4px 0 7px; }
-  .dialogue { padding: 7px; margin: 4px 0 7px; }
-  .turn { margin: 3px 0; gap: 6px; }
-  .tag { min-width: 54px; padding: 3px 7px; font-size: 0.8em; }
-  .bubble { padding: 4px 8px; font-size: 0.88em; }
-  .rule-grid, .steps3, .vocab-grid { gap: 5px; }
-  .rule, .step3 { padding: 6px; }
-  .rule .icon { font-size: 1.15em; }
-  .flow { gap: 4px; }
-  .flow-step { padding: 5px 3px; }
-  .flow-step .n { width: 17px; height: 17px; line-height: 17px; font-size: 0.74em; }
-  .flow-step strong { font-size: 0.82em; }
-  .flow-step small { font-size: 0.68em; line-height: 1.2; }
-  .tbl th, .tbl td { padding: 3px 7px; font-size: 0.88em; }
-  .q { margin-bottom: 6px; padding-bottom: 5px; padding-left: 32px; }
-  .q .no { width: 24px; height: 24px; font-size: 0.82em; }
-  .vocab { padding: 4px 9px; }
-  .vocab strong { font-size: 0.92em; }
-  .vocab small { font-size: 0.78em; }
-  .lines { height: 24px;
-    background-image: repeating-linear-gradient(
-      to bottom, transparent 0, transparent 22px, #bcaaa4 22px, #bcaaa4 23px); }
-  .lines.two { height: 48px; }
-  .self-check { padding: 7px 11px; margin-top: 7px; }
-  .self-check label { font-size: 0.88em; }
-  .pledge { padding: 7px 11px; margin: 5px 0; }
-  .page-no { bottom: 6mm; right: 14mm; }
-  .goal li { font-size: 0.9em; }
-  .info p { font-size: 0.9em; }
-  .person { font-size: 0.85em; padding: 5px 8px; }
-  h3.section-h { padding: 2px 10px; font-size: 0.92em; margin: 4px 0 4px; }
-  .practice h3 { padding: 2px 10px; font-size: 0.92em; margin: 4px 0 6px; }
+ @page { size: A4 portrait; margin: 0; }
+ html, body {
+ background: #fff !important; margin: 0; padding: 0;
+ font-size: 10pt; line-height: 1.38;
+ }
+ .toolbar, .no-print { display: none !important; }
+ .page {
+ width: 210mm; min-height: 297mm;
+ margin: 0 !important; padding: 10mm 13mm;
+ box-shadow: none; border: none;
+ page-break-after: always; break-after: page;
+ }
+ .page:last-of-type { page-break-after: auto; }
+ .q, .scene, .tip, .warm, .warning, .story, .dialogue, .rule-grid,
+ .steps3, .flow, .phrase-card, .self-check, .pledge,
+ .name-box, .goal, .info, .cast, .ph, table.tbl, tr, .vocab-grid {
+ page-break-inside: avoid !important; break-inside: avoid !important;
+ }
+ h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+ .ph { padding-bottom: 7px; margin-bottom: 9px; gap: 10px; }
+ .ph-num { width: 42px; height: 42px; font-size: 1.12em; border-radius: 8px; }
+ .ph-title h2 { font-size: 1.12em; }
+ .ph-title p { font-size: 0.85em; }
+ .scene, .tip, .warm, .warning, .story { padding: 6px 11px; margin: 4px 0 7px; }
+ .dialogue { padding: 7px; margin: 4px 0 7px; }
+ .turn { margin: 3px 0; gap: 6px; }
+ .tag { min-width: 54px; padding: 3px 7px; font-size: 0.8em; }
+ .bubble { padding: 4px 8px; font-size: 0.88em; }
+ .rule-grid, .steps3, .vocab-grid { gap: 5px; }
+ .rule, .step3 { padding: 6px; }
+ .rule .icon { font-size: 1.15em; }
+ .flow { gap: 4px; }
+ .flow-step { padding: 5px 3px; }
+ .flow-step .n { width: 17px; height: 17px; line-height: 17px; font-size: 0.74em; }
+ .flow-step strong { font-size: 0.82em; }
+ .flow-step small { font-size: 0.68em; line-height: 1.2; }
+ .tbl th, .tbl td { padding: 3px 7px; font-size: 0.88em; }
+ .q { margin-bottom: 6px; padding-bottom: 5px; padding-left: 32px; }
+ .q .no { width: 24px; height: 24px; font-size: 0.82em; }
+ .vocab { padding: 4px 9px; }
+ .vocab strong { font-size: 0.92em; }
+ .vocab small { font-size: 0.78em; }
+ .lines { height: 24px;
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 22px, #bcaaa4 22px, #bcaaa4 23px); }
+ .lines.two { height: 48px; }
+ .self-check { padding: 7px 11px; margin-top: 7px; }
+ .self-check label { font-size: 0.88em; }
+ .pledge { padding: 7px 11px; margin: 5px 0; }
+ .page-no { bottom: 6mm; right: 14mm; }
+ .goal li { font-size: 0.9em; }
+ .info p { font-size: 0.9em; }
+ .person { font-size: 0.85em; padding: 5px 8px; }
+ h3.section-h { padding: 2px 10px; font-size: 0.92em; margin: 4px 0 4px; }
+ .practice h3 { padding: 2px 10px; font-size: 0.92em; margin: 4px 0 6px; }
 }
 </style>
 </head>
 <body>
 
 <div class="toolbar no-print">
-  <div><strong>달콤한 직업, 쇼콜라띠에 — 진로 탐색 학습지</strong>
-    <span class="muted">A4 · 6쪽 · 인쇄해서 사용하세요</span>
-  </div>
-  <button onclick="window.print()">🖨️ 인쇄하기</button>
+ <div><strong>달콤한 직업, 쇼콜라띠에 — 진로 탐색 학습지</strong>
+ <span class="muted">A4 · 6쪽 · 인쇄해서 사용하세요</span>
+ </div>
+ <button onclick="window.print">🖨️ 인쇄하기</button>
 </div>
 
 <!-- =================================================== -->
 <!-- 표지 -->
 <!-- =================================================== -->
 <section class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">국어 · 진로</span> &nbsp;|&nbsp; 고등학교 특수학급</div>
-    <div>2026학년도 1학기</div>
-  </div>
+ <div class="cover-top">
+ <div><span class="subject">국어 · 진로</span> &nbsp;|&nbsp; 고등학교 </div>
+ <div>2026학년도 1학기</div>
+ </div>
 
-  <div class="cover-main">
-    <span class="badge">🍫 진로 탐색 학습지</span>
-    <h1>달콤한 직업, 쇼콜라띠에</h1>
-    <p class="lead">초콜릿을 만드는 사람, 어떤 일을 할까요?</p>
-  </div>
+ <div class="cover-main">
+ <span class="badge">🍫 진로 탐색 학습지</span>
+ <h1>달콤한 직업, 쇼콜라띠에</h1>
+ <p class="lead">초콜릿을 만드는 사람, 어떤 일을 할까요?</p>
+ </div>
 
-  <div class="name-box">
-    <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
-    <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
-    <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
-  </div>
+ <div class="name-box">
+ <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
+ <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
+ <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
+ </div>
 
-  <div class="info">
-    <h2>🍫 쇼콜라띠에는 어떤 사람일까요?</h2>
-    <p><strong>쇼콜라띠에(chocolatier)</strong>는 프랑스어에서 온 말로, <strong>초콜릿을 전문으로 만들고 다루는 사람</strong>을 뜻해요.
-      카카오 원료를 녹이고, 모양을 만들고, 색과 향을 입혀 한 알 한 알 정성껏 초콜릿을 빚어내지요.
-      백화점·호텔·전문 매장에서 일하기도 하고, 자기만의 작은 가게를 차려 손님을 만나기도 해요.
-      <strong>요리사·제빵사</strong>와 비슷하지만, 오직 <strong>초콜릿 한 가지</strong>에 집중하는 직업이랍니다.</p>
-  </div>
+ <div class="info">
+ <h2>🍫 쇼콜라띠에는 어떤 사람일까요?</h2>
+ <p><strong>쇼콜라띠에(chocolatier)</strong>는 프랑스어에서 온 말로, <strong>초콜릿을 전문으로 만들고 다루는 사람</strong>을 뜻해요.
+ 카카오 원료를 녹이고, 모양을 만들고, 색과 향을 입혀 한 알 한 알 정성껏 초콜릿을 빚어내지요.
+ 백화점·호텔·전문 매장에서 일하기도 하고, 자기만의 작은 가게를 차려 손님을 만나기도 해요.
+ <strong>요리사·제빵사</strong>와 비슷하지만, 오직 <strong>초콜릿 한 가지</strong>에 집중하는 직업이랍니다.</p>
+ </div>
 
-  <div class="cast">
-    <h2>👫 등장인물 — 작은 초콜릿 가게 '카카오 빈'</h2>
-    <div class="cast-grid">
-      <div class="person" style="white-space: nowrap;"><span class="dot d2"></span><strong>하은 선배</strong>(5년차)</div>
-      <div class="person"><span class="dot d6"></span><strong>하영 셰프</strong>(사장 · 마스터)</div>
-      <div class="person"><span class="dot d3"></span><strong>채원</strong>(동기 · 함께 배움)</div>
-      <div class="person"><span class="dot d4"></span><strong>주은</strong>(나 · 견습생)</div>
-      <div class="person"><span class="dot d1"></span><strong>주현 손님</strong>(단골)</div>
-      <div class="person"><span class="dot d5"></span><strong>예은 손님</strong>(첫 방문)</div>
-    </div>
-  </div>
+ <div class="cast">
+ <h2>👫 등장인물 — 작은 초콜릿 가게 '카카오 빈'</h2>
+ <div class="cast-grid">
+ <div class="person" style="white-space: nowrap;"><span class="dot d2"></span><strong>하은 선배</strong>(5년차)</div>
+ <div class="person"><span class="dot d6"></span><strong>하영 셰프</strong>(사장 · 마스터)</div>
+ <div class="person"><span class="dot d3"></span><strong>채원</strong>(동기 · 함께 배움)</div>
+ <div class="person"><span class="dot d4"></span><strong>주은</strong>(나 · 견습생)</div>
+ <div class="person"><span class="dot d1"></span><strong>주현 손님</strong>(단골)</div>
+ <div class="person"><span class="dot d5"></span><strong>예은 손님</strong>(첫 방문)</div>
+ </div>
+ </div>
 
-  <div class="page-no">— 1 —</div>
+ <div class="page-no">— 1 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 1. 쇼콜라띠에는 누구일까요? -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">1</div>
-    <div class="ph-title">
-      <h2>쇼콜라띠에는 누구일까요? — 직업과 새 낱말</h2>
-      <p>이름의 뜻을 알고, 관련 낱말을 익혀요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">1</div>
+ <div class="ph-title">
+ <h2>쇼콜라띠에는 누구일까요? — 직업과 새 낱말</h2>
+ <p>이름의 뜻을 알고, 관련 낱말을 익혀요.</p>
+ </div>
+ </div>
 
-  <div class="story">
-    <p>‘<strong>쇼콜라띠에</strong>’는 프랑스어 ‘<strong>chocolatier</strong>’에서 온 말이에요.
-      ‘<strong>쇼콜라(chocolat)</strong>’는 ‘초콜릿’, 뒤에 붙은 <strong>‘-tier(띠에)’</strong>는
-      ‘그 일을 <strong>전문으로 하는 사람</strong>’이라는 뜻이지요. 그래서 쇼콜라띠에는
-      ‘<strong>초콜릿 전문가</strong>’를 가리키는 말이에요.</p>
-    <p>비슷한 직업으로 케이크·빵을 만드는 <strong>파티시에(pâtissier)</strong>, 음식을 만드는 <strong>셰프(chef)</strong>가 있어요.
-      쇼콜라띠에는 그 가운데서도 <strong>오직 초콜릿</strong>만 다루는 사람을 부를 때 써요.</p>
-  </div>
+ <div class="story">
+ <p>‘<strong>쇼콜라띠에</strong>’는 프랑스어 ‘<strong>chocolatier</strong>’에서 온 말이에요.
+ ‘<strong>쇼콜라(chocolat)</strong>’는 ‘초콜릿’, 뒤에 붙은 <strong>‘-tier(띠에)’</strong>는
+ ‘그 일을 <strong>전문으로 하는 사람</strong>’이라는 뜻이지요. 그래서 쇼콜라띠에는
+ ‘<strong>초콜릿 전문가</strong>’를 가리키는 말이에요.</p>
+ <p>비슷한 직업으로 케이크·빵을 만드는 <strong>파티시에(pâtissier)</strong>, 음식을 만드는 <strong>셰프(chef)</strong>가 있어요.
+ 쇼콜라띠에는 그 가운데서도 <strong>오직 초콜릿</strong>만 다루는 사람을 부를 때 써요.</p>
+ </div>
 
-  <h3 class="section-h">📖 꼭 알아야 할 새 낱말</h3>
-  <div class="vocab-grid">
-    <div class="vocab"><strong>쇼콜라띠에</strong><small>초콜릿을 전문으로 만드는 사람</small></div>
-    <div class="vocab"><strong>카카오(cacao)</strong><small>초콜릿의 원료가 되는 열매·콩</small></div>
-    <div class="vocab"><strong>템퍼링</strong><small>초콜릿을 녹였다 식히며 윤기를 내는 작업</small></div>
-    <div class="vocab"><strong>가나슈</strong><small>초콜릿과 생크림을 섞어 만든 부드러운 속</small></div>
-    <div class="vocab"><strong>트러플</strong><small>가나슈를 둥글게 빚어 만든 작은 초콜릿</small></div>
-    <div class="vocab"><strong>몰드(틀)</strong><small>초콜릿 모양을 잡는 데 쓰는 틀</small></div>
-    <div class="vocab"><strong>봉봉</strong><small>속에 가나슈·잼이 들어 있는 한입 초콜릿</small></div>
-    <div class="vocab"><strong>파티시에</strong><small>케이크·빵을 만드는 사람 (제과사)</small></div>
-  </div>
+ <h3 class="section-h">📖 꼭 알아야 할 새 낱말</h3>
+ <div class="vocab-grid">
+ <div class="vocab"><strong>쇼콜라띠에</strong><small>초콜릿을 전문으로 만드는 사람</small></div>
+ <div class="vocab"><strong>카카오(cacao)</strong><small>초콜릿의 원료가 되는 열매·콩</small></div>
+ <div class="vocab"><strong>템퍼링</strong><small>초콜릿을 녹였다 식히며 윤기를 내는 작업</small></div>
+ <div class="vocab"><strong>가나슈</strong><small>초콜릿과 생크림을 섞어 만든 부드러운 속</small></div>
+ <div class="vocab"><strong>트러플</strong><small>가나슈를 둥글게 빚어 만든 작은 초콜릿</small></div>
+ <div class="vocab"><strong>몰드(틀)</strong><small>초콜릿 모양을 잡는 데 쓰는 틀</small></div>
+ <div class="vocab"><strong>봉봉</strong><small>속에 가나슈·잼이 들어 있는 한입 초콜릿</small></div>
+ <div class="vocab"><strong>파티시에</strong><small>케이크·빵을 만드는 사람 (제과사)</small></div>
+ </div>
 
-  <div class="tip"><span class="tip-title">💡 같은 듯 다른 직업</span>
-    <strong>요리사(셰프)</strong>는 음식 전체를, <strong>파티시에</strong>는 케이크·디저트를 만들어요.
-    <strong>쇼콜라띠에</strong>는 그중에서도 <strong>초콜릿</strong>만 만드는 더 전문가예요.</div>
+ <div class="tip"><span class="tip-title">💡 같은 듯 다른 직업</span>
+ <strong>요리사(셰프)</strong>는 음식 전체를, <strong>파티시에</strong>는 케이크·디저트를 만들어요.
+ <strong>쇼콜라띠에</strong>는 그중에서도 <strong>초콜릿</strong>만 만드는 더 전문가예요.</div>
 
-  <div class="practice">
-    <h3>📝 새 낱말 익히기</h3>
+ <div class="practice">
+ <h3>📝 새 낱말 익히기</h3>
 
-    <div class="q"><div class="no">1</div>
-      <p>빈칸에 알맞은 낱말을 &lt;보기&gt;에서 골라 써 봅시다.</p>
-      <div class="choice-box">쇼콜라띠에, 카카오, 템퍼링, 가나슈, 몰드, 파티시에</div>
-      <p class="sub-q">① 초콜릿의 원료가 되는 열매를 (<span class="blank"></span>)(이)라고 한다.</p>
-      <p class="sub-q">② 케이크·빵을 만드는 사람은 (<span class="blank"></span>)(이)다.</p>
-      <p class="sub-q">③ 녹였다 식히며 윤기를 내는 작업을 (<span class="blank"></span>)(이)라고 한다.</p>
-      <p class="sub-q">④ 초콜릿 모양을 잡을 때 쓰는 틀을 (<span class="blank"></span>)(이)라고 한다.</p>
-      <p class="sub-q">⑤ 초콜릿을 전문으로 만드는 사람은 (<span class="blank"></span>)(이)다.</p>
-    </div>
+ <div class="q"><div class="no">1</div>
+ <p>빈칸에 알맞은 낱말을 &lt;보기&gt;에서 골라 써 봅시다.</p>
+ <div class="choice-box">쇼콜라띠에, 카카오, 템퍼링, 가나슈, 몰드, 파티시에</div>
+ <p class="sub-q">① 초콜릿의 원료가 되는 열매를 (<span class="blank"></span>)(이)라고 한다.</p>
+ <p class="sub-q">② 케이크·빵을 만드는 사람은 (<span class="blank"></span>)(이)다.</p>
+ <p class="sub-q">③ 녹였다 식히며 윤기를 내는 작업을 (<span class="blank"></span>)(이)라고 한다.</p>
+ <p class="sub-q">④ 초콜릿 모양을 잡을 때 쓰는 틀을 (<span class="blank"></span>)(이)라고 한다.</p>
+ <p class="sub-q">⑤ 초콜릿을 전문으로 만드는 사람은 (<span class="blank"></span>)(이)다.</p>
+ </div>
 
-    <div class="q"><div class="no">2</div>
-      <p>‘쇼콜라띠에’의 이름을 두 부분으로 나누어 설명해 봅시다.</p>
-      <p class="sub-q">① ‘쇼콜라’의 뜻 → (<span class="blank long"></span>)</p>
-      <p class="sub-q">② ‘-띠에’의 뜻 → (<span class="blank long"></span>)</p>
-      <p class="sub-q">③ 그래서 쇼콜라띠에는 (<span class="blank long"></span>)이다.</p>
-    </div>
+ <div class="q"><div class="no">2</div>
+ <p>‘쇼콜라띠에’의 이름을 두 부분으로 나누어 설명해 봅시다.</p>
+ <p class="sub-q">① ‘쇼콜라’의 뜻 → (<span class="blank long"></span>)</p>
+ <p class="sub-q">② ‘-띠에’의 뜻 → (<span class="blank long"></span>)</p>
+ <p class="sub-q">③ 그래서 쇼콜라띠에는 (<span class="blank long"></span>)이다.</p>
+ </div>
 
-    <div class="q"><div class="no">3</div>
-      <p>맞으면 ⭕, 틀리면 ❌ 하세요.</p>
-      <p class="sub-q">① 쇼콜라띠에는 빵과 케이크를 만드는 사람이다. ( <span class="blank"></span> )</p>
-      <p class="sub-q">② 카카오는 초콜릿의 원료가 되는 열매다. ( <span class="blank"></span> )</p>
-      <p class="sub-q">③ 파티시에와 쇼콜라띠에는 똑같은 직업이다. ( <span class="blank"></span> )</p>
-      <p class="sub-q">④ 템퍼링을 하면 초콜릿에 윤기가 난다. ( <span class="blank"></span> )</p>
-    </div>
-  </div>
+ <div class="q"><div class="no">3</div>
+ <p>맞으면 ⭕, 틀리면 ❌ 하세요.</p>
+ <p class="sub-q">① 쇼콜라띠에는 빵과 케이크를 만드는 사람이다. ( <span class="blank"></span> )</p>
+ <p class="sub-q">② 카카오는 초콜릿의 원료가 되는 열매다. ( <span class="blank"></span> )</p>
+ <p class="sub-q">③ 파티시에와 쇼콜라띠에는 똑같은 직업이다. ( <span class="blank"></span> )</p>
+ <p class="sub-q">④ 템퍼링을 하면 초콜릿에 윤기가 난다. ( <span class="blank"></span> )</p>
+ </div>
+ </div>
 
-  <div class="page-no">— 2 —</div>
+ <div class="page-no">— 2 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 2. 쇼콜라띠에의 하루 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">2</div>
-    <div class="ph-title">
-      <h2>쇼콜라띠에의 하루 — 일과와 5가지 일</h2>
-      <p>아침부터 저녁까지, 어떤 일을 할까요?</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">2</div>
+ <div class="ph-title">
+ <h2>쇼콜라띠에의 하루 — 일과와 5가지 일</h2>
+ <p>아침부터 저녁까지, 어떤 일을 할까요?</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>주은이는 작은 초콜릿 가게 ‘<strong>카카오 빈</strong>’의 견습생이에요.
-      매일 아침 7시에 출근해 가게 문을 열기 전까지 부지런히 준비를 하지요.</p>
-  </div>
+ <div class="scene">
+ <p>주은이는 작은 초콜릿 가게 ‘<strong>카카오 빈</strong>’의 견습생이에요.
+ 매일 아침 7시에 출근해 가게 문을 열기 전까지 부지런히 준비를 하지요.</p>
+ </div>
 
-  <h3 class="section-h">🕘 쇼콜라띠에의 하루 일과</h3>
-  <table class="tbl">
-    <tr><th style="width: 18%;">시간</th><th>하는 일</th></tr>
-    <tr><td>오전 7시</td><td>출근, 작업복으로 갈아입고 손을 깨끗이 씻기</td></tr>
-    <tr><td>7~9시</td><td>오늘 만들 양을 정하고 <strong>카카오·재료를 계량</strong></td></tr>
-    <tr><td>9~12시</td><td><strong>녹이기 → 템퍼링 → 가나슈 만들기 → 모양 잡기</strong></td></tr>
-    <tr><td>12~1시</td><td>점심 식사 · 잠깐 휴식</td></tr>
-    <tr><td>1~4시</td><td><strong>장식·포장</strong>하고 진열대에 예쁘게 올리기</td></tr>
-    <tr><td>4~7시</td><td>매장에서 <strong>손님 응대</strong>, 주문 받기, 설명하기</td></tr>
-    <tr><td>7~8시</td><td><strong>정리·청소</strong>, 내일 쓸 재료 준비, 퇴근</td></tr>
-  </table>
+ <h3 class="section-h">🕘 쇼콜라띠에의 하루 일과</h3>
+ <table class="tbl">
+ <tr><th style="width: 18%;">시간</th><th>하는 일</th></tr>
+ <tr><td>오전 7시</td><td>출근, 작업복으로 갈아입고 손을 깨끗이 씻기</td></tr>
+ <tr><td>7~9시</td><td>오늘 만들 양을 정하고 <strong>카카오·재료를 계량</strong></td></tr>
+ <tr><td>9~12시</td><td><strong>녹이기 → 템퍼링 → 가나슈 만들기 → 모양 잡기</strong></td></tr>
+ <tr><td>12~1시</td><td>점심 식사 · 잠깐 휴식</td></tr>
+ <tr><td>1~4시</td><td><strong>장식·포장</strong>하고 진열대에 예쁘게 올리기</td></tr>
+ <tr><td>4~7시</td><td>매장에서 <strong>손님 응대</strong>, 주문 받기, 설명하기</td></tr>
+ <tr><td>7~8시</td><td><strong>정리·청소</strong>, 내일 쓸 재료 준비, 퇴근</td></tr>
+ </table>
 
-  <h3 class="section-h">🍫 쇼콜라띠에의 5가지 일</h3>
-  <div class="rule-grid" style="grid-template-columns: repeat(5, 1fr);">
-    <div class="rule"><div class="icon">⚖️</div><strong>① 재료 준비</strong><small>카카오·우유·설탕 계량</small></div>
-    <div class="rule"><div class="icon">♨️</div><strong>② 녹이고 템퍼링</strong><small>온도 맞춰 윤기 내기</small></div>
-    <div class="rule"><div class="icon">🍫</div><strong>③ 모양 만들기</strong><small>몰드·손으로 빚기</small></div>
-    <div class="rule"><div class="icon">🎨</div><strong>④ 장식·포장</strong><small>색·향·리본으로 꾸미기</small></div>
-    <div class="rule"><div class="icon">🛍️</div><strong>⑤ 손님 응대</strong><small>설명하고 추천하기</small></div>
-  </div>
+ <h3 class="section-h">🍫 쇼콜라띠에의 5가지 일</h3>
+ <div class="rule-grid" style="grid-template-columns: repeat(5, 1fr);">
+ <div class="rule"><div class="icon">⚖️</div><strong>① 재료 준비</strong><small>카카오·우유·설탕 계량</small></div>
+ <div class="rule"><div class="icon">♨️</div><strong>② 녹이고 템퍼링</strong><small>온도 맞춰 윤기 내기</small></div>
+ <div class="rule"><div class="icon">🍫</div><strong>③ 모양 만들기</strong><small>몰드·손으로 빚기</small></div>
+ <div class="rule"><div class="icon">🎨</div><strong>④ 장식·포장</strong><small>색·향·리본으로 꾸미기</small></div>
+ <div class="rule"><div class="icon">🛍️</div><strong>⑤ 손님 응대</strong><small>설명하고 추천하기</small></div>
+ </div>
 
-  <div class="practice">
-    <h3>📝 일과·일 알아보기</h3>
+ <div class="practice">
+ <h3>📝 일과·일 알아보기</h3>
 
-    <div class="q"><div class="no">1</div>
-      <p>위 표를 보고 빈칸을 채워 봅시다.</p>
-      <p class="sub-q">① 주은이가 출근하는 시간은 오전 (<span class="blank"></span>)시이다.</p>
-      <p class="sub-q">② 오전에는 주로 (<span class="blank long"></span>) 일을 한다.</p>
-      <p class="sub-q">③ 오후 4시부터는 매장에서 (<span class="blank long"></span>)를 한다.</p>
-    </div>
+ <div class="q"><div class="no">1</div>
+ <p>위 표를 보고 빈칸을 채워 봅시다.</p>
+ <p class="sub-q">① 주은이가 출근하는 시간은 오전 (<span class="blank"></span>)시이다.</p>
+ <p class="sub-q">② 오전에는 주로 (<span class="blank long"></span>) 일을 한다.</p>
+ <p class="sub-q">③ 오후 4시부터는 매장에서 (<span class="blank long"></span>)를 한다.</p>
+ </div>
 
-    <div class="q"><div class="no">2</div>
-      <p>‘쇼콜라띠에의 5가지 일’을 순서대로 써 봅시다.</p>
-      <p class="sub-q">( <span class="blank"></span> ) → ( <span class="blank"></span> ) → 모양 만들기 → ( <span class="blank"></span> ) → 손님 응대</p>
-    </div>
+ <div class="q"><div class="no">2</div>
+ <p>‘쇼콜라띠에의 5가지 일’을 순서대로 써 봅시다.</p>
+ <p class="sub-q">( <span class="blank"></span> ) → ( <span class="blank"></span> ) → 모양 만들기 → ( <span class="blank"></span> ) → 손님 응대</p>
+ </div>
 
-    <div class="q"><div class="no">3</div>
-      <p>아래 빈칸에 들어갈 표현으로 가장 알맞은 것에 ⭕ 하세요.</p>
-      <p class="sub-q">초콜릿을 만들다가 잘 모르는 부분이 있을 때, 셰프에게 →</p>
-      <p class="sub-q">① “저는 못 하겠는데요.”</p>
-      <p class="sub-q">② “셰프님, 이 부분이 잘 모르겠어요. 여쭤봐도 될까요?”</p>
-      <p class="sub-q">③ “그냥 알아서 할게요.”</p>
-    </div>
-  </div>
+ <div class="q"><div class="no">3</div>
+ <p>아래 빈칸에 들어갈 표현으로 가장 알맞은 것에 ⭕ 하세요.</p>
+ <p class="sub-q">초콜릿을 만들다가 잘 모르는 부분이 있을 때, 셰프에게 →</p>
+ <p class="sub-q">① “저는 못 하겠는데요.”</p>
+ <p class="sub-q">② “셰프님, 이 부분이 잘 모르겠어요. 여쭤봐도 될까요?”</p>
+ <p class="sub-q">③ “그냥 알아서 할게요.”</p>
+ </div>
+ </div>
 
-  <div class="page-no">— 3 —</div>
+ <div class="page-no">— 3 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 3. 초콜릿의 종류와 만드는 과정 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">3</div>
-    <div class="ph-title">
-      <h2>초콜릿의 종류와 만드는 과정</h2>
-      <p>3가지 초콜릿과 6단계 과정을 알아봐요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">3</div>
+ <div class="ph-title">
+ <h2>초콜릿의 종류와 만드는 과정</h2>
+ <p>3가지 초콜릿과 6단계 과정을 알아봐요.</p>
+ </div>
+ </div>
 
-  <h3 class="section-h">🍫 초콜릿 3형제</h3>
-  <table class="tbl">
-    <tr><th>종류</th><th>주요 재료</th><th>맛 · 색</th><th>특징</th></tr>
-    <tr><td><strong>다크 초콜릿</strong></td><td>카카오, 설탕 (우유 ✕)</td><td>진한 갈색 · 쌉쌀</td><td>카카오 향이 가장 강함</td></tr>
-    <tr><td><strong>밀크 초콜릿</strong></td><td>카카오, 우유, 설탕</td><td>갈색 · 부드러움</td><td>가장 친근한 맛</td></tr>
-    <tr><td><strong>화이트 초콜릿</strong></td><td>카카오 버터, 우유, 설탕</td><td>아이보리 · 달콤</td><td>카카오 ‘열매 색’이 없음</td></tr>
-  </table>
+ <h3 class="section-h">🍫 초콜릿 3형제</h3>
+ <table class="tbl">
+ <tr><th>종류</th><th>주요 재료</th><th>맛 · 색</th><th>특징</th></tr>
+ <tr><td><strong>다크 초콜릿</strong></td><td>카카오, 설탕 (우유 ✕)</td><td>진한 갈색 · 쌉쌀</td><td>카카오 향이 가장 강함</td></tr>
+ <tr><td><strong>밀크 초콜릿</strong></td><td>카카오, 우유, 설탕</td><td>갈색 · 부드러움</td><td>가장 친근한 맛</td></tr>
+ <tr><td><strong>화이트 초콜릿</strong></td><td>카카오 버터, 우유, 설탕</td><td>아이보리 · 달콤</td><td>카카오 ‘열매 색’이 없음</td></tr>
+ </table>
 
-  <h3 class="section-h">🌱 카카오에서 한 알 초콜릿까지 — 6단계</h3>
-  <div class="flow">
-    <div class="flow-step"><span class="n">1</span><strong>수확</strong><small>카카오 열매 따기</small></div>
-    <div class="flow-step"><span class="n">2</span><strong>발효·건조</strong><small>콩을 햇볕에 말려요</small></div>
-    <div class="flow-step"><span class="n">3</span><strong>볶기</strong><small>고소한 향이 나도록</small></div>
-    <div class="flow-step"><span class="n">4</span><strong>갈기·섞기</strong><small>설탕·우유와 섞기</small></div>
-    <div class="flow-step"><span class="n">5</span><strong>템퍼링</strong><small>녹였다 식혀 윤기내기</small></div>
-    <div class="flow-step"><span class="n">6</span><strong>모양·포장</strong><small>틀에 굳혀 완성</small></div>
-  </div>
+ <h3 class="section-h">🌱 카카오에서 한 알 초콜릿까지 — 6단계</h3>
+ <div class="flow">
+ <div class="flow-step"><span class="n">1</span><strong>수확</strong><small>카카오 열매 따기</small></div>
+ <div class="flow-step"><span class="n">2</span><strong>발효·건조</strong><small>콩을 햇볕에 말려요</small></div>
+ <div class="flow-step"><span class="n">3</span><strong>볶기</strong><small>고소한 향이 나도록</small></div>
+ <div class="flow-step"><span class="n">4</span><strong>갈기·섞기</strong><small>설탕·우유와 섞기</small></div>
+ <div class="flow-step"><span class="n">5</span><strong>템퍼링</strong><small>녹였다 식혀 윤기내기</small></div>
+ <div class="flow-step"><span class="n">6</span><strong>모양·포장</strong><small>틀에 굳혀 완성</small></div>
+ </div>
 
-  <div class="tip"><span class="tip-title">💡 알아두면 좋은 사실</span>
-    카카오 나무는 더운 나라(가나·코트디부아르·에콰도르 등)에서 자라요.
-    한 그루의 나무에서 일 년 동안 만들 수 있는 초콜릿은 약 <strong>1kg</strong> 정도예요.</div>
+ <div class="tip"><span class="tip-title">💡 알아두면 좋은 사실</span>
+ 카카오 나무는 더운 나라(가나·코트디부아르·에콰도르 등)에서 자라요.
+ 한 그루의 나무에서 일 년 동안 만들 수 있는 초콜릿은 약 <strong>1kg</strong> 정도예요.</div>
 
-  <div class="practice">
-    <h3>📝 초콜릿 종류와 과정 익히기</h3>
+ <div class="practice">
+ <h3>📝 초콜릿 종류와 과정 익히기</h3>
 
-    <div class="q"><div class="no">1</div>
-      <p>설명에 알맞은 초콜릿 이름을 써 봅시다.</p>
-      <p class="sub-q">① 우유 없이 쌉쌀한 맛이 강한 초콜릿 → (<span class="blank long"></span>)</p>
-      <p class="sub-q">② 아이보리(흰)색에 가까운 초콜릿 → (<span class="blank long"></span>)</p>
-      <p class="sub-q">③ 카카오·우유·설탕이 모두 들어가 가장 친근한 맛 → (<span class="blank long"></span>)</p>
-    </div>
+ <div class="q"><div class="no">1</div>
+ <p>설명에 알맞은 초콜릿 이름을 써 봅시다.</p>
+ <p class="sub-q">① 우유 없이 쌉쌀한 맛이 강한 초콜릿 → (<span class="blank long"></span>)</p>
+ <p class="sub-q">② 아이보리(흰)색에 가까운 초콜릿 → (<span class="blank long"></span>)</p>
+ <p class="sub-q">③ 카카오·우유·설탕이 모두 들어가 가장 친근한 맛 → (<span class="blank long"></span>)</p>
+ </div>
 
-    <div class="q"><div class="no">2</div>
-      <p>‘카카오에서 한 알 초콜릿까지’ 과정을 순서대로 써 봅시다.</p>
-      <div class="choice-box">수확, 발효·건조, 볶기, 갈기·섞기, 템퍼링, 모양·포장</div>
-      <p class="sub-q">( <span class="blank"></span> ) → ( <span class="blank"></span> ) → ( <span class="blank"></span> ) → ( <span class="blank"></span> ) → ( <span class="blank"></span> ) → ( <span class="blank"></span> )</p>
-    </div>
+ <div class="q"><div class="no">2</div>
+ <p>‘카카오에서 한 알 초콜릿까지’ 과정을 순서대로 써 봅시다.</p>
+ <div class="choice-box">수확, 발효·건조, 볶기, 갈기·섞기, 템퍼링, 모양·포장</div>
+ <p class="sub-q">( <span class="blank"></span> ) → ( <span class="blank"></span> ) → ( <span class="blank"></span> ) → ( <span class="blank"></span> ) → ( <span class="blank"></span> ) → ( <span class="blank"></span> )</p>
+ </div>
 
-    <div class="q"><div class="no">3</div>
-      <p>아래 글의 빈칸을 알맞은 말로 채워 봅시다.</p>
-      <div class="story" style="margin-top: 5px;">
-        <p>주은이는 오늘 처음으로 초콜릿을 직접 만들어 보았다. 카카오를 녹인 다음, 온도를 맞추어
-          <strong>(① <span class="blank"></span>)</strong> 작업을 했다. 그래야 초콜릿에 <strong>윤기</strong>가 난다고 셰프님이 말씀하셨다.
-          그다음 <strong>(② <span class="blank"></span>)</strong>에 부어 모양을 잡고, 식힌 뒤 포장지에 정성껏 쌌다.</p>
-      </div>
-    </div>
+ <div class="q"><div class="no">3</div>
+ <p>아래 글의 빈칸을 알맞은 말로 채워 봅시다.</p>
+ <div class="story" style="margin-top: 5px;">
+ <p>주은이는 오늘 처음으로 초콜릿을 직접 만들어 보았다. 카카오를 녹인 다음, 온도를 맞추어
+ <strong>(① <span class="blank"></span>)</strong> 작업을 했다. 그래야 초콜릿에 <strong>윤기</strong>가 난다고 셰프님이 말씀하셨다.
+ 그다음 <strong>(② <span class="blank"></span>)</strong>에 부어 모양을 잡고, 식힌 뒤 포장지에 정성껏 쌌다.</p>
+ </div>
+ </div>
 
-    <div class="q"><div class="no">4</div>
-      <p>내가 가장 만들어 보고 싶은 초콜릿은 무엇인가요?</p>
-      <p class="sub-q">→ 나는 <span class="blank long"></span> 초콜릿을 만들어 보고 싶다.</p>
-      <p class="sub-q">왜냐하면 <span class="blank long"></span></p>
-    </div>
-  </div>
+ <div class="q"><div class="no">4</div>
+ <p>내가 가장 만들어 보고 싶은 초콜릿은 무엇인가요?</p>
+ <p class="sub-q">→ 나는 <span class="blank long"></span> 초콜릿을 만들어 보고 싶다.</p>
+ <p class="sub-q">왜냐하면 <span class="blank long"></span></p>
+ </div>
+ </div>
 
-  <div class="page-no">— 4 —</div>
+ <div class="page-no">— 4 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 4. 매장에서 만나는 사람들 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">4</div>
-    <div class="ph-title">
-      <h2>매장에서 만나는 사람들 — 손님 응대와 협력</h2>
-      <p>손님께는 친절하게, 동료와는 함께!</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">4</div>
+ <div class="ph-title">
+ <h2>매장에서 만나는 사람들 — 손님 응대와 협력</h2>
+ <p>손님께는 친절하게, 동료와는 함께!</p>
+ </div>
+ </div>
 
-  <div class="story">
-    <p>오후 4시, 가게 문이 열리면 주은이는 매장 앞으로 나와요. 손님이 들어오시면 <strong>밝게 인사</strong>하고
-      어떤 초콜릿을 찾으시는지 <strong>이야기를 들어요</strong>. 잘 모르는 손님께는 <strong>설명</strong>해 드리고,
-      결정이 어려운 손님께는 <strong>추천</strong>해 드리지요. 매장은 혼자 일하는 곳이 아니라 <strong>동료와 협력</strong>하는 곳이랍니다.</p>
-  </div>
+ <div class="story">
+ <p>오후 4시, 가게 문이 열리면 주은이는 매장 앞으로 나와요. 손님이 들어오시면 <strong>밝게 인사</strong>하고
+ 어떤 초콜릿을 찾으시는지 <strong>이야기를 들어요</strong>. 잘 모르는 손님께는 <strong>설명</strong>해 드리고,
+ 결정이 어려운 손님께는 <strong>추천</strong>해 드리지요. 매장은 혼자 일하는 곳이 아니라 <strong>동료와 협력</strong>하는 곳이랍니다.</p>
+ </div>
 
-  <h3 class="section-h">🛍️ 손님 응대 — 3단계</h3>
-  <div class="steps3">
-    <div class="step3"><span class="lbl">맞이</span><strong>밝게 인사</strong>
-      <small>“어서 오세요!<br>찾는 초콜릿 있으세요?”</small></div>
-    <div class="step3"><span class="lbl">설명</span><strong>차분하게 설명</strong>
-      <small>“이건 다크 초콜릿이에요.<br>조금 쌉쌀해요.”</small></div>
-    <div class="step3"><span class="lbl">마무리</span><strong>감사 인사</strong>
-      <small>“감사합니다.<br>또 오세요!”</small></div>
-  </div>
+ <h3 class="section-h">🛍️ 손님 응대 — 3단계</h3>
+ <div class="steps3">
+ <div class="step3"><span class="lbl">맞이</span><strong>밝게 인사</strong>
+ <small>“어서 오세요!<br>찾는 초콜릿 있으세요?”</small></div>
+ <div class="step3"><span class="lbl">설명</span><strong>차분하게 설명</strong>
+ <small>“이건 다크 초콜릿이에요.<br>조금 쌉쌀해요.”</small></div>
+ <div class="step3"><span class="lbl">마무리</span><strong>감사 인사</strong>
+ <small>“감사합니다.<br>또 오세요!”</small></div>
+ </div>
 
-  <div class="dialogue">
-    <div class="turn"><span class="tag d5">예은 손님</span>
-      <div class="bubble">엄마 선물로 살 거예요. 어떤 게 좋을까요?</div></div>
-    <div class="turn right"><span class="tag d4">주은</span>
-      <div class="bubble">선물용으로는 <strong>봉봉 6개 세트</strong>가 인기예요. 리본도 무료로 묶어 드려요.</div></div>
-    <div class="turn"><span class="tag d5">예은 손님</span>
-      <div class="bubble">좋아요! 그걸로 할게요.</div></div>
-    <div class="turn right"><span class="tag d4">주은</span>
-      <div class="bubble">네, 감사합니다! 잠시만 기다려 주세요.</div></div>
-  </div>
+ <div class="dialogue">
+ <div class="turn"><span class="tag d5">예은 손님</span>
+ <div class="bubble">엄마 선물로 살 거예요. 어떤 게 좋을까요?</div></div>
+ <div class="turn right"><span class="tag d4">주은</span>
+ <div class="bubble">선물용으로는 <strong>봉봉 6개 세트</strong>가 인기예요. 리본도 무료로 묶어 드려요.</div></div>
+ <div class="turn"><span class="tag d5">예은 손님</span>
+ <div class="bubble">좋아요! 그걸로 할게요.</div></div>
+ <div class="turn right"><span class="tag d4">주은</span>
+ <div class="bubble">네, 감사합니다! 잠시만 기다려 주세요.</div></div>
+ </div>
 
-  <h3 class="section-h">🤝 동료와 협력하기</h3>
-  <div class="phrase-card"><strong>부탁할 때 ▶</strong> “채원아, 이 상자 좀 같이 옮겨 줄 수 있어?”</div>
-  <div class="phrase-card"><strong>거절할 때 ▶</strong> “미안, 지금은 가나슈 만드는 중이라 5분 뒤에 도와줘도 될까?”</div>
-  <div class="phrase-card"><strong>의견 말할 때 ▶</strong> “저는 포장지를 분홍색으로 바꾸면 좋을 것 같아요.”</div>
+ <h3 class="section-h">🤝 동료와 협력하기</h3>
+ <div class="phrase-card"><strong>부탁할 때 ▶</strong> “채원아, 이 상자 좀 같이 옮겨 줄 수 있어?”</div>
+ <div class="phrase-card"><strong>거절할 때 ▶</strong> “미안, 지금은 가나슈 만드는 중이라 5분 뒤에 도와줘도 될까?”</div>
+ <div class="phrase-card"><strong>의견 말할 때 ▶</strong> “저는 포장지를 분홍색으로 바꾸면 좋을 것 같아요.”</div>
 
-  <div class="practice">
-    <h3>📝 응대·협력 연습</h3>
+ <div class="practice">
+ <h3>📝 응대·협력 연습</h3>
 
-    <div class="q"><div class="no">1</div>
-      <p>상황에 알맞은 표현을 &lt;보기&gt;에서 골라 써 봅시다.</p>
-      <div class="choice-box">어서 오세요, 잠시만 기다려 주세요, 감사합니다, 또 오세요, 죄송합니다</div>
-      <p class="sub-q">① 손님이 가게 안으로 들어왔을 때 → “(<span class="blank long"></span>)”</p>
-      <p class="sub-q">② 손님이 계산을 마치고 나가실 때 → “(<span class="blank long"></span>)”</p>
-      <p class="sub-q">③ 원하신 초콜릿이 다 팔렸을 때 → “(<span class="blank long"></span>)”</p>
-    </div>
+ <div class="q"><div class="no">1</div>
+ <p>상황에 알맞은 표현을 &lt;보기&gt;에서 골라 써 봅시다.</p>
+ <div class="choice-box">어서 오세요, 잠시만 기다려 주세요, 감사합니다, 또 오세요, 죄송합니다</div>
+ <p class="sub-q">① 손님이 가게 안으로 들어왔을 때 → “(<span class="blank long"></span>)”</p>
+ <p class="sub-q">② 손님이 계산을 마치고 나가실 때 → “(<span class="blank long"></span>)”</p>
+ <p class="sub-q">③ 원하신 초콜릿이 다 팔렸을 때 → “(<span class="blank long"></span>)”</p>
+ </div>
 
-    <div class="q"><div class="no">2</div>
-      <p>한 문장으로 써 봅시다.</p>
-      <p class="sub-q">① 채원이가 도와주면 좋겠을 때 (부탁) → <span class="blank long"></span></p>
-      <p class="sub-q">② 지금은 바빠서 5분 뒤에 도와주고 싶을 때 (거절) → <span class="blank long"></span></p>
-      <p class="sub-q">③ 포장지를 새로 바꾸자고 셰프님께 말씀드릴 때 (의견) → <span class="blank long"></span></p>
-    </div>
+ <div class="q"><div class="no">2</div>
+ <p>한 문장으로 써 봅시다.</p>
+ <p class="sub-q">① 채원이가 도와주면 좋겠을 때 (부탁) → <span class="blank long"></span></p>
+ <p class="sub-q">② 지금은 바빠서 5분 뒤에 도와주고 싶을 때 (거절) → <span class="blank long"></span></p>
+ <p class="sub-q">③ 포장지를 새로 바꾸자고 셰프님께 말씀드릴 때 (의견) → <span class="blank long"></span></p>
+ </div>
 
-  </div>
+ </div>
 
-  <div class="page-no">— 5 —</div>
+ <div class="page-no">— 5 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 5. 삼각산고등학교 쇼콜라띠에 실습 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">5</div>
-    <div class="ph-title">
-      <h2>삼각산고등학교 쇼콜라띠에 실습</h2>
-      <p>배운 것을 직접 손으로 만들어 보아요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">5</div>
+ <div class="ph-title">
+ <h2>삼각산고등학교 쇼콜라띠에 실습</h2>
+ <p>배운 것을 직접 손으로 만들어 보아요.</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>우리는 곧 <strong>삼각산고등학교</strong>로 가서 <strong>쇼콜라띠에 체험 실습</strong>을 해요.
-      교실에서 배운 어휘와 과정을 직접 손으로 만들어 보고, 친구·선생님과 함께 정성껏 초콜릿을 만들어 볼 거예요.</p>
-  </div>
+ <div class="scene">
+ <p>우리는 곧 <strong>삼각산고등학교</strong>로 가서 <strong>쇼콜라띠에 체험 실습</strong>을 해요.
+ 교실에서 배운 어휘와 과정을 직접 손으로 만들어 보고, 친구·선생님과 함께 정성껏 초콜릿을 만들어 볼 거예요.</p>
+ </div>
 
-  <h3 class="section-h">📅 실습 안내</h3>
-  <table class="tbl">
-    <tr><th style="width: 18%;">구분</th><th>내용</th></tr>
-    <tr><td>장소</td><td><strong>삼각산고등학교</strong> 교실</td></tr>
-    <tr><td>날짜·시간</td><td>(    년    월    일) 오전 8시 ~ 11시 (3시간)</td></tr>
-    <tr><td>가는 길</td><td>학교 → 대중교통 이용 → 삼각산고 정문 → 교실 이동</td></tr>
-    <tr><td>준비물</td><td>앞치마, 머리 묶기, 손 닦을 수건, 학습지, 필기도구</td></tr>
-    <tr><td>복장</td><td>생활복 · 운동화 · 머리는 단정히 묶기</td></tr>
-    <tr><td>지도 선생님</td><td>삼각산고 특수 선생님 · 우리 학교 담임 선생님</td></tr>
-  </table>
+ <h3 class="section-h">📅 실습 안내</h3>
+ <table class="tbl">
+ <tr><th style="width: 18%;">구분</th><th>내용</th></tr>
+ <tr><td>장소</td><td><strong>삼각산고등학교</strong> 교실</td></tr>
+ <tr><td>날짜·시간</td><td>( 년 월 일) 오전 8시 ~ 11시 (3시간)</td></tr>
+ <tr><td>가는 길</td><td>학교 → 대중교통 이용 → 삼각산고 정문 → 교실 이동</td></tr>
+ <tr><td>준비물</td><td>앞치마, 머리 묶기, 손 닦을 수건, 학습지, 필기도구</td></tr>
+ <tr><td>복장</td><td>생활복 · 운동화 · 머리는 단정히 묶기</td></tr>
+ <tr><td>지도 선생님</td><td>삼각산고 특수 선생님 · 우리 학교 담임 선생님</td></tr>
+ </table>
 
-  <h3 class="section-h">🍫 실습 활동 — 4단계</h3>
-  <div class="steps3 s4">
-    <div class="step3"><span class="lbl">1단계</span><strong>오리엔테이션</strong><small>인사·안전 교육<br>시연 보기 (30분)</small></div>
-    <div class="step3"><span class="lbl">2단계</span><strong>직접 만들기</strong><small>가나슈·트러플<br>봉봉 만들기 (90분)</small></div>
-    <div class="step3"><span class="lbl">3단계</span><strong>장식·포장</strong><small>리본·상자<br>꾸미기 (30분)</small></div>
-    <div class="step3"><span class="lbl">4단계</span><strong>나누기·소감</strong><small>친구와 나누고<br>한 마디 (30분)</small></div>
-  </div>
+ <h3 class="section-h">🍫 실습 활동 — 4단계</h3>
+ <div class="steps3 s4">
+ <div class="step3"><span class="lbl">1단계</span><strong>오리엔테이션</strong><small>인사·안전 교육<br>시연 보기 (30분)</small></div>
+ <div class="step3"><span class="lbl">2단계</span><strong>직접 만들기</strong><small>가나슈·트러플<br>봉봉 만들기 (90분)</small></div>
+ <div class="step3"><span class="lbl">3단계</span><strong>장식·포장</strong><small>리본·상자<br>꾸미기 (30분)</small></div>
+ <div class="step3"><span class="lbl">4단계</span><strong>나누기·소감</strong><small>친구와 나누고<br>한 마디 (30분)</small></div>
+ </div>
 
-  <h3 class="section-h">⚠️ 꼭 지킬 안전·위생 약속</h3>
-  <div class="rule-grid">
-    <div class="rule"><div class="icon">🧼</div><strong>손 씻기</strong><small>실습 전 반드시</small></div>
-    <div class="rule"><div class="icon">🔥</div><strong>뜨거운 도구</strong><small>장갑 없이 만지지 않기</small></div>
-    <div class="rule"><div class="icon">🤲</div><strong>먹지 않기</strong><small>완성 전엔 맛보지 않기</small></div>
-    <div class="rule"><div class="icon">👂</div><strong>잘 듣기</strong><small>선생님 말씀 끝까지</small></div>
-    <div class="rule"><div class="icon">🚶</div><strong>천천히</strong><small>교실에선 뛰지 않기</small></div>
-    <div class="rule"><div class="icon">🧹</div><strong>정리</strong><small>쓴 도구는 제자리에</small></div>
-  </div>
+ <h3 class="section-h">⚠️ 꼭 지킬 안전·위생 약속</h3>
+ <div class="rule-grid">
+ <div class="rule"><div class="icon">🧼</div><strong>손 씻기</strong><small>실습 전 반드시</small></div>
+ <div class="rule"><div class="icon">🔥</div><strong>뜨거운 도구</strong><small>장갑 없이 만지지 않기</small></div>
+ <div class="rule"><div class="icon">🤲</div><strong>먹지 않기</strong><small>완성 전엔 맛보지 않기</small></div>
+ <div class="rule"><div class="icon">👂</div><strong>잘 듣기</strong><small>선생님 말씀 끝까지</small></div>
+ <div class="rule"><div class="icon">🚶</div><strong>천천히</strong><small>교실에선 뛰지 않기</small></div>
+ <div class="rule"><div class="icon">🧹</div><strong>정리</strong><small>쓴 도구는 제자리에</small></div>
+ </div>
 
-  <div class="warm"><span class="tip-title">💗 삼각산고 선생님·선배께 드리는 약속</span>
-    선생님과 선배님 말씀을 잘 듣고, 도구를 정성껏 다루며, 친구와 협력해서 만들겠습니다.
-    실습이 끝나면 <strong>정리·인사</strong>까지 빠뜨리지 않을게요.</div>
+ <div class="warm"><span class="tip-title">💗 삼각산고 선생님·선배께 드리는 약속</span>
+ 선생님과 선배님 말씀을 잘 듣고, 도구를 정성껏 다루며, 친구와 협력해서 만들겠습니다.
+ 실습이 끝나면 <strong>정리·인사</strong>까지 빠뜨리지 않을게요.</div>
 
-  <div class="practice">
-    <h3>📝 실습 워크북</h3>
+ <div class="practice">
+ <h3>📝 실습 워크북</h3>
 
-    <div class="q"><div class="no">1</div>
-      <p>실습 가기 전, 내 준비물을 점검해 봅시다. (가져왔으면 ✓)</p>
-      <p class="sub-q">□ 앞치마 &nbsp; □ 머리 묶기 &nbsp; □ 수건 &nbsp; □ 학습지 &nbsp; □ 필기도구 &nbsp; □ 생활복</p>
-    </div>
+ <div class="q"><div class="no">1</div>
+ <p>실습 가기 전, 내 준비물을 점검해 봅시다. (가져왔으면 ✓)</p>
+ <p class="sub-q">□ 앞치마 &nbsp; □ 머리 묶기 &nbsp; □ 수건 &nbsp; □ 학습지 &nbsp; □ 필기도구 &nbsp; □ 생활복</p>
+ </div>
 
-    <div class="q"><div class="no">2</div>
-      <p>오리엔테이션을 들으며 <strong>가장 인상 깊었던 말</strong>을 적어 봅시다.</p>
-      <div class="lines"></div>
-    </div>
+ <div class="q"><div class="no">2</div>
+ <p>오리엔테이션을 들으며 <strong>가장 인상 깊었던 말</strong>을 적어 봅시다.</p>
+ <div class="lines"></div>
+ </div>
 
-    <div class="q"><div class="no">3</div>
-      <p>내가 만들 초콜릿을 미리 계획해 봅시다.</p>
-      <p class="sub-q">▶ 종류 (다크 / 밀크 / 화이트): <span class="blank long"></span></p>
-      <p class="sub-q">▶ 모양 (예: 동그란 트러플, 하트 봉봉): <span class="blank long"></span></p>
-      <p class="sub-q">▶ 누구에게 줄까요?: <span class="blank long"></span></p>
-    </div>
+ <div class="q"><div class="no">3</div>
+ <p>내가 만들 초콜릿을 미리 계획해 봅시다.</p>
+ <p class="sub-q">▶ 종류 (다크 / 밀크 / 화이트): <span class="blank long"></span></p>
+ <p class="sub-q">▶ 모양 (예: 동그란 트러플, 하트 봉봉): <span class="blank long"></span></p>
+ <p class="sub-q">▶ 누구에게 줄까요?: <span class="blank long"></span></p>
+ </div>
 
-  </div>
+ </div>
 
-  <div class="page-no">— 6 —</div>
+ <div class="page-no">— 6 —</div>
 </section>
 
 </body>

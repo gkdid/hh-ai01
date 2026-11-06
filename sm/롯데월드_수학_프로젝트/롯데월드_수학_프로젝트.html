@@ -9,8 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
 <style>
 /* ==========================================================
-   학습지 공용 스타일 — A4 인쇄 / 화면 겸용
-   (국어 사회성 학습지 · 롯데월드 수학 학습지 공용)
+ 학습지 공용 스타일 — A4 인쇄 / 화면 겸용
+ (국어 사회성 학습지 · 롯데월드 수학 학습지 공용)
 ========================================================== */
 
 /* 용지 크기·여백을 브라우저 인쇄 대화상자 수준에서 확정 */
@@ -18,113 +18,113 @@
 
 * { box-sizing: border-box; }
 html {
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
-  color-adjust: exact;
+ -webkit-print-color-adjust: exact;
+ print-color-adjust: exact;
+ color-adjust: exact;
 }
 body {
-  margin: 0;
-  background: #eceff1;
-  color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  font-size: 12pt;
-  line-height: 1.65;
+ margin: 0;
+ background: #eceff1;
+ color: #1f2d3d;
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+ font-size: 12pt;
+ line-height: 1.65;
 }
 
 /* ===== 상단 인쇄 툴바 ===== */
 .toolbar {
-  position: sticky; top: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px;
-  background: #263238; color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+ position: sticky; top: 0; z-index: 50;
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 10px 18px;
+ background: #263238; color: #fff;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar .muted.small { font-size: 0.78em; }
 .toolbar button {
-  background: #ffca28; color: #263238; border: none;
-  font: inherit; font-weight: 700;
-  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+ background: #ffca28; color: #263238; border: none;
+ font: inherit; font-weight: 700;
+ padding: 8px 18px; border-radius: 6px; cursor: pointer;
 }
 .toolbar button:hover { background: #ffd54f; }
 
 /* ===== A4 페이지 ===== */
 .page {
-  width: 210mm;
-  min-height: 297mm;
-  margin: 14mm auto;
-  padding: 16mm 18mm;
-  background: #fff;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  position: relative;
-  page-break-after: always;
+ width: 210mm;
+ min-height: 297mm;
+ margin: 14mm auto;
+ padding: 16mm 18mm;
+ background: #fff;
+ box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+ position: relative;
+ page-break-after: always;
 }
 .page:last-of-type { page-break-after: auto; }
 
 /* ===== 표지 ===== */
 .page.cover {
-  padding: 22mm 20mm;
-  background: linear-gradient(135deg, #fff 0%, #fff8f2 100%);
+ padding: 22mm 20mm;
+ background: linear-gradient(135deg, #fff 0%, #fff8f2 100%);
 }
 .cover-top {
-  display: flex; justify-content: space-between;
-  font-size: 0.9em; color: #607d8b;
-  border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 26px;
+ display: flex; justify-content: space-between;
+ font-size: 0.9em; color: #607d8b;
+ border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 26px;
 }
 .cover-top .subject { font-weight: 700; color: #ef6c00; }
 .cover-main { text-align: center; padding: 40px 0 30px; }
 .cover-main .big-num {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 130px; height: 130px;
-  background: #ff8a65; color: #fff;
-  font-family: 'Noto Serif KR', serif;
-  font-size: 4.6em; font-weight: 700;
-  border-radius: 50%;
-  box-shadow: 0 6px 18px rgba(255,138,101,0.4);
-  margin-bottom: 22px;
+ display: inline-flex; align-items: center; justify-content: center;
+ width: 130px; height: 130px;
+ background: #ff8a65; color: #fff;
+ font-family: 'Noto Serif KR', serif;
+ font-size: 4.6em; font-weight: 700;
+ border-radius: 50%;
+ box-shadow: 0 6px 18px rgba(255,138,101,0.4);
+ margin-bottom: 22px;
 }
 .cover-main h1 {
-  margin: 0; font-size: 2.6em; letter-spacing: -1.5px;
-  color: #263238; font-weight: 900;
+ margin: 0; font-size: 2.6em; letter-spacing: -1.5px;
+ color: #263238; font-weight: 900;
 }
 .cover-main .lead {
-  margin: 10px 0 0; font-size: 1.1em; color: #546e7a; font-weight: 500;
+ margin: 10px 0 0; font-size: 1.1em; color: #546e7a; font-weight: 500;
 }
 .name-box {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 8px; margin: 28px 0;
+ display: grid; grid-template-columns: repeat(4, 1fr);
+ gap: 8px; margin: 28px 0;
 }
 .name-cell {
-  border: 1.5px solid #90a4ae; border-radius: 8px;
-  padding: 10px 12px;
+ border: 1.5px solid #90a4ae; border-radius: 8px;
+ padding: 10px 12px;
 }
 .name-cell span { display: block; font-size: 0.78em; color: #546e7a; font-weight: 500; }
 .name-cell em { display: block; min-height: 28px; font-style: normal; }
 
 .goal, .cast, .toc, .overview {
-  border: 2px solid #ffd3b6; border-radius: 10px;
-  padding: 16px 20px; margin-top: 18px;
-  background: #fffaf4;
+ border: 2px solid #ffd3b6; border-radius: 10px;
+ padding: 16px 20px; margin-top: 18px;
+ background: #fffaf4;
 }
 .goal h2, .cast h2, .toc h2, .overview h2 {
-  margin: 0 0 10px; font-size: 1.12em; color: #e65100;
-  border-bottom: 1px dashed #ffab91; padding-bottom: 6px;
+ margin: 0 0 10px; font-size: 1.12em; color: #e65100;
+ border-bottom: 1px dashed #ffab91; padding-bottom: 6px;
 }
 .goal ul { margin: 6px 0 0; padding-left: 20px; }
 .goal li { padding: 3px 0; }
 
 .cast-grid {
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;
+ display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;
 }
 .person {
-  display: flex; align-items: center; gap: 8px;
-  padding: 8px 10px;
-  background: #fff; border: 1px solid #eee; border-radius: 8px;
-  font-weight: 700; color: #37474f;
+ display: flex; align-items: center; gap: 8px;
+ padding: 8px 10px;
+ background: #fff; border: 1px solid #eee; border-radius: 8px;
+ font-weight: 700; color: #37474f;
 }
 .dot {
-  display: inline-block; width: 14px; height: 14px; border-radius: 50%;
-  flex-shrink: 0;
+ display: inline-block; width: 14px; height: 14px; border-radius: 50%;
+ flex-shrink: 0;
 }
 .d1 { background: #FF6B6B; } /* 채원 */
 .d2 { background: #4ECDC4; } /* 하은 */
@@ -138,47 +138,47 @@ body {
 
 /* ===== 쪽 머리 ===== */
 .ph {
-  display: flex; align-items: center; gap: 16px;
-  border-bottom: 3px solid #263238; padding-bottom: 12px; margin-bottom: 20px;
+ display: flex; align-items: center; gap: 16px;
+ border-bottom: 3px solid #263238; padding-bottom: 12px; margin-bottom: 20px;
 }
 .ph-num {
-  flex-shrink: 0;
-  width: 60px; height: 60px;
-  background: #263238; color: #ffca28;
-  font-family: 'Noto Serif KR', serif;
-  font-size: 1.9em; font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  border-radius: 10px;
+ flex-shrink: 0;
+ width: 60px; height: 60px;
+ background: #263238; color: #ffca28;
+ font-family: 'Noto Serif KR', serif;
+ font-size: 1.9em; font-weight: 700;
+ display: flex; align-items: center; justify-content: center;
+ border-radius: 10px;
 }
 .ph-title h2 { margin: 0; font-size: 1.7em; color: #263238; }
 .ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.98em; }
 
 /* ===== 이야기 상자 (scene) ===== */
 .scene {
-  background: #fff8e1;
-  border-left: 6px solid #ffb300;
-  border-radius: 6px;
-  padding: 14px 18px;
-  margin-bottom: 18px;
+ background: #fff8e1;
+ border-left: 6px solid #ffb300;
+ border-radius: 6px;
+ padding: 14px 18px;
+ margin-bottom: 18px;
 }
 .scene p { margin: 0; }
 
 /* ===== 대화 (dialogue) ===== */
 .dialogue {
-  background: #f5f5f5; border-radius: 12px; padding: 14px;
-  margin: 10px 0 20px;
+ background: #f5f5f5; border-radius: 12px; padding: 14px;
+ margin: 10px 0 20px;
 }
 .turn {
-  display: flex; align-items: flex-start; gap: 10px; margin: 8px 0;
+ display: flex; align-items: flex-start; gap: 10px; margin: 8px 0;
 }
 .turn.right { flex-direction: row-reverse; }
 .tag {
-  flex-shrink: 0;
-  min-width: 54px;
-  padding: 6px 10px;
-  background: #cfd8dc; color: #263238;
-  border-radius: 20px;
-  font-weight: 700; font-size: 0.9em; text-align: center;
+ flex-shrink: 0;
+ min-width: 54px;
+ padding: 6px 10px;
+ background: #cfd8dc; color: #263238;
+ border-radius: 20px;
+ font-weight: 700; font-size: 0.9em; text-align: center;
 }
 .tag.d1 { background: #FFCDD2; }
 .tag.d2 { background: #B2EBF2; }
@@ -187,36 +187,36 @@ body {
 .tag.d5 { background: #C8E6C9; }
 .tag.d6 { background: #F8BBD0; }
 .bubble {
-  background: #fff;
-  padding: 10px 14px;
-  border: 1.5px solid #cfd8dc;
-  border-radius: 14px;
-  max-width: 80%;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+ background: #fff;
+ padding: 10px 14px;
+ border: 1.5px solid #cfd8dc;
+ border-radius: 14px;
+ max-width: 80%;
+ box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 .turn.right .bubble { background: #e3f2fd; border-color: #bbdefb; }
 
 /* ===== 연습 문제 ===== */
 .practice h3 {
-  display: inline-block;
-  background: #ffca28; color: #263238;
-  padding: 4px 14px; border-radius: 16px;
-  font-size: 1.05em; margin: 10px 0 14px;
+ display: inline-block;
+ background: #ffca28; color: #263238;
+ padding: 4px 14px; border-radius: 16px;
+ font-size: 1.05em; margin: 10px 0 14px;
 }
 .q {
-  position: relative;
-  padding-left: 46px;
-  margin-bottom: 18px; padding-bottom: 14px;
-  border-bottom: 1px dashed #cfd8dc;
+ position: relative;
+ padding-left: 46px;
+ margin-bottom: 18px; padding-bottom: 14px;
+ border-bottom: 1px dashed #cfd8dc;
 }
 .q:last-child { border-bottom: none; }
 .q .no {
-  position: absolute; left: 0; top: 0;
-  width: 32px; height: 32px;
-  background: #263238; color: #fff;
-  border-radius: 50%;
-  font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
+ position: absolute; left: 0; top: 0;
+ width: 32px; height: 32px;
+ background: #263238; color: #fff;
+ border-radius: 50%;
+ font-weight: 700;
+ display: flex; align-items: center; justify-content: center;
 }
 .q p { margin: 0 0 8px; }
 .q .sub-q { margin-top: 10px; font-weight: 500; color: #455a64; }
@@ -225,48 +225,48 @@ body {
 .lines { margin: 4px 0; }
 .lines::before { content: ""; display: block; }
 .lines, .lines.two, .lines.three, .lines.four {
-  background-image: repeating-linear-gradient(
-    to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px
-  );
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px
+ );
 }
 .lines.two { height: 68px; }
 .lines.three { height: 102px; }
 .lines.four { height: 136px; }
 .lines { height: 34px; }
 .line {
-  border-bottom: 1.5px solid #90a4ae;
-  height: 28px; margin: 4px 0 10px;
+ border-bottom: 1.5px solid #90a4ae;
+ height: 28px; margin: 4px 0 10px;
 }
 
 /* ===== 카드/칩 ===== */
 .situ-card {
-  background: #eceff1; border-radius: 10px;
-  padding: 12px 16px;
+ background: #eceff1; border-radius: 10px;
+ padding: 12px 16px;
 }
 .situ-card > div:not(.line) { margin-top: 6px; font-weight: 500; }
 
 .chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0; }
 .chip {
-  display: inline-block;
-  background: #fff; border: 1.5px solid #90a4ae;
-  padding: 6px 14px; border-radius: 18px;
-  font-size: 0.95em;
+ display: inline-block;
+ background: #fff; border: 1.5px solid #90a4ae;
+ padding: 6px 14px; border-radius: 18px;
+ font-size: 0.95em;
 }
 
 .check-list { list-style: none; padding: 0; margin: 0; }
 .check-list li { padding: 4px 0; }
 .check-list.two-col {
-  display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px;
+ display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px;
 }
 
 /* ===== 각종 표 ===== */
 table {
-  width: 100%; border-collapse: collapse; margin: 6px 0;
+ width: 100%; border-collapse: collapse; margin: 6px 0;
 }
 th, td {
-  border: 1.5px solid #90a4ae;
-  padding: 9px 10px; text-align: center;
-  vertical-align: middle;
+ border: 1.5px solid #90a4ae;
+ padding: 9px 10px; text-align: center;
+ vertical-align: middle;
 }
 th { background: #eceff1; font-weight: 700; color: #263238; }
 td.left, th.left { text-align: left; }
@@ -276,43 +276,43 @@ td.left, th.left { text-align: left; }
 .judge-table th:nth-child(2), .judge-table th:nth-child(3) { width: 18%; }
 
 .emo-row {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 8px; margin: 4px 0 10px;
+ display: grid; grid-template-columns: repeat(4, 1fr);
+ gap: 8px; margin: 4px 0 10px;
 }
 .emo-row span {
-  text-align: center;
-  background: #fff3e0; border: 1.5px solid #ffcc80;
-  padding: 8px; border-radius: 20px;
-  font-weight: 500;
+ text-align: center;
+ background: #fff3e0; border: 1.5px solid #ffcc80;
+ padding: 8px; border-radius: 20px;
+ font-weight: 500;
 }
 
 .order-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-  margin: 6px 0;
+ display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+ margin: 6px 0;
 }
 .step {
-  background: #e0f2f1; border-left: 4px solid #26a69a;
-  padding: 8px 12px; border-radius: 4px;
+ background: #e0f2f1; border-left: 4px solid #26a69a;
+ padding: 8px 12px; border-radius: 4px;
 }
 .order-line {
-  margin-top: 10px; font-weight: 500;
-  background: #fffde7; padding: 8px 12px; border-radius: 4px;
-  letter-spacing: 1px;
+ margin-top: 10px; font-weight: 500;
+ background: #fffde7; padding: 8px 12px; border-radius: 4px;
+ letter-spacing: 1px;
 }
 
 .blank {
-  display: inline-block;
-  border-bottom: 1.5px solid #263238;
-  min-width: 80px; height: 22px;
-  vertical-align: baseline;
+ display: inline-block;
+ border-bottom: 1.5px solid #263238;
+ min-width: 80px; height: 22px;
+ vertical-align: baseline;
 }
 .blank.long { min-width: 260px; }
 .request-box {
-  background: #e3f2fd; border-radius: 8px; padding: 12px 16px;
+ background: #e3f2fd; border-radius: 8px; padding: 12px 16px;
 }
 
 /* ==========================================================
-   수학 학습지 전용 스타일 (롯데월드)
+ 수학 학습지 전용 스타일 (롯데월드)
 ========================================================== */
 
 /* 가격표 */
@@ -321,99 +321,99 @@ td.left, th.left { text-align: left; }
 
 /* 계산식 */
 .formula {
-  background: #fffde7;
-  border: 1.5px dashed #fbc02d;
-  border-radius: 8px;
-  padding: 12px 18px;
-  text-align: center;
-  font-size: 1.18em;
-  margin: 10px 0;
-  font-weight: 500;
+ background: #fffde7;
+ border: 1.5px dashed #fbc02d;
+ border-radius: 8px;
+ padding: 12px 18px;
+ text-align: center;
+ font-size: 1.18em;
+ margin: 10px 0;
+ font-weight: 500;
 }
 .formula .eq { margin: 0 6px; }
 
 /* 빈칸 (답 쓰는 네모 상자) */
 .box {
-  display: inline-block;
-  min-width: 70px; height: 30px;
-  border: 2px solid #263238;
-  background: #fff;
-  border-radius: 4px;
-  vertical-align: middle;
-  margin: 0 3px;
+ display: inline-block;
+ min-width: 70px; height: 30px;
+ border: 2px solid #263238;
+ background: #fff;
+ border-radius: 4px;
+ vertical-align: middle;
+ margin: 0 3px;
 }
 .box.wide { min-width: 120px; }
 .box.xwide { min-width: 180px; }
 
 /* 답 라인 (~~~원 형식) */
 .ans-line {
-  display: inline-block;
-  border-bottom: 2px solid #263238;
-  min-width: 120px; height: 24px;
-  vertical-align: baseline;
-  margin: 0 4px;
+ display: inline-block;
+ border-bottom: 2px solid #263238;
+ min-width: 120px; height: 24px;
+ vertical-align: baseline;
+ margin: 0 4px;
 }
 
 /* 답 마무리 문장 */
 .answer-final {
-  margin-top: 10px; font-weight: 700; color: #2e7d32;
-  background: #e8f5e9; padding: 8px 14px; border-radius: 6px;
-  display: inline-block;
+ margin-top: 10px; font-weight: 700; color: #2e7d32;
+ background: #e8f5e9; padding: 8px 14px; border-radius: 6px;
+ display: inline-block;
 }
 
 /* 메뉴판 */
 .menu-board {
-  border: 3px double #e65100;
-  border-radius: 12px;
-  padding: 14px 18px;
-  margin: 10px 0;
-  background: #fff8f2;
+ border: 3px double #e65100;
+ border-radius: 12px;
+ padding: 14px 18px;
+ margin: 10px 0;
+ background: #fff8f2;
 }
 .menu-board h4 {
-  text-align: center; margin: 0 0 8px;
-  color: #e65100; font-size: 1.3em;
+ text-align: center; margin: 0 0 8px;
+ color: #e65100; font-size: 1.3em;
 }
 
 /* 선택 라디오(적다/많다) */
 .choice { margin-left: 8px; }
 .choice span {
-  display: inline-block; margin: 0 4px;
-  padding: 2px 12px;
-  border: 1.5px solid #90a4ae; border-radius: 16px;
-  font-size: 0.95em;
+ display: inline-block; margin: 0 4px;
+ padding: 2px 12px;
+ border: 1.5px solid #90a4ae; border-radius: 16px;
+ font-size: 0.95em;
 }
 
 /* 도움말(알아봅시다) */
 .tip {
-  background: #e3f2fd;
-  border-left: 5px solid #1e88e5;
-  border-radius: 6px;
-  padding: 12px 16px;
-  margin: 12px 0;
+ background: #e3f2fd;
+ border-left: 5px solid #1e88e5;
+ border-radius: 6px;
+ padding: 12px 16px;
+ margin: 12px 0;
 }
 .tip .tip-title {
-  display: block; font-weight: 700; color: #0d47a1; margin-bottom: 4px;
+ display: block; font-weight: 700; color: #0d47a1; margin-bottom: 4px;
 }
 
 /* 자기 평가 */
 .self-check {
-  background: #f1f8e9; border: 1.5px solid #aed581;
-  border-radius: 8px; padding: 14px 18px; margin-top: 18px;
+ background: #f1f8e9; border: 1.5px solid #aed581;
+ border-radius: 8px; padding: 14px 18px; margin-top: 18px;
 }
 .self-check h4 {
-  margin: 0 0 8px; color: #33691e;
+ margin: 0 0 8px; color: #33691e;
 }
 .self-check label {
-  display: block; padding: 3px 0;
+ display: block; padding: 3px 0;
 }
 .self-check input[type=checkbox] {
-  margin-right: 8px; width: 16px; height: 16px;
-  accent-color: #7cb342; vertical-align: middle;
+ margin-right: 8px; width: 16px; height: 16px;
+ accent-color: #7cb342; vertical-align: middle;
 }
 
 /* 정답지 페이지 */
 .answer-page {
-  background: #f1f8e9;
+ background: #f1f8e9;
 }
 .answer-page .ph { border-bottom-color: #558b2f; }
 .answer-page .ph-num { background: #558b2f; color: #fff; }
@@ -423,128 +423,128 @@ td.left, th.left { text-align: left; }
 
 /* 쪽번호 */
 .page-no {
-  position: absolute; bottom: 8mm; right: 18mm;
-  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
+ position: absolute; bottom: 8mm; right: 18mm;
+ color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
 }
 
 /* ===== 인쇄 ===== */
 /* ==========================================================
-   인쇄 — "한 쪽 = A4 한 장" 강제 모드
-   · @page 여백을 0으로 두고 .page padding으로 여백 제어
-   · 각 .page 를 정확히 A4 한 장 크기로 고정하고
-     내용이 넘치지 않도록 폰트/간격을 축소
+ 인쇄 — "한 쪽 = A4 한 장" 강제 모드
+ · @page 여백을 0으로 두고 .page padding으로 여백 제어
+ · 각 .page 를 정확히 A4 한 장 크기로 고정하고
+ 내용이 넘치지 않도록 폰트/간격을 축소
 ========================================================== */
 @media print {
-  @page { size: A4 portrait; margin: 0; }
+ @page { size: A4 portrait; margin: 0; }
 
-  html, body {
-    background: #fff !important;
-    margin: 0; padding: 0;
-    font-size: 10pt;
-    line-height: 1.38;
-  }
-  .toolbar, .no-print { display: none !important; }
+ html, body {
+ background: #fff !important;
+ margin: 0; padding: 0;
+ font-size: 10pt;
+ line-height: 1.38;
+ }
+ .toolbar, .no-print { display: none !important; }
 
-  /* 각 섹션을 정확히 A4 한 장에 고정 */
-  .page {
-    width: 210mm;
-    min-height: 297mm;
-    margin: 0 !important;
-    padding: 10mm 13mm;
-    box-shadow: none;
-    border: none;
-    page-break-after: always;
-    break-after: page;
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-  .page:last-of-type { page-break-after: auto; }
+ /* 각 섹션을 정확히 A4 한 장에 고정 */
+ .page {
+ width: 210mm;
+ min-height: 297mm;
+ margin: 0 !important;
+ padding: 10mm 13mm;
+ box-shadow: none;
+ border: none;
+ page-break-after: always;
+ break-after: page;
+ page-break-inside: avoid;
+ break-inside: avoid;
+ }
+ .page:last-of-type { page-break-after: auto; }
 
-  /* 내부 블록은 쪽 중간에서 끊지 않도록 */
-  .q, .scene, .tip, .situ-card, .formula, .menu-board,
-  .dialogue, .turn, .self-check, .name-box, .goal, .cast,
-  .toc, .overview, .ph, .chip-group, .request-box, .order-grid,
-  tr {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
-  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+ /* 내부 블록은 쪽 중간에서 끊지 않도록 */
+ .q, .scene, .tip, .situ-card, .formula, .menu-board,
+ .dialogue, .turn, .self-check, .name-box, .goal, .cast,
+ .toc, .overview, .ph, .chip-group, .request-box, .order-grid,
+ tr {
+ page-break-inside: avoid !important;
+ break-inside: avoid !important;
+ }
+ h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
 
-  /* ----- 간격·폰트 압축 ----- */
-  h1 { font-size: 2em; margin: 0; }
-  h2 { font-size: 1.35em; margin: 0 0 4px; }
-  h3 { font-size: 1.05em; margin: 8px 0 4px; padding: 3px 10px; }
-  h4 { font-size: 1em; margin: 4px 0 2px; }
-  p  { margin: 0 0 4px; }
-  ul, ol { margin: 4px 0; }
-  li { padding: 1px 0; }
+ /* ----- 간격·폰트 압축 ----- */
+ h1 { font-size: 2em; margin: 0; }
+ h2 { font-size: 1.35em; margin: 0 0 4px; }
+ h3 { font-size: 1.05em; margin: 8px 0 4px; padding: 3px 10px; }
+ h4 { font-size: 1em; margin: 4px 0 2px; }
+ p { margin: 0 0 4px; }
+ ul, ol { margin: 4px 0; }
+ li { padding: 1px 0; }
 
-  /* 표지 */
-  .page.cover { padding: 16mm 16mm; }
-  .cover-top { padding-bottom: 6px; margin-bottom: 14px; }
-  .cover-main { padding: 12px 0 8px; }
-  .cover-main .big-num {
-    width: 92px; height: 92px; font-size: 3.6em; margin-bottom: 12px;
-  }
-  .cover-main h1 { font-size: 2em; }
-  .cover-main .lead { font-size: 0.95em; margin-top: 4px; }
-  .name-box { margin: 14px 0; gap: 6px; }
-  .name-cell { padding: 6px 8px; }
-  .name-cell em { min-height: 18px; }
-  .goal, .cast, .toc, .overview { padding: 10px 12px; margin-top: 10px; }
-  .goal h2, .cast h2, .toc h2, .overview h2 { font-size: 1em; margin-bottom: 6px; }
+ /* 표지 */
+ .page.cover { padding: 16mm 16mm; }
+ .cover-top { padding-bottom: 6px; margin-bottom: 14px; }
+ .cover-main { padding: 12px 0 8px; }
+ .cover-main .big-num {
+ width: 92px; height: 92px; font-size: 3.6em; margin-bottom: 12px;
+ }
+ .cover-main h1 { font-size: 2em; }
+ .cover-main .lead { font-size: 0.95em; margin-top: 4px; }
+ .name-box { margin: 14px 0; gap: 6px; }
+ .name-cell { padding: 6px 8px; }
+ .name-cell em { min-height: 18px; }
+ .goal, .cast, .toc, .overview { padding: 10px 12px; margin-top: 10px; }
+ .goal h2, .cast h2, .toc h2, .overview h2 { font-size: 1em; margin-bottom: 6px; }
 
-  /* 쪽 머리 */
-  .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
-  .ph-num { width: 46px; height: 46px; font-size: 1.45em; border-radius: 8px; }
-  .ph-title h2 { font-size: 1.3em; }
-  .ph-title p { font-size: 0.9em; }
+ /* 쪽 머리 */
+ .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
+ .ph-num { width: 46px; height: 46px; font-size: 1.45em; border-radius: 8px; }
+ .ph-title h2 { font-size: 1.3em; }
+ .ph-title p { font-size: 0.9em; }
 
-  /* 이야기/도움말/메뉴판 */
-  .scene { padding: 8px 12px; margin-bottom: 8px; }
-  .tip { padding: 8px 12px; margin: 6px 0; }
-  .menu-board { padding: 8px 12px; margin: 6px 0; }
-  .menu-board h4 { font-size: 1.05em; margin: 0 0 4px; }
+ /* 이야기/도움말/메뉴판 */
+ .scene { padding: 8px 12px; margin-bottom: 8px; }
+ .tip { padding: 8px 12px; margin: 6px 0; }
+ .menu-board { padding: 8px 12px; margin: 6px 0; }
+ .menu-board h4 { font-size: 1.05em; margin: 0 0 4px; }
 
-  /* 대화 */
-  .dialogue { padding: 8px; margin: 4px 0 10px; }
-  .turn { margin: 3px 0; gap: 6px; }
-  .tag { min-width: 44px; padding: 3px 7px; font-size: 0.82em; }
-  .bubble { padding: 6px 10px; font-size: 0.95em; }
+ /* 대화 */
+ .dialogue { padding: 8px; margin: 4px 0 10px; }
+ .turn { margin: 3px 0; gap: 6px; }
+ .tag { min-width: 44px; padding: 3px 7px; font-size: 0.82em; }
+ .bubble { padding: 6px 10px; font-size: 0.95em; }
 
-  /* 문제 */
-  .practice h3 { margin: 4px 0 8px; }
-  .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 36px; }
-  .q .no { width: 26px; height: 26px; font-size: 0.9em; }
+ /* 문제 */
+ .practice h3 { margin: 4px 0 8px; }
+ .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 36px; }
+ .q .no { width: 26px; height: 26px; font-size: 0.9em; }
 
-  /* 수식/표 */
-  .formula { padding: 6px 10px; margin: 4px 0; font-size: 1em; }
-  .box { min-width: 56px; height: 22px; }
-  .box.wide { min-width: 96px; }
-  .ans-line { min-width: 80px; height: 18px; }
-  th, td { padding: 4px 6px; }
+ /* 수식/표 */
+ .formula { padding: 6px 10px; margin: 4px 0; font-size: 1em; }
+ .box { min-width: 56px; height: 22px; }
+ .box.wide { min-width: 96px; }
+ .ans-line { min-width: 80px; height: 18px; }
+ th, td { padding: 4px 6px; }
 
-  /* 쓰기 줄 — 높이 축소 */
-  .lines { height: 26px; background-size: auto 26px;
-           background-image: repeating-linear-gradient(
-             to bottom, transparent 0, transparent 24px,
-             #b0bec5 24px, #b0bec5 25px); }
-  .lines.two   { height: 52px; }
-  .lines.three { height: 78px; }
-  .lines.four  { height: 104px; }
-  .line { height: 20px; margin: 2px 0 6px; }
+ /* 쓰기 줄 — 높이 축소 */
+ .lines { height: 26px; background-size: auto 26px;
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 24px,
+ #b0bec5 24px, #b0bec5 25px); }
+ .lines.two { height: 52px; }
+ .lines.three { height: 78px; }
+ .lines.four { height: 104px; }
+ .line { height: 20px; margin: 2px 0 6px; }
 
-  /* 자기 점검 */
-  .self-check { padding: 8px 12px; margin-top: 10px; }
-  .self-check h4 { margin: 0 0 4px; }
-  .self-check label { padding: 1px 0; font-size: 0.95em; }
+ /* 자기 점검 */
+ .self-check { padding: 8px 12px; margin-top: 10px; }
+ .self-check h4 { margin: 0 0 4px; }
+ .self-check label { padding: 1px 0; font-size: 0.95em; }
 
-  /* 정답지: 더 촘촘하게 */
-  .answer-page .q { margin-bottom: 6px; padding: 6px 10px; }
-  .answer-page .formula { padding: 4px 8px; margin: 2px 0; }
+ /* 정답지: 더 촘촘하게 */
+ .answer-page .q { margin-bottom: 6px; padding: 6px 10px; }
+ .answer-page .formula { padding: 4px 8px; margin: 2px 0; }
 
-  /* 쪽번호 */
-  .page-no { bottom: 6mm; right: 14mm; }
+ /* 쪽번호 */
+ .page-no { bottom: 6mm; right: 14mm; }
 }
 
 /* ===== 화면 좁을 때 ===== */
@@ -555,579 +555,579 @@ td.left, th.left { text-align: left; }
 <body>
 
 <div class="toolbar no-print">
-  <div class="left">
-    <strong>수학 학습지 · 현장체험학습 계획하기</strong>
-    <span class="muted">총 7쪽 / A4</span>
-  </div>
-  <div class="right">
-    <button onclick="window.print()">🖨  인쇄 / PDF 저장</button>
-    <span class="muted small">Ctrl + P · 인쇄 설정에서 <b>배경 그래픽</b>을 켜 주세요</span>
-  </div>
+ <div class="left">
+ <strong>수학 학습지 · 현장체험학습 계획하기</strong>
+ <span class="muted">총 7쪽 / A4</span>
+ </div>
+ <div class="right">
+ <button onclick="window.print">🖨 인쇄 / PDF 저장</button>
+ <span class="muted small">Ctrl + P · 인쇄 설정에서 <b>배경 그래픽</b>을 켜 주세요</span>
+ </div>
 </div>
 
 <!-- ============================================================
-  표지
+ 표지
 ============================================================ -->
 <section class="page cover">
-  <div class="cover-top">
-    <div class="subject">수학 · 실생활 수학</div>
-    <div class="grade">고등학교 특수학급</div>
-  </div>
+ <div class="cover-top">
+ <div class="subject">수학 · 실생활 수학</div>
+ <div class="grade">고등학교 </div>
+ </div>
 
-  <div class="cover-main">
-    <div class="big-num">¥</div>
-    <h1>우리 함께 롯데월드로!</h1>
-    <p class="lead">– 복지카드와 함께 계획하는 하루 –</p>
-  </div>
+ <div class="cover-main">
+ <div class="big-num">¥</div>
+ <h1>우리 함께 롯데월드로!</h1>
+ <p class="lead">– 복지카드와 함께 계획하는 하루 –</p>
+ </div>
 
-  <div class="name-box">
-    <div class="name-cell"><span>이름</span><em></em></div>
-    <div class="name-cell"><span>학년 · 반</span><em></em></div>
-    <div class="name-cell"><span>번호</span><em></em></div>
-    <div class="name-cell"><span>날짜</span><em></em></div>
-  </div>
+ <div class="name-box">
+ <div class="name-cell"><span>이름</span><em></em></div>
+ <div class="name-cell"><span>학년 · 반</span><em></em></div>
+ <div class="name-cell"><span>번호</span><em></em></div>
+ <div class="name-cell"><span>날짜</span><em></em></div>
+ </div>
 
-  <div class="cast">
-    <h2>함께 떠날 친구들</h2>
-    <div class="cast-grid">
-      <div class="person"><span class="dot d6"></span>하영</div>
-      <div class="person"><span class="dot d2"></span>하은</div>
-      <div class="person"><span class="dot d4"></span>주은</div>
-      <div class="person"><span class="dot d3"></span>주현</div>
-      <div class="person"><span class="dot d1"></span>채원</div>
-      <div class="person"><span class="dot d5"></span>예은</div>
-    </div>
-  </div>
+ <div class="cast">
+ <h2>함께 떠날 친구들</h2>
+ <div class="cast-grid">
+ <div class="person"><span class="dot d6"></span>하영</div>
+ <div class="person"><span class="dot d2"></span>하은</div>
+ <div class="person"><span class="dot d4"></span>주은</div>
+ <div class="person"><span class="dot d3"></span>주현</div>
+ <div class="person"><span class="dot d1"></span>채원</div>
+ <div class="person"><span class="dot d5"></span>예은</div>
+ </div>
+ </div>
 
-  <div class="overview">
-    <h2>💳 복지카드란?</h2>
-    <p style="margin:6px 0 0;">나라에서 발급하는 카드예요. 지하철·버스·놀이공원·영화관 등에서 <b>요금을 깎아</b> 줘요.
-    롯데월드에서는 복지카드를 보여주면 입장권을 <b>반값(50% 할인)</b>에 살 수 있어요.
-    복지카드는 <b>본인만 사용</b>할 수 있고, 다른 사람에게 빌려줄 수 없어요.</p>
-  </div>
+ <div class="overview">
+ <h2>💳 복지카드란?</h2>
+ <p style="margin:6px 0 0;">나라에서 발급하는 카드예요. 지하철·버스·놀이공원·영화관 등에서 <b>요금을 깎아</b> 줘요.
+ 롯데월드에서는 복지카드를 보여주면 입장권을 <b>반값(50% 할인)</b>에 살 수 있어요.
+ 복지카드는 <b>본인만 사용</b>할 수 있고, 다른 사람에게 빌려줄 수 없어요.</p>
+ </div>
 
-  <div class="toc">
-    <h2>차례</h2>
-    <ol>
-      <li>입장권 요금 계산하기 — 복지카드 50% 할인</li>
-      <li>점심 식사 계획하기 — 예산 안에서 메뉴 고르기</li>
-      <li>기념품 사기 — 물건값과 거스름돈 계산</li>
-      <li>하루 총비용 정리하기 — 항목별 합산과 절약 금액</li>
-      <li>정답지 ① (1~2차시) · 정답지 ② (3~4차시)</li>
-    </ol>
-  </div>
+ <div class="toc">
+ <h2>차례</h2>
+ <ol>
+ <li>입장권 요금 계산하기 — 복지카드 50% 할인</li>
+ <li>점심 식사 계획하기 — 예산 안에서 메뉴 고르기</li>
+ <li>기념품 사기 — 물건값과 거스름돈 계산</li>
+ <li>하루 총비용 정리하기 — 항목별 합산과 절약 금액</li>
+ <li>정답지 ① (1~2차시) · 정답지 ② (3~4차시)</li>
+ </ol>
+ </div>
 
-  <div class="page-no">표지</div>
+ <div class="page-no">표지</div>
 </section>
 
 <!-- ============================================================
-  1) 입장권 요금 계산하기
+ 1) 입장권 요금 계산하기
 ============================================================ -->
 <section class="page">
-  <header class="ph">
-    <div class="ph-num">01</div>
-    <div class="ph-title">
-      <h2>입장권 요금 계산하기</h2>
-      <p>복지카드로 반값에 사 봅시다</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">01</div>
+ <div class="ph-title">
+ <h2>입장권 요금 계산하기</h2>
+ <p>복지카드로 반값에 사 봅시다</p>
+ </div>
+ </header>
 
-  <div class="scene">
-    <p>다음 주 금요일, <b>고등학교 특수학급</b> 친구들이 <b>롯데월드</b>로 현장체험학습을 떠납니다.
-    <b>하영, 하은, 주은, 주현, 채원, 예은</b> 여섯 명과 <b>선생님</b>이 함께 가요.
-    먼저 입장권을 얼마에 살 수 있는지 계산해 봅시다!</p>
-  </div>
+ <div class="scene">
+ <p>다음 주 금요일, <b>고등학교 </b> 친구들이 <b>롯데월드</b>로 현장체험학습을 떠납니다.
+ <b>하영, 하은, 주은, 주현, 채원, 예은</b> 여섯 명과 <b>선생님</b>이 함께 가요.
+ 먼저 입장권을 얼마에 살 수 있는지 계산해 봅시다!</p>
+ </div>
 
-  <div class="tip">
-    <span class="tip-title">💡 알아봅시다 — 50% 할인</span>
-    50% 할인은 <b>원래 가격의 반값</b>이에요. 정가를 <b>2로 나누면</b> 할인된 금액이 나옵니다.
-    하영, 하은, 주은, 주현, 채원, 예은이는 모두 복지카드를 가지고 있어요.
-  </div>
+ <div class="tip">
+ <span class="tip-title">💡 알아봅시다 — 50% 할인</span>
+ 50% 할인은 <b>원래 가격의 반값</b>이에요. 정가를 <b>2로 나누면</b> 할인된 금액이 나옵니다.
+ 하영, 하은, 주은, 주현, 채원, 예은이는 모두 복지카드를 가지고 있어요.
+ </div>
 
-  <h3 style="margin:14px 0 6px; color:#263238;">🎟️ 롯데월드 입장권 가격표</h3>
-  <table class="price-table">
-    <tr><th>구분</th><th>정가</th><th>복지카드 할인가 (50%)</th></tr>
-    <tr class="hi"><td>청소년 (학생)</td><td>50,000원</td><td>❓ 계산해 보세요</td></tr>
-    <tr><td>성인 (선생님)</td><td>60,000원</td><td>— (할인 없음)</td></tr>
-  </table>
+ <h3 style="margin:14px 0 6px; color:#263238;">🎟️ 롯데월드 입장권 가격표</h3>
+ <table class="price-table">
+ <tr><th>구분</th><th>정가</th><th>복지카드 할인가 (50%)</th></tr>
+ <tr class="hi"><td>청소년 (학생)</td><td>50,000원</td><td>❓ 계산해 보세요</td></tr>
+ <tr><td>성인 (선생님)</td><td>60,000원</td><td>— (할인 없음)</td></tr>
+ </table>
 
-  <div class="practice">
-    <h3>연습해 봅시다</h3>
+ <div class="practice">
+ <h3>연습해 봅시다</h3>
 
-    <div class="q">
-      <span class="no">1</span>
-      <div>
-        <p><b>하영</b>이의 입장권은 얼마일까요? 청소년 정가는 50,000원입니다.</p>
-        <div class="formula">50,000 ÷ 2 = <span class="box"></span> 원</div>
-        <p class="answer-final">👉 하영이의 입장권 가격은 <span class="ans-line"></span> 원입니다.</p>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">1</span>
+ <div>
+ <p><b>하영</b>이의 입장권은 얼마일까요? 청소년 정가는 50,000원입니다.</p>
+ <div class="formula">50,000 ÷ 2 = <span class="box"></span> 원</div>
+ <p class="answer-final">👉 하영이의 입장권 가격은 <span class="ans-line"></span> 원입니다.</p>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <div>
-        <p>6명 모두 복지카드를 사용해요. 친구들의 입장권 가격을 써 봅시다.</p>
-        <table>
-          <tr><th>하영</th><th>하은</th><th>주은</th><th>주현</th><th>채원</th><th>예은</th></tr>
-          <tr>
-            <td><span class="ans-line" style="min-width:60px"></span>원</td>
-            <td><span class="ans-line" style="min-width:60px"></span>원</td>
-            <td><span class="ans-line" style="min-width:60px"></span>원</td>
-            <td><span class="ans-line" style="min-width:60px"></span>원</td>
-            <td><span class="ans-line" style="min-width:60px"></span>원</td>
-            <td><span class="ans-line" style="min-width:60px"></span>원</td>
-          </tr>
-        </table>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">2</span>
+ <div>
+ <p>6명 모두 복지카드를 사용해요. 친구들의 입장권 가격을 써 봅시다.</p>
+ <table>
+ <tr><th>하영</th><th>하은</th><th>주은</th><th>주현</th><th>채원</th><th>예은</th></tr>
+ <tr>
+ <td><span class="ans-line" style="min-width:60px"></span>원</td>
+ <td><span class="ans-line" style="min-width:60px"></span>원</td>
+ <td><span class="ans-line" style="min-width:60px"></span>원</td>
+ <td><span class="ans-line" style="min-width:60px"></span>원</td>
+ <td><span class="ans-line" style="min-width:60px"></span>원</td>
+ <td><span class="ans-line" style="min-width:60px"></span>원</td>
+ </tr>
+ </table>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">3</span>
-      <div>
-        <p>학생 6명의 입장권 값은 모두 얼마일까요?</p>
-        <div class="formula">25,000 × 6 = <span class="box wide"></span> 원</div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">3</span>
+ <div>
+ <p>학생 6명의 입장권 값은 모두 얼마일까요?</p>
+ <div class="formula">25,000 × 6 = <span class="box wide"></span> 원</div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">4</span>
-      <div>
-        <p>선생님 요금(60,000원)까지 더하면 모두 얼마일까요?</p>
-        <div class="formula">(학생 6명 합계) + 60,000 = <span class="box wide"></span> 원</div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">4</span>
+ <div>
+ <p>선생님 요금(60,000원)까지 더하면 모두 얼마일까요?</p>
+ <div class="formula">(학생 6명 합계) + 60,000 = <span class="box wide"></span> 원</div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">5</span>
-      <div>
-        <p>복지카드 덕분에 <b>얼마를 아꼈는지</b> 계산해 봅시다.</p>
-        <table>
-          <tr><th>① 복지카드가 없을 때</th><td>50,000 × 6 = <span class="ans-line"></span> 원</td></tr>
-          <tr><th>② 복지카드가 있을 때</th><td>25,000 × 6 = <span class="ans-line"></span> 원</td></tr>
-          <tr><th>③ 아낀 돈 (① − ②)</th><td><span class="ans-line"></span> − <span class="ans-line"></span> = <span class="ans-line"></span> 원</td></tr>
-        </table>
-        <p class="answer-final">👉 복지카드 덕분에 <span class="ans-line"></span> 원을 아꼈어요! 🎉</p>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">5</span>
+ <div>
+ <p>복지카드 덕분에 <b>얼마를 아꼈는지</b> 계산해 봅시다.</p>
+ <table>
+ <tr><th>① 복지카드가 없을 때</th><td>50,000 × 6 = <span class="ans-line"></span> 원</td></tr>
+ <tr><th>② 복지카드가 있을 때</th><td>25,000 × 6 = <span class="ans-line"></span> 원</td></tr>
+ <tr><th>③ 아낀 돈 (① − ②)</th><td><span class="ans-line"></span> − <span class="ans-line"></span> = <span class="ans-line"></span> 원</td></tr>
+ </table>
+ <p class="answer-final">👉 복지카드 덕분에 <span class="ans-line"></span> 원을 아꼈어요! 🎉</p>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">6</span>
-      <div>
-        <p>복지카드는 <b>누구의 것</b>인가요? 친구에게 빌려줘도 될까요? 이유와 함께 써 봅시다.</p>
-        <div class="lines two"></div>
-      </div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">6</span>
+ <div>
+ <p>복지카드는 <b>누구의 것</b>인가요? 친구에게 빌려줘도 될까요? 이유와 함께 써 봅시다.</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
+ </div>
 
 
-  <div class="page-no">01 / 입장권</div>
+ <div class="page-no">01 / 입장권</div>
 </section>
 
 <!-- ============================================================
-  2) 점심 식사 계획하기
+ 2) 점심 식사 계획하기
 ============================================================ -->
 <section class="page">
-  <header class="ph">
-    <div class="ph-num">02</div>
-    <div class="ph-title">
-      <h2>점심 식사 계획하기</h2>
-      <p>예산 15,000원 안에서 메뉴 고르기</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">02</div>
+ <div class="ph-title">
+ <h2>점심 식사 계획하기</h2>
+ <p>예산 15,000원 안에서 메뉴 고르기</p>
+ </div>
+ </header>
 
-  <div class="scene">
-    <p>롯데월드에 도착한 친구들은 놀이기구를 신나게 탔어요. 어느덧 점심시간!
-    친구들은 메뉴판을 보며 무엇을 먹을지 고민 중입니다.
-    한 사람당 쓸 수 있는 돈은 <b>15,000원</b>이에요. 친구들이 맛있게 먹을 수 있도록 도와줍시다.</p>
-  </div>
+ <div class="scene">
+ <p>롯데월드에 도착한 친구들은 놀이기구를 신나게 탔어요. 어느덧 점심시간!
+ 친구들은 메뉴판을 보며 무엇을 먹을지 고민 중입니다.
+ 한 사람당 쓸 수 있는 돈은 <b>15,000원</b>이에요. 친구들이 맛있게 먹을 수 있도록 도와줍시다.</p>
+ </div>
 
-  <div class="menu-board">
-    <h4>🍽️ 오늘의 메뉴</h4>
-    <table>
-      <tr><th>번호</th><th>음식</th><th>가격</th><th>번호</th><th>음식</th><th>가격</th></tr>
-      <tr><td>①</td><td>햄버거 세트</td><td>10,000원</td><td>⑤</td><td>추로스</td><td>4,000원</td></tr>
-      <tr><td>②</td><td>떡볶이</td><td>6,000원</td><td>⑥</td><td>음료수</td><td>3,000원</td></tr>
-      <tr><td>③</td><td>피자 한 조각</td><td>8,000원</td><td>⑦</td><td>아이스크림</td><td>4,000원</td></tr>
-      <tr><td>④</td><td>핫도그</td><td>5,000원</td><td></td><td></td><td></td></tr>
-    </table>
-  </div>
+ <div class="menu-board">
+ <h4>🍽️ 오늘의 메뉴</h4>
+ <table>
+ <tr><th>번호</th><th>음식</th><th>가격</th><th>번호</th><th>음식</th><th>가격</th></tr>
+ <tr><td>①</td><td>햄버거 세트</td><td>10,000원</td><td>⑤</td><td>추로스</td><td>4,000원</td></tr>
+ <tr><td>②</td><td>떡볶이</td><td>6,000원</td><td>⑥</td><td>음료수</td><td>3,000원</td></tr>
+ <tr><td>③</td><td>피자 한 조각</td><td>8,000원</td><td>⑦</td><td>아이스크림</td><td>4,000원</td></tr>
+ <tr><td>④</td><td>핫도그</td><td>5,000원</td><td></td><td></td><td></td></tr>
+ </table>
+ </div>
 
-  <div class="practice">
-    <h3>연습해 봅시다</h3>
+ <div class="practice">
+ <h3>연습해 봅시다</h3>
 
-    <div class="q">
-      <span class="no">1</span>
-      <div>
-        <p><b>하영</b>이는 햄버거 세트와 음료수를 주문했어요.</p>
-        <div class="formula">10,000 + 3,000 = <span class="box"></span> 원</div>
-        <p>예산(15,000원)보다 <span class="choice"><span>적다</span><span>많다</span><span>같다</span></span> → 알맞은 것에 ○</p>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">1</span>
+ <div>
+ <p><b>하영</b>이는 햄버거 세트와 음료수를 주문했어요.</p>
+ <div class="formula">10,000 + 3,000 = <span class="box"></span> 원</div>
+ <p>예산(15,000원)보다 <span class="choice"><span>적다</span><span>많다</span><span>같다</span></span> → 알맞은 것에 ○</p>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <div>
-        <p>친구들이 주문한 음식 값을 계산해 봅시다.</p>
-        <table>
-          <tr><th>이름</th><th class="left">주문한 음식</th><th>계산식</th><th>합계</th></tr>
-          <tr><td>하은</td><td class="left">떡볶이 + 핫도그 + 음료수</td><td>6,000 + 5,000 + 3,000</td><td><span class="ans-line"></span>원</td></tr>
-          <tr><td>주은</td><td class="left">피자 + 추로스 + 음료수</td><td>8,000 + 4,000 + 3,000</td><td><span class="ans-line"></span>원</td></tr>
-          <tr><td>주현</td><td class="left">햄버거 세트 + 아이스크림</td><td>10,000 + 4,000</td><td><span class="ans-line"></span>원</td></tr>
-          <tr><td>채원</td><td class="left">떡볶이 + 음료수 + 아이스크림</td><td>6,000 + 3,000 + 4,000</td><td><span class="ans-line"></span>원</td></tr>
-          <tr><td>예은</td><td class="left">핫도그 + 추로스 + 음료수</td><td>5,000 + 4,000 + 3,000</td><td><span class="ans-line"></span>원</td></tr>
-        </table>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">2</span>
+ <div>
+ <p>친구들이 주문한 음식 값을 계산해 봅시다.</p>
+ <table>
+ <tr><th>이름</th><th class="left">주문한 음식</th><th>계산식</th><th>합계</th></tr>
+ <tr><td>하은</td><td class="left">떡볶이 + 핫도그 + 음료수</td><td>6,000 + 5,000 + 3,000</td><td><span class="ans-line"></span>원</td></tr>
+ <tr><td>주은</td><td class="left">피자 + 추로스 + 음료수</td><td>8,000 + 4,000 + 3,000</td><td><span class="ans-line"></span>원</td></tr>
+ <tr><td>주현</td><td class="left">햄버거 세트 + 아이스크림</td><td>10,000 + 4,000</td><td><span class="ans-line"></span>원</td></tr>
+ <tr><td>채원</td><td class="left">떡볶이 + 음료수 + 아이스크림</td><td>6,000 + 3,000 + 4,000</td><td><span class="ans-line"></span>원</td></tr>
+ <tr><td>예은</td><td class="left">핫도그 + 추로스 + 음료수</td><td>5,000 + 4,000 + 3,000</td><td><span class="ans-line"></span>원</td></tr>
+ </table>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">3</span>
-      <div>
-        <p>친구들 6명이 쓴 점심값을 모두 더해 봅시다.</p>
-        <div class="formula">
-          <span class="box"></span>+<span class="box"></span>+<span class="box"></span>+<span class="box"></span>+<span class="box"></span>+<span class="box"></span>
-          = <span class="box wide"></span> 원
-        </div>
-        <p class="answer-final">👉 친구들이 점심에 쓴 돈은 모두 <span class="ans-line"></span> 원입니다.</p>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">3</span>
+ <div>
+ <p>친구들 6명이 쓴 점심값을 모두 더해 봅시다.</p>
+ <div class="formula">
+ <span class="box"></span>+<span class="box"></span>+<span class="box"></span>+<span class="box"></span>+<span class="box"></span>+<span class="box"></span>
+ = <span class="box wide"></span> 원
+ </div>
+ <p class="answer-final">👉 친구들이 점심에 쓴 돈은 모두 <span class="ans-line"></span> 원입니다.</p>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">4</span>
-      <div>
-        <p><b>내가</b> 롯데월드에 갔다면? 예산 15,000원 안에서 먹고 싶은 음식을 골라 보세요.</p>
-        <table class="card-table">
-          <tr><th style="width:70%">내가 고른 음식</th><th>가격</th></tr>
-          <tr><td></td><td></td></tr>
-          <tr><td></td><td></td></tr>
-          <tr><td></td><td></td></tr>
-          <tr><th>합계</th><td></td></tr>
-          <tr><th>남은 돈 (15,000 − 합계)</th><td></td></tr>
-        </table>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">4</span>
+ <div>
+ <p><b>내가</b> 롯데월드에 갔다면? 예산 15,000원 안에서 먹고 싶은 음식을 골라 보세요.</p>
+ <table class="card-table">
+ <tr><th style="width:70%">내가 고른 음식</th><th>가격</th></tr>
+ <tr><td></td><td></td></tr>
+ <tr><td></td><td></td></tr>
+ <tr><td></td><td></td></tr>
+ <tr><th>합계</th><td></td></tr>
+ <tr><th>남은 돈 (15,000 − 합계)</th><td></td></tr>
+ </table>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">5</span>
-      <div>
-        <p>예산을 <b>지키는 것은 왜 중요할까요?</b> 내 생각을 써 봅시다.</p>
-        <div class="lines two"></div>
-      </div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">5</span>
+ <div>
+ <p>예산을 <b>지키는 것은 왜 중요할까요?</b> 내 생각을 써 봅시다.</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
+ </div>
 
 
-  <div class="page-no">02 / 점심 식사</div>
+ <div class="page-no">02 / 점심 식사</div>
 </section>
 
 <!-- ============================================================
-  3) 기념품 사기
+ 3) 기념품 사기
 ============================================================ -->
 <section class="page">
-  <header class="ph">
-    <div class="ph-num">03</div>
-    <div class="ph-title">
-      <h2>기념품 사기</h2>
-      <p>물건값과 거스름돈 계산</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">03</div>
+ <div class="ph-title">
+ <h2>기념품 사기</h2>
+ <p>물건값과 거스름돈 계산</p>
+ </div>
+ </header>
 
-  <div class="scene">
-    <p>점심을 맛있게 먹은 친구들은 <b>기념품 가게</b>로 갔어요.
-    가족과 친구에게 줄 선물도 고르고, 자기가 가지고 싶은 것도 사려고 해요.
-    돈을 내고 <b>거스름돈</b>을 받는 연습을 해 봅시다.</p>
-  </div>
+ <div class="scene">
+ <p>점심을 맛있게 먹은 친구들은 <b>기념품 가게</b>로 갔어요.
+ 가족과 친구에게 줄 선물도 고르고, 자기가 가지고 싶은 것도 사려고 해요.
+ 돈을 내고 <b>거스름돈</b>을 받는 연습을 해 봅시다.</p>
+ </div>
 
-  <div class="menu-board">
-    <h4>🛍️ 기념품 가격표</h4>
-    <table>
-      <tr><th>번호</th><th>기념품</th><th>가격</th><th>번호</th><th>기념품</th><th>가격</th></tr>
-      <tr><td>①</td><td>로티 인형</td><td>20,000원</td><td>⑤</td><td>열쇠고리</td><td>5,000원</td></tr>
-      <tr><td>②</td><td>캐릭터 머리띠</td><td>15,000원</td><td>⑥</td><td>스티커 세트</td><td>3,000원</td></tr>
-      <tr><td>③</td><td>과자 선물세트</td><td>12,000원</td><td>⑦</td><td>볼펜</td><td>2,000원</td></tr>
-      <tr><td>④</td><td>롯데월드 티셔츠</td><td>18,000원</td><td></td><td></td><td></td></tr>
-    </table>
-  </div>
+ <div class="menu-board">
+ <h4>🛍️ 기념품 가격표</h4>
+ <table>
+ <tr><th>번호</th><th>기념품</th><th>가격</th><th>번호</th><th>기념품</th><th>가격</th></tr>
+ <tr><td>①</td><td>로티 인형</td><td>20,000원</td><td>⑤</td><td>열쇠고리</td><td>5,000원</td></tr>
+ <tr><td>②</td><td>캐릭터 머리띠</td><td>15,000원</td><td>⑥</td><td>스티커 세트</td><td>3,000원</td></tr>
+ <tr><td>③</td><td>과자 선물세트</td><td>12,000원</td><td>⑦</td><td>볼펜</td><td>2,000원</td></tr>
+ <tr><td>④</td><td>롯데월드 티셔츠</td><td>18,000원</td><td></td><td></td><td></td></tr>
+ </table>
+ </div>
 
-  <div class="tip">
-    <span class="tip-title">💡 거스름돈 구하는 법</span>
-    <div class="formula" style="margin-top:6px;">(낸 돈) − (물건값) = (거스름돈)</div>
-    <b>예시</b>: 5,000원짜리 열쇠고리를 사려고 10,000원을 냈다면? → 10,000 − 5,000 = <b>5,000원</b>을 거슬러 받아요.
-  </div>
+ <div class="tip">
+ <span class="tip-title">💡 거스름돈 구하는 법</span>
+ <div class="formula" style="margin-top:6px;">(낸 돈) − (물건값) = (거스름돈)</div>
+ <b>예시</b>: 5,000원짜리 열쇠고리를 사려고 10,000원을 냈다면? → 10,000 − 5,000 = <b>5,000원</b>을 거슬러 받아요.
+ </div>
 
-  <div class="practice">
-    <h3>연습해 봅시다</h3>
+ <div class="practice">
+ <h3>연습해 봅시다</h3>
 
-    <div class="q">
-      <span class="no">1</span>
-      <div>
-        <p><b>하영</b>이는 로티 인형(20,000원)을 사고 30,000원을 냈어요. 거스름돈은?</p>
-        <div class="formula">30,000 − 20,000 = <span class="box"></span> 원</div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">1</span>
+ <div>
+ <p><b>하영</b>이는 로티 인형(20,000원)을 사고 30,000원을 냈어요. 거스름돈은?</p>
+ <div class="formula">30,000 − 20,000 = <span class="box"></span> 원</div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <div>
-        <p><b>하은</b>이는 과자 선물세트(12,000원)와 볼펜(2,000원)을 샀어요. 20,000원을 냈다면?</p>
-        <div class="formula">① 12,000 + 2,000 = <span class="box"></span> 원</div>
-        <div class="formula">② 20,000 − <span class="box"></span> = <span class="box"></span> 원</div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">2</span>
+ <div>
+ <p><b>하은</b>이는 과자 선물세트(12,000원)와 볼펜(2,000원)을 샀어요. 20,000원을 냈다면?</p>
+ <div class="formula">① 12,000 + 2,000 = <span class="box"></span> 원</div>
+ <div class="formula">② 20,000 − <span class="box"></span> = <span class="box"></span> 원</div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">3</span>
-      <div>
-        <p>친구들의 쇼핑 기록을 완성해 봅시다.</p>
-        <table>
-          <tr><th>이름</th><th class="left">산 물건</th><th>물건값 합계</th><th>낸 돈</th><th>거스름돈</th></tr>
-          <tr><td>주은</td><td class="left">머리띠 + 스티커 세트</td><td><span class="ans-line"></span>원</td><td>20,000원</td><td><span class="ans-line"></span>원</td></tr>
-          <tr><td>주현</td><td class="left">티셔츠 + 열쇠고리</td><td><span class="ans-line"></span>원</td><td>30,000원</td><td><span class="ans-line"></span>원</td></tr>
-          <tr><td>채원</td><td class="left">로티 인형 + 볼펜</td><td><span class="ans-line"></span>원</td><td>30,000원</td><td><span class="ans-line"></span>원</td></tr>
-          <tr><td>예은</td><td class="left">과자세트 + 열쇠고리 + 스티커</td><td><span class="ans-line"></span>원</td><td>20,000원</td><td><span class="ans-line"></span>원</td></tr>
-        </table>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">3</span>
+ <div>
+ <p>친구들의 쇼핑 기록을 완성해 봅시다.</p>
+ <table>
+ <tr><th>이름</th><th class="left">산 물건</th><th>물건값 합계</th><th>낸 돈</th><th>거스름돈</th></tr>
+ <tr><td>주은</td><td class="left">머리띠 + 스티커 세트</td><td><span class="ans-line"></span>원</td><td>20,000원</td><td><span class="ans-line"></span>원</td></tr>
+ <tr><td>주현</td><td class="left">티셔츠 + 열쇠고리</td><td><span class="ans-line"></span>원</td><td>30,000원</td><td><span class="ans-line"></span>원</td></tr>
+ <tr><td>채원</td><td class="left">로티 인형 + 볼펜</td><td><span class="ans-line"></span>원</td><td>30,000원</td><td><span class="ans-line"></span>원</td></tr>
+ <tr><td>예은</td><td class="left">과자세트 + 열쇠고리 + 스티커</td><td><span class="ans-line"></span>원</td><td>20,000원</td><td><span class="ans-line"></span>원</td></tr>
+ </table>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">4</span>
-      <div>
-        <p>예은이는 지금 <b>10,000원</b>을 가지고 있어요. 아래 물건을 살 수 있을까요? ○, ✗로 표시해 봅시다.</p>
-        <table>
-          <tr><th>열쇠고리<br>(5,000)</th><th>로티 인형<br>(20,000)</th><th>스티커 세트<br>(3,000)</th><th>캐릭터 머리띠<br>(15,000)</th><th>볼펜<br>(2,000)</th></tr>
-          <tr>
-            <td style="height:40px"></td><td></td><td></td><td></td><td></td>
-          </tr>
-        </table>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">4</span>
+ <div>
+ <p>예은이는 지금 <b>10,000원</b>을 가지고 있어요. 아래 물건을 살 수 있을까요? ○, ✗로 표시해 봅시다.</p>
+ <table>
+ <tr><th>열쇠고리<br>(5,000)</th><th>로티 인형<br>(20,000)</th><th>스티커 세트<br>(3,000)</th><th>캐릭터 머리띠<br>(15,000)</th><th>볼펜<br>(2,000)</th></tr>
+ <tr>
+ <td style="height:40px"></td><td></td><td></td><td></td><td></td>
+ </tr>
+ </table>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">5</span>
-      <div>
-        <p><b>내</b>가 가진 돈은 <b>20,000원</b>. 사고 싶은 기념품을 2~3개 골라 보세요. (예산 초과 금지!)</p>
-        <table class="card-table">
-          <tr><th style="width:70%">내가 고른 기념품</th><th>가격</th></tr>
-          <tr><td></td><td></td></tr>
-          <tr><td></td><td></td></tr>
-          <tr><td></td><td></td></tr>
-          <tr><th>합계</th><td></td></tr>
-          <tr><th>거스름돈 (20,000 − 합계)</th><td></td></tr>
-        </table>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">5</span>
+ <div>
+ <p><b>내</b>가 가진 돈은 <b>20,000원</b>. 사고 싶은 기념품을 2~3개 골라 보세요. (예산 초과 금지!)</p>
+ <table class="card-table">
+ <tr><th style="width:70%">내가 고른 기념품</th><th>가격</th></tr>
+ <tr><td></td><td></td></tr>
+ <tr><td></td><td></td></tr>
+ <tr><td></td><td></td></tr>
+ <tr><th>합계</th><td></td></tr>
+ <tr><th>거스름돈 (20,000 − 합계)</th><td></td></tr>
+ </table>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">6</span>
-      <div>
-        <p>가족에게 기념품을 사 준다면, 누구에게 무엇을 주고 싶나요?</p>
-        <div class="lines two"></div>
-      </div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">6</span>
+ <div>
+ <p>가족에게 기념품을 사 준다면, 누구에게 무엇을 주고 싶나요?</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
+ </div>
 
 
-  <div class="page-no">03 / 기념품</div>
+ <div class="page-no">03 / 기념품</div>
 </section>
 
 <!-- ============================================================
-  4) 하루 총비용 정리하기
+ 4) 하루 총비용 정리하기
 ============================================================ -->
 <section class="page">
-  <header class="ph">
-    <div class="ph-num">04</div>
-    <div class="ph-title">
-      <h2>하루 총비용 정리하기</h2>
-      <p>복지카드로 얼마를 아꼈을까요?</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">04</div>
+ <div class="ph-title">
+ <h2>하루 총비용 정리하기</h2>
+ <p>복지카드로 얼마를 아꼈을까요?</p>
+ </div>
+ </header>
 
-  <div class="scene">
-    <p>신나는 하루가 끝났어요! 이제 하루 동안 쓴 돈을 정리해 봅시다.
-    <b>복지카드 덕분에 얼마를 아꼈는지</b>도 함께 알아볼 거예요.</p>
-  </div>
+ <div class="scene">
+ <p>신나는 하루가 끝났어요! 이제 하루 동안 쓴 돈을 정리해 봅시다.
+ <b>복지카드 덕분에 얼마를 아꼈는지</b>도 함께 알아볼 거예요.</p>
+ </div>
 
-  <div class="tip">
-    <span class="tip-title">🚇 교통비 안내</span>
-    친구들은 지하철을 타고 갔어요. <b>복지카드가 있으면 지하철도 공짜(0원)</b>로 탈 수 있습니다.
-    <table style="margin-top:6px; max-width:420px;">
-      <tr><th>구분</th><th>편도</th><th>왕복</th></tr>
-      <tr><td>일반 요금 (선생님)</td><td>1,500원</td><td>3,000원</td></tr>
-      <tr><td>복지카드 요금 (학생)</td><td><b>0원</b></td><td><b>0원</b></td></tr>
-    </table>
-  </div>
+ <div class="tip">
+ <span class="tip-title">🚇 교통비 안내</span>
+ 친구들은 지하철을 타고 갔어요. <b>복지카드가 있으면 지하철도 공짜(0원)</b>로 탈 수 있습니다.
+ <table style="margin-top:6px; max-width:420px;">
+ <tr><th>구분</th><th>편도</th><th>왕복</th></tr>
+ <tr><td>일반 요금 (선생님)</td><td>1,500원</td><td>3,000원</td></tr>
+ <tr><td>복지카드 요금 (학생)</td><td><b>0원</b></td><td><b>0원</b></td></tr>
+ </table>
+ </div>
 
-  <div class="practice">
-    <h3>연습해 봅시다</h3>
+ <div class="practice">
+ <h3>연습해 봅시다</h3>
 
-    <div class="q">
-      <span class="no">1</span>
-      <div>
-        <p><b>하영</b>이의 하루 총비용을 계산해 봅시다.</p>
-        <table class="price-table">
-          <tr><th>입장권</th><th>점심</th><th>기념품</th><th>교통비</th><th>합계</th></tr>
-          <tr><td>25,000</td><td>13,000</td><td>20,000</td><td>0</td><td><span class="ans-line"></span>원</td></tr>
-        </table>
-        <div class="formula">25,000 + 13,000 + 20,000 + 0 = <span class="box wide"></span> 원</div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">1</span>
+ <div>
+ <p><b>하영</b>이의 하루 총비용을 계산해 봅시다.</p>
+ <table class="price-table">
+ <tr><th>입장권</th><th>점심</th><th>기념품</th><th>교통비</th><th>합계</th></tr>
+ <tr><td>25,000</td><td>13,000</td><td>20,000</td><td>0</td><td><span class="ans-line"></span>원</td></tr>
+ </table>
+ <div class="formula">25,000 + 13,000 + 20,000 + 0 = <span class="box wide"></span> 원</div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <div>
-        <p>친구들이 오늘 쓴 돈을 표에 정리해 봅시다. (1~3차시 결과를 옮겨 적기)</p>
-        <table>
-          <tr><th>이름</th><th>입장권</th><th>점심값</th><th>기념품</th><th>교통비</th><th>하루 합계</th></tr>
-          <tr><td>하영</td><td>25,000</td><td>13,000</td><td>20,000</td><td>0</td><td></td></tr>
-          <tr><td>하은</td><td>25,000</td><td></td><td></td><td>0</td><td></td></tr>
-          <tr><td>주은</td><td>25,000</td><td></td><td></td><td>0</td><td></td></tr>
-          <tr><td>주현</td><td>25,000</td><td></td><td></td><td>0</td><td></td></tr>
-          <tr><td>채원</td><td>25,000</td><td></td><td></td><td>0</td><td></td></tr>
-          <tr><td>예은</td><td>25,000</td><td></td><td></td><td>0</td><td></td></tr>
-        </table>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">2</span>
+ <div>
+ <p>친구들이 오늘 쓴 돈을 표에 정리해 봅시다. (1~3차시 결과를 옮겨 적기)</p>
+ <table>
+ <tr><th>이름</th><th>입장권</th><th>점심값</th><th>기념품</th><th>교통비</th><th>하루 합계</th></tr>
+ <tr><td>하영</td><td>25,000</td><td>13,000</td><td>20,000</td><td>0</td><td></td></tr>
+ <tr><td>하은</td><td>25,000</td><td></td><td></td><td>0</td><td></td></tr>
+ <tr><td>주은</td><td>25,000</td><td></td><td></td><td>0</td><td></td></tr>
+ <tr><td>주현</td><td>25,000</td><td></td><td></td><td>0</td><td></td></tr>
+ <tr><td>채원</td><td>25,000</td><td></td><td></td><td>0</td><td></td></tr>
+ <tr><td>예은</td><td>25,000</td><td></td><td></td><td>0</td><td></td></tr>
+ </table>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">3</span>
-      <div>
-        <p>학생 6명이 오늘 쓴 돈은 모두 얼마일까요? 위 표의 <b>하루 합계</b>를 모두 더해 봅시다.</p>
-        <p class="answer-final">👉 학생 6명이 오늘 쓴 돈은 모두 <span class="ans-line"></span> 원입니다.</p>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">3</span>
+ <div>
+ <p>학생 6명이 오늘 쓴 돈은 모두 얼마일까요? 위 표의 <b>하루 합계</b>를 모두 더해 봅시다.</p>
+ <p class="answer-final">👉 학생 6명이 오늘 쓴 돈은 모두 <span class="ans-line"></span> 원입니다.</p>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">4</span>
-      <div>
-        <p>복지카드 덕분에 <b>얼마를 아꼈는지</b> 계산해 봅시다.</p>
-        <table>
-          <tr><th>① 입장권 정가 (6명)</th><td>50,000 × 6 = <span class="ans-line"></span> 원</td></tr>
-          <tr><th>② 입장권 할인가 (6명)</th><td>25,000 × 6 = <span class="ans-line"></span> 원</td></tr>
-          <tr><th>③ 입장권에서 아낀 돈 (① − ②)</th><td><span class="ans-line"></span> 원</td></tr>
-          <tr><th>④ 교통비에서 아낀 돈 (3,000 × 6)</th><td><span class="ans-line"></span> 원</td></tr>
-          <tr><th>⑤ 복지카드로 아낀 돈 (③ + ④)</th><td><span class="ans-line"></span> 원</td></tr>
-        </table>
-        <p class="answer-final">👉 복지카드 덕분에 오늘 하루 <span class="ans-line"></span> 원을 아꼈어요! 🎉</p>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">4</span>
+ <div>
+ <p>복지카드 덕분에 <b>얼마를 아꼈는지</b> 계산해 봅시다.</p>
+ <table>
+ <tr><th>① 입장권 정가 (6명)</th><td>50,000 × 6 = <span class="ans-line"></span> 원</td></tr>
+ <tr><th>② 입장권 할인가 (6명)</th><td>25,000 × 6 = <span class="ans-line"></span> 원</td></tr>
+ <tr><th>③ 입장권에서 아낀 돈 (① − ②)</th><td><span class="ans-line"></span> 원</td></tr>
+ <tr><th>④ 교통비에서 아낀 돈 (3,000 × 6)</th><td><span class="ans-line"></span> 원</td></tr>
+ <tr><th>⑤ 복지카드로 아낀 돈 (③ + ④)</th><td><span class="ans-line"></span> 원</td></tr>
+ </table>
+ <p class="answer-final">👉 복지카드 덕분에 오늘 하루 <span class="ans-line"></span> 원을 아꼈어요! 🎉</p>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">5</span>
-      <div>
-        <p><b>나의 하루 계획표</b>를 만들어 봅시다.</p>
-        <table class="card-table">
-          <tr><th style="width:60%">항목</th><th>예상 금액</th></tr>
-          <tr><td>입장권 (복지카드)</td><td>25,000원</td></tr>
-          <tr><td>점심값</td><td></td></tr>
-          <tr><td>기념품</td><td></td></tr>
-          <tr><td>교통비 (복지카드)</td><td>0원</td></tr>
-          <tr><th>나의 하루 총비용</th><td></td></tr>
-        </table>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">5</span>
+ <div>
+ <p><b>나의 하루 계획표</b>를 만들어 봅시다.</p>
+ <table class="card-table">
+ <tr><th style="width:60%">항목</th><th>예상 금액</th></tr>
+ <tr><td>입장권 (복지카드)</td><td>25,000원</td></tr>
+ <tr><td>점심값</td><td></td></tr>
+ <tr><td>기념품</td><td></td></tr>
+ <tr><td>교통비 (복지카드)</td><td>0원</td></tr>
+ <tr><th>나의 하루 총비용</th><td></td></tr>
+ </table>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">6</span>
-      <div>
-        <p>프로젝트를 마치며 — 복지카드에 대해 <b>새롭게 알게 된 점</b>을 써 봅시다.</p>
-        <div class="lines three"></div>
-      </div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">6</span>
+ <div>
+ <p>프로젝트를 마치며 — 복지카드에 대해 <b>새롭게 알게 된 점</b>을 써 봅시다.</p>
+ <div class="lines three"></div>
+ </div>
+ </div>
+ </div>
 
 
-  <div class="page-no">04 / 하루 정리</div>
+ <div class="page-no">04 / 하루 정리</div>
 </section>
 
 <!-- ============================================================
-  5) 정답지 (1~2차시)
+ 5) 정답지 (1~2차시)
 ============================================================ -->
 <section class="page answer-page">
-  <header class="ph">
-    <div class="ph-num">答</div>
-    <div class="ph-title">
-      <h2>정답지 ①</h2>
-      <p>1~2차시 · 교사용</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">答</div>
+ <div class="ph-title">
+ <h2>정답지 ①</h2>
+ <p>1~2차시 · 교사용</p>
+ </div>
+ </header>
 
-  <div class="practice">
-    <h3>01 입장권 요금</h3>
-    <div class="q"><span class="no">1</span><div><div class="formula">50,000 ÷ 2 = <b>25,000원</b></div></div></div>
-    <div class="q"><span class="no">2</span><div>하영~예은 모두 <b>각 25,000원</b></div></div>
-    <div class="q"><span class="no">3</span><div><div class="formula">25,000 × 6 = <b>150,000원</b></div></div></div>
-    <div class="q"><span class="no">4</span><div><div class="formula">150,000 + 60,000 = <b>210,000원</b></div></div></div>
-    <div class="q"><span class="no">5</span><div>
-      ① 50,000 × 6 = <b>300,000원</b> &nbsp; ② 25,000 × 6 = <b>150,000원</b><br>
-      ③ 300,000 − 150,000 = <b>150,000원</b>
-    </div></div>
-    <div class="q"><span class="no">6</span><div>복지카드는 <b>본인만</b> 쓸 수 있음. 빌려주지 않는다(예시 답안).</div></div>
+ <div class="practice">
+ <h3>01 입장권 요금</h3>
+ <div class="q"><span class="no">1</span><div><div class="formula">50,000 ÷ 2 = <b>25,000원</b></div></div></div>
+ <div class="q"><span class="no">2</span><div>하영~예은 모두 <b>각 25,000원</b></div></div>
+ <div class="q"><span class="no">3</span><div><div class="formula">25,000 × 6 = <b>150,000원</b></div></div></div>
+ <div class="q"><span class="no">4</span><div><div class="formula">150,000 + 60,000 = <b>210,000원</b></div></div></div>
+ <div class="q"><span class="no">5</span><div>
+ ① 50,000 × 6 = <b>300,000원</b> &nbsp; ② 25,000 × 6 = <b>150,000원</b><br>
+ ③ 300,000 − 150,000 = <b>150,000원</b>
+ </div></div>
+ <div class="q"><span class="no">6</span><div>복지카드는 <b>본인만</b> 쓸 수 있음. 빌려주지 않는다(예시 답안).</div></div>
 
-    <h3>02 점심 식사</h3>
-    <div class="q"><span class="no">1</span><div>10,000 + 3,000 = <b>13,000원</b> → 예산보다 <b>적다</b></div></div>
-    <div class="q"><span class="no">2</span><div>
-      하은 <b>14,000원</b> · 주은 <b>15,000원</b> · 주현 <b>14,000원</b> · 채원 <b>13,000원</b> · 예은 <b>12,000원</b>
-    </div></div>
-    <div class="q"><span class="no">3</span><div>13,000 + 14,000 + 15,000 + 14,000 + 13,000 + 12,000 = <b>81,000원</b></div></div>
-    <div class="q"><span class="no">4</span><div>학생 자유 응답 (예산 15,000원 이내 확인)</div></div>
-    <div class="q"><span class="no">5</span><div>자유 응답 — 계획적 소비의 중요성 언급</div></div>
-  </div>
+ <h3>02 점심 식사</h3>
+ <div class="q"><span class="no">1</span><div>10,000 + 3,000 = <b>13,000원</b> → 예산보다 <b>적다</b></div></div>
+ <div class="q"><span class="no">2</span><div>
+ 하은 <b>14,000원</b> · 주은 <b>15,000원</b> · 주현 <b>14,000원</b> · 채원 <b>13,000원</b> · 예은 <b>12,000원</b>
+ </div></div>
+ <div class="q"><span class="no">3</span><div>13,000 + 14,000 + 15,000 + 14,000 + 13,000 + 12,000 = <b>81,000원</b></div></div>
+ <div class="q"><span class="no">4</span><div>학생 자유 응답 (예산 15,000원 이내 확인)</div></div>
+ <div class="q"><span class="no">5</span><div>자유 응답 — 계획적 소비의 중요성 언급</div></div>
+ </div>
 
-  <div class="page-no">정답 ①</div>
+ <div class="page-no">정답 ①</div>
 </section>
 
 <!-- ============================================================
-  6) 정답지 (3~4차시)
+ 6) 정답지 (3~4차시)
 ============================================================ -->
 <section class="page answer-page">
-  <header class="ph">
-    <div class="ph-num">答</div>
-    <div class="ph-title">
-      <h2>정답지 ②</h2>
-      <p>3~4차시 · 교사용</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">答</div>
+ <div class="ph-title">
+ <h2>정답지 ②</h2>
+ <p>3~4차시 · 교사용</p>
+ </div>
+ </header>
 
-  <div class="practice">
-    <h3>03 기념품 사기</h3>
-    <div class="q"><span class="no">1</span><div>30,000 − 20,000 = <b>10,000원</b></div></div>
-    <div class="q"><span class="no">2</span><div>
-      ① 12,000 + 2,000 = <b>14,000원</b> &nbsp; ② 20,000 − 14,000 = <b>6,000원</b>
-    </div></div>
-    <div class="q"><span class="no">3</span><div>
-      주은 18,000 / <b>2,000</b> · 주현 23,000 / <b>7,000</b> · 채원 22,000 / <b>8,000</b> · 예은 20,000 / <b>0</b>
-    </div></div>
-    <div class="q"><span class="no">4</span><div>
-      열쇠고리 <b>○</b> · 로티 인형 ✗ · 스티커 세트 <b>○</b> · 캐릭터 머리띠 ✗ · 볼펜 <b>○</b>
-    </div></div>
-    <div class="q"><span class="no">5</span><div>자유 응답 (예산 20,000원 이내 확인)</div></div>
+ <div class="practice">
+ <h3>03 기념품 사기</h3>
+ <div class="q"><span class="no">1</span><div>30,000 − 20,000 = <b>10,000원</b></div></div>
+ <div class="q"><span class="no">2</span><div>
+ ① 12,000 + 2,000 = <b>14,000원</b> &nbsp; ② 20,000 − 14,000 = <b>6,000원</b>
+ </div></div>
+ <div class="q"><span class="no">3</span><div>
+ 주은 18,000 / <b>2,000</b> · 주현 23,000 / <b>7,000</b> · 채원 22,000 / <b>8,000</b> · 예은 20,000 / <b>0</b>
+ </div></div>
+ <div class="q"><span class="no">4</span><div>
+ 열쇠고리 <b>○</b> · 로티 인형 ✗ · 스티커 세트 <b>○</b> · 캐릭터 머리띠 ✗ · 볼펜 <b>○</b>
+ </div></div>
+ <div class="q"><span class="no">5</span><div>자유 응답 (예산 20,000원 이내 확인)</div></div>
 
-    <h3>04 하루 총비용</h3>
-    <div class="q"><span class="no">1</span><div>25,000 + 13,000 + 20,000 + 0 = <b>58,000원</b></div></div>
-    <div class="q"><span class="no">2</span><div>
-      <table>
-        <tr><th>이름</th><th>점심</th><th>기념품</th><th>합계</th></tr>
-        <tr><td>하영</td><td>13,000</td><td>20,000</td><td><b>58,000</b></td></tr>
-        <tr><td>하은</td><td>14,000</td><td>14,000</td><td><b>53,000</b></td></tr>
-        <tr><td>주은</td><td>15,000</td><td>18,000</td><td><b>58,000</b></td></tr>
-        <tr><td>주현</td><td>14,000</td><td>23,000</td><td><b>62,000</b></td></tr>
-        <tr><td>채원</td><td>13,000</td><td>22,000</td><td><b>60,000</b></td></tr>
-        <tr><td>예은</td><td>12,000</td><td>20,000</td><td><b>57,000</b></td></tr>
-      </table>
-    </div></div>
-    <div class="q"><span class="no">3</span><div>6명 합계 = <b>348,000원</b></div></div>
-    <div class="q"><span class="no">4</span><div>
-      ① 300,000원 &nbsp; ② 150,000원 &nbsp; ③ <b>150,000원</b><br>
-      ④ 3,000 × 6 = <b>18,000원</b> &nbsp; ⑤ 150,000 + 18,000 = <b>168,000원</b>
-    </div></div>
-  </div>
+ <h3>04 하루 총비용</h3>
+ <div class="q"><span class="no">1</span><div>25,000 + 13,000 + 20,000 + 0 = <b>58,000원</b></div></div>
+ <div class="q"><span class="no">2</span><div>
+ <table>
+ <tr><th>이름</th><th>점심</th><th>기념품</th><th>합계</th></tr>
+ <tr><td>하영</td><td>13,000</td><td>20,000</td><td><b>58,000</b></td></tr>
+ <tr><td>하은</td><td>14,000</td><td>14,000</td><td><b>53,000</b></td></tr>
+ <tr><td>주은</td><td>15,000</td><td>18,000</td><td><b>58,000</b></td></tr>
+ <tr><td>주현</td><td>14,000</td><td>23,000</td><td><b>62,000</b></td></tr>
+ <tr><td>채원</td><td>13,000</td><td>22,000</td><td><b>60,000</b></td></tr>
+ <tr><td>예은</td><td>12,000</td><td>20,000</td><td><b>57,000</b></td></tr>
+ </table>
+ </div></div>
+ <div class="q"><span class="no">3</span><div>6명 합계 = <b>348,000원</b></div></div>
+ <div class="q"><span class="no">4</span><div>
+ ① 300,000원 &nbsp; ② 150,000원 &nbsp; ③ <b>150,000원</b><br>
+ ④ 3,000 × 6 = <b>18,000원</b> &nbsp; ⑤ 150,000 + 18,000 = <b>168,000원</b>
+ </div></div>
+ </div>
 
-  <div class="tip" style="margin-top:10px;">
-    <span class="tip-title">📌 교사 참고</span>
-    금액은 학습용으로 단순화한 가격입니다. 실제 복지카드의 지하철 할인은 <b>100% 면제</b>,
-    롯데월드 할인은 약 <b>50%</b> 수준이지만 종류·시기에 따라 다릅니다.
-  </div>
+ <div class="tip" style="margin-top:10px;">
+ <span class="tip-title">📌 교사 참고</span>
+ 금액은 학습용으로 단순화한 가격입니다. 실제 복지카드의 지하철 할인은 <b>100% 면제</b>,
+ 롯데월드 할인은 약 <b>50%</b> 수준이지만 종류·시기에 따라 다릅니다.
+ </div>
 
-  <div class="page-no">정답 ②</div>
+ <div class="page-no">정답 ②</div>
 </section>
 
 </body>

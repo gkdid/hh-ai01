@@ -8,38 +8,38 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body {
-  margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  font-size: 10pt; line-height: 1.4;
+ margin: 0; background: #eceff1; color: #1f2d3d;
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+ font-size: 10pt; line-height: 1.4;
 }
 .toolbar {
-  position: sticky; top: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+ position: sticky; top: 0; z-index: 50;
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 10px 18px; background: #263238; color: #fff;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button {
-  background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700;
-  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+ background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700;
+ padding: 8px 18px; border-radius: 6px; cursor: pointer;
 }
 .page {
-  width: 210mm; min-height: 297mm;
-  margin: 10mm auto; padding: 11mm 13mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  position: relative; page-break-after: always;
+ width: 210mm; min-height: 297mm;
+ margin: 10mm auto; padding: 11mm 13mm;
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+ position: relative; page-break-after: always;
 }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #e1f5fe 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #607d8b;
-  border-bottom: 2px solid #cfd8dc; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #cfd8dc; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #0277bd; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge {
-  display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #0277bd; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px;
+ display: inline-block; padding: 5px 16px; border-radius: 20px;
+ background: #0277bd; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px;
 }
 .cover-main h1 { margin: 0; font-size: 2.2em; letter-spacing: -1.5px; color: #01579b; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1.02em; color: #546e7a; font-weight: 500; }
@@ -53,13 +53,13 @@ body {
 .cover-name .label { color: #455a64; font-weight: 700; margin-right: 6px; }
 
 .page-head {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #0277bd; padding-bottom: 5px; margin-bottom: 10px;
+ display: flex; justify-content: space-between; align-items: flex-end;
+ border-bottom: 2.5px solid #0277bd; padding-bottom: 5px; margin-bottom: 10px;
 }
 .page-head h2 { margin: 0; color: #01579b; font-size: 1.32em; letter-spacing: -0.5px; }
 .page-head .step {
-  font-size: 0.82em; color: #fff; background: #0277bd;
-  padding: 3px 10px; border-radius: 11px; font-weight: 700;
+ font-size: 0.82em; color: #fff; background: #0277bd;
+ padding: 3px 10px; border-radius: 11px; font-weight: 700;
 }
 
 .intro { background: #e1f5fe; border-left: 4px solid #0288d1; padding: 7px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.94em; }
@@ -129,728 +129,728 @@ table.props td.left { text-align: left; }
 .page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
 
 @media print {
-  body { background: #fff; }
-  .toolbar { display: none; }
-  .page { box-shadow: none; margin: 0 auto; }
+ body { background: #fff; }
+ .toolbar { display: none; }
+ .page { box-shadow: none; margin: 0 auto; }
 }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div><span class="title">📏 자로 길이 재기 학습지</span><span class="muted">mm · cm · m</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">📏 자로 길이 재기 학습지</span><span class="muted">mm · cm · m</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- ============ 표지 ============ -->
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">수학</span> · 측정 영역</span>
-    <span>고등학교 특수학급</span>
-  </div>
+ <div class="cover-top">
+ <span><span class="subject">수학</span> · 측정 영역</span>
+ <span>고등학교 </span>
+ </div>
 
-  <div class="cover-main">
-    <span class="badge">측정 익히기</span>
-    <h1>자로 길이 재기</h1>
-    <p class="lead">mm · cm · m — 자를 바르게 읽고, 우리 주변을 측정해 봐요</p>
-  </div>
+ <div class="cover-main">
+ <span class="badge">측정 익히기</span>
+ <h1>자로 길이 재기</h1>
+ <p class="lead">mm · cm · m — 자를 바르게 읽고, 우리 주변을 측정해 봐요</p>
+ </div>
 
-  <!-- 표지 자 그림 -->
-  <svg class="cover-ruler" viewBox="0 0 720 80">
-    <rect x="20" y="20" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
-    <!-- cm 눈금 (긴 줄) -->
-    <line x1="30" y1="20" x2="30" y2="44" stroke="#3e2723" stroke-width="1.8"/>
-    <line x1="96" y1="20" x2="96" y2="44" stroke="#3e2723" stroke-width="1.8"/>
-    <line x1="162" y1="20" x2="162" y2="44" stroke="#3e2723" stroke-width="1.8"/>
-    <line x1="228" y1="20" x2="228" y2="44" stroke="#3e2723" stroke-width="1.8"/>
-    <line x1="294" y1="20" x2="294" y2="44" stroke="#3e2723" stroke-width="1.8"/>
-    <line x1="360" y1="20" x2="360" y2="44" stroke="#3e2723" stroke-width="1.8"/>
-    <line x1="426" y1="20" x2="426" y2="44" stroke="#3e2723" stroke-width="1.8"/>
-    <line x1="492" y1="20" x2="492" y2="44" stroke="#3e2723" stroke-width="1.8"/>
-    <line x1="558" y1="20" x2="558" y2="44" stroke="#3e2723" stroke-width="1.8"/>
-    <line x1="624" y1="20" x2="624" y2="44" stroke="#3e2723" stroke-width="1.8"/>
-    <line x1="690" y1="20" x2="690" y2="44" stroke="#3e2723" stroke-width="1.8"/>
-    <!-- 5mm 중간 눈금 (짧음) -->
-    <line x1="63" y1="20" x2="63" y2="34" stroke="#3e2723" stroke-width="1.2"/>
-    <line x1="129" y1="20" x2="129" y2="34" stroke="#3e2723" stroke-width="1.2"/>
-    <line x1="195" y1="20" x2="195" y2="34" stroke="#3e2723" stroke-width="1.2"/>
-    <line x1="261" y1="20" x2="261" y2="34" stroke="#3e2723" stroke-width="1.2"/>
-    <line x1="327" y1="20" x2="327" y2="34" stroke="#3e2723" stroke-width="1.2"/>
-    <line x1="393" y1="20" x2="393" y2="34" stroke="#3e2723" stroke-width="1.2"/>
-    <line x1="459" y1="20" x2="459" y2="34" stroke="#3e2723" stroke-width="1.2"/>
-    <line x1="525" y1="20" x2="525" y2="34" stroke="#3e2723" stroke-width="1.2"/>
-    <line x1="591" y1="20" x2="591" y2="34" stroke="#3e2723" stroke-width="1.2"/>
-    <line x1="657" y1="20" x2="657" y2="34" stroke="#3e2723" stroke-width="1.2"/>
-    <!-- 숫자 -->
-    <text x="30" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">0</text>
-    <text x="96" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">1</text>
-    <text x="162" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">2</text>
-    <text x="228" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">3</text>
-    <text x="294" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">4</text>
-    <text x="360" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">5</text>
-    <text x="426" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">6</text>
-    <text x="492" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">7</text>
-    <text x="558" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">8</text>
-    <text x="624" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">9</text>
-    <text x="690" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">10</text>
-    <text x="700" y="76" font-size="11" font-weight="700" fill="#827717">cm</text>
-  </svg>
+ <!-- 표지 자 그림 -->
+ <svg class="cover-ruler" viewBox="0 0 720 80">
+ <rect x="20" y="20" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
+ <!-- cm 눈금 (긴 줄) -->
+ <line x1="30" y1="20" x2="30" y2="44" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="96" y1="20" x2="96" y2="44" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="162" y1="20" x2="162" y2="44" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="228" y1="20" x2="228" y2="44" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="294" y1="20" x2="294" y2="44" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="360" y1="20" x2="360" y2="44" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="426" y1="20" x2="426" y2="44" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="492" y1="20" x2="492" y2="44" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="558" y1="20" x2="558" y2="44" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="624" y1="20" x2="624" y2="44" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="690" y1="20" x2="690" y2="44" stroke="#3e2723" stroke-width="1.8"/>
+ <!-- 5mm 중간 눈금 (짧음) -->
+ <line x1="63" y1="20" x2="63" y2="34" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="129" y1="20" x2="129" y2="34" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="195" y1="20" x2="195" y2="34" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="261" y1="20" x2="261" y2="34" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="327" y1="20" x2="327" y2="34" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="393" y1="20" x2="393" y2="34" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="459" y1="20" x2="459" y2="34" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="525" y1="20" x2="525" y2="34" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="591" y1="20" x2="591" y2="34" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="657" y1="20" x2="657" y2="34" stroke="#3e2723" stroke-width="1.2"/>
+ <!-- 숫자 -->
+ <text x="30" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">0</text>
+ <text x="96" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">1</text>
+ <text x="162" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">2</text>
+ <text x="228" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">3</text>
+ <text x="294" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">4</text>
+ <text x="360" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">5</text>
+ <text x="426" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">6</text>
+ <text x="492" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">7</text>
+ <text x="558" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">8</text>
+ <text x="624" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">9</text>
+ <text x="690" y="58" font-size="13" text-anchor="middle" font-weight="700" fill="#3e2723">10</text>
+ <text x="700" y="76" font-size="11" font-weight="700" fill="#827717">cm</text>
+ </svg>
 
-  <div class="cover-info">
-    <h3>🎯 학습 목표</h3>
-    <ul>
-      <li>길이의 단위 mm·cm·m·km를 알고, 상황에 맞게 사용한다.</li>
-      <li>자를 0에 맞추고, 눈금을 정확히 읽을 수 있다.</li>
-      <li>cm와 mm 단위를 환산하고, 생활 속 물건의 길이를 잰다.</li>
-    </ul>
-  </div>
+ <div class="cover-info">
+ <h3>🎯 학습 목표</h3>
+ <ul>
+ <li>길이의 단위 mm·cm·m·km를 알고, 상황에 맞게 사용한다.</li>
+ <li>자를 0에 맞추고, 눈금을 정확히 읽을 수 있다.</li>
+ <li>cm와 mm 단위를 환산하고, 생활 속 물건의 길이를 잰다.</li>
+ </ul>
+ </div>
 
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">📝 학습 안내</h3>
-    <ul>
-      <li>전체 <b>표지 + 7쪽</b>으로 구성됩니다. 각 쪽은 A4 한 장에 인쇄돼요.</li>
-      <li>준비물: <b>30cm 자, 연필, 종이 한 장</b>. 실제 측정 활동이 포함돼요.</li>
-      <li>모르는 부분은 표시하고 선생님과 함께 확인해요.</li>
-    </ul>
-  </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">📝 학습 안내</h3>
+ <ul>
+ <li>전체 <b>표지 + 7쪽</b>으로 구성됩니다. 각 쪽은 A4 한 장에 인쇄돼요.</li>
+ <li>준비물: <b>30cm 자, 연필, 종이 한 장</b>. 실제 측정 활동이 포함돼요.</li>
+ <li>모르는 부분은 표시하고 선생님과 함께 확인해요.</li>
+ </ul>
+ </div>
 
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
 
-  <div class="page-foot">자로 길이 재기 학습지 · 표지</div>
+ <div class="page-foot">자로 길이 재기 학습지 · 표지</div>
 </section>
 
 <!-- ============ 1쪽: 길이 단위 ============ -->
 <section class="page">
-  <div class="page-head">
-    <h2>📏 길이의 단위 — mm·cm·m·km</h2>
-    <span class="step">1쪽 · 도입</span>
-  </div>
+ <div class="page-head">
+ <h2>📏 길이의 단위 — mm·cm·m·km</h2>
+ <span class="step">1쪽 · 도입</span>
+ </div>
 
-  <div class="intro">
-    <b>길이</b>는 두 점 사이의 거리예요. 길이를 잴 때는 상황에 맞는 <b>단위</b>를 써요.
-    아주 작은 건 <b>mm</b>, 보통 물건은 <b>cm</b>, 키나 방의 크기는 <b>m</b>, 도시 간 거리는 <b>km</b>를 써요.
-  </div>
+ <div class="intro">
+ <b>길이</b>는 두 점 사이의 거리예요. 길이를 잴 때는 상황에 맞는 <b>단위</b>를 써요.
+ 아주 작은 건 <b>mm</b>, 보통 물건은 <b>cm</b>, 키나 방의 크기는 <b>m</b>, 도시 간 거리는 <b>km</b>를 써요.
+ </div>
 
-  <div class="unit-grid">
-    <div class="unit-card">
-      <div class="symbol">mm</div>
-      <div class="name">밀리미터</div>
-      <div class="desc">아주 작은 길이<br>예: 손톱 두께, 1원 동전 두께</div>
-    </div>
-    <div class="unit-card">
-      <div class="symbol">cm</div>
-      <div class="name">센티미터</div>
-      <div class="desc">일상 물건의 길이<br>예: 연필, 책, 스마트폰</div>
-    </div>
-    <div class="unit-card">
-      <div class="symbol">m</div>
-      <div class="name">미터</div>
-      <div class="desc">사람·방의 크기<br>예: 키, 교실 가로</div>
-    </div>
-    <div class="unit-card">
-      <div class="symbol">km</div>
-      <div class="name">킬로미터</div>
-      <div class="desc">아주 먼 거리<br>예: 학교에서 집까지</div>
-    </div>
-  </div>
+ <div class="unit-grid">
+ <div class="unit-card">
+ <div class="symbol">mm</div>
+ <div class="name">밀리미터</div>
+ <div class="desc">아주 작은 길이<br>예: 손톱 두께, 1원 동전 두께</div>
+ </div>
+ <div class="unit-card">
+ <div class="symbol">cm</div>
+ <div class="name">센티미터</div>
+ <div class="desc">일상 물건의 길이<br>예: 연필, 책, 스마트폰</div>
+ </div>
+ <div class="unit-card">
+ <div class="symbol">m</div>
+ <div class="name">미터</div>
+ <div class="desc">사람·방의 크기<br>예: 키, 교실 가로</div>
+ </div>
+ <div class="unit-card">
+ <div class="symbol">km</div>
+ <div class="name">킬로미터</div>
+ <div class="desc">아주 먼 거리<br>예: 학교에서 집까지</div>
+ </div>
+ </div>
 
-  <div class="note">
-    💡 <b>크기 관계</b>: <b>1cm = 10mm</b> · <b>1m = 100cm</b> · <b>1km = 1000m</b>
-  </div>
+ <div class="note">
+ 💡 <b>크기 관계</b>: <b>1cm = 10mm</b> · <b>1m = 100cm</b> · <b>1km = 1000m</b>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 알맞은 단위 고르기</h3><span class="tag">단위 선택</span></div>
-    <p>다음 길이를 잴 때 어떤 단위가 가장 좋을까요? mm / cm / m / km 중에 골라 쓰세요.</p>
-    <table class="props">
-      <tr><th style="width:60%;">상황</th><th>알맞은 단위</th></tr>
-      <tr><td class="left">① 내 키</td><td><span class="blank">&nbsp;</span></td></tr>
-      <tr><td class="left">② 연필 한 자루의 길이</td><td><span class="blank">&nbsp;</span></td></tr>
-      <tr><td class="left">③ 손톱의 두께</td><td><span class="blank">&nbsp;</span></td></tr>
-      <tr><td class="left">④ 서울에서 부산까지의 거리</td><td><span class="blank">&nbsp;</span></td></tr>
-      <tr><td class="left">⑤ 우리 교실의 가로</td><td><span class="blank">&nbsp;</span></td></tr>
-      <tr><td class="left">⑥ 머리카락 하나의 두께</td><td><span class="blank">&nbsp;</span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 알맞은 단위 고르기</h3><span class="tag">단위 선택</span></div>
+ <p>다음 길이를 잴 때 어떤 단위가 가장 좋을까요? mm / cm / m / km 중에 골라 쓰세요.</p>
+ <table class="props">
+ <tr><th style="width:60%;">상황</th><th>알맞은 단위</th></tr>
+ <tr><td class="left">① 내 키</td><td><span class="blank">&nbsp;</span></td></tr>
+ <tr><td class="left">② 연필 한 자루의 길이</td><td><span class="blank">&nbsp;</span></td></tr>
+ <tr><td class="left">③ 손톱의 두께</td><td><span class="blank">&nbsp;</span></td></tr>
+ <tr><td class="left">④ 서울에서 부산까지의 거리</td><td><span class="blank">&nbsp;</span></td></tr>
+ <tr><td class="left">⑤ 우리 교실의 가로</td><td><span class="blank">&nbsp;</span></td></tr>
+ <tr><td class="left">⑥ 머리카락 하나의 두께</td><td><span class="blank">&nbsp;</span></td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 단위 비교</h3><span class="tag">크기 감각</span></div>
-    <p>큰 쪽에 ○ 표 하세요.</p>
-    <p>① 1cm ( ) ↔ 1mm ( )</p>
-    <p>② 1m ( ) ↔ 50cm ( )</p>
-    <p>③ 1km ( ) ↔ 500m ( )</p>
-    <p>④ 30cm ( ) ↔ 30mm ( )</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 단위 비교</h3><span class="tag">크기 감각</span></div>
+ <p>큰 쪽에 ○ 표 하세요.</p>
+ <p>① 1cm  ↔ 1mm </p>
+ <p>② 1m  ↔ 50cm </p>
+ <p>③ 1km  ↔ 500m </p>
+ <p>④ 30cm  ↔ 30mm </p>
+ </div>
 
-  <div class="life-bar">
-    <span class="title">💭 길이의 감각</span>
-    <span class="items">
-      <span>새끼손톱 ≒ 1cm</span><span>볼펜 길이 ≒ 14cm</span>
-      <span>A4 종이 가로 ≒ 21cm</span><span>책상 높이 ≒ 70cm</span><span>여고생 평균 키 ≒ 160cm</span>
-    </span>
-  </div>
+ <div class="life-bar">
+ <span class="title">💭 길이의 감각</span>
+ <span class="items">
+ <span>새끼손톱 ≒ 1cm</span><span>볼펜 길이 ≒ 14cm</span>
+ <span>A4 종이 가로 ≒ 21cm</span><span>책상 높이 ≒ 70cm</span><span>여고생 평균 키 ≒ 160cm</span>
+ </span>
+ </div>
 
-  <div class="page-foot">자로 길이 재기 학습지 · 1쪽 / 7</div>
+ <div class="page-foot">자로 길이 재기 학습지 · 1쪽 / 7</div>
 </section>
 
 <!-- ============ 2쪽: 자 익히기 ============ -->
 <section class="page">
-  <div class="page-head">
-    <h2>📐 자를 알아보기 — 눈금 읽는 법</h2>
-    <span class="step">2쪽 · 자의 구조</span>
-  </div>
+ <div class="page-head">
+ <h2>📐 자를 알아보기 — 눈금 읽는 법</h2>
+ <span class="step">2쪽 · 자의 구조</span>
+ </div>
 
-  <div class="intro">
-    자에는 일정한 간격의 <b>눈금</b>이 있어요. 가장 긴 눈금은 <b>cm</b>, 그 사이 짧은 눈금은 <b>mm</b>예요.
-    자의 <b>0</b>을 물건의 한쪽 끝에 정확히 맞추는 것이 가장 중요해요.
-  </div>
+ <div class="intro">
+ 자에는 일정한 간격의 <b>눈금</b>이 있어요. 가장 긴 눈금은 <b>cm</b>, 그 사이 짧은 눈금은 <b>mm</b>예요.
+ 자의 <b>0</b>을 물건의 한쪽 끝에 정확히 맞추는 것이 가장 중요해요.
+ </div>
 
-  <!-- 큰 자 그림 with 라벨 -->
-  <div style="margin: 10px 0;">
-    <svg viewBox="0 0 720 130" style="width:100%;">
-      <rect x="20" y="40" width="680" height="50" fill="#fff59d" stroke="#827717" stroke-width="2"/>
-      <!-- cm 긴 눈금 0~10 -->
-      <line x1="30" y1="40" x2="30" y2="70" stroke="#3e2723" stroke-width="1.8"/>
-      <line x1="96" y1="40" x2="96" y2="70" stroke="#3e2723" stroke-width="1.8"/>
-      <line x1="162" y1="40" x2="162" y2="70" stroke="#3e2723" stroke-width="1.8"/>
-      <line x1="228" y1="40" x2="228" y2="70" stroke="#3e2723" stroke-width="1.8"/>
-      <line x1="294" y1="40" x2="294" y2="70" stroke="#3e2723" stroke-width="1.8"/>
-      <line x1="360" y1="40" x2="360" y2="70" stroke="#3e2723" stroke-width="1.8"/>
-      <line x1="426" y1="40" x2="426" y2="70" stroke="#3e2723" stroke-width="1.8"/>
-      <line x1="492" y1="40" x2="492" y2="70" stroke="#3e2723" stroke-width="1.8"/>
-      <line x1="558" y1="40" x2="558" y2="70" stroke="#3e2723" stroke-width="1.8"/>
-      <line x1="624" y1="40" x2="624" y2="70" stroke="#3e2723" stroke-width="1.8"/>
-      <line x1="690" y1="40" x2="690" y2="70" stroke="#3e2723" stroke-width="1.8"/>
-      <!-- 5mm 중간 눈금 -->
-      <line x1="63" y1="40" x2="63" y2="60" stroke="#3e2723" stroke-width="1.2"/>
-      <line x1="129" y1="40" x2="129" y2="60" stroke="#3e2723" stroke-width="1.2"/>
-      <line x1="195" y1="40" x2="195" y2="60" stroke="#3e2723" stroke-width="1.2"/>
-      <line x1="261" y1="40" x2="261" y2="60" stroke="#3e2723" stroke-width="1.2"/>
-      <line x1="327" y1="40" x2="327" y2="60" stroke="#3e2723" stroke-width="1.2"/>
-      <line x1="393" y1="40" x2="393" y2="60" stroke="#3e2723" stroke-width="1.2"/>
-      <line x1="459" y1="40" x2="459" y2="60" stroke="#3e2723" stroke-width="1.2"/>
-      <line x1="525" y1="40" x2="525" y2="60" stroke="#3e2723" stroke-width="1.2"/>
-      <line x1="591" y1="40" x2="591" y2="60" stroke="#3e2723" stroke-width="1.2"/>
-      <line x1="657" y1="40" x2="657" y2="60" stroke="#3e2723" stroke-width="1.2"/>
-      <!-- 숫자 -->
-      <text x="30" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">0</text>
-      <text x="96" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">1</text>
-      <text x="162" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">2</text>
-      <text x="228" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">3</text>
-      <text x="294" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">4</text>
-      <text x="360" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">5</text>
-      <text x="426" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">6</text>
-      <text x="492" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">7</text>
-      <text x="558" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">8</text>
-      <text x="624" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">9</text>
-      <text x="690" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">10</text>
-      <text x="710" y="100" font-size="12" font-weight="700" fill="#827717">cm</text>
-      <!-- 라벨 화살표 -->
-      <text x="30" y="14" font-size="11" fill="#c62828" font-weight="700" text-anchor="middle">0의 위치 (시작점)</text>
-      <line x1="30" y1="16" x2="30" y2="36" stroke="#c62828" stroke-width="1.5"/>
-      <text x="500" y="14" font-size="11" fill="#1565c0" font-weight="700">cm 눈금 (긴 줄)</text>
-      <line x1="492" y1="16" x2="492" y2="36" stroke="#1565c0" stroke-width="1.5"/>
-      <text x="180" y="116" font-size="11" fill="#2e7d32" font-weight="700">5mm 눈금 (중간)</text>
-      <line x1="195" y1="115" x2="195" y2="64" stroke="#2e7d32" stroke-width="1.5"/>
-    </svg>
-  </div>
+ <!-- 큰 자 그림 with 라벨 -->
+ <div style="margin: 10px 0;">
+ <svg viewBox="0 0 720 130" style="width:100%;">
+ <rect x="20" y="40" width="680" height="50" fill="#fff59d" stroke="#827717" stroke-width="2"/>
+ <!-- cm 긴 눈금 0~10 -->
+ <line x1="30" y1="40" x2="30" y2="70" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="96" y1="40" x2="96" y2="70" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="162" y1="40" x2="162" y2="70" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="228" y1="40" x2="228" y2="70" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="294" y1="40" x2="294" y2="70" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="360" y1="40" x2="360" y2="70" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="426" y1="40" x2="426" y2="70" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="492" y1="40" x2="492" y2="70" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="558" y1="40" x2="558" y2="70" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="624" y1="40" x2="624" y2="70" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="690" y1="40" x2="690" y2="70" stroke="#3e2723" stroke-width="1.8"/>
+ <!-- 5mm 중간 눈금 -->
+ <line x1="63" y1="40" x2="63" y2="60" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="129" y1="40" x2="129" y2="60" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="195" y1="40" x2="195" y2="60" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="261" y1="40" x2="261" y2="60" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="327" y1="40" x2="327" y2="60" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="393" y1="40" x2="393" y2="60" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="459" y1="40" x2="459" y2="60" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="525" y1="40" x2="525" y2="60" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="591" y1="40" x2="591" y2="60" stroke="#3e2723" stroke-width="1.2"/>
+ <line x1="657" y1="40" x2="657" y2="60" stroke="#3e2723" stroke-width="1.2"/>
+ <!-- 숫자 -->
+ <text x="30" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">0</text>
+ <text x="96" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">1</text>
+ <text x="162" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">2</text>
+ <text x="228" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">3</text>
+ <text x="294" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">4</text>
+ <text x="360" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">5</text>
+ <text x="426" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">6</text>
+ <text x="492" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">7</text>
+ <text x="558" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">8</text>
+ <text x="624" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">9</text>
+ <text x="690" y="86" font-size="14" text-anchor="middle" font-weight="700" fill="#3e2723">10</text>
+ <text x="710" y="100" font-size="12" font-weight="700" fill="#827717">cm</text>
+ <!-- 라벨 화살표 -->
+ <text x="30" y="14" font-size="11" fill="#c62828" font-weight="700" text-anchor="middle">0의 위치 (시작점)</text>
+ <line x1="30" y1="16" x2="30" y2="36" stroke="#c62828" stroke-width="1.5"/>
+ <text x="500" y="14" font-size="11" fill="#1565c0" font-weight="700">cm 눈금 (긴 줄)</text>
+ <line x1="492" y1="16" x2="492" y2="36" stroke="#1565c0" stroke-width="1.5"/>
+ <text x="180" y="116" font-size="11" fill="#2e7d32" font-weight="700">5mm 눈금 (중간)</text>
+ <line x1="195" y1="115" x2="195" y2="64" stroke="#2e7d32" stroke-width="1.5"/>
+ </svg>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 자 읽는 4단계</h3><span class="tag">방법</span></div>
-    <table class="props">
-      <tr><th>단계</th><th>해야 할 일</th></tr>
-      <tr><td>1단계</td><td class="left">자를 물건과 <b>나란히</b> 놓는다.</td></tr>
-      <tr><td>2단계</td><td class="left">자의 <b>0</b>을 물건의 한쪽 끝에 정확히 맞춘다.</td></tr>
-      <tr><td>3단계</td><td class="left">물건의 다른 쪽 끝이 가리키는 <b>눈금 숫자</b>를 본다.</td></tr>
-      <tr><td>4단계</td><td class="left">cm 단위 또는 mm 단위까지 정확히 읽는다.</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 자 읽는 4단계</h3><span class="tag">방법</span></div>
+ <table class="props">
+ <tr><th>단계</th><th>해야 할 일</th></tr>
+ <tr><td>1단계</td><td class="left">자를 물건과 <b>나란히</b> 놓는다.</td></tr>
+ <tr><td>2단계</td><td class="left">자의 <b>0</b>을 물건의 한쪽 끝에 정확히 맞춘다.</td></tr>
+ <tr><td>3단계</td><td class="left">물건의 다른 쪽 끝이 가리키는 <b>눈금 숫자</b>를 본다.</td></tr>
+ <tr><td>4단계</td><td class="left">cm 단위 또는 mm 단위까지 정확히 읽는다.</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 잘못된 방법 찾기</h3><span class="tag">주의점</span></div>
-    <p>다음 중 자 사용이 <b>잘못된 것</b>에 모두 ✔ 하세요.</p>
-    <div class="choices" style="flex-direction:column; align-items:flex-start;">
-      <label><input type="checkbox"> ① 자의 1cm 지점부터 잰다.</label>
-      <label><input type="checkbox"> ② 자가 휘어 있어도 그냥 잰다.</label>
-      <label><input type="checkbox"> ③ 자의 0을 물건의 끝에 정확히 맞춘다.</label>
-      <label><input type="checkbox"> ④ 자가 물건과 비스듬히 놓여도 괜찮다.</label>
-    </div>
-    <div class="note">💡 <b>옳은 방법:</b> 자는 곧게 + 0을 물건 끝에 맞춤 + 나란히 놓기</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 잘못된 방법 찾기</h3><span class="tag">주의점</span></div>
+ <p>다음 중 자 사용이 <b>잘못된 것</b>에 모두 ✔ 하세요.</p>
+ <div class="choices" style="flex-direction:column; align-items:flex-start;">
+ <label><input type="checkbox"> ① 자의 1cm 지점부터 잰다.</label>
+ <label><input type="checkbox"> ② 자가 휘어 있어도 그냥 잰다.</label>
+ <label><input type="checkbox"> ③ 자의 0을 물건의 끝에 정확히 맞춘다.</label>
+ <label><input type="checkbox"> ④ 자가 물건과 비스듬히 놓여도 괜찮다.</label>
+ </div>
+ <div class="note">💡 <b>옳은 방법:</b> 자는 곧게 + 0을 물건 끝에 맞춤 + 나란히 놓기</div>
+ </div>
 
-  <div class="page-foot">자로 길이 재기 학습지 · 2쪽 / 7</div>
+ <div class="page-foot">자로 길이 재기 학습지 · 2쪽 / 7</div>
 </section>
 
 <!-- ============ 3쪽: cm 단위 재기 ============ -->
 <section class="page">
-  <div class="page-head">
-    <h2>📐 cm 단위로 정확히 재기</h2>
-    <span class="step">3쪽 · cm 측정</span>
-  </div>
+ <div class="page-head">
+ <h2>📐 cm 단위로 정확히 재기</h2>
+ <span class="step">3쪽 · cm 측정</span>
+ </div>
 
-  <div class="intro">
-    물건의 한쪽 끝이 자의 <b>0</b>에, 반대쪽 끝이 가리키는 cm 눈금이 곧 <b>물건의 길이</b>예요.
-    아래 자 위의 물건의 길이를 읽어 봐요.
-  </div>
+ <div class="intro">
+ 물건의 한쪽 끝이 자의 <b>0</b>에, 반대쪽 끝이 가리키는 cm 눈금이 곧 <b>물건의 길이</b>예요.
+ 아래 자 위의 물건의 길이를 읽어 봐요.
+ </div>
 
-  <!-- 측정 1: 연필 5cm -->
-  <div class="measure-block">
-    <div class="label">① 연필의 길이는?</div>
-    <svg viewBox="0 0 720 100" style="width:100%;">
-      <!-- 자 -->
-      <rect x="20" y="50" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
-      <line x1="30" y1="50" x2="30" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="96" y1="50" x2="96" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="162" y1="50" x2="162" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="228" y1="50" x2="228" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="294" y1="50" x2="294" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="360" y1="50" x2="360" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="426" y1="50" x2="426" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="492" y1="50" x2="492" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="558" y1="50" x2="558" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="624" y1="50" x2="624" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="690" y1="50" x2="690" y2="74" stroke="#3e2723" stroke-width="1.8"/>
-      <text x="30" y="88" font-size="13" text-anchor="middle" font-weight="700">0</text><text x="96" y="88" font-size="13" text-anchor="middle" font-weight="700">1</text><text x="162" y="88" font-size="13" text-anchor="middle" font-weight="700">2</text><text x="228" y="88" font-size="13" text-anchor="middle" font-weight="700">3</text><text x="294" y="88" font-size="13" text-anchor="middle" font-weight="700">4</text><text x="360" y="88" font-size="13" text-anchor="middle" font-weight="700">5</text><text x="426" y="88" font-size="13" text-anchor="middle" font-weight="700">6</text><text x="492" y="88" font-size="13" text-anchor="middle" font-weight="700">7</text><text x="558" y="88" font-size="13" text-anchor="middle" font-weight="700">8</text><text x="624" y="88" font-size="13" text-anchor="middle" font-weight="700">9</text><text x="690" y="88" font-size="13" text-anchor="middle" font-weight="700">10</text>
-      <!-- 연필: 0 ~ 5 (30 ~ 360) -->
-      <rect x="30" y="22" width="320" height="14" fill="#fdd835" stroke="#f57f17" stroke-width="1.5"/>
-      <polygon points="350,22 380,29 350,36" fill="#bf360c"/>
-      <text x="200" y="18" font-size="11" text-anchor="middle" fill="#3e2723">✏️ 연필</text>
-    </svg>
-    <div class="answer">→ 연필의 길이 = <span class="blank short">&nbsp;</span> cm</div>
-  </div>
+ <!-- 측정 1: 연필 5cm -->
+ <div class="measure-block">
+ <div class="label">① 연필의 길이는?</div>
+ <svg viewBox="0 0 720 100" style="width:100%;">
+ <!-- 자 -->
+ <rect x="20" y="50" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
+ <line x1="30" y1="50" x2="30" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="96" y1="50" x2="96" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="162" y1="50" x2="162" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="228" y1="50" x2="228" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="294" y1="50" x2="294" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="360" y1="50" x2="360" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="426" y1="50" x2="426" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="492" y1="50" x2="492" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="558" y1="50" x2="558" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="624" y1="50" x2="624" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="690" y1="50" x2="690" y2="74" stroke="#3e2723" stroke-width="1.8"/>
+ <text x="30" y="88" font-size="13" text-anchor="middle" font-weight="700">0</text><text x="96" y="88" font-size="13" text-anchor="middle" font-weight="700">1</text><text x="162" y="88" font-size="13" text-anchor="middle" font-weight="700">2</text><text x="228" y="88" font-size="13" text-anchor="middle" font-weight="700">3</text><text x="294" y="88" font-size="13" text-anchor="middle" font-weight="700">4</text><text x="360" y="88" font-size="13" text-anchor="middle" font-weight="700">5</text><text x="426" y="88" font-size="13" text-anchor="middle" font-weight="700">6</text><text x="492" y="88" font-size="13" text-anchor="middle" font-weight="700">7</text><text x="558" y="88" font-size="13" text-anchor="middle" font-weight="700">8</text><text x="624" y="88" font-size="13" text-anchor="middle" font-weight="700">9</text><text x="690" y="88" font-size="13" text-anchor="middle" font-weight="700">10</text>
+ <!-- 연필: 0 ~ 5 (30 ~ 360) -->
+ <rect x="30" y="22" width="320" height="14" fill="#fdd835" stroke="#f57f17" stroke-width="1.5"/>
+ <polygon points="350,22 380,29 350,36" fill="#bf360c"/>
+ <text x="200" y="18" font-size="11" text-anchor="middle" fill="#3e2723">✏️ 연필</text>
+ </svg>
+ <div class="answer">→ 연필의 길이 = <span class="blank short">&nbsp;</span> cm</div>
+ </div>
 
-  <!-- 측정 2: 클립 3cm -->
-  <div class="measure-block">
-    <div class="label">② 클립의 길이는?</div>
-    <svg viewBox="0 0 720 100" style="width:100%;">
-      <rect x="20" y="50" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
-      <line x1="30" y1="50" x2="30" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="96" y1="50" x2="96" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="162" y1="50" x2="162" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="228" y1="50" x2="228" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="294" y1="50" x2="294" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="360" y1="50" x2="360" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="426" y1="50" x2="426" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="492" y1="50" x2="492" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="558" y1="50" x2="558" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="624" y1="50" x2="624" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="690" y1="50" x2="690" y2="74" stroke="#3e2723" stroke-width="1.8"/>
-      <text x="30" y="88" font-size="13" text-anchor="middle" font-weight="700">0</text><text x="96" y="88" font-size="13" text-anchor="middle" font-weight="700">1</text><text x="162" y="88" font-size="13" text-anchor="middle" font-weight="700">2</text><text x="228" y="88" font-size="13" text-anchor="middle" font-weight="700">3</text><text x="294" y="88" font-size="13" text-anchor="middle" font-weight="700">4</text><text x="360" y="88" font-size="13" text-anchor="middle" font-weight="700">5</text><text x="426" y="88" font-size="13" text-anchor="middle" font-weight="700">6</text><text x="492" y="88" font-size="13" text-anchor="middle" font-weight="700">7</text><text x="558" y="88" font-size="13" text-anchor="middle" font-weight="700">8</text><text x="624" y="88" font-size="13" text-anchor="middle" font-weight="700">9</text><text x="690" y="88" font-size="13" text-anchor="middle" font-weight="700">10</text>
-      <!-- 클립: 0 ~ 3 (30 ~ 228) -->
-      <rect x="30" y="22" width="198" height="14" fill="#90caf9" stroke="#0d47a1" stroke-width="1.5" rx="6"/>
-      <text x="130" y="18" font-size="11" text-anchor="middle" fill="#3e2723">📎 클립</text>
-    </svg>
-    <div class="answer">→ 클립의 길이 = <span class="blank short">&nbsp;</span> cm</div>
-  </div>
+ <!-- 측정 2: 클립 3cm -->
+ <div class="measure-block">
+ <div class="label">② 클립의 길이는?</div>
+ <svg viewBox="0 0 720 100" style="width:100%;">
+ <rect x="20" y="50" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
+ <line x1="30" y1="50" x2="30" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="96" y1="50" x2="96" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="162" y1="50" x2="162" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="228" y1="50" x2="228" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="294" y1="50" x2="294" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="360" y1="50" x2="360" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="426" y1="50" x2="426" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="492" y1="50" x2="492" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="558" y1="50" x2="558" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="624" y1="50" x2="624" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="690" y1="50" x2="690" y2="74" stroke="#3e2723" stroke-width="1.8"/>
+ <text x="30" y="88" font-size="13" text-anchor="middle" font-weight="700">0</text><text x="96" y="88" font-size="13" text-anchor="middle" font-weight="700">1</text><text x="162" y="88" font-size="13" text-anchor="middle" font-weight="700">2</text><text x="228" y="88" font-size="13" text-anchor="middle" font-weight="700">3</text><text x="294" y="88" font-size="13" text-anchor="middle" font-weight="700">4</text><text x="360" y="88" font-size="13" text-anchor="middle" font-weight="700">5</text><text x="426" y="88" font-size="13" text-anchor="middle" font-weight="700">6</text><text x="492" y="88" font-size="13" text-anchor="middle" font-weight="700">7</text><text x="558" y="88" font-size="13" text-anchor="middle" font-weight="700">8</text><text x="624" y="88" font-size="13" text-anchor="middle" font-weight="700">9</text><text x="690" y="88" font-size="13" text-anchor="middle" font-weight="700">10</text>
+ <!-- 클립: 0 ~ 3 (30 ~ 228) -->
+ <rect x="30" y="22" width="198" height="14" fill="#90caf9" stroke="#0d47a1" stroke-width="1.5" rx="6"/>
+ <text x="130" y="18" font-size="11" text-anchor="middle" fill="#3e2723">📎 클립</text>
+ </svg>
+ <div class="answer">→ 클립의 길이 = <span class="blank short">&nbsp;</span> cm</div>
+ </div>
 
-  <!-- 측정 3: 지우개 4cm -->
-  <div class="measure-block">
-    <div class="label">③ 지우개의 길이는?</div>
-    <svg viewBox="0 0 720 100" style="width:100%;">
-      <rect x="20" y="50" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
-      <line x1="30" y1="50" x2="30" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="96" y1="50" x2="96" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="162" y1="50" x2="162" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="228" y1="50" x2="228" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="294" y1="50" x2="294" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="360" y1="50" x2="360" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="426" y1="50" x2="426" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="492" y1="50" x2="492" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="558" y1="50" x2="558" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="624" y1="50" x2="624" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="690" y1="50" x2="690" y2="74" stroke="#3e2723" stroke-width="1.8"/>
-      <text x="30" y="88" font-size="13" text-anchor="middle" font-weight="700">0</text><text x="96" y="88" font-size="13" text-anchor="middle" font-weight="700">1</text><text x="162" y="88" font-size="13" text-anchor="middle" font-weight="700">2</text><text x="228" y="88" font-size="13" text-anchor="middle" font-weight="700">3</text><text x="294" y="88" font-size="13" text-anchor="middle" font-weight="700">4</text><text x="360" y="88" font-size="13" text-anchor="middle" font-weight="700">5</text><text x="426" y="88" font-size="13" text-anchor="middle" font-weight="700">6</text><text x="492" y="88" font-size="13" text-anchor="middle" font-weight="700">7</text><text x="558" y="88" font-size="13" text-anchor="middle" font-weight="700">8</text><text x="624" y="88" font-size="13" text-anchor="middle" font-weight="700">9</text><text x="690" y="88" font-size="13" text-anchor="middle" font-weight="700">10</text>
-      <!-- 지우개: 0 ~ 4 (30 ~ 294) -->
-      <rect x="30" y="20" width="264" height="20" fill="#f8bbd0" stroke="#ad1457" stroke-width="1.5"/>
-      <text x="160" y="16" font-size="11" text-anchor="middle" fill="#3e2723">🩷 지우개</text>
-    </svg>
-    <div class="answer">→ 지우개의 길이 = <span class="blank short">&nbsp;</span> cm</div>
-  </div>
+ <!-- 측정 3: 지우개 4cm -->
+ <div class="measure-block">
+ <div class="label">③ 지우개의 길이는?</div>
+ <svg viewBox="0 0 720 100" style="width:100%;">
+ <rect x="20" y="50" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
+ <line x1="30" y1="50" x2="30" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="96" y1="50" x2="96" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="162" y1="50" x2="162" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="228" y1="50" x2="228" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="294" y1="50" x2="294" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="360" y1="50" x2="360" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="426" y1="50" x2="426" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="492" y1="50" x2="492" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="558" y1="50" x2="558" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="624" y1="50" x2="624" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="690" y1="50" x2="690" y2="74" stroke="#3e2723" stroke-width="1.8"/>
+ <text x="30" y="88" font-size="13" text-anchor="middle" font-weight="700">0</text><text x="96" y="88" font-size="13" text-anchor="middle" font-weight="700">1</text><text x="162" y="88" font-size="13" text-anchor="middle" font-weight="700">2</text><text x="228" y="88" font-size="13" text-anchor="middle" font-weight="700">3</text><text x="294" y="88" font-size="13" text-anchor="middle" font-weight="700">4</text><text x="360" y="88" font-size="13" text-anchor="middle" font-weight="700">5</text><text x="426" y="88" font-size="13" text-anchor="middle" font-weight="700">6</text><text x="492" y="88" font-size="13" text-anchor="middle" font-weight="700">7</text><text x="558" y="88" font-size="13" text-anchor="middle" font-weight="700">8</text><text x="624" y="88" font-size="13" text-anchor="middle" font-weight="700">9</text><text x="690" y="88" font-size="13" text-anchor="middle" font-weight="700">10</text>
+ <!-- 지우개: 0 ~ 4 (30 ~ 294) -->
+ <rect x="30" y="20" width="264" height="20" fill="#f8bbd0" stroke="#ad1457" stroke-width="1.5"/>
+ <text x="160" y="16" font-size="11" text-anchor="middle" fill="#3e2723">🩷 지우개</text>
+ </svg>
+ <div class="answer">→ 지우개의 길이 = <span class="blank short">&nbsp;</span> cm</div>
+ </div>
 
-  <!-- 측정 4: 빨대 7cm -->
-  <div class="measure-block">
-    <div class="label">④ 빨대의 길이는?</div>
-    <svg viewBox="0 0 720 100" style="width:100%;">
-      <rect x="20" y="50" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
-      <line x1="30" y1="50" x2="30" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="96" y1="50" x2="96" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="162" y1="50" x2="162" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="228" y1="50" x2="228" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="294" y1="50" x2="294" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="360" y1="50" x2="360" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="426" y1="50" x2="426" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="492" y1="50" x2="492" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="558" y1="50" x2="558" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="624" y1="50" x2="624" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="690" y1="50" x2="690" y2="74" stroke="#3e2723" stroke-width="1.8"/>
-      <text x="30" y="88" font-size="13" text-anchor="middle" font-weight="700">0</text><text x="96" y="88" font-size="13" text-anchor="middle" font-weight="700">1</text><text x="162" y="88" font-size="13" text-anchor="middle" font-weight="700">2</text><text x="228" y="88" font-size="13" text-anchor="middle" font-weight="700">3</text><text x="294" y="88" font-size="13" text-anchor="middle" font-weight="700">4</text><text x="360" y="88" font-size="13" text-anchor="middle" font-weight="700">5</text><text x="426" y="88" font-size="13" text-anchor="middle" font-weight="700">6</text><text x="492" y="88" font-size="13" text-anchor="middle" font-weight="700">7</text><text x="558" y="88" font-size="13" text-anchor="middle" font-weight="700">8</text><text x="624" y="88" font-size="13" text-anchor="middle" font-weight="700">9</text><text x="690" y="88" font-size="13" text-anchor="middle" font-weight="700">10</text>
-      <!-- 빨대: 0 ~ 7 (30 ~ 492) -->
-      <rect x="30" y="26" width="462" height="10" fill="#ce93d8" stroke="#4a148c" stroke-width="1.5" rx="3"/>
-      <text x="260" y="20" font-size="11" text-anchor="middle" fill="#3e2723">🥤 빨대</text>
-    </svg>
-    <div class="answer">→ 빨대의 길이 = <span class="blank short">&nbsp;</span> cm</div>
-  </div>
+ <!-- 측정 4: 빨대 7cm -->
+ <div class="measure-block">
+ <div class="label">④ 빨대의 길이는?</div>
+ <svg viewBox="0 0 720 100" style="width:100%;">
+ <rect x="20" y="50" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
+ <line x1="30" y1="50" x2="30" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="96" y1="50" x2="96" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="162" y1="50" x2="162" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="228" y1="50" x2="228" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="294" y1="50" x2="294" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="360" y1="50" x2="360" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="426" y1="50" x2="426" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="492" y1="50" x2="492" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="558" y1="50" x2="558" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="624" y1="50" x2="624" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="690" y1="50" x2="690" y2="74" stroke="#3e2723" stroke-width="1.8"/>
+ <text x="30" y="88" font-size="13" text-anchor="middle" font-weight="700">0</text><text x="96" y="88" font-size="13" text-anchor="middle" font-weight="700">1</text><text x="162" y="88" font-size="13" text-anchor="middle" font-weight="700">2</text><text x="228" y="88" font-size="13" text-anchor="middle" font-weight="700">3</text><text x="294" y="88" font-size="13" text-anchor="middle" font-weight="700">4</text><text x="360" y="88" font-size="13" text-anchor="middle" font-weight="700">5</text><text x="426" y="88" font-size="13" text-anchor="middle" font-weight="700">6</text><text x="492" y="88" font-size="13" text-anchor="middle" font-weight="700">7</text><text x="558" y="88" font-size="13" text-anchor="middle" font-weight="700">8</text><text x="624" y="88" font-size="13" text-anchor="middle" font-weight="700">9</text><text x="690" y="88" font-size="13" text-anchor="middle" font-weight="700">10</text>
+ <!-- 빨대: 0 ~ 7 (30 ~ 492) -->
+ <rect x="30" y="26" width="462" height="10" fill="#ce93d8" stroke="#4a148c" stroke-width="1.5" rx="3"/>
+ <text x="260" y="20" font-size="11" text-anchor="middle" fill="#3e2723">🥤 빨대</text>
+ </svg>
+ <div class="answer">→ 빨대의 길이 = <span class="blank short">&nbsp;</span> cm</div>
+ </div>
 
-  <div class="tip">💡 <b>잘 안 보일 때:</b> 물건의 끝이 어느 cm 눈금에 가장 가까운지 보고, 그 숫자를 읽으면 돼요.</div>
+ <div class="tip">💡 <b>잘 안 보일 때:</b> 물건의 끝이 어느 cm 눈금에 가장 가까운지 보고, 그 숫자를 읽으면 돼요.</div>
 
-  <div class="page-foot">자로 길이 재기 학습지 · 3쪽 / 7</div>
+ <div class="page-foot">자로 길이 재기 학습지 · 3쪽 / 7</div>
 </section>
 
 <!-- ============ 4쪽: mm까지 정확히 ============ -->
 <section class="page">
-  <div class="page-head">
-    <h2>🔬 mm 단위까지 정확히 재기</h2>
-    <span class="step">4쪽 · 정밀 측정</span>
-  </div>
+ <div class="page-head">
+ <h2>🔬 mm 단위까지 정확히 재기</h2>
+ <span class="step">4쪽 · 정밀 측정</span>
+ </div>
 
-  <div class="intro">
-    cm 눈금 사이의 짧은 눈금이 <b>mm 눈금</b>이에요. cm 눈금 사이는 10mm로 나뉘어요.
-    <b>1cm = 10mm</b>, 중간에 있는 좀 더 긴 눈금이 <b>5mm</b> 자리예요.
-  </div>
+ <div class="intro">
+ cm 눈금 사이의 짧은 눈금이 <b>mm 눈금</b>이에요. cm 눈금 사이는 10mm로 나뉘어요.
+ <b>1cm = 10mm</b>, 중간에 있는 좀 더 긴 눈금이 <b>5mm</b> 자리예요.
+ </div>
 
-  <!-- 측정: cm와 mm 결합 -->
-  <div class="measure-block">
-    <div class="label">① 머리핀의 길이는? (cm와 mm로)</div>
-    <svg viewBox="0 0 720 100" style="width:100%;">
-      <rect x="20" y="50" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
-      <line x1="30" y1="50" x2="30" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="96" y1="50" x2="96" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="162" y1="50" x2="162" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="228" y1="50" x2="228" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="294" y1="50" x2="294" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="360" y1="50" x2="360" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="426" y1="50" x2="426" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="492" y1="50" x2="492" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="558" y1="50" x2="558" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="624" y1="50" x2="624" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="690" y1="50" x2="690" y2="74" stroke="#3e2723" stroke-width="1.8"/>
-      <line x1="63" y1="50" x2="63" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="129" y1="50" x2="129" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="195" y1="50" x2="195" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="261" y1="50" x2="261" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="327" y1="50" x2="327" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="393" y1="50" x2="393" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="459" y1="50" x2="459" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="525" y1="50" x2="525" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="591" y1="50" x2="591" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="657" y1="50" x2="657" y2="68" stroke="#3e2723" stroke-width="1.2"/>
-      <text x="30" y="88" font-size="13" text-anchor="middle" font-weight="700">0</text><text x="96" y="88" font-size="13" text-anchor="middle" font-weight="700">1</text><text x="162" y="88" font-size="13" text-anchor="middle" font-weight="700">2</text><text x="228" y="88" font-size="13" text-anchor="middle" font-weight="700">3</text><text x="294" y="88" font-size="13" text-anchor="middle" font-weight="700">4</text><text x="360" y="88" font-size="13" text-anchor="middle" font-weight="700">5</text><text x="426" y="88" font-size="13" text-anchor="middle" font-weight="700">6</text><text x="492" y="88" font-size="13" text-anchor="middle" font-weight="700">7</text><text x="558" y="88" font-size="13" text-anchor="middle" font-weight="700">8</text><text x="624" y="88" font-size="13" text-anchor="middle" font-weight="700">9</text><text x="690" y="88" font-size="13" text-anchor="middle" font-weight="700">10</text>
-      <!-- 머리핀 0~2.5cm (30~195) -->
-      <rect x="30" y="28" width="165" height="8" fill="#ffcdd2" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
-      <text x="100" y="22" font-size="11" text-anchor="middle" fill="#3e2723">머리핀</text>
-    </svg>
-    <div class="answer">→ <span class="blank short">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm = <span class="blank short">&nbsp;</span> mm</div>
-  </div>
+ <!-- 측정: cm와 mm 결합 -->
+ <div class="measure-block">
+ <div class="label">① 머리핀의 길이는? (cm와 mm로)</div>
+ <svg viewBox="0 0 720 100" style="width:100%;">
+ <rect x="20" y="50" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
+ <line x1="30" y1="50" x2="30" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="96" y1="50" x2="96" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="162" y1="50" x2="162" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="228" y1="50" x2="228" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="294" y1="50" x2="294" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="360" y1="50" x2="360" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="426" y1="50" x2="426" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="492" y1="50" x2="492" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="558" y1="50" x2="558" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="624" y1="50" x2="624" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="690" y1="50" x2="690" y2="74" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="63" y1="50" x2="63" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="129" y1="50" x2="129" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="195" y1="50" x2="195" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="261" y1="50" x2="261" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="327" y1="50" x2="327" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="393" y1="50" x2="393" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="459" y1="50" x2="459" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="525" y1="50" x2="525" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="591" y1="50" x2="591" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="657" y1="50" x2="657" y2="68" stroke="#3e2723" stroke-width="1.2"/>
+ <text x="30" y="88" font-size="13" text-anchor="middle" font-weight="700">0</text><text x="96" y="88" font-size="13" text-anchor="middle" font-weight="700">1</text><text x="162" y="88" font-size="13" text-anchor="middle" font-weight="700">2</text><text x="228" y="88" font-size="13" text-anchor="middle" font-weight="700">3</text><text x="294" y="88" font-size="13" text-anchor="middle" font-weight="700">4</text><text x="360" y="88" font-size="13" text-anchor="middle" font-weight="700">5</text><text x="426" y="88" font-size="13" text-anchor="middle" font-weight="700">6</text><text x="492" y="88" font-size="13" text-anchor="middle" font-weight="700">7</text><text x="558" y="88" font-size="13" text-anchor="middle" font-weight="700">8</text><text x="624" y="88" font-size="13" text-anchor="middle" font-weight="700">9</text><text x="690" y="88" font-size="13" text-anchor="middle" font-weight="700">10</text>
+ <!-- 머리핀 0~2.5cm (30~195) -->
+ <rect x="30" y="28" width="165" height="8" fill="#ffcdd2" stroke="#b71c1c" stroke-width="1.5" rx="3"/>
+ <text x="100" y="22" font-size="11" text-anchor="middle" fill="#3e2723">머리핀</text>
+ </svg>
+ <div class="answer">→ <span class="blank short">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm = <span class="blank short">&nbsp;</span> mm</div>
+ </div>
 
-  <div class="measure-block">
-    <div class="label">② USB의 길이는? (cm와 mm로)</div>
-    <svg viewBox="0 0 720 100" style="width:100%;">
-      <rect x="20" y="50" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
-      <line x1="30" y1="50" x2="30" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="96" y1="50" x2="96" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="162" y1="50" x2="162" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="228" y1="50" x2="228" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="294" y1="50" x2="294" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="360" y1="50" x2="360" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="426" y1="50" x2="426" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="492" y1="50" x2="492" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="558" y1="50" x2="558" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="624" y1="50" x2="624" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="690" y1="50" x2="690" y2="74" stroke="#3e2723" stroke-width="1.8"/>
-      <line x1="63" y1="50" x2="63" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="129" y1="50" x2="129" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="195" y1="50" x2="195" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="261" y1="50" x2="261" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="327" y1="50" x2="327" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="393" y1="50" x2="393" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="459" y1="50" x2="459" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="525" y1="50" x2="525" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="591" y1="50" x2="591" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="657" y1="50" x2="657" y2="68" stroke="#3e2723" stroke-width="1.2"/>
-      <text x="30" y="88" font-size="13" text-anchor="middle" font-weight="700">0</text><text x="96" y="88" font-size="13" text-anchor="middle" font-weight="700">1</text><text x="162" y="88" font-size="13" text-anchor="middle" font-weight="700">2</text><text x="228" y="88" font-size="13" text-anchor="middle" font-weight="700">3</text><text x="294" y="88" font-size="13" text-anchor="middle" font-weight="700">4</text><text x="360" y="88" font-size="13" text-anchor="middle" font-weight="700">5</text><text x="426" y="88" font-size="13" text-anchor="middle" font-weight="700">6</text><text x="492" y="88" font-size="13" text-anchor="middle" font-weight="700">7</text><text x="558" y="88" font-size="13" text-anchor="middle" font-weight="700">8</text><text x="624" y="88" font-size="13" text-anchor="middle" font-weight="700">9</text><text x="690" y="88" font-size="13" text-anchor="middle" font-weight="700">10</text>
-      <!-- USB 0~4.5cm (30~327) -->
-      <rect x="30" y="24" width="297" height="16" fill="#80cbc4" stroke="#004d40" stroke-width="1.5" rx="2"/>
-      <rect x="20" y="28" width="14" height="8" fill="#37474f"/>
-      <text x="170" y="20" font-size="11" text-anchor="middle" fill="#3e2723">USB</text>
-    </svg>
-    <div class="answer">→ <span class="blank short">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm = <span class="blank short">&nbsp;</span> mm</div>
-  </div>
+ <div class="measure-block">
+ <div class="label">② USB의 길이는? (cm와 mm로)</div>
+ <svg viewBox="0 0 720 100" style="width:100%;">
+ <rect x="20" y="50" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
+ <line x1="30" y1="50" x2="30" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="96" y1="50" x2="96" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="162" y1="50" x2="162" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="228" y1="50" x2="228" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="294" y1="50" x2="294" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="360" y1="50" x2="360" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="426" y1="50" x2="426" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="492" y1="50" x2="492" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="558" y1="50" x2="558" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="624" y1="50" x2="624" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="690" y1="50" x2="690" y2="74" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="63" y1="50" x2="63" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="129" y1="50" x2="129" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="195" y1="50" x2="195" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="261" y1="50" x2="261" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="327" y1="50" x2="327" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="393" y1="50" x2="393" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="459" y1="50" x2="459" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="525" y1="50" x2="525" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="591" y1="50" x2="591" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="657" y1="50" x2="657" y2="68" stroke="#3e2723" stroke-width="1.2"/>
+ <text x="30" y="88" font-size="13" text-anchor="middle" font-weight="700">0</text><text x="96" y="88" font-size="13" text-anchor="middle" font-weight="700">1</text><text x="162" y="88" font-size="13" text-anchor="middle" font-weight="700">2</text><text x="228" y="88" font-size="13" text-anchor="middle" font-weight="700">3</text><text x="294" y="88" font-size="13" text-anchor="middle" font-weight="700">4</text><text x="360" y="88" font-size="13" text-anchor="middle" font-weight="700">5</text><text x="426" y="88" font-size="13" text-anchor="middle" font-weight="700">6</text><text x="492" y="88" font-size="13" text-anchor="middle" font-weight="700">7</text><text x="558" y="88" font-size="13" text-anchor="middle" font-weight="700">8</text><text x="624" y="88" font-size="13" text-anchor="middle" font-weight="700">9</text><text x="690" y="88" font-size="13" text-anchor="middle" font-weight="700">10</text>
+ <!-- USB 0~4.5cm (30~327) -->
+ <rect x="30" y="24" width="297" height="16" fill="#80cbc4" stroke="#004d40" stroke-width="1.5" rx="2"/>
+ <rect x="20" y="28" width="14" height="8" fill="#37474f"/>
+ <text x="170" y="20" font-size="11" text-anchor="middle" fill="#3e2723">USB</text>
+ </svg>
+ <div class="answer">→ <span class="blank short">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm = <span class="blank short">&nbsp;</span> mm</div>
+ </div>
 
-  <div class="measure-block">
-    <div class="label">③ 책의 가로 길이는? (cm와 mm로)</div>
-    <svg viewBox="0 0 720 100" style="width:100%;">
-      <rect x="20" y="50" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
-      <line x1="30" y1="50" x2="30" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="96" y1="50" x2="96" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="162" y1="50" x2="162" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="228" y1="50" x2="228" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="294" y1="50" x2="294" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="360" y1="50" x2="360" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="426" y1="50" x2="426" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="492" y1="50" x2="492" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="558" y1="50" x2="558" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="624" y1="50" x2="624" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="690" y1="50" x2="690" y2="74" stroke="#3e2723" stroke-width="1.8"/>
-      <line x1="63" y1="50" x2="63" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="129" y1="50" x2="129" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="195" y1="50" x2="195" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="261" y1="50" x2="261" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="327" y1="50" x2="327" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="393" y1="50" x2="393" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="459" y1="50" x2="459" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="525" y1="50" x2="525" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="591" y1="50" x2="591" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="657" y1="50" x2="657" y2="68" stroke="#3e2723" stroke-width="1.2"/>
-      <text x="30" y="88" font-size="13" text-anchor="middle" font-weight="700">0</text><text x="96" y="88" font-size="13" text-anchor="middle" font-weight="700">1</text><text x="162" y="88" font-size="13" text-anchor="middle" font-weight="700">2</text><text x="228" y="88" font-size="13" text-anchor="middle" font-weight="700">3</text><text x="294" y="88" font-size="13" text-anchor="middle" font-weight="700">4</text><text x="360" y="88" font-size="13" text-anchor="middle" font-weight="700">5</text><text x="426" y="88" font-size="13" text-anchor="middle" font-weight="700">6</text><text x="492" y="88" font-size="13" text-anchor="middle" font-weight="700">7</text><text x="558" y="88" font-size="13" text-anchor="middle" font-weight="700">8</text><text x="624" y="88" font-size="13" text-anchor="middle" font-weight="700">9</text><text x="690" y="88" font-size="13" text-anchor="middle" font-weight="700">10</text>
-      <!-- 책 0~8.5cm (30~591) -->
-      <rect x="30" y="22" width="561" height="20" fill="#bbdefb" stroke="#0d47a1" stroke-width="1.5"/>
-      <text x="310" y="36" font-size="12" text-anchor="middle" fill="#0d47a1" font-weight="700">📕 책</text>
-    </svg>
-    <div class="answer">→ <span class="blank short">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm = <span class="blank short">&nbsp;</span> mm</div>
-  </div>
+ <div class="measure-block">
+ <div class="label">③ 책의 가로 길이는? (cm와 mm로)</div>
+ <svg viewBox="0 0 720 100" style="width:100%;">
+ <rect x="20" y="50" width="680" height="40" fill="#fff59d" stroke="#827717" stroke-width="2"/>
+ <line x1="30" y1="50" x2="30" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="96" y1="50" x2="96" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="162" y1="50" x2="162" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="228" y1="50" x2="228" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="294" y1="50" x2="294" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="360" y1="50" x2="360" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="426" y1="50" x2="426" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="492" y1="50" x2="492" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="558" y1="50" x2="558" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="624" y1="50" x2="624" y2="74" stroke="#3e2723" stroke-width="1.8"/><line x1="690" y1="50" x2="690" y2="74" stroke="#3e2723" stroke-width="1.8"/>
+ <line x1="63" y1="50" x2="63" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="129" y1="50" x2="129" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="195" y1="50" x2="195" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="261" y1="50" x2="261" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="327" y1="50" x2="327" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="393" y1="50" x2="393" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="459" y1="50" x2="459" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="525" y1="50" x2="525" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="591" y1="50" x2="591" y2="68" stroke="#3e2723" stroke-width="1.2"/><line x1="657" y1="50" x2="657" y2="68" stroke="#3e2723" stroke-width="1.2"/>
+ <text x="30" y="88" font-size="13" text-anchor="middle" font-weight="700">0</text><text x="96" y="88" font-size="13" text-anchor="middle" font-weight="700">1</text><text x="162" y="88" font-size="13" text-anchor="middle" font-weight="700">2</text><text x="228" y="88" font-size="13" text-anchor="middle" font-weight="700">3</text><text x="294" y="88" font-size="13" text-anchor="middle" font-weight="700">4</text><text x="360" y="88" font-size="13" text-anchor="middle" font-weight="700">5</text><text x="426" y="88" font-size="13" text-anchor="middle" font-weight="700">6</text><text x="492" y="88" font-size="13" text-anchor="middle" font-weight="700">7</text><text x="558" y="88" font-size="13" text-anchor="middle" font-weight="700">8</text><text x="624" y="88" font-size="13" text-anchor="middle" font-weight="700">9</text><text x="690" y="88" font-size="13" text-anchor="middle" font-weight="700">10</text>
+ <!-- 책 0~8.5cm (30~591) -->
+ <rect x="30" y="22" width="561" height="20" fill="#bbdefb" stroke="#0d47a1" stroke-width="1.5"/>
+ <text x="310" y="36" font-size="12" text-anchor="middle" fill="#0d47a1" font-weight="700">📕 책</text>
+ </svg>
+ <div class="answer">→ <span class="blank short">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm = <span class="blank short">&nbsp;</span> mm</div>
+ </div>
 
-  <div class="tip">
-    💡 <b>cm와 mm 함께 쓰기</b>: 길이가 정확히 cm 눈금에 떨어지지 않을 때
-    "○cm ○mm" 또는 mm로만 모두 바꿔서 쓸 수 있어요. 예: 2cm 5mm = 25mm
-  </div>
+ <div class="tip">
+ 💡 <b>cm와 mm 함께 쓰기</b>: 길이가 정확히 cm 눈금에 떨어지지 않을 때
+ "○cm ○mm" 또는 mm로만 모두 바꿔서 쓸 수 있어요. 예: 2cm 5mm = 25mm
+ </div>
 
-  <div class="page-foot">자로 길이 재기 학습지 · 4쪽 / 7</div>
+ <div class="page-foot">자로 길이 재기 학습지 · 4쪽 / 7</div>
 </section>
 
 <!-- ============ 5쪽: 단위 환산 ============ -->
 <section class="page">
-  <div class="page-head">
-    <h2>🔄 단위 바꾸기 — cm ↔ mm, m ↔ cm</h2>
-    <span class="step">5쪽 · 단위 환산</span>
-  </div>
+ <div class="page-head">
+ <h2>🔄 단위 바꾸기 — cm ↔ mm, m ↔ cm</h2>
+ <span class="step">5쪽 · 단위 환산</span>
+ </div>
 
-  <div class="intro">
-    같은 길이도 단위를 바꾸어 나타낼 수 있어요.
-    <b>1cm = 10mm</b>, <b>1m = 100cm</b>를 기억하면 어렵지 않아요.
-  </div>
+ <div class="intro">
+ 같은 길이도 단위를 바꾸어 나타낼 수 있어요.
+ <b>1cm = 10mm</b>, <b>1m = 100cm</b>를 기억하면 어렵지 않아요.
+ </div>
 
-  <!-- 환산 시각화 -->
-  <div style="background:#e1f5fe; border:1.5px solid #81d4fa; border-radius:10px; padding:12px; margin:8px 0; text-align:center;">
-    <div style="font-size:1.1em; font-weight:700; color:#01579b; margin-bottom:6px;">📏 핵심 관계</div>
-    <div style="display:flex; justify-content:center; gap:18px; flex-wrap:wrap; font-size:1em;">
-      <div style="background:#fff; padding:6px 16px; border-radius:8px; border:1.5px solid #b3e5fc;">
-        <b style="color:#e65100;">1 cm = 10 mm</b>
-      </div>
-      <div style="background:#fff; padding:6px 16px; border-radius:8px; border:1.5px solid #b3e5fc;">
-        <b style="color:#0277bd;">1 m = 100 cm</b>
-      </div>
-      <div style="background:#fff; padding:6px 16px; border-radius:8px; border:1.5px solid #b3e5fc;">
-        <b style="color:#4a148c;">1 m = 1000 mm</b>
-      </div>
-      <div style="background:#fff; padding:6px 16px; border-radius:8px; border:1.5px solid #b3e5fc;">
-        <b style="color:#33691e;">1 km = 1000 m</b>
-      </div>
-    </div>
-  </div>
+ <!-- 환산 시각화 -->
+ <div style="background:#e1f5fe; border:1.5px solid #81d4fa; border-radius:10px; padding:12px; margin:8px 0; text-align:center;">
+ <div style="font-size:1.1em; font-weight:700; color:#01579b; margin-bottom:6px;">📏 핵심 관계</div>
+ <div style="display:flex; justify-content:center; gap:18px; flex-wrap:wrap; font-size:1em;">
+ <div style="background:#fff; padding:6px 16px; border-radius:8px; border:1.5px solid #b3e5fc;">
+ <b style="color:#e65100;">1 cm = 10 mm</b>
+ </div>
+ <div style="background:#fff; padding:6px 16px; border-radius:8px; border:1.5px solid #b3e5fc;">
+ <b style="color:#0277bd;">1 m = 100 cm</b>
+ </div>
+ <div style="background:#fff; padding:6px 16px; border-radius:8px; border:1.5px solid #b3e5fc;">
+ <b style="color:#4a148c;">1 m = 1000 mm</b>
+ </div>
+ <div style="background:#fff; padding:6px 16px; border-radius:8px; border:1.5px solid #b3e5fc;">
+ <b style="color:#33691e;">1 km = 1000 m</b>
+ </div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. cm → mm 바꾸기</h3><span class="tag">환산</span></div>
-    <p>cm에 <b>10을 곱하면</b> mm가 돼요.</p>
-    <table class="props">
-      <tr><td>① 3 cm = <span class="blank short">&nbsp;</span> mm</td><td>② 5 cm = <span class="blank short">&nbsp;</span> mm</td><td>③ 8 cm = <span class="blank short">&nbsp;</span> mm</td></tr>
-      <tr><td>④ 2 cm 5 mm = <span class="blank short">&nbsp;</span> mm</td><td>⑤ 4 cm 3 mm = <span class="blank short">&nbsp;</span> mm</td><td>⑥ 10 cm = <span class="blank short">&nbsp;</span> mm</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. cm → mm 바꾸기</h3><span class="tag">환산</span></div>
+ <p>cm에 <b>10을 곱하면</b> mm가 돼요.</p>
+ <table class="props">
+ <tr><td>① 3 cm = <span class="blank short">&nbsp;</span> mm</td><td>② 5 cm = <span class="blank short">&nbsp;</span> mm</td><td>③ 8 cm = <span class="blank short">&nbsp;</span> mm</td></tr>
+ <tr><td>④ 2 cm 5 mm = <span class="blank short">&nbsp;</span> mm</td><td>⑤ 4 cm 3 mm = <span class="blank short">&nbsp;</span> mm</td><td>⑥ 10 cm = <span class="blank short">&nbsp;</span> mm</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 6. mm → cm 바꾸기</h3><span class="tag">환산</span></div>
-    <p>mm를 <b>10으로 나누면</b> cm가 돼요.</p>
-    <table class="props">
-      <tr><td>① 20 mm = <span class="blank short">&nbsp;</span> cm</td><td>② 70 mm = <span class="blank short">&nbsp;</span> cm</td><td>③ 100 mm = <span class="blank short">&nbsp;</span> cm</td></tr>
-      <tr><td>④ 35 mm = <span class="blank short">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm</td><td>⑤ 48 mm = <span class="blank short">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm</td><td>⑥ 125 mm = <span class="blank short">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 6. mm → cm 바꾸기</h3><span class="tag">환산</span></div>
+ <p>mm를 <b>10으로 나누면</b> cm가 돼요.</p>
+ <table class="props">
+ <tr><td>① 20 mm = <span class="blank short">&nbsp;</span> cm</td><td>② 70 mm = <span class="blank short">&nbsp;</span> cm</td><td>③ 100 mm = <span class="blank short">&nbsp;</span> cm</td></tr>
+ <tr><td>④ 35 mm = <span class="blank short">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm</td><td>⑤ 48 mm = <span class="blank short">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm</td><td>⑥ 125 mm = <span class="blank short">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 7. m ↔ cm 바꾸기</h3><span class="tag">환산</span></div>
-    <table class="props">
-      <tr><td>① 2 m = <span class="blank short">&nbsp;</span> cm</td><td>② 1 m 50 cm = <span class="blank short">&nbsp;</span> cm</td></tr>
-      <tr><td>③ 300 cm = <span class="blank short">&nbsp;</span> m</td><td>④ 165 cm = <span class="blank short">&nbsp;</span> m <span class="blank short">&nbsp;</span> cm</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 7. m ↔ cm 바꾸기</h3><span class="tag">환산</span></div>
+ <table class="props">
+ <tr><td>① 2 m = <span class="blank short">&nbsp;</span> cm</td><td>② 1 m 50 cm = <span class="blank short">&nbsp;</span> cm</td></tr>
+ <tr><td>③ 300 cm = <span class="blank short">&nbsp;</span> m</td><td>④ 165 cm = <span class="blank short">&nbsp;</span> m <span class="blank short">&nbsp;</span> cm</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 8. 큰 길이 비교</h3><span class="tag">크기 비교</span></div>
-    <p>두 길이 중 <b>더 큰 쪽</b>에 ○ 표 하세요.</p>
-    <p>① ( 30cm ) ↔ ( 250mm )</p>
-    <p>② ( 1m ) ↔ ( 99cm )</p>
-    <p>③ ( 5cm 3mm ) ↔ ( 50mm )</p>
-    <p>④ ( 2m 10cm ) ↔ ( 230cm )</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 8. 큰 길이 비교</h3><span class="tag">크기 비교</span></div>
+ <p>두 길이 중 <b>더 큰 쪽</b>에 ○ 표 하세요.</p>
+ <p>① ( 30cm ) ↔ ( 250mm )</p>
+ <p>② ( 1m ) ↔ ( 99cm )</p>
+ <p>③ ( 5cm 3mm ) ↔ ( 50mm )</p>
+ <p>④ ( 2m 10cm ) ↔ ( 230cm )</p>
+ </div>
 
-  <div class="tip">
-    💡 <b>비교 비법</b>: 두 길이의 <b>단위를 같게 만든 뒤</b> 숫자만 비교해요.
-    예) 30cm vs 250mm → 300mm vs 250mm → 300mm가 더 큼.
-  </div>
+ <div class="tip">
+ 💡 <b>비교 비법</b>: 두 길이의 <b>단위를 같게 만든 뒤</b> 숫자만 비교해요.
+ 예) 30cm vs 250mm → 300mm vs 250mm → 300mm가 더 큼.
+ </div>
 
-  <div class="page-foot">자로 길이 재기 학습지 · 5쪽 / 7</div>
+ <div class="page-foot">자로 길이 재기 학습지 · 5쪽 / 7</div>
 </section>
 
 <!-- ============ 6쪽: 실생활 측정 ============ -->
 <section class="page">
-  <div class="page-head">
-    <h2>🏙️ 실생활에서 측정하기</h2>
-    <span class="step">6쪽 · 실생활 활용</span>
-  </div>
+ <div class="page-head">
+ <h2>🏙️ 실생활에서 측정하기</h2>
+ <span class="step">6쪽 · 실생활 활용</span>
+ </div>
 
-  <div class="intro">
-    이제 진짜로 자를 들고 잴 차례예요. 자 없이도 길이를 <b>어림</b>하는 감각도 함께 길러봐요.
-    어림한 값과 실제 측정값을 비교하면 길이 감각이 늘어요.
-  </div>
+ <div class="intro">
+ 이제 진짜로 자를 들고 잴 차례예요. 자 없이도 길이를 <b>어림</b>하는 감각도 함께 길러봐요.
+ 어림한 값과 실제 측정값을 비교하면 길이 감각이 늘어요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 9. 어림하고 측정하기</h3><span class="tag">측정 실습</span></div>
-    <p>자로 재기 전에 먼저 <b>눈으로 어림</b>해 보고, 다음에 자로 재서 적어 보세요.</p>
-    <table class="props">
-      <tr><th>물건</th><th>어림한 길이</th><th>실제 측정값</th><th>차이</th></tr>
-      <tr><td>연필</td><td><span class="blank">&nbsp;</span> cm</td><td><span class="blank">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm</td><td><span class="blank">&nbsp;</span></td></tr>
-      <tr><td>지우개</td><td><span class="blank">&nbsp;</span> cm</td><td><span class="blank">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm</td><td><span class="blank">&nbsp;</span></td></tr>
-      <tr><td>학생증 카드</td><td><span class="blank">&nbsp;</span> cm</td><td><span class="blank">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm</td><td><span class="blank">&nbsp;</span></td></tr>
-      <tr><td>스마트폰</td><td><span class="blank">&nbsp;</span> cm</td><td><span class="blank">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm</td><td><span class="blank">&nbsp;</span></td></tr>
-      <tr><td>책상의 가로</td><td><span class="blank">&nbsp;</span> cm</td><td><span class="blank">&nbsp;</span> cm</td><td><span class="blank">&nbsp;</span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 9. 어림하고 측정하기</h3><span class="tag">측정 실습</span></div>
+ <p>자로 재기 전에 먼저 <b>눈으로 어림</b>해 보고, 다음에 자로 재서 적어 보세요.</p>
+ <table class="props">
+ <tr><th>물건</th><th>어림한 길이</th><th>실제 측정값</th><th>차이</th></tr>
+ <tr><td>연필</td><td><span class="blank">&nbsp;</span> cm</td><td><span class="blank">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm</td><td><span class="blank">&nbsp;</span></td></tr>
+ <tr><td>지우개</td><td><span class="blank">&nbsp;</span> cm</td><td><span class="blank">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm</td><td><span class="blank">&nbsp;</span></td></tr>
+ <tr><td>학생증 카드</td><td><span class="blank">&nbsp;</span> cm</td><td><span class="blank">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm</td><td><span class="blank">&nbsp;</span></td></tr>
+ <tr><td>스마트폰</td><td><span class="blank">&nbsp;</span> cm</td><td><span class="blank">&nbsp;</span> cm <span class="blank short">&nbsp;</span> mm</td><td><span class="blank">&nbsp;</span></td></tr>
+ <tr><td>책상의 가로</td><td><span class="blank">&nbsp;</span> cm</td><td><span class="blank">&nbsp;</span> cm</td><td><span class="blank">&nbsp;</span></td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 10. 어떤 자를 쓸까?</h3><span class="tag">도구 선택</span></div>
-    <p>물건의 크기에 따라 알맞은 자를 골라 연결하세요.</p>
-    <table class="props">
-      <tr><th>물건</th><th>알맞은 자</th></tr>
-      <tr><td class="left">손톱의 두께</td><td>( 30cm 자 / 자유) / <b>버니어 캘리퍼스(정밀자)</b> )</td></tr>
-      <tr><td class="left">교실 가로</td><td>( <b>줄자(2~5m)</b> / 30cm 자 )</td></tr>
-      <tr><td class="left">공책 한 권의 가로</td><td>( <b>30cm 자</b> / 줄자 )</td></tr>
-      <tr><td class="left">집에서 학교까지 거리</td><td>( 줄자 / <b>지도 앱·자동차 거리계</b> )</td></tr>
-    </table>
-    <div class="note">💡 측정할 길이가 <b>크면 큰 자</b>, 작고 정밀하면 <b>작은 자</b>를 쓰면 편해요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 10. 어떤 자를 쓸까?</h3><span class="tag">도구 선택</span></div>
+ <p>물건의 크기에 따라 알맞은 자를 골라 연결하세요.</p>
+ <table class="props">
+ <tr><th>물건</th><th>알맞은 자</th></tr>
+ <tr><td class="left">손톱의 두께</td><td>( 30cm 자 / 자유) / <b>버니어 캘리퍼스(정밀자)</b> )</td></tr>
+ <tr><td class="left">교실 가로</td><td>( <b>줄자(2~5m)</b> / 30cm 자 )</td></tr>
+ <tr><td class="left">공책 한 권의 가로</td><td>( <b>30cm 자</b> / 줄자 )</td></tr>
+ <tr><td class="left">집에서 학교까지 거리</td><td>( 줄자 / <b>지도 앱·자동차 거리계</b> )</td></tr>
+ </table>
+ <div class="note">💡 측정할 길이가 <b>크면 큰 자</b>, 작고 정밀하면 <b>작은 자</b>를 쓰면 편해요.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 11. 응용 문제</h3><span class="tag">생활 계산</span></div>
-    <div class="apply-grid">
-      <div class="apply-card">
-        <div class="scene">✏️ 연필 키 비교</div>
-        <p style="font-size:0.9em; margin:2px 0;">내 연필은 <b>13cm 5mm</b>, 친구 연필은 <b>140mm</b>예요. 누구 연필이 더 길까요? 길이 차이는?</p>
-        <div class="work">→ &nbsp;     의 것이 &nbsp;        mm 더 김</div>
-      </div>
-      <div class="apply-card">
-        <div class="scene">📏 책장 만들기</div>
-        <p style="font-size:0.9em; margin:2px 0;">길이 <b>1m</b>인 나무를 <b>20cm씩</b> 잘랐어요. 몇 도막이 나올까요?</p>
-        <div class="work">100 ÷ 20 =          도막</div>
-      </div>
-      <div class="apply-card">
-        <div class="scene">📐 액자 둘레</div>
-        <p style="font-size:0.9em; margin:2px 0;">가로 <b>25cm</b>, 세로 <b>18cm</b>인 직사각형 액자의 둘레는?</p>
-        <div class="work">(25 + 18) × 2 =          cm</div>
-      </div>
-      <div class="apply-card">
-        <div class="scene">🏃 학교 한 바퀴</div>
-        <p style="font-size:0.9em; margin:2px 0;">운동장 한 바퀴가 <b>200m</b>예요. 5바퀴 뛰면 모두 몇 m? 몇 km?</p>
-        <div class="work">200 × 5 =        m =        km</div>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 11. 응용 문제</h3><span class="tag">생활 계산</span></div>
+ <div class="apply-grid">
+ <div class="apply-card">
+ <div class="scene">✏️ 연필 키 비교</div>
+ <p style="font-size:0.9em; margin:2px 0;">내 연필은 <b>13cm 5mm</b>, 친구 연필은 <b>140mm</b>예요. 누구 연필이 더 길까요? 길이 차이는?</p>
+ <div class="work">→ &nbsp; 의 것이 &nbsp; mm 더 김</div>
+ </div>
+ <div class="apply-card">
+ <div class="scene">📏 책장 만들기</div>
+ <p style="font-size:0.9em; margin:2px 0;">길이 <b>1m</b>인 나무를 <b>20cm씩</b> 잘랐어요. 몇 도막이 나올까요?</p>
+ <div class="work">100 ÷ 20 = 도막</div>
+ </div>
+ <div class="apply-card">
+ <div class="scene">📐 액자 둘레</div>
+ <p style="font-size:0.9em; margin:2px 0;">가로 <b>25cm</b>, 세로 <b>18cm</b>인 직사각형 액자의 둘레는?</p>
+ <div class="work">(25 + 18) × 2 = cm</div>
+ </div>
+ <div class="apply-card">
+ <div class="scene">🏃 학교 한 바퀴</div>
+ <p style="font-size:0.9em; margin:2px 0;">운동장 한 바퀴가 <b>200m</b>예요. 5바퀴 뛰면 모두 몇 m? 몇 km?</p>
+ <div class="work">200 × 5 = m = km</div>
+ </div>
+ </div>
+ </div>
 
-  <div class="life-bar">
-    <span class="title">📐 어림 감각 기르기</span>
-    <span class="items">
-      <span>엄지손톱 ≒ 1cm</span><span>한 뼘 ≒ 18~20cm</span>
-      <span>한 발자국 ≒ 60~70cm</span><span>양팔 벌린 길이 ≒ 내 키</span>
-    </span>
-  </div>
+ <div class="life-bar">
+ <span class="title">📐 어림 감각 기르기</span>
+ <span class="items">
+ <span>엄지손톱 ≒ 1cm</span><span>한 뼘 ≒ 18~20cm</span>
+ <span>한 발자국 ≒ 60~70cm</span><span>양팔 벌린 길이 ≒ 내 키</span>
+ </span>
+ </div>
 
-  <div class="page-foot">자로 길이 재기 학습지 · 6쪽 / 7</div>
+ <div class="page-foot">자로 길이 재기 학습지 · 6쪽 / 7</div>
 </section>
 
 <!-- ============ 7쪽: 정리 ============ -->
 <section class="page">
-  <div class="page-head">
-    <h2>📌 오늘의 정리 & 자기 점검</h2>
-    <span class="step">7쪽 · 마무리</span>
-  </div>
+ <div class="page-head">
+ <h2>📌 오늘의 정리 & 자기 점검</h2>
+ <span class="step">7쪽 · 마무리</span>
+ </div>
 
-  <div class="intro">
-    오늘 배운 단위와 자 읽기를 한눈에 정리해요. 길이는 일상에서 매일 만나는 개념이에요.
-    단위만 잘 익혀두면, 키도 책상도 옷 사이즈도 다 비교할 수 있어요.
-  </div>
+ <div class="intro">
+ 오늘 배운 단위와 자 읽기를 한눈에 정리해요. 길이는 일상에서 매일 만나는 개념이에요.
+ 단위만 잘 익혀두면, 키도 책상도 옷 사이즈도 다 비교할 수 있어요.
+ </div>
 
-  <div class="summary-grid">
-    <div class="summary-card mm">
-      <div class="name">mm</div>
-      <ul class="pts">
-        <li>가장 작은 단위</li>
-        <li>cm 사이 10등분</li>
-        <li>1cm = 10mm</li>
-        <li>예: 손톱 두께, 머리핀</li>
-      </ul>
-    </div>
-    <div class="summary-card cm">
-      <div class="name">cm</div>
-      <ul class="pts">
-        <li>일상 단위</li>
-        <li>자의 큰 눈금</li>
-        <li>1m = 100cm</li>
-        <li>예: 연필, 책, 스마트폰</li>
-      </ul>
-    </div>
-    <div class="summary-card m">
-      <div class="name">m</div>
-      <ul class="pts">
-        <li>큰 길이 단위</li>
-        <li>줄자로 잼</li>
-        <li>1km = 1000m</li>
-        <li>예: 키, 교실, 운동장</li>
-      </ul>
-    </div>
-  </div>
+ <div class="summary-grid">
+ <div class="summary-card mm">
+ <div class="name">mm</div>
+ <ul class="pts">
+ <li>가장 작은 단위</li>
+ <li>cm 사이 10등분</li>
+ <li>1cm = 10mm</li>
+ <li>예: 손톱 두께, 머리핀</li>
+ </ul>
+ </div>
+ <div class="summary-card cm">
+ <div class="name">cm</div>
+ <ul class="pts">
+ <li>일상 단위</li>
+ <li>자의 큰 눈금</li>
+ <li>1m = 100cm</li>
+ <li>예: 연필, 책, 스마트폰</li>
+ </ul>
+ </div>
+ <div class="summary-card m">
+ <div class="name">m</div>
+ <ul class="pts">
+ <li>큰 길이 단위</li>
+ <li>줄자로 잼</li>
+ <li>1km = 1000m</li>
+ <li>예: 키, 교실, 운동장</li>
+ </ul>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 12. 핵심 환산표</h3><span class="tag">총정리</span></div>
-    <table class="props">
-      <tr><th>같은 길이의 다른 표현</th><th>mm</th><th>cm</th><th>m</th></tr>
-      <tr><td>1cm</td><td>10</td><td>1</td><td>0.01</td></tr>
-      <tr><td>10cm</td><td><span class="blank short">&nbsp;</span></td><td>10</td><td>0.1</td></tr>
-      <tr><td>1m</td><td><span class="blank short">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td><td>1</td></tr>
-      <tr><td>1m 50cm</td><td>1500</td><td><span class="blank short">&nbsp;</span></td><td>1.5</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 12. 핵심 환산표</h3><span class="tag">총정리</span></div>
+ <table class="props">
+ <tr><th>같은 길이의 다른 표현</th><th>mm</th><th>cm</th><th>m</th></tr>
+ <tr><td>1cm</td><td>10</td><td>1</td><td>0.01</td></tr>
+ <tr><td>10cm</td><td><span class="blank short">&nbsp;</span></td><td>10</td><td>0.1</td></tr>
+ <tr><td>1m</td><td><span class="blank short">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td><td>1</td></tr>
+ <tr><td>1m 50cm</td><td>1500</td><td><span class="blank short">&nbsp;</span></td><td>1.5</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 13. 자기 점검</h3><span class="tag">자기 확인</span></div>
-    <table class="props">
-      <tr><th style="width:60%;">확인할 내용</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
-      <tr><td class="left">mm, cm, m, km를 안다.</td><td>○</td><td>○</td><td>○</td></tr>
-      <tr><td class="left">자의 0을 맞추고 눈금을 정확히 읽는다.</td><td>○</td><td>○</td><td>○</td></tr>
-      <tr><td class="left">cm와 mm를 서로 바꾸어 쓴다.</td><td>○</td><td>○</td><td>○</td></tr>
-      <tr><td class="left">상황에 맞는 단위를 골라 쓴다.</td><td>○</td><td>○</td><td>○</td></tr>
-      <tr><td class="left">생활 속 물건을 자로 직접 잰다.</td><td>○</td><td>○</td><td>○</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 13. 자기 점검</h3><span class="tag">자기 확인</span></div>
+ <table class="props">
+ <tr><th style="width:60%;">확인할 내용</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+ <tr><td class="left">mm, cm, m, km를 안다.</td><td>○</td><td>○</td><td>○</td></tr>
+ <tr><td class="left">자의 0을 맞추고 눈금을 정확히 읽는다.</td><td>○</td><td>○</td><td>○</td></tr>
+ <tr><td class="left">cm와 mm를 서로 바꾸어 쓴다.</td><td>○</td><td>○</td><td>○</td></tr>
+ <tr><td class="left">상황에 맞는 단위를 골라 쓴다.</td><td>○</td><td>○</td><td>○</td></tr>
+ <tr><td class="left">생활 속 물건을 자로 직접 잰다.</td><td>○</td><td>○</td><td>○</td></tr>
+ </table>
+ </div>
 
-  <div class="activity" style="border-color:#a5d6a7; background:#f1f8e9;">
-    <div class="head"><h3>🌟 마무리 한마디</h3><span class="tag" style="background:#c8e6c9; color:#1b5e20;">자기 점검</span></div>
-    <p>오늘 새로 알게 된 것 한 가지를 써 보세요.</p>
-    <div class="write-line"></div>
-    <p>앞으로 측정하고 싶은 것은 무엇인가요?</p>
-    <div class="write-line"></div>
-  </div>
+ <div class="activity" style="border-color:#a5d6a7; background:#f1f8e9;">
+ <div class="head"><h3>🌟 마무리 한마디</h3><span class="tag" style="background:#c8e6c9; color:#1b5e20;">자기 점검</span></div>
+ <p>오늘 새로 알게 된 것 한 가지를 써 보세요.</p>
+ <div class="write-line"></div>
+ <p>앞으로 측정하고 싶은 것은 무엇인가요?</p>
+ <div class="write-line"></div>
+ </div>
 
-  <div class="page-foot">자로 길이 재기 학습지 · 7쪽 / 7 · 수고하셨습니다 👏</div>
+ <div class="page-foot">자로 길이 재기 학습지 · 7쪽 / 7 · 수고하셨습니다 👏</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

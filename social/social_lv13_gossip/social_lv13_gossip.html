@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffe0b2 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #bf360c;
-  border-bottom: 2px solid #fb8c00; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #fb8c00; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #e65100; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #e65100; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #e65100; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 1.85em; letter-spacing: -1.5px; color: #bf360c; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #e65100; font-weight: 500; }
 .cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 8px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #bf360c; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #e65100; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #e65100; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #bf360c; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #e65100; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -90,355 +90,355 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 
 .page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
 @media print {
-  body { background: #fff; font-size: 9.5pt; line-height: 1.35; }
-  .toolbar, #name-editor { display: none; }
-  .page { box-shadow: none; margin: 0 auto; padding: 10mm 12mm; }
-  .activity { padding: 8px 11px; margin: 7px 0; }
-  .intro, .tip, .note { padding: 6px 10px; margin: 5px 0; }
-  .dialogue { padding: 8px 11px; margin: 6px 0; }
-  .speech { margin: 5px 0; }
-  .speech .bubble { padding: 6px 10px; }
+ body { background: #fff; font-size: 9.5pt; line-height: 1.35; }
+ .toolbar, #name-editor { display: none; }
+ .page { box-shadow: none; margin: 0 auto; padding: 10mm 12mm; }
+ .activity { padding: 8px 11px; margin: 7px 0; }
+ .intro, .tip, .note { padding: 6px 10px; margin: 5px 0; }
+ .dialogue { padding: 8px 11px; margin: 6px 0; }
+ .speech { margin: 5px 0; }
+ .speech .bubble { padding: 6px 10px; }
 }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div><span class="title">🗣 S13 험담·뒷담화 대처</span><span class="muted">사회성 · Level 13</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">🗣 S13 험담·뒷담화 대처</span><span class="muted">사회성 · Level 13</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#bf360c;">S13 · 심화</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">험담 · 대처</span>
-    <h1>하영·주현·채원의 뒷담화 대처</h1>
-    <p class="lead">참여도 하지 않고, 관계도 지키는 3가지 방법</p>
-  </div>
-  <div class="cover-emoji">🗣 🙅 💬</div>
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul>
-      <li><b>대화 vs 험담</b>의 차이를 안다.</li>
-      <li>뒷담화 자리에서 <b>참여 거절</b>하는 세 가지 방법을 익힌다.</li>
-      <li>불만이 있으면 <b>당사자에게 직접</b> 말하는 대안을 안다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
-    <ul>
-      <li><b>하영</b>: 쉬는 시간에 A에 대한 험담 자리에 낀 상황</li>
-      <li><b>주현</b>: 단톡방에서 B를 저격하는 메시지를 받은 상황</li>
-      <li><b>채원</b>: 친구와 사이가 틀어졌는데 뒤에서 소문이 도는 상황</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">사회성 시리즈 · S13 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#bf360c;">S13 · 심화</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">험담 · 대처</span>
+ <h1>하영·주현·채원의 뒷담화 대처</h1>
+ <p class="lead">참여도 하지 않고, 관계도 지키는 3가지 방법</p>
+ </div>
+ <div class="cover-emoji">🗣 🙅 💬</div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul>
+ <li><b>대화 vs 험담</b>의 차이를 안다.</li>
+ <li>뒷담화 자리에서 <b>참여 거절</b>하는 세 가지 방법을 익힌다.</li>
+ <li>불만이 있으면 <b>당사자에게 직접</b> 말하는 대안을 안다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+ <ul>
+ <li><b>하영</b>: 쉬는 시간에 A에 대한 험담 자리에 낀 상황</li>
+ <li><b>주현</b>: 단톡방에서 B를 저격하는 메시지를 받은 상황</li>
+ <li><b>채원</b>: 친구와 사이가 틀어졌는데 뒤에서 소문이 도는 상황</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">사회성 시리즈 · S13 · 표지</div>
 </section>
 
 <!-- 1쪽: 험담과 대화의 차이 + 3가지 대처 -->
 <section class="page">
-  <div class="page-head">
-    <h2>🗣 험담과 대화의 차이</h2>
-    <span class="step">1쪽 · 판별</span>
-  </div>
-  <div class="intro">
-    친구 얘기를 하는 게 다 험담은 아니에요. <b>당사자가 들으면 상처받을</b> 내용이거나, <b>사실이 아닌</b> 소문이거나,
-    당사자가 <b>모르게 뒤에서만</b> 말한다면 <b>뒷담화(험담)</b>예요.
-  </div>
+ <div class="page-head">
+ <h2>🗣 험담과 대화의 차이</h2>
+ <span class="step">1쪽 · 판별</span>
+ </div>
+ <div class="intro">
+ 친구 얘기를 하는 게 다 험담은 아니에요. <b>당사자가 들으면 상처받을</b> 내용이거나, <b>사실이 아닌</b> 소문이거나,
+ 당사자가 <b>모르게 뒤에서만</b> 말한다면 <b>뒷담화(험담)</b>예요.
+ </div>
 
-  <table class="compare-table">
-    <tr>
-      <th style="width:16%;">기준</th>
-      <th style="width:42%;">일반 대화</th>
-      <th style="width:42%;">험담·뒷담화</th>
-    </tr>
-    <tr>
-      <td><b>내용</b></td>
-      <td class="good">사실·경험·서로의 감정</td>
-      <td class="bad">외모·성격 흠·소문</td>
-    </tr>
-    <tr>
-      <td><b>대상</b></td>
-      <td class="good">당사자가 들어도 편함</td>
-      <td class="bad">당사자가 들으면 상처</td>
-    </tr>
-    <tr>
-      <td><b>진위</b></td>
-      <td class="good">확인된 사실</td>
-      <td class="bad">"카더라", 짐작·과장</td>
-    </tr>
-    <tr>
-      <td><b>목적</b></td>
-      <td class="good">문제 해결·정보 공유</td>
-      <td class="bad">놀리기·따돌리기</td>
-    </tr>
-    <tr>
-      <td><b>느낌</b></td>
-      <td class="good">말한 뒤 개운함</td>
-      <td class="bad">말한 뒤 찝찝함·죄책감</td>
-    </tr>
-  </table>
+ <table class="compare-table">
+ <tr>
+ <th style="width:16%;">기준</th>
+ <th style="width:42%;">일반 대화</th>
+ <th style="width:42%;">험담·뒷담화</th>
+ </tr>
+ <tr>
+ <td><b>내용</b></td>
+ <td class="good">사실·경험·서로의 감정</td>
+ <td class="bad">외모·성격 흠·소문</td>
+ </tr>
+ <tr>
+ <td><b>대상</b></td>
+ <td class="good">당사자가 들어도 편함</td>
+ <td class="bad">당사자가 들으면 상처</td>
+ </tr>
+ <tr>
+ <td><b>진위</b></td>
+ <td class="good">확인된 사실</td>
+ <td class="bad">"카더라", 짐작·과장</td>
+ </tr>
+ <tr>
+ <td><b>목적</b></td>
+ <td class="good">문제 해결·정보 공유</td>
+ <td class="bad">놀리기·따돌리기</td>
+ </tr>
+ <tr>
+ <td><b>느낌</b></td>
+ <td class="good">말한 뒤 개운함</td>
+ <td class="bad">말한 뒤 찝찝함·죄책감</td>
+ </tr>
+ </table>
 
-  <div class="principles">
-    <div class="pri-card">
-      <div class="icon">🚪</div>
-      <div class="name">① 자리 옮기기</div>
-      <div class="desc">"나 화장실 좀 다녀올게" "다른 얘기 하자"</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">↔️</div>
-      <div class="name">② 주제 바꾸기</div>
-      <div class="desc">"근데 오늘 급식 뭐야?" 자연스레 전환</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">💬</div>
-      <div class="name">③ 부드럽게 거절</div>
-      <div class="desc">"난 잘 몰라서~", "나는 안 낄래"</div>
-    </div>
-  </div>
+ <div class="principles">
+ <div class="pri-card">
+ <div class="icon">🚪</div>
+ <div class="name">① 자리 옮기기</div>
+ <div class="desc">"나 화장실 좀 다녀올게" "다른 얘기 하자"</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">↔️</div>
+ <div class="name">② 주제 바꾸기</div>
+ <div class="desc">"근데 오늘 급식 뭐야?" 자연스레 전환</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">💬</div>
+ <div class="name">③ 부드럽게 거절</div>
+ <div class="desc">"난 잘 몰라서~", "나는 안 낄래"</div>
+ </div>
+ </div>
 
-  <div class="dialogue">
-    <div class="title">📖 하영이의 좋은 대처</div>
-    <div class="speech">
-      <div class="avatar">친구</div>
-      <div class="bubble">
-        <div class="who">친구 M</div>
-        야, A 걔 진짜 이상하지 않아? 얘기하는 것도 별로고 옷도 이상해.
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">하영</div>
-        <b>음... 난 잘 몰라서.</b> A랑 별로 얘기 안 해 봤거든.
-      </div>
-      <div class="avatar">하영</div>
-    </div>
-    <div class="speech">
-      <div class="avatar">친구</div>
-      <div class="bubble">
-        <div class="who">친구 M</div>
-        진짜? 근데 걔 뭐랬냐면...
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">하영</div>
-        <b>미안, 나 그런 얘긴 좀 불편해.</b> <b>다른 얘기 하자!</b> 오늘 수학 시험 어땠어?
-      </div>
-      <div class="avatar">하영</div>
-    </div>
-  </div>
+ <div class="dialogue">
+ <div class="title">📖 하영이의 좋은 대처</div>
+ <div class="speech">
+ <div class="avatar">친구</div>
+ <div class="bubble">
+ <div class="who">친구 M</div>
+ 야, A 걔 진짜 이상하지 않아? 얘기하는 것도 별로고 옷도 이상해.
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">하영</div>
+ <b>음... 난 잘 몰라서.</b> A랑 별로 얘기 안 해 봤거든.
+ </div>
+ <div class="avatar">하영</div>
+ </div>
+ <div class="speech">
+ <div class="avatar">친구</div>
+ <div class="bubble">
+ <div class="who">친구 M</div>
+ 진짜? 근데 걔 뭐랬냐면...
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">하영</div>
+ <b>미안, 나 그런 얘긴 좀 불편해.</b> <b>다른 얘기 하자!</b> 오늘 수학 시험 어땠어?
+ </div>
+ <div class="avatar">하영</div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 이건 대화? 험담?</h3><span class="tag">5문항</span></div>
-    <p>각 문장이 <b>대화</b>인지 <b>험담</b>인지 O/X, 이유도 짧게 써요.</p>
-    <p>① "어제 A랑 카페 갔는데 진짜 재미있었어." → ( <span class="blank">O/X</span> ) 이유: <span class="blank long">&nbsp;</span></p>
-    <p>② "B는 옷도 촌스럽고 걷는 것도 이상해." → ( <span class="blank">O/X</span> ) 이유: <span class="blank long">&nbsp;</span></p>
-    <p>③ "C가 D를 좋아한다더라. 진짜인지 모르지만." → ( <span class="blank">O/X</span> ) 이유: <span class="blank long">&nbsp;</span></p>
-    <p>④ "선생님 설명이 오늘 좀 빨랐어. 나도 힘들었어." → ( <span class="blank">O/X</span> ) 이유: <span class="blank long">&nbsp;</span></p>
-    <p>⑤ "E 걔 왕따 시켜야지, 우리랑 놀지 말자." → ( <span class="blank">O/X</span> ) 이유: <span class="blank long">&nbsp;</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 이건 대화? 험담?</h3><span class="tag">5문항</span></div>
+ <p>각 문장이 <b>대화</b>인지 <b>험담</b>인지 O/X, 이유도 짧게 써요.</p>
+ <p>① "어제 A랑 카페 갔는데 진짜 재미있었어." → ( <span class="blank">O/X</span> ) 이유: <span class="blank long">&nbsp;</span></p>
+ <p>② "B는 옷도 촌스럽고 걷는 것도 이상해." → ( <span class="blank">O/X</span> ) 이유: <span class="blank long">&nbsp;</span></p>
+ <p>③ "C가 D를 좋아한다더라. 진짜인지 모르지만." → ( <span class="blank">O/X</span> ) 이유: <span class="blank long">&nbsp;</span></p>
+ <p>④ "선생님 설명이 오늘 좀 빨랐어. 나도 힘들었어." → ( <span class="blank">O/X</span> ) 이유: <span class="blank long">&nbsp;</span></p>
+ <p>⑤ "E 걔 왕따 시켜야지, 우리랑 놀지 말자." → ( <span class="blank">O/X</span> ) 이유: <span class="blank long">&nbsp;</span></p>
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S13 · 1쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S13 · 1쪽 / 2</div>
 </section>
 
 <!-- 2쪽: 실전 -->
 <section class="page">
-  <div class="page-head">
-    <h2>💬 실전 대처와 직접 말하기</h2>
-    <span class="step">2쪽 · 실전</span>
-  </div>
-  <div class="intro">
-    친구가 진짜 서운하면, 뒤에서 험담하지 말고 <b>당사자에게 직접</b> 말하는 게 관계에도 나에게도 좋아요.
-    "나는 ~해서 ~한 마음이 들었어" 문장틀을 익혀요.
-  </div>
+ <div class="page-head">
+ <h2>💬 실전 대처와 직접 말하기</h2>
+ <span class="step">2쪽 · 실전</span>
+ </div>
+ <div class="intro">
+ 친구가 진짜 서운하면, 뒤에서 험담하지 말고 <b>당사자에게 직접</b> 말하는 게 관계에도 나에게도 좋아요.
+ "나는 ~해서 ~한 마음이 들었어" 문장틀을 익혀요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 험담 자리에서 거절 문장 만들기</h3><span class="tag">4상황</span></div>
-    <p>친구가 이렇게 말할 때, <b>부드럽게 참여 거절</b>하는 답을 써 봐요.</p>
-    <p>① "야, F 진짜 짜증나지? 우리끼리 말인데..." → "<span class="blank long">&nbsp;</span>"</p>
-    <p>② 단톡: "G 얘 이거 봐, 완전 웃기지 않냐 ㅋㅋ" (스크린샷) → "<span class="blank long">&nbsp;</span>"</p>
-    <p>③ "H 걔 진짜 이상하지 않아? 너도 그렇게 생각하지?" → "<span class="blank long">&nbsp;</span>"</p>
-    <p>④ "이거 비밀인데, I가 J한테 그랬대..." → "<span class="blank long">&nbsp;</span>"</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 험담 자리에서 거절 문장 만들기</h3><span class="tag">4상황</span></div>
+ <p>친구가 이렇게 말할 때, <b>부드럽게 참여 거절</b>하는 답을 써 봐요.</p>
+ <p>① "야, F 진짜 짜증나지? 우리끼리 말인데..." → "<span class="blank long">&nbsp;</span>"</p>
+ <p>② 단톡: "G 얘 이거 봐, 완전 웃기지 않냐 ㅋㅋ" (스크린샷) → "<span class="blank long">&nbsp;</span>"</p>
+ <p>③ "H 걔 진짜 이상하지 않아? 너도 그렇게 생각하지?" → "<span class="blank long">&nbsp;</span>"</p>
+ <p>④ "이거 비밀인데, I가 J한테 그랬대..." → "<span class="blank long">&nbsp;</span>"</p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 상황 카드 대처 골라 쓰기</h3><span class="tag">6장면</span></div>
-    <div class="situation-grid">
-      <div class="sit-card">
-        <div class="place">📱 단톡</div>
-        <div class="role">누군가 저격하는 글</div>
-        <div class="example">예: "누군지 말하는 건 좀 그래~ 다른 얘기 하자."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🏫 쉬는 시간</div>
-        <div class="role">A 험담 자리에 앉음</div>
-        <div class="example">예: "나 이번에 A랑 짝인데, 좋은 애야."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🚻 화장실</div>
-        <div class="role">B 얘기 듣게 됨</div>
-        <div class="example">예: (자리 뜨기) "나 먼저 갈게~"</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🍚 급식</div>
-        <div class="role">외모 험담 나옴</div>
-        <div class="example">예: "외모 얘기 좀 별로다. 다른 거 얘기하자."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">💻 SNS</div>
-        <div class="role">저격 게시물 댓글 요청</div>
-        <div class="example">예: "댓글은 안 달래. 나중에 얘기하자."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🚌 하굣길</div>
-        <div class="role">선생님 험담 얘기</div>
-        <div class="example">예: "그건 좀... 우리 오늘 뭐 먹지?"</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 상황 카드 대처 골라 쓰기</h3><span class="tag">6장면</span></div>
+ <div class="situation-grid">
+ <div class="sit-card">
+ <div class="place">📱 단톡</div>
+ <div class="role">누군가 저격하는 글</div>
+ <div class="example">예: "누군지 말하는 건 좀 그래~ 다른 얘기 하자."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🏫 쉬는 시간</div>
+ <div class="role">A 험담 자리에 앉음</div>
+ <div class="example">예: "나 이번에 A랑 짝인데, 좋은 애야."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🚻 화장실</div>
+ <div class="role">B 얘기 듣게 됨</div>
+ <div class="example">예: (자리 뜨기) "나 먼저 갈게~"</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🍚 급식</div>
+ <div class="role">외모 험담 나옴</div>
+ <div class="example">예: "외모 얘기 좀 별로다. 다른 거 얘기하자."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">💻 SNS</div>
+ <div class="role">저격 게시물 댓글 요청</div>
+ <div class="example">예: "댓글은 안 달래. 나중에 얘기하자."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🚌 하굣길</div>
+ <div class="role">선생님 험담 얘기</div>
+ <div class="example">예: "그건 좀... 우리 오늘 뭐 먹지?"</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ </div>
+ </div>
 
-  <div class="checklist">
-    <div class="title">✅ 험담 대처 셀프 체크</div>
-    <label><input type="checkbox" style="margin-right:6px;"> <b>동조하지 않았다</b> ("맞아 맞아~" X)</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 자리를 <b>옮기거나 주제를 바꿨다</b></label>
-    <label><input type="checkbox" style="margin-right:6px;"> <b>당사자 편</b>을 함부로 판단하지 않았다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 서운함이 있으면 <b>당사자에게 직접</b> 말했다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 단톡·SNS에 <b>남는 글</b>로 험담하지 않았다</label>
-  </div>
+ <div class="checklist">
+ <div class="title">✅ 험담 대처 셀프 체크</div>
+ <label><input type="checkbox" style="margin-right:6px;"> <b>동조하지 않았다</b> ("맞아 맞아~" X)</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 자리를 <b>옮기거나 주제를 바꿨다</b></label>
+ <label><input type="checkbox" style="margin-right:6px;"> <b>당사자 편</b>을 함부로 판단하지 않았다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 서운함이 있으면 <b>당사자에게 직접</b> 말했다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 단톡·SNS에 <b>남는 글</b>로 험담하지 않았다</label>
+ </div>
 
-  <div class="note">
-    ⚠ <b>잊지 말아요.</b> 뒷담화한 말은 <b>돌고 돌아 당사자에게 전달</b>되기 마련이에요.
-    카톡·DM은 <b>캡처 한 장</b>이면 증거예요. <b>내 이름을 걸고 못 할 말은 뒤에서도 하지 않는다</b>.
-  </div>
+ <div class="note">
+ ⚠ <b>잊지 말아요.</b> 뒷담화한 말은 <b>돌고 돌아 당사자에게 전달</b>되기 마련이에요.
+ 카톡·DM은 <b>캡처 한 장</b>이면 증거예요. <b>내 이름을 걸고 못 할 말은 뒤에서도 하지 않는다</b>.
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S13 · 2쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S13 · 2쪽 / 2</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

@@ -8,22 +8,22 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #2e7d32; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #2e7d32; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; } .toolbar .muted { color: #c8e6c9; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #c8e6c9 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #1b5e20;
-  border-bottom: 2px solid #66bb6a; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #66bb6a; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; }
 .cover-main { text-align: center; padding: 10px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #2e7d32; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #2e7d32; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #1b5e20; font-weight: 900; }
 .cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #2e7d32; font-weight: 500; }
 .cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
@@ -35,7 +35,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #1b5e20; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #2e7d32; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #2e7d32; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #1b5e20; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #2e7d32; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -69,317 +69,316 @@ table.qa td.left { text-align: left; }
 .hand-wash li::before { counter-increment: hw; content: counter(hw); position: absolute; left: 8px; top: 5px; background: #43a047; color: #fff; width: 20px; height: 20px; border-radius: 50%; text-align: center; line-height: 20px; font-weight: 700; font-size: 0.85em; }
 
 .footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
-  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+ color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
 @media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div><span class="title">바리스타 9차시</span><span class="muted">위생·안전 · A4 4쪽</span></div>
-  <button onclick="window.print()">🖨 인쇄하기</button>
+ <div><span class="title">바리스타 9차시</span><span class="muted">위생·안전 · A4 4쪽</span></div>
+ <button onclick="window.print">🖨 인쇄하기</button>
 </div>
 
 <div class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">위생 · 안전</span> · 바리스타 단원 9/10</div>
-    <div>혜화여자고등학교 특수학급</div>
-  </div>
-  <div class="cover-main">
-    <span class="badge">Lv.9 안전한 카페</span>
-    <h1>위생이 곧 신뢰!</h1>
-    <p class="lead">개인 위생 · HACCP · 5S · 화상·상해 대응</p>
-  </div>
-  <div class="cover-emoji">🧼 🥼 🚨 ✋</div>
-  <div class="cover-info">
-    <h3>이번 시간에 배울 것</h3>
-    <ul>
-      <li>바리스타의 <b>개인 위생 기본</b>과 손 씻기 7단계</li>
-      <li><b>HACCP·5S</b>로 카페 위생 관리</li>
-      <li>화상·베임·미끄러짐 등 <b>사고 대응</b></li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-    <div class="line"><span class="label">반</span></div>
-  </div>
+ <div class="cover-top">
+ <div><span class="subject">위생 · 안전</span> · 바리스타 단원 9/10</div>
+ </div>
+ <div class="cover-main">
+ <span class="badge">Lv.9 안전한 카페</span>
+ <h1>위생이 곧 신뢰!</h1>
+ <p class="lead">개인 위생 · HACCP · 5S · 화상·상해 대응</p>
+ </div>
+ <div class="cover-emoji">🧼 🥼 🚨 ✋</div>
+ <div class="cover-info">
+ <h3>이번 시간에 배울 것</h3>
+ <ul>
+ <li>바리스타의 <b>개인 위생 기본</b>과 손 씻기 7단계</li>
+ <li><b>HACCP·5S</b>로 카페 위생 관리</li>
+ <li>화상·베임·미끄러짐 등 <b>사고 대응</b></li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ <div class="line"><span class="label">반</span></div>
+ </div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>1. 개인 위생 기본</h2><span class="step">Step 1</span></div>
-  <div class="intro">
-    <b>💡 위생 = 손님 안전.</b> 바리스타의 손·복장·건강 상태가 <b>커피 맛과 손님 건강</b>에 직결돼요.
-  </div>
+ <div class="page-head"><h2>1. 개인 위생 기본</h2><span class="step">Step 1</span></div>
+ <div class="intro">
+ <b>💡 위생 = 손님 안전.</b> 바리스타의 손·복장·건강 상태가 <b>커피 맛과 손님 건강</b>에 직결돼요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 하은이의 출근 위생 체크</h3><span class="tag">체크</span></div>
-    <table class="qa">
-      <tr><th>항목</th><th>기준</th><th>OK?</th></tr>
-      <tr><td class="left">복장</td><td>깨끗한 유니폼·앞치마</td><td>☐</td></tr>
-      <tr><td class="left">머리</td><td>단정히 묶기·모자 착용</td><td>☐</td></tr>
-      <tr><td class="left">손톱</td><td><b>짧게</b> 깎기·매니큐어 X</td><td>☐</td></tr>
-      <tr><td class="left">액세서리</td><td>반지·시계 <b>제거</b> (세균 은신처)</td><td>☐</td></tr>
-      <tr><td class="left">향수</td><td>강한 향수 X (커피 향에 영향)</td><td>☐</td></tr>
-      <tr><td class="left">건강</td><td>기침·설사·상처 시 근무 X</td><td>☐</td></tr>
-    </table>
-    <div class="note"><b>❗ 손톱과 반지</b> 세균과 원두 가루가 끼기 쉬워요. 반지·시계는 <b>사물함에 보관</b> 후 근무!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 하은이의 출근 위생 체크</h3><span class="tag">체크</span></div>
+ <table class="qa">
+ <tr><th>항목</th><th>기준</th><th>OK?</th></tr>
+ <tr><td class="left">복장</td><td>깨끗한 유니폼·앞치마</td><td>☐</td></tr>
+ <tr><td class="left">머리</td><td>단정히 묶기·모자 착용</td><td>☐</td></tr>
+ <tr><td class="left">손톱</td><td><b>짧게</b> 깎기·매니큐어 X</td><td>☐</td></tr>
+ <tr><td class="left">액세서리</td><td>반지·시계 <b>제거</b> (세균 은신처)</td><td>☐</td></tr>
+ <tr><td class="left">향수</td><td>강한 향수 X (커피 향에 영향)</td><td>☐</td></tr>
+ <tr><td class="left">건강</td><td>기침·설사·상처 시 근무 X</td><td>☐</td></tr>
+ </table>
+ <div class="note"><b>❗ 손톱과 반지</b> 세균과 원두 가루가 끼기 쉬워요. 반지·시계는 <b>사물함에 보관</b> 후 근무!</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 손 씻기 7단계 (WHO 권장)</h3><span class="tag">손 씻기</span></div>
-    <ol class="hand-wash">
-      <li><b>손바닥</b>끼리 문지르기</li>
-      <li><b>손등</b> · 손가락 사이</li>
-      <li><b>손가락 사이</b> 깍지</li>
-      <li><b>손가락 뒷면</b>을 반대편 손바닥에</li>
-      <li><b>엄지</b>를 다른 손바닥으로 회전</li>
-      <li><b>손톱</b> · 손끝을 손바닥에 문지름</li>
-      <li><b>손목</b>까지 문지르고 헹구기 (총 <b>30초 이상</b>)</li>
-    </ol>
-    <p>손 씻어야 할 때:</p>
-    <ul>
-      <li>출근 직후 · 화장실 다녀온 후 · 재료 만지기 전</li>
-      <li>돈 만진 후 · 코·머리 만진 후 · 청소 후</li>
-      <li><b>2시간마다 1회</b> (하루 최소 10회 이상)</li>
-    </ul>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 손 씻기 7단계 (WHO 권장)</h3><span class="tag">손 씻기</span></div>
+ <ol class="hand-wash">
+ <li><b>손바닥</b>끼리 문지르기</li>
+ <li><b>손등</b> · 손가락 사이</li>
+ <li><b>손가락 사이</b> 깍지</li>
+ <li><b>손가락 뒷면</b>을 반대편 손바닥에</li>
+ <li><b>엄지</b>를 다른 손바닥으로 회전</li>
+ <li><b>손톱</b> · 손끝을 손바닥에 문지름</li>
+ <li><b>손목</b>까지 문지르고 헹구기 (총 <b>30초 이상</b>)</li>
+ </ol>
+ <p>손 씻어야 할 때:</p>
+ <ul>
+ <li>출근 직후 · 화장실 다녀온 후 · 재료 만지기 전</li>
+ <li>돈 만진 후 · 코·머리 만진 후 · 청소 후</li>
+ <li><b>2시간마다 1회</b> (하루 최소 10회 이상)</li>
+ </ul>
+ </div>
 
-  <div class="footer-note">바리스타 9차시 · 1/4쪽 · 개인 위생</div>
+ <div class="footer-note">바리스타 9차시 · 1/4쪽 · 개인 위생</div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>2. HACCP과 5S</h2><span class="step">Step 2</span></div>
-  <div class="intro">
-    <b>💡 HACCP</b>(해썹) = 식품 안전 관리 시스템. 원료부터 최종 제품까지 <b>위험 요소</b>를 미리 찾아 관리해요.
-  </div>
+ <div class="page-head"><h2>2. HACCP과 5S</h2><span class="step">Step 2</span></div>
+ <div class="intro">
+ <b>💡 HACCP</b>(해썹) = 식품 안전 관리 시스템. 원료부터 최종 제품까지 <b>위험 요소</b>를 미리 찾아 관리해요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 하영이의 HACCP 이해</h3><span class="tag">HACCP</span></div>
-    <p>커피에서의 주요 위해요소 (HACCP 관점):</p>
-    <table class="qa">
-      <tr><th>위해</th><th>예</th><th>관리 방법</th></tr>
-      <tr><td>물리적</td><td class="left">머리카락·유리 조각</td><td class="left">모자·주기적 점검</td></tr>
-      <tr><td>화학적</td><td class="left">세제 잔여물·인체 유해 물질</td><td class="left"><b>충분히 헹구기</b>·전용 세제</td></tr>
-      <tr><td>생물학적</td><td class="left">세균·곰팡이·바이러스</td><td class="left">손 씻기·재료 보관 온도</td></tr>
-    </table>
-    <div class="tip"><b>💡 우유 관리</b> 냉장 <b>4°C 이하</b> 보관. 개봉 후 <b>2~3일</b> 이내 사용. 개봉일 라벨링 필수!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 하영이의 HACCP 이해</h3><span class="tag">HACCP</span></div>
+ <p>커피에서의 주요 위해요소 (HACCP 관점):</p>
+ <table class="qa">
+ <tr><th>위해</th><th>예</th><th>관리 방법</th></tr>
+ <tr><td>물리적</td><td class="left">머리카락·유리 조각</td><td class="left">모자·주기적 점검</td></tr>
+ <tr><td>화학적</td><td class="left">세제 잔여물·인체 유해 물질</td><td class="left"><b>충분히 헹구기</b>·전용 세제</td></tr>
+ <tr><td>생물학적</td><td class="left">세균·곰팡이·바이러스</td><td class="left">손 씻기·재료 보관 온도</td></tr>
+ </table>
+ <div class="tip"><b>💡 우유 관리</b> 냉장 <b>4°C 이하</b> 보관. 개봉 후 <b>2~3일</b> 이내 사용. 개봉일 라벨링 필수!</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 5S 활동</h3><span class="tag">5S</span></div>
-    <div class="five-s">
-      <div class="s-card"><span class="no">1</span><div class="n">정리</div><div class="d">불필요한 것 버리기</div></div>
-      <div class="s-card"><span class="no">2</span><div class="n">정돈</div><div class="d">필요한 것 제자리에</div></div>
-      <div class="s-card"><span class="no">3</span><div class="n">청소</div><div class="d">항상 깨끗하게</div></div>
-      <div class="s-card"><span class="no">4</span><div class="n">청결</div><div class="d">위생·표준 유지</div></div>
-      <div class="s-card"><span class="no">5</span><div class="n">습관화</div><div class="d">모두 실천·유지</div></div>
-    </div>
-    <p><b>주은</b>이가 카페 바를 정리해요. 다음 상황에 맞는 5S 단계는?</p>
-    <table class="qa">
-      <tr><th>상황</th><th>5S</th></tr>
-      <tr><td class="left">사용 안 하는 컵 3박스를 창고로 옮김</td><td><span class="blank">정리</span></td></tr>
-      <tr><td class="left">시럽 병들을 <b>순서대로</b> 정렬</td><td><span class="blank">정돈</span></td></tr>
-      <tr><td class="left">바 테이블을 매일 <b>오전·오후 2회</b> 닦기</td><td><span class="blank"></span></td></tr>
-      <tr><td class="left">모두가 <b>매일</b> 같은 청소 규칙을 따르도록 규정화</td><td><span class="blank"></span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 5S 활동</h3><span class="tag">5S</span></div>
+ <div class="five-s">
+ <div class="s-card"><span class="no">1</span><div class="n">정리</div><div class="d">불필요한 것 버리기</div></div>
+ <div class="s-card"><span class="no">2</span><div class="n">정돈</div><div class="d">필요한 것 제자리에</div></div>
+ <div class="s-card"><span class="no">3</span><div class="n">청소</div><div class="d">항상 깨끗하게</div></div>
+ <div class="s-card"><span class="no">4</span><div class="n">청결</div><div class="d">위생·표준 유지</div></div>
+ <div class="s-card"><span class="no">5</span><div class="n">습관화</div><div class="d">모두 실천·유지</div></div>
+ </div>
+ <p><b>주은</b>이가 카페 바를 정리해요. 다음 상황에 맞는 5S 단계는?</p>
+ <table class="qa">
+ <tr><th>상황</th><th>5S</th></tr>
+ <tr><td class="left">사용 안 하는 컵 3박스를 창고로 옮김</td><td><span class="blank">정리</span></td></tr>
+ <tr><td class="left">시럽 병들을 <b>순서대로</b> 정렬</td><td><span class="blank">정돈</span></td></tr>
+ <tr><td class="left">바 테이블을 매일 <b>오전·오후 2회</b> 닦기</td><td><span class="blank"></span></td></tr>
+ <tr><td class="left">모두가 <b>매일</b> 같은 청소 규칙을 따르도록 규정화</td><td><span class="blank"></span></td></tr>
+ </table>
+ </div>
 
-  <div class="footer-note">바리스타 9차시 · 2/4쪽 · HACCP·5S</div>
+ <div class="footer-note">바리스타 9차시 · 2/4쪽 · HACCP·5S</div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>3. 화상·상해 대응</h2><span class="step">Step 3</span></div>
-  <div class="intro">
-    <b>💡 카페는 뜨거운 물·기계·유리로 가득.</b> 사고 예방과 대응이 <b>바리스타 안전의 핵심</b>이에요.
-  </div>
+ <div class="page-head"><h2>3. 화상·상해 대응</h2><span class="step">Step 3</span></div>
+ <div class="intro">
+ <b>💡 카페는 뜨거운 물·기계·유리로 가득.</b> 사고 예방과 대응이 <b>바리스타 안전의 핵심</b>이에요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. 주현이의 화상 응급처치</h3><span class="tag">응급</span></div>
-    <p><b>스팀 완드·뜨거운 물·에스프레소</b>에 화상 시:</p>
-    <ol style="padding-left: 22px;">
-      <li><b>즉시 흐르는 찬물</b>에 <b>15분 이상</b> 식히기</li>
-      <li>수포가 생겼다면 <b>절대 터뜨리지 않기</b></li>
-      <li>깨끗한 <b>거즈</b>로 덮기 (연고·기름 X)</li>
-      <li>심하면(2도 이상) <b>병원</b> 방문</li>
-    </ol>
-    <div class="note"><b>❗ 하지 말 것</b> 얼음 직접 붙이기 X (동상) · 감자·치약 붙이기 X (감염) · 수포 터뜨리기 X.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 주현이의 화상 응급처치</h3><span class="tag">응급</span></div>
+ <p><b>스팀 완드·뜨거운 물·에스프레소</b>에 화상 시:</p>
+ <ol style="padding-left: 22px;">
+ <li><b>즉시 흐르는 찬물</b>에 <b>15분 이상</b> 식히기</li>
+ <li>수포가 생겼다면 <b>절대 터뜨리지 않기</b></li>
+ <li>깨끗한 <b>거즈</b>로 덮기 (연고·기름 X)</li>
+ <li>심하면(2도 이상) <b>병원</b> 방문</li>
+ </ol>
+ <div class="note"><b>❗ 하지 말 것</b> 얼음 직접 붙이기 X (동상) · 감자·치약 붙이기 X (감염) · 수포 터뜨리기 X.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 6. 미정이의 상해 상황별 대응</h3><span class="tag">상해</span></div>
-    <table class="qa">
-      <tr><th>상황</th><th>대응</th></tr>
-      <tr><td class="left">🔪 컵·유리 깨져서 손 베임</td><td class="left"><span class="blank long">흐르는 물로 씻고 소독·거즈 압박 지혈</span></td></tr>
-      <tr><td class="left">💧 바닥이 젖어 미끄러짐</td><td class="left"><span class="blank long">즉시 표지판 세우고 마른 걸레로 닦기</span></td></tr>
-      <tr><td class="left">🔥 원두가 뜨거워 손이 데임</td><td class="left"><span class="blank long">찬물 15분 · 병원 진료</span></td></tr>
-      <tr><td class="left">😵 손님이 쓰러짐</td><td class="left"><span class="blank long">119 신고·주변 안전 확보</span></td></tr>
-      <tr><td class="left">🌊 물이 넘쳐 감전 위험</td><td class="left"><span class="blank long">전원 차단 · 매니저 호출</span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 6. 미정이의 상해 상황별 대응</h3><span class="tag">상해</span></div>
+ <table class="qa">
+ <tr><th>상황</th><th>대응</th></tr>
+ <tr><td class="left">🔪 컵·유리 깨져서 손 베임</td><td class="left"><span class="blank long">흐르는 물로 씻고 소독·거즈 압박 지혈</span></td></tr>
+ <tr><td class="left">💧 바닥이 젖어 미끄러짐</td><td class="left"><span class="blank long">즉시 표지판 세우고 마른 걸레로 닦기</span></td></tr>
+ <tr><td class="left">🔥 원두가 뜨거워 손이 데임</td><td class="left"><span class="blank long">찬물 15분 · 병원 진료</span></td></tr>
+ <tr><td class="left">😵 손님이 쓰러짐</td><td class="left"><span class="blank long">119 신고·주변 안전 확보</span></td></tr>
+ <tr><td class="left">🌊 물이 넘쳐 감전 위험</td><td class="left"><span class="blank long">전원 차단 · 매니저 호출</span></td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 7. 예방이 최고</h3><span class="tag">예방</span></div>
-    <ul>
-      <li>☐ 뜨거운 것 옮길 때 <b>"뜨거워요!" 소리치기</b></li>
-      <li>☐ 바닥에 물 떨어지면 <b>즉시 닦기</b></li>
-      <li>☐ 컵·유리 깨지면 <b>빗자루로만</b> (손 X)</li>
-      <li>☐ 미끄럼 방지 신발 착용</li>
-      <li>☐ 스팀 사용 시 <b>주변 사람 확인</b></li>
-      <li>☐ 원두 봉지·상자는 <b>바닥에서 15cm 이상</b> 띄워 보관</li>
-    </ul>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 7. 예방이 최고</h3><span class="tag">예방</span></div>
+ <ul>
+ <li>☐ 뜨거운 것 옮길 때 <b>"뜨거워요!" 소리치기</b></li>
+ <li>☐ 바닥에 물 떨어지면 <b>즉시 닦기</b></li>
+ <li>☐ 컵·유리 깨지면 <b>빗자루로만</b> (손 X)</li>
+ <li>☐ 미끄럼 방지 신발 착용</li>
+ <li>☐ 스팀 사용 시 <b>주변 사람 확인</b></li>
+ <li>☐ 원두 봉지·상자는 <b>바닥에서 15cm 이상</b> 띄워 보관</li>
+ </ul>
+ </div>
 
-  <div class="footer-note">바리스타 9차시 · 3/4쪽 · 안전</div>
+ <div class="footer-note">바리스타 9차시 · 3/4쪽 · 안전</div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>4. 재료 관리 · 종합</h2><span class="step">Step 4</span></div>
+ <div class="page-head"><h2>4. 재료 관리 · 종합</h2><span class="step">Step 4</span></div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 8. 채원이의 재료 보관 온도</h3><span class="tag">보관</span></div>
-    <table class="qa">
-      <tr><th>재료</th><th>보관 온도</th><th>주의</th></tr>
-      <tr><td class="left">우유·크림</td><td><b>4°C 이하 냉장</b></td><td>개봉 후 2~3일</td></tr>
-      <tr><td class="left">원두</td><td>실온 (20~25°C) 밀폐</td><td>냉장 X</td></tr>
-      <tr><td class="left">시럽·초콜릿 소스</td><td>실온 또는 냉장</td><td>개봉 후 라벨링</td></tr>
-      <tr><td class="left">디저트 (케이크류)</td><td><b>4°C 이하 냉장</b> 진열</td><td>당일 판매 원칙</td></tr>
-      <tr><td class="left">얼음</td><td>냉동 · 매일 새로 만들기</td><td>얼음통도 세척</td></tr>
-    </table>
-    <div class="tip"><b>💡 선입선출(FIFO)</b> 먼저 들어온 재료 먼저 사용. 유통기한 라벨링으로 관리.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 8. 채원이의 재료 보관 온도</h3><span class="tag">보관</span></div>
+ <table class="qa">
+ <tr><th>재료</th><th>보관 온도</th><th>주의</th></tr>
+ <tr><td class="left">우유·크림</td><td><b>4°C 이하 냉장</b></td><td>개봉 후 2~3일</td></tr>
+ <tr><td class="left">원두</td><td>실온 (20~25°C) 밀폐</td><td>냉장 X</td></tr>
+ <tr><td class="left">시럽·초콜릿 소스</td><td>실온 또는 냉장</td><td>개봉 후 라벨링</td></tr>
+ <tr><td class="left">디저트 (케이크류)</td><td><b>4°C 이하 냉장</b> 진열</td><td>당일 판매 원칙</td></tr>
+ <tr><td class="left">얼음</td><td>냉동 · 매일 새로 만들기</td><td>얼음통도 세척</td></tr>
+ </table>
+ <div class="tip"><b>💡 선입선출(FIFO)</b> 먼저 들어온 재료 먼저 사용. 유통기한 라벨링으로 관리.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 9. 예은이의 위생 자기평가</h3><span class="tag">평가</span></div>
-    <table class="qa">
-      <tr><th style="width:60%">항목 (매일 스스로 체크)</th><th>매일 OK</th></tr>
-      <tr><td class="left">출근 즉시 손 씻기</td><td>☐</td></tr>
-      <tr><td class="left">유니폼·모자·앞치마 착용</td><td>☐</td></tr>
-      <tr><td class="left">2시간마다 손 씻기</td><td>☐</td></tr>
-      <tr><td class="left">기침·재채기 시 팔꿈치 가리기</td><td>☐</td></tr>
-      <tr><td class="left">우유 유통기한 확인</td><td>☐</td></tr>
-      <tr><td class="left">바닥·바 테이블 정리·청소</td><td>☐</td></tr>
-      <tr><td class="left">퇴근 전 5S 실천</td><td>☐</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 9. 예은이의 위생 자기평가</h3><span class="tag">평가</span></div>
+ <table class="qa">
+ <tr><th style="width:60%">항목 (매일 스스로 체크)</th><th>매일 OK</th></tr>
+ <tr><td class="left">출근 즉시 손 씻기</td><td>☐</td></tr>
+ <tr><td class="left">유니폼·모자·앞치마 착용</td><td>☐</td></tr>
+ <tr><td class="left">2시간마다 손 씻기</td><td>☐</td></tr>
+ <tr><td class="left">기침·재채기 시 팔꿈치 가리기</td><td>☐</td></tr>
+ <tr><td class="left">우유 유통기한 확인</td><td>☐</td></tr>
+ <tr><td class="left">바닥·바 테이블 정리·청소</td><td>☐</td></tr>
+ <tr><td class="left">퇴근 전 5S 실천</td><td>☐</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 10. 스스로 확인</h3><span class="tag">자기점검</span></div>
-    <table class="qa">
-      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
-      <tr><td class="left">개인 위생 기본을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">HACCP·5S를 설명할 수 있다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">사고 대응 방법을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">재료 보관 온도를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 10. 스스로 확인</h3><span class="tag">자기점검</span></div>
+ <table class="qa">
+ <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+ <tr><td class="left">개인 위생 기본을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">HACCP·5S를 설명할 수 있다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">사고 대응 방법을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">재료 보관 온도를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ </table>
+ </div>
 
-  <div class="footer-note">바리스타 9차시 · 4/4쪽 · 위생 마무리</div>
+ <div class="footer-note">바리스타 9차시 · 4/4쪽 · 위생 마무리</div>
 </div>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

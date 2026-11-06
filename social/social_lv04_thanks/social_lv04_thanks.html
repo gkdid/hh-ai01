@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #dcedc8 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #33691e;
-  border-bottom: 2px solid #aed581; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #aed581; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #558b2f; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #558b2f; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #558b2f; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #33691e; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #33691e; font-weight: 500; }
 .cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 10px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #33691e; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #558b2f; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #558b2f; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #33691e; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #558b2f; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -90,287 +90,287 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">🌿 S4 칭찬과 감사 인사</span><span class="muted">사회성 · Level 4</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">🌿 S4 칭찬과 감사 인사</span><span class="muted">사회성 · Level 4</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#33691e;">S4</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">칭찬 · 감사</span>
-    <h1>채원이의 마음 전하기</h1>
-    <p class="lead">고마운 마음, 잘한 친구를 향한 칭찬을 잘 표현해요</p>
-  </div>
-  <div class="cover-emoji">🌸 💌 👏</div>
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul>
-      <li>칭찬은 <b>구체적</b>으로 하는 게 좋다는 것을 안다.</li>
-      <li>감사는 <b>이유와 나의 느낌</b>을 함께 담아 표현한다.</li>
-      <li>일상에서 <b>고마운 사람들</b>에게 인사말을 건넨다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
-    <ul>
-      <li><b>채원이</b>는 마음속으로만 고마움을 담아 두는 편이에요. 이제 <b>말과 글</b>로도 표현해 봐요.</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">사회성 시리즈 · S4 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#33691e;">S4</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">칭찬 · 감사</span>
+ <h1>채원이의 마음 전하기</h1>
+ <p class="lead">고마운 마음, 잘한 친구를 향한 칭찬을 잘 표현해요</p>
+ </div>
+ <div class="cover-emoji">🌸 💌 👏</div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul>
+ <li>칭찬은 <b>구체적</b>으로 하는 게 좋다는 것을 안다.</li>
+ <li>감사는 <b>이유와 나의 느낌</b>을 함께 담아 표현한다.</li>
+ <li>일상에서 <b>고마운 사람들</b>에게 인사말을 건넨다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+ <ul>
+ <li><b>채원이</b>는 마음속으로만 고마움을 담아 두는 편이에요. 이제 <b>말과 글</b>로도 표현해 봐요.</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">사회성 시리즈 · S4 · 표지</div>
 </section>
 
 <!-- 1쪽: 칭찬 -->
 <section class="page">
-  <div class="page-head">
-    <h2>👏 진심을 담은 칭찬</h2>
-    <span class="step">1쪽 · 칭찬하는 법</span>
-  </div>
-  <div class="intro">
-    칭찬은 <b>기분 좋은 선물</b>이에요. 하지만 "잘했어" 한 마디보다, <b>구체적으로</b> 무엇이 어떻게 좋았는지 말하면 훨씬 진심이 전해져요.
-  </div>
+ <div class="page-head">
+ <h2>👏 진심을 담은 칭찬</h2>
+ <span class="step">1쪽 · 칭찬하는 법</span>
+ </div>
+ <div class="intro">
+ 칭찬은 <b>기분 좋은 선물</b>이에요. 하지만 "잘했어" 한 마디보다, <b>구체적으로</b> 무엇이 어떻게 좋았는지 말하면 훨씬 진심이 전해져요.
+ </div>
 
-  <div class="compliment-formula">
-    <div style="color:#33691e; font-weight:700;">💚 좋은 칭찬 공식</div>
-    <div class="formula">
-      <span class="part">누구야,</span> <span class="part">네가 [무엇을 한 것이]</span> <span class="part">[어떻게] 좋았어(멋있었어).</span>
-    </div>
-    <div style="font-size:0.95em;">
-      ✅ "채원아, <b>네가 발표할 때 목소리가 또렷해서</b> 잘 들리고 <b>내용이 이해가 잘 됐어.</b>"<br>
-      ❌ "잘했어~" (짧고 뻔함, 진심 안 느껴짐)
-    </div>
-  </div>
+ <div class="compliment-formula">
+ <div style="color:#33691e; font-weight:700;">💚 좋은 칭찬 공식</div>
+ <div class="formula">
+ <span class="part">누구야,</span> <span class="part">네가 [무엇을 한 것이]</span> <span class="part">[어떻게] 좋았어(멋있었어).</span>
+ </div>
+ <div style="font-size:0.95em;">
+ ✅ "채원아, <b>네가 발표할 때 목소리가 또렷해서</b> 잘 들리고 <b>내용이 이해가 잘 됐어.</b>"<br>
+ ❌ "잘했어~" (짧고 뻔함, 진심 안 느껴짐)
+ </div>
+ </div>
 
-  <div class="compare">
-    <div class="good">
-      <div class="title">😊 좋은 칭찬 (구체적)</div>
-      <ul>
-        <li>"미정아, <b>네가 오늘 반 정리를 도와줘서</b> 정말 깔끔해졌어. 고마워."</li>
-        <li>"주현아, <b>넌 매일 지각 없이 오는 게</b> 진짜 대단해."</li>
-        <li>"하영아, <b>그림 그린 거 색깔이 예뻐서</b> 오래 봤어."</li>
-      </ul>
-    </div>
-    <div class="weak">
-      <div class="title">🙂 아쉬운 칭찬 (뻔함)</div>
-      <ul>
-        <li>"오~ 잘한다."</li>
-        <li>"멋있네."</li>
-        <li>"짱이다~" (뭘 잘했다는 건지 모름)</li>
-        <li>겉으로만 하는 칭찬 (표정·눈맞춤 없음)</li>
-      </ul>
-    </div>
-  </div>
+ <div class="compare">
+ <div class="good">
+ <div class="title">😊 좋은 칭찬 (구체적)</div>
+ <ul>
+ <li>"미정아, <b>네가 오늘 반 정리를 도와줘서</b> 정말 깔끔해졌어. 고마워."</li>
+ <li>"주현아, <b>넌 매일 지각 없이 오는 게</b> 진짜 대단해."</li>
+ <li>"하영아, <b>그림 그린 거 색깔이 예뻐서</b> 오래 봤어."</li>
+ </ul>
+ </div>
+ <div class="weak">
+ <div class="title">🙂 아쉬운 칭찬 (뻔함)</div>
+ <ul>
+ <li>"오~ 잘한다."</li>
+ <li>"멋있네."</li>
+ <li>"짱이다~" (뭘 잘했다는 건지 모름)</li>
+ <li>겉으로만 하는 칭찬 (표정·눈맞춤 없음)</li>
+ </ul>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 상황에 맞는 칭찬 만들기</h3><span class="tag">쓰기</span></div>
-    <p>다음 상황에서 <b>구체적 칭찬</b>을 만들어 써 보세요.</p>
-    <div class="case-list">
-      <div class="case-box">
-        <div class="situation">🎨 <b>주은</b>이가 미술 시간에 그린 그림이 색깔이 조화롭고, 자기만의 스타일이 있어요.</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="case-box">
-        <div class="situation">🎤 <b>미정</b>이가 조별 발표에서 어려운 부분을 대신 맡아 발표해 줬어요. 목소리도 크고 자신감 있었어요.</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="case-box">
-        <div class="situation">🏃 <b>주현</b>이가 체육대회 이어달리기에서 마지막 주자로 뛰어 반이 3등을 했어요.</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="case-box">
-        <div class="situation">🎒 <b>하은</b>이가 무거운 짐을 든 친구를 보고 먼저 다가가서 짐을 나눠 들어 줬어요.</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 상황에 맞는 칭찬 만들기</h3><span class="tag">쓰기</span></div>
+ <p>다음 상황에서 <b>구체적 칭찬</b>을 만들어 써 보세요.</p>
+ <div class="case-list">
+ <div class="case-box">
+ <div class="situation">🎨 <b>주은</b>이가 미술 시간에 그린 그림이 색깔이 조화롭고, 자기만의 스타일이 있어요.</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="case-box">
+ <div class="situation">🎤 <b>미정</b>이가 조별 발표에서 어려운 부분을 대신 맡아 발표해 줬어요. 목소리도 크고 자신감 있었어요.</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="case-box">
+ <div class="situation">🏃 <b>주현</b>이가 체육대회 이어달리기에서 마지막 주자로 뛰어 반이 3등을 했어요.</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="case-box">
+ <div class="situation">🎒 <b>하은</b>이가 무거운 짐을 든 친구를 보고 먼저 다가가서 짐을 나눠 들어 줬어요.</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ </div>
+ </div>
 
-  <div class="tip">💡 <b>칭찬의 3가지 힌트:</b> ① <b>이름</b>을 불러 &nbsp; ② <b>행동</b>을 콕 짚어 &nbsp; ③ <b>어떤 점</b>이 좋았는지 말하기</div>
+ <div class="tip">💡 <b>칭찬의 3가지 힌트:</b> ① <b>이름</b>을 불러 &nbsp; ② <b>행동</b>을 콕 짚어 &nbsp; ③ <b>어떤 점</b>이 좋았는지 말하기</div>
 
-  <div class="page-foot">사회성 시리즈 · S4 · 1쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S4 · 1쪽 / 2</div>
 </section>
 
 <!-- 2쪽: 감사 표현 -->
 <section class="page">
-  <div class="page-head">
-    <h2>💌 마음을 담아 감사 인사</h2>
-    <span class="step">2쪽 · 감사</span>
-  </div>
-  <div class="intro">
-    누군가 나를 도와줬을 때 <b>"고마워" 한 마디도 큰 힘</b>이에요. 여기에 <b>이유와 나의 느낌</b>을 덧붙이면 더 진심이 담겨요.
-  </div>
+ <div class="page-head">
+ <h2>💌 마음을 담아 감사 인사</h2>
+ <span class="step">2쪽 · 감사</span>
+ </div>
+ <div class="intro">
+ 누군가 나를 도와줬을 때 <b>"고마워" 한 마디도 큰 힘</b>이에요. 여기에 <b>이유와 나의 느낌</b>을 덧붙이면 더 진심이 담겨요.
+ </div>
 
-  <div class="compliment-formula">
-    <div style="color:#33691e; font-weight:700;">💚 좋은 감사 공식</div>
-    <div class="formula">
-      <span class="part">고마워,</span> <span class="part">네가 [무엇을 해줘서]</span> <span class="part">덕분에 [내가 어떻게 도움 받았어].</span>
-    </div>
-    <div style="font-size:0.95em;">
-      ✅ "고마워, <b>네가 도서관까지 짐을 들어 줘서</b> 덕분에 <b>다치지 않고 왔어.</b>"<br>
-      ✅ "선생님, <b>수업 다시 설명해 주셔서</b> 이해가 잘 됐어요. 감사합니다."
-    </div>
-  </div>
+ <div class="compliment-formula">
+ <div style="color:#33691e; font-weight:700;">💚 좋은 감사 공식</div>
+ <div class="formula">
+ <span class="part">고마워,</span> <span class="part">네가 [무엇을 해줘서]</span> <span class="part">덕분에 [내가 어떻게 도움 받았어].</span>
+ </div>
+ <div style="font-size:0.95em;">
+ ✅ "고마워, <b>네가 도서관까지 짐을 들어 줘서</b> 덕분에 <b>다치지 않고 왔어.</b>"<br>
+ ✅ "선생님, <b>수업 다시 설명해 주셔서</b> 이해가 잘 됐어요. 감사합니다."
+ </div>
+ </div>
 
-  <div class="speech">
-    <div class="avatar right">주은</div>
-    <div class="bubble">
-      <div class="who">주은</div>
-      채원아, 이거 도서관 사서 선생님께 전해 줘.
-    </div>
-  </div>
-  <div class="speech right">
-    <div class="bubble">
-      <div class="who">채원</div>
-      알겠어! <b>고마워,</b> 나 대신 챙겨줘서. <b>덕분에</b> 잊지 않고 <b>돌려드릴 수 있게 됐어.</b>
-    </div>
-    <div class="avatar">채원</div>
-  </div>
+ <div class="speech">
+ <div class="avatar right">주은</div>
+ <div class="bubble">
+ <div class="who">주은</div>
+ 채원아, 이거 도서관 사서 선생님께 전해 줘.
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">채원</div>
+ 알겠어! <b>고마워,</b> 나 대신 챙겨줘서. <b>덕분에</b> 잊지 않고 <b>돌려드릴 수 있게 됐어.</b>
+ </div>
+ <div class="avatar">채원</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 상황별 감사 표현</h3><span class="tag">쓰기</span></div>
-    <p>다음 상황에서 <b>이유와 느낌</b>을 담아 감사 인사를 써 보세요.</p>
-    <p>① 친구가 우산이 없는 나를 <b>같이 씌워 줬을 때</b>:<br>
-      → "<span class="blank long">&nbsp;</span>"</p>
-    <p>② <b>어머니</b>가 도시락을 정성스럽게 싸 주셨을 때:<br>
-      → "<span class="blank long">&nbsp;</span>"</p>
-    <p>③ 짝꿍이 내가 놓친 <b>준비물을 챙겨 줬을 때</b>:<br>
-      → "<span class="blank long">&nbsp;</span>"</p>
-    <p>④ <b>선생님</b>이 시험 대비 요약본을 만들어 주셨을 때:<br>
-      → "<span class="blank long">&nbsp;</span>"</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 상황별 감사 표현</h3><span class="tag">쓰기</span></div>
+ <p>다음 상황에서 <b>이유와 느낌</b>을 담아 감사 인사를 써 보세요.</p>
+ <p>① 친구가 우산이 없는 나를 <b>같이 씌워 줬을 때</b>:<br>
+ → "<span class="blank long">&nbsp;</span>"</p>
+ <p>② <b>어머니</b>가 도시락을 정성스럽게 싸 주셨을 때:<br>
+ → "<span class="blank long">&nbsp;</span>"</p>
+ <p>③ 짝꿍이 내가 놓친 <b>준비물을 챙겨 줬을 때</b>:<br>
+ → "<span class="blank long">&nbsp;</span>"</p>
+ <p>④ <b>선생님</b>이 시험 대비 요약본을 만들어 주셨을 때:<br>
+ → "<span class="blank long">&nbsp;</span>"</p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 감사 편지 쓰기</h3><span class="tag">글쓰기</span></div>
-    <p>내가 요즘 <b>정말 고마운 한 사람</b>을 떠올려 보고, 짧은 감사 편지를 써 보세요.</p>
-    <div class="card-write">
-      <div class="title">💌 To. <span class="blank">&nbsp;</span></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div style="text-align:right; margin-top: 6px; color:#bf360c; font-weight:700;">From. <span class="blank">&nbsp;</span></div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 감사 편지 쓰기</h3><span class="tag">글쓰기</span></div>
+ <p>내가 요즘 <b>정말 고마운 한 사람</b>을 떠올려 보고, 짧은 감사 편지를 써 보세요.</p>
+ <div class="card-write">
+ <div class="title">💌 To. <span class="blank">&nbsp;</span></div>
+ <div class="line"></div>
+ <div class="line"></div>
+ <div class="line"></div>
+ <div class="line"></div>
+ <div style="text-align:right; margin-top: 6px; color:#bf360c; font-weight:700;">From. <span class="blank">&nbsp;</span></div>
+ </div>
+ </div>
 
-  <div class="note">🌟 <b>실천:</b> 오늘 하루가 끝나기 전에 <b>한 사람에게</b> 진심을 담아 <b>"고마워"</b>라고 말해 보세요. 말하는 나도 기분이 좋아져요!</div>
+ <div class="note">🌟 <b>실천:</b> 오늘 하루가 끝나기 전에 <b>한 사람에게</b> 진심을 담아 <b>"고마워"</b>라고 말해 보세요. 말하는 나도 기분이 좋아져요!</div>
 
-  <div class="page-foot">사회성 시리즈 · S4 · 2쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S4 · 2쪽 / 2</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

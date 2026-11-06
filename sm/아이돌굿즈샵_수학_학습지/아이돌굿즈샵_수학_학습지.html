@@ -9,79 +9,79 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body {
-  margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  font-size: 12pt; line-height: 1.55;
+ margin: 0; background: #eceff1; color: #1f2d3d;
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+ font-size: 12pt; line-height: 1.55;
 }
 
 .toolbar {
-  position: sticky; top: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #ad1457; color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+ position: sticky; top: 0; z-index: 50;
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 10px 18px; background: #ad1457; color: #fff;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .toolbar .muted { color: #f8bbd0; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button {
-  background: #ffd54f; color: #880e4f; border: none; font: inherit; font-weight: 700;
-  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+ background: #ffd54f; color: #880e4f; border: none; font: inherit; font-weight: 700;
+ padding: 8px 18px; border-radius: 6px; cursor: pointer;
 }
 .toolbar button:hover { background: #ffe082; }
 
 .page {
-  width: 210mm; min-height: 297mm;
-  margin: 14mm auto; padding: 14mm 16mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  position: relative; page-break-after: always;
+ width: 210mm; min-height: 297mm;
+ margin: 14mm auto; padding: 14mm 16mm;
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+ position: relative; page-break-after: always;
 }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover {
-  padding: 20mm 18mm;
-  background: linear-gradient(135deg, #fff 0%, #fce4ec 100%);
+ padding: 20mm 18mm;
+ background: linear-gradient(135deg, #fff 0%, #fce4ec 100%);
 }
 .cover-top {
-  display: flex; justify-content: space-between;
-  font-size: 0.9em; color: #607d8b;
-  border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 22px;
+ display: flex; justify-content: space-between;
+ font-size: 0.9em; color: #607d8b;
+ border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 22px;
 }
 .cover-top .subject { font-weight: 700; color: #ad1457; }
 .cover-main { text-align: center; padding: 16px 0 12px; }
 .cover-main .badge {
-  display: inline-block; padding: 6px 18px; border-radius: 20px;
-  background: #ad1457; color: #fff; font-weight: 700; font-size: 0.95em;
-  margin-bottom: 12px; letter-spacing: 0.5px;
+ display: inline-block; padding: 6px 18px; border-radius: 20px;
+ background: #ad1457; color: #fff; font-weight: 700; font-size: 0.95em;
+ margin-bottom: 12px; letter-spacing: 0.5px;
 }
 .cover-main h1 {
-  margin: 0; font-size: 2.2em; letter-spacing: -1.5px;
-  color: #880e4f; font-weight: 900;
+ margin: 0; font-size: 2.2em; letter-spacing: -1.5px;
+ color: #880e4f; font-weight: 900;
 }
 .cover-main .lead {
-  margin: 6px 0 0; font-size: 1em; color: #455a64; font-weight: 500;
+ margin: 6px 0 0; font-size: 1em; color: #455a64; font-weight: 500;
 }
 .name-box {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 8px; margin: 16px 0;
+ display: grid; grid-template-columns: repeat(3, 1fr);
+ gap: 8px; margin: 16px 0;
 }
 .name-cell { border: 1.5px solid #90a4ae; border-radius: 8px; padding: 9px 12px; }
 .name-cell span { display: block; font-size: 0.78em; color: #546e7a; font-weight: 500; }
 .name-cell em { display: block; min-height: 22px; font-style: normal; }
 
 .cast, .toc, .info {
-  border: 2px solid #f48fb1; border-radius: 10px;
-  padding: 12px 16px; margin-top: 10px; background: #fce4ec;
+ border: 2px solid #f48fb1; border-radius: 10px;
+ padding: 12px 16px; margin-top: 10px; background: #fce4ec;
 }
 .cast h2, .toc h2, .info h2 {
-  margin: 0 0 6px; font-size: 1.05em; color: #880e4f;
-  border-bottom: 1px dashed #ec407a; padding-bottom: 5px;
+ margin: 0 0 6px; font-size: 1.05em; color: #880e4f;
+ border-bottom: 1px dashed #ec407a; padding-bottom: 5px;
 }
 .info p { margin: 0; font-size: 0.95em; color: #263238; }
 
 .cast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 .person {
-  display: flex; align-items: center; gap: 8px;
-  padding: 6px 10px; background: #fff;
-  border: 1px solid #eee; border-radius: 8px;
-  font-weight: 700; color: #37474f; font-size: 0.95em;
+ display: flex; align-items: center; gap: 8px;
+ padding: 6px 10px; background: #fff;
+ border: 1px solid #eee; border-radius: 8px;
+ font-weight: 700; color: #37474f; font-size: 0.95em;
 }
 .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
 .d1 { background: #FF6B6B; }
@@ -95,75 +95,75 @@ body {
 .toc li { padding: 2px 0; }
 
 .ph {
-  display: flex; align-items: center; gap: 14px;
-  border-bottom: 3px solid #880e4f; padding-bottom: 10px; margin-bottom: 14px;
+ display: flex; align-items: center; gap: 14px;
+ border-bottom: 3px solid #880e4f; padding-bottom: 10px; margin-bottom: 14px;
 }
 .ph-num {
-  flex-shrink: 0; width: 54px; height: 54px;
-  background: #880e4f; color: #ffd54f;
-  font-family: 'Noto Serif KR', serif;
-  font-size: 1.6em; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; border-radius: 10px;
+ flex-shrink: 0; width: 54px; height: 54px;
+ background: #880e4f; color: #ffd54f;
+ font-family: 'Noto Serif KR', serif;
+ font-size: 1.6em; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; border-radius: 10px;
 }
 .ph-title h2 { margin: 0; font-size: 1.4em; color: #880e4f; }
 .ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.92em; }
 
 .scene {
-  background: #fce4ec; border-left: 6px solid #ec407a;
-  border-radius: 6px; padding: 10px 14px; margin-bottom: 12px;
+ background: #fce4ec; border-left: 6px solid #ec407a;
+ border-radius: 6px; padding: 10px 14px; margin-bottom: 12px;
 }
 .scene p { margin: 0; }
 
 .tip {
-  background: #fff8e1; border-left: 5px solid #ffb300;
-  border-radius: 6px; padding: 8px 12px; margin: 8px 0;
+ background: #fff8e1; border-left: 5px solid #ffb300;
+ border-radius: 6px; padding: 8px 12px; margin: 8px 0;
 }
 .tip .tip-title { display: block; font-weight: 700; color: #e65100; margin-bottom: 4px; }
 
 .practice h3 {
-  display: inline-block; background: #ffd54f; color: #880e4f;
-  padding: 3px 14px; border-radius: 16px; font-size: 1em; margin: 6px 0 10px;
+ display: inline-block; background: #ffd54f; color: #880e4f;
+ padding: 3px 14px; border-radius: 16px; font-size: 1em; margin: 6px 0 10px;
 }
 .q {
-  position: relative;
-  padding-left: 40px;
-  margin-bottom: 12px; padding-bottom: 10px;
-  border-bottom: 1px dashed #cfd8dc;
+ position: relative;
+ padding-left: 40px;
+ margin-bottom: 12px; padding-bottom: 10px;
+ border-bottom: 1px dashed #cfd8dc;
 }
 .q:last-child { border-bottom: none; }
 .q .no {
-  position: absolute; left: 0; top: 0;
-  width: 28px; height: 28px;
-  background: #880e4f; color: #fff;
-  border-radius: 50%; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; font-size: 0.9em;
+ position: absolute; left: 0; top: 0;
+ width: 28px; height: 28px;
+ background: #880e4f; color: #fff;
+ border-radius: 50%; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; font-size: 0.9em;
 }
 .q p { margin: 0 0 5px; }
 .q .sub-q { margin-top: 5px; font-weight: 500; color: #455a64; }
 
 .blank {
-  display: inline-block; border-bottom: 1.5px solid #263238;
-  min-width: 70px; height: 20px; vertical-align: baseline;
+ display: inline-block; border-bottom: 1.5px solid #263238;
+ min-width: 70px; height: 20px; vertical-align: baseline;
 }
 
 .box {
-  display: inline-block; min-width: 70px; height: 26px;
-  border: 2px solid #880e4f; background: #fff;
-  border-radius: 4px; vertical-align: middle; margin: 0 3px;
+ display: inline-block; min-width: 70px; height: 26px;
+ border: 2px solid #880e4f; background: #fff;
+ border-radius: 4px; vertical-align: middle; margin: 0 3px;
 }
 .box.wide { min-width: 110px; }
 .box.xwide { min-width: 160px; }
 
 .formula {
-  background: #fffde7; border: 1.5px dashed #fbc02d;
-  border-radius: 8px; padding: 8px 14px;
-  text-align: center; font-size: 1.05em; margin: 6px 0; font-weight: 500;
+ background: #fffde7; border: 1.5px dashed #fbc02d;
+ border-radius: 8px; padding: 8px 14px;
+ text-align: center; font-size: 1.05em; margin: 6px 0; font-weight: 500;
 }
 
 table { width: 100%; border-collapse: collapse; margin: 5px 0; }
 th, td {
-  border: 1.5px solid #90a4ae;
-  padding: 6px 9px; text-align: center; vertical-align: middle;
+ border: 1.5px solid #90a4ae;
+ padding: 6px 9px; text-align: center; vertical-align: middle;
 }
 th { background: #fce4ec; font-weight: 700; color: #880e4f; }
 td.left, th.left { text-align: left; }
@@ -171,419 +171,419 @@ td.left, th.left { text-align: left; }
 
 /* 굿즈 진열대 */
 .shop-board {
-  border: 3px double #ad1457;
-  border-radius: 12px; padding: 10px 14px; margin: 8px 0;
-  background: #fff5f8;
+ border: 3px double #ad1457;
+ border-radius: 12px; padding: 10px 14px; margin: 8px 0;
+ background: #fff5f8;
 }
 .shop-board h4 {
-  text-align: center; margin: 0 0 6px;
-  color: #880e4f; font-size: 1.1em;
+ text-align: center; margin: 0 0 6px;
+ color: #880e4f; font-size: 1.1em;
 }
 .shop-board table { margin: 0; }
 
 /* 영수증 */
 .receipt {
-  border: 2px dashed #ad1457;
-  border-radius: 10px; padding: 10px 14px; margin: 8px 0;
-  background: #fff;
+ border: 2px dashed #ad1457;
+ border-radius: 10px; padding: 10px 14px; margin: 8px 0;
+ background: #fff;
 }
 .receipt h4 {
-  text-align: center; margin: 0 0 6px;
-  color: #880e4f; font-size: 1.05em; letter-spacing: 1px;
+ text-align: center; margin: 0 0 6px;
+ color: #880e4f; font-size: 1.05em; letter-spacing: 1px;
 }
 .receipt .meta-line {
-  display: flex; justify-content: space-between;
-  font-size: 0.85em; color: #455a64;
-  border-bottom: 1px dashed #f48fb1; padding-bottom: 4px; margin-bottom: 5px;
+ display: flex; justify-content: space-between;
+ font-size: 0.85em; color: #455a64;
+ border-bottom: 1px dashed #f48fb1; padding-bottom: 4px; margin-bottom: 5px;
 }
 
 .page-no {
-  position: absolute; bottom: 8mm; right: 16mm;
-  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
+ position: absolute; bottom: 8mm; right: 16mm;
+ color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
 }
 
 @media print {
-  @page { size: A4 portrait; margin: 0; }
-  html, body {
-    background: #fff !important; margin: 0; padding: 0;
-    font-size: 10pt; line-height: 1.35;
-  }
-  .toolbar, .no-print { display: none !important; }
-  .page {
-    width: 210mm; min-height: 297mm;
-    margin: 0 !important; padding: 10mm 13mm;
-    box-shadow: none; border: none;
-    page-break-after: always; break-after: page;
-  }
-  .page:last-of-type { page-break-after: auto; }
-  .q, .scene, .tip, .formula, .shop-board, .receipt,
-  .name-box, .cast, .toc, .info, .ph, tr {
-    page-break-inside: avoid !important; break-inside: avoid !important;
-  }
-  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-  h1 { font-size: 1.8em; margin: 0; }
-  h2 { font-size: 1.25em; margin: 0 0 4px; }
-  h3 { font-size: 1em; margin: 5px 0 4px; padding: 3px 10px; }
-  p { margin: 0 0 3px; }
-  ul, ol { margin: 3px 0; }
-  .page.cover { padding: 14mm 14mm; }
-  .ph { padding-bottom: 7px; margin-bottom: 8px; gap: 10px; }
-  .ph-num { width: 42px; height: 42px; font-size: 1.3em; border-radius: 8px; }
-  .ph-title h2 { font-size: 1.2em; }
-  .scene, .tip { padding: 7px 11px; margin-bottom: 6px; }
-  .shop-board, .receipt { padding: 7px 11px; margin: 5px 0; }
-  .shop-board h4, .receipt h4 { font-size: 1em; }
-  .q { margin-bottom: 7px; padding-bottom: 5px; padding-left: 32px; }
-  .q .no { width: 24px; height: 24px; font-size: 0.85em; }
-  .formula { padding: 5px 10px; margin: 3px 0; font-size: 0.95em; }
-  .box { min-width: 56px; height: 20px; }
-  th, td { padding: 4px 6px; }
-  .page-no { bottom: 6mm; right: 14mm; }
+ @page { size: A4 portrait; margin: 0; }
+ html, body {
+ background: #fff !important; margin: 0; padding: 0;
+ font-size: 10pt; line-height: 1.35;
+ }
+ .toolbar, .no-print { display: none !important; }
+ .page {
+ width: 210mm; min-height: 297mm;
+ margin: 0 !important; padding: 10mm 13mm;
+ box-shadow: none; border: none;
+ page-break-after: always; break-after: page;
+ }
+ .page:last-of-type { page-break-after: auto; }
+ .q, .scene, .tip, .formula, .shop-board, .receipt,
+ .name-box, .cast, .toc, .info, .ph, tr {
+ page-break-inside: avoid !important; break-inside: avoid !important;
+ }
+ h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+ h1 { font-size: 1.8em; margin: 0; }
+ h2 { font-size: 1.25em; margin: 0 0 4px; }
+ h3 { font-size: 1em; margin: 5px 0 4px; padding: 3px 10px; }
+ p { margin: 0 0 3px; }
+ ul, ol { margin: 3px 0; }
+ .page.cover { padding: 14mm 14mm; }
+ .ph { padding-bottom: 7px; margin-bottom: 8px; gap: 10px; }
+ .ph-num { width: 42px; height: 42px; font-size: 1.3em; border-radius: 8px; }
+ .ph-title h2 { font-size: 1.2em; }
+ .scene, .tip { padding: 7px 11px; margin-bottom: 6px; }
+ .shop-board, .receipt { padding: 7px 11px; margin: 5px 0; }
+ .shop-board h4, .receipt h4 { font-size: 1em; }
+ .q { margin-bottom: 7px; padding-bottom: 5px; padding-left: 32px; }
+ .q .no { width: 24px; height: 24px; font-size: 0.85em; }
+ .formula { padding: 5px 10px; margin: 3px 0; font-size: 0.95em; }
+ .box { min-width: 56px; height: 20px; }
+ th, td { padding: 4px 6px; }
+ .page-no { bottom: 6mm; right: 14mm; }
 }
 </style>
 </head>
 <body>
 
 <div class="toolbar no-print">
-  <div><strong>아이돌 굿즈샵 — 수학 학습지</strong>
-    <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
-  </div>
-  <button onclick="window.print()">🖨️ 인쇄하기</button>
+ <div><strong>아이돌 굿즈샵 — 수학 학습지</strong>
+ <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
+ </div>
+ <button onclick="window.print">🖨️ 인쇄하기</button>
 </div>
 
 <!-- =================================================== -->
 <!-- 표지 -->
 <!-- =================================================== -->
 <section class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">수학</span> &nbsp;|&nbsp; 고등학교 특수학급 자립 생활 수학</div>
-    <div>2026학년도 1학기</div>
-  </div>
+ <div class="cover-top">
+ <div><span class="subject">수학</span> &nbsp;|&nbsp; 고등학교 자립 생활 수학</div>
+ <div>2026학년도 1학기</div>
+ </div>
 
-  <div class="cover-main">
-    <span class="badge">자립 생활 수학 프로젝트</span>
-    <h1>💿 좋아하는 가수 굿즈샵 똑똑하게 이용하기</h1>
-    <p class="lead">앨범 · 포토카드 · 응원봉 — 우리 모두 최애가 달라요</p>
-  </div>
+ <div class="cover-main">
+ <span class="badge">자립 생활 수학 프로젝트</span>
+ <h1>💿 좋아하는 가수 굿즈샵 똑똑하게 이용하기</h1>
+ <p class="lead">앨범 · 포토카드 · 응원봉 — 우리 모두 최애가 달라요</p>
+ </div>
 
-  <div class="name-box">
-    <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
-    <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
-    <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
-  </div>
+ <div class="name-box">
+ <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
+ <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
+ <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
+ </div>
 
-  <div class="info">
-    <h2>💿 굿즈샵(예: Star Station)이란?</h2>
-    <p>여러 가수·그룹의 공식 굿즈(앨범, 포토카드, 응원봉, 키링, 포스터 등)를 한 곳에서 살 수 있는 가게예요.
-       <strong>K-팝 아이돌, 밴드, 트로트, 발라드 가수, 애니메이션</strong> 굿즈까지 한 매장에 모여 있어요.
-       매장에서 직접 사거나 <strong>온라인 주문 + 배송비</strong>로도 살 수 있어요. 가격이 비싼 만큼
-       <strong>예산을 세우고 비교</strong>해서 사는 습관이 중요해요.
-       오늘은 가격 합계, 할인, 배송비, 한정판 추첨 확률까지 수학으로 풀어 봅시다.</p>
-  </div>
+ <div class="info">
+ <h2>💿 굿즈샵(예: Star Station)이란?</h2>
+ <p>여러 가수·그룹의 공식 굿즈(앨범, 포토카드, 응원봉, 키링, 포스터 등)를 한 곳에서 살 수 있는 가게예요.
+ <strong>K-팝 아이돌, 밴드, 트로트, 발라드 가수, 애니메이션</strong> 굿즈까지 한 매장에 모여 있어요.
+ 매장에서 직접 사거나 <strong>온라인 주문 + 배송비</strong>로도 살 수 있어요. 가격이 비싼 만큼
+ <strong>예산을 세우고 비교</strong>해서 사는 습관이 중요해요.
+ 오늘은 가격 합계, 할인, 배송비, 한정판 추첨 확률까지 수학으로 풀어 봅시다.</p>
+ </div>
 
-  <div class="cast">
-    <h2>👫 오늘 함께 굿즈샵 가는 친구들</h2>
-    <div class="cast-grid">
-      <div class="person"><span class="dot d6"></span>하영 · 윤도현 밴드(YB)</div>
-      <div class="person"><span class="dot d2"></span>하은 · 잇지(ITZY)</div>
-      <div class="person"><span class="dot d1"></span>채원 · 황가람</div>
-      <div class="person"><span class="dot d5"></span>예은 · 라바(애니)</div>
-      <div class="person"><span class="dot d4"></span>주은 · 에일리(Ailee)</div>
-      <div class="person"><span class="dot d3"></span>주현 · 트로트</div>
-    </div>
-  </div>
+ <div class="cast">
+ <h2>👫 오늘 함께 굿즈샵 가는 친구들</h2>
+ <div class="cast-grid">
+ <div class="person"><span class="dot d6"></span>하영 · 윤도현 밴드(YB)</div>
+ <div class="person"><span class="dot d2"></span>하은 · 잇지(ITZY)</div>
+ <div class="person"><span class="dot d1"></span>채원 · 황가람</div>
+ <div class="person"><span class="dot d5"></span>예은 · 라바(애니)</div>
+ <div class="person"><span class="dot d4"></span>주은 · 에일리(Ailee)</div>
+ <div class="person"><span class="dot d3"></span>주현 · 트로트</div>
+ </div>
+ </div>
 
-  <div class="toc">
-    <h2>📚 차례</h2>
-    <ol>
-      <li><strong>1차시</strong> 굿즈 가격 비교 — 단가, 묶음, 사고 싶은 것 합계</li>
-      <li><strong>2차시</strong> 예산 안에서 사기 — 우선순위와 차액</li>
-      <li><strong>3차시</strong> 온라인 주문 — 배송비, 무료배송 조건</li>
-      <li><strong>4차시</strong> 한정판 · 적립 — 추첨 확률, 포인트, 더치페이</li>
-    </ol>
-  </div>
+ <div class="toc">
+ <h2>📚 차례</h2>
+ <ol>
+ <li><strong>1차시</strong> 굿즈 가격 비교 — 단가, 묶음, 사고 싶은 것 합계</li>
+ <li><strong>2차시</strong> 예산 안에서 사기 — 우선순위와 차액</li>
+ <li><strong>3차시</strong> 온라인 주문 — 배송비, 무료배송 조건</li>
+ <li><strong>4차시</strong> 한정판 · 적립 — 추첨 확률, 포인트, 더치페이</li>
+ </ol>
+ </div>
 
-  <div class="page-no">— 1 —</div>
+ <div class="page-no">— 1 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 1차시: 굿즈 가격 비교 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">1</div>
-    <div class="ph-title">
-      <h2>굿즈 가격 비교</h2>
-      <p>품목별 단가를 보고, 사고 싶은 것을 골라 합계를 구해 봅시다.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">1</div>
+ <div class="ph-title">
+ <h2>굿즈 가격 비교</h2>
+ <p>품목별 단가를 보고, 사고 싶은 것을 골라 합계를 구해 봅시다.</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>친구 6명이 <strong>홍대 ⭐스타스테이션</strong> 같은 굿즈샵에 갔어요. 매장 안에는 <strong>잇지(ITZY) 코너</strong>,
-       <strong>윤도현 밴드(YB) 코너</strong>, <strong>황가람 코너</strong>, <strong>에일리 코너</strong>,
-       <strong>트로트 코너</strong>, <strong>라바 애니 코너</strong>까지 있어요.
-       같은 품목이라도 <strong>단품 vs 묶음</strong> 가격이 다르니 <strong>1개당 가격</strong>을 비교해 봅시다.</p>
-  </div>
+ <div class="scene">
+ <p>친구 6명이 <strong>홍대 ⭐스타스테이션</strong> 같은 굿즈샵에 갔어요. 매장 안에는 <strong>잇지(ITZY) 코너</strong>,
+ <strong>윤도현 밴드(YB) 코너</strong>, <strong>황가람 코너</strong>, <strong>에일리 코너</strong>,
+ <strong>트로트 코너</strong>, <strong>라바 애니 코너</strong>까지 있어요.
+ 같은 품목이라도 <strong>단품 vs 묶음</strong> 가격이 다르니 <strong>1개당 가격</strong>을 비교해 봅시다.</p>
+ </div>
 
-  <div class="shop-board">
-    <h4>💜 굿즈 가격표 (단품 / 세트)</h4>
-    <table>
-      <tr><th class="left">품목</th><th>단품</th><th>세트(개수)</th><th>1개당 가격</th></tr>
-      <tr><td class="left">앨범 (포카 1장 포함)</td><td>18,000원</td><td>3장 50,000원</td><td>?</td></tr>
-      <tr><td class="left">포토카드 (랜덤)</td><td>4,000원</td><td>5장 18,000원</td><td>3,600원</td></tr>
-      <tr><td class="left">응원봉</td><td>45,000원</td><td>—</td><td>—</td></tr>
-      <tr><td class="left">키링</td><td>9,000원</td><td>2개 16,000원</td><td>?</td></tr>
-      <tr><td class="left">포스터</td><td>5,000원</td><td>3장 12,000원</td><td>?</td></tr>
-    </table>
-  </div>
+ <div class="shop-board">
+ <h4>💜 굿즈 가격표 (단품 / 세트)</h4>
+ <table>
+ <tr><th class="left">품목</th><th>단품</th><th>세트(개수)</th><th>1개당 가격</th></tr>
+ <tr><td class="left">앨범 (포카 1장 포함)</td><td>18,000원</td><td>3장 50,000원</td><td>?</td></tr>
+ <tr><td class="left">포토카드 (랜덤)</td><td>4,000원</td><td>5장 18,000원</td><td>3,600원</td></tr>
+ <tr><td class="left">응원봉</td><td>45,000원</td><td>—</td><td>—</td></tr>
+ <tr><td class="left">키링</td><td>9,000원</td><td>2개 16,000원</td><td>?</td></tr>
+ <tr><td class="left">포스터</td><td>5,000원</td><td>3장 12,000원</td><td>?</td></tr>
+ </table>
+ </div>
 
-  <div class="practice">
-    <h3>💰 가격 비교 · 합계</h3>
+ <div class="practice">
+ <h3>💰 가격 비교 · 합계</h3>
 
-    <div class="q"><div class="no">1</div><div>
-      <p>앨범 세트 <strong>3장 50,000원</strong>일 때 <strong>1장당 가격</strong>은 얼마인가요?
-         (단품 18,000원보다 싸진 얼마인지도 적어요.)</p>
-      <div class="formula">50,000 &divide; 3 = 약 <span class="box wide"></span> 원</div>
-      <p class="sub-q">👉 단품(18,000원)과의 차이: 18,000 &minus; (1장당 가격) ≈ <span class="box"></span> 원 절약</p>
-    </div></div>
+ <div class="q"><div class="no">1</div><div>
+ <p>앨범 세트 <strong>3장 50,000원</strong>일 때 <strong>1장당 가격</strong>은 얼마인가요?
+ (단품 18,000원보다 싸진 얼마인지도 적어요.)</p>
+ <div class="formula">50,000 &divide; 3 = 약 <span class="box wide"></span> 원</div>
+ <p class="sub-q">👉 단품(18,000원)과의 차이: 18,000 &minus; (1장당 가격) ≈ <span class="box"></span> 원 절약</p>
+ </div></div>
 
-    <div class="q"><div class="no">2</div><div>
-      <p>키링 <strong>2개 묶음 16,000원</strong>이에요. 1개당 가격은? 단품(9,000원)보다 1개당 얼마 싼가요?</p>
-      <div class="formula">16,000 &divide; 2 = <span class="box"></span> 원 (1개당)</div>
-      <p class="sub-q">👉 1개당 절약: 9,000 &minus; <span class="box"></span> = <span class="box"></span> 원</p>
-    </div></div>
+ <div class="q"><div class="no">2</div><div>
+ <p>키링 <strong>2개 묶음 16,000원</strong>이에요. 1개당 가격은? 단품(9,000원)보다 1개당 얼마 싼가요?</p>
+ <div class="formula">16,000 &divide; 2 = <span class="box"></span> 원 (1개당)</div>
+ <p class="sub-q">👉 1개당 절약: 9,000 &minus; <span class="box"></span> = <span class="box"></span> 원</p>
+ </div></div>
 
-    <div class="q"><div class="no">3</div><div>
-      <p>포스터 단품 5,000원, <strong>3장 묶음 12,000원</strong>이에요. 1장당 얼마이고, 어느 쪽이 더 이득인가요?</p>
-      <div class="formula">12,000 &divide; 3 = <span class="box"></span> 원 (1장당)</div>
-      <p class="sub-q">👉 더 이득인 쪽: ▢ 단품 &nbsp;&nbsp; ▢ 묶음</p>
-    </div></div>
+ <div class="q"><div class="no">3</div><div>
+ <p>포스터 단품 5,000원, <strong>3장 묶음 12,000원</strong>이에요. 1장당 얼마이고, 어느 쪽이 더 이득인가요?</p>
+ <div class="formula">12,000 &divide; 3 = <span class="box"></span> 원 (1장당)</div>
+ <p class="sub-q">👉 더 이득인 쪽: ▢ 단품 &nbsp;&nbsp; ▢ 묶음</p>
+ </div></div>
 
-    <div class="q"><div class="no">4</div><div>
-      <p>주현이는 <strong>트로트 코너</strong>에서 트로트 메들리 앨범 단품 1장 + 포토카드 단품 2장 + 키링 단품 1개를
-         사려고 해요. 합계는 얼마인가요?</p>
-      <div class="formula">18,000 + (4,000 &times; 2) + 9,000 = <span class="box wide"></span> 원</div>
-    </div></div>
+ <div class="q"><div class="no">4</div><div>
+ <p>주현이는 <strong>트로트 코너</strong>에서 트로트 메들리 앨범 단품 1장 + 포토카드 단품 2장 + 키링 단품 1개를
+ 사려고 해요. 합계는 얼마인가요?</p>
+ <div class="formula">18,000 + (4,000 &times; 2) + 9,000 = <span class="box wide"></span> 원</div>
+ </div></div>
 
-    <div class="q"><div class="no">5</div><div>
-      <p>채원이는 <strong>황가람 코너</strong>에서 응원봉 1개 + 키링 묶음 1세트 + 포스터 묶음 1세트를 사려고 해요. 합계는?</p>
-      <div class="formula">45,000 + 16,000 + 12,000 = <span class="box wide"></span> 원</div>
-    </div></div>
-  </div>
+ <div class="q"><div class="no">5</div><div>
+ <p>채원이는 <strong>황가람 코너</strong>에서 응원봉 1개 + 키링 묶음 1세트 + 포스터 묶음 1세트를 사려고 해요. 합계는?</p>
+ <div class="formula">45,000 + 16,000 + 12,000 = <span class="box wide"></span> 원</div>
+ </div></div>
+ </div>
 
-  <div class="page-no">— 2 —</div>
+ <div class="page-no">— 2 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 2차시: 예산 안에서 사기 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">2</div>
-    <div class="ph-title">
-      <h2>예산 안에서 야무지게 사기</h2>
-      <p>한 달 용돈에서 굿즈 예산을 정하고, 우선순위로 골라 봅시다.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">2</div>
+ <div class="ph-title">
+ <h2>예산 안에서 야무지게 사기</h2>
+ <p>한 달 용돈에서 굿즈 예산을 정하고, 우선순위로 골라 봅시다.</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>좋아하는 가수 굿즈는 사고 싶은 게 많아서 <strong>예산을 정해두지 않으면 끝없이 사게</strong> 돼요.
-       예은이는 <strong>라바 애니메이션</strong>을 좋아해서 라바 굿즈를 사려고 해요.
-       한 달 용돈 <strong>80,000원</strong> 중 <strong>40,000원</strong>을 굿즈 예산으로 정했어요.
-       예산을 넘지 않게 사고 싶은 것 중 <strong>우선순위</strong>를 정해 봅시다.</p>
-  </div>
+ <div class="scene">
+ <p>좋아하는 가수 굿즈는 사고 싶은 게 많아서 <strong>예산을 정해두지 않으면 끝없이 사게</strong> 돼요.
+ 예은이는 <strong>라바 애니메이션</strong>을 좋아해서 라바 굿즈를 사려고 해요.
+ 한 달 용돈 <strong>80,000원</strong> 중 <strong>40,000원</strong>을 굿즈 예산으로 정했어요.
+ 예산을 넘지 않게 사고 싶은 것 중 <strong>우선순위</strong>를 정해 봅시다.</p>
+ </div>
 
-  <div class="tip"><span class="tip-title">💡 예산 안에서 사는 법</span>
-    1) 사고 싶은 것을 모두 적어 가격 합계를 구한다 →
-    2) 예산을 넘으면 <strong>우선순위가 낮은 것</strong>부터 뺀다 →
-    3) 남은 돈은 <strong>다음에 살 것</strong>으로 저금
-  </div>
+ <div class="tip"><span class="tip-title">💡 예산 안에서 사는 법</span>
+ 1) 사고 싶은 것을 모두 적어 가격 합계를 구한다 →
+ 2) 예산을 넘으면 <strong>우선순위가 낮은 것</strong>부터 뺀다 →
+ 3) 남은 돈은 <strong>다음에 살 것</strong>으로 저금
+ </div>
 
-  <div class="practice">
-    <h3>📝 예산 짜기</h3>
+ <div class="practice">
+ <h3>📝 예산 짜기</h3>
 
-    <div class="q"><div class="no">6</div><div>
-      <p>예은이의 위시리스트 합계는 얼마이고, 예산 40,000원에서 얼마가 모자라거나 남는지 구해 봅시다.</p>
-      <table>
-        <tr><th>순위</th><th class="left">사고 싶은 굿즈</th><th>가격(원)</th></tr>
-        <tr><td>1</td><td class="left">앨범 1장</td><td>18,000</td></tr>
-        <tr><td>2</td><td class="left">포카 5장 묶음</td><td>18,000</td></tr>
-        <tr><td>3</td><td class="left">키링 1개</td><td>9,000</td></tr>
-        <tr><th colspan="2" class="left">위시리스트 합계</th><th><span class="box wide"></span></th></tr>
-      </table>
-      <div class="formula">40,000 &minus; (합계) = <span class="box"></span> 원
-        <span style="margin-left:8px;">▢ 남는다 &nbsp; ▢ 모자라다</span></div>
-    </div></div>
+ <div class="q"><div class="no">6</div><div>
+ <p>예은이의 위시리스트 합계는 얼마이고, 예산 40,000원에서 얼마가 모자라거나 남는지 구해 봅시다.</p>
+ <table>
+ <tr><th>순위</th><th class="left">사고 싶은 굿즈</th><th>가격(원)</th></tr>
+ <tr><td>1</td><td class="left">앨범 1장</td><td>18,000</td></tr>
+ <tr><td>2</td><td class="left">포카 5장 묶음</td><td>18,000</td></tr>
+ <tr><td>3</td><td class="left">키링 1개</td><td>9,000</td></tr>
+ <tr><th colspan="2" class="left">위시리스트 합계</th><th><span class="box wide"></span></th></tr>
+ </table>
+ <div class="formula">40,000 &minus; (합계) = <span class="box"></span> 원
+ <span style="margin-left:8px;">▢ 남는다 &nbsp; ▢ 모자라다</span></div>
+ </div></div>
 
-    <div class="q"><div class="no">7</div><div>
-      <p>6번에서 예산을 넘었다면, 우선순위가 가장 낮은 <strong>3번 키링</strong>을 빼고 다시 계산해 봅시다.
-         새 합계는 예산 안에 들어오나요?</p>
-      <div class="formula">18,000 + 18,000 = <span class="box wide"></span> 원</div>
-      <p class="sub-q">👉 예산 40,000원에서 남는 돈: <span class="box"></span> 원</p>
-    </div></div>
+ <div class="q"><div class="no">7</div><div>
+ <p>6번에서 예산을 넘었다면, 우선순위가 가장 낮은 <strong>3번 키링</strong>을 빼고 다시 계산해 봅시다.
+ 새 합계는 예산 안에 들어오나요?</p>
+ <div class="formula">18,000 + 18,000 = <span class="box wide"></span> 원</div>
+ <p class="sub-q">👉 예산 40,000원에서 남는 돈: <span class="box"></span> 원</p>
+ </div></div>
 
-    <div class="q"><div class="no">8</div><div>
-      <p>하영이는 <strong>응원봉(45,000원)</strong>을 사고 싶지만 한 달 굿즈 예산은 <strong>30,000원</strong>이에요.
-         <strong>몇 달</strong>을 모아야 살 수 있나요? (한 달에 30,000원씩 저금한다고 가정)</p>
-      <div class="formula">45,000 &divide; 30,000 = 1.5 → 올림하면 <span class="box"></span> 달</div>
-    </div></div>
+ <div class="q"><div class="no">8</div><div>
+ <p>하영이는 <strong>응원봉(45,000원)</strong>을 사고 싶지만 한 달 굿즈 예산은 <strong>30,000원</strong>이에요.
+ <strong>몇 달</strong>을 모아야 살 수 있나요? (한 달에 30,000원씩 저금한다고 가정)</p>
+ <div class="formula">45,000 &divide; 30,000 = 1.5 → 올림하면 <span class="box"></span> 달</div>
+ </div></div>
 
-    <div class="q"><div class="no">9</div><div>
-      <p>주은이의 한 달 용돈은 <strong>70,000원</strong>이에요. 그중 굿즈에 쓰는 돈이 <strong>21,000원</strong>이라면
-         용돈에서 차지하는 비율은 몇 %인가요?</p>
-      <div class="formula">21,000 &divide; 70,000 &times; 100 = <span class="box"></span> %</div>
-    </div></div>
+ <div class="q"><div class="no">9</div><div>
+ <p>주은이의 한 달 용돈은 <strong>70,000원</strong>이에요. 그중 굿즈에 쓰는 돈이 <strong>21,000원</strong>이라면
+ 용돈에서 차지하는 비율은 몇 %인가요?</p>
+ <div class="formula">21,000 &divide; 70,000 &times; 100 = <span class="box"></span> %</div>
+ </div></div>
 
-    <div class="q"><div class="no">10</div><div>
-      <p>채원이는 응원봉 살 돈을 모으려고 <strong>일주일에 5,000원씩</strong> 저금하기로 했어요.
-         응원봉 가격이 <strong>45,000원</strong>이라면 몇 주가 걸릴까요?</p>
-      <div class="formula">45,000 &divide; 5,000 = <span class="box"></span> 주 = 약 <span class="box"></span> 개월</div>
-    </div></div>
-  </div>
+ <div class="q"><div class="no">10</div><div>
+ <p>채원이는 응원봉 살 돈을 모으려고 <strong>일주일에 5,000원씩</strong> 저금하기로 했어요.
+ 응원봉 가격이 <strong>45,000원</strong>이라면 몇 주가 걸릴까요?</p>
+ <div class="formula">45,000 &divide; 5,000 = <span class="box"></span> 주 = 약 <span class="box"></span> 개월</div>
+ </div></div>
+ </div>
 
-  <div class="page-no">— 3 —</div>
+ <div class="page-no">— 3 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 3차시: 온라인 주문과 배송비 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">3</div>
-    <div class="ph-title">
-      <h2>온라인 주문과 배송비</h2>
-      <p>온라인몰에서 살 때는 배송비도 생각해서 합계를 구해야 해요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">3</div>
+ <div class="ph-title">
+ <h2>온라인 주문과 배송비</h2>
+ <p>온라인몰에서 살 때는 배송비도 생각해서 합계를 구해야 해요.</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>주현이는 매장이 너무 멀어 <strong>온라인 굿즈샵</strong>에서 주문하려고 해요. 온라인은 편하지만
-       <strong>배송비 3,000원</strong>이 따로 붙어요. 단, <strong>30,000원 이상 사면 무료배송</strong>이에요.
-       살까 말까 망설일 때는 <strong>실제로 내는 총액</strong>으로 비교해 봅시다.</p>
-  </div>
+ <div class="scene">
+ <p>주현이는 매장이 너무 멀어 <strong>온라인 굿즈샵</strong>에서 주문하려고 해요. 온라인은 편하지만
+ <strong>배송비 3,000원</strong>이 따로 붙어요. 단, <strong>30,000원 이상 사면 무료배송</strong>이에요.
+ 살까 말까 망설일 때는 <strong>실제로 내는 총액</strong>으로 비교해 봅시다.</p>
+ </div>
 
-  <div class="tip"><span class="tip-title">💡 무료배송 기준</span>
-    상품 합계가 기준 금액(예: 30,000원) 이상이면 배송비 0원.<br>
-    조금 모자랄 때는 <strong>저렴한 굿즈를 1개 더 사서</strong> 무료배송을 받는 게
-    배송비를 따로 내는 것보다 이득인 경우가 있어요.
-  </div>
+ <div class="tip"><span class="tip-title">💡 무료배송 기준</span>
+ 상품 합계가 기준 금액(예: 30,000원) 이상이면 배송비 0원.<br>
+ 조금 모자랄 때는 <strong>저렴한 굿즈를 1개 더 사서</strong> 무료배송을 받는 게
+ 배송비를 따로 내는 것보다 이득인 경우가 있어요.
+ </div>
 
-  <div class="practice">
-    <h3>📦 온라인 합계 계산</h3>
+ <div class="practice">
+ <h3>📦 온라인 합계 계산</h3>
 
-    <div class="q"><div class="no">11</div><div>
-      <p>주현이의 장바구니: <strong>앨범 1장(18,000원) + 포카 2장(8,000원)</strong>.
-         상품 합계와, 배송비 3,000원을 더한 <strong>총 결제 금액</strong>은?</p>
-      <div class="formula">18,000 + 8,000 = <span class="box"></span> 원 (상품 합계)</div>
-      <div class="formula">(상품 합계) + 3,000 = <span class="box wide"></span> 원 (총 결제)</div>
-    </div></div>
+ <div class="q"><div class="no">11</div><div>
+ <p>주현이의 장바구니: <strong>앨범 1장(18,000원) + 포카 2장(8,000원)</strong>.
+ 상품 합계와, 배송비 3,000원을 더한 <strong>총 결제 금액</strong>은?</p>
+ <div class="formula">18,000 + 8,000 = <span class="box"></span> 원 (상품 합계)</div>
+ <div class="formula">(상품 합계) + 3,000 = <span class="box wide"></span> 원 (총 결제)</div>
+ </div></div>
 
-    <div class="q"><div class="no">12</div><div>
-      <p>11번 장바구니는 무료배송 기준 <strong>30,000원에 얼마가 모자라나요</strong>?
-         만약 <strong>키링 1개(9,000원)</strong>를 더 담으면 무료배송이 되는데, 어느 쪽이 더 이득일까요?</p>
-      <div class="formula">30,000 &minus; (상품 합계) = <span class="box"></span> 원 모자람</div>
-      <table>
-        <tr><th class="left">방법</th><th>상품 합계</th><th>배송비</th><th>총 결제</th></tr>
-        <tr><td class="left">A: 그대로 사기</td><td>26,000</td><td>3,000</td><td><span class="box"></span></td></tr>
-        <tr><td class="left">B: 키링 1개 추가</td><td>35,000</td><td>0</td><td><span class="box"></span></td></tr>
-      </table>
-      <p class="sub-q">👉 더 이득: ▢ A (배송비 내고 그냥 사기) &nbsp; ▢ B (키링 추가하기)</p>
-    </div></div>
+ <div class="q"><div class="no">12</div><div>
+ <p>11번 장바구니는 무료배송 기준 <strong>30,000원에 얼마가 모자라나요</strong>?
+ 만약 <strong>키링 1개(9,000원)</strong>를 더 담으면 무료배송이 되는데, 어느 쪽이 더 이득일까요?</p>
+ <div class="formula">30,000 &minus; (상품 합계) = <span class="box"></span> 원 모자람</div>
+ <table>
+ <tr><th class="left">방법</th><th>상품 합계</th><th>배송비</th><th>총 결제</th></tr>
+ <tr><td class="left">A: 그대로 사기</td><td>26,000</td><td>3,000</td><td><span class="box"></span></td></tr>
+ <tr><td class="left">B: 키링 1개 추가</td><td>35,000</td><td>0</td><td><span class="box"></span></td></tr>
+ </table>
+ <p class="sub-q">👉 더 이득: ▢ A (배송비 내고 그냥 사기) &nbsp; ▢ B (키링 추가하기)</p>
+ </div></div>
 
-    <div class="q"><div class="no">13</div><div>
-      <p>하은이는 응원봉(45,000원)과 포카 1장(4,000원)을 주문했어요. 30,000원 이상이라 <strong>무료배송</strong>이에요.
-         총 결제 금액은 얼마인가요?</p>
-      <div class="formula">45,000 + 4,000 + 0 = <span class="box wide"></span> 원</div>
-    </div></div>
+ <div class="q"><div class="no">13</div><div>
+ <p>하은이는 응원봉(45,000원)과 포카 1장(4,000원)을 주문했어요. 30,000원 이상이라 <strong>무료배송</strong>이에요.
+ 총 결제 금액은 얼마인가요?</p>
+ <div class="formula">45,000 + 4,000 + 0 = <span class="box wide"></span> 원</div>
+ </div></div>
 
-    <div class="q"><div class="no">14</div><div>
-      <p>온라인몰에서 첫 주문 할인 <strong>5%</strong>를 받을 수 있어요. 13번의 상품 합계 49,000원에서
-         할인 금액과 최종 결제 금액을 구해 봅시다. (무료배송 유지)</p>
-      <div class="formula">49,000 &divide; 100 &times; 5 = <span class="box"></span> 원 (할인 금액)</div>
-      <div class="formula">49,000 &minus; (할인 금액) = <span class="box wide"></span> 원 (최종 결제)</div>
-    </div></div>
+ <div class="q"><div class="no">14</div><div>
+ <p>온라인몰에서 첫 주문 할인 <strong>5%</strong>를 받을 수 있어요. 13번의 상품 합계 49,000원에서
+ 할인 금액과 최종 결제 금액을 구해 봅시다. (무료배송 유지)</p>
+ <div class="formula">49,000 &divide; 100 &times; 5 = <span class="box"></span> 원 (할인 금액)</div>
+ <div class="formula">49,000 &minus; (할인 금액) = <span class="box wide"></span> 원 (최종 결제)</div>
+ </div></div>
 
-    <div class="q"><div class="no">15</div><div>
-      <p>주문한 굿즈가 <strong>3월 5일 발송</strong>되고, 배송에 <strong>3일</strong>이 걸린다고 해요.
-         받는 날짜는 며칠인가요?</p>
-      <div class="formula">3월 5일 + 3일 = 3월 <span class="box"></span> 일</div>
-    </div></div>
-  </div>
+ <div class="q"><div class="no">15</div><div>
+ <p>주문한 굿즈가 <strong>3월 5일 발송</strong>되고, 배송에 <strong>3일</strong>이 걸린다고 해요.
+ 받는 날짜는 며칠인가요?</p>
+ <div class="formula">3월 5일 + 3일 = 3월 <span class="box"></span> 일</div>
+ </div></div>
+ </div>
 
-  <div class="page-no">— 4 —</div>
+ <div class="page-no">— 4 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 4차시: 한정판 + 적립 + 더치페이 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">4</div>
-    <div class="ph-title">
-      <h2>한정판 추첨 · 적립 · 더치페이</h2>
-      <p>확률, 포인트 적립, 6명 더치페이를 계산해 봅시다.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">4</div>
+ <div class="ph-title">
+ <h2>한정판 추첨 · 적립 · 더치페이</h2>
+ <p>확률, 포인트 적립, 6명 더치페이를 계산해 봅시다.</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>굿즈샵에서는 가끔 <strong>한정판 응모</strong>를 해요. "30,000원 이상 사면 응모권 1장"처럼요.
-       <strong>포인트 적립</strong>도 있고, 친구끼리 묶음 주문한 뒤 <strong>더치페이</strong>로 나누기도 해요.</p>
-  </div>
+ <div class="scene">
+ <p>굿즈샵에서는 가끔 <strong>한정판 응모</strong>를 해요. "30,000원 이상 사면 응모권 1장"처럼요.
+ <strong>포인트 적립</strong>도 있고, 친구끼리 묶음 주문한 뒤 <strong>더치페이</strong>로 나누기도 해요.</p>
+ </div>
 
-  <div class="receipt">
-    <h4>🧾 오늘의 합동 영수증</h4>
-    <div class="meta-line">
-      <span>⭐스타스테이션 (홍대점)</span>
-      <span>2026-06-04</span>
-    </div>
-    <table>
-      <tr><th class="left">친구</th><th>구매 굿즈 (합계)</th></tr>
-      <tr><td class="left">하영</td><td>22,000원</td></tr>
-      <tr><td class="left">하은</td><td>49,000원</td></tr>
-      <tr><td class="left">채원</td><td>13,000원</td></tr>
-      <tr><td class="left">예은</td><td>36,000원</td></tr>
-      <tr><td class="left">주은</td><td>27,000원</td></tr>
-      <tr><td class="left">주현</td><td>30,000원</td></tr>
-      <tr><th class="left">6명 합계</th><th><span class="box wide"></span> 원</th></tr>
-    </table>
-  </div>
+ <div class="receipt">
+ <h4>🧾 오늘의 합동 영수증</h4>
+ <div class="meta-line">
+ <span>⭐스타스테이션 (홍대점)</span>
+ <span>2026-06-04</span>
+ </div>
+ <table>
+ <tr><th class="left">친구</th><th>구매 굿즈 (합계)</th></tr>
+ <tr><td class="left">하영</td><td>22,000원</td></tr>
+ <tr><td class="left">하은</td><td>49,000원</td></tr>
+ <tr><td class="left">채원</td><td>13,000원</td></tr>
+ <tr><td class="left">예은</td><td>36,000원</td></tr>
+ <tr><td class="left">주은</td><td>27,000원</td></tr>
+ <tr><td class="left">주현</td><td>30,000원</td></tr>
+ <tr><th class="left">6명 합계</th><th><span class="box wide"></span> 원</th></tr>
+ </table>
+ </div>
 
-  <div class="practice">
-    <h3>🎁 한정판 · 포인트 · 더치페이</h3>
+ <div class="practice">
+ <h3>🎁 한정판 · 포인트 · 더치페이</h3>
 
-    <div class="q"><div class="no">16</div><div>
-      <p>위 영수증의 <strong>6명 합계</strong>를 구해 봅시다.</p>
-      <div class="formula">22,000 + 49,000 + 13,000 + 36,000 + 27,000 + 30,000 = <span class="box wide"></span> 원</div>
-    </div></div>
+ <div class="q"><div class="no">16</div><div>
+ <p>위 영수증의 <strong>6명 합계</strong>를 구해 봅시다.</p>
+ <div class="formula">22,000 + 49,000 + 13,000 + 36,000 + 27,000 + 30,000 = <span class="box wide"></span> 원</div>
+ </div></div>
 
-    <div class="q"><div class="no">17</div><div>
-      <p>한정판 응모는 <strong>30,000원 이상</strong> 산 사람에게 응모권 1장이 나가요.
-         <strong>응모권을 받는 친구는 몇 명</strong>인가요? 또 받은 친구 이름을 모두 적어 봅시다.</p>
-      <p class="sub-q">👉 응모권 받은 친구 수: <span class="box"></span> 명</p>
-      <p class="sub-q">👉 이름: <span class="blank" style="min-width:300px;"></span></p>
-    </div></div>
+ <div class="q"><div class="no">17</div><div>
+ <p>한정판 응모는 <strong>30,000원 이상</strong> 산 사람에게 응모권 1장이 나가요.
+ <strong>응모권을 받는 친구는 몇 명</strong>인가요? 또 받은 친구 이름을 모두 적어 봅시다.</p>
+ <p class="sub-q">👉 응모권 받은 친구 수: <span class="box"></span> 명</p>
+ <p class="sub-q">👉 이름: <span class="blank" style="min-width:300px;"></span></p>
+ </div></div>
 
-    <div class="q"><div class="no">18</div><div>
-      <p>한정판 포카는 모두 <strong>100장</strong> 한정이고 응모권은 모두 <strong>500장</strong>이 나갔다고 해요.
-         당첨 확률은 몇 분의 몇이고, 백분율(%)로는 약 몇 %인가요?</p>
-      <div class="formula">100 &divide; 500 = <span class="box"></span> 분의 1 = <span class="box"></span> %</div>
-    </div></div>
+ <div class="q"><div class="no">18</div><div>
+ <p>한정판 포카는 모두 <strong>100장</strong> 한정이고 응모권은 모두 <strong>500장</strong>이 나갔다고 해요.
+ 당첨 확률은 몇 분의 몇이고, 백분율(%)로는 약 몇 %인가요?</p>
+ <div class="formula">100 &divide; 500 = <span class="box"></span> 분의 1 = <span class="box"></span> %</div>
+ </div></div>
 
-    <div class="q"><div class="no">19</div><div>
-      <p>굿즈샵 멤버십은 <strong>구매액의 3%</strong>를 포인트로 적립해 줘요.
-         하은이가 49,000원을 샀다면 적립 포인트는 몇 점인가요? 다음에 쓸 때 1점=1원이에요.</p>
-      <div class="formula">49,000 &divide; 100 &times; 3 = <span class="box wide"></span> 점</div>
-    </div></div>
+ <div class="q"><div class="no">19</div><div>
+ <p>굿즈샵 멤버십은 <strong>구매액의 3%</strong>를 포인트로 적립해 줘요.
+ 하은이가 49,000원을 샀다면 적립 포인트는 몇 점인가요? 다음에 쓸 때 1점=1원이에요.</p>
+ <div class="formula">49,000 &divide; 100 &times; 3 = <span class="box wide"></span> 점</div>
+ </div></div>
 
-    <div class="q"><div class="no">20</div><div>
-      <p>친구 6명이 <strong>공동구매</strong>로 묶음 할인을 받았어요. 합계가 <strong>168,000원</strong>일 때
-         6명이 똑같이 더치페이 하면 1인당 얼마이고, 30,000원을 가지고 온 친구는 얼마가 남나요?</p>
-      <div class="formula">168,000 &divide; 6 = <span class="box"></span> 원 (1인당)</div>
-      <div class="formula">30,000 &minus; (1인당) = <span class="box wide"></span> 원 남음</div>
-    </div></div>
-  </div>
+ <div class="q"><div class="no">20</div><div>
+ <p>친구 6명이 <strong>공동구매</strong>로 묶음 할인을 받았어요. 합계가 <strong>168,000원</strong>일 때
+ 6명이 똑같이 더치페이 하면 1인당 얼마이고, 30,000원을 가지고 온 친구는 얼마가 남나요?</p>
+ <div class="formula">168,000 &divide; 6 = <span class="box"></span> 원 (1인당)</div>
+ <div class="formula">30,000 &minus; (1인당) = <span class="box wide"></span> 원 남음</div>
+ </div></div>
+ </div>
 
-  <div class="page-no">— 5 —</div>
+ <div class="page-no">— 5 —</div>
 </section>
 
 </body>

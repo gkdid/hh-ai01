@@ -9,29 +9,29 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 12pt; line-height: 1.65; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 12pt; line-height: 1.65; }
 
 .toolbar { position: sticky; top: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #c62828; color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 10px 18px; background: #c62828; color: #fff;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .muted { color: #ffcdd2; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffd54f; color: #b71c1c; border: none; font: inherit; font-weight: 700;
-  padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+ padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 
 .page { width: 210mm; min-height: 297mm; margin: 14mm auto; padding: 16mm 18mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 22mm 20mm; background: linear-gradient(135deg, #fff 0%, #ffebee 100%); }
 .cover-top { display: flex; justify-content: space-between;
-  font-size: 0.9em; color: #607d8b;
-  border-bottom: 2px solid #ffcdd2; padding-bottom: 10px; margin-bottom: 22px; }
+ font-size: 0.9em; color: #607d8b;
+ border-bottom: 2px solid #ffcdd2; padding-bottom: 10px; margin-bottom: 22px; }
 .cover-top .subject { font-weight: 700; color: #c62828; }
 .cover-main { text-align: center; padding: 14px 0 12px; }
 .cover-main .badge { display: inline-block; padding: 6px 18px; border-radius: 20px;
-  background: #c62828; color: #fff; font-weight: 700; font-size: 0.95em;
-  margin-bottom: 12px; letter-spacing: 0.5px; }
+ background: #c62828; color: #fff; font-weight: 700; font-size: 0.95em;
+ margin-bottom: 12px; letter-spacing: 0.5px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #b71c1c; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1.05em; color: #455a64; font-weight: 500; }
 
@@ -41,61 +41,61 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .name-cell em { display: block; min-height: 24px; font-style: normal; }
 
 .goal, .info, .toc, .cast { border: 2px solid #ef9a9a; border-radius: 10px;
-  padding: 12px 16px; margin-top: 10px; background: #ffebee; }
+ padding: 12px 16px; margin-top: 10px; background: #ffebee; }
 .goal h2, .info h2, .toc h2, .cast h2 { margin: 0 0 6px; font-size: 1.05em; color: #b71c1c;
-  border-bottom: 1px dashed #e57373; padding-bottom: 5px; }
+ border-bottom: 1px dashed #e57373; padding-bottom: 5px; }
 .goal ul { margin: 4px 0 0; padding-left: 20px; } .goal li { padding: 2px 0; }
 .info p { margin: 0 0 4px; font-size: 0.95em; color: #b71c1c; }
 .toc ol { margin: 4px 0 0; padding-left: 24px; } .toc li { padding: 2px 0; }
 
 .cast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 .person { display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: #fff;
-  border: 1px solid #cfd8dc; border-radius: 8px; font-weight: 500; color: #37474f; font-size: 0.92em; }
+ border: 1px solid #cfd8dc; border-radius: 8px; font-weight: 500; color: #37474f; font-size: 0.92em; }
 .person strong { color: #b71c1c; font-weight: 700; }
 .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 .d1 { background: #FF6B6B; } .d2 { background: #4ECDC4; } .d3 { background: #FFD166; }
 .d4 { background: #A78BFA; } .d5 { background: #6FCF97; } .d6 { background: #F48FB1; }
 
 .ph { display: flex; align-items: center; gap: 16px;
-  border-bottom: 3px solid #c62828; padding-bottom: 12px; margin-bottom: 18px; }
+ border-bottom: 3px solid #c62828; padding-bottom: 12px; margin-bottom: 18px; }
 .ph-num { flex-shrink: 0; width: 60px; height: 60px;
-  background: #c62828; color: #ffd54f; font-family: 'Noto Serif KR', serif;
-  font-size: 1.5em; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; border-radius: 10px; }
+ background: #c62828; color: #ffd54f; font-family: 'Noto Serif KR', serif;
+ font-size: 1.5em; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; border-radius: 10px; }
 .ph-title h2 { margin: 0; font-size: 1.4em; color: #b71c1c; }
 .ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.95em; }
 
 .story { background: #fff; border: 2px solid #ffcdd2; border-radius: 8px;
-  padding: 12px 16px; margin: 8px 0 12px; line-height: 1.85; }
+ padding: 12px 16px; margin: 8px 0 12px; line-height: 1.85; }
 .story p { margin: 0 0 6px; }
 
 .scene { background: #fff8e1; border-left: 6px solid #ffb300;
-  border-radius: 6px; padding: 12px 16px; margin-bottom: 14px; }
+ border-radius: 6px; padding: 12px 16px; margin-bottom: 14px; }
 .scene p { margin: 0; }
 
 .tip { background: #ffebee; border-left: 5px solid #c62828;
-  border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
+ border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
 .tip .tip-title { display: block; font-weight: 700; color: #b71c1c; margin-bottom: 4px; }
 
 .warning { background: #fff3e0; border-left: 6px solid #e65100;
-  border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
+ border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
 .warning .tip-title { display: block; font-weight: 700; color: #bf360c; margin-bottom: 4px; }
 
 .calm { background: #e0f2f1; border-left: 6px solid #00796b;
-  border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
+ border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
 .calm .tip-title { display: block; font-weight: 700; color: #004d40; margin-bottom: 4px; }
 
 /* 119/112 신고 카드 */
 .call-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
 .call {
-  background: #fff; border: 2.5px solid #c62828; border-radius: 12px;
-  padding: 12px 14px; position: relative;
+ background: #fff; border: 2.5px solid #c62828; border-radius: 12px;
+ padding: 12px 14px; position: relative;
 }
 .call.police { border-color: #1565c0; }
 .call .num {
-  display: inline-block; padding: 4px 12px; border-radius: 16px;
-  background: #c62828; color: #fff; font-weight: 900; font-size: 1.1em;
-  margin-bottom: 6px; letter-spacing: 1px;
+ display: inline-block; padding: 4px 12px; border-radius: 16px;
+ background: #c62828; color: #fff; font-weight: 900; font-size: 1.1em;
+ margin-bottom: 6px; letter-spacing: 1px;
 }
 .call.police .num { background: #1565c0; }
 .call h3 { margin: 0 0 4px; color: #b71c1c; font-size: 1.05em; }
@@ -105,13 +105,13 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 /* 신고 4박자 */
 .beat4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 8px 0; }
 .beat {
-  background: #ffebee; border: 2px solid #ef9a9a; border-radius: 10px;
-  padding: 8px 6px; text-align: center;
+ background: #ffebee; border: 2px solid #ef9a9a; border-radius: 10px;
+ padding: 8px 6px; text-align: center;
 }
 .beat .bnum {
-  display: inline-block; width: 26px; height: 26px;
-  background: #c62828; color: #fff; border-radius: 50%;
-  font-weight: 700; line-height: 26px; margin-bottom: 3px; font-size: 0.9em;
+ display: inline-block; width: 26px; height: 26px;
+ background: #c62828; color: #fff; border-radius: 50%;
+ font-weight: 700; line-height: 26px; margin-bottom: 3px; font-size: 0.9em;
 }
 .beat strong { display: block; color: #b71c1c; font-size: 0.95em; }
 .beat small { display: block; color: #455a64; font-size: 0.83em; margin-top: 2px; }
@@ -119,18 +119,18 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 /* 다친 부위 응급처치 표 */
 .first-aid { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.92em; }
 .first-aid th, .first-aid td {
-  border: 1.5px solid #ef9a9a; padding: 7px 9px; vertical-align: top;
+ border: 1.5px solid #ef9a9a; padding: 7px 9px; vertical-align: top;
 }
 .first-aid th {
-  background: #ffcdd2; color: #b71c1c; font-weight: 700; text-align: left; width: 26%;
+ background: #ffcdd2; color: #b71c1c; font-weight: 700; text-align: left; width: 26%;
 }
 .first-aid td.x { background: #fff3e0; color: #bf360c; }
 
 /* 도움 요청 한국어 표현 */
 .phrase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0; }
 .phrase {
-  background: #fff; border: 1.5px solid #ffcdd2; border-radius: 10px;
-  padding: 9px 12px;
+ background: #fff; border: 1.5px solid #ffcdd2; border-radius: 10px;
+ padding: 9px 12px;
 }
 .phrase strong { display: block; color: #b71c1c; font-size: 0.95em; margin-bottom: 2px; }
 .phrase em { font-style: normal; color: #455a64; font-size: 0.92em; }
@@ -138,104 +138,104 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 /* 메신저 풍 통화 대화 */
 .callbox { background: #ffe0b2; border-radius: 12px; padding: 12px; margin: 8px 0 12px; }
 .callbox .bg-label {
-  display: inline-block; background: #fff; padding: 3px 10px; border-radius: 10px;
-  font-size: 0.85em; color: #455a64; margin-bottom: 6px; font-weight: 700;
+ display: inline-block; background: #fff; padding: 3px 10px; border-radius: 10px;
+ font-size: 0.85em; color: #455a64; margin-bottom: 6px; font-weight: 700;
 }
 .cmsg { display: flex; align-items: flex-start; gap: 8px; margin: 4px 0; }
 .cmsg.right { flex-direction: row-reverse; }
 .cmsg .ctag {
-  flex-shrink: 0; min-width: 64px; padding: 4px 8px;
-  border-radius: 14px; font-weight: 700; font-size: 0.85em; text-align: center;
-  background: #cfd8dc; color: #263238;
+ flex-shrink: 0; min-width: 64px; padding: 4px 8px;
+ border-radius: 14px; font-weight: 700; font-size: 0.85em; text-align: center;
+ background: #cfd8dc; color: #263238;
 }
 .cmsg .ctag.me { background: #ffcdd2; color: #b71c1c; }
 .cmsg .ctag.gov { background: #bbdefb; color: #0d47a1; }
 .cbubble { background: #fff; padding: 6px 11px;
-  border-radius: 14px; max-width: 78%; font-size: 0.95em;
-  border: 1.5px solid #cfd8dc; }
+ border-radius: 14px; max-width: 78%; font-size: 0.95em;
+ border: 1.5px solid #cfd8dc; }
 .cmsg.right .cbubble { background: #fff59d; border-color: #ffe082; }
 
 .practice h3 {
-  display: inline-block; background: #ffd54f; color: #b71c1c;
-  padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
+ display: inline-block; background: #ffd54f; color: #b71c1c;
+ padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
 }
 .q { position: relative; padding-left: 42px;
-  margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed #cfd8dc; }
+ margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed #cfd8dc; }
 .q:last-child { border-bottom: none; }
 .q .no { position: absolute; left: 0; top: 0; width: 30px; height: 30px;
-  background: #c62828; color: #fff; border-radius: 50%; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; font-size: 0.92em; }
+ background: #c62828; color: #fff; border-radius: 50%; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; font-size: 0.92em; }
 .q p { margin: 0 0 6px; }
 .q .sub-q { margin-top: 5px; font-weight: 500; color: #455a64; }
 
 .choice-box { background: #fffde7; border: 1.5px solid #fdd835;
-  border-radius: 8px; padding: 7px 14px; margin: 6px 0; font-weight: 500; }
+ border-radius: 8px; padding: 7px 14px; margin: 6px 0; font-weight: 500; }
 .choice-box::before { content: "<보기> "; font-weight: 700; color: #f57f17; }
 
 .blank { display: inline-block; border-bottom: 1.5px solid #263238;
-  min-width: 70px; height: 22px; vertical-align: baseline; }
+ min-width: 70px; height: 22px; vertical-align: baseline; }
 .blank.long { min-width: 220px; }
 
 .lines { background-image: repeating-linear-gradient(
-    to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px);
-  height: 34px; margin: 4px 0; }
+ to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px);
+ height: 34px; margin: 4px 0; }
 .lines.two { height: 68px; } .lines.three { height: 102px; }
 
 .pledge { background: #fff8e1; border: 2px dashed #f57c00;
-  border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+ border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
 .pledge h4 { margin: 0 0 6px; color: #e65100; font-size: 1.05em; }
 
 .self-check { background: #f1f8e9; border: 1.5px solid #aed581;
-  border-radius: 8px; padding: 12px 16px; margin-top: 14px; }
+ border-radius: 8px; padding: 12px 16px; margin-top: 14px; }
 .self-check h4 { margin: 0 0 6px; color: #33691e; font-size: 1em; }
 .self-check label { display: block; padding: 2px 0; }
 .self-check input[type=checkbox] { margin-right: 8px; width: 16px; height: 16px;
-  accent-color: #7cb342; vertical-align: middle; }
+ accent-color: #7cb342; vertical-align: middle; }
 
 .page-no { position: absolute; bottom: 8mm; right: 18mm;
-  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px; }
+ color: #90a4ae; font-size: 0.85em; letter-spacing: 1px; }
 
 @media print {
-  @page { size: A4 portrait; margin: 0; }
-  html, body { background: #fff !important; margin: 0; padding: 0;
-    font-size: 10pt; line-height: 1.38; }
-  .toolbar, .no-print { display: none !important; }
-  .page { width: 210mm; min-height: 297mm;
-    margin: 0 !important; padding: 10mm 13mm;
-    box-shadow: none; border: none;
-    page-break-after: always; break-after: page; }
-  .page:last-of-type { page-break-after: auto; }
-  .q, .scene, .tip, .warning, .calm, .story, .callbox, .call-grid, .beat4,
-  .first-aid, .phrase-grid, .self-check, .pledge, .name-box, .goal, .info,
-  .toc, .cast, .ph, tr {
-    page-break-inside: avoid !important; break-inside: avoid !important; }
-  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-  h1 { font-size: 1.8em; margin: 0; }
-  h2 { font-size: 1.18em; margin: 0 0 4px; }
-  h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
-  p { margin: 0 0 3px; } ul, ol { margin: 3px 0; }
-  .page.cover { padding: 16mm 16mm; }
-  .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
-  .ph-num { width: 46px; height: 46px; font-size: 1.2em; border-radius: 8px; }
-  .ph-title h2 { font-size: 1.18em; }
-  .scene, .tip, .warning, .calm, .story { padding: 7px 12px; margin: 4px 0 8px; }
-  .callbox { padding: 7px; margin: 4px 0 8px; }
-  .cmsg { margin: 3px 0; gap: 6px; }
-  .ctag { min-width: 54px; padding: 3px 6px; font-size: 0.82em; }
-  .cbubble { padding: 4px 8px; font-size: 0.9em; }
-  .call-grid, .beat4, .phrase-grid { gap: 5px; }
-  .call, .beat, .phrase { padding: 6px 9px; }
-  .beat .bnum { width: 22px; height: 22px; line-height: 22px; }
-  .first-aid th, .first-aid td { padding: 5px 7px; font-size: 0.88em; }
-  .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
-  .q .no { width: 26px; height: 26px; font-size: 0.88em; }
-  .lines { height: 26px;
-    background-image: repeating-linear-gradient(
-      to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
-  .lines.two { height: 52px; } .lines.three { height: 78px; }
-  .self-check { padding: 7px 12px; margin-top: 8px; }
-  .pledge { padding: 8px 12px; margin: 6px 0; }
-  .page-no { bottom: 6mm; right: 14mm; }
+ @page { size: A4 portrait; margin: 0; }
+ html, body { background: #fff !important; margin: 0; padding: 0;
+ font-size: 10pt; line-height: 1.38; }
+ .toolbar, .no-print { display: none !important; }
+ .page { width: 210mm; min-height: 297mm;
+ margin: 0 !important; padding: 10mm 13mm;
+ box-shadow: none; border: none;
+ page-break-after: always; break-after: page; }
+ .page:last-of-type { page-break-after: auto; }
+ .q, .scene, .tip, .warning, .calm, .story, .callbox, .call-grid, .beat4,
+ .first-aid, .phrase-grid, .self-check, .pledge, .name-box, .goal, .info,
+ .toc, .cast, .ph, tr {
+ page-break-inside: avoid !important; break-inside: avoid !important; }
+ h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+ h1 { font-size: 1.8em; margin: 0; }
+ h2 { font-size: 1.18em; margin: 0 0 4px; }
+ h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
+ p { margin: 0 0 3px; } ul, ol { margin: 3px 0; }
+ .page.cover { padding: 16mm 16mm; }
+ .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
+ .ph-num { width: 46px; height: 46px; font-size: 1.2em; border-radius: 8px; }
+ .ph-title h2 { font-size: 1.18em; }
+ .scene, .tip, .warning, .calm, .story { padding: 7px 12px; margin: 4px 0 8px; }
+ .callbox { padding: 7px; margin: 4px 0 8px; }
+ .cmsg { margin: 3px 0; gap: 6px; }
+ .ctag { min-width: 54px; padding: 3px 6px; font-size: 0.82em; }
+ .cbubble { padding: 4px 8px; font-size: 0.9em; }
+ .call-grid, .beat4, .phrase-grid { gap: 5px; }
+ .call, .beat, .phrase { padding: 6px 9px; }
+ .beat .bnum { width: 22px; height: 22px; line-height: 22px; }
+ .first-aid th, .first-aid td { padding: 5px 7px; font-size: 0.88em; }
+ .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
+ .q .no { width: 26px; height: 26px; font-size: 0.88em; }
+ .lines { height: 26px;
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
+ .lines.two { height: 52px; } .lines.three { height: 78px; }
+ .self-check { padding: 7px 12px; margin-top: 8px; }
+ .pledge { padding: 8px 12px; margin: 6px 0; }
+ .page-no { bottom: 6mm; right: 14mm; }
 }
 
 </style>
@@ -243,342 +243,342 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar no-print">
-  <div><strong>도와주세요! — 응급상황 대처와 도움 요청</strong>
-    <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
-  </div>
-  <button onclick="window.print()">🖨️ 인쇄하기</button>
+ <div><strong>도와주세요! — 응급상황 대처와 도움 요청</strong>
+ <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
+ </div>
+ <button onclick="window.print">🖨️ 인쇄하기</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">국어 · 사회 · 사회성</span> &nbsp;|&nbsp; 고등학교 특수학급</div>
-    <div>2026학년도 1학기</div>
-  </div>
-  <div class="cover-main">
-    <span class="badge">🚨 응급·도움 요청 학습지</span>
-    <h1>도와주세요!</h1>
-    <p class="lead">놀라지 말고, 차분하게, 정확하게 말해요.</p>
-  </div>
-  <div class="name-box">
-    <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
-    <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
-    <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
-  </div>
-  <div class="info">
-    <h2>🚑 도움을 요청하는 것은 ‘부끄러운 일’이 아니에요</h2>
-    <p>다치거나 아프거나, 길을 잃거나, 위험한 일을 당했을 때 우리는
-       <strong>도와줄 사람</strong>을 찾아야 해요. 도움을 요청하는 것은 <strong>당연한 권리</strong>이고
-       <strong>똑똑한 행동</strong>이랍니다. 오늘은 <strong>119·112 신고</strong>, <strong>응급처치</strong>,
-       <strong>길을 잃었을 때</strong>, 그리고 <strong>도움을 요청하는 한국어 표현</strong>을 함께 익혀요.</p>
-  </div>
-  <div class="cast">
-    <h2>👫 오늘의 친구들</h2>
-    <div class="cast-grid">
-      <div class="person"><span class="dot d1"></span><strong>채원</strong>(나)</div>
-      <div class="person"><span class="dot d6"></span><strong>하영</strong></div>
-      <div class="person"><span class="dot d2"></span><strong>하은</strong></div>
-      <div class="person"><span class="dot d4"></span><strong>주은</strong></div>
-      <div class="person"><span class="dot d5"></span><strong>예은</strong></div>
-      <div class="person"><span class="dot d3"></span><strong>주현</strong></div>
-    </div>
-  </div>
-  <div class="toc">
-    <h2>📚 차례</h2>
-    <ol>
-      <li>119와 112 — 신고 4박자로 또박또박</li>
-      <li>다쳤을 때·아플 때 — 간단 응급처치</li>
-      <li>길을 잃거나 위험할 때 — 도움 요청 한국어</li>
-      <li>응급 다짐과 자기 점검</li>
-    </ol>
-  </div>
-  <div class="page-no">— 1 —</div>
+ <div class="cover-top">
+ <div><span class="subject">국어 · 사회 · 사회성</span> &nbsp;|&nbsp; 고등학교 </div>
+ <div>2026학년도 1학기</div>
+ </div>
+ <div class="cover-main">
+ <span class="badge">🚨 응급·도움 요청 학습지</span>
+ <h1>도와주세요!</h1>
+ <p class="lead">놀라지 말고, 차분하게, 정확하게 말해요.</p>
+ </div>
+ <div class="name-box">
+ <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
+ <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
+ <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
+ </div>
+ <div class="info">
+ <h2>🚑 도움을 요청하는 것은 ‘부끄러운 일’이 아니에요</h2>
+ <p>다치거나 아프거나, 길을 잃거나, 위험한 일을 당했을 때 우리는
+ <strong>도와줄 사람</strong>을 찾아야 해요. 도움을 요청하는 것은 <strong>당연한 권리</strong>이고
+ <strong>똑똑한 행동</strong>이랍니다. 오늘은 <strong>119·112 신고</strong>, <strong>응급처치</strong>,
+ <strong>길을 잃었을 때</strong>, 그리고 <strong>도움을 요청하는 한국어 표현</strong>을 함께 익혀요.</p>
+ </div>
+ <div class="cast">
+ <h2>👫 오늘의 친구들</h2>
+ <div class="cast-grid">
+ <div class="person"><span class="dot d1"></span><strong>채원</strong>(나)</div>
+ <div class="person"><span class="dot d6"></span><strong>하영</strong></div>
+ <div class="person"><span class="dot d2"></span><strong>하은</strong></div>
+ <div class="person"><span class="dot d4"></span><strong>주은</strong></div>
+ <div class="person"><span class="dot d5"></span><strong>예은</strong></div>
+ <div class="person"><span class="dot d3"></span><strong>주현</strong></div>
+ </div>
+ </div>
+ <div class="toc">
+ <h2>📚 차례</h2>
+ <ol>
+ <li>119와 112 — 신고 4박자로 또박또박</li>
+ <li>다쳤을 때·아플 때 — 간단 응급처치</li>
+ <li>길을 잃거나 위험할 때 — 도움 요청 한국어</li>
+ <li>응급 다짐과 자기 점검</li>
+ </ol>
+ </div>
+ <div class="page-no">— 1 —</div>
 </section>
 
 <!-- 1. 119와 112 -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">1</div>
-    <div class="ph-title">
-      <h2>119와 112 — 신고 4박자로 또박또박</h2>
-      <p>놀라도 괜찮아요. 천천히, 또박또박 말하면 돼요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">1</div>
+ <div class="ph-title">
+ <h2>119와 112 — 신고 4박자로 또박또박</h2>
+ <p>놀라도 괜찮아요. 천천히, 또박또박 말하면 돼요.</p>
+ </div>
+ </div>
 
-  <div class="story">
-    <p>응급상황에서 가장 중요한 두 개의 번호가 있어요. 바로 <strong>119</strong>와 <strong>112</strong>예요.
-       두 번호는 <strong>전국 어디서나, 무료로</strong> 걸 수 있고, <strong>휴대폰 잠금 화면에서도</strong> 바로 걸 수 있어요.
-       헷갈리지 말고, 상황에 맞게 골라 부르면 돼요.</p>
-  </div>
+ <div class="story">
+ <p>응급상황에서 가장 중요한 두 개의 번호가 있어요. 바로 <strong>119</strong>와 <strong>112</strong>예요.
+ 두 번호는 <strong>전국 어디서나, 무료로</strong> 걸 수 있고, <strong>휴대폰 잠금 화면에서도</strong> 바로 걸 수 있어요.
+ 헷갈리지 말고, 상황에 맞게 골라 부르면 돼요.</p>
+ </div>
 
-  <div class="call-grid">
-    <div class="call">
-      <span class="num">119</span>
-      <h3>🚒 불·구조·구급</h3>
-      <ul>
-        <li>불이 났을 때</li>
-        <li>크게 다쳐 피가 멈추지 않을 때</li>
-        <li>갑자기 쓰러지거나 숨을 못 쉴 때</li>
-        <li>높은 곳·물에 빠졌을 때</li>
-      </ul>
-    </div>
-    <div class="call police">
-      <span class="num">112</span>
-      <h3>👮 경찰·범죄·위험</h3>
-      <ul>
-        <li>모르는 사람이 따라올 때</li>
-        <li>맞거나 협박을 당했을 때</li>
-        <li>도둑·물건을 잃어버렸을 때</li>
-        <li>길에서 위험을 봤을 때</li>
-      </ul>
-    </div>
-  </div>
+ <div class="call-grid">
+ <div class="call">
+ <span class="num">119</span>
+ <h3>🚒 불·구조·구급</h3>
+ <ul>
+ <li>불이 났을 때</li>
+ <li>크게 다쳐 피가 멈추지 않을 때</li>
+ <li>갑자기 쓰러지거나 숨을 못 쉴 때</li>
+ <li>높은 곳·물에 빠졌을 때</li>
+ </ul>
+ </div>
+ <div class="call police">
+ <span class="num">112</span>
+ <h3>👮 경찰·범죄·위험</h3>
+ <ul>
+ <li>모르는 사람이 따라올 때</li>
+ <li>맞거나 협박을 당했을 때</li>
+ <li>도둑·물건을 잃어버렸을 때</li>
+ <li>길에서 위험을 봤을 때</li>
+ </ul>
+ </div>
+ </div>
 
-  <div class="tip">
-    <span class="tip-title">📞 신고 4박자 — 이 순서로 말하면 돼요</span>
-    <div class="beat4">
-      <div class="beat"><span class="bnum">1</span><strong>어디</strong><small>장소(주소·건물·간판)</small></div>
-      <div class="beat"><span class="bnum">2</span><strong>무엇</strong><small>무슨 일(불·다침)</small></div>
-      <div class="beat"><span class="bnum">3</span><strong>누구</strong><small>몇 명·나이</small></div>
-      <div class="beat"><span class="bnum">4</span><strong>나</strong><small>이름·전화번호</small></div>
-    </div>
-  </div>
+ <div class="tip">
+ <span class="tip-title">📞 신고 4박자 — 이 순서로 말하면 돼요</span>
+ <div class="beat4">
+ <div class="beat"><span class="bnum">1</span><strong>어디</strong><small>장소(주소·건물·간판)</small></div>
+ <div class="beat"><span class="bnum">2</span><strong>무엇</strong><small>무슨 일(불·다침)</small></div>
+ <div class="beat"><span class="bnum">3</span><strong>누구</strong><small>몇 명·나이</small></div>
+ <div class="beat"><span class="bnum">4</span><strong>나</strong><small>이름·전화번호</small></div>
+ </div>
+ </div>
 
-  <div class="callbox">
-    <div class="bg-label">📞 119 통화 — 학교 운동장에서 친구가 다쳤어요</div>
-    <div class="cmsg"><span class="ctag gov">119</span>
-      <div class="cbubble">119 상황실입니다. 어디서 무슨 일이 있나요?</div></div>
-    <div class="cmsg right"><span class="ctag me">채원</span>
-      <div class="cbubble">여기는 <strong>고등학교 운동장</strong>이에요. 친구가 넘어져서 <strong>발에서 피가 많이 나요</strong>.</div></div>
-    <div class="cmsg"><span class="ctag gov">119</span>
-      <div class="cbubble">친구는 의식이 있나요? 몇 살인가요?</div></div>
-    <div class="cmsg right"><span class="ctag me">채원</span>
-      <div class="cbubble">의식은 있어요. 17살이고 한 명이에요. 제 이름은 <strong>김채원</strong>, 전화번호는 <strong>010-○○○○-○○○○</strong>이에요.</div></div>
-    <div class="cmsg"><span class="ctag gov">119</span>
-      <div class="cbubble">바로 출동합니다. 끊지 말고 그 자리에서 기다리세요.</div></div>
-  </div>
+ <div class="callbox">
+ <div class="bg-label">📞 119 통화 — 학교 운동장에서 친구가 다쳤어요</div>
+ <div class="cmsg"><span class="ctag gov">119</span>
+ <div class="cbubble">119 상황실입니다. 어디서 무슨 일이 있나요?</div></div>
+ <div class="cmsg right"><span class="ctag me">채원</span>
+ <div class="cbubble">여기는 <strong>고등학교 운동장</strong>이에요. 친구가 넘어져서 <strong>발에서 피가 많이 나요</strong>.</div></div>
+ <div class="cmsg"><span class="ctag gov">119</span>
+ <div class="cbubble">친구는 의식이 있나요? 몇 살인가요?</div></div>
+ <div class="cmsg right"><span class="ctag me">채원</span>
+ <div class="cbubble">의식은 있어요. 17살이고 한 명이에요. 제 이름은 <strong>김채원</strong>, 전화번호는 <strong>010-○○○○-○○○○</strong>이에요.</div></div>
+ <div class="cmsg"><span class="ctag gov">119</span>
+ <div class="cbubble">바로 출동합니다. 끊지 말고 그 자리에서 기다리세요.</div></div>
+ </div>
 
-  <div class="warning">
-    <span class="tip-title">⚠️ 절대 하지 마세요</span>
-    장난 전화는 <strong>법으로 처벌</strong>받아요. 119·112는 정말 위급할 때만 사용해요.
-    그리고 <strong>전화를 먼저 끊지 마세요</strong> — 끊으라고 할 때까지 기다려요.
-  </div>
+ <div class="warning">
+ <span class="tip-title">⚠️ 절대 하지 마세요</span>
+ 장난 전화는 <strong>법으로 처벌</strong>받아요. 119·112는 정말 위급할 때만 사용해요.
+ 그리고 <strong>전화를 먼저 끊지 마세요</strong> — 끊으라고 할 때까지 기다려요.
+ </div>
 
-  <div class="page-no">— 2 —</div>
+ <div class="page-no">— 2 —</div>
 </section>
 
 <!-- 2. 다쳤을 때·아플 때 -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">2</div>
-    <div class="ph-title">
-      <h2>다쳤을 때·아플 때 — 간단 응급처치</h2>
-      <p>크게 아프면 어른을 부르고, 119에 신고해요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">2</div>
+ <div class="ph-title">
+ <h2>다쳤을 때·아플 때 — 간단 응급처치</h2>
+ <p>크게 아프면 어른을 부르고, 119에 신고해요.</p>
+ </div>
+ </div>
 
-  <table class="first-aid">
-    <thead>
-      <tr><th>상황</th><th>해야 할 일 ⭕</th><th>하지 말아야 할 일 ❌</th></tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th>피가 날 때</th>
-        <td>깨끗한 천·휴지로 <strong>꾹 눌러</strong> 피를 멈추고, 상처는 흐르는 물에 가볍게 씻어요.</td>
-        <td class="x">상처에 침을 바르거나 입으로 빨지 않아요. 흙·먼지가 묻은 천을 누르지 않아요.</td>
-      </tr>
-      <tr>
-        <th>화상</th>
-        <td><strong>찬 물</strong>에 10분 이상 식혀요. 옷이 붙었으면 떼지 말고 식혀요.</td>
-        <td class="x">치약·된장·기름을 바르지 않아요. 얼음을 직접 대면 더 위험해요.</td>
-      </tr>
-      <tr>
-        <th>코피</th>
-        <td>고개를 <strong>약간 앞으로 숙이고</strong> 콧방울을 5~10분 꾹 눌러요.</td>
-        <td class="x">고개를 뒤로 젖히지 않아요. 피를 삼키면 토할 수 있어요.</td>
-      </tr>
-      <tr>
-        <th>발목을 삐었을 때</th>
-        <td><strong>쉬고, 얼음 찜질, 압박, 다리 올리기</strong> 4가지를 해요. 무리해서 걷지 않아요.</td>
-        <td class="x">바로 뜨거운 물로 찜질하지 않아요. 처음 24시간은 차게 해요.</td>
-      </tr>
-      <tr>
-        <th>갑자기 쓰러진 사람</th>
-        <td><strong>큰 소리로 부르고</strong>, 반응이 없으면 119에 신고해요. 어른을 부르고 안전한 곳에 옮겨요.</td>
-        <td class="x">함부로 흔들거나 물을 먹이지 않아요. 의식이 없을 때 입에 약을 넣지 않아요.</td>
-      </tr>
-      <tr>
-        <th>발작·경련이 일어났을 때</th>
-        <td>주변의 위험한 물건을 치우고 <strong>옆으로 눕혀</strong>요. 시간을 재고 119에 신고해요.</td>
-        <td class="x">입에 손가락·물건을 넣지 않아요. 몸을 누르거나 잡지 않아요.</td>
-      </tr>
-    </tbody>
-  </table>
+ <table class="first-aid">
+ <thead>
+ <tr><th>상황</th><th>해야 할 일 ⭕</th><th>하지 말아야 할 일 ❌</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <th>피가 날 때</th>
+ <td>깨끗한 천·휴지로 <strong>꾹 눌러</strong> 피를 멈추고, 상처는 흐르는 물에 가볍게 씻어요.</td>
+ <td class="x">상처에 침을 바르거나 입으로 빨지 않아요. 흙·먼지가 묻은 천을 누르지 않아요.</td>
+ </tr>
+ <tr>
+ <th>화상</th>
+ <td><strong>찬 물</strong>에 10분 이상 식혀요. 옷이 붙었으면 떼지 말고 식혀요.</td>
+ <td class="x">치약·된장·기름을 바르지 않아요. 얼음을 직접 대면 더 위험해요.</td>
+ </tr>
+ <tr>
+ <th>코피</th>
+ <td>고개를 <strong>약간 앞으로 숙이고</strong> 콧방울을 5~10분 꾹 눌러요.</td>
+ <td class="x">고개를 뒤로 젖히지 않아요. 피를 삼키면 토할 수 있어요.</td>
+ </tr>
+ <tr>
+ <th>발목을 삐었을 때</th>
+ <td><strong>쉬고, 얼음 찜질, 압박, 다리 올리기</strong> 4가지를 해요. 무리해서 걷지 않아요.</td>
+ <td class="x">바로 뜨거운 물로 찜질하지 않아요. 처음 24시간은 차게 해요.</td>
+ </tr>
+ <tr>
+ <th>갑자기 쓰러진 사람</th>
+ <td><strong>큰 소리로 부르고</strong>, 반응이 없으면 119에 신고해요. 어른을 부르고 안전한 곳에 옮겨요.</td>
+ <td class="x">함부로 흔들거나 물을 먹이지 않아요. 의식이 없을 때 입에 약을 넣지 않아요.</td>
+ </tr>
+ <tr>
+ <th>발작·경련이 일어났을 때</th>
+ <td>주변의 위험한 물건을 치우고 <strong>옆으로 눕혀</strong>요. 시간을 재고 119에 신고해요.</td>
+ <td class="x">입에 손가락·물건을 넣지 않아요. 몸을 누르거나 잡지 않아요.</td>
+ </tr>
+ </tbody>
+ </table>
 
-  <div class="tip">
-    <span class="tip-title">💊 약은 함부로 먹지 않아요</span>
-    아플 때는 <strong>가족·선생님·보건 선생님</strong>에게 먼저 말해요. 다른 사람의 약을 받아 먹지 않고,
-    내 약도 정해진 양만 먹어요. 약 봉투에 적힌 <strong>이름·날짜·시간</strong>을 꼭 확인해요.
-  </div>
+ <div class="tip">
+ <span class="tip-title">💊 약은 함부로 먹지 않아요</span>
+ 아플 때는 <strong>가족·선생님·보건 선생님</strong>에게 먼저 말해요. 다른 사람의 약을 받아 먹지 않고,
+ 내 약도 정해진 양만 먹어요. 약 봉투에 적힌 <strong>이름·날짜·시간</strong>을 꼭 확인해요.
+ </div>
 
-  <div class="practice">
-    <h3>📝 연습 문제</h3>
+ <div class="practice">
+ <h3>📝 연습 문제</h3>
 
-    <div class="q"><div class="no">1</div>
-      <p>알맞은 번호를 골라 쓰세요.</p>
-      <p class="sub-q">① 친구가 운동장에서 넘어져 발에서 피가 많이 나요. → <span class="blank"></span></p>
-      <p class="sub-q">② 모르는 어른이 자꾸 따라와요. → <span class="blank"></span></p>
-      <p class="sub-q">③ 부엌에서 불이 났어요. → <span class="blank"></span></p>
-      <p class="sub-q">④ 가게에서 누가 물건을 훔치는 걸 봤어요. → <span class="blank"></span></p>
-    </div>
+ <div class="q"><div class="no">1</div>
+ <p>알맞은 번호를 골라 쓰세요.</p>
+ <p class="sub-q">① 친구가 운동장에서 넘어져 발에서 피가 많이 나요. → <span class="blank"></span></p>
+ <p class="sub-q">② 모르는 어른이 자꾸 따라와요. → <span class="blank"></span></p>
+ <p class="sub-q">③ 부엌에서 불이 났어요. → <span class="blank"></span></p>
+ <p class="sub-q">④ 가게에서 누가 물건을 훔치는 걸 봤어요. → <span class="blank"></span></p>
+ </div>
 
-    <div class="q"><div class="no">2</div>
-      <p>119 신고 4박자 ‘<strong>어디 — 무엇 — 누구 — 나</strong>’ 순서에 맞게 빈칸을 채우세요.</p>
-      <p class="sub-q">① 어디: <span class="blank long"></span></p>
-      <p class="sub-q">② 무엇: <span class="blank long"></span></p>
-      <p class="sub-q">③ 누구: <span class="blank long"></span></p>
-      <p class="sub-q">④ 나(이름·전화): <span class="blank long"></span></p>
-    </div>
+ <div class="q"><div class="no">2</div>
+ <p>119 신고 4박자 ‘<strong>어디 — 무엇 — 누구 — 나</strong>’ 순서에 맞게 빈칸을 채우세요.</p>
+ <p class="sub-q">① 어디: <span class="blank long"></span></p>
+ <p class="sub-q">② 무엇: <span class="blank long"></span></p>
+ <p class="sub-q">③ 누구: <span class="blank long"></span></p>
+ <p class="sub-q">④ 나(이름·전화): <span class="blank long"></span></p>
+ </div>
 
-    <div class="q"><div class="no">3</div>
-      <p>다음 중 <strong>잘못된 응급처치</strong>를 모두 고르세요. (   )</p>
-      <p class="sub-q">① 화상에 찬물 10분 식히기 &nbsp; ② 화상에 치약 바르기 &nbsp; ③ 코피 날 때 고개 뒤로 젖히기</p>
-      <p class="sub-q">④ 피가 날 때 깨끗한 천으로 꾹 누르기 &nbsp; ⑤ 발작 일어난 사람 입에 손가락 넣기</p>
-    </div>
-  </div>
+ <div class="q"><div class="no">3</div>
+ <p>다음 중 <strong>잘못된 응급처치</strong>를 모두 고르세요. </p>
+ <p class="sub-q">① 화상에 찬물 10분 식히기 &nbsp; ② 화상에 치약 바르기 &nbsp; ③ 코피 날 때 고개 뒤로 젖히기</p>
+ <p class="sub-q">④ 피가 날 때 깨끗한 천으로 꾹 누르기 &nbsp; ⑤ 발작 일어난 사람 입에 손가락 넣기</p>
+ </div>
+ </div>
 
-  <div class="page-no">— 3 —</div>
+ <div class="page-no">— 3 —</div>
 </section>
 
 <!-- 3. 길을 잃거나 위험할 때 -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">3</div>
-    <div class="ph-title">
-      <h2>길을 잃거나 위험할 때 — 도움 요청 한국어</h2>
-      <p>한 자리에 멈춰서, 안전한 어른에게 도움을 청해요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">3</div>
+ <div class="ph-title">
+ <h2>길을 잃거나 위험할 때 — 도움 요청 한국어</h2>
+ <p>한 자리에 멈춰서, 안전한 어른에게 도움을 청해요.</p>
+ </div>
+ </div>
 
-  <div class="calm">
-    <span class="tip-title">🟢 길을 잃었을 때 4단계 — 멈춤·확인·요청·기다림</span>
-    <div class="beat4">
-      <div class="beat"><span class="bnum">1</span><strong>멈춤</strong><small>한 자리에 가만히 있기</small></div>
-      <div class="beat"><span class="bnum">2</span><strong>확인</strong><small>주변 간판·건물 보기</small></div>
-      <div class="beat"><span class="bnum">3</span><strong>요청</strong><small>안전한 어른에게 도움 청하기</small></div>
-      <div class="beat"><span class="bnum">4</span><strong>기다림</strong><small>가족 올 때까지 기다리기</small></div>
-    </div>
-  </div>
+ <div class="calm">
+ <span class="tip-title">🟢 길을 잃었을 때 4단계 — 멈춤·확인·요청·기다림</span>
+ <div class="beat4">
+ <div class="beat"><span class="bnum">1</span><strong>멈춤</strong><small>한 자리에 가만히 있기</small></div>
+ <div class="beat"><span class="bnum">2</span><strong>확인</strong><small>주변 간판·건물 보기</small></div>
+ <div class="beat"><span class="bnum">3</span><strong>요청</strong><small>안전한 어른에게 도움 청하기</small></div>
+ <div class="beat"><span class="bnum">4</span><strong>기다림</strong><small>가족 올 때까지 기다리기</small></div>
+ </div>
+ </div>
 
-  <div class="tip">
-    <span class="tip-title">🟢 ‘안전한 어른’ 찾는 법</span>
-    아무 어른에게나 부탁하지 말고 <strong>① 경찰관 ② 가게 직원 ③ 지하철·버스 직원 ④ 학교 선생님 ⑤ 119 구급대원</strong>처럼
-    <strong>제복을 입었거나 가게 안에서 일하는 어른</strong>을 골라 부탁해요.
-  </div>
+ <div class="tip">
+ <span class="tip-title">🟢 ‘안전한 어른’ 찾는 법</span>
+ 아무 어른에게나 부탁하지 말고 <strong>① 경찰관 ② 가게 직원 ③ 지하철·버스 직원 ④ 학교 선생님 ⑤ 119 구급대원</strong>처럼
+ <strong>제복을 입었거나 가게 안에서 일하는 어른</strong>을 골라 부탁해요.
+ </div>
 
-  <div class="warning">
-    <span class="tip-title">⚠️ 모르는 사람이 ‘같이 가자’고 할 때</span>
-    아무리 친절해 보여도 <strong>모르는 사람의 차에 타지 않아요</strong>.
-    “안 갈게요”라고 분명히 말하고 <strong>사람이 많은 곳</strong>으로 빨리 이동해요.
-    필요하면 <strong>큰 소리로 “도와주세요!”</strong> 하고 외쳐요. 부끄럽지 않아요.
-  </div>
+ <div class="warning">
+ <span class="tip-title">⚠️ 모르는 사람이 ‘같이 가자’고 할 때</span>
+ 아무리 친절해 보여도 <strong>모르는 사람의 차에 타지 않아요</strong>.
+ “안 갈게요”라고 분명히 말하고 <strong>사람이 많은 곳</strong>으로 빨리 이동해요.
+ 필요하면 <strong>큰 소리로 “도와주세요!”</strong> 하고 외쳐요. 부끄럽지 않아요.
+ </div>
 
-  <h3 style="color:#b71c1c; font-size:1em; margin:10px 0 4px;">🗣️ 도움 요청 한국어 표현</h3>
-  <div class="phrase-grid">
-    <div class="phrase"><strong>“실례합니다, 도와주세요.”</strong>
-      <em>처음 말을 걸 때 정중하게.</em></div>
-    <div class="phrase"><strong>“길을 잃었어요. 여기가 어디예요?”</strong>
-      <em>지하철역·버스 직원에게.</em></div>
-    <div class="phrase"><strong>“엄마(아빠)에게 전화 한 통만 해도 될까요?”</strong>
-      <em>가게 직원·경찰에게.</em></div>
-    <div class="phrase"><strong>“저 좀 도와주세요. 119(112)에 신고해 주세요.”</strong>
-      <em>전화를 못 걸 때.</em></div>
-    <div class="phrase"><strong>“하지 마세요. 싫어요.”</strong>
-      <em>모르는 사람이 만지거나 잡을 때.</em></div>
-    <div class="phrase"><strong>“도와주세요!” (큰 소리)</strong>
-      <em>위험할 때 주위에 알리기.</em></div>
-  </div>
+ <h3 style="color:#b71c1c; font-size:1em; margin:10px 0 4px;">🗣️ 도움 요청 한국어 표현</h3>
+ <div class="phrase-grid">
+ <div class="phrase"><strong>“실례합니다, 도와주세요.”</strong>
+ <em>처음 말을 걸 때 정중하게.</em></div>
+ <div class="phrase"><strong>“길을 잃었어요. 여기가 어디예요?”</strong>
+ <em>지하철역·버스 직원에게.</em></div>
+ <div class="phrase"><strong>“엄마(아빠)에게 전화 한 통만 해도 될까요?”</strong>
+ <em>가게 직원·경찰에게.</em></div>
+ <div class="phrase"><strong>“저 좀 도와주세요. 119(112)에 신고해 주세요.”</strong>
+ <em>전화를 못 걸 때.</em></div>
+ <div class="phrase"><strong>“하지 마세요. 싫어요.”</strong>
+ <em>모르는 사람이 만지거나 잡을 때.</em></div>
+ <div class="phrase"><strong>“도와주세요!” (큰 소리)</strong>
+ <em>위험할 때 주위에 알리기.</em></div>
+ </div>
 
-  <div class="practice">
-    <h3>📝 연습 문제</h3>
+ <div class="practice">
+ <h3>📝 연습 문제</h3>
 
-    <div class="q"><div class="no">4</div>
-      <p>길을 잃었을 때 4단계의 <strong>순서</strong>를 (보기)에서 골라 쓰세요.</p>
-      <div class="choice-box">멈춤 / 확인 / 요청 / 기다림</div>
-      <p class="sub-q">① 한 자리에 가만히 있는다 → <span class="blank"></span></p>
-      <p class="sub-q">② 주변 간판·건물을 살펴본다 → <span class="blank"></span></p>
-      <p class="sub-q">③ 안전한 어른에게 부탁한다 → <span class="blank"></span></p>
-      <p class="sub-q">④ 가족이 올 때까지 그 자리에서 기다린다 → <span class="blank"></span></p>
-    </div>
+ <div class="q"><div class="no">4</div>
+ <p>길을 잃었을 때 4단계의 <strong>순서</strong>를 (보기)에서 골라 쓰세요.</p>
+ <div class="choice-box">멈춤 / 확인 / 요청 / 기다림</div>
+ <p class="sub-q">① 한 자리에 가만히 있는다 → <span class="blank"></span></p>
+ <p class="sub-q">② 주변 간판·건물을 살펴본다 → <span class="blank"></span></p>
+ <p class="sub-q">③ 안전한 어른에게 부탁한다 → <span class="blank"></span></p>
+ <p class="sub-q">④ 가족이 올 때까지 그 자리에서 기다린다 → <span class="blank"></span></p>
+ </div>
 
-    <div class="q"><div class="no">5</div>
-      <p>다음 중 <strong>‘안전한 어른’</strong>을 모두 고르세요. (   )</p>
-      <p class="sub-q">① 처음 보는 친절한 아저씨 &nbsp; ② 편의점 직원 &nbsp; ③ 지하철역 직원 &nbsp;
-        ④ 차에 타고 있는 모르는 사람 &nbsp; ⑤ 경찰관 &nbsp; ⑥ 학교 선생님</p>
-    </div>
+ <div class="q"><div class="no">5</div>
+ <p>다음 중 <strong>‘안전한 어른’</strong>을 모두 고르세요. </p>
+ <p class="sub-q">① 처음 보는 친절한 아저씨 &nbsp; ② 편의점 직원 &nbsp; ③ 지하철역 직원 &nbsp;
+ ④ 차에 타고 있는 모르는 사람 &nbsp; ⑤ 경찰관 &nbsp; ⑥ 학교 선생님</p>
+ </div>
 
-    <div class="q"><div class="no">6</div>
-      <p>다음 상황에서 할 말을 <strong>한 문장</strong>으로 써 보세요.</p>
-      <p class="sub-q">① 백화점에서 가족과 떨어졌을 때, 안내데스크 직원에게:</p>
-      <div class="lines"></div>
-      <p class="sub-q">② 모르는 어른이 “과자 줄게, 같이 가자” 할 때:</p>
-      <div class="lines"></div>
-    </div>
-  </div>
+ <div class="q"><div class="no">6</div>
+ <p>다음 상황에서 할 말을 <strong>한 문장</strong>으로 써 보세요.</p>
+ <p class="sub-q">① 백화점에서 가족과 떨어졌을 때, 안내데스크 직원에게:</p>
+ <div class="lines"></div>
+ <p class="sub-q">② 모르는 어른이 “과자 줄게, 같이 가자” 할 때:</p>
+ <div class="lines"></div>
+ </div>
+ </div>
 
-  <div class="page-no">— 4 —</div>
+ <div class="page-no">— 4 —</div>
 </section>
 
 <!-- 4. 다짐과 자기 점검 -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">4</div>
-    <div class="ph-title">
-      <h2>응급 다짐과 자기 점검</h2>
-      <p>도움을 청하는 것은 ‘똑똑한 행동’이에요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">4</div>
+ <div class="ph-title">
+ <h2>응급 다짐과 자기 점검</h2>
+ <p>도움을 청하는 것은 ‘똑똑한 행동’이에요.</p>
+ </div>
+ </div>
 
-  <div class="callbox">
-    <div class="bg-label">📱 단톡방 — 우리 가족</div>
-    <div class="cmsg"><span class="ctag d6">하영(언니)</span>
-      <div class="cbubble">채원아, 학원 끝났어? 늦네…</div></div>
-    <div class="cmsg right"><span class="ctag me">채원</span>
-      <div class="cbubble">언니, 나 길을 잘 모르겠어. 어떡하지? 😢</div></div>
-    <div class="cmsg"><span class="ctag d6">하영(언니)</span>
-      <div class="cbubble">괜찮아. <strong>그 자리에 멈춰</strong> 있어. 주변에 어떤 간판이 보여?</div></div>
-    <div class="cmsg right"><span class="ctag me">채원</span>
-      <div class="cbubble">‘○○ 편의점’이 보여.</div></div>
-    <div class="cmsg"><span class="ctag d6">하영(언니)</span>
-      <div class="cbubble">잘했어. <strong>편의점 안에 들어가서 직원 옆에 있어 줘</strong>. 내가 5분 안에 갈게.</div></div>
-  </div>
+ <div class="callbox">
+ <div class="bg-label">📱 단톡방 — 우리 가족</div>
+ <div class="cmsg"><span class="ctag d6">하영(언니)</span>
+ <div class="cbubble">채원아, 학원 끝났어? 늦네…</div></div>
+ <div class="cmsg right"><span class="ctag me">채원</span>
+ <div class="cbubble">언니, 나 길을 잘 모르겠어. 어떡하지? 😢</div></div>
+ <div class="cmsg"><span class="ctag d6">하영(언니)</span>
+ <div class="cbubble">괜찮아. <strong>그 자리에 멈춰</strong> 있어. 주변에 어떤 간판이 보여?</div></div>
+ <div class="cmsg right"><span class="ctag me">채원</span>
+ <div class="cbubble">‘○○ 편의점’이 보여.</div></div>
+ <div class="cmsg"><span class="ctag d6">하영(언니)</span>
+ <div class="cbubble">잘했어. <strong>편의점 안에 들어가서 직원 옆에 있어 줘</strong>. 내가 5분 안에 갈게.</div></div>
+ </div>
 
-  <div class="practice">
-    <h3>📝 연습 문제</h3>
+ <div class="practice">
+ <h3>📝 연습 문제</h3>
 
-    <div class="q"><div class="no">7</div>
-      <p>다음 빈칸에 알맞은 말을 (보기)에서 골라 쓰세요.</p>
-      <div class="choice-box">119 / 112 / 멈춤 / 안전한 어른 / 부끄럽지</div>
-      <p class="sub-q">① 불·구조·구급은 <span class="blank"></span>, 경찰은 <span class="blank"></span>에 신고해요.</p>
-      <p class="sub-q">② 길을 잃으면 가장 먼저 <span class="blank"></span>해요.</p>
-      <p class="sub-q">③ 도움은 아무에게나가 아니라 <span class="blank long"></span>에게 부탁해요.</p>
-      <p class="sub-q">④ 도와달라고 말하는 것은 <span class="blank"></span> 않은 일이에요.</p>
-    </div>
+ <div class="q"><div class="no">7</div>
+ <p>다음 빈칸에 알맞은 말을 (보기)에서 골라 쓰세요.</p>
+ <div class="choice-box">119 / 112 / 멈춤 / 안전한 어른 / 부끄럽지</div>
+ <p class="sub-q">① 불·구조·구급은 <span class="blank"></span>, 경찰은 <span class="blank"></span>에 신고해요.</p>
+ <p class="sub-q">② 길을 잃으면 가장 먼저 <span class="blank"></span>해요.</p>
+ <p class="sub-q">③ 도움은 아무에게나가 아니라 <span class="blank long"></span>에게 부탁해요.</p>
+ <p class="sub-q">④ 도와달라고 말하는 것은 <span class="blank"></span> 않은 일이에요.</p>
+ </div>
 
-    <div class="q"><div class="no">8</div>
-      <p>친구 ‘예은’이가 학교 계단에서 발을 삐었어요. 어떻게 도와줄지 <strong>두 문장</strong>으로 써 보세요.</p>
-      <div class="lines two"></div>
-    </div>
+ <div class="q"><div class="no">8</div>
+ <p>친구 ‘예은’이가 학교 계단에서 발을 삐었어요. 어떻게 도와줄지 <strong>두 문장</strong>으로 써 보세요.</p>
+ <div class="lines two"></div>
+ </div>
 
-    <div class="q"><div class="no">9</div>
-      <p>‘위험한 일은 나에게 일어나지 않을 거야’라고 생각하는 친구에게 해 줄 말을 써 보세요.</p>
-      <div class="lines two"></div>
-    </div>
-  </div>
+ <div class="q"><div class="no">9</div>
+ <p>‘위험한 일은 나에게 일어나지 않을 거야’라고 생각하는 친구에게 해 줄 말을 써 보세요.</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
 
 
 
-  <div class="page-no">— 5 —</div>
+ <div class="page-no">— 5 —</div>
 </section>
 
 </body>

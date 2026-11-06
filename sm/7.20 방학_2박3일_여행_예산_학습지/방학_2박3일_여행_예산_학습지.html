@@ -9,80 +9,80 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body {
-  margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  font-size: 11.5pt; line-height: 1.45;
+ margin: 0; background: #eceff1; color: #1f2d3d;
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+ font-size: 11.5pt; line-height: 1.45;
 }
 
 .toolbar {
-  position: sticky; top: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #00695c; color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+ position: sticky; top: 0; z-index: 50;
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 10px 18px; background: #00695c; color: #fff;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .toolbar .muted { color: #b2dfdb; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button {
-  background: #ffd54f; color: #00352c; border: none; font: inherit; font-weight: 700;
-  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+ background: #ffd54f; color: #00352c; border: none; font: inherit; font-weight: 700;
+ padding: 8px 18px; border-radius: 6px; cursor: pointer;
 }
 .toolbar button:hover { background: #ffe082; }
 
 .page {
-  width: 210mm; min-height: 297mm;
-  margin: 12mm auto; padding: 14mm 16mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  position: relative; page-break-after: always;
+ width: 210mm; min-height: 297mm;
+ margin: 12mm auto; padding: 14mm 16mm;
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+ position: relative; page-break-after: always;
 }
 .page:last-of-type { page-break-after: auto; }
 
 /* ===== 표지 ===== */
 .page.cover {
-  padding: 18mm 18mm;
-  background: linear-gradient(135deg, #fff 0%, #e0f2f1 100%);
+ padding: 18mm 18mm;
+ background: linear-gradient(135deg, #fff 0%, #e0f2f1 100%);
 }
 .cover-top {
-  display: flex; justify-content: space-between;
-  font-size: 0.9em; color: #455a64;
-  border-bottom: 2px solid #b2dfdb; padding-bottom: 10px; margin-bottom: 20px;
+ display: flex; justify-content: space-between;
+ font-size: 0.9em; color: #455a64;
+ border-bottom: 2px solid #b2dfdb; padding-bottom: 10px; margin-bottom: 20px;
 }
 .cover-top .subject { font-weight: 700; color: #00695c; }
 .cover-main { text-align: center; padding: 14px 0 8px; }
 .cover-main .badge {
-  display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #00695c; color: #fff; font-weight: 700; font-size: 0.95em;
-  margin-bottom: 12px; letter-spacing: 0.5px;
+ display: inline-block; padding: 5px 16px; border-radius: 20px;
+ background: #00695c; color: #fff; font-weight: 700; font-size: 0.95em;
+ margin-bottom: 12px; letter-spacing: 0.5px;
 }
 .cover-main h1 {
-  margin: 0; font-size: 2.2em; letter-spacing: -1.5px;
-  color: #004d40; font-weight: 900;
+ margin: 0; font-size: 2.2em; letter-spacing: -1.5px;
+ color: #004d40; font-weight: 900;
 }
 .cover-main .lead {
-  margin: 6px 0 0; font-size: 1em; color: #37474f; font-weight: 500;
+ margin: 6px 0 0; font-size: 1em; color: #37474f; font-weight: 500;
 }
 .name-box {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 8px; margin: 16px 0 8px;
+ display: grid; grid-template-columns: repeat(3, 1fr);
+ gap: 8px; margin: 16px 0 8px;
 }
 .name-cell { border: 1.5px solid #80cbc4; border-radius: 8px; padding: 8px 10px; }
 .name-cell span { display: block; font-size: 0.78em; color: #00695c; font-weight: 500; }
 .name-cell em { display: block; min-height: 22px; font-style: normal; }
 
 .cast, .toc, .info {
-  border: 2px solid #b2dfdb; border-radius: 10px;
-  padding: 10px 14px; margin-top: 10px; background: #e0f2f1;
+ border: 2px solid #b2dfdb; border-radius: 10px;
+ padding: 10px 14px; margin-top: 10px; background: #e0f2f1;
 }
 .cast h2, .toc h2, .info h2 {
-  margin: 0 0 6px; font-size: 1.05em; color: #004d40;
-  border-bottom: 1px dashed #4db6ac; padding-bottom: 4px;
+ margin: 0 0 6px; font-size: 1.05em; color: #004d40;
+ border-bottom: 1px dashed #4db6ac; padding-bottom: 4px;
 }
 .info p { margin: 0; font-size: 0.95em; color: #263238; }
 
 .cast-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
 .person {
-  display: flex; align-items: center; gap: 6px;
-  padding: 6px 8px; background: #fff;
-  border: 1px solid #eee; border-radius: 8px;
-  font-weight: 700; color: #37474f; font-size: 0.92em;
+ display: flex; align-items: center; gap: 6px;
+ padding: 6px 8px; background: #fff;
+ border: 1px solid #eee; border-radius: 8px;
+ font-weight: 700; color: #37474f; font-size: 0.92em;
 }
 .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 .d1 { background: #FF6B6B; }
@@ -97,89 +97,89 @@ body {
 
 /* ===== 쪽 머리 ===== */
 .ph {
-  display: flex; align-items: center; gap: 14px;
-  border-bottom: 3px solid #00695c; padding-bottom: 10px; margin-bottom: 14px;
+ display: flex; align-items: center; gap: 14px;
+ border-bottom: 3px solid #00695c; padding-bottom: 10px; margin-bottom: 14px;
 }
 .ph-num {
-  flex-shrink: 0; width: 52px; height: 52px;
-  background: #00695c; color: #ffd54f;
-  font-family: 'Noto Serif KR', serif;
-  font-size: 1.5em; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; border-radius: 10px;
+ flex-shrink: 0; width: 52px; height: 52px;
+ background: #00695c; color: #ffd54f;
+ font-family: 'Noto Serif KR', serif;
+ font-size: 1.5em; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; border-radius: 10px;
 }
 .ph-title h2 { margin: 0; font-size: 1.35em; color: #00352c; }
 .ph-title p { margin: 2px 0 0; color: #546e7a; font-size: 0.9em; }
 
 /* ===== 이야기 / 도움말 ===== */
 .scene {
-  background: #fff8e1; border-left: 5px solid #ffb300;
-  border-radius: 6px; padding: 10px 14px; margin-bottom: 10px;
+ background: #fff8e1; border-left: 5px solid #ffb300;
+ border-radius: 6px; padding: 10px 14px; margin-bottom: 10px;
 }
 .scene p { margin: 0; }
 
 .tip {
-  background: #e3f2fd; border-left: 5px solid #1e88e5;
-  border-radius: 6px; padding: 8px 12px; margin: 8px 0;
+ background: #e3f2fd; border-left: 5px solid #1e88e5;
+ border-radius: 6px; padding: 8px 12px; margin: 8px 0;
 }
 .tip .tip-title { display: block; font-weight: 700; color: #0d47a1; margin-bottom: 3px; }
 
 /* ===== 문제 ===== */
 .practice h3 {
-  display: inline-block; background: #ffd54f; color: #00352c;
-  padding: 3px 12px; border-radius: 16px; font-size: 0.98em; margin: 6px 0 10px;
+ display: inline-block; background: #ffd54f; color: #00352c;
+ padding: 3px 12px; border-radius: 16px; font-size: 0.98em; margin: 6px 0 10px;
 }
 .q {
-  position: relative;
-  padding-left: 38px;
-  margin-bottom: 10px; padding-bottom: 8px;
-  border-bottom: 1px dashed #cfd8dc;
+ position: relative;
+ padding-left: 38px;
+ margin-bottom: 10px; padding-bottom: 8px;
+ border-bottom: 1px dashed #cfd8dc;
 }
 .q:last-child { border-bottom: none; }
 .q .no {
-  position: absolute; left: 0; top: 0;
-  width: 28px; height: 28px;
-  background: #00695c; color: #fff;
-  border-radius: 50%; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; font-size: 0.9em;
+ position: absolute; left: 0; top: 0;
+ width: 28px; height: 28px;
+ background: #00695c; color: #fff;
+ border-radius: 50%; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; font-size: 0.9em;
 }
 .q p { margin: 0 0 4px; }
 .q .sub-q { margin-top: 4px; font-weight: 500; color: #455a64; }
 
 /* ===== 빈칸·박스 ===== */
 .lines {
-  background-image: repeating-linear-gradient(
-    to bottom, transparent 0, transparent 28px, #b0bec5 28px, #b0bec5 29px
-  );
-  height: 30px; margin: 4px 0;
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 28px, #b0bec5 28px, #b0bec5 29px
+ );
+ height: 30px; margin: 4px 0;
 }
 .lines.two { height: 60px; }
 .lines.three { height: 90px; }
 
 .blank {
-  display: inline-block; border-bottom: 1.5px solid #263238;
-  min-width: 70px; height: 20px; vertical-align: baseline;
+ display: inline-block; border-bottom: 1.5px solid #263238;
+ min-width: 70px; height: 20px; vertical-align: baseline;
 }
 
 .box {
-  display: inline-block; min-width: 70px; height: 26px;
-  border: 2px solid #00695c; background: #fff;
-  border-radius: 4px; vertical-align: middle; margin: 0 3px;
+ display: inline-block; min-width: 70px; height: 26px;
+ border: 2px solid #00695c; background: #fff;
+ border-radius: 4px; vertical-align: middle; margin: 0 3px;
 }
 .box.wide { min-width: 110px; }
 .box.xwide { min-width: 160px; }
 
 .formula {
-  background: #fffde7; border: 1.5px dashed #fbc02d;
-  border-radius: 8px; padding: 8px 14px;
-  text-align: center; font-size: 1.05em; margin: 6px 0; font-weight: 500;
+ background: #fffde7; border: 1.5px dashed #fbc02d;
+ border-radius: 8px; padding: 8px 14px;
+ text-align: center; font-size: 1.05em; margin: 6px 0; font-weight: 500;
 }
 
 /* ===== 표 ===== */
 table { width: 100%; border-collapse: collapse; margin: 5px 0; }
 th, td {
-  border: 1.5px solid #80cbc4;
-  padding: 5px 8px; text-align: center; vertical-align: middle;
-  font-size: 0.95em;
+ border: 1.5px solid #80cbc4;
+ padding: 5px 8px; text-align: center; vertical-align: middle;
+ font-size: 0.95em;
 }
 th { background: #e0f2f1; font-weight: 700; color: #004d40; }
 td.left, th.left { text-align: left; }
@@ -187,11 +187,11 @@ td.left, th.left { text-align: left; }
 
 /* 선택지 카드 */
 .choice-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 8px 0;
+ display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 8px 0;
 }
 .choice {
-  border: 2px solid #80cbc4; border-radius: 10px; padding: 10px;
-  background: #f1f8f7; text-align: center;
+ border: 2px solid #80cbc4; border-radius: 10px; padding: 10px;
+ background: #f1f8f7; text-align: center;
 }
 .choice h4 { margin: 0 0 6px; color: #00695c; font-size: 1.05em; }
 .choice .price { font-weight: 700; color: #d84315; font-size: 0.92em; }
@@ -199,450 +199,450 @@ td.left, th.left { text-align: left; }
 
 /* 체크박스 */
 .check { display: inline-block; width: 14px; height: 14px;
-  border: 1.5px solid #00695c; border-radius: 3px;
-  vertical-align: middle; margin-right: 4px;
+ border: 1.5px solid #00695c; border-radius: 3px;
+ vertical-align: middle; margin-right: 4px;
 }
 
 /* 일정 카드 */
 .itinerary {
-  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 6px 0;
+ display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 6px 0;
 }
 .day-card {
-  border: 2px solid #4db6ac; border-radius: 8px; padding: 8px 10px;
-  background: #fff;
+ border: 2px solid #4db6ac; border-radius: 8px; padding: 8px 10px;
+ background: #fff;
 }
 .day-card h4 { margin: 0 0 4px; color: #00695c; font-size: 1em;
-  border-bottom: 1px dashed #b2dfdb; padding-bottom: 3px; }
+ border-bottom: 1px dashed #b2dfdb; padding-bottom: 3px; }
 .day-card ul { margin: 4px 0 0; padding-left: 16px; font-size: 0.88em; }
 .day-card li { padding: 1px 0; }
 
 /* 마무리 */
 .wrap-up {
-  border: 3px double #00695c; border-radius: 10px;
-  padding: 14px 18px; background: #f1f8f7; margin-top: 10px;
+ border: 3px double #00695c; border-radius: 10px;
+ padding: 14px 18px; background: #f1f8f7; margin-top: 10px;
 }
 .wrap-up h3 { margin: 0 0 8px; color: #00352c; font-size: 1.15em; text-align: center; }
 
 @media print {
-  body { background: #fff; }
-  .toolbar { display: none; }
-  .page { margin: 0 auto; box-shadow: none; }
+ body { background: #fff; }
+ .toolbar { display: none; }
+ .page { margin: 0 auto; box-shadow: none; }
 }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div>🧳 방학 2박 3일 여행 — 계획과 예산 <span class="muted">수학 융합 학습지</span></div>
-  <button onclick="window.print()">🖨️ 인쇄하기</button>
+ <div>🧳 방학 2박 3일 여행 — 계획과 예산 <span class="muted">수학 융합 학습지</span></div>
+ <button onclick="window.print">🖨️ 인쇄하기</button>
 </div>
 
 <!-- ════════════ 표지 ════════════ -->
 <section class="page cover">
-  <div class="cover-top">
-    <div class="subject">수학 · 진로와 자립 · 사회성</div>
-    <div>고등학교 특수학급</div>
-  </div>
+ <div class="cover-top">
+ <div class="subject">수학 · 진로와 자립 · 사회성</div>
+ <div>고등학교 </div>
+ </div>
 
-  <div class="cover-main">
-    <span class="badge">방학 프로젝트</span>
-    <h1>🧳 우리의 2박 3일 여행</h1>
-    <p class="lead">친구들과 함께 계획하고, <b>예산</b>도 함께 짜요. <b>더치페이</b>까지 똑똑하게!</p>
-  </div>
+ <div class="cover-main">
+ <span class="badge">방학 프로젝트</span>
+ <h1>🧳 우리의 2박 3일 여행</h1>
+ <p class="lead">친구들과 함께 계획하고, <b>예산</b>도 함께 짜요. <b>더치페이</b>까지 똑똑하게!</p>
+ </div>
 
-  <div class="name-box">
-    <div class="name-cell"><span>학년 · 반</span><em></em></div>
-    <div class="name-cell"><span>번호</span><em></em></div>
-    <div class="name-cell"><span>이름</span><em></em></div>
-  </div>
+ <div class="name-box">
+ <div class="name-cell"><span>학년 · 반</span><em></em></div>
+ <div class="name-cell"><span>번호</span><em></em></div>
+ <div class="name-cell"><span>이름</span><em></em></div>
+ </div>
 
-  <div class="info">
-    <h2>📌 이번 학습지에서 무엇을 할까요?</h2>
-    <p>방학에 친구들과 <b>2박 3일</b> 동안 여행을 떠나요. 가고 싶은 곳을 정하고,
-       <b>교통비·숙박비·식비·체험비</b>를 직접 계산해요. 마지막에는 <b>총 비용을 나누어 더치페이</b>까지 해 봐요.</p>
-  </div>
+ <div class="info">
+ <h2>📌 이번 학습지에서 무엇을 할까요?</h2>
+ <p>방학에 친구들과 <b>2박 3일</b> 동안 여행을 떠나요. 가고 싶은 곳을 정하고,
+ <b>교통비·숙박비·식비·체험비</b>를 직접 계산해요. 마지막에는 <b>총 비용을 나누어 더치페이</b>까지 해 봐요.</p>
+ </div>
 
-  <div class="cast">
-    <h2>👫 함께 떠날 친구들 (4명)</h2>
-    <div class="cast-grid">
-      <div class="person"><span class="dot d1"></span>채원(나)</div>
-      <div class="person"><span class="dot d6"></span>하영</div>
-      <div class="person"><span class="dot d2"></span>하은</div>
-      <div class="person"><span class="dot d5"></span>예은</div>
-    </div>
-  </div>
+ <div class="cast">
+ <h2>👫 함께 떠날 친구들 (4명)</h2>
+ <div class="cast-grid">
+ <div class="person"><span class="dot d1"></span>채원(나)</div>
+ <div class="person"><span class="dot d6"></span>하영</div>
+ <div class="person"><span class="dot d2"></span>하은</div>
+ <div class="person"><span class="dot d5"></span>예은</div>
+ </div>
+ </div>
 
-  <div class="toc">
-    <h2>📚 차례</h2>
-    <ol>
-      <li>여행지 정하기 — 우리만의 2박 3일</li>
-      <li>교통비 계산 — 왕복 ticket</li>
-      <li>숙박비 · 식비 계산</li>
-      <li>체험비 + 총 비용 합산</li>
-      <li>더치페이와 마무리 — 1인 얼마?</li>
-    </ol>
-  </div>
+ <div class="toc">
+ <h2>📚 차례</h2>
+ <ol>
+ <li>여행지 정하기 — 우리만의 2박 3일</li>
+ <li>교통비 계산 — 왕복 ticket</li>
+ <li>숙박비 · 식비 계산</li>
+ <li>체험비 + 총 비용 합산</li>
+ <li>더치페이와 마무리 — 1인 얼마?</li>
+ </ol>
+ </div>
 </section>
 
 <!-- ════════════ 1쪽: 여행지 정하기 ════════════ -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">1</div>
-    <div class="ph-title">
-      <h2>여행지 정하기</h2>
-      <p>가고 싶은 곳을 함께 정하고, 일정을 짜 봐요</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">1</div>
+ <div class="ph-title">
+ <h2>여행지 정하기</h2>
+ <p>가고 싶은 곳을 함께 정하고, 일정을 짜 봐요</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>💬 <b>채원</b>: "방학에 같이 여행 갈래? 2박 3일 정도면 좋겠어."<br>
-    💬 <b>하영</b>: "좋아! 너무 멀지 않으면서, 우리가 다 즐길 수 있는 곳으로 정하자."</p>
-  </div>
+ <div class="scene">
+ <p>💬 <b>채원</b>: "방학에 같이 여행 갈래? 2박 3일 정도면 좋겠어."<br>
+ 💬 <b>하영</b>: "좋아! 너무 멀지 않으면서, 우리가 다 즐길 수 있는 곳으로 정하자."</p>
+ </div>
 
-  <div class="practice">
-    <h3>✏️ 활동 1 — 후보지 비교하기</h3>
+ <div class="practice">
+ <h3>✏️ 활동 1 — 후보지 비교하기</h3>
 
-    <div class="choice-grid">
-      <div class="choice">
-        <h4>🌊 강릉</h4>
-        <p class="price">KTX 왕복 ₩50,000 / 1인</p>
-        <ul>
-          <li>바다·해변 산책</li>
-          <li>커피 거리</li>
-          <li>경포대 자전거</li>
-        </ul>
-      </div>
-      <div class="choice">
-        <h4>🍊 제주도</h4>
-        <p class="price">항공 왕복 ₩140,000 / 1인</p>
-        <ul>
-          <li>해변·올레길</li>
-          <li>한라산 둘레길</li>
-          <li>흑돼지 · 감귤</li>
-        </ul>
-      </div>
-      <div class="choice">
-        <h4>🐟 부산</h4>
-        <p class="price">KTX 왕복 ₩120,000 / 1인</p>
-        <ul>
-          <li>해운대 · 광안리</li>
-          <li>감천문화마을</li>
-          <li>자갈치 시장</li>
-        </ul>
-      </div>
-    </div>
+ <div class="choice-grid">
+ <div class="choice">
+ <h4>🌊 강릉</h4>
+ <p class="price">KTX 왕복 ₩50,000 / 1인</p>
+ <ul>
+ <li>바다·해변 산책</li>
+ <li>커피 거리</li>
+ <li>경포대 자전거</li>
+ </ul>
+ </div>
+ <div class="choice">
+ <h4>🍊 제주도</h4>
+ <p class="price">항공 왕복 ₩140,000 / 1인</p>
+ <ul>
+ <li>해변·올레길</li>
+ <li>한라산 둘레길</li>
+ <li>흑돼지 · 감귤</li>
+ </ul>
+ </div>
+ <div class="choice">
+ <h4>🐟 부산</h4>
+ <p class="price">KTX 왕복 ₩120,000 / 1인</p>
+ <ul>
+ <li>해운대 · 광안리</li>
+ <li>감천문화마을</li>
+ <li>자갈치 시장</li>
+ </ul>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">1</span>
-      <p>나와 친구들의 마음을 정해 보세요. <b>우리가 가기로 한 곳</b>은? <span class="box wide"></span></p>
-      <p class="sub-q">고른 까닭: </p>
-      <div class="lines two"></div>
-    </div>
+ <div class="q">
+ <span class="no">1</span>
+ <p>나와 친구들의 마음을 정해 보세요. <b>우리가 가기로 한 곳</b>은? <span class="box wide"></span></p>
+ <p class="sub-q">고른 까닭: </p>
+ <div class="lines two"></div>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <p>친구가 다른 곳에 가고 싶다고 해요. <b>예의 있게 의견을 모으는 말</b>을 적어 보세요.</p>
-      <div class="lines two"></div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">2</span>
+ <p>친구가 다른 곳에 가고 싶다고 해요. <b>예의 있게 의견을 모으는 말</b>을 적어 보세요.</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
 
-  <div class="practice">
-    <h3>📅 활동 2 — 우리만의 2박 3일 일정</h3>
-    <p style="margin:0 0 6px; color:#455a64;">우리가 가기로 한 여행지에서 무엇을 할지 일정에 적어 봐요.</p>
+ <div class="practice">
+ <h3>📅 활동 2 — 우리만의 2박 3일 일정</h3>
+ <p style="margin:0 0 6px; color:#455a64;">우리가 가기로 한 여행지에서 무엇을 할지 일정에 적어 봐요.</p>
 
-    <div class="itinerary">
-      <div class="day-card">
-        <h4>1일차 — 출발</h4>
-        <ul>
-          <li>오전: </li>
-          <li>점심: </li>
-          <li>오후: </li>
-          <li>저녁: </li>
-        </ul>
-      </div>
-      <div class="day-card">
-        <h4>2일차 — 본격 여행</h4>
-        <ul>
-          <li>아침: </li>
-          <li>오전: </li>
-          <li>점심: </li>
-          <li>오후: </li>
-          <li>저녁: </li>
-        </ul>
-      </div>
-      <div class="day-card">
-        <h4>3일차 — 마무리·귀가</h4>
-        <ul>
-          <li>아침: </li>
-          <li>오전: </li>
-          <li>점심: </li>
-          <li>오후: </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+ <div class="itinerary">
+ <div class="day-card">
+ <h4>1일차 — 출발</h4>
+ <ul>
+ <li>오전: </li>
+ <li>점심: </li>
+ <li>오후: </li>
+ <li>저녁: </li>
+ </ul>
+ </div>
+ <div class="day-card">
+ <h4>2일차 — 본격 여행</h4>
+ <ul>
+ <li>아침: </li>
+ <li>오전: </li>
+ <li>점심: </li>
+ <li>오후: </li>
+ <li>저녁: </li>
+ </ul>
+ </div>
+ <div class="day-card">
+ <h4>3일차 — 마무리·귀가</h4>
+ <ul>
+ <li>아침: </li>
+ <li>오전: </li>
+ <li>점심: </li>
+ <li>오후: </li>
+ </ul>
+ </div>
+ </div>
+ </div>
 
-  <div class="tip">
-    <span class="tip-title">🧭 친구들과 의견을 모을 때</span>
-    한 사람만의 취향으로 결정하지 않아요. <b>"○○야, 너는 어떻게 생각해?"</b>처럼 모두에게 물어보고,
-    의견이 다르면 <b>"그럼 1일차는 너 가고 싶은 곳, 2일차는 내 가고 싶은 곳"</b>처럼 나누어요.
-  </div>
+ <div class="tip">
+ <span class="tip-title">🧭 친구들과 의견을 모을 때</span>
+ 한 사람만의 취향으로 결정하지 않아요. <b>"○○야, 너는 어떻게 생각해?"</b>처럼 모두에게 물어보고,
+ 의견이 다르면 <b>"그럼 1일차는 너 가고 싶은 곳, 2일차는 내 가고 싶은 곳"</b>처럼 나누어요.
+ </div>
 </section>
 
 <!-- ════════════ 2쪽: 교통비 ════════════ -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">2</div>
-    <div class="ph-title">
-      <h2>교통비 계산 — 왕복으로 똑똑하게</h2>
-      <p>가는 길 + 오는 길 = 왕복. 사람 수만큼 곱해 봐요</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">2</div>
+ <div class="ph-title">
+ <h2>교통비 계산 — 왕복으로 똑똑하게</h2>
+ <p>가는 길 + 오는 길 = 왕복. 사람 수만큼 곱해 봐요</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>💬 <b>하은</b>: "표는 가는 길만 사면 되나? 오는 길도 같이 사야 해!"<br>
-    💬 <b>예은</b>: "맞아. 4명이 함께 가니까 <b>1인 요금 × 2(왕복) × 4명</b>이야."</p>
-  </div>
+ <div class="scene">
+ <p>💬 <b>하은</b>: "표는 가는 길만 사면 되나? 오는 길도 같이 사야 해!"<br>
+ 💬 <b>예은</b>: "맞아. 4명이 함께 가니까 <b>1인 요금 × 2(왕복) × 4명</b>이야."</p>
+ </div>
 
-  <div class="formula">
-    💰 <b>교통비 총액 = 1인 편도 요금 × 2 (왕복) × 인원수</b>
-  </div>
+ <div class="formula">
+ 💰 <b>교통비 총액 = 1인 편도 요금 × 2 (왕복) × 인원수</b>
+ </div>
 
-  <div class="practice">
-    <h3>✏️ 활동 3 — 교통편 비교 후 골라요</h3>
-    <table class="price-table">
-      <tr><th>교통편</th><th>1인 편도</th><th>1인 왕복</th><th>4명 왕복 총액</th></tr>
-      <tr><td>KTX (강릉)</td><td>25,000원</td><td><span class="box wide"></span></td><td><span class="box wide"></span></td></tr>
-      <tr><td>고속버스 (강릉)</td><td>18,000원</td><td><span class="box wide"></span></td><td><span class="box wide"></span></td></tr>
-      <tr class="hi"><td>항공 (제주)</td><td>70,000원</td><td><span class="box wide"></span></td><td><span class="box wide"></span></td></tr>
-      <tr><td>KTX (부산)</td><td>60,000원</td><td><span class="box wide"></span></td><td><span class="box wide"></span></td></tr>
-    </table>
+ <div class="practice">
+ <h3>✏️ 활동 3 — 교통편 비교 후 골라요</h3>
+ <table class="price-table">
+ <tr><th>교통편</th><th>1인 편도</th><th>1인 왕복</th><th>4명 왕복 총액</th></tr>
+ <tr><td>KTX (강릉)</td><td>25,000원</td><td><span class="box wide"></span></td><td><span class="box wide"></span></td></tr>
+ <tr><td>고속버스 (강릉)</td><td>18,000원</td><td><span class="box wide"></span></td><td><span class="box wide"></span></td></tr>
+ <tr class="hi"><td>항공 (제주)</td><td>70,000원</td><td><span class="box wide"></span></td><td><span class="box wide"></span></td></tr>
+ <tr><td>KTX (부산)</td><td>60,000원</td><td><span class="box wide"></span></td><td><span class="box wide"></span></td></tr>
+ </table>
 
-    <div class="q" style="margin-top:8px;">
-      <span class="no">3</span>
-      <p><b>KTX 강릉</b>이 1인 편도 25,000원이라면, 왕복은? <br>
-        25,000 × 2 = <span class="box wide"></span> 원</p>
-    </div>
+ <div class="q" style="margin-top:8px;">
+ <span class="no">3</span>
+ <p><b>KTX 강릉</b>이 1인 편도 25,000원이라면, 왕복은? <br>
+ 25,000 × 2 = <span class="box wide"></span> 원</p>
+ </div>
 
-    <div class="q">
-      <span class="no">4</span>
-      <p>4명이 함께 가요. <b>4명 왕복 총액</b>은? <br>
-        (위 왕복 금액) × 4 = <span class="box wide"></span> 원</p>
-    </div>
+ <div class="q">
+ <span class="no">4</span>
+ <p>4명이 함께 가요. <b>4명 왕복 총액</b>은? <br>
+ (위 왕복 금액) × 4 = <span class="box wide"></span> 원</p>
+ </div>
 
-    <div class="q">
-      <span class="no">5</span>
-      <p>우리가 정한 여행지·교통편의 <b>4명 왕복 총액</b>을 다시 적어 보세요.<br>
-        여행지: <span class="box wide"></span> / 교통편: <span class="box wide"></span> / 총액: <span class="box wide"></span> 원</p>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">5</span>
+ <p>우리가 정한 여행지·교통편의 <b>4명 왕복 총액</b>을 다시 적어 보세요.<br>
+ 여행지: <span class="box wide"></span> / 교통편: <span class="box wide"></span> / 총액: <span class="box wide"></span> 원</p>
+ </div>
+ </div>
 
-  <div class="practice">
-    <h3>⏰ 활동 4 — 도착 시간 계산</h3>
-    <div class="q">
-      <span class="no">6</span>
-      <p>서울역에서 <b>10:30</b>에 출발해 강릉까지 <b>2시간 5분</b> 걸려요.
-         도착 시간은? <span class="box wide"></span></p>
-    </div>
-    <div class="q">
-      <span class="no">7</span>
-      <p>강릉에서 점심을 먹고 <b>14:00</b>에 다음 일정을 시작하려면, 도착 후 점심까지 시간은 몇 분?
-         <span class="box wide"></span> 분</p>
-    </div>
-  </div>
+ <div class="practice">
+ <h3>⏰ 활동 4 — 도착 시간 계산</h3>
+ <div class="q">
+ <span class="no">6</span>
+ <p>서울역에서 <b>10:30</b>에 출발해 강릉까지 <b>2시간 5분</b> 걸려요.
+ 도착 시간은? <span class="box wide"></span></p>
+ </div>
+ <div class="q">
+ <span class="no">7</span>
+ <p>강릉에서 점심을 먹고 <b>14:00</b>에 다음 일정을 시작하려면, 도착 후 점심까지 시간은 몇 분?
+ <span class="box wide"></span> 분</p>
+ </div>
+ </div>
 
-  <div class="tip">
-    <span class="tip-title">🎟️ 표 예매 예절</span>
-    인터넷 예매가 어려우면 <b>"표 예매하는 거 도와줄 수 있어?"</b>라고 친구나 가족에게 도움을 청해요.
-    돈을 미리 받았다면 <b>"표 확인해 봐. 자리 다 붙어 있어!"</b>처럼 결과를 친구들과 공유해요.
-  </div>
+ <div class="tip">
+ <span class="tip-title">🎟️ 표 예매 예절</span>
+ 인터넷 예매가 어려우면 <b>"표 예매하는 거 도와줄 수 있어?"</b>라고 친구나 가족에게 도움을 청해요.
+ 돈을 미리 받았다면 <b>"표 확인해 봐. 자리 다 붙어 있어!"</b>처럼 결과를 친구들과 공유해요.
+ </div>
 </section>
 
 <!-- ════════════ 3쪽: 숙박비 + 식비 ════════════ -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">3</div>
-    <div class="ph-title">
-      <h2>숙박비 · 식비 계산</h2>
-      <p>2박은 며칠을 자는 것? 식사는 모두 몇 끼?</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">3</div>
+ <div class="ph-title">
+ <h2>숙박비 · 식비 계산</h2>
+ <p>2박은 며칠을 자는 것? 식사는 모두 몇 끼?</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>💬 <b>하영</b>: "2박 3일이면 <b>밤을 두 번 보낸다</b>는 뜻이지?"<br>
-    💬 <b>채원</b>: "그래. <b>숙박은 2박</b>, <b>식사는 9끼(3끼 × 3일)</b>가 기본이야."</p>
-  </div>
+ <div class="scene">
+ <p>💬 <b>하영</b>: "2박 3일이면 <b>밤을 두 번 보낸다</b>는 뜻이지?"<br>
+ 💬 <b>채원</b>: "그래. <b>숙박은 2박</b>, <b>식사는 9끼(3끼 × 3일)</b>가 기본이야."</p>
+ </div>
 
-  <div class="practice">
-    <h3>🛏️ 활동 5 — 숙박비 계산</h3>
-    <table>
-      <tr><th>숙소 종류</th><th>1박 요금 (4인실)</th><th>2박 요금</th></tr>
-      <tr><td>게스트하우스 도미토리</td><td>80,000원</td><td><span class="box wide"></span></td></tr>
-      <tr class="hi"><td>호텔 패밀리룸</td><td>180,000원</td><td><span class="box wide"></span></td></tr>
-      <tr><td>펜션 (조식 포함)</td><td>200,000원</td><td><span class="box wide"></span></td></tr>
-    </table>
+ <div class="practice">
+ <h3>🛏️ 활동 5 — 숙박비 계산</h3>
+ <table>
+ <tr><th>숙소 종류</th><th>1박 요금 (4인실)</th><th>2박 요금</th></tr>
+ <tr><td>게스트하우스 도미토리</td><td>80,000원</td><td><span class="box wide"></span></td></tr>
+ <tr class="hi"><td>호텔 패밀리룸</td><td>180,000원</td><td><span class="box wide"></span></td></tr>
+ <tr><td>펜션 (조식 포함)</td><td>200,000원</td><td><span class="box wide"></span></td></tr>
+ </table>
 
-    <div class="q" style="margin-top:8px;">
-      <span class="no">8</span>
-      <p>호텔 패밀리룸 1박 <b>180,000원</b>일 때, <b>2박 요금</b>은? <br>
-        180,000 × 2 = <span class="box wide"></span> 원</p>
-    </div>
-    <div class="q">
-      <span class="no">9</span>
-      <p>우리가 고른 숙소의 <b>2박 총액</b>은? <span class="box wide"></span> 원<br>
-        고른 까닭: <span class="box xwide"></span></p>
-    </div>
-  </div>
+ <div class="q" style="margin-top:8px;">
+ <span class="no">8</span>
+ <p>호텔 패밀리룸 1박 <b>180,000원</b>일 때, <b>2박 요금</b>은? <br>
+ 180,000 × 2 = <span class="box wide"></span> 원</p>
+ </div>
+ <div class="q">
+ <span class="no">9</span>
+ <p>우리가 고른 숙소의 <b>2박 총액</b>은? <span class="box wide"></span> 원<br>
+ 고른 까닭: <span class="box xwide"></span></p>
+ </div>
+ </div>
 
-  <div class="practice">
-    <h3>🍱 활동 6 — 식비 계산</h3>
-    <p style="margin:0 0 6px; color:#455a64;">하루 <b>3끼</b>, 2박 3일 동안 모두 <b>9끼</b>를 먹어요.</p>
+ <div class="practice">
+ <h3>🍱 활동 6 — 식비 계산</h3>
+ <p style="margin:0 0 6px; color:#455a64;">하루 <b>3끼</b>, 2박 3일 동안 모두 <b>9끼</b>를 먹어요.</p>
 
-    <table>
-      <tr><th>구분</th><th>1인 1끼</th><th>4명 1끼</th><th>4명 9끼 총액</th></tr>
-      <tr><td>아침 (3회)</td><td>8,000원</td><td><span class="box"></span></td><td rowspan="3" style="background:#fff3e0;"><span class="box wide"></span> 원<br><small>(아침+점심+저녁 합계)</small></td></tr>
-      <tr><td>점심 (3회)</td><td>10,000원</td><td><span class="box"></span></td></tr>
-      <tr><td>저녁 (3회)</td><td>15,000원</td><td><span class="box"></span></td></tr>
-    </table>
+ <table>
+ <tr><th>구분</th><th>1인 1끼</th><th>4명 1끼</th><th>4명 9끼 총액</th></tr>
+ <tr><td>아침 (3회)</td><td>8,000원</td><td><span class="box"></span></td><td rowspan="3" style="background:#fff3e0;"><span class="box wide"></span> 원<br><small>(아침+점심+저녁 합계)</small></td></tr>
+ <tr><td>점심 (3회)</td><td>10,000원</td><td><span class="box"></span></td></tr>
+ <tr><td>저녁 (3회)</td><td>15,000원</td><td><span class="box"></span></td></tr>
+ </table>
 
-    <div class="q" style="margin-top:8px;">
-      <span class="no">10</span>
-      <p>아침 1끼 8,000원 × 4명 = <span class="box wide"></span> 원. 3일이면 × 3 = <span class="box wide"></span> 원.</p>
-    </div>
-    <div class="q">
-      <span class="no">11</span>
-      <p>점심·저녁도 같은 방법으로 계산해 보고, 모두 더한 <b>식비 총액</b>은? <span class="box wide"></span> 원</p>
-    </div>
-  </div>
+ <div class="q" style="margin-top:8px;">
+ <span class="no">10</span>
+ <p>아침 1끼 8,000원 × 4명 = <span class="box wide"></span> 원. 3일이면 × 3 = <span class="box wide"></span> 원.</p>
+ </div>
+ <div class="q">
+ <span class="no">11</span>
+ <p>점심·저녁도 같은 방법으로 계산해 보고, 모두 더한 <b>식비 총액</b>은? <span class="box wide"></span> 원</p>
+ </div>
+ </div>
 
-  <div class="tip">
-    <span class="tip-title">🍽️ 함께 먹을 때 예절</span>
-    메뉴는 <b>한 사람의 취향만으로 정하지 않아요</b>. "오늘 점심은 ○○ 어때?"라고 물어보고,
-    못 먹는 음식이 있는 친구가 있으면 다른 메뉴로 바꿔요. <b>음식을 남기지 않게</b> 알맞은 양을 시켜요.
-  </div>
+ <div class="tip">
+ <span class="tip-title">🍽️ 함께 먹을 때 예절</span>
+ 메뉴는 <b>한 사람의 취향만으로 정하지 않아요</b>. "오늘 점심은 ○○ 어때?"라고 물어보고,
+ 못 먹는 음식이 있는 친구가 있으면 다른 메뉴로 바꿔요. <b>음식을 남기지 않게</b> 알맞은 양을 시켜요.
+ </div>
 </section>
 
 <!-- ════════════ 4쪽: 체험비 + 합산 ════════════ -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">4</div>
-    <div class="ph-title">
-      <h2>체험비 + 총 비용 합산</h2>
-      <p>여행에서 가장 기대되는 활동! 그리고 전체 합계</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">4</div>
+ <div class="ph-title">
+ <h2>체험비 + 총 비용 합산</h2>
+ <p>여행에서 가장 기대되는 활동! 그리고 전체 합계</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>💬 <b>예은</b>: "강릉에서 자전거 빌리고, 카페에서 라떼아트도 만들어 보고 싶어!"<br>
-    💬 <b>하은</b>: "좋아. 그런데 <b>한 사람당 5만원</b>까지만 쓰자. 예산이 있으니까."</p>
-  </div>
+ <div class="scene">
+ <p>💬 <b>예은</b>: "강릉에서 자전거 빌리고, 카페에서 라떼아트도 만들어 보고 싶어!"<br>
+ 💬 <b>하은</b>: "좋아. 그런데 <b>한 사람당 5만원</b>까지만 쓰자. 예산이 있으니까."</p>
+ </div>
 
-  <div class="practice">
-    <h3>🎟️ 활동 7 — 체험비 계산</h3>
-    <table>
-      <tr><th>체험</th><th>1인</th><th>4명 총액</th></tr>
-      <tr><td>자전거 대여 (3시간)</td><td>12,000원</td><td><span class="box wide"></span></td></tr>
-      <tr><td>라떼아트 클래스</td><td>20,000원</td><td><span class="box wide"></span></td></tr>
-      <tr><td>케이블카</td><td>15,000원</td><td><span class="box wide"></span></td></tr>
-      <tr><td>박물관 입장료</td><td>5,000원</td><td><span class="box wide"></span></td></tr>
-    </table>
+ <div class="practice">
+ <h3>🎟️ 활동 7 — 체험비 계산</h3>
+ <table>
+ <tr><th>체험</th><th>1인</th><th>4명 총액</th></tr>
+ <tr><td>자전거 대여 (3시간)</td><td>12,000원</td><td><span class="box wide"></span></td></tr>
+ <tr><td>라떼아트 클래스</td><td>20,000원</td><td><span class="box wide"></span></td></tr>
+ <tr><td>케이블카</td><td>15,000원</td><td><span class="box wide"></span></td></tr>
+ <tr><td>박물관 입장료</td><td>5,000원</td><td><span class="box wide"></span></td></tr>
+ </table>
 
-    <div class="q" style="margin-top:8px;">
-      <span class="no">12</span>
-      <p>우리 4명이 함께 할 <b>2~3개 체험</b>을 골라 적어 보세요. 1인 비용 합이 <b>5만원 이내</b>여야 해요.</p>
-      <div class="lines two"></div>
-      <p style="margin-top:4px;">→ 4명 체험비 총액: <span class="box wide"></span> 원</p>
-    </div>
-  </div>
+ <div class="q" style="margin-top:8px;">
+ <span class="no">12</span>
+ <p>우리 4명이 함께 할 <b>2~3개 체험</b>을 골라 적어 보세요. 1인 비용 합이 <b>5만원 이내</b>여야 해요.</p>
+ <div class="lines two"></div>
+ <p style="margin-top:4px;">→ 4명 체험비 총액: <span class="box wide"></span> 원</p>
+ </div>
+ </div>
 
-  <div class="practice">
-    <h3>🧮 활동 8 — 우리 여행의 전체 비용</h3>
-    <table class="price-table">
-      <tr><th class="left">항목</th><th>금액 (4명 합계)</th></tr>
-      <tr><td class="left">① 교통비 (왕복 4명)</td><td><span class="box wide"></span> 원</td></tr>
-      <tr><td class="left">② 숙박비 (2박)</td><td><span class="box wide"></span> 원</td></tr>
-      <tr><td class="left">③ 식비 (4명 × 9끼)</td><td><span class="box wide"></span> 원</td></tr>
-      <tr><td class="left">④ 체험비 (4명)</td><td><span class="box wide"></span> 원</td></tr>
-      <tr><td class="left">⑤ 기념품·예비비</td><td><span class="box wide"></span> 원</td></tr>
-      <tr class="hi"><td class="left"><b>총 합계</b></td><td><b><span class="box wide"></span> 원</b></td></tr>
-    </table>
+ <div class="practice">
+ <h3>🧮 활동 8 — 우리 여행의 전체 비용</h3>
+ <table class="price-table">
+ <tr><th class="left">항목</th><th>금액 (4명 합계)</th></tr>
+ <tr><td class="left">① 교통비 (왕복 4명)</td><td><span class="box wide"></span> 원</td></tr>
+ <tr><td class="left">② 숙박비 (2박)</td><td><span class="box wide"></span> 원</td></tr>
+ <tr><td class="left">③ 식비 (4명 × 9끼)</td><td><span class="box wide"></span> 원</td></tr>
+ <tr><td class="left">④ 체험비 (4명)</td><td><span class="box wide"></span> 원</td></tr>
+ <tr><td class="left">⑤ 기념품·예비비</td><td><span class="box wide"></span> 원</td></tr>
+ <tr class="hi"><td class="left"><b>총 합계</b></td><td><b><span class="box wide"></span> 원</b></td></tr>
+ </table>
 
-    <div class="q" style="margin-top:8px;">
-      <span class="no">13</span>
-      <p>가장 큰 비용 항목은 무엇이었나요? <span class="box wide"></span>
-         <br>이유를 한 문장으로 적어 보세요.</p>
-      <div class="lines"></div>
-    </div>
-  </div>
+ <div class="q" style="margin-top:8px;">
+ <span class="no">13</span>
+ <p>가장 큰 비용 항목은 무엇이었나요? <span class="box wide"></span>
+ <br>이유를 한 문장으로 적어 보세요.</p>
+ <div class="lines"></div>
+ </div>
+ </div>
 
-  <div class="tip">
-    <span class="tip-title">💡 예비비를 왜 챙겨요?</span>
-    여행 중에는 갑자기 비가 와서 우산을 사거나, 차가 늦어서 택시를 타야 할 때가 있어요.
-    <b>예비비(5~10%)</b>를 미리 챙겨 두면 당황하지 않아요.
-  </div>
+ <div class="tip">
+ <span class="tip-title">💡 예비비를 왜 챙겨요?</span>
+ 여행 중에는 갑자기 비가 와서 우산을 사거나, 차가 늦어서 택시를 타야 할 때가 있어요.
+ <b>예비비(5~10%)</b>를 미리 챙겨 두면 당황하지 않아요.
+ </div>
 </section>
 
 <!-- ════════════ 5쪽: 더치페이 + 마무리 ════════════ -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">5</div>
-    <div class="ph-title">
-      <h2>더치페이와 마무리</h2>
-      <p>총 비용 ÷ 인원 = 1인 부담금. 그리고 다짐</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">5</div>
+ <div class="ph-title">
+ <h2>더치페이와 마무리</h2>
+ <p>총 비용 ÷ 인원 = 1인 부담금. 그리고 다짐</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>💬 <b>채원</b>: "그럼 합계를 4명으로 똑같이 나누면 되는 거지?"<br>
-    💬 <b>하영</b>: "맞아. 그게 <b>더치페이</b>야. 공평하게 나누는 거!"</p>
-  </div>
+ <div class="scene">
+ <p>💬 <b>채원</b>: "그럼 합계를 4명으로 똑같이 나누면 되는 거지?"<br>
+ 💬 <b>하영</b>: "맞아. 그게 <b>더치페이</b>야. 공평하게 나누는 거!"</p>
+ </div>
 
-  <div class="formula">
-    💸 <b>1인 부담금 = 총 비용 ÷ 인원수(4명)</b>
-  </div>
+ <div class="formula">
+ 💸 <b>1인 부담금 = 총 비용 ÷ 인원수(4명)</b>
+ </div>
 
-  <div class="practice">
-    <h3>✏️ 활동 9 — 더치페이 계산</h3>
-    <div class="q">
-      <span class="no">14</span>
-      <p>4쪽에서 구한 <b>총 합계</b>를 적어 보세요. <span class="box wide"></span> 원</p>
-    </div>
-    <div class="q">
-      <span class="no">15</span>
-      <p>이 금액을 <b>4명</b>으로 나누면, 1인 부담금은? <br>
-        (총 합계) ÷ 4 = <span class="box wide"></span> 원</p>
-    </div>
-    <div class="q">
-      <span class="no">16</span>
-      <p><b>1인당 30만원</b>이 예산이었어요. 우리가 정한 여행은 예산 안에 들어가나요?<br>
-        <span class="check"></span> 네 / <span class="check"></span> 아니요 → <span class="check"></span> 줄일 항목: <span class="box wide"></span></p>
-    </div>
-    <div class="q">
-      <span class="no">17</span>
-      <p>나누어 떨어지지 않을 때(예: 712,345원 ÷ 4 = 178,086.25원)는 어떻게 할까요?<br>
-        <span class="check"></span> 100원 단위로 올림 / <span class="check"></span> 한 명이 동전 부분만 더 내기 / <span class="check"></span> 다음 식사 살 때 차이만큼 채우기</p>
-    </div>
-  </div>
+ <div class="practice">
+ <h3>✏️ 활동 9 — 더치페이 계산</h3>
+ <div class="q">
+ <span class="no">14</span>
+ <p>4쪽에서 구한 <b>총 합계</b>를 적어 보세요. <span class="box wide"></span> 원</p>
+ </div>
+ <div class="q">
+ <span class="no">15</span>
+ <p>이 금액을 <b>4명</b>으로 나누면, 1인 부담금은? <br>
+ (총 합계) ÷ 4 = <span class="box wide"></span> 원</p>
+ </div>
+ <div class="q">
+ <span class="no">16</span>
+ <p><b>1인당 30만원</b>이 예산이었어요. 우리가 정한 여행은 예산 안에 들어가나요?<br>
+ <span class="check"></span> 네 / <span class="check"></span> 아니요 → <span class="check"></span> 줄일 항목: <span class="box wide"></span></p>
+ </div>
+ <div class="q">
+ <span class="no">17</span>
+ <p>나누어 떨어지지 않을 때(예: 712,345원 ÷ 4 = 178,086.25원)는 어떻게 할까요?<br>
+ <span class="check"></span> 100원 단위로 올림 / <span class="check"></span> 한 명이 동전 부분만 더 내기 / <span class="check"></span> 다음 식사 살 때 차이만큼 채우기</p>
+ </div>
+ </div>
 
-  <div class="practice">
-    <h3>💬 활동 10 — 친구에게 말하기</h3>
-    <div class="q">
-      <span class="no">18</span>
-      <p><b>"네가 먼저 결제하면 내가 송금할게."</b> 같은 말처럼, 더치페이를 부드럽게 정리하는 <b>나만의 문장</b>을 적어 보세요.</p>
-      <div class="lines two"></div>
-    </div>
-    <div class="q">
-      <span class="no">19</span>
-      <p>친구가 <b>"돈이 모자라서 다음 달에 줄게"</b>라고 해요. 어떻게 대답할까요?</p>
-      <div class="lines two"></div>
-    </div>
-  </div>
+ <div class="practice">
+ <h3>💬 활동 10 — 친구에게 말하기</h3>
+ <div class="q">
+ <span class="no">18</span>
+ <p><b>"네가 먼저 결제하면 내가 송금할게."</b> 같은 말처럼, 더치페이를 부드럽게 정리하는 <b>나만의 문장</b>을 적어 보세요.</p>
+ <div class="lines two"></div>
+ </div>
+ <div class="q">
+ <span class="no">19</span>
+ <p>친구가 <b>"돈이 모자라서 다음 달에 줄게"</b>라고 해요. 어떻게 대답할까요?</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
 
-  <div class="wrap-up">
-    <h3>🌟 나의 여행 다짐</h3>
-    <p style="text-align:center; margin:0 0 6px; color:#455a64;">이번 학습지에서 배운 것을 떠올리며, 진짜 여행에서 지킬 다짐을 적어 보세요.</p>
-    <div class="lines three"></div>
-  </div>
+ <div class="wrap-up">
+ <h3>🌟 나의 여행 다짐</h3>
+ <p style="text-align:center; margin:0 0 6px; color:#455a64;">이번 학습지에서 배운 것을 떠올리며, 진짜 여행에서 지킬 다짐을 적어 보세요.</p>
+ <div class="lines three"></div>
+ </div>
 </section>
 
 </body>

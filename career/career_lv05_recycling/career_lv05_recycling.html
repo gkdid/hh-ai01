@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 11pt; line-height: 1.6; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 11pt; line-height: 1.6; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #00695c; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #00695c; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b2dfdb; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #b2dfdb 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #004d40;
-  border-bottom: 2px solid #4db6ac; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #4db6ac; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #00695c; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #00695c; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #00695c; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #004d40; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #004d40; font-weight: 500; }
 .cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 6px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #004d40; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #00695c; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #00695c; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #004d40; font-size: 1.35em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #00695c; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -104,279 +104,278 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">♻️ L5 분리수거</span><span class="muted">진로·직업 · 쉬운 버전</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">♻️ L5 분리수거</span><span class="muted">진로·직업 · 쉬운 버전</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">진로·직업</span> · 스스로 하기 · <b style="color:#004d40;">L5</b></span>
-    <span>혜화여자고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">분리수거 · 다시 쓰기</span>
-    <h1>채원이의 재활용</h1>
-    <p class="lead">종류별로 나누고, 씻고 접어서 버려요!</p>
-  </div>
-  <div class="cover-emoji">♻️ 🌍 🌱 🗑</div>
-  <div class="cover-info">
-    <h3>🎯 오늘 배울 것</h3>
-    <ul>
-      <li>쓰레기 <b>종류</b>를 알아요.</li>
-      <li>버리기 전에 <b>씻고·떼고·접기</b>를 해요.</li>
-      <li>헷갈리는 물건을 <b>어디에</b> 버릴지 알아요.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="background:#e8f5e9; border-color:#66bb6a;">
-    <h3 style="color:#1b5e20;">등장인물</h3>
-    <p style="margin:0; font-size:0.95em;">🌸 하은 · 🌼 하영 · 🌷 주은 · 🌻 주현 · 🌺 미정 · 🌹 채원 · 🌱 예은</p>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
-    <p style="margin:0;"><b>채원이</b>는 환경을 지키고 싶어 해요. 재활용을 잘하려면 어떻게 해야 할까요?</p>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">진로·직업 · L5 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">진로·직업</span> · 스스로 하기 · <b style="color:#004d40;">L5</b></span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">분리수거 · 다시 쓰기</span>
+ <h1>채원이의 재활용</h1>
+ <p class="lead">종류별로 나누고, 씻고 접어서 버려요!</p>
+ </div>
+ <div class="cover-emoji">♻️ 🌍 🌱 🗑</div>
+ <div class="cover-info">
+ <h3>🎯 오늘 배울 것</h3>
+ <ul>
+ <li>쓰레기 <b>종류</b>를 알아요.</li>
+ <li>버리기 전에 <b>씻고·떼고·접기</b>를 해요.</li>
+ <li>헷갈리는 물건을 <b>어디에</b> 버릴지 알아요.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="background:#e8f5e9; border-color:#66bb6a;">
+ <h3 style="color:#1b5e20;">등장인물</h3>
+ <p style="margin:0; font-size:0.95em;">🌸 하은 · 🌼 하영 · 🌷 주은 · 🌻 주현 · 🌺 미정 · 🌹 채원 · 🌱 예은</p>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+ <p style="margin:0;"><b>채원이</b>는 환경을 지키고 싶어 해요. 재활용을 잘하려면 어떻게 해야 할까요?</p>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">진로·직업 · L5 · 표지</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>♻️ 쓰레기 종류와 버리는 규칙</h2>
-    <span class="step">1쪽 · 종류</span>
-  </div>
-  <div class="intro">
-    쓰레기를 그냥 버리면 <b>다시 쓸 수 없어요.</b> 종류별로 <b>나누어서</b> 버리면 자원이 돼요.
-  </div>
+ <div class="page-head">
+ <h2>♻️ 쓰레기 종류와 버리는 규칙</h2>
+ <span class="step">1쪽 · 종류</span>
+ </div>
+ <div class="intro">
+ 쓰레기를 그냥 버리면 <b>다시 쓸 수 없어요.</b> 종류별로 <b>나누어서</b> 버리면 자원이 돼요.
+ </div>
 
-  <div class="categories">
-    <div class="cat-card paper">
-      <div class="icon">📄</div>
-      <div class="name">종이류</div>
-      <ul><li>신문지</li><li>박스</li><li>노트</li></ul>
-    </div>
-    <div class="cat-card plastic">
-      <div class="icon">🥤</div>
-      <div class="name">플라스틱</div>
-      <ul><li>페트병</li><li>플라스틱 통</li></ul>
-    </div>
-    <div class="cat-card metal">
-      <div class="icon">🥫</div>
-      <div class="name">캔</div>
-      <ul><li>음료수 캔</li><li>통조림 캔</li></ul>
-    </div>
-    <div class="cat-card glass">
-      <div class="icon">🍾</div>
-      <div class="name">유리병</div>
-      <ul><li>주스병</li><li>음료수병</li></ul>
-    </div>
-    <div class="cat-card vinyl">
-      <div class="icon">🛍</div>
-      <div class="name">비닐</div>
-      <ul><li>과자 봉지</li><li>라면 봉지</li></ul>
-    </div>
-    <div class="cat-card foam">
-      <div class="icon">📦</div>
-      <div class="name">스티로폼</div>
-      <ul><li>택배 상자</li><li>포장재</li></ul>
-    </div>
-    <div class="cat-card food">
-      <div class="icon">🍎</div>
-      <div class="name">음식물</div>
-      <ul><li>야채·과일</li><li>남은 밥</li></ul>
-    </div>
-    <div class="cat-card general">
-      <div class="icon">🗑</div>
-      <div class="name">일반쓰레기</div>
-      <ul><li>기저귀</li><li>더러운 종이</li></ul>
-    </div>
-  </div>
+ <div class="categories">
+ <div class="cat-card paper">
+ <div class="icon">📄</div>
+ <div class="name">종이류</div>
+ <ul><li>신문지</li><li>박스</li><li>노트</li></ul>
+ </div>
+ <div class="cat-card plastic">
+ <div class="icon">🥤</div>
+ <div class="name">플라스틱</div>
+ <ul><li>페트병</li><li>플라스틱 통</li></ul>
+ </div>
+ <div class="cat-card metal">
+ <div class="icon">🥫</div>
+ <div class="name">캔</div>
+ <ul><li>음료수 캔</li><li>통조림 캔</li></ul>
+ </div>
+ <div class="cat-card glass">
+ <div class="icon">🍾</div>
+ <div class="name">유리병</div>
+ <ul><li>주스병</li><li>음료수병</li></ul>
+ </div>
+ <div class="cat-card vinyl">
+ <div class="icon">🛍</div>
+ <div class="name">비닐</div>
+ <ul><li>과자 봉지</li><li>라면 봉지</li></ul>
+ </div>
+ <div class="cat-card foam">
+ <div class="icon">📦</div>
+ <div class="name">스티로폼</div>
+ <ul><li>택배 상자</li><li>포장재</li></ul>
+ </div>
+ <div class="cat-card food">
+ <div class="icon">🍎</div>
+ <div class="name">음식물</div>
+ <ul><li>야채·과일</li><li>남은 밥</li></ul>
+ </div>
+ <div class="cat-card general">
+ <div class="icon">🗑</div>
+ <div class="name">일반쓰레기</div>
+ <ul><li>기저귀</li><li>더러운 종이</li></ul>
+ </div>
+ </div>
 
-  <div class="rules-box">
-    <div class="title">🌟 버리기 전에 3가지</div>
-    <div class="rules">
-      <div class="r"><b>💧 씻기</b><br>남은 것이 있으면<br>씻어요</div>
-      <div class="r"><b>🏷 떼기</b><br>페트병 라벨,<br>테이프 떼기</div>
-      <div class="r"><b>📦 접기</b><br>박스는 접어서<br>부피 줄이기</div>
-    </div>
-  </div>
+ <div class="rules-box">
+ <div class="title">🌟 버리기 전에 3가지</div>
+ <div class="rules">
+ <div class="r"><b>💧 씻기</b><br>남은 것이 있으면<br>씻어요</div>
+ <div class="r"><b>🏷 떼기</b><br>페트병 라벨,<br>테이프 떼기</div>
+ <div class="r"><b>📦 접기</b><br>박스는 접어서<br>부피 줄이기</div>
+ </div>
+ </div>
 
-  <div class="tricky-list">
-    <div class="title">🤔 헷갈리는 것들</div>
-    <table>
-      <tr><th style="width:30%;">물건</th><th>어디에 버릴까요?</th></tr>
-      <tr><td class="item">🥛 우유팩</td><td>씻어서 → <b>종이팩 통</b> (일반 종이와 따로)</td></tr>
-      <tr><td class="item">🥡 배달 그릇 (플라스틱)</td><td>씻어서 → <b>플라스틱</b></td></tr>
-      <tr><td class="item">🔋 다 쓴 건전지</td><td>일반쓰레기 <b>X!</b> <b>주민센터</b>에 가져가요</td></tr>
-      <tr><td class="item">💊 남은 약</td><td><b>약국</b>에 가져다 줘요</td></tr>
-    </table>
-  </div>
+ <div class="tricky-list">
+ <div class="title">🤔 헷갈리는 것들</div>
+ <table>
+ <tr><th style="width:30%;">물건</th><th>어디에 버릴까요?</th></tr>
+ <tr><td class="item">🥛 우유팩</td><td>씻어서 → <b>종이팩 통</b> (일반 종이와 따로)</td></tr>
+ <tr><td class="item">🥡 배달 그릇 (플라스틱)</td><td>씻어서 → <b>플라스틱</b></td></tr>
+ <tr><td class="item">🔋 다 쓴 건전지</td><td>일반쓰레기 <b>X!</b> <b>주민센터</b>에 가져가요</td></tr>
+ <tr><td class="item">💊 남은 약</td><td><b>약국</b>에 가져다 줘요</td></tr>
+ </table>
+ </div>
 
-  <div class="page-foot">진로·직업 · L5 · 1쪽 / 2</div>
+ <div class="page-foot">진로·직업 · L5 · 1쪽 / 2</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>✏️ 채원이처럼 분리수거 연습</h2>
-    <span class="step">2쪽 · 연습</span>
-  </div>
-  <div class="intro">
-    채원이의 집에서 나온 쓰레기들을 <b>알맞은 곳</b>에 나눠 봐요.
-  </div>
+ <div class="page-head">
+ <h2>✏️ 채원이처럼 분리수거 연습</h2>
+ <span class="step">2쪽 · 연습</span>
+ </div>
+ <div class="intro">
+ 채원이의 집에서 나온 쓰레기들을 <b>알맞은 곳</b>에 나눠 봐요.
+ </div>
 
-  <div class="story">
-    <span class="who">채원</span>주말에 채원이 가족이 배달 음식을 시켜 먹었어요. 오늘 나온 쓰레기가 많아요! <b>어디에 버려야 할까요?</b>
-  </div>
+ <div class="story">
+ <span class="who">채원</span>주말에 채원이 가족이 배달 음식을 시켜 먹었어요. 오늘 나온 쓰레기가 많아요! <b>어디에 버려야 할까요?</b>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 쓰레기 나누기</h3><span class="tag">고르기</span></div>
-    <div class="choicebox">
-      <span class="cblabel">보기</span>
-      <span class="cbitem">종이류</span>
-      <span class="cbitem">플라스틱</span>
-      <span class="cbitem">캔</span>
-      <span class="cbitem">유리병</span>
-      <span class="cbitem">비닐</span>
-      <span class="cbitem">음식물</span>
-      <span class="cbitem">일반쓰레기</span>
-    </div>
-    <p>① 다 마신 페트병 → <span class="example">예) 플라스틱</span> ← 예시 답</p>
-    <p>② 참치캔 (씻어서) → <span class="example">예) 캔</span> ← 예시 답</p>
-    <p>③ 라면 봉지 → <span class="blank" style="min-width:120px;">&nbsp;</span></p>
-    <p>④ 사과 껍질 → <span class="blank" style="min-width:120px;">&nbsp;</span></p>
-    <p>⑤ 신문지 → <span class="blank" style="min-width:120px;">&nbsp;</span></p>
-    <p>⑥ 유리 주스병 → <span class="blank" style="min-width:120px;">&nbsp;</span></p>
-    <p>⑦ 사용한 마스크 → <span class="blank" style="min-width:120px;">&nbsp;</span></p>
-    <p>⑧ 택배 상자 (테이프 뗌) → <span class="blank" style="min-width:120px;">&nbsp;</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 쓰레기 나누기</h3><span class="tag">고르기</span></div>
+ <div class="choicebox">
+ <span class="cblabel">보기</span>
+ <span class="cbitem">종이류</span>
+ <span class="cbitem">플라스틱</span>
+ <span class="cbitem">캔</span>
+ <span class="cbitem">유리병</span>
+ <span class="cbitem">비닐</span>
+ <span class="cbitem">음식물</span>
+ <span class="cbitem">일반쓰레기</span>
+ </div>
+ <p>① 다 마신 페트병 → <span class="example">예) 플라스틱</span> ← 예시 답</p>
+ <p>② 참치캔 (씻어서) → <span class="example">예) 캔</span> ← 예시 답</p>
+ <p>③ 라면 봉지 → <span class="blank" style="min-width:120px;">&nbsp;</span></p>
+ <p>④ 사과 껍질 → <span class="blank" style="min-width:120px;">&nbsp;</span></p>
+ <p>⑤ 신문지 → <span class="blank" style="min-width:120px;">&nbsp;</span></p>
+ <p>⑥ 유리 주스병 → <span class="blank" style="min-width:120px;">&nbsp;</span></p>
+ <p>⑦ 사용한 마스크 → <span class="blank" style="min-width:120px;">&nbsp;</span></p>
+ <p>⑧ 택배 상자 (테이프 뗌) → <span class="blank" style="min-width:120px;">&nbsp;</span></p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 배출 O · X</h3><span class="tag">O·X</span></div>
-    <p>맞으면 <b>O</b>, 틀리면 <b>X</b>를 써요.</p>
-    <p>① 페트병 라벨은 떼고 버려요. → ( <span class="blank" style="min-width:40px;">&nbsp;</span> )</p>
-    <p>② 박스는 접어서 버려요. → ( <span class="blank" style="min-width:40px;">&nbsp;</span> )</p>
-    <p>③ 음식물이 남은 그릇을 그냥 버려요. → ( <span class="blank" style="min-width:40px;">&nbsp;</span> )</p>
-    <p>④ 다 쓴 건전지는 일반쓰레기에 버려요. → ( <span class="blank" style="min-width:40px;">&nbsp;</span> )</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 배출 O · X</h3><span class="tag">O·X</span></div>
+ <p>맞으면 <b>O</b>, 틀리면 <b>X</b>를 써요.</p>
+ <p>① 페트병 라벨은 떼고 버려요. → ( <span class="blank" style="min-width:40px;">&nbsp;</span> )</p>
+ <p>② 박스는 접어서 버려요. → ( <span class="blank" style="min-width:40px;">&nbsp;</span> )</p>
+ <p>③ 음식물이 남은 그릇을 그냥 버려요. → ( <span class="blank" style="min-width:40px;">&nbsp;</span> )</p>
+ <p>④ 다 쓴 건전지는 일반쓰레기에 버려요. → ( <span class="blank" style="min-width:40px;">&nbsp;</span> )</p>
+ </div>
 
-  <div class="tip">
-    💡 <b>재활용 잘하는 방법</b><br>
-    · <b>씻어서 말리기</b>: 젖으면 다시 쓸 수 없어요<br>
-    · <b>라벨과 뚜껑 따로</b>: 재질이 달라요<br>
-    · <b>우리 동네 규칙</b> 확인해요
-  </div>
+ <div class="tip">
+ 💡 <b>재활용 잘하는 방법</b><br>
+ · <b>씻어서 말리기</b>: 젖으면 다시 쓸 수 없어요<br>
+ · <b>라벨과 뚜껑 따로</b>: 재질이 달라요<br>
+ · <b>우리 동네 규칙</b> 확인해요
+ </div>
 
-  <div class="good"><b>💡 잘하고 있어요!</b> 재활용은 <b>지구를 지키는 일</b>이에요. 오늘 우리 집 쓰레기 하나부터 시작해 봐요.</div>
+ <div class="good"><b>💡 잘하고 있어요!</b> 재활용은 <b>지구를 지키는 일</b>이에요. 오늘 우리 집 쓰레기 하나부터 시작해 봐요.</div>
 
-  <div class="page-foot">진로·직업 · L5 · 2쪽 / 2</div>
+ <div class="page-foot">진로·직업 · L5 · 2쪽 / 2</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

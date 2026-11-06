@@ -3,712 +3,712 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>칭찬 스티커 — 혜화여자고등학교 특수학급</title>
+<title>칭찬 스티커 — </title>
 <style>
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 body {
-  font-family: 'Pretendard', 'Malgun Gothic', '맑은 고딕', AppleGothic, sans-serif;
-  background: linear-gradient(135deg, #fef6ff 0%, #fff7e6 100%);
-  color: #2d2438;
-  min-height: 100vh;
-  font-size: 16px;
-  line-height: 1.5;
+ font-family: 'Pretendard', 'Malgun Gothic', '맑은 고딕', AppleGothic, sans-serif;
+ background: linear-gradient(135deg, #fef6ff 0%, #fff7e6 100%);
+ color: #2d2438;
+ min-height: 100vh;
+ font-size: 16px;
+ line-height: 1.5;
 }
 
 /* 상단 헤더 */
 .app-header {
-  background: linear-gradient(135deg, #6a1b9a 0%, #c2185b 100%);
-  color: #fff;
-  padding: 18px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  box-shadow: 0 2px 10px rgba(106, 27, 154, 0.2);
+ background: linear-gradient(135deg, #6a1b9a 0%, #c2185b 100%);
+ color: #fff;
+ padding: 18px 24px;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ flex-wrap: wrap;
+ gap: 12px;
+ box-shadow: 0 2px 10px rgba(106, 27, 154, 0.2);
 }
 .app-header h1 {
-  margin: 0;
-  font-size: 1.5em;
-  font-weight: 900;
-  letter-spacing: -0.5px;
+ margin: 0;
+ font-size: 1.5em;
+ font-weight: 900;
+ letter-spacing: -0.5px;
 }
 .app-header h1 .emoji { margin-right: 6px; }
 .app-header .sub { font-size: 0.85em; opacity: 0.85; margin-left: 8px; font-weight: 400; }
 
 .header-tools {
-  display: inline-flex;
-  gap: 10px;
-  align-items: center;
-  flex-wrap: wrap;
+ display: inline-flex;
+ gap: 10px;
+ align-items: center;
+ flex-wrap: wrap;
 }
 .btn-print {
-  background: #fff;
-  color: #6a1b9a;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 12px;
-  font-weight: 700;
-  cursor: pointer;
-  font-size: 0.95em;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+ background: #fff;
+ color: #6a1b9a;
+ border: none;
+ padding: 8px 16px;
+ border-radius: 12px;
+ font-weight: 700;
+ cursor: pointer;
+ font-size: 0.95em;
+ box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 .btn-print:hover { background: #f3e5f5; }
 .print-header { display: none; }
 
 .mode-toggle {
-  display: inline-flex;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 4px;
-  border-radius: 12px;
-  gap: 4px;
+ display: inline-flex;
+ background: rgba(255, 255, 255, 0.2);
+ padding: 4px;
+ border-radius: 12px;
+ gap: 4px;
 }
 .mode-toggle button {
-  border: none;
-  background: transparent;
-  color: #fff;
-  padding: 8px 16px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 0.95em;
-  cursor: pointer;
-  transition: all 0.2s;
+ border: none;
+ background: transparent;
+ color: #fff;
+ padding: 8px 16px;
+ border-radius: 8px;
+ font-weight: 700;
+ font-size: 0.95em;
+ cursor: pointer;
+ transition: all 0.2s;
 }
 .mode-toggle button.active {
-  background: #fff;
-  color: #6a1b9a;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+ background: #fff;
+ color: #6a1b9a;
+ box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 main {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 20px 18px 60px;
+ max-width: 1300px;
+ margin: 0 auto;
+ padding: 20px 18px 60px;
 }
 
 /* ─── 학생 보기 모드 ─── */
 .view-stickers {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 18px;
 }
 @media (max-width: 900px) {
-  .view-stickers { grid-template-columns: repeat(2, 1fr); }
+ .view-stickers { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 600px) {
-  .view-stickers { grid-template-columns: 1fr; }
+ .view-stickers { grid-template-columns: 1fr; }
 }
 
 .student-card {
-  background: rgba(var(--accent-rgb, 106, 27, 154), 0.32);
-  border-radius: 20px;
-  padding: 20px 22px;
-  box-shadow: 0 4px 16px rgba(106, 27, 154, 0.12);
-  border: 2px solid transparent;
-  border-top: 8px solid var(--accent, #ce93d8);
-  transition: all 0.2s;
+ background: rgba(var(--accent-rgb, 106, 27, 154), 0.32);
+ border-radius: 20px;
+ padding: 20px 22px;
+ box-shadow: 0 4px 16px rgba(106, 27, 154, 0.12);
+ border: 2px solid transparent;
+ border-top: 8px solid var(--accent, #ce93d8);
+ transition: all 0.2s;
 }
 .student-card:hover {
-  border-color: var(--accent, #ce93d8);
-  transform: translateY(-2px);
+ border-color: var(--accent, #ce93d8);
+ transform: translateY(-2px);
 }
 
 .sc-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 12px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ margin-bottom: 12px;
 }
 .sc-name {
-  font-size: 1.75em;
-  font-weight: 900;
-  color: var(--accent, #4a148c);
-  letter-spacing: -0.5px;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+ font-size: 1.75em;
+ font-weight: 900;
+ color: var(--accent, #4a148c);
+ letter-spacing: -0.5px;
+ text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 .sc-count {
-  font-size: 1.6em;
-  font-weight: 900;
-  color: var(--accent, #c2185b);
-  display: flex;
-  align-items: baseline;
-  gap: 4px;
+ font-size: 1.6em;
+ font-weight: 900;
+ color: var(--accent, #c2185b);
+ display: flex;
+ align-items: baseline;
+ gap: 4px;
 }
 .sc-count .unit { font-size: 0.55em; font-weight: 600; color: #888; }
 
 .sticker-grid {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 4px;
-  background: rgba(255, 255, 255, 0.55);
-  padding: 10px;
-  border-radius: 12px;
-  min-height: 56px;
-  margin-bottom: 12px;
+ display: grid;
+ grid-template-columns: repeat(10, 1fr);
+ gap: 4px;
+ background: rgba(255, 255, 255, 0.55);
+ padding: 10px;
+ border-radius: 12px;
+ min-height: 56px;
+ margin-bottom: 12px;
 }
 .sticker-grid .star {
-  aspect-ratio: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1em;
-  overflow: hidden;
-  border-radius: 50%;
-  background: #fff;
+ aspect-ratio: 1;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 1.1em;
+ overflow: hidden;
+ border-radius: 50%;
+ background: #fff;
 }
 .sticker-grid .star img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ display: block;
 }
 .sticker-grid .star.filled {
-  box-shadow: 0 1px 3px rgba(106, 27, 154, 0.25);
+ box-shadow: 0 1px 3px rgba(106, 27, 154, 0.25);
 }
 .sticker-grid .star.empty {
-  opacity: 0.28;
-  filter: grayscale(1);
-  background: rgba(255, 255, 255, 0.6);
+ opacity: 0.28;
+ filter: grayscale(1);
+ background: rgba(255, 255, 255, 0.6);
 }
 
 .sc-progress {
-  font-size: 0.88em;
-  color: #333;
-  background: rgba(255, 255, 255, 0.7);
-  padding: 8px 12px;
-  border-radius: 10px;
-  margin-bottom: 8px;
+ font-size: 0.88em;
+ color: #333;
+ background: rgba(255, 255, 255, 0.7);
+ padding: 8px 12px;
+ border-radius: 10px;
+ margin-bottom: 8px;
 }
 .sc-progress .next-reward {
-  font-weight: 700;
-  color: var(--accent, #6a1b9a);
+ font-weight: 700;
+ color: var(--accent, #6a1b9a);
 }
 .progress-bar {
-  height: 8px;
-  background: var(--accent-bg, #ede7f6);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-top: 6px;
+ height: 8px;
+ background: var(--accent-bg, #ede7f6);
+ border-radius: 4px;
+ overflow: hidden;
+ margin-top: 6px;
 }
 .progress-bar > div {
-  height: 100%;
-  background: var(--accent, #ab47bc);
-  transition: width 0.3s;
+ height: 100%;
+ background: var(--accent, #ab47bc);
+ transition: width 0.3s;
 }
 
 .sc-history {
-  font-size: 0.82em;
-  color: #777;
-  border-top: 1px dashed #e0d4ec;
-  padding-top: 10px;
-  margin-top: 6px;
+ font-size: 0.82em;
+ color: #777;
+ border-top: 1px dashed #e0d4ec;
+ padding-top: 10px;
+ margin-top: 6px;
 }
 .sc-history .h-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 2px 0;
+ display: flex;
+ justify-content: space-between;
+ padding: 2px 0;
 }
 .sc-history .h-give { color: #2e7d32; }
 .sc-history .h-redeem { color: #c2185b; }
 
 /* ─── 교사 모드 ─── */
 .teacher-panel {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 18px;
+ display: grid;
+ grid-template-columns: 2fr 1fr;
+ gap: 18px;
 }
 @media (max-width: 900px) {
-  .teacher-panel { grid-template-columns: 1fr; }
+ .teacher-panel { grid-template-columns: 1fr; }
 }
 
 .panel {
-  background: #fff;
-  border-radius: 16px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(106, 27, 154, 0.08);
+ background: #fff;
+ border-radius: 16px;
+ padding: 20px;
+ box-shadow: 0 2px 10px rgba(106, 27, 154, 0.08);
 }
 .panel h2 {
-  margin: 0 0 14px;
-  font-size: 1.15em;
-  color: #4a148c;
-  border-bottom: 2px solid #ede7f6;
-  padding-bottom: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+ margin: 0 0 14px;
+ font-size: 1.15em;
+ color: #4a148c;
+ border-bottom: 2px solid #ede7f6;
+ padding-bottom: 8px;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
 }
 
 .teacher-student {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 12px;
-  border: 1px solid #ede7f6;
-  border-left: 6px solid var(--accent, #ede7f6);
-  border-radius: 12px;
-  margin-bottom: 10px;
-  background: #fafafa;
+ display: flex;
+ flex-direction: column;
+ gap: 8px;
+ padding: 12px;
+ border: 1px solid #ede7f6;
+ border-left: 6px solid var(--accent, #ede7f6);
+ border-radius: 12px;
+ margin-bottom: 10px;
+ background: #fafafa;
 }
 .teacher-student .ts-row-main {
-  display: grid;
-  grid-template-columns: 1fr auto auto auto auto;
-  gap: 10px;
-  align-items: center;
+ display: grid;
+ grid-template-columns: 1fr auto auto auto auto;
+ gap: 10px;
+ align-items: center;
 }
 .btn-give-preview {
-  width: 18px;
-  height: 18px;
-  object-fit: cover;
-  border-radius: 3px;
-  vertical-align: middle;
-  margin-right: 4px;
+ width: 18px;
+ height: 18px;
+ object-fit: cover;
+ border-radius: 3px;
+ vertical-align: middle;
+ margin-right: 4px;
 }
 .sticker-library {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  align-items: center;
-  padding-top: 4px;
-  border-top: 1px dashed #e0d4ec;
+ display: flex;
+ gap: 6px;
+ flex-wrap: wrap;
+ align-items: center;
+ padding-top: 4px;
+ border-top: 1px dashed #e0d4ec;
 }
 .sticker-library .lib-label {
-  font-size: 0.78em;
-  color: #777;
-  margin-right: 2px;
+ font-size: 0.78em;
+ color: #777;
+ margin-right: 2px;
 }
 .sticker-library .chip-wrap {
-  position: relative;
-  display: inline-block;
+ position: relative;
+ display: inline-block;
 }
 .sticker-chip {
-  width: 38px;
-  height: 38px;
-  border-radius: 6px;
-  border: 2px solid #ddd;
-  background: #fff;
-  padding: 0;
-  cursor: pointer;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75em;
-  color: #666;
-  transition: all 0.15s;
+ width: 38px;
+ height: 38px;
+ border-radius: 6px;
+ border: 2px solid #ddd;
+ background: #fff;
+ padding: 0;
+ cursor: pointer;
+ overflow: hidden;
+ display: inline-flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 0.75em;
+ color: #666;
+ transition: all 0.15s;
 }
 .sticker-chip:hover { border-color: #aaa; }
 .sticker-chip.selected {
-  border-color: var(--accent, #6a1b9a);
-  border-width: 3px;
-  box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
+ border-color: var(--accent, #6a1b9a);
+ border-width: 3px;
+ box-shadow: 0 0 0 2px rgba(0,0,0,0.05);
 }
 .sticker-chip img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ display: block;
 }
 .sticker-chip.default .chip-default {
-  font-size: 1.5em;
+ font-size: 1.5em;
 }
 .sticker-chip.add {
-  border-style: dashed;
-  color: #6a1b9a;
-  font-weight: 700;
-  width: auto;
-  padding: 0 10px;
-  min-width: 38px;
+ border-style: dashed;
+ color: #6a1b9a;
+ font-weight: 700;
+ width: auto;
+ padding: 0 10px;
+ min-width: 38px;
 }
 .sticker-chip.add:hover { background: #f3e5f5; }
 .chip-wrap .chip-del {
-  position: absolute;
-  top: -6px;
-  right: -6px;
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background: rgba(0, 0, 0, 0.65);
-  color: #fff;
-  border: none;
-  font-size: 12px;
-  cursor: pointer;
-  padding: 0;
-  line-height: 16px;
-  display: none;
+ position: absolute;
+ top: -6px;
+ right: -6px;
+ width: 18px;
+ height: 18px;
+ border-radius: 50%;
+ background: rgba(0, 0, 0, 0.65);
+ color: #fff;
+ border: none;
+ font-size: 12px;
+ cursor: pointer;
+ padding: 0;
+ line-height: 16px;
+ display: none;
 }
 .chip-wrap:hover .chip-del { display: block; }
 .teacher-student .ts-name {
-  font-weight: 700;
-  font-size: 1.05em;
-  color: var(--accent, #4a148c);
+ font-weight: 700;
+ font-size: 1.05em;
+ color: var(--accent, #4a148c);
 }
 .teacher-student .ts-count {
-  font-weight: 900;
-  color: var(--accent, #c2185b);
-  font-size: 1.1em;
-  min-width: 60px;
-  text-align: center;
+ font-weight: 900;
+ color: var(--accent, #c2185b);
+ font-size: 1.1em;
+ min-width: 60px;
+ text-align: center;
 }
 
 .color-dot {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  vertical-align: middle;
-  margin-right: 6px;
-  background: var(--accent, #ce93d8);
-  border: 2px solid #fff;
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
+ display: inline-block;
+ width: 14px;
+ height: 14px;
+ border-radius: 50%;
+ vertical-align: middle;
+ margin-right: 6px;
+ background: var(--accent, #ce93d8);
+ border: 2px solid #fff;
+ box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
 }
 .sticker-thumb {
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  border-radius: 4px;
-  vertical-align: middle;
-  margin-right: 6px;
-  object-fit: cover;
-  border: 1.5px solid var(--accent, #ce93d8);
+ display: inline-block;
+ width: 22px;
+ height: 22px;
+ border-radius: 4px;
+ vertical-align: middle;
+ margin-right: 6px;
+ object-fit: cover;
+ border: 1.5px solid var(--accent, #ce93d8);
 }
 .btn-color {
-  background: #fff;
-  color: #6a1b9a;
-  border: 1.5px solid #ce93d8;
-  padding: 4px 8px;
-  font-size: 0.8em;
-  margin-right: 6px;
+ background: #fff;
+ color: #6a1b9a;
+ border: 1.5px solid #ce93d8;
+ padding: 4px 8px;
+ font-size: 0.8em;
+ margin-right: 6px;
 }
 .btn-color:hover { background: #f3e5f5; }
 .teacher-student .ts-count .unit { font-size: 0.7em; color: #888; font-weight: 500; }
 
 .btn {
-  border: none;
-  border-radius: 8px;
-  padding: 8px 14px;
-  font-weight: 700;
-  font-size: 0.95em;
-  cursor: pointer;
-  transition: all 0.15s;
+ border: none;
+ border-radius: 8px;
+ padding: 8px 14px;
+ font-weight: 700;
+ font-size: 0.95em;
+ cursor: pointer;
+ transition: all 0.15s;
 }
 .btn-give {
-  background: #4caf50;
-  color: #fff;
-  font-size: 1.2em;
-  padding: 6px 14px;
+ background: #4caf50;
+ color: #fff;
+ font-size: 1.2em;
+ padding: 6px 14px;
 }
 .btn-give:hover { background: #2e7d32; }
 .btn-minus {
-  background: #fff;
-  color: #c2185b;
-  border: 1.5px solid #f8bbd0;
-  padding: 6px 10px;
+ background: #fff;
+ color: #c2185b;
+ border: 1.5px solid #f8bbd0;
+ padding: 6px 10px;
 }
 .btn-minus:hover { background: #fce4ec; }
 .btn-redeem {
-  background: #ff9800;
-  color: #fff;
-  padding: 6px 12px;
+ background: #ff9800;
+ color: #fff;
+ padding: 6px 12px;
 }
 .btn-redeem:hover { background: #e65100; }
 .btn-primary {
-  background: #6a1b9a;
-  color: #fff;
+ background: #6a1b9a;
+ color: #fff;
 }
 .btn-primary:hover { background: #4a148c; }
 .btn-secondary {
-  background: #fff;
-  color: #6a1b9a;
-  border: 1.5px solid #ce93d8;
+ background: #fff;
+ color: #6a1b9a;
+ border: 1.5px solid #ce93d8;
 }
 .btn-secondary:hover { background: #f3e5f5; }
 .btn-danger {
-  background: #fff;
-  color: #c62828;
-  border: 1.5px solid #ef9a9a;
-  padding: 4px 10px;
-  font-size: 0.85em;
+ background: #fff;
+ color: #c62828;
+ border: 1.5px solid #ef9a9a;
+ padding: 4px 10px;
+ font-size: 0.85em;
 }
 .btn-danger:hover { background: #ffebee; }
 
 .add-form {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 12px;
+ display: flex;
+ gap: 8px;
+ margin-bottom: 12px;
 }
 .add-form input {
-  flex: 1;
-  padding: 9px 12px;
-  border: 1.5px solid #d1c4e9;
-  border-radius: 8px;
-  font-size: 0.95em;
-  font-family: inherit;
+ flex: 1;
+ padding: 9px 12px;
+ border: 1.5px solid #d1c4e9;
+ border-radius: 8px;
+ font-size: 0.95em;
+ font-family: inherit;
 }
 .add-form input[type="number"] { flex: 0 0 100px; }
 .add-form input:focus { outline: none; border-color: #6a1b9a; }
 
 .reward-target {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
-  padding: 10px 12px;
-  background: #f3e5f5;
-  border-radius: 10px;
+ display: flex;
+ gap: 8px;
+ align-items: center;
+ margin-bottom: 10px;
+ flex-wrap: wrap;
+ padding: 10px 12px;
+ background: #f3e5f5;
+ border-radius: 10px;
 }
 .reward-target label {
-  font-weight: 700;
-  color: #6a1b9a;
-  font-size: 0.92em;
-  white-space: nowrap;
+ font-weight: 700;
+ color: #6a1b9a;
+ font-size: 0.92em;
+ white-space: nowrap;
 }
 .reward-target select {
-  flex: 1;
-  min-width: 140px;
-  padding: 8px 10px;
-  border: 1.5px solid #d1c4e9;
-  border-radius: 8px;
-  font-size: 0.95em;
-  font-family: inherit;
-  background: #fff;
-  color: #4a148c;
-  font-weight: 600;
+ flex: 1;
+ min-width: 140px;
+ padding: 8px 10px;
+ border: 1.5px solid #d1c4e9;
+ border-radius: 8px;
+ font-size: 0.95em;
+ font-family: inherit;
+ background: #fff;
+ color: #4a148c;
+ font-weight: 600;
 }
 .reward-target select:focus { outline: none; border-color: #6a1b9a; }
 .reward-target .btn { font-size: 0.85em; padding: 6px 12px; }
 
 .reward-item {
-  display: grid;
-  grid-template-columns: auto 1fr auto auto;
-  gap: 8px;
-  align-items: center;
-  padding: 10px;
-  border: 1px solid #ffe0b2;
-  border-radius: 10px;
-  margin-bottom: 8px;
-  background: #fff8e1;
+ display: grid;
+ grid-template-columns: auto 1fr auto auto;
+ gap: 8px;
+ align-items: center;
+ padding: 10px;
+ border: 1px solid #ffe0b2;
+ border-radius: 10px;
+ margin-bottom: 8px;
+ background: #fff8e1;
 }
 .reward-item .r-icon { font-size: 1.5em; }
 .reward-item .r-name { font-weight: 700; color: #e65100; }
 .reward-item .r-cost {
-  font-weight: 900;
-  color: #c2185b;
-  font-size: 0.95em;
-  padding: 3px 8px;
-  background: #fce4ec;
-  border-radius: 8px;
+ font-weight: 900;
+ color: #c2185b;
+ font-size: 0.95em;
+ padding: 3px 8px;
+ background: #fce4ec;
+ border-radius: 8px;
 }
 
 /* 보상 교환 모달 */
 .modal-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 100;
-  padding: 20px;
+ position: fixed;
+ inset: 0;
+ background: rgba(0, 0, 0, 0.5);
+ display: none;
+ align-items: center;
+ justify-content: center;
+ z-index: 100;
+ padding: 20px;
 }
 .modal-backdrop.show { display: flex; }
 .modal {
-  background: #fff;
-  border-radius: 16px;
-  padding: 22px;
-  max-width: 480px;
-  width: 100%;
-  max-height: 80vh;
-  overflow-y: auto;
+ background: #fff;
+ border-radius: 16px;
+ padding: 22px;
+ max-width: 480px;
+ width: 100%;
+ max-height: 80vh;
+ overflow-y: auto;
 }
 .modal h3 {
-  margin: 0 0 12px;
-  color: #4a148c;
+ margin: 0 0 12px;
+ color: #4a148c;
 }
 .modal .student-stickers {
-  background: #faf3ff;
-  padding: 10px 14px;
-  border-radius: 10px;
-  margin-bottom: 14px;
-  font-size: 0.95em;
+ background: #faf3ff;
+ padding: 10px 14px;
+ border-radius: 10px;
+ margin-bottom: 14px;
+ font-size: 0.95em;
 }
 .modal .reward-choose {
-  display: grid;
-  gap: 8px;
+ display: grid;
+ gap: 8px;
 }
 .modal .reward-choose button {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 10px;
-  align-items: center;
-  text-align: left;
-  background: #fff;
-  border: 2px solid #ffe0b2;
-  border-radius: 10px;
-  padding: 10px 14px;
-  cursor: pointer;
-  font-family: inherit;
+ display: grid;
+ grid-template-columns: auto 1fr auto;
+ gap: 10px;
+ align-items: center;
+ text-align: left;
+ background: #fff;
+ border: 2px solid #ffe0b2;
+ border-radius: 10px;
+ padding: 10px 14px;
+ cursor: pointer;
+ font-family: inherit;
 }
 .modal .reward-choose button:hover:not(:disabled) {
-  border-color: #ff9800;
-  background: #fff8e1;
+ border-color: #ff9800;
+ background: #fff8e1;
 }
 .modal .reward-choose button:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
+ opacity: 0.45;
+ cursor: not-allowed;
 }
 .modal .reward-choose .r-icon { font-size: 1.6em; }
 .modal .reward-choose .r-name { font-weight: 700; color: #e65100; }
 .modal .reward-choose .r-cost {
-  font-weight: 900;
-  color: #c2185b;
-  background: #fce4ec;
-  padding: 4px 10px;
-  border-radius: 8px;
-  font-size: 0.9em;
+ font-weight: 900;
+ color: #c2185b;
+ background: #fce4ec;
+ padding: 4px 10px;
+ border-radius: 8px;
+ font-size: 0.9em;
 }
 .modal-close {
-  margin-top: 14px;
-  width: 100%;
-  padding: 10px;
+ margin-top: 14px;
+ width: 100%;
+ padding: 10px;
 }
 
 /* 백업/복원 영역 */
 .io-area {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+ display: flex;
+ gap: 8px;
+ flex-wrap: wrap;
 }
 .io-area .btn { font-size: 0.85em; padding: 6px 12px; }
 
 /* 활동 로그 */
 .log-list {
-  max-height: 280px;
-  overflow-y: auto;
-  font-size: 0.85em;
+ max-height: 280px;
+ overflow-y: auto;
+ font-size: 0.85em;
 }
 .log-item {
-  padding: 7px 10px;
-  border-bottom: 1px solid #f0eaf5;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 6px;
+ padding: 7px 10px;
+ border-bottom: 1px solid #f0eaf5;
+ display: grid;
+ grid-template-columns: 1fr auto;
+ gap: 6px;
 }
 .log-item .l-time { color: #999; font-size: 0.9em; }
 .log-item .l-give { color: #2e7d32; }
 .log-item .l-redeem { color: #c2185b; }
 
 .empty {
-  text-align: center;
-  color: #999;
-  padding: 30px 10px;
-  font-size: 0.9em;
+ text-align: center;
+ color: #999;
+ padding: 30px 10px;
+ font-size: 0.9em;
 }
 
 /* 토스트 */
 .toast {
-  position: fixed;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%) translateY(100px);
-  background: #2e7d32;
-  color: #fff;
-  padding: 12px 24px;
-  border-radius: 24px;
-  font-weight: 700;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  transition: all 0.3s;
-  z-index: 200;
-  font-size: 1em;
+ position: fixed;
+ bottom: 24px;
+ left: 50%;
+ transform: translateX(-50%) translateY(100px);
+ background: #2e7d32;
+ color: #fff;
+ padding: 12px 24px;
+ border-radius: 24px;
+ font-weight: 700;
+ box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+ opacity: 0;
+ transition: all 0.3s;
+ z-index: 200;
+ font-size: 1em;
 }
 .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
 .toast.warn { background: #ef6c00; }
 .toast.error { background: #c62828; }
 
 .help-text {
-  font-size: 0.82em;
-  color: #888;
-  margin-top: 4px;
+ font-size: 0.82em;
+ color: #888;
+ margin-top: 4px;
 }
 
 @media print {
-  @page { size: A4; margin: 12mm; }
-  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
-  body { background: #fff; font-size: 12pt; }
-  .app-header, #teacherPanel, .modal-backdrop, #toast, .print-header { display: none !important; }
-  main { padding: 0; max-width: none; }
-  .view-stickers {
-    display: block !important;
-    grid-template-columns: none !important;
-    gap: 0 !important;
-  }
-  .student-card {
-    break-after: page;
-    page-break-after: always;
-    break-inside: avoid;
-    page-break-inside: avoid;
-    box-shadow: none !important;
-    padding: 18px 22px !important;
-    border-radius: 14px !important;
-    margin: 0 auto !important;
-    border-top-width: 10px !important;
-    min-height: 265mm !important;
-    box-sizing: border-box !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-  }
-  .student-card:last-child {
-    break-after: auto;
-    page-break-after: auto;
-  }
-  .sc-head { margin-bottom: 18px !important; }
-  .sc-name { font-size: 2.4em !important; }
-  .sc-count { font-size: 2em !important; }
-  .sticker-grid {
-    grid-template-columns: repeat(8, 1fr) !important;
-    gap: 8px !important;
-    padding: 8px !important;
-    margin-bottom: 16px !important;
-    background: transparent !important;
-  }
-  .sticker-grid .star { border-radius: 50% !important; }
-  .sticker-grid .star.empty {
-    opacity: 1 !important;
-    filter: none !important;
-    background: #fff !important;
-    border: 2px dashed rgba(0, 0, 0, 0.3) !important;
-    border-radius: 50% !important;
-  }
-  .sticker-grid .star.empty img { visibility: hidden !important; }
-  .sc-progress { font-size: 1.05em !important; padding: 12px 16px !important; }
-  .sc-history {
-    display: block !important;
-    font-size: 0.95em !important;
-    padding-top: 14px !important;
-    margin-top: 12px !important;
-  }
+ @page { size: A4; margin: 12mm; }
+ * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+ body { background: #fff; font-size: 12pt; }
+ .app-header, #teacherPanel, .modal-backdrop, #toast, .print-header { display: none !important; }
+ main { padding: 0; max-width: none; }
+ .view-stickers {
+ display: block !important;
+ grid-template-columns: none !important;
+ gap: 0 !important;
+ }
+ .student-card {
+ break-after: page;
+ page-break-after: always;
+ break-inside: avoid;
+ page-break-inside: avoid;
+ box-shadow: none !important;
+ padding: 18px 22px !important;
+ border-radius: 14px !important;
+ margin: 0 auto !important;
+ border-top-width: 10px !important;
+ min-height: 265mm !important;
+ box-sizing: border-box !important;
+ display: flex !important;
+ flex-direction: column !important;
+ justify-content: center !important;
+ }
+ .student-card:last-child {
+ break-after: auto;
+ page-break-after: auto;
+ }
+ .sc-head { margin-bottom: 18px !important; }
+ .sc-name { font-size: 2.4em !important; }
+ .sc-count { font-size: 2em !important; }
+ .sticker-grid {
+ grid-template-columns: repeat(8, 1fr) !important;
+ gap: 8px !important;
+ padding: 8px !important;
+ margin-bottom: 16px !important;
+ background: transparent !important;
+ }
+ .sticker-grid .star { border-radius: 50% !important; }
+ .sticker-grid .star.empty {
+ opacity: 1 !important;
+ filter: none !important;
+ background: #fff !important;
+ border: 2px dashed rgba(0, 0, 0, 0.3) !important;
+ border-radius: 50% !important;
+ }
+ .sticker-grid .star.empty img { visibility: hidden !important; }
+ .sc-progress { font-size: 1.05em !important; padding: 12px 16px !important; }
+ .sc-history {
+ display: block !important;
+ font-size: 0.95em !important;
+ padding-top: 14px !important;
+ margin-top: 12px !important;
+ }
 }
 </style>
 </head>
 <body>
 
 <div class="app-header">
-  <h1><span class="emoji">🌟</span>칭찬 스티커<span class="sub">혜화여고 특수학급</span></h1>
-  <div class="header-tools">
-    <div class="mode-toggle">
-      <button id="modeView" class="active">👀 학생 보기</button>
-      <button id="modeTeacher">👩‍🏫 교사 모드</button>
-    </div>
-    <button id="printBtn" class="btn-print" title="스티커 판 인쇄">🖨 인쇄</button>
-  </div>
+ <h1><span class="emoji">🌟</span>칭찬 스티커<span class="sub"></span></h1>
+ <div class="header-tools">
+ <div class="mode-toggle">
+ <button id="modeView" class="active">👀 학생 보기</button>
+ <button id="modeTeacher">👩‍🏫 교사 모드</button>
+ </div>
+ <button id="printBtn" class="btn-print" title="스티커 판 인쇄">🖨 인쇄</button>
+ </div>
 </div>
 
 <div class="print-header">
-  <h1>🌟 칭찬 스티커 판</h1>
-  <div class="print-date"></div>
+ <h1>🌟 칭찬 스티커 판</h1>
+ <div class="print-date"></div>
 </div>
 
 <main>
@@ -719,67 +719,67 @@ main {
 <!-- 교사 모드 -->
 <div id="teacherPanel" class="teacher-panel" style="display:none;">
 
-  <div>
-    <!-- 학생별 스티커 부여 -->
-    <div class="panel" style="margin-bottom:16px;">
-      <h2>🎯 학생별 스티커 관리</h2>
-      <div id="teacherStudents"></div>
-      <div class="help-text">＋ 버튼: 칭찬 스티커 1개 부여 / − 버튼: 잘못 부여한 스티커 회수 / 🎁 버튼: 보상 교환</div>
-    </div>
+ <div>
+ <!-- 학생별 스티커 부여 -->
+ <div class="panel" style="margin-bottom:16px;">
+ <h2>🎯 학생별 스티커 관리</h2>
+ <div id="teacherStudents"></div>
+ <div class="help-text">＋ 버튼: 칭찬 스티커 1개 부여 / − 버튼: 잘못 부여한 스티커 회수 / 🎁 버튼: 보상 교환</div>
+ </div>
 
-    <!-- 학생 관리 -->
-    <div class="panel" style="margin-bottom:16px;">
-      <h2>👥 학생 명단 관리</h2>
-      <div class="add-form">
-        <input type="text" id="newStudentName" placeholder="새 학생 이름 입력 후 Enter">
-        <button class="btn btn-primary" id="addStudentBtn">＋ 추가</button>
-      </div>
-      <div id="studentManageList"></div>
-    </div>
+ <!-- 학생 관리 -->
+ <div class="panel" style="margin-bottom:16px;">
+ <h2>👥 학생 명단 관리</h2>
+ <div class="add-form">
+ <input type="text" id="newStudentName" placeholder="새 학생 이름 입력 후 Enter">
+ <button class="btn btn-primary" id="addStudentBtn">＋ 추가</button>
+ </div>
+ <div id="studentManageList"></div>
+ </div>
 
-    <!-- 보상 관리 -->
-    <div class="panel">
-      <h2>🎁 보상 항목 관리 <span style="font-size:0.75em; color:#888; font-weight:400;">학생별 개별 설정</span></h2>
-      <div class="reward-target">
-        <label for="rewardStudentSelect">편집 대상:</label>
-        <select id="rewardStudentSelect"></select>
-        <button class="btn btn-secondary" id="copyRewardBtn" title="다른 학생/기본 세트의 보상 목록을 이 대상에 복사">📋 다른 대상에서 복사</button>
-      </div>
-      <div class="add-form">
-        <input type="text" id="newRewardIcon" placeholder="🍪" maxlength="2" style="flex:0 0 60px; text-align:center;">
-        <input type="text" id="newRewardName" placeholder="보상 이름 (예: 간식 1개)">
-        <input type="number" id="newRewardCost" placeholder="스티커 수" min="1" value="5">
-        <button class="btn btn-primary" id="addRewardBtn">＋ 추가</button>
-      </div>
-      <div id="rewardList"></div>
-      <div class="help-text" style="margin-top:8px;">
-        학생마다 보상을 다르게 설정할 수 있어요. <b>📋 기본 세트</b>는 새 학생을 추가할 때 처음 들어가는 보상 목록이에요.
-      </div>
-    </div>
-  </div>
+ <!-- 보상 관리 -->
+ <div class="panel">
+ <h2>🎁 보상 항목 관리 <span style="font-size:0.75em; color:#888; font-weight:400;">학생별 개별 설정</span></h2>
+ <div class="reward-target">
+ <label for="rewardStudentSelect">편집 대상:</label>
+ <select id="rewardStudentSelect"></select>
+ <button class="btn btn-secondary" id="copyRewardBtn" title="다른 학생/기본 세트의 보상 목록을 이 대상에 복사">📋 다른 대상에서 복사</button>
+ </div>
+ <div class="add-form">
+ <input type="text" id="newRewardIcon" placeholder="🍪" maxlength="2" style="flex:0 0 60px; text-align:center;">
+ <input type="text" id="newRewardName" placeholder="보상 이름 (예: 간식 1개)">
+ <input type="number" id="newRewardCost" placeholder="스티커 수" min="1" value="5">
+ <button class="btn btn-primary" id="addRewardBtn">＋ 추가</button>
+ </div>
+ <div id="rewardList"></div>
+ <div class="help-text" style="margin-top:8px;">
+ 학생마다 보상을 다르게 설정할 수 있어요. <b>📋 기본 세트</b>는 새 학생을 추가할 때 처음 들어가는 보상 목록이에요.
+ </div>
+ </div>
+ </div>
 
-  <div>
-    <!-- 활동 로그 -->
-    <div class="panel" style="margin-bottom:16px;">
-      <h2>📋 최근 활동 <button class="btn btn-secondary" id="clearLogBtn" style="font-size:0.75em; padding:4px 10px;">로그 비우기</button></h2>
-      <div id="activityLog" class="log-list"></div>
-    </div>
+ <div>
+ <!-- 활동 로그 -->
+ <div class="panel" style="margin-bottom:16px;">
+ <h2>📋 최근 활동 <button class="btn btn-secondary" id="clearLogBtn" style="font-size:0.75em; padding:4px 10px;">로그 비우기</button></h2>
+ <div id="activityLog" class="log-list"></div>
+ </div>
 
-    <!-- 백업/복원 -->
-    <div class="panel">
-      <h2>💾 데이터 백업·복원</h2>
-      <div class="io-area">
-        <button class="btn btn-primary" id="exportBtn">📤 JSON 내보내기</button>
-        <button class="btn btn-secondary" id="importBtn">📥 JSON 불러오기</button>
-        <input type="file" id="importFile" accept=".json" style="display:none;">
-        <button class="btn btn-danger" id="resetBtn">🗑️ 전체 초기화</button>
-      </div>
-      <div class="help-text" style="margin-top:10px;">
-        데이터는 이 컴퓨터의 브라우저에 저장됩니다.<br>
-        다른 기기로 옮기거나 학기말 보관하려면 JSON 파일로 내보내세요.
-      </div>
-    </div>
-  </div>
+ <!-- 백업/복원 -->
+ <div class="panel">
+ <h2>💾 데이터 백업·복원</h2>
+ <div class="io-area">
+ <button class="btn btn-primary" id="exportBtn">📤 JSON 내보내기</button>
+ <button class="btn btn-secondary" id="importBtn">📥 JSON 불러오기</button>
+ <input type="file" id="importFile" accept=".json" style="display:none;">
+ <button class="btn btn-danger" id="resetBtn">🗑️ 전체 초기화</button>
+ </div>
+ <div class="help-text" style="margin-top:10px;">
+ 데이터는 이 컴퓨터의 브라우저에 저장됩니다.<br>
+ 다른 기기로 옮기거나 학기말 보관하려면 JSON 파일로 내보내세요.
+ </div>
+ </div>
+ </div>
 
 </div>
 
@@ -787,12 +787,12 @@ main {
 
 <!-- 보상 교환 모달 -->
 <div id="redeemModal" class="modal-backdrop">
-  <div class="modal">
-    <h3>🎁 보상 교환하기</h3>
-    <div class="student-stickers" id="redeemStudentInfo"></div>
-    <div class="reward-choose" id="redeemRewardList"></div>
-    <button class="btn btn-secondary modal-close" id="closeModalBtn">취소</button>
-  </div>
+ <div class="modal">
+ <h3>🎁 보상 교환하기</h3>
+ <div class="student-stickers" id="redeemStudentInfo"></div>
+ <div class="reward-choose" id="redeemRewardList"></div>
+ <button class="btn btn-secondary modal-close" id="closeModalBtn">취소</button>
+ </div>
 </div>
 
 <div id="toast" class="toast"></div>
@@ -801,190 +801,190 @@ main {
 const STORAGE_KEY = 'praise_stickers_v1';
 
 const STUDENT_PALETTE = [
-  { name: '보라', main: '#8e44ad', bg: '#f3e8ff' },
-  { name: '분홍', main: '#ec4899', bg: '#fce7f3' },
-  { name: '주황', main: '#f97316', bg: '#ffedd5' },
-  { name: '황금', main: '#d97706', bg: '#fef3c7' },
-  { name: '초록', main: '#16a34a', bg: '#dcfce7' },
-  { name: '민트', main: '#0d9488', bg: '#ccfbf1' },
-  { name: '하늘', main: '#0284c7', bg: '#e0f2fe' },
-  { name: '파랑', main: '#4f46e5', bg: '#e0e7ff' },
-  { name: '자주', main: '#a21caf', bg: '#fae8ff' },
-  { name: '산호', main: '#e11d48', bg: '#ffe4e6' },
-  { name: '벚꽃', main: '#f472b6', bg: '#fdf2f8' },
-  { name: '빨강', main: '#dc2626', bg: '#fee2e2' },
-  { name: '노랑', main: '#eab308', bg: '#fef9c3' },
-  { name: '라임', main: '#65a30d', bg: '#ecfccb' },
-  { name: '청록', main: '#06b6d4', bg: '#cffafe' },
-  { name: '남색', main: '#1e40af', bg: '#dbeafe' },
-  { name: '라벤더', main: '#a78bfa', bg: '#ede9fe' },
-  { name: '카키', main: '#4d7c0f', bg: '#d9f99d' },
-  { name: '갈색', main: '#78350f', bg: '#fde68a' },
-  { name: '회색', main: '#64748b', bg: '#f1f5f9' },
-  { name: '청보라', main: '#7c3aed', bg: '#ddd6fe' },
-  { name: '복숭아', main: '#ff8c69', bg: '#ffe4de' },
-  { name: '살구', main: '#fb923c', bg: '#ffe1c4' },
-  { name: '겨자', main: '#ca8a04', bg: '#fef08a' },
-  { name: '에메랄드', main: '#059669', bg: '#a7f3d0' },
-  { name: '옥색', main: '#14b8a6', bg: '#99f6e4' },
-  { name: '아쿠아', main: '#22d3ee', bg: '#a5f3fc' },
-  { name: '인디고', main: '#4338ca', bg: '#c7d2fe' },
-  { name: '마젠타', main: '#d946ef', bg: '#f5d0fe' },
-  { name: '로즈', main: '#f43f5e', bg: '#fecdd3' },
-  { name: '진분홍', main: '#db2777', bg: '#fbcfe8' },
-  { name: '자두', main: '#86198f', bg: '#e9d5ff' },
-  { name: '밤색', main: '#7c2d12', bg: '#fed7aa' }
+ { name: '보라', main: '#8e44ad', bg: '#f3e8ff' },
+ { name: '분홍', main: '#ec4899', bg: '#fce7f3' },
+ { name: '주황', main: '#f97316', bg: '#ffedd5' },
+ { name: '황금', main: '#d97706', bg: '#fef3c7' },
+ { name: '초록', main: '#16a34a', bg: '#dcfce7' },
+ { name: '민트', main: '#0d9488', bg: '#ccfbf1' },
+ { name: '하늘', main: '#0284c7', bg: '#e0f2fe' },
+ { name: '파랑', main: '#4f46e5', bg: '#e0e7ff' },
+ { name: '자주', main: '#a21caf', bg: '#fae8ff' },
+ { name: '산호', main: '#e11d48', bg: '#ffe4e6' },
+ { name: '벚꽃', main: '#f472b6', bg: '#fdf2f8' },
+ { name: '빨강', main: '#dc2626', bg: '#fee2e2' },
+ { name: '노랑', main: '#eab308', bg: '#fef9c3' },
+ { name: '라임', main: '#65a30d', bg: '#ecfccb' },
+ { name: '청록', main: '#06b6d4', bg: '#cffafe' },
+ { name: '남색', main: '#1e40af', bg: '#dbeafe' },
+ { name: '라벤더', main: '#a78bfa', bg: '#ede9fe' },
+ { name: '카키', main: '#4d7c0f', bg: '#d9f99d' },
+ { name: '갈색', main: '#78350f', bg: '#fde68a' },
+ { name: '회색', main: '#64748b', bg: '#f1f5f9' },
+ { name: '청보라', main: '#7c3aed', bg: '#ddd6fe' },
+ { name: '복숭아', main: '#ff8c69', bg: '#ffe4de' },
+ { name: '살구', main: '#fb923c', bg: '#ffe1c4' },
+ { name: '겨자', main: '#ca8a04', bg: '#fef08a' },
+ { name: '에메랄드', main: '#059669', bg: '#a7f3d0' },
+ { name: '옥색', main: '#14b8a6', bg: '#99f6e4' },
+ { name: '아쿠아', main: '#22d3ee', bg: '#a5f3fc' },
+ { name: '인디고', main: '#4338ca', bg: '#c7d2fe' },
+ { name: '마젠타', main: '#d946ef', bg: '#f5d0fe' },
+ { name: '로즈', main: '#f43f5e', bg: '#fecdd3' },
+ { name: '진분홍', main: '#db2777', bg: '#fbcfe8' },
+ { name: '자두', main: '#86198f', bg: '#e9d5ff' },
+ { name: '밤색', main: '#7c2d12', bg: '#fed7aa' }
 ];
 
 const DEFAULT_DATA = {
-  students: [],
-  defaultRewards: [
-    { id: 'r1', icon: '🍪', name: '간식 1개', cost: 5 },
-    { id: 'r2', icon: '⏰', name: '자유 시간 5분', cost: 10 },
-    { id: 'r3', icon: '🎵', name: '음악 신청', cost: 15 },
-    { id: 'r4', icon: '🎁', name: '특별 선물', cost: 30 }
-  ],
-  logs: []
+ students: [],
+ defaultRewards: [
+ { id: 'r1', icon: '🍪', name: '간식 1개', cost: 5 },
+ { id: 'r2', icon: '⏰', name: '자유 시간 5분', cost: 10 },
+ { id: 'r3', icon: '🎵', name: '음악 신청', cost: 15 },
+ { id: 'r4', icon: '🎁', name: '특별 선물', cost: 30 }
+ ],
+ logs: []
 };
 
-let data = loadData();
+let data = loadData;
 let rewardEditTarget = '_default';
 
 function migrateStudents(students, legacyRewards) {
-  return (students || []).map((s, i) => {
-    const m = {
-      ...s,
-      history: s.history || [],
-      rewards: s.rewards || (legacyRewards ? structuredClone(legacyRewards) : []),
-      colorIndex: (typeof s.colorIndex === 'number' && s.colorIndex >= 0)
-        ? (s.colorIndex % STUDENT_PALETTE.length)
-        : (i % STUDENT_PALETTE.length)
-    };
-    if (!Array.isArray(m.stickerLibrary)) {
-      m.stickerLibrary = s.stickerImg ? [s.stickerImg] : [];
-    }
-    if (typeof m.currentStickerIdx !== 'number') {
-      m.currentStickerIdx = m.stickerLibrary.length > 0 ? 0 : -1;
-    }
-    if (!Array.isArray(m.stickerBoard)) {
-      const legacyCount = typeof s.stickers === 'number' ? s.stickers : 0;
-      m.stickerBoard = new Array(Math.max(0, legacyCount)).fill(m.currentStickerIdx);
-    }
-    delete m.stickers;
-    delete m.stickerImg;
-    return m;
-  });
+ return (students || []).map((s, i) => {
+ const m = {
+ ...s,
+ history: s.history || [],
+ rewards: s.rewards || (legacyRewards ? structuredClone(legacyRewards) : []),
+ colorIndex: (typeof s.colorIndex === 'number' && s.colorIndex >= 0)
+ ? (s.colorIndex % STUDENT_PALETTE.length)
+ : (i % STUDENT_PALETTE.length)
+ };
+ if (!Array.isArray(m.stickerLibrary)) {
+ m.stickerLibrary = s.stickerImg ? [s.stickerImg] : [];
+ }
+ if (typeof m.currentStickerIdx !== 'number') {
+ m.currentStickerIdx = m.stickerLibrary.length > 0 ? 0 : -1;
+ }
+ if (!Array.isArray(m.stickerBoard)) {
+ const legacyCount = typeof s.stickers === 'number' ? s.stickers : 0;
+ m.stickerBoard = new Array(Math.max(0, legacyCount)).fill(m.currentStickerIdx);
+ }
+ delete m.stickers;
+ delete m.stickerImg;
+ return m;
+ });
 }
 
 function stickerCount(s) {
-  return (s.stickerBoard || []).length;
+ return (s.stickerBoard || []).length;
 }
 
 function stickerImgAt(s, idx) {
-  if (idx == null || idx < 0) return STICKER_IMG;
-  const lib = s.stickerLibrary || [];
-  return lib[idx] || STICKER_IMG;
+ if (idx == null || idx < 0) return STICKER_IMG;
+ const lib = s.stickerLibrary || [];
+ return lib[idx] || STICKER_IMG;
 }
 
 function currentStickerImg(s) {
-  return stickerImgAt(s, s.currentStickerIdx);
+ return stickerImgAt(s, s.currentStickerIdx);
 }
 
 function studentTheme(s) {
-  const idx = (typeof s.colorIndex === 'number' && s.colorIndex >= 0)
-    ? (s.colorIndex % STUDENT_PALETTE.length)
-    : 0;
-  return STUDENT_PALETTE[idx];
+ const idx = (typeof s.colorIndex === 'number' && s.colorIndex >= 0)
+ ? (s.colorIndex % STUDENT_PALETTE.length)
+ : 0;
+ return STUDENT_PALETTE[idx];
 }
 
 function hexToRgb(hex) {
-  const m = hex.replace('#', '');
-  const r = parseInt(m.slice(0, 2), 16);
-  const g = parseInt(m.slice(2, 4), 16);
-  const b = parseInt(m.slice(4, 6), 16);
-  return `${r}, ${g}, ${b}`;
+ const m = hex.replace('#', '');
+ const r = parseInt(m.slice(0, 2), 16);
+ const g = parseInt(m.slice(2, 4), 16);
+ const b = parseInt(m.slice(4, 6), 16);
+ return `${r}, ${g}, ${b}`;
 }
 
-function pickNextColorIndex() {
-  const used = new Array(STUDENT_PALETTE.length).fill(0);
-  data.students.forEach(s => {
-    if (typeof s.colorIndex === 'number' && s.colorIndex >= 0 && s.colorIndex < STUDENT_PALETTE.length) {
-      used[s.colorIndex]++;
-    }
-  });
-  let minCount = Infinity;
-  let picked = 0;
-  for (let i = 0; i < STUDENT_PALETTE.length; i++) {
-    if (used[i] < minCount) { minCount = used[i]; picked = i; }
-  }
-  return picked;
+function pickNextColorIndex {
+ const used = new Array(STUDENT_PALETTE.length).fill(0);
+ data.students.forEach(s => {
+ if (typeof s.colorIndex === 'number' && s.colorIndex >= 0 && s.colorIndex < STUDENT_PALETTE.length) {
+ used[s.colorIndex]++;
+ }
+ });
+ let minCount = Infinity;
+ let picked = 0;
+ for (let i = 0; i < STUDENT_PALETTE.length; i++) {
+ if (used[i] < minCount) { minCount = used[i]; picked = i; }
+ }
+ return picked;
 }
 
-function loadData() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return structuredClone(DEFAULT_DATA);
-    const parsed = JSON.parse(raw);
-    const legacyRewards = parsed.rewards;
-    const defaultRewards = parsed.defaultRewards
-      || (legacyRewards ? structuredClone(legacyRewards) : structuredClone(DEFAULT_DATA.defaultRewards));
-    return {
-      students: migrateStudents(parsed.students, legacyRewards),
-      defaultRewards: defaultRewards,
-      logs: parsed.logs || []
-    };
-  } catch (e) {
-    return structuredClone(DEFAULT_DATA);
-  }
+function loadData {
+ try {
+ const raw = localStorage.getItem(STORAGE_KEY);
+ if (!raw) return structuredClone(DEFAULT_DATA);
+ const parsed = JSON.parse(raw);
+ const legacyRewards = parsed.rewards;
+ const defaultRewards = parsed.defaultRewards
+ || (legacyRewards ? structuredClone(legacyRewards) : structuredClone(DEFAULT_DATA.defaultRewards));
+ return {
+ students: migrateStudents(parsed.students, legacyRewards),
+ defaultRewards: defaultRewards,
+ logs: parsed.logs || []
+ };
+ } catch (e) {
+ return structuredClone(DEFAULT_DATA);
+ }
 }
 
-function saveData() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+function saveData {
+ localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
 function uid(prefix) {
-  return prefix + '_' + Math.random().toString(36).slice(2, 9);
+ return prefix + '_' + Math.random.toString(36).slice(2, 9);
 }
 
-function nowStr() {
-  const d = new Date();
-  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0')
-    + ' ' + String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+function nowStr {
+ const d = new Date;
+ return d.getFullYear + '-' + String(d.getMonth+1).padStart(2,'0') + '-' + String(d.getDate).padStart(2,'0')
+ + ' ' + String(d.getHours).padStart(2,'0') + ':' + String(d.getMinutes).padStart(2,'0');
 }
 
 function toast(msg, type) {
-  const el = document.getElementById('toast');
-  el.textContent = msg;
-  el.className = 'toast show' + (type ? ' ' + type : '');
-  setTimeout(() => { el.className = 'toast'; }, 1800);
+ const el = document.getElementById('toast');
+ el.textContent = msg;
+ el.className = 'toast show' + (type ? ' ' + type : '');
+ setTimeout( => { el.className = 'toast'; }, 1800);
 }
 
 function findStudent(id) { return data.students.find(s => s.id === id); }
 function studentRewards(id) {
-  const s = findStudent(id);
-  if (!s) return [];
-  if (!s.rewards) s.rewards = [];
-  return s.rewards;
+ const s = findStudent(id);
+ if (!s) return [];
+ if (!s.rewards) s.rewards = [];
+ return s.rewards;
 }
-function currentRewardList() {
-  if (rewardEditTarget === '_default') return data.defaultRewards;
-  return studentRewards(rewardEditTarget);
+function currentRewardList {
+ if (rewardEditTarget === '_default') return data.defaultRewards;
+ return studentRewards(rewardEditTarget);
 }
-function currentRewardTargetLabel() {
-  if (rewardEditTarget === '_default') return '📋 기본 세트';
-  const s = findStudent(rewardEditTarget);
-  return s ? s.name : '';
+function currentRewardTargetLabel {
+ if (rewardEditTarget === '_default') return '📋 기본 세트';
+ const s = findStudent(rewardEditTarget);
+ return s ? s.name : '';
 }
 
 function addLog(type, studentName, detail, amount) {
-  data.logs.unshift({
-    ts: nowStr(),
-    type: type,
-    studentName: studentName,
-    detail: detail,
-    amount: amount
-  });
-  if (data.logs.length > 200) data.logs = data.logs.slice(0, 200);
+ data.logs.unshift({
+ ts: nowStr,
+ type: type,
+ studentName: studentName,
+ detail: detail,
+ amount: amount
+ });
+ if (data.logs.length > 200) data.logs = data.logs.slice(0, 200);
 }
 
 /* ─── 모드 전환 ─── */
@@ -993,379 +993,379 @@ const modeTeacherBtn = document.getElementById('modeTeacher');
 const viewStickers = document.getElementById('viewStickers');
 const teacherPanel = document.getElementById('teacherPanel');
 
-modeViewBtn.addEventListener('click', () => setMode('view'));
-modeTeacherBtn.addEventListener('click', () => setMode('teacher'));
+modeViewBtn.addEventListener('click',  => setMode('view'));
+modeTeacherBtn.addEventListener('click',  => setMode('teacher'));
 
 function setMode(m) {
-  if (m === 'view') {
-    modeViewBtn.classList.add('active');
-    modeTeacherBtn.classList.remove('active');
-    viewStickers.style.display = 'grid';
-    teacherPanel.style.display = 'none';
-    renderViewMode();
-  } else {
-    modeTeacherBtn.classList.add('active');
-    modeViewBtn.classList.remove('active');
-    viewStickers.style.display = 'none';
-    teacherPanel.style.display = 'grid';
-    renderTeacherMode();
-  }
+ if (m === 'view') {
+ modeViewBtn.classList.add('active');
+ modeTeacherBtn.classList.remove('active');
+ viewStickers.style.display = 'grid';
+ teacherPanel.style.display = 'none';
+ renderViewMode;
+ } else {
+ modeTeacherBtn.classList.add('active');
+ modeViewBtn.classList.remove('active');
+ viewStickers.style.display = 'none';
+ teacherPanel.style.display = 'grid';
+ renderTeacherMode;
+ }
 }
 
 /* ─── 학생 보기 모드 렌더링 ─── */
-function renderViewMode() {
-  if (data.students.length === 0) {
-    viewStickers.innerHTML = '<div class="empty" style="grid-column:1/-1;">아직 등록된 학생이 없어요.<br>👩‍🏫 교사 모드에서 학생을 추가해 주세요.</div>';
-    return;
-  }
-  const sortedStudents = [...data.students].sort((a, b) => stickerCount(b) - stickerCount(a));
-  viewStickers.innerHTML = sortedStudents.map(s => {
-    const theme = studentTheme(s);
-    const rgb = hexToRgb(theme.main);
-    const count = stickerCount(s);
-    const sortedRewards = [...(s.rewards || [])].sort((a, b) => a.cost - b.cost);
-    const nextReward = sortedRewards.find(r => r.cost > count) || sortedRewards[sortedRewards.length - 1];
-    const progress = nextReward ? Math.min(100, Math.round((count / nextReward.cost) * 100)) : 0;
-    const stars = renderStarGrid(s);
-    const recentHistory = (s.history || []).slice(0, 3).map(h => `
-      <div class="h-item ${h.type === 'give' ? 'h-give' : 'h-redeem'}">
-        <span>${h.type === 'give' ? '✨ +' + h.amount : '🎁 ' + h.detail}</span>
-        <span style="color:#aaa;">${h.ts.split(' ')[0].slice(5)}</span>
-      </div>`).join('');
-    let progressText;
-    if (sortedRewards.length === 0) {
-      progressText = `📝 아직 보상이 정해지지 않았어요.`;
-    } else if (nextReward && count < nextReward.cost) {
-      progressText = `<span class="next-reward">${nextReward.icon} ${escapeHtml(nextReward.name)}</span>까지 <b>${nextReward.cost - count}개</b> 남았어요!`;
-    } else {
-      progressText = `🎉 모든 보상을 받을 수 있어요!`;
-    }
-    return `
-      <div class="student-card" style="--accent:${theme.main}; --accent-bg:${theme.bg}; --accent-rgb:${rgb};">
-        <div class="sc-head">
-          <div class="sc-name">${escapeHtml(s.name)}</div>
-          <div class="sc-count">${count}<span class="unit">개</span></div>
-        </div>
-        <div class="sticker-grid">${stars}</div>
-        <div class="sc-progress">
-          ${progressText}
-          <div class="progress-bar"><div style="width:${progress}%;"></div></div>
-        </div>
-        ${recentHistory ? `<div class="sc-history">${recentHistory}</div>` : ''}
-      </div>
-    `;
-  }).join('');
+function renderViewMode {
+ if (data.students.length === 0) {
+ viewStickers.innerHTML = '<div class="empty" style="grid-column:1/-1;">아직 등록된 학생이 없어요.<br>👩‍🏫 교사 모드에서 학생을 추가해 주세요.</div>';
+ return;
+ }
+ const sortedStudents = [...data.students].sort((a, b) => stickerCount(b) - stickerCount(a));
+ viewStickers.innerHTML = sortedStudents.map(s => {
+ const theme = studentTheme(s);
+ const rgb = hexToRgb(theme.main);
+ const count = stickerCount(s);
+ const sortedRewards = [...(s.rewards || [])].sort((a, b) => a.cost - b.cost);
+ const nextReward = sortedRewards.find(r => r.cost > count) || sortedRewards[sortedRewards.length - 1];
+ const progress = nextReward ? Math.min(100, Math.round((count / nextReward.cost) * 100)) : 0;
+ const stars = renderStarGrid(s);
+ const recentHistory = (s.history || []).slice(0, 3).map(h => `
+ <div class="h-item ${h.type === 'give' ? 'h-give' : 'h-redeem'}">
+ <span>${h.type === 'give' ? '✨ +' + h.amount : '🎁 ' + h.detail}</span>
+ <span style="color:#aaa;">${h.ts.split(' ')[0].slice(5)}</span>
+ </div>`).join('');
+ let progressText;
+ if (sortedRewards.length === 0) {
+ progressText = `📝 아직 보상이 정해지지 않았어요.`;
+ } else if (nextReward && count < nextReward.cost) {
+ progressText = `<span class="next-reward">${nextReward.icon} ${escapeHtml(nextReward.name)}</span>까지 <b>${nextReward.cost - count}개</b> 남았어요!`;
+ } else {
+ progressText = `🎉 모든 보상을 받을 수 있어요!`;
+ }
+ return `
+ <div class="student-card" style="--accent:${theme.main}; --accent-bg:${theme.bg}; --accent-rgb:${rgb};">
+ <div class="sc-head">
+ <div class="sc-name">${escapeHtml(s.name)}</div>
+ <div class="sc-count">${count}<span class="unit">개</span></div>
+ </div>
+ <div class="sticker-grid">${stars}</div>
+ <div class="sc-progress">
+ ${progressText}
+ <div class="progress-bar"><div style="width:${progress}%;"></div></div>
+ </div>
+ ${recentHistory ? `<div class="sc-history">${recentHistory}</div>` : ''}
+ </div>
+ `;
+ }).join('');
 }
 
 const STICKER_IMG = 'itzy.jpg';
 
 function renderStarGrid(s) {
-  const board = s.stickerBoard || [];
-  const count = board.length;
-  const max = Math.max(50, Math.ceil((count + 5) / 10) * 10);
-  let html = '';
-  for (let i = 0; i < max; i++) {
-    if (i < count) {
-      const src = stickerImgAt(s, board[i]);
-      html += `<span class="star filled"><img src="${src}" alt="스티커" onerror="this.parentNode.textContent='⭐'"></span>`;
-    } else {
-      html += `<span class="star empty"><img src="${STICKER_IMG}" alt="스티커" onerror="this.parentNode.textContent='⭐'"></span>`;
-    }
-  }
-  return html;
+ const board = s.stickerBoard || [];
+ const count = board.length;
+ const max = Math.max(50, Math.ceil((count + 5) / 10) * 10);
+ let html = '';
+ for (let i = 0; i < max; i++) {
+ if (i < count) {
+ const src = stickerImgAt(s, board[i]);
+ html += `<span class="star filled"><img src="${src}" alt="스티커" onerror="this.parentNode.textContent='⭐'"></span>`;
+ } else {
+ html += `<span class="star empty"><img src="${STICKER_IMG}" alt="스티커" onerror="this.parentNode.textContent='⭐'"></span>`;
+ }
+ }
+ return html;
 }
 
 function escapeHtml(s) {
-  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 
 /* ─── 교사 모드 렌더링 ─── */
-function renderTeacherMode() {
-  renderTeacherStudents();
-  renderStudentManageList();
-  renderRewardTargetSelect();
-  renderRewardList();
-  renderActivityLog();
+function renderTeacherMode {
+ renderTeacherStudents;
+ renderStudentManageList;
+ renderRewardTargetSelect;
+ renderRewardList;
+ renderActivityLog;
 }
 
-function renderRewardTargetSelect() {
-  const sel = document.getElementById('rewardStudentSelect');
-  if (rewardEditTarget !== '_default' && !findStudent(rewardEditTarget)) {
-    rewardEditTarget = '_default';
-  }
-  const options = ['<option value="_default">📋 기본 세트 (새 학생 추가 시)</option>'];
-  data.students.forEach(s => {
-    options.push(`<option value="${s.id}">${escapeHtml(s.name)} (보상 ${(s.rewards || []).length}개)</option>`);
-  });
-  sel.innerHTML = options.join('');
-  sel.value = rewardEditTarget;
+function renderRewardTargetSelect {
+ const sel = document.getElementById('rewardStudentSelect');
+ if (rewardEditTarget !== '_default' && !findStudent(rewardEditTarget)) {
+ rewardEditTarget = '_default';
+ }
+ const options = ['<option value="_default">📋 기본 세트 (새 학생 추가 시)</option>'];
+ data.students.forEach(s => {
+ options.push(`<option value="${s.id}">${escapeHtml(s.name)} (보상 ${(s.rewards || []).length}개)</option>`);
+ });
+ sel.innerHTML = options.join('');
+ sel.value = rewardEditTarget;
 }
 
-function renderTeacherStudents() {
-  const el = document.getElementById('teacherStudents');
-  if (data.students.length === 0) {
-    el.innerHTML = '<div class="empty">아래에서 학생을 먼저 추가해 주세요.</div>';
-    return;
-  }
-  el.innerHTML = data.students.map(s => {
-    const theme = studentTheme(s);
-    const count = stickerCount(s);
-    const curImg = currentStickerImg(s);
-    const lib = s.stickerLibrary || [];
-    const curIdx = (typeof s.currentStickerIdx === 'number') ? s.currentStickerIdx : -1;
-    const defaultSelected = curIdx < 0 ? 'selected' : '';
-    const libChips = lib.map((url, i) => {
-      if (!url) return '';
-      const sel = (curIdx === i) ? 'selected' : '';
-      return `<span class="chip-wrap">
-        <button class="sticker-chip ${sel}" data-lib-select="${s.id}:${i}" title="이 사진을 다음 스티커로">
-          <img src="${url}" alt="">
-        </button>
-        <button class="chip-del" data-lib-del="${s.id}:${i}" title="라이브러리에서 삭제">×</button>
-      </span>`;
-    }).join('');
-    return `
-    <div class="teacher-student" style="--accent:${theme.main};">
-      <div class="ts-row-main">
-        <span class="ts-name">${escapeHtml(s.name)}</span>
-        <span class="ts-count">${count}<span class="unit"> ⭐</span></span>
-        <button class="btn btn-minus" data-act="minus" data-id="${s.id}" title="스티커 1개 회수">−</button>
-        <button class="btn btn-give" data-act="give" data-id="${s.id}" title="선택된 스티커 1개 붙이기">
-          <img class="btn-give-preview" src="${curImg}" alt="" onerror="this.style.display='none'"> ＋ 칭찬
-        </button>
-        <button class="btn btn-redeem" data-act="redeem" data-id="${s.id}">🎁 교환</button>
-      </div>
-      <div class="sticker-library">
-        <span class="lib-label">다음 스티커:</span>
-        <button class="sticker-chip default ${defaultSelected}" data-lib-select="${s.id}:-1" title="기본 스티커">
-          <span class="chip-default">⭐</span>
-        </button>
-        ${libChips}
-        <button class="sticker-chip add" data-lib-add="${s.id}" title="스티커 사진 추가">＋ 사진</button>
-      </div>
-    </div>
-  `;
-  }).join('');
-  el.querySelectorAll('button[data-lib-select]').forEach(b => {
-    b.addEventListener('click', () => {
-      const [sid, idx] = b.dataset.libSelect.split(':');
-      selectLibraryImage(sid, parseInt(idx, 10));
-    });
-  });
-  el.querySelectorAll('button[data-lib-del]').forEach(b => {
-    b.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const [sid, idx] = b.dataset.libDel.split(':');
-      deleteLibraryImage(sid, parseInt(idx, 10));
-    });
-  });
-  el.querySelectorAll('button[data-lib-add]').forEach(b => {
-    b.addEventListener('click', () => addLibraryImage(b.dataset.libAdd));
-  });
-  el.querySelectorAll('button[data-act]').forEach(b => {
-    b.addEventListener('click', () => {
-      const id = b.dataset.id;
-      const act = b.dataset.act;
-      if (act === 'give') giveSticker(id);
-      else if (act === 'minus') minusSticker(id);
-      else if (act === 'redeem') openRedeemModal(id);
-    });
-  });
+function renderTeacherStudents {
+ const el = document.getElementById('teacherStudents');
+ if (data.students.length === 0) {
+ el.innerHTML = '<div class="empty">아래에서 학생을 먼저 추가해 주세요.</div>';
+ return;
+ }
+ el.innerHTML = data.students.map(s => {
+ const theme = studentTheme(s);
+ const count = stickerCount(s);
+ const curImg = currentStickerImg(s);
+ const lib = s.stickerLibrary || [];
+ const curIdx = (typeof s.currentStickerIdx === 'number') ? s.currentStickerIdx : -1;
+ const defaultSelected = curIdx < 0 ? 'selected' : '';
+ const libChips = lib.map((url, i) => {
+ if (!url) return '';
+ const sel = (curIdx === i) ? 'selected' : '';
+ return `<span class="chip-wrap">
+ <button class="sticker-chip ${sel}" data-lib-select="${s.id}:${i}" title="이 사진을 다음 스티커로">
+ <img src="${url}" alt="">
+ </button>
+ <button class="chip-del" data-lib-del="${s.id}:${i}" title="라이브러리에서 삭제">×</button>
+ </span>`;
+ }).join('');
+ return `
+ <div class="teacher-student" style="--accent:${theme.main};">
+ <div class="ts-row-main">
+ <span class="ts-name">${escapeHtml(s.name)}</span>
+ <span class="ts-count">${count}<span class="unit"> ⭐</span></span>
+ <button class="btn btn-minus" data-act="minus" data-id="${s.id}" title="스티커 1개 회수">−</button>
+ <button class="btn btn-give" data-act="give" data-id="${s.id}" title="선택된 스티커 1개 붙이기">
+ <img class="btn-give-preview" src="${curImg}" alt="" onerror="this.style.display='none'"> ＋ 칭찬
+ </button>
+ <button class="btn btn-redeem" data-act="redeem" data-id="${s.id}">🎁 교환</button>
+ </div>
+ <div class="sticker-library">
+ <span class="lib-label">다음 스티커:</span>
+ <button class="sticker-chip default ${defaultSelected}" data-lib-select="${s.id}:-1" title="기본 스티커">
+ <span class="chip-default">⭐</span>
+ </button>
+ ${libChips}
+ <button class="sticker-chip add" data-lib-add="${s.id}" title="스티커 사진 추가">＋ 사진</button>
+ </div>
+ </div>
+ `;
+ }).join('');
+ el.querySelectorAll('button[data-lib-select]').forEach(b => {
+ b.addEventListener('click',  => {
+ const [sid, idx] = b.dataset.libSelect.split(':');
+ selectLibraryImage(sid, parseInt(idx, 10));
+ });
+ });
+ el.querySelectorAll('button[data-lib-del]').forEach(b => {
+ b.addEventListener('click', (e) => {
+ e.stopPropagation;
+ const [sid, idx] = b.dataset.libDel.split(':');
+ deleteLibraryImage(sid, parseInt(idx, 10));
+ });
+ });
+ el.querySelectorAll('button[data-lib-add]').forEach(b => {
+ b.addEventListener('click',  => addLibraryImage(b.dataset.libAdd));
+ });
+ el.querySelectorAll('button[data-act]').forEach(b => {
+ b.addEventListener('click',  => {
+ const id = b.dataset.id;
+ const act = b.dataset.act;
+ if (act === 'give') giveSticker(id);
+ else if (act === 'minus') minusSticker(id);
+ else if (act === 'redeem') openRedeemModal(id);
+ });
+ });
 }
 
-function renderStudentManageList() {
-  const el = document.getElementById('studentManageList');
-  if (data.students.length === 0) {
-    el.innerHTML = '<div class="empty" style="padding:14px;">등록된 학생이 없어요.</div>';
-    return;
-  }
-  el.innerHTML = data.students.map(s => {
-    const theme = studentTheme(s);
-    const count = stickerCount(s);
-    const libSize = (s.stickerLibrary || []).filter(Boolean).length;
-    return `
-    <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 10px; border-bottom:1px solid #f0eaf5; flex-wrap:wrap; gap:6px; --accent:${theme.main};">
-      <span>
-        <span class="color-dot" title="${theme.name}"></span>
-        ${escapeHtml(s.name)} <span style="color:#999; font-size:0.85em;">(스티커 ${count}개 · ${theme.name} · 사진 ${libSize}장)</span>
-      </span>
-      <span style="display:inline-flex; gap:4px; flex-wrap:wrap;">
-        <button class="btn btn-color" data-color="${s.id}" title="다음 색상으로 변경">🎨 색상</button>
-        <button class="btn btn-danger" data-del="${s.id}">삭제</button>
-      </span>
-    </div>
-  `;
-  }).join('');
-  el.querySelectorAll('button[data-del]').forEach(b => {
-    b.addEventListener('click', () => deleteStudent(b.dataset.del));
-  });
-  el.querySelectorAll('button[data-color]').forEach(b => {
-    b.addEventListener('click', () => cycleStudentColor(b.dataset.color));
-  });
+function renderStudentManageList {
+ const el = document.getElementById('studentManageList');
+ if (data.students.length === 0) {
+ el.innerHTML = '<div class="empty" style="padding:14px;">등록된 학생이 없어요.</div>';
+ return;
+ }
+ el.innerHTML = data.students.map(s => {
+ const theme = studentTheme(s);
+ const count = stickerCount(s);
+ const libSize = (s.stickerLibrary || []).filter(Boolean).length;
+ return `
+ <div style="display:flex; justify-content:space-between; align-items:center; padding:8px 10px; border-bottom:1px solid #f0eaf5; flex-wrap:wrap; gap:6px; --accent:${theme.main};">
+ <span>
+ <span class="color-dot" title="${theme.name}"></span>
+ ${escapeHtml(s.name)} <span style="color:#999; font-size:0.85em;">(스티커 ${count}개 · ${theme.name} · 사진 ${libSize}장)</span>
+ </span>
+ <span style="display:inline-flex; gap:4px; flex-wrap:wrap;">
+ <button class="btn btn-color" data-color="${s.id}" title="다음 색상으로 변경">🎨 색상</button>
+ <button class="btn btn-danger" data-del="${s.id}">삭제</button>
+ </span>
+ </div>
+ `;
+ }).join('');
+ el.querySelectorAll('button[data-del]').forEach(b => {
+ b.addEventListener('click',  => deleteStudent(b.dataset.del));
+ });
+ el.querySelectorAll('button[data-color]').forEach(b => {
+ b.addEventListener('click',  => cycleStudentColor(b.dataset.color));
+ });
 }
 
 function cycleStudentColor(id) {
-  const s = findStudent(id);
-  if (!s) return;
-  const cur = (typeof s.colorIndex === 'number') ? s.colorIndex : 0;
-  s.colorIndex = (cur + 1) % STUDENT_PALETTE.length;
-  saveData();
-  renderTeacherStudents();
-  renderStudentManageList();
-  toast(`🎨 ${s.name} → ${STUDENT_PALETTE[s.colorIndex].name}`);
+ const s = findStudent(id);
+ if (!s) return;
+ const cur = (typeof s.colorIndex === 'number') ? s.colorIndex : 0;
+ s.colorIndex = (cur + 1) % STUDENT_PALETTE.length;
+ saveData;
+ renderTeacherStudents;
+ renderStudentManageList;
+ toast(`🎨 ${s.name} → ${STUDENT_PALETTE[s.colorIndex].name}`);
 }
 
 function addLibraryImage(studentId) {
-  const s = findStudent(studentId);
-  if (!s) return;
-  if (!Array.isArray(s.stickerLibrary)) s.stickerLibrary = [];
-  const input = document.createElement('input');
-  input.type = 'file';
-  input.accept = 'image/*';
-  input.addEventListener('change', async (e) => {
-    const file = e.target.files && e.target.files[0];
-    if (!file) return;
-    if (!file.type.startsWith('image/')) { toast('이미지 파일만 가능해요', 'warn'); return; }
-    try {
-      const dataUrl = await resizeImageToDataUrl(file, 180);
-      s.stickerLibrary.push(dataUrl);
-      s.currentStickerIdx = s.stickerLibrary.length - 1;
-      saveData();
-      renderTeacherStudents();
-      renderStudentManageList();
-      toast(`📷 ${s.name} 스티커 사진 추가 (선택됨)`);
-    } catch (err) {
-      toast('이미지 처리에 실패했어요', 'error');
-    }
-  });
-  input.click();
+ const s = findStudent(studentId);
+ if (!s) return;
+ if (!Array.isArray(s.stickerLibrary)) s.stickerLibrary = [];
+ const input = document.createElement('input');
+ input.type = 'file';
+ input.accept = 'image/*';
+ input.addEventListener('change', async (e) => {
+ const file = e.target.files && e.target.files[0];
+ if (!file) return;
+ if (!file.type.startsWith('image/')) { toast('이미지 파일만 가능해요', 'warn'); return; }
+ try {
+ const dataUrl = await resizeImageToDataUrl(file, 180);
+ s.stickerLibrary.push(dataUrl);
+ s.currentStickerIdx = s.stickerLibrary.length - 1;
+ saveData;
+ renderTeacherStudents;
+ renderStudentManageList;
+ toast(`📷 ${s.name} 스티커 사진 추가 (선택됨)`);
+ } catch (err) {
+ toast('이미지 처리에 실패했어요', 'error');
+ }
+ });
+ input.click;
 }
 
 function selectLibraryImage(studentId, idx) {
-  const s = findStudent(studentId);
-  if (!s) return;
-  s.currentStickerIdx = idx;
-  saveData();
-  renderTeacherStudents();
-  const label = idx < 0 ? '기본 스티커' : `사진 #${idx + 1}`;
-  toast(`✅ ${s.name} 다음 스티커: ${label}`);
+ const s = findStudent(studentId);
+ if (!s) return;
+ s.currentStickerIdx = idx;
+ saveData;
+ renderTeacherStudents;
+ const label = idx < 0 ? '기본 스티커' : `사진 #${idx + 1}`;
+ toast(`✅ ${s.name} 다음 스티커: ${label}`);
 }
 
 function deleteLibraryImage(studentId, idx) {
-  const s = findStudent(studentId);
-  if (!s || !Array.isArray(s.stickerLibrary)) return;
-  if (!s.stickerLibrary[idx]) return;
-  if (!confirm(`이 스티커 사진을 라이브러리에서 삭제할까요?\n(이미 붙여진 과거 스티커는 그대로 유지돼요)`)) return;
-  s.stickerLibrary[idx] = null;
-  if (s.currentStickerIdx === idx) s.currentStickerIdx = -1;
-  saveData();
-  renderTeacherStudents();
-  renderStudentManageList();
-  toast(`🗑 스티커 사진을 라이브러리에서 삭제`);
+ const s = findStudent(studentId);
+ if (!s || !Array.isArray(s.stickerLibrary)) return;
+ if (!s.stickerLibrary[idx]) return;
+ if (!confirm(`이 스티커 사진을 라이브러리에서 삭제할까요?\n(이미 붙여진 과거 스티커는 그대로 유지돼요)`)) return;
+ s.stickerLibrary[idx] = null;
+ if (s.currentStickerIdx === idx) s.currentStickerIdx = -1;
+ saveData;
+ renderTeacherStudents;
+ renderStudentManageList;
+ toast(`🗑 스티커 사진을 라이브러리에서 삭제`);
 }
 
 function resizeImageToDataUrl(file, maxSize) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const img = new Image();
-      img.onload = () => {
-        const sourceSize = Math.min(img.width, img.height);
-        const sx = (img.width - sourceSize) / 2;
-        const sy = (img.height - sourceSize) / 2;
-        const size = Math.min(maxSize, sourceSize);
-        const canvas = document.createElement('canvas');
-        canvas.width = size;
-        canvas.height = size;
-        const ctx = canvas.getContext('2d');
-        ctx.drawImage(img, sx, sy, sourceSize, sourceSize, 0, 0, size, size);
-        resolve(canvas.toDataURL('image/jpeg', 0.85));
-      };
-      img.onerror = () => reject(new Error('image decode failed'));
-      img.src = e.target.result;
-    };
-    reader.onerror = () => reject(new Error('file read failed'));
-    reader.readAsDataURL(file);
-  });
+ return new Promise((resolve, reject) => {
+ const reader = new FileReader;
+ reader.onload = (e) => {
+ const img = new Image;
+ img.onload =  => {
+ const sourceSize = Math.min(img.width, img.height);
+ const sx = (img.width - sourceSize) / 2;
+ const sy = (img.height - sourceSize) / 2;
+ const size = Math.min(maxSize, sourceSize);
+ const canvas = document.createElement('canvas');
+ canvas.width = size;
+ canvas.height = size;
+ const ctx = canvas.getContext('2d');
+ ctx.drawImage(img, sx, sy, sourceSize, sourceSize, 0, 0, size, size);
+ resolve(canvas.toDataURL('image/jpeg', 0.85));
+ };
+ img.onerror =  => reject(new Error('image decode failed'));
+ img.src = e.target.result;
+ };
+ reader.onerror =  => reject(new Error('file read failed'));
+ reader.readAsDataURL(file);
+ });
 }
 
-function renderRewardList() {
-  const el = document.getElementById('rewardList');
-  const list = currentRewardList();
-  const label = currentRewardTargetLabel();
-  if (list.length === 0) {
-    el.innerHTML = `<div class="empty" style="padding:14px;"><b>${escapeHtml(label)}</b>에 설정된 보상이 없어요.<br>위 입력창에서 추가해 주세요.</div>`;
-    return;
-  }
-  const sorted = [...list].sort((a,b)=>a.cost-b.cost);
-  el.innerHTML = sorted.map(r => `
-    <div class="reward-item">
-      <span class="r-icon">${escapeHtml(r.icon)}</span>
-      <span class="r-name">${escapeHtml(r.name)}</span>
-      <span class="r-cost">⭐ ${r.cost}</span>
-      <button class="btn btn-danger" data-rdel="${r.id}">삭제</button>
-    </div>
-  `).join('');
-  el.querySelectorAll('button[data-rdel]').forEach(b => {
-    b.addEventListener('click', () => deleteReward(b.dataset.rdel));
-  });
+function renderRewardList {
+ const el = document.getElementById('rewardList');
+ const list = currentRewardList;
+ const label = currentRewardTargetLabel;
+ if (list.length === 0) {
+ el.innerHTML = `<div class="empty" style="padding:14px;"><b>${escapeHtml(label)}</b>에 설정된 보상이 없어요.<br>위 입력창에서 추가해 주세요.</div>`;
+ return;
+ }
+ const sorted = [...list].sort((a,b)=>a.cost-b.cost);
+ el.innerHTML = sorted.map(r => `
+ <div class="reward-item">
+ <span class="r-icon">${escapeHtml(r.icon)}</span>
+ <span class="r-name">${escapeHtml(r.name)}</span>
+ <span class="r-cost">⭐ ${r.cost}</span>
+ <button class="btn btn-danger" data-rdel="${r.id}">삭제</button>
+ </div>
+ `).join('');
+ el.querySelectorAll('button[data-rdel]').forEach(b => {
+ b.addEventListener('click',  => deleteReward(b.dataset.rdel));
+ });
 }
 
-function renderActivityLog() {
-  const el = document.getElementById('activityLog');
-  if (data.logs.length === 0) {
-    el.innerHTML = '<div class="empty">아직 활동 기록이 없어요.</div>';
-    return;
-  }
-  el.innerHTML = data.logs.slice(0, 50).map(log => {
-    let text = '';
-    let cls = '';
-    if (log.type === 'give') {
-      text = `✨ <b>${escapeHtml(log.studentName)}</b> +${log.amount} 스티커`;
-      cls = 'l-give';
-    } else if (log.type === 'minus') {
-      text = `↩️ <b>${escapeHtml(log.studentName)}</b> -${log.amount} 스티커 (회수)`;
-      cls = 'l-redeem';
-    } else if (log.type === 'redeem') {
-      text = `🎁 <b>${escapeHtml(log.studentName)}</b> ${escapeHtml(log.detail)} 교환 (-${log.amount})`;
-      cls = 'l-redeem';
-    }
-    return `<div class="log-item ${cls}"><span>${text}</span><span class="l-time">${log.ts}</span></div>`;
-  }).join('');
+function renderActivityLog {
+ const el = document.getElementById('activityLog');
+ if (data.logs.length === 0) {
+ el.innerHTML = '<div class="empty">아직 활동 기록이 없어요.</div>';
+ return;
+ }
+ el.innerHTML = data.logs.slice(0, 50).map(log => {
+ let text = '';
+ let cls = '';
+ if (log.type === 'give') {
+ text = `✨ <b>${escapeHtml(log.studentName)}</b> +${log.amount} 스티커`;
+ cls = 'l-give';
+ } else if (log.type === 'minus') {
+ text = `↩️ <b>${escapeHtml(log.studentName)}</b> -${log.amount} 스티커 (회수)`;
+ cls = 'l-redeem';
+ } else if (log.type === 'redeem') {
+ text = `🎁 <b>${escapeHtml(log.studentName)}</b> ${escapeHtml(log.detail)} 교환 (-${log.amount})`;
+ cls = 'l-redeem';
+ }
+ return `<div class="log-item ${cls}"><span>${text}</span><span class="l-time">${log.ts}</span></div>`;
+ }).join('');
 }
 
 /* ─── 액션: 스티커 부여/회수 ─── */
 function giveSticker(id) {
-  const s = findStudent(id);
-  if (!s) return;
-  if (!Array.isArray(s.stickerBoard)) s.stickerBoard = [];
-  const idx = (typeof s.currentStickerIdx === 'number') ? s.currentStickerIdx : -1;
-  s.stickerBoard.push(idx);
-  if (!s.history) s.history = [];
-  s.history.unshift({ type: 'give', amount: 1, ts: nowStr() });
-  addLog('give', s.name, '칭찬', 1);
-  saveData();
-  renderTeacherStudents();
-  renderStudentManageList();
-  renderActivityLog();
-  toast(`✨ ${s.name} +1 스티커!`);
+ const s = findStudent(id);
+ if (!s) return;
+ if (!Array.isArray(s.stickerBoard)) s.stickerBoard = [];
+ const idx = (typeof s.currentStickerIdx === 'number') ? s.currentStickerIdx : -1;
+ s.stickerBoard.push(idx);
+ if (!s.history) s.history = [];
+ s.history.unshift({ type: 'give', amount: 1, ts: nowStr });
+ addLog('give', s.name, '칭찬', 1);
+ saveData;
+ renderTeacherStudents;
+ renderStudentManageList;
+ renderActivityLog;
+ toast(`✨ ${s.name} +1 스티커!`);
 }
 
 function minusSticker(id) {
-  const s = findStudent(id);
-  if (!s) return;
-  const count = stickerCount(s);
-  if (count <= 0) { toast('스티커가 0개라 회수할 수 없어요', 'warn'); return; }
-  if (!confirm(`${s.name} 학생의 스티커 1개를 회수할까요?`)) return;
-  s.stickerBoard.pop();
-  if (!s.history) s.history = [];
-  s.history.unshift({ type: 'minus', amount: 1, ts: nowStr() });
-  addLog('minus', s.name, '회수', 1);
-  saveData();
-  renderTeacherStudents();
-  renderStudentManageList();
-  renderActivityLog();
-  toast(`↩️ ${s.name} -1 스티커`, 'warn');
+ const s = findStudent(id);
+ if (!s) return;
+ const count = stickerCount(s);
+ if (count <= 0) { toast('스티커가 0개라 회수할 수 없어요', 'warn'); return; }
+ if (!confirm(`${s.name} 학생의 스티커 1개를 회수할까요?`)) return;
+ s.stickerBoard.pop;
+ if (!s.history) s.history = [];
+ s.history.unshift({ type: 'minus', amount: 1, ts: nowStr });
+ addLog('minus', s.name, '회수', 1);
+ saveData;
+ renderTeacherStudents;
+ renderStudentManageList;
+ renderActivityLog;
+ toast(`↩️ ${s.name} -1 스티커`, 'warn');
 }
 
 /* ─── 보상 교환 ─── */
@@ -1373,248 +1373,248 @@ let redeemingStudentId = null;
 const redeemModal = document.getElementById('redeemModal');
 
 function openRedeemModal(studentId) {
-  const s = findStudent(studentId);
-  if (!s) return;
-  const rewards = s.rewards || [];
-  if (rewards.length === 0) {
-    toast(`${s.name} 학생의 보상이 없어요. 보상 관리에서 먼저 추가해 주세요.`, 'warn');
-    return;
-  }
-  const count = stickerCount(s);
-  redeemingStudentId = studentId;
-  document.getElementById('redeemStudentInfo').innerHTML =
-    `<b>${escapeHtml(s.name)}</b> 학생의 현재 스티커: <b style="color:#c2185b;">⭐ ${count}개</b>`;
-  const sortedRewards = [...rewards].sort((a,b)=>a.cost-b.cost);
-  document.getElementById('redeemRewardList').innerHTML = sortedRewards.map(r => `
-    <button data-rid="${r.id}" ${count < r.cost ? 'disabled' : ''}>
-      <span class="r-icon">${escapeHtml(r.icon)}</span>
-      <span class="r-name">${escapeHtml(r.name)}</span>
-      <span class="r-cost">⭐ ${r.cost}</span>
-    </button>
-  `).join('');
-  document.querySelectorAll('#redeemRewardList button').forEach(b => {
-    b.addEventListener('click', () => redeem(b.dataset.rid));
-  });
-  redeemModal.classList.add('show');
+ const s = findStudent(studentId);
+ if (!s) return;
+ const rewards = s.rewards || [];
+ if (rewards.length === 0) {
+ toast(`${s.name} 학생의 보상이 없어요. 보상 관리에서 먼저 추가해 주세요.`, 'warn');
+ return;
+ }
+ const count = stickerCount(s);
+ redeemingStudentId = studentId;
+ document.getElementById('redeemStudentInfo').innerHTML =
+ `<b>${escapeHtml(s.name)}</b> 학생의 현재 스티커: <b style="color:#c2185b;">⭐ ${count}개</b>`;
+ const sortedRewards = [...rewards].sort((a,b)=>a.cost-b.cost);
+ document.getElementById('redeemRewardList').innerHTML = sortedRewards.map(r => `
+ <button data-rid="${r.id}" ${count < r.cost ? 'disabled' : ''}>
+ <span class="r-icon">${escapeHtml(r.icon)}</span>
+ <span class="r-name">${escapeHtml(r.name)}</span>
+ <span class="r-cost">⭐ ${r.cost}</span>
+ </button>
+ `).join('');
+ document.querySelectorAll('#redeemRewardList button').forEach(b => {
+ b.addEventListener('click',  => redeem(b.dataset.rid));
+ });
+ redeemModal.classList.add('show');
 }
 
-function closeRedeemModal() {
-  redeemModal.classList.remove('show');
-  redeemingStudentId = null;
+function closeRedeemModal {
+ redeemModal.classList.remove('show');
+ redeemingStudentId = null;
 }
 document.getElementById('closeModalBtn').addEventListener('click', closeRedeemModal);
-redeemModal.addEventListener('click', (e) => { if (e.target === redeemModal) closeRedeemModal(); });
+redeemModal.addEventListener('click', (e) => { if (e.target === redeemModal) closeRedeemModal; });
 
 function redeem(rewardId) {
-  const s = findStudent(redeemingStudentId);
-  if (!s) return;
-  const r = (s.rewards || []).find(x => x.id === rewardId);
-  if (!r) return;
-  const count = stickerCount(s);
-  if (count < r.cost) { toast('스티커가 부족해요', 'error'); return; }
-  if (!confirm(`${s.name} 학생이 "${r.icon} ${r.name}"을(를) 교환합니다. 스티커 ${r.cost}개가 차감돼요. 진행할까요?`)) return;
-  s.stickerBoard = s.stickerBoard.slice(0, count - r.cost);
-  if (!s.history) s.history = [];
-  s.history.unshift({ type: 'redeem', amount: r.cost, detail: `${r.icon} ${r.name}`, ts: nowStr() });
-  addLog('redeem', s.name, `${r.icon} ${r.name}`, r.cost);
-  saveData();
-  renderTeacherStudents();
-  renderStudentManageList();
-  renderActivityLog();
-  closeRedeemModal();
-  toast(`🎁 ${s.name} → ${r.name} 교환 완료!`);
+ const s = findStudent(redeemingStudentId);
+ if (!s) return;
+ const r = (s.rewards || []).find(x => x.id === rewardId);
+ if (!r) return;
+ const count = stickerCount(s);
+ if (count < r.cost) { toast('스티커가 부족해요', 'error'); return; }
+ if (!confirm(`${s.name} 학생이 "${r.icon} ${r.name}"을(를) 교환합니다. 스티커 ${r.cost}개가 차감돼요. 진행할까요?`)) return;
+ s.stickerBoard = s.stickerBoard.slice(0, count - r.cost);
+ if (!s.history) s.history = [];
+ s.history.unshift({ type: 'redeem', amount: r.cost, detail: `${r.icon} ${r.name}`, ts: nowStr });
+ addLog('redeem', s.name, `${r.icon} ${r.name}`, r.cost);
+ saveData;
+ renderTeacherStudents;
+ renderStudentManageList;
+ renderActivityLog;
+ closeRedeemModal;
+ toast(`🎁 ${s.name} → ${r.name} 교환 완료!`);
 }
 
 /* ─── 학생 추가/삭제 ─── */
 document.getElementById('addStudentBtn').addEventListener('click', addStudent);
 document.getElementById('newStudentName').addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') addStudent();
+ if (e.key === 'Enter') addStudent;
 });
 
-function addStudent() {
-  const input = document.getElementById('newStudentName');
-  const name = input.value.trim();
-  if (!name) { toast('이름을 입력해 주세요', 'warn'); return; }
-  if (data.students.some(s => s.name === name)) { toast('이미 같은 이름의 학생이 있어요', 'warn'); return; }
-  const clonedRewards = structuredClone(data.defaultRewards || []).map(r => ({ ...r, id: uid('r') }));
-  const colorIndex = pickNextColorIndex();
-  data.students.push({
-    id: uid('s'),
-    name: name,
-    stickerBoard: [],
-    stickerLibrary: [],
-    currentStickerIdx: -1,
-    history: [],
-    rewards: clonedRewards,
-    colorIndex: colorIndex
-  });
-  saveData();
-  input.value = '';
-  renderTeacherStudents();
-  renderStudentManageList();
-  renderRewardTargetSelect();
-  toast(`👤 ${name} 학생을 추가했어요 (기본 보상 ${clonedRewards.length}개 자동 지정)`);
+function addStudent {
+ const input = document.getElementById('newStudentName');
+ const name = input.value.trim;
+ if (!name) { toast('이름을 입력해 주세요', 'warn'); return; }
+ if (data.students.some(s => s.name === name)) { toast('이미 같은 이름의 학생이 있어요', 'warn'); return; }
+ const clonedRewards = structuredClone(data.defaultRewards || []).map(r => ({ ...r, id: uid('r') }));
+ const colorIndex = pickNextColorIndex;
+ data.students.push({
+ id: uid('s'),
+ name: name,
+ stickerBoard: [],
+ stickerLibrary: [],
+ currentStickerIdx: -1,
+ history: [],
+ rewards: clonedRewards,
+ colorIndex: colorIndex
+ });
+ saveData;
+ input.value = '';
+ renderTeacherStudents;
+ renderStudentManageList;
+ renderRewardTargetSelect;
+ toast(`👤 ${name} 학생을 추가했어요 (기본 보상 ${clonedRewards.length}개 자동 지정)`);
 }
 
 function deleteStudent(id) {
-  const s = findStudent(id);
-  if (!s) return;
-  if (!confirm(`${s.name} 학생을 명단에서 삭제할까요?\n(스티커 기록과 보상 목록도 함께 삭제됩니다)`)) return;
-  if (rewardEditTarget === id) rewardEditTarget = '_default';
-  data.students = data.students.filter(x => x.id !== id);
-  saveData();
-  renderTeacherStudents();
-  renderStudentManageList();
-  renderRewardTargetSelect();
-  renderRewardList();
-  toast(`${s.name} 학생을 삭제했어요`, 'warn');
+ const s = findStudent(id);
+ if (!s) return;
+ if (!confirm(`${s.name} 학생을 명단에서 삭제할까요?\n(스티커 기록과 보상 목록도 함께 삭제됩니다)`)) return;
+ if (rewardEditTarget === id) rewardEditTarget = '_default';
+ data.students = data.students.filter(x => x.id !== id);
+ saveData;
+ renderTeacherStudents;
+ renderStudentManageList;
+ renderRewardTargetSelect;
+ renderRewardList;
+ toast(`${s.name} 학생을 삭제했어요`, 'warn');
 }
 
 /* ─── 보상 추가/삭제 ─── */
 document.getElementById('addRewardBtn').addEventListener('click', addReward);
 ['newRewardIcon', 'newRewardName', 'newRewardCost'].forEach(id => {
-  document.getElementById(id).addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') addReward();
-  });
+ document.getElementById(id).addEventListener('keydown', (e) => {
+ if (e.key === 'Enter') addReward;
+ });
 });
 document.getElementById('rewardStudentSelect').addEventListener('change', (e) => {
-  rewardEditTarget = e.target.value;
-  renderRewardList();
+ rewardEditTarget = e.target.value;
+ renderRewardList;
 });
 document.getElementById('copyRewardBtn').addEventListener('click', copyRewardsFromOther);
 
-function addReward() {
-  const icon = document.getElementById('newRewardIcon').value.trim() || '🎁';
-  const name = document.getElementById('newRewardName').value.trim();
-  const cost = parseInt(document.getElementById('newRewardCost').value, 10);
-  if (!name) { toast('보상 이름을 입력해 주세요', 'warn'); return; }
-  if (!cost || cost < 1) { toast('필요 스티커 수를 입력해 주세요', 'warn'); return; }
-  const list = currentRewardList();
-  list.push({ id: uid('r'), icon, name, cost });
-  saveData();
-  document.getElementById('newRewardIcon').value = '';
-  document.getElementById('newRewardName').value = '';
-  document.getElementById('newRewardCost').value = '5';
-  renderRewardTargetSelect();
-  renderRewardList();
-  toast(`🎁 [${currentRewardTargetLabel()}] "${name}" 추가`);
+function addReward {
+ const icon = document.getElementById('newRewardIcon').value.trim || '🎁';
+ const name = document.getElementById('newRewardName').value.trim;
+ const cost = parseInt(document.getElementById('newRewardCost').value, 10);
+ if (!name) { toast('보상 이름을 입력해 주세요', 'warn'); return; }
+ if (!cost || cost < 1) { toast('필요 스티커 수를 입력해 주세요', 'warn'); return; }
+ const list = currentRewardList;
+ list.push({ id: uid('r'), icon, name, cost });
+ saveData;
+ document.getElementById('newRewardIcon').value = '';
+ document.getElementById('newRewardName').value = '';
+ document.getElementById('newRewardCost').value = '5';
+ renderRewardTargetSelect;
+ renderRewardList;
+ toast(`🎁 [${currentRewardTargetLabel}] "${name}" 추가`);
 }
 
 function deleteReward(id) {
-  const list = currentRewardList();
-  const r = list.find(x => x.id === id);
-  if (!r) return;
-  if (!confirm(`"${r.icon} ${r.name}" 보상을 삭제할까요?\n(대상: ${currentRewardTargetLabel()})`)) return;
-  const idx = list.findIndex(x => x.id === id);
-  list.splice(idx, 1);
-  saveData();
-  renderRewardTargetSelect();
-  renderRewardList();
-  toast('보상을 삭제했어요', 'warn');
+ const list = currentRewardList;
+ const r = list.find(x => x.id === id);
+ if (!r) return;
+ if (!confirm(`"${r.icon} ${r.name}" 보상을 삭제할까요?\n(대상: ${currentRewardTargetLabel})`)) return;
+ const idx = list.findIndex(x => x.id === id);
+ list.splice(idx, 1);
+ saveData;
+ renderRewardTargetSelect;
+ renderRewardList;
+ toast('보상을 삭제했어요', 'warn');
 }
 
-function copyRewardsFromOther() {
-  const sources = [{ id: '_default', name: '📋 기본 세트' }];
-  data.students.forEach(s => {
-    if (s.id !== rewardEditTarget) sources.push({ id: s.id, name: s.name });
-  });
-  const validSources = sources.filter(src => src.id !== rewardEditTarget);
-  if (validSources.length === 0) { toast('복사할 대상이 없어요', 'warn'); return; }
-  const promptText = '어느 대상의 보상을 복사할까요? (번호 입력)\n\n'
-    + validSources.map((o, i) => `${i + 1}. ${o.name}`).join('\n');
-  const input = window.prompt(promptText, '1');
-  if (input === null) return;
-  const idx = parseInt(input, 10) - 1;
-  if (isNaN(idx) || idx < 0 || idx >= validSources.length) { toast('올바른 번호를 입력해 주세요', 'error'); return; }
-  const source = validSources[idx];
-  const sourceList = source.id === '_default' ? data.defaultRewards : studentRewards(source.id);
-  if (!sourceList || sourceList.length === 0) { toast('복사할 보상이 없어요', 'warn'); return; }
-  if (!confirm(`[${source.name}]의 보상 ${sourceList.length}개를 [${currentRewardTargetLabel()}]에 덮어쓸까요?\n(현재 목록은 사라져요)`)) return;
-  const copies = sourceList.map(r => ({ ...r, id: uid('r') }));
-  if (rewardEditTarget === '_default') {
-    data.defaultRewards = copies;
-  } else {
-    const s = findStudent(rewardEditTarget);
-    s.rewards = copies;
-  }
-  saveData();
-  renderRewardTargetSelect();
-  renderRewardList();
-  toast(`📋 ${copies.length}개 보상을 복사했어요`);
+function copyRewardsFromOther {
+ const sources = [{ id: '_default', name: '📋 기본 세트' }];
+ data.students.forEach(s => {
+ if (s.id !== rewardEditTarget) sources.push({ id: s.id, name: s.name });
+ });
+ const validSources = sources.filter(src => src.id !== rewardEditTarget);
+ if (validSources.length === 0) { toast('복사할 대상이 없어요', 'warn'); return; }
+ const promptText = '어느 대상의 보상을 복사할까요? (번호 입력)\n\n'
+ + validSources.map((o, i) => `${i + 1}. ${o.name}`).join('\n');
+ const input = window.prompt(promptText, '1');
+ if (input === null) return;
+ const idx = parseInt(input, 10) - 1;
+ if (isNaN(idx) || idx < 0 || idx >= validSources.length) { toast('올바른 번호를 입력해 주세요', 'error'); return; }
+ const source = validSources[idx];
+ const sourceList = source.id === '_default' ? data.defaultRewards : studentRewards(source.id);
+ if (!sourceList || sourceList.length === 0) { toast('복사할 보상이 없어요', 'warn'); return; }
+ if (!confirm(`[${source.name}]의 보상 ${sourceList.length}개를 [${currentRewardTargetLabel}]에 덮어쓸까요?\n(현재 목록은 사라져요)`)) return;
+ const copies = sourceList.map(r => ({ ...r, id: uid('r') }));
+ if (rewardEditTarget === '_default') {
+ data.defaultRewards = copies;
+ } else {
+ const s = findStudent(rewardEditTarget);
+ s.rewards = copies;
+ }
+ saveData;
+ renderRewardTargetSelect;
+ renderRewardList;
+ toast(`📋 ${copies.length}개 보상을 복사했어요`);
 }
 
 /* ─── 로그 비우기 ─── */
-document.getElementById('clearLogBtn').addEventListener('click', () => {
-  if (data.logs.length === 0) return;
-  if (!confirm('활동 로그를 모두 지울까요?\n(학생별 스티커 수와 히스토리는 유지됩니다)')) return;
-  data.logs = [];
-  saveData();
-  renderActivityLog();
-  toast('로그를 비웠어요');
+document.getElementById('clearLogBtn').addEventListener('click',  => {
+ if (data.logs.length === 0) return;
+ if (!confirm('활동 로그를 모두 지울까요?\n(학생별 스티커 수와 히스토리는 유지됩니다)')) return;
+ data.logs = [];
+ saveData;
+ renderActivityLog;
+ toast('로그를 비웠어요');
 });
 
 /* ─── 백업/복원 ─── */
-document.getElementById('exportBtn').addEventListener('click', () => {
-  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-  const url = URL.createObjectURL(blob);
-  const d = new Date();
-  const fname = `칭찬스티커_백업_${d.getFullYear()}${String(d.getMonth()+1).padStart(2,'0')}${String(d.getDate()).padStart(2,'0')}.json`;
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = fname;
-  a.click();
-  URL.revokeObjectURL(url);
-  toast('📤 백업 파일을 내려받았어요');
+document.getElementById('exportBtn').addEventListener('click',  => {
+ const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+ const url = URL.createObjectURL(blob);
+ const d = new Date;
+ const fname = `칭찬스티커_백업_${d.getFullYear}${String(d.getMonth+1).padStart(2,'0')}${String(d.getDate).padStart(2,'0')}.json`;
+ const a = document.createElement('a');
+ a.href = url;
+ a.download = fname;
+ a.click;
+ URL.revokeObjectURL(url);
+ toast('📤 백업 파일을 내려받았어요');
 });
 
-document.getElementById('importBtn').addEventListener('click', () => {
-  document.getElementById('importFile').click();
+document.getElementById('importBtn').addEventListener('click',  => {
+ document.getElementById('importFile').click;
 });
 document.getElementById('importFile').addEventListener('change', (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = (ev) => {
-    try {
-      const parsed = JSON.parse(ev.target.result);
-      if (!parsed.students || !Array.isArray(parsed.students)) throw new Error('형식 오류');
-      if (!confirm('현재 데이터를 덮어쓰고 불러온 데이터로 교체할까요?')) return;
-      const legacyRewards = parsed.rewards;
-      data = {
-        students: migrateStudents(parsed.students, legacyRewards),
-        defaultRewards: parsed.defaultRewards
-          || (legacyRewards ? structuredClone(legacyRewards) : structuredClone(DEFAULT_DATA.defaultRewards)),
-        logs: parsed.logs || []
-      };
-      rewardEditTarget = '_default';
-      saveData();
-      renderTeacherMode();
-      toast('📥 데이터를 불러왔어요');
-    } catch (err) {
-      toast('파일 형식이 올바르지 않아요', 'error');
-    }
-  };
-  reader.readAsText(file, 'utf-8');
-  e.target.value = '';
+ const file = e.target.files[0];
+ if (!file) return;
+ const reader = new FileReader;
+ reader.onload = (ev) => {
+ try {
+ const parsed = JSON.parse(ev.target.result);
+ if (!parsed.students || !Array.isArray(parsed.students)) throw new Error('형식 오류');
+ if (!confirm('현재 데이터를 덮어쓰고 불러온 데이터로 교체할까요?')) return;
+ const legacyRewards = parsed.rewards;
+ data = {
+ students: migrateStudents(parsed.students, legacyRewards),
+ defaultRewards: parsed.defaultRewards
+ || (legacyRewards ? structuredClone(legacyRewards) : structuredClone(DEFAULT_DATA.defaultRewards)),
+ logs: parsed.logs || []
+ };
+ rewardEditTarget = '_default';
+ saveData;
+ renderTeacherMode;
+ toast('📥 데이터를 불러왔어요');
+ } catch (err) {
+ toast('파일 형식이 올바르지 않아요', 'error');
+ }
+ };
+ reader.readAsText(file, 'utf-8');
+ e.target.value = '';
 });
 
-document.getElementById('resetBtn').addEventListener('click', () => {
-  if (!confirm('정말 모든 데이터를 초기화할까요?\n학생 명단, 스티커 수, 보상 항목, 로그가 모두 삭제됩니다.\n(되돌릴 수 없어요)')) return;
-  if (!confirm('한 번 더 확인할게요. 정말 초기화할까요?')) return;
-  data = structuredClone(DEFAULT_DATA);
-  saveData();
-  renderTeacherMode();
-  toast('전체 데이터를 초기화했어요', 'warn');
+document.getElementById('resetBtn').addEventListener('click',  => {
+ if (!confirm('정말 모든 데이터를 초기화할까요?\n학생 명단, 스티커 수, 보상 항목, 로그가 모두 삭제됩니다.\n(되돌릴 수 없어요)')) return;
+ if (!confirm('한 번 더 확인할게요. 정말 초기화할까요?')) return;
+ data = structuredClone(DEFAULT_DATA);
+ saveData;
+ renderTeacherMode;
+ toast('전체 데이터를 초기화했어요', 'warn');
 });
 
 /* ─── 인쇄 ─── */
-document.getElementById('printBtn').addEventListener('click', () => {
-  if (data.students.length === 0) { toast('인쇄할 학생이 없어요', 'warn'); return; }
-  const d = new Date();
-  document.querySelector('.print-date').textContent =
-    `인쇄 날짜: ${d.getFullYear()}. ${String(d.getMonth()+1).padStart(2,'0')}. ${String(d.getDate()).padStart(2,'0')}.`;
-  if (teacherPanel.style.display !== 'none') setMode('view');
-  setTimeout(() => window.print(), 100);
+document.getElementById('printBtn').addEventListener('click',  => {
+ if (data.students.length === 0) { toast('인쇄할 학생이 없어요', 'warn'); return; }
+ const d = new Date;
+ document.querySelector('.print-date').textContent =
+ `인쇄 날짜: ${d.getFullYear}. ${String(d.getMonth+1).padStart(2,'0')}. ${String(d.getDate).padStart(2,'0')}.`;
+ if (teacherPanel.style.display !== 'none') setMode('view');
+ setTimeout( => window.print, 100);
 });
 
 /* ─── 초기 ─── */

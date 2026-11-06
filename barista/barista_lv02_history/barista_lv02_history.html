@@ -8,22 +8,22 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #6d4c41; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #6d4c41; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; } .toolbar .muted { color: #d7ccc8; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #d7ccc8 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #3e2723;
-  border-bottom: 2px solid #8d6e63; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #8d6e63; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; }
 .cover-main { text-align: center; padding: 10px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #6d4c41; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #6d4c41; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #3e2723; font-weight: 900; }
 .cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #5d4037; font-weight: 500; }
 .cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
@@ -35,7 +35,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #3e2723; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #6d4c41; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #6d4c41; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #3e2723; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #6d4c41; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -75,337 +75,336 @@ table.qa td.left { text-align: left; }
 .origin .d { font-size: 0.83em; color: #5d4037; margin-top: 3px; }
 
 .footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
-  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+ color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
 @media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div><span class="title">바리스타 2차시</span><span class="muted">커피의 역사·종류 · A4 4쪽</span></div>
-  <button onclick="window.print()">🖨 인쇄하기</button>
+ <div><span class="title">바리스타 2차시</span><span class="muted">커피의 역사·종류 · A4 4쪽</span></div>
+ <button onclick="window.print">🖨 인쇄하기</button>
 </div>
 
 <!-- 표지 -->
 <div class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">커피학 개론</span> · 바리스타 단원 2/10</div>
-    <div>혜화여자고등학교 특수학급</div>
-  </div>
-  <div class="cover-main">
-    <span class="badge">Lv.2 커피의 뿌리</span>
-    <h1>커피, 어디서 왔을까?</h1>
-    <p class="lead">에티오피아 전설 · 원산지 지도 · 아라비카 vs 로부스타</p>
-  </div>
-  <div class="cover-emoji">🌍 🌱 ☕ 🐐</div>
-  <div class="cover-info">
-    <h3>이번 시간에 배울 것</h3>
-    <ul>
-      <li>커피의 <b>발견 이야기</b>와 세계로 퍼진 역사</li>
-      <li><b>아라비카·로부스타</b> 두 품종의 차이</li>
-      <li>세계 <b>주요 원산지</b>와 각 나라 커피의 특징</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-    <div class="line"><span class="label">반</span></div>
-  </div>
+ <div class="cover-top">
+ <div><span class="subject">커피학 개론</span> · 바리스타 단원 2/10</div>
+ </div>
+ <div class="cover-main">
+ <span class="badge">Lv.2 커피의 뿌리</span>
+ <h1>커피, 어디서 왔을까?</h1>
+ <p class="lead">에티오피아 전설 · 원산지 지도 · 아라비카 vs 로부스타</p>
+ </div>
+ <div class="cover-emoji">🌍 🌱 ☕ 🐐</div>
+ <div class="cover-info">
+ <h3>이번 시간에 배울 것</h3>
+ <ul>
+ <li>커피의 <b>발견 이야기</b>와 세계로 퍼진 역사</li>
+ <li><b>아라비카·로부스타</b> 두 품종의 차이</li>
+ <li>세계 <b>주요 원산지</b>와 각 나라 커피의 특징</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ <div class="line"><span class="label">반</span></div>
+ </div>
 </div>
 
 <!-- 1쪽 : 역사 -->
 <div class="page">
-  <div class="page-head"><h2>1. 커피의 역사 이야기</h2><span class="step">Step 1</span></div>
-  <div class="intro">
-    <b>💡 커피 발견 전설</b> — <b>에티오피아</b>의 양치기 <b>칼디(Kaldi)</b>가 어느 날 염소들이 빨간 열매를 먹고 <b>펄쩍펄쩍 뛰노는</b> 것을 보고 처음 커피를 발견했다는 이야기가 유명해요.
-  </div>
+ <div class="page-head"><h2>1. 커피의 역사 이야기</h2><span class="step">Step 1</span></div>
+ <div class="intro">
+ <b>💡 커피 발견 전설</b> — <b>에티오피아</b>의 양치기 <b>칼디(Kaldi)</b>가 어느 날 염소들이 빨간 열매를 먹고 <b>펄쩍펄쩍 뛰노는</b> 것을 보고 처음 커피를 발견했다는 이야기가 유명해요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 커피의 세계 여행 (연표)</h3><span class="tag">역사</span></div>
-    <ul class="timeline">
-      <li><span class="yr">9C</span><b>에티오피아</b>에서 커피 열매 발견 (전설의 목동 칼디)</li>
-      <li><span class="yr">15C</span><b>예멘·아라비아</b>로 전파. <b>이슬람 세계</b>에서 처음 음료로 즐김</li>
-      <li><span class="yr">16C</span><b>터키·이스탄불</b>에 세계 최초 <b>커피하우스</b> 개점</li>
-      <li><span class="yr">17C</span><b>유럽</b>(베네치아·런던·파리·빈)으로 전파</li>
-      <li><span class="yr">18C</span><b>남아메리카(브라질·콜롬비아)</b>에서 대규모 재배 시작</li>
-      <li><span class="yr">19C</span><b>일본·한국</b>으로 커피 전파 (조선 고종)</li>
-      <li><span class="yr">1988</span><b>스타벅스</b> 시애틀 → 세계로 확산</li>
-      <li><span class="yr">1999</span><b>한국 스타벅스 1호점</b> (이대점) 개점</li>
-      <li><span class="yr">2000+</span>한국 <b>카페 문화</b> 폭발적 성장 · <b>KCA 설립</b></li>
-    </ul>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 커피의 세계 여행 (연표)</h3><span class="tag">역사</span></div>
+ <ul class="timeline">
+ <li><span class="yr">9C</span><b>에티오피아</b>에서 커피 열매 발견 (전설의 목동 칼디)</li>
+ <li><span class="yr">15C</span><b>예멘·아라비아</b>로 전파. <b>이슬람 세계</b>에서 처음 음료로 즐김</li>
+ <li><span class="yr">16C</span><b>터키·이스탄불</b>에 세계 최초 <b>커피하우스</b> 개점</li>
+ <li><span class="yr">17C</span><b>유럽</b>(베네치아·런던·파리·빈)으로 전파</li>
+ <li><span class="yr">18C</span><b>남아메리카(브라질·콜롬비아)</b>에서 대규모 재배 시작</li>
+ <li><span class="yr">19C</span><b>일본·한국</b>으로 커피 전파 (조선 고종)</li>
+ <li><span class="yr">1988</span><b>스타벅스</b> 시애틀 → 세계로 확산</li>
+ <li><span class="yr">1999</span><b>한국 스타벅스 1호점</b> (이대점) 개점</li>
+ <li><span class="yr">2000+</span>한국 <b>카페 문화</b> 폭발적 성장 · <b>KCA 설립</b></li>
+ </ul>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 하은이 퀴즈 — 다음 중 옳은 것은?</h3><span class="tag">퀴즈</span></div>
-    <p>Q1. 커피가 처음 발견된 나라는? ① 브라질 ② <b>에티오피아</b> ③ 한국 ④ 미국</p>
-    <p>답: <span class="blank short"></span></p>
-    <p>Q2. 세계 최초의 커피하우스가 생긴 도시는? ① 파리 ② 런던 ③ <b>이스탄불</b> ④ 서울</p>
-    <p>답: <span class="blank short"></span></p>
-    <p>Q3. 한국 스타벅스 1호점은 어느 해에 열렸을까? ① 1988 ② <b>1999</b> ③ 2005 ④ 2010</p>
-    <p>답: <span class="blank short"></span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 하은이 퀴즈 — 다음 중 옳은 것은?</h3><span class="tag">퀴즈</span></div>
+ <p>Q1. 커피가 처음 발견된 나라는? ① 브라질 ② <b>에티오피아</b> ③ 한국 ④ 미국</p>
+ <p>답: <span class="blank short"></span></p>
+ <p>Q2. 세계 최초의 커피하우스가 생긴 도시는? ① 파리 ② 런던 ③ <b>이스탄불</b> ④ 서울</p>
+ <p>답: <span class="blank short"></span></p>
+ <p>Q3. 한국 스타벅스 1호점은 어느 해에 열렸을까? ① 1988 ② <b>1999</b> ③ 2005 ④ 2010</p>
+ <p>답: <span class="blank short"></span></p>
+ </div>
 
-  <div class="footer-note">바리스타 2차시 · 1/4쪽 · 커피 역사</div>
+ <div class="footer-note">바리스타 2차시 · 1/4쪽 · 커피 역사</div>
 </div>
 
 <!-- 2쪽 : 아라비카 vs 로부스타 -->
 <div class="page">
-  <div class="page-head"><h2>2. 커피 품종 — 아라비카 vs 로부스타</h2><span class="step">Step 2</span></div>
-  <div class="intro">
-    <b>💡 세계 커피의 99%</b>는 두 품종. 이 둘의 차이를 아는 게 <b>커피학 개론의 핵심</b>이에요.
-  </div>
+ <div class="page-head"><h2>2. 커피 품종 — 아라비카 vs 로부스타</h2><span class="step">Step 2</span></div>
+ <div class="intro">
+ <b>💡 세계 커피의 99%</b>는 두 품종. 이 둘의 차이를 아는 게 <b>커피학 개론의 핵심</b>이에요.
+ </div>
 
-  <div class="compare">
-    <div class="a">
-      <div class="title">☕ 아라비카 (Arabica)</div>
-      <ul>
-        <li>세계 생산의 <b>약 60~70%</b></li>
-        <li>고지대 재배 (해발 <b>800m 이상</b>)</li>
-        <li>맛: 부드럽고 <b>향이 풍부</b>, <b>산미</b> 있음</li>
-        <li>카페인 함량 <b>낮음</b> (약 1.5%)</li>
-        <li>병충해에 <b>약함</b> → 비쌈</li>
-        <li>스페셜티 커피의 <b>주 재료</b></li>
-      </ul>
-    </div>
-    <div class="b">
-      <div class="title">💪 로부스타 (Robusta)</div>
-      <ul>
-        <li>세계 생산의 <b>약 30~40%</b></li>
-        <li>저지대 재배 (해발 <b>800m 이하</b>)</li>
-        <li>맛: 강하고 <b>쓴맛</b>, <b>바디감</b> 진함</li>
-        <li>카페인 함량 <b>높음</b> (약 2.5%)</li>
-        <li>병충해에 <b>강함</b> → 저렴</li>
-        <li>인스턴트 커피·블렌드용으로 많이 사용</li>
-      </ul>
-    </div>
-  </div>
+ <div class="compare">
+ <div class="a">
+ <div class="title">☕ 아라비카 (Arabica)</div>
+ <ul>
+ <li>세계 생산의 <b>약 60~70%</b></li>
+ <li>고지대 재배 (해발 <b>800m 이상</b>)</li>
+ <li>맛: 부드럽고 <b>향이 풍부</b>, <b>산미</b> 있음</li>
+ <li>카페인 함량 <b>낮음</b> (약 1.5%)</li>
+ <li>병충해에 <b>약함</b> → 비쌈</li>
+ <li>스페셜티 커피의 <b>주 재료</b></li>
+ </ul>
+ </div>
+ <div class="b">
+ <div class="title">💪 로부스타 (Robusta)</div>
+ <ul>
+ <li>세계 생산의 <b>약 30~40%</b></li>
+ <li>저지대 재배 (해발 <b>800m 이하</b>)</li>
+ <li>맛: 강하고 <b>쓴맛</b>, <b>바디감</b> 진함</li>
+ <li>카페인 함량 <b>높음</b> (약 2.5%)</li>
+ <li>병충해에 <b>강함</b> → 저렴</li>
+ <li>인스턴트 커피·블렌드용으로 많이 사용</li>
+ </ul>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 하영이의 원두 선택</h3><span class="tag">선택</span></div>
-    <p>다음 상황에 어울리는 품종을 골라 보세요.</p>
-    <table class="qa">
-      <tr><th style="width:65%">상황</th><th>아라비카 / 로부스타</th></tr>
-      <tr><td class="left">스페셜티 카페의 싱글 오리진 원두</td><td><span class="blank">아라비카</span></td></tr>
-      <tr><td class="left">에스프레소 블렌드의 크레마·바디 강화용</td><td><span class="blank"></span></td></tr>
-      <tr><td class="left">저렴한 인스턴트 커피</td><td><span class="blank"></span></td></tr>
-      <tr><td class="left">아프리카 케냐 산 원두 (해발 1,500m 재배)</td><td><span class="blank"></span></td></tr>
-      <tr><td class="left">베트남산 저렴한 대량 유통 원두</td><td><span class="blank"></span></td></tr>
-    </table>
-    <div class="tip"><b>💡 팁</b> <b>실기 시험 원두는 대부분 아라비카</b>! 시험용 원두는 부드러운 향미가 특징이에요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 하영이의 원두 선택</h3><span class="tag">선택</span></div>
+ <p>다음 상황에 어울리는 품종을 골라 보세요.</p>
+ <table class="qa">
+ <tr><th style="width:65%">상황</th><th>아라비카 / 로부스타</th></tr>
+ <tr><td class="left">스페셜티 카페의 싱글 오리진 원두</td><td><span class="blank">아라비카</span></td></tr>
+ <tr><td class="left">에스프레소 블렌드의 크레마·바디 강화용</td><td><span class="blank"></span></td></tr>
+ <tr><td class="left">저렴한 인스턴트 커피</td><td><span class="blank"></span></td></tr>
+ <tr><td class="left">아프리카 케냐 산 원두 (해발 1,500m 재배)</td><td><span class="blank"></span></td></tr>
+ <tr><td class="left">베트남산 저렴한 대량 유통 원두</td><td><span class="blank"></span></td></tr>
+ </table>
+ <div class="tip"><b>💡 팁</b> <b>실기 시험 원두는 대부분 아라비카</b>! 시험용 원두는 부드러운 향미가 특징이에요.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 커피 벨트(Coffee Belt)</h3><span class="tag">지리</span></div>
-    <p>커피는 <b>적도 부근 남·북위 25도</b> 사이에서만 잘 자라요. 이 지역을 <b>커피 벨트</b>라고 해요.</p>
-    <p>이 벨트에 속하는 대륙 3곳:</p>
-    <ul>
-      <li>1) <b>중남미</b> (브라질·콜롬비아·과테말라·코스타리카)</li>
-      <li>2) <b>아프리카</b> (에티오피아·케냐·탄자니아)</li>
-      <li>3) <b>아시아·태평양</b> (베트남·인도네시아·인도)</li>
-    </ul>
-    <p>한국에서 커피가 <b>재배 안 되는 이유</b>: <span class="blank long">위도가 높고 겨울이 추워서</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 커피 벨트(Coffee Belt)</h3><span class="tag">지리</span></div>
+ <p>커피는 <b>적도 부근 남·북위 25도</b> 사이에서만 잘 자라요. 이 지역을 <b>커피 벨트</b>라고 해요.</p>
+ <p>이 벨트에 속하는 대륙 3곳:</p>
+ <ul>
+ <li>1) <b>중남미</b> (브라질·콜롬비아·과테말라·코스타리카)</li>
+ <li>2) <b>아프리카</b> (에티오피아·케냐·탄자니아)</li>
+ <li>3) <b>아시아·태평양</b> (베트남·인도네시아·인도)</li>
+ </ul>
+ <p>한국에서 커피가 <b>재배 안 되는 이유</b>: <span class="blank long">위도가 높고 겨울이 추워서</span></p>
+ </div>
 
-  <div class="footer-note">바리스타 2차시 · 2/4쪽 · 품종</div>
+ <div class="footer-note">바리스타 2차시 · 2/4쪽 · 품종</div>
 </div>
 
 <!-- 3쪽 : 주요 원산지 -->
 <div class="page">
-  <div class="page-head"><h2>3. 세계 주요 원산지</h2><span class="step">Step 3</span></div>
+ <div class="page-head"><h2>3. 세계 주요 원산지</h2><span class="step">Step 3</span></div>
 
-  <div class="origin-grid">
-    <div class="origin"><div class="em">🇧🇷</div><div class="n">브라질</div><div class="d">1위 생산국·초콜릿·너트향</div></div>
-    <div class="origin"><div class="em">🇻🇳</div><div class="n">베트남</div><div class="d">2위·로부스타 대표</div></div>
-    <div class="origin"><div class="em">🇨🇴</div><div class="n">콜롬비아</div><div class="d">균형잡힌 산미·부드러움</div></div>
-    <div class="origin"><div class="em">🇪🇹</div><div class="n">에티오피아</div><div class="d">커피 발상지·화려한 향</div></div>
-    <div class="origin"><div class="em">🇰🇪</div><div class="n">케냐</div><div class="d">밝은 산미·과일향</div></div>
-    <div class="origin"><div class="em">🇬🇹</div><div class="n">과테말라</div><div class="d">스모키·복합 향미</div></div>
-    <div class="origin"><div class="em">🇮🇩</div><div class="n">인도네시아</div><div class="d">만델링·묵직한 바디</div></div>
-    <div class="origin"><div class="em">🇵🇦</div><div class="n">파나마</div><div class="d">게이샤·꽃향 (고급)</div></div>
-    <div class="origin"><div class="em">🇯🇲</div><div class="n">자메이카</div><div class="d">블루마운틴·최고급</div></div>
-  </div>
+ <div class="origin-grid">
+ <div class="origin"><div class="em">🇧🇷</div><div class="n">브라질</div><div class="d">1위 생산국·초콜릿·너트향</div></div>
+ <div class="origin"><div class="em">🇻🇳</div><div class="n">베트남</div><div class="d">2위·로부스타 대표</div></div>
+ <div class="origin"><div class="em">🇨🇴</div><div class="n">콜롬비아</div><div class="d">균형잡힌 산미·부드러움</div></div>
+ <div class="origin"><div class="em">🇪🇹</div><div class="n">에티오피아</div><div class="d">커피 발상지·화려한 향</div></div>
+ <div class="origin"><div class="em">🇰🇪</div><div class="n">케냐</div><div class="d">밝은 산미·과일향</div></div>
+ <div class="origin"><div class="em">🇬🇹</div><div class="n">과테말라</div><div class="d">스모키·복합 향미</div></div>
+ <div class="origin"><div class="em">🇮🇩</div><div class="n">인도네시아</div><div class="d">만델링·묵직한 바디</div></div>
+ <div class="origin"><div class="em">🇵🇦</div><div class="n">파나마</div><div class="d">게이샤·꽃향 (고급)</div></div>
+ <div class="origin"><div class="em">🇯🇲</div><div class="n">자메이카</div><div class="d">블루마운틴·최고급</div></div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. 주은이가 원두를 고른다면?</h3><span class="tag">선택</span></div>
-    <p>손님이 원하는 커피에 맞춰 원산지를 골라 보세요.</p>
-    <table class="qa">
-      <tr><th>손님 요청</th><th>추천 원두</th></tr>
-      <tr><td class="left">"산미가 강하고 과일 향 나는 커피"</td><td><span class="blank">에티오피아·케냐</span></td></tr>
-      <tr><td class="left">"진하고 묵직한 커피"</td><td><span class="blank">인도네시아 만델링·베트남</span></td></tr>
-      <tr><td class="left">"고소하고 부드러운 커피"</td><td><span class="blank">브라질·콜롬비아</span></td></tr>
-      <tr><td class="left">"화려하고 꽃향 나는 특별한 커피"</td><td><span class="blank">파나마 게이샤</span></td></tr>
-      <tr><td class="left">"쓴맛이 강한 인스턴트 스타일"</td><td><span class="blank"></span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 주은이가 원두를 고른다면?</h3><span class="tag">선택</span></div>
+ <p>손님이 원하는 커피에 맞춰 원산지를 골라 보세요.</p>
+ <table class="qa">
+ <tr><th>손님 요청</th><th>추천 원두</th></tr>
+ <tr><td class="left">"산미가 강하고 과일 향 나는 커피"</td><td><span class="blank">에티오피아·케냐</span></td></tr>
+ <tr><td class="left">"진하고 묵직한 커피"</td><td><span class="blank">인도네시아 만델링·베트남</span></td></tr>
+ <tr><td class="left">"고소하고 부드러운 커피"</td><td><span class="blank">브라질·콜롬비아</span></td></tr>
+ <tr><td class="left">"화려하고 꽃향 나는 특별한 커피"</td><td><span class="blank">파나마 게이샤</span></td></tr>
+ <tr><td class="left">"쓴맛이 강한 인스턴트 스타일"</td><td><span class="blank"></span></td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 6. 싱글 오리진 vs 블렌드</h3><span class="tag">개념</span></div>
-    <table class="qa">
-      <tr><th>구분</th><th>특징</th></tr>
-      <tr><td><b>싱글 오리진</b></td><td class="left"><b>한 원산지</b>의 원두만 사용. 그 지역 특유의 향미를 그대로 즐김.</td></tr>
-      <tr><td><b>블렌드</b></td><td class="left"><b>여러 원산지</b>를 섞음. 균형 잡힌 맛·에스프레소용으로 많이 사용.</td></tr>
-    </table>
-    <p>Q. 카페 <b>시그니처 에스프레소</b>는 대부분 어느 쪽? <span class="blank">블렌드</span></p>
-    <p>Q. 드립·핸드드립 카페에서는 어느 쪽을 선호? <span class="blank">싱글 오리진</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 6. 싱글 오리진 vs 블렌드</h3><span class="tag">개념</span></div>
+ <table class="qa">
+ <tr><th>구분</th><th>특징</th></tr>
+ <tr><td><b>싱글 오리진</b></td><td class="left"><b>한 원산지</b>의 원두만 사용. 그 지역 특유의 향미를 그대로 즐김.</td></tr>
+ <tr><td><b>블렌드</b></td><td class="left"><b>여러 원산지</b>를 섞음. 균형 잡힌 맛·에스프레소용으로 많이 사용.</td></tr>
+ </table>
+ <p>Q. 카페 <b>시그니처 에스프레소</b>는 대부분 어느 쪽? <span class="blank">블렌드</span></p>
+ <p>Q. 드립·핸드드립 카페에서는 어느 쪽을 선호? <span class="blank">싱글 오리진</span></p>
+ </div>
 
-  <div class="footer-note">바리스타 2차시 · 3/4쪽 · 원산지</div>
+ <div class="footer-note">바리스타 2차시 · 3/4쪽 · 원산지</div>
 </div>
 
 <!-- 4쪽 : 종합 -->
 <div class="page">
-  <div class="page-head"><h2>4. 종합 정리 & 자기점검</h2><span class="step">Step 4</span></div>
+ <div class="page-head"><h2>4. 종합 정리 & 자기점검</h2><span class="step">Step 4</span></div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 7. 미정이의 원두 라벨 읽기</h3><span class="tag">라벨</span></div>
-    <p>카페에서 파는 원두 봉지에 이렇게 적혀 있어요. 각 정보의 의미를 이어 보세요.</p>
-    <p style="background:#fff8e1; padding:8px; border-radius:6px; font-family:monospace;">
-      <b>Ethiopia Yirgacheffe G1</b> · Washed · Roasted 2026-09-15 · 200g
-    </p>
-    <table class="qa">
-      <tr><th>표시</th><th>뜻</th></tr>
-      <tr><td>Ethiopia</td><td class="left"><span class="blank long">원산지 (에티오피아)</span></td></tr>
-      <tr><td>Yirgacheffe</td><td class="left"><span class="blank long">지역명 (에티오피아 예가체프)</span></td></tr>
-      <tr><td>G1</td><td class="left"><span class="blank long">등급 (그레이드 1, 최고급)</span></td></tr>
-      <tr><td>Washed</td><td class="left"><span class="blank long">가공 방식 (물로 씻은 방식)</span></td></tr>
-      <tr><td>Roasted 2026-09-15</td><td class="left"><span class="blank long">로스팅한 날짜</span></td></tr>
-      <tr><td>200g</td><td class="left"><span class="blank long">용량 (200그램)</span></td></tr>
-    </table>
-    <div class="tip"><b>💡 로스팅 후 언제 마실까?</b> 로스팅 후 <b>3~14일</b>이 최적. 너무 신선하면 가스가 많아 추출이 어려워요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 7. 미정이의 원두 라벨 읽기</h3><span class="tag">라벨</span></div>
+ <p>카페에서 파는 원두 봉지에 이렇게 적혀 있어요. 각 정보의 의미를 이어 보세요.</p>
+ <p style="background:#fff8e1; padding:8px; border-radius:6px; font-family:monospace;">
+ <b>Ethiopia Yirgacheffe G1</b> · Washed · Roasted 2026-09-15 · 200g
+ </p>
+ <table class="qa">
+ <tr><th>표시</th><th>뜻</th></tr>
+ <tr><td>Ethiopia</td><td class="left"><span class="blank long">원산지 (에티오피아)</span></td></tr>
+ <tr><td>Yirgacheffe</td><td class="left"><span class="blank long">지역명 (에티오피아 예가체프)</span></td></tr>
+ <tr><td>G1</td><td class="left"><span class="blank long">등급 (그레이드 1, 최고급)</span></td></tr>
+ <tr><td>Washed</td><td class="left"><span class="blank long">가공 방식 (물로 씻은 방식)</span></td></tr>
+ <tr><td>Roasted 2026-09-15</td><td class="left"><span class="blank long">로스팅한 날짜</span></td></tr>
+ <tr><td>200g</td><td class="left"><span class="blank long">용량 (200그램)</span></td></tr>
+ </table>
+ <div class="tip"><b>💡 로스팅 후 언제 마실까?</b> 로스팅 후 <b>3~14일</b>이 최적. 너무 신선하면 가스가 많아 추출이 어려워요.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 8. 채원·예은이의 짝 맞추기</h3><span class="tag">복습</span></div>
-    <table class="qa">
-      <tr><th>단어</th><th>맞는 설명</th></tr>
-      <tr><td>Kaldi (칼디)</td><td class="left"><span class="blank">에티오피아 전설의 목동</span></td></tr>
-      <tr><td>커피 벨트</td><td class="left"><span class="blank"></span></td></tr>
-      <tr><td>아라비카</td><td class="left"><span class="blank"></span></td></tr>
-      <tr><td>로부스타</td><td class="left"><span class="blank"></span></td></tr>
-      <tr><td>싱글 오리진</td><td class="left"><span class="blank"></span></td></tr>
-      <tr><td>블렌드</td><td class="left"><span class="blank"></span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 8. 채원·예은이의 짝 맞추기</h3><span class="tag">복습</span></div>
+ <table class="qa">
+ <tr><th>단어</th><th>맞는 설명</th></tr>
+ <tr><td>Kaldi (칼디)</td><td class="left"><span class="blank">에티오피아 전설의 목동</span></td></tr>
+ <tr><td>커피 벨트</td><td class="left"><span class="blank"></span></td></tr>
+ <tr><td>아라비카</td><td class="left"><span class="blank"></span></td></tr>
+ <tr><td>로부스타</td><td class="left"><span class="blank"></span></td></tr>
+ <tr><td>싱글 오리진</td><td class="left"><span class="blank"></span></td></tr>
+ <tr><td>블렌드</td><td class="left"><span class="blank"></span></td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 9. 스스로 확인</h3><span class="tag">자기점검</span></div>
-    <table class="qa">
-      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
-      <tr><td class="left">커피의 발견·전파 역사를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">아라비카·로부스타 차이를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">주요 원산지 3~5개를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">원두 라벨을 읽을 수 있다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 9. 스스로 확인</h3><span class="tag">자기점검</span></div>
+ <table class="qa">
+ <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+ <tr><td class="left">커피의 발견·전파 역사를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">아라비카·로부스타 차이를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">주요 원산지 3~5개를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">원두 라벨을 읽을 수 있다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ </table>
+ </div>
 
-  <div class="tip"><b>🎯 다음 시간 예고</b> 3차시 — <b>로스팅</b>! 생두가 어떻게 검은 원두가 되는지, 로스팅 단계별 향미를 배워요.</div>
+ <div class="tip"><b>🎯 다음 시간 예고</b> 3차시 — <b>로스팅</b>! 생두가 어떻게 검은 원두가 되는지, 로스팅 단계별 향미를 배워요.</div>
 
-  <div class="footer-note">바리스타 2차시 · 4/4쪽 · 커피학 개론 마무리</div>
+ <div class="footer-note">바리스타 2차시 · 4/4쪽 · 커피학 개론 마무리</div>
 </div>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

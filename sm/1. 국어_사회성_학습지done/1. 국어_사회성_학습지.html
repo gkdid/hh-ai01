@@ -8,8 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Noto+Serif+KR:wght@500;700&display=swap" rel="stylesheet">
 <style>
 /* ==========================================================
-   학습지 공용 스타일 — A4 인쇄 / 화면 겸용
-   (국어 사회성 학습지 · 롯데월드 수학 학습지 공용)
+ 학습지 공용 스타일 — A4 인쇄 / 화면 겸용
+ (국어 사회성 학습지 · 롯데월드 수학 학습지 공용)
 ========================================================== */
 
 /* 용지 크기·여백을 브라우저 인쇄 대화상자 수준에서 확정 */
@@ -17,113 +17,113 @@
 
 * { box-sizing: border-box; }
 html {
-  -webkit-print-color-adjust: exact;
-  print-color-adjust: exact;
-  color-adjust: exact;
+ -webkit-print-color-adjust: exact;
+ print-color-adjust: exact;
+ color-adjust: exact;
 }
 body {
-  margin: 0;
-  background: #eceff1;
-  color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  font-size: 12pt;
-  line-height: 1.65;
+ margin: 0;
+ background: #eceff1;
+ color: #1f2d3d;
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+ font-size: 12pt;
+ line-height: 1.65;
 }
 
 /* ===== 상단 인쇄 툴바 ===== */
 .toolbar {
-  position: sticky; top: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px;
-  background: #263238; color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+ position: sticky; top: 0; z-index: 50;
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 10px 18px;
+ background: #263238; color: #fff;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar .muted.small { font-size: 0.78em; }
 .toolbar button {
-  background: #ffca28; color: #263238; border: none;
-  font: inherit; font-weight: 700;
-  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+ background: #ffca28; color: #263238; border: none;
+ font: inherit; font-weight: 700;
+ padding: 8px 18px; border-radius: 6px; cursor: pointer;
 }
 .toolbar button:hover { background: #ffd54f; }
 
 /* ===== A4 페이지 ===== */
 .page {
-  width: 210mm;
-  min-height: 297mm;
-  margin: 14mm auto;
-  padding: 16mm 18mm;
-  background: #fff;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  position: relative;
-  page-break-after: always;
+ width: 210mm;
+ min-height: 297mm;
+ margin: 14mm auto;
+ padding: 16mm 18mm;
+ background: #fff;
+ box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+ position: relative;
+ page-break-after: always;
 }
 .page:last-of-type { page-break-after: auto; }
 
 /* ===== 표지 ===== */
 .page.cover {
-  padding: 22mm 20mm;
-  background: linear-gradient(135deg, #fff 0%, #fff8f2 100%);
+ padding: 22mm 20mm;
+ background: linear-gradient(135deg, #fff 0%, #fff8f2 100%);
 }
 .cover-top {
-  display: flex; justify-content: space-between;
-  font-size: 0.9em; color: #607d8b;
-  border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 26px;
+ display: flex; justify-content: space-between;
+ font-size: 0.9em; color: #607d8b;
+ border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 26px;
 }
 .cover-top .subject { font-weight: 700; color: #ef6c00; }
 .cover-main { text-align: center; padding: 40px 0 30px; }
 .cover-main .big-num {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 130px; height: 130px;
-  background: #ff8a65; color: #fff;
-  font-family: 'Noto Serif KR', serif;
-  font-size: 4.6em; font-weight: 700;
-  border-radius: 50%;
-  box-shadow: 0 6px 18px rgba(255,138,101,0.4);
-  margin-bottom: 22px;
+ display: inline-flex; align-items: center; justify-content: center;
+ width: 130px; height: 130px;
+ background: #ff8a65; color: #fff;
+ font-family: 'Noto Serif KR', serif;
+ font-size: 4.6em; font-weight: 700;
+ border-radius: 50%;
+ box-shadow: 0 6px 18px rgba(255,138,101,0.4);
+ margin-bottom: 22px;
 }
 .cover-main h1 {
-  margin: 0; font-size: 2.6em; letter-spacing: -1.5px;
-  color: #263238; font-weight: 900;
+ margin: 0; font-size: 2.6em; letter-spacing: -1.5px;
+ color: #263238; font-weight: 900;
 }
 .cover-main .lead {
-  margin: 10px 0 0; font-size: 1.1em; color: #546e7a; font-weight: 500;
+ margin: 10px 0 0; font-size: 1.1em; color: #546e7a; font-weight: 500;
 }
 .name-box {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 8px; margin: 28px 0;
+ display: grid; grid-template-columns: repeat(4, 1fr);
+ gap: 8px; margin: 28px 0;
 }
 .name-cell {
-  border: 1.5px solid #90a4ae; border-radius: 8px;
-  padding: 10px 12px;
+ border: 1.5px solid #90a4ae; border-radius: 8px;
+ padding: 10px 12px;
 }
 .name-cell span { display: block; font-size: 0.78em; color: #546e7a; font-weight: 500; }
 .name-cell em { display: block; min-height: 28px; font-style: normal; }
 
 .goal, .cast, .toc, .overview {
-  border: 2px solid #ffd3b6; border-radius: 10px;
-  padding: 16px 20px; margin-top: 18px;
-  background: #fffaf4;
+ border: 2px solid #ffd3b6; border-radius: 10px;
+ padding: 16px 20px; margin-top: 18px;
+ background: #fffaf4;
 }
 .goal h2, .cast h2, .toc h2, .overview h2 {
-  margin: 0 0 10px; font-size: 1.12em; color: #e65100;
-  border-bottom: 1px dashed #ffab91; padding-bottom: 6px;
+ margin: 0 0 10px; font-size: 1.12em; color: #e65100;
+ border-bottom: 1px dashed #ffab91; padding-bottom: 6px;
 }
 .goal ul { margin: 6px 0 0; padding-left: 20px; }
 .goal li { padding: 3px 0; }
 
 .cast-grid {
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;
+ display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px;
 }
 .person {
-  display: flex; align-items: center; gap: 8px;
-  padding: 8px 10px;
-  background: #fff; border: 1px solid #eee; border-radius: 8px;
-  font-weight: 700; color: #37474f;
+ display: flex; align-items: center; gap: 8px;
+ padding: 8px 10px;
+ background: #fff; border: 1px solid #eee; border-radius: 8px;
+ font-weight: 700; color: #37474f;
 }
 .dot {
-  display: inline-block; width: 14px; height: 14px; border-radius: 50%;
-  flex-shrink: 0;
+ display: inline-block; width: 14px; height: 14px; border-radius: 50%;
+ flex-shrink: 0;
 }
 .d1 { background: #FF6B6B; } /* 채원 */
 .d2 { background: #4ECDC4; } /* 하은 */
@@ -137,47 +137,47 @@ body {
 
 /* ===== 쪽 머리 ===== */
 .ph {
-  display: flex; align-items: center; gap: 16px;
-  border-bottom: 3px solid #263238; padding-bottom: 12px; margin-bottom: 20px;
+ display: flex; align-items: center; gap: 16px;
+ border-bottom: 3px solid #263238; padding-bottom: 12px; margin-bottom: 20px;
 }
 .ph-num {
-  flex-shrink: 0;
-  width: 60px; height: 60px;
-  background: #263238; color: #ffca28;
-  font-family: 'Noto Serif KR', serif;
-  font-size: 1.9em; font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  border-radius: 10px;
+ flex-shrink: 0;
+ width: 60px; height: 60px;
+ background: #263238; color: #ffca28;
+ font-family: 'Noto Serif KR', serif;
+ font-size: 1.9em; font-weight: 700;
+ display: flex; align-items: center; justify-content: center;
+ border-radius: 10px;
 }
 .ph-title h2 { margin: 0; font-size: 1.7em; color: #263238; }
 .ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.98em; }
 
 /* ===== 이야기 상자 (scene) ===== */
 .scene {
-  background: #fff8e1;
-  border-left: 6px solid #ffb300;
-  border-radius: 6px;
-  padding: 14px 18px;
-  margin-bottom: 18px;
+ background: #fff8e1;
+ border-left: 6px solid #ffb300;
+ border-radius: 6px;
+ padding: 14px 18px;
+ margin-bottom: 18px;
 }
 .scene p { margin: 0; }
 
 /* ===== 대화 (dialogue) ===== */
 .dialogue {
-  background: #f5f5f5; border-radius: 12px; padding: 14px;
-  margin: 10px 0 20px;
+ background: #f5f5f5; border-radius: 12px; padding: 14px;
+ margin: 10px 0 20px;
 }
 .turn {
-  display: flex; align-items: flex-start; gap: 10px; margin: 8px 0;
+ display: flex; align-items: flex-start; gap: 10px; margin: 8px 0;
 }
 .turn.right { flex-direction: row-reverse; }
 .tag {
-  flex-shrink: 0;
-  min-width: 54px;
-  padding: 6px 10px;
-  background: #cfd8dc; color: #263238;
-  border-radius: 20px;
-  font-weight: 700; font-size: 0.9em; text-align: center;
+ flex-shrink: 0;
+ min-width: 54px;
+ padding: 6px 10px;
+ background: #cfd8dc; color: #263238;
+ border-radius: 20px;
+ font-weight: 700; font-size: 0.9em; text-align: center;
 }
 .tag.d1 { background: #FFCDD2; }
 .tag.d2 { background: #B2EBF2; }
@@ -186,35 +186,35 @@ body {
 .tag.d5 { background: #C8E6C9; }
 .tag.d6 { background: #F8BBD0; }
 .bubble {
-  background: #fff;
-  padding: 10px 14px;
-  border: 1.5px solid #cfd8dc;
-  border-radius: 14px;
-  max-width: 80%;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+ background: #fff;
+ padding: 10px 14px;
+ border: 1.5px solid #cfd8dc;
+ border-radius: 14px;
+ max-width: 80%;
+ box-shadow: 0 1px 3px rgba(0,0,0,0.04);
 }
 .turn.right .bubble { background: #e3f2fd; border-color: #bbdefb; }
 
 /* ===== 연습 문제 ===== */
 .practice h3 {
-  display: inline-block;
-  background: #ffca28; color: #263238;
-  padding: 4px 14px; border-radius: 16px;
-  font-size: 1.05em; margin: 10px 0 14px;
+ display: inline-block;
+ background: #ffca28; color: #263238;
+ padding: 4px 14px; border-radius: 16px;
+ font-size: 1.05em; margin: 10px 0 14px;
 }
 .q {
-  display: flex; gap: 14px;
-  margin-bottom: 18px; padding-bottom: 14px;
-  border-bottom: 1px dashed #cfd8dc;
+ display: flex; gap: 14px;
+ margin-bottom: 18px; padding-bottom: 14px;
+ border-bottom: 1px dashed #cfd8dc;
 }
 .q:last-child { border-bottom: none; }
 .q .no {
-  flex-shrink: 0;
-  width: 32px; height: 32px;
-  background: #263238; color: #fff;
-  border-radius: 50%;
-  font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
+ flex-shrink: 0;
+ width: 32px; height: 32px;
+ background: #263238; color: #fff;
+ border-radius: 50%;
+ font-weight: 700;
+ display: flex; align-items: center; justify-content: center;
 }
 .q > div { flex: 1; }
 .q p { margin: 0 0 8px; }
@@ -224,48 +224,48 @@ body {
 .lines { margin: 4px 0; }
 .lines::before { content: ""; display: block; }
 .lines, .lines.two, .lines.three, .lines.four {
-  background-image: repeating-linear-gradient(
-    to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px
-  );
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px
+ );
 }
 .lines.two { height: 68px; }
 .lines.three { height: 102px; }
 .lines.four { height: 136px; }
 .lines { height: 34px; }
 .line {
-  border-bottom: 1.5px solid #90a4ae;
-  height: 28px; margin: 4px 0 10px;
+ border-bottom: 1.5px solid #90a4ae;
+ height: 28px; margin: 4px 0 10px;
 }
 
 /* ===== 카드/칩 ===== */
 .situ-card {
-  background: #eceff1; border-radius: 10px;
-  padding: 12px 16px;
+ background: #eceff1; border-radius: 10px;
+ padding: 12px 16px;
 }
 .situ-card > div:not(.line) { margin-top: 6px; font-weight: 500; }
 
 .chip-group { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0; }
 .chip {
-  display: inline-block;
-  background: #fff; border: 1.5px solid #90a4ae;
-  padding: 6px 14px; border-radius: 18px;
-  font-size: 0.95em;
+ display: inline-block;
+ background: #fff; border: 1.5px solid #90a4ae;
+ padding: 6px 14px; border-radius: 18px;
+ font-size: 0.95em;
 }
 
 .check-list { list-style: none; padding: 0; margin: 0; }
 .check-list li { padding: 4px 0; }
 .check-list.two-col {
-  display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px;
+ display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px;
 }
 
 /* ===== 각종 표 ===== */
 table {
-  width: 100%; border-collapse: collapse; margin: 6px 0;
+ width: 100%; border-collapse: collapse; margin: 6px 0;
 }
 th, td {
-  border: 1.5px solid #90a4ae;
-  padding: 9px 10px; text-align: center;
-  vertical-align: middle;
+ border: 1.5px solid #90a4ae;
+ padding: 9px 10px; text-align: center;
+ vertical-align: middle;
 }
 th { background: #eceff1; font-weight: 700; color: #263238; }
 td.left, th.left { text-align: left; }
@@ -275,43 +275,43 @@ td.left, th.left { text-align: left; }
 .judge-table th:nth-child(2), .judge-table th:nth-child(3) { width: 18%; }
 
 .emo-row {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 8px; margin: 4px 0 10px;
+ display: grid; grid-template-columns: repeat(4, 1fr);
+ gap: 8px; margin: 4px 0 10px;
 }
 .emo-row span {
-  text-align: center;
-  background: #fff3e0; border: 1.5px solid #ffcc80;
-  padding: 8px; border-radius: 20px;
-  font-weight: 500;
+ text-align: center;
+ background: #fff3e0; border: 1.5px solid #ffcc80;
+ padding: 8px; border-radius: 20px;
+ font-weight: 500;
 }
 
 .order-grid {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
-  margin: 6px 0;
+ display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+ margin: 6px 0;
 }
 .step {
-  background: #e0f2f1; border-left: 4px solid #26a69a;
-  padding: 8px 12px; border-radius: 4px;
+ background: #e0f2f1; border-left: 4px solid #26a69a;
+ padding: 8px 12px; border-radius: 4px;
 }
 .order-line {
-  margin-top: 10px; font-weight: 500;
-  background: #fffde7; padding: 8px 12px; border-radius: 4px;
-  letter-spacing: 1px;
+ margin-top: 10px; font-weight: 500;
+ background: #fffde7; padding: 8px 12px; border-radius: 4px;
+ letter-spacing: 1px;
 }
 
 .blank {
-  display: inline-block;
-  border-bottom: 1.5px solid #263238;
-  min-width: 80px; height: 22px;
-  vertical-align: baseline;
+ display: inline-block;
+ border-bottom: 1.5px solid #263238;
+ min-width: 80px; height: 22px;
+ vertical-align: baseline;
 }
 .blank.long { min-width: 260px; }
 .request-box {
-  background: #e3f2fd; border-radius: 8px; padding: 12px 16px;
+ background: #e3f2fd; border-radius: 8px; padding: 12px 16px;
 }
 
 /* ==========================================================
-   수학 학습지 전용 스타일 (롯데월드)
+ 수학 학습지 전용 스타일 (롯데월드)
 ========================================================== */
 
 /* 가격표 */
@@ -320,99 +320,99 @@ td.left, th.left { text-align: left; }
 
 /* 계산식 */
 .formula {
-  background: #fffde7;
-  border: 1.5px dashed #fbc02d;
-  border-radius: 8px;
-  padding: 12px 18px;
-  text-align: center;
-  font-size: 1.18em;
-  margin: 10px 0;
-  font-weight: 500;
+ background: #fffde7;
+ border: 1.5px dashed #fbc02d;
+ border-radius: 8px;
+ padding: 12px 18px;
+ text-align: center;
+ font-size: 1.18em;
+ margin: 10px 0;
+ font-weight: 500;
 }
 .formula .eq { margin: 0 6px; }
 
 /* 빈칸 (답 쓰는 네모 상자) */
 .box {
-  display: inline-block;
-  min-width: 70px; height: 30px;
-  border: 2px solid #263238;
-  background: #fff;
-  border-radius: 4px;
-  vertical-align: middle;
-  margin: 0 3px;
+ display: inline-block;
+ min-width: 70px; height: 30px;
+ border: 2px solid #263238;
+ background: #fff;
+ border-radius: 4px;
+ vertical-align: middle;
+ margin: 0 3px;
 }
 .box.wide { min-width: 120px; }
 .box.xwide { min-width: 180px; }
 
 /* 답 라인 (~~~원 형식) */
 .ans-line {
-  display: inline-block;
-  border-bottom: 2px solid #263238;
-  min-width: 120px; height: 24px;
-  vertical-align: baseline;
-  margin: 0 4px;
+ display: inline-block;
+ border-bottom: 2px solid #263238;
+ min-width: 120px; height: 24px;
+ vertical-align: baseline;
+ margin: 0 4px;
 }
 
 /* 답 마무리 문장 */
 .answer-final {
-  margin-top: 10px; font-weight: 700; color: #2e7d32;
-  background: #e8f5e9; padding: 8px 14px; border-radius: 6px;
-  display: inline-block;
+ margin-top: 10px; font-weight: 700; color: #2e7d32;
+ background: #e8f5e9; padding: 8px 14px; border-radius: 6px;
+ display: inline-block;
 }
 
 /* 메뉴판 */
 .menu-board {
-  border: 3px double #e65100;
-  border-radius: 12px;
-  padding: 14px 18px;
-  margin: 10px 0;
-  background: #fff8f2;
+ border: 3px double #e65100;
+ border-radius: 12px;
+ padding: 14px 18px;
+ margin: 10px 0;
+ background: #fff8f2;
 }
 .menu-board h4 {
-  text-align: center; margin: 0 0 8px;
-  color: #e65100; font-size: 1.3em;
+ text-align: center; margin: 0 0 8px;
+ color: #e65100; font-size: 1.3em;
 }
 
 /* 선택 라디오(적다/많다) */
 .choice { margin-left: 8px; }
 .choice span {
-  display: inline-block; margin: 0 4px;
-  padding: 2px 12px;
-  border: 1.5px solid #90a4ae; border-radius: 16px;
-  font-size: 0.95em;
+ display: inline-block; margin: 0 4px;
+ padding: 2px 12px;
+ border: 1.5px solid #90a4ae; border-radius: 16px;
+ font-size: 0.95em;
 }
 
 /* 도움말(알아봅시다) */
 .tip {
-  background: #e3f2fd;
-  border-left: 5px solid #1e88e5;
-  border-radius: 6px;
-  padding: 12px 16px;
-  margin: 12px 0;
+ background: #e3f2fd;
+ border-left: 5px solid #1e88e5;
+ border-radius: 6px;
+ padding: 12px 16px;
+ margin: 12px 0;
 }
 .tip .tip-title {
-  display: block; font-weight: 700; color: #0d47a1; margin-bottom: 4px;
+ display: block; font-weight: 700; color: #0d47a1; margin-bottom: 4px;
 }
 
 /* 자기 평가 */
 .self-check {
-  background: #f1f8e9; border: 1.5px solid #aed581;
-  border-radius: 8px; padding: 14px 18px; margin-top: 18px;
+ background: #f1f8e9; border: 1.5px solid #aed581;
+ border-radius: 8px; padding: 14px 18px; margin-top: 18px;
 }
 .self-check h4 {
-  margin: 0 0 8px; color: #33691e;
+ margin: 0 0 8px; color: #33691e;
 }
 .self-check label {
-  display: block; padding: 3px 0;
+ display: block; padding: 3px 0;
 }
 .self-check input[type=checkbox] {
-  margin-right: 8px; width: 16px; height: 16px;
-  accent-color: #7cb342; vertical-align: middle;
+ margin-right: 8px; width: 16px; height: 16px;
+ accent-color: #7cb342; vertical-align: middle;
 }
 
 /* 정답지 페이지 */
 .answer-page {
-  background: #f1f8e9;
+ background: #f1f8e9;
 }
 .answer-page .ph { border-bottom-color: #558b2f; }
 .answer-page .ph-num { background: #558b2f; color: #fff; }
@@ -422,128 +422,128 @@ td.left, th.left { text-align: left; }
 
 /* 쪽번호 */
 .page-no {
-  position: absolute; bottom: 8mm; right: 18mm;
-  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
+ position: absolute; bottom: 8mm; right: 18mm;
+ color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
 }
 
 /* ===== 인쇄 ===== */
 /* ==========================================================
-   인쇄 — "한 쪽 = A4 한 장" 강제 모드
-   · @page 여백을 0으로 두고 .page padding으로 여백 제어
-   · 각 .page 를 정확히 A4 한 장 크기로 고정하고
-     내용이 넘치지 않도록 폰트/간격을 축소
+ 인쇄 — "한 쪽 = A4 한 장" 강제 모드
+ · @page 여백을 0으로 두고 .page padding으로 여백 제어
+ · 각 .page 를 정확히 A4 한 장 크기로 고정하고
+ 내용이 넘치지 않도록 폰트/간격을 축소
 ========================================================== */
 @media print {
-  @page { size: A4 portrait; margin: 0; }
+ @page { size: A4 portrait; margin: 0; }
 
-  html, body {
-    background: #fff !important;
-    margin: 0; padding: 0;
-    font-size: 10pt;
-    line-height: 1.38;
-  }
-  .toolbar, .no-print { display: none !important; }
+ html, body {
+ background: #fff !important;
+ margin: 0; padding: 0;
+ font-size: 10pt;
+ line-height: 1.38;
+ }
+ .toolbar, .no-print { display: none !important; }
 
-  /* 각 섹션을 정확히 A4 한 장에 고정 */
-  .page {
-    width: 210mm;
-    min-height: 297mm;
-    margin: 0 !important;
-    padding: 10mm 13mm;
-    box-shadow: none;
-    border: none;
-    page-break-after: always;
-    break-after: page;
-    page-break-inside: avoid;
-    break-inside: avoid;
-  }
-  .page:last-of-type { page-break-after: auto; }
+ /* 각 섹션을 정확히 A4 한 장에 고정 */
+ .page {
+ width: 210mm;
+ min-height: 297mm;
+ margin: 0 !important;
+ padding: 10mm 13mm;
+ box-shadow: none;
+ border: none;
+ page-break-after: always;
+ break-after: page;
+ page-break-inside: avoid;
+ break-inside: avoid;
+ }
+ .page:last-of-type { page-break-after: auto; }
 
-  /* 내부 블록은 쪽 중간에서 끊지 않도록 */
-  .q, .scene, .tip, .situ-card, .formula, .menu-board,
-  .dialogue, .turn, .self-check, .name-box, .goal, .cast,
-  .toc, .overview, .ph, .chip-group, .request-box, .order-grid,
-  tr {
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-  }
-  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+ /* 내부 블록은 쪽 중간에서 끊지 않도록 */
+ .q, .scene, .tip, .situ-card, .formula, .menu-board,
+ .dialogue, .turn, .self-check, .name-box, .goal, .cast,
+ .toc, .overview, .ph, .chip-group, .request-box, .order-grid,
+ tr {
+ page-break-inside: avoid !important;
+ break-inside: avoid !important;
+ }
+ h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
 
-  /* ----- 간격·폰트 압축 ----- */
-  h1 { font-size: 2em; margin: 0; }
-  h2 { font-size: 1.35em; margin: 0 0 4px; }
-  h3 { font-size: 1.05em; margin: 8px 0 4px; padding: 3px 10px; }
-  h4 { font-size: 1em; margin: 4px 0 2px; }
-  p  { margin: 0 0 4px; }
-  ul, ol { margin: 4px 0; }
-  li { padding: 1px 0; }
+ /* ----- 간격·폰트 압축 ----- */
+ h1 { font-size: 2em; margin: 0; }
+ h2 { font-size: 1.35em; margin: 0 0 4px; }
+ h3 { font-size: 1.05em; margin: 8px 0 4px; padding: 3px 10px; }
+ h4 { font-size: 1em; margin: 4px 0 2px; }
+ p { margin: 0 0 4px; }
+ ul, ol { margin: 4px 0; }
+ li { padding: 1px 0; }
 
-  /* 표지 */
-  .page.cover { padding: 16mm 16mm; }
-  .cover-top { padding-bottom: 6px; margin-bottom: 14px; }
-  .cover-main { padding: 12px 0 8px; }
-  .cover-main .big-num {
-    width: 92px; height: 92px; font-size: 3.6em; margin-bottom: 12px;
-  }
-  .cover-main h1 { font-size: 2em; }
-  .cover-main .lead { font-size: 0.95em; margin-top: 4px; }
-  .name-box { margin: 14px 0; gap: 6px; }
-  .name-cell { padding: 6px 8px; }
-  .name-cell em { min-height: 18px; }
-  .goal, .cast, .toc, .overview { padding: 10px 12px; margin-top: 10px; }
-  .goal h2, .cast h2, .toc h2, .overview h2 { font-size: 1em; margin-bottom: 6px; }
+ /* 표지 */
+ .page.cover { padding: 16mm 16mm; }
+ .cover-top { padding-bottom: 6px; margin-bottom: 14px; }
+ .cover-main { padding: 12px 0 8px; }
+ .cover-main .big-num {
+ width: 92px; height: 92px; font-size: 3.6em; margin-bottom: 12px;
+ }
+ .cover-main h1 { font-size: 2em; }
+ .cover-main .lead { font-size: 0.95em; margin-top: 4px; }
+ .name-box { margin: 14px 0; gap: 6px; }
+ .name-cell { padding: 6px 8px; }
+ .name-cell em { min-height: 18px; }
+ .goal, .cast, .toc, .overview { padding: 10px 12px; margin-top: 10px; }
+ .goal h2, .cast h2, .toc h2, .overview h2 { font-size: 1em; margin-bottom: 6px; }
 
-  /* 쪽 머리 */
-  .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
-  .ph-num { width: 46px; height: 46px; font-size: 1.45em; border-radius: 8px; }
-  .ph-title h2 { font-size: 1.3em; }
-  .ph-title p { font-size: 0.9em; }
+ /* 쪽 머리 */
+ .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
+ .ph-num { width: 46px; height: 46px; font-size: 1.45em; border-radius: 8px; }
+ .ph-title h2 { font-size: 1.3em; }
+ .ph-title p { font-size: 0.9em; }
 
-  /* 이야기/도움말/메뉴판 */
-  .scene { padding: 8px 12px; margin-bottom: 8px; }
-  .tip { padding: 8px 12px; margin: 6px 0; }
-  .menu-board { padding: 8px 12px; margin: 6px 0; }
-  .menu-board h4 { font-size: 1.05em; margin: 0 0 4px; }
+ /* 이야기/도움말/메뉴판 */
+ .scene { padding: 8px 12px; margin-bottom: 8px; }
+ .tip { padding: 8px 12px; margin: 6px 0; }
+ .menu-board { padding: 8px 12px; margin: 6px 0; }
+ .menu-board h4 { font-size: 1.05em; margin: 0 0 4px; }
 
-  /* 대화 */
-  .dialogue { padding: 8px; margin: 4px 0 10px; }
-  .turn { margin: 3px 0; gap: 6px; }
-  .tag { min-width: 44px; padding: 3px 7px; font-size: 0.82em; }
-  .bubble { padding: 6px 10px; font-size: 0.95em; }
+ /* 대화 */
+ .dialogue { padding: 8px; margin: 4px 0 10px; }
+ .turn { margin: 3px 0; gap: 6px; }
+ .tag { min-width: 44px; padding: 3px 7px; font-size: 0.82em; }
+ .bubble { padding: 6px 10px; font-size: 0.95em; }
 
-  /* 문제 */
-  .practice h3 { margin: 4px 0 8px; }
-  .q { margin-bottom: 8px; padding-bottom: 6px; gap: 10px; }
-  .q .no { width: 26px; height: 26px; font-size: 0.9em; }
+ /* 문제 */
+ .practice h3 { margin: 4px 0 8px; }
+ .q { margin-bottom: 8px; padding-bottom: 6px; gap: 10px; }
+ .q .no { width: 26px; height: 26px; font-size: 0.9em; }
 
-  /* 수식/표 */
-  .formula { padding: 6px 10px; margin: 4px 0; font-size: 1em; }
-  .box { min-width: 56px; height: 22px; }
-  .box.wide { min-width: 96px; }
-  .ans-line { min-width: 80px; height: 18px; }
-  th, td { padding: 4px 6px; }
+ /* 수식/표 */
+ .formula { padding: 6px 10px; margin: 4px 0; font-size: 1em; }
+ .box { min-width: 56px; height: 22px; }
+ .box.wide { min-width: 96px; }
+ .ans-line { min-width: 80px; height: 18px; }
+ th, td { padding: 4px 6px; }
 
-  /* 쓰기 줄 — 높이 축소 */
-  .lines { height: 26px; background-size: auto 26px;
-           background-image: repeating-linear-gradient(
-             to bottom, transparent 0, transparent 24px,
-             #b0bec5 24px, #b0bec5 25px); }
-  .lines.two   { height: 52px; }
-  .lines.three { height: 78px; }
-  .lines.four  { height: 104px; }
-  .line { height: 20px; margin: 2px 0 6px; }
+ /* 쓰기 줄 — 높이 축소 */
+ .lines { height: 26px; background-size: auto 26px;
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 24px,
+ #b0bec5 24px, #b0bec5 25px); }
+ .lines.two { height: 52px; }
+ .lines.three { height: 78px; }
+ .lines.four { height: 104px; }
+ .line { height: 20px; margin: 2px 0 6px; }
 
-  /* 자기 점검 */
-  .self-check { padding: 8px 12px; margin-top: 10px; }
-  .self-check h4 { margin: 0 0 4px; }
-  .self-check label { padding: 1px 0; font-size: 0.95em; }
+ /* 자기 점검 */
+ .self-check { padding: 8px 12px; margin-top: 10px; }
+ .self-check h4 { margin: 0 0 4px; }
+ .self-check label { padding: 1px 0; font-size: 0.95em; }
 
-  /* 정답지: 더 촘촘하게 */
-  .answer-page .q { margin-bottom: 6px; padding: 6px 10px; }
-  .answer-page .formula { padding: 4px 8px; margin: 2px 0; }
+ /* 정답지: 더 촘촘하게 */
+ .answer-page .q { margin-bottom: 6px; padding: 6px 10px; }
+ .answer-page .formula { padding: 4px 8px; margin: 2px 0; }
 
-  /* 쪽번호 */
-  .page-no { bottom: 6mm; right: 14mm; }
+ /* 쪽번호 */
+ .page-no { bottom: 6mm; right: 14mm; }
 }
 
 /* ===== 화면 좁을 때 ===== */
@@ -554,715 +554,715 @@ td.left, th.left { text-align: left; }
 <body>
 
 <div class="toolbar no-print">
-  <div class="left">
-    <strong>국어 학습지 · 사회성 기르기</strong>
-    <span class="muted">총 10쪽 / A4</span>
-  </div>
-  <div class="right">
-    <button onclick="window.print()">🖨  인쇄 / PDF 저장</button>
-    <span class="muted small">Ctrl + P · 인쇄 설정에서 <b>배경 그래픽</b>을 켜 주세요</span>
-  </div>
+ <div class="left">
+ <strong>국어 학습지 · 사회성 기르기</strong>
+ <span class="muted">총 10쪽 / A4</span>
+ </div>
+ <div class="right">
+ <button onclick="window.print">🖨 인쇄 / PDF 저장</button>
+ <span class="muted small">Ctrl + P · 인쇄 설정에서 <b>배경 그래픽</b>을 켜 주세요</span>
+ </div>
 </div>
 
 <!-- ============================================================
-  표지
+ 표지
 ============================================================ -->
 <section class="page cover">
-  <div class="cover-top">
-    <div class="subject">국어 · 실용 국어</div>
-    <div class="grade">고등학교 특수학급</div>
-  </div>
+ <div class="cover-top">
+ <div class="subject">국어 · 실용 국어</div>
+ <div class="grade">고등학교 </div>
+ </div>
 
-  <div class="cover-main">
-    <div class="big-num">社</div>
-    <h1>함께 살아가는 우리</h1>
-    <p class="lead">– 여러 상황에서 알맞게 말하고 행동하기 –</p>
-  </div>
+ <div class="cover-main">
+ <div class="big-num">社</div>
+ <h1>함께 살아가는 우리</h1>
+ <p class="lead">– 여러 상황에서 알맞게 말하고 행동하기 –</p>
+ </div>
 
-  <div class="name-box">
-    <div class="name-cell"><span>이름</span><em></em></div>
-    <div class="name-cell"><span>학년 · 반</span><em></em></div>
-    <div class="name-cell"><span>번호</span><em></em></div>
-    <div class="name-cell"><span>날짜</span><em></em></div>
-  </div>
+ <div class="name-box">
+ <div class="name-cell"><span>이름</span><em></em></div>
+ <div class="name-cell"><span>학년 · 반</span><em></em></div>
+ <div class="name-cell"><span>번호</span><em></em></div>
+ <div class="name-cell"><span>날짜</span><em></em></div>
+ </div>
 
-  <div class="cast">
-    <h2>함께 공부할 친구들</h2>
-    <div class="cast-grid">
-      <div class="person"><span class="dot d1"></span>채원</div>
-      <div class="person"><span class="dot d2"></span>하은</div>
-      <div class="person"><span class="dot d3"></span>주현</div>
-      <div class="person"><span class="dot d4"></span>주은</div>
-      <div class="person"><span class="dot d5"></span>예은</div>
-      <div class="person"><span class="dot d6"></span>하영</div>
-    </div>
-  </div>
+ <div class="cast">
+ <h2>함께 공부할 친구들</h2>
+ <div class="cast-grid">
+ <div class="person"><span class="dot d1"></span>채원</div>
+ <div class="person"><span class="dot d2"></span>하은</div>
+ <div class="person"><span class="dot d3"></span>주현</div>
+ <div class="person"><span class="dot d4"></span>주은</div>
+ <div class="person"><span class="dot d5"></span>예은</div>
+ <div class="person"><span class="dot d6"></span>하영</div>
+ </div>
+ </div>
 
-  <div class="toc">
-    <h2>차례</h2>
-    <ol>
-      <li>인사와 소개 — 교실에서 처음 만났을 때</li>
-      <li>대화 시작하기 — 쉬는 시간의 말 걸기</li>
-      <li>함께 활동하기 — 모둠에서 의견 모으기</li>
-      <li>감정 표현하기 — 속상한 친구에게 위로 전하기</li>
-      <li>사과와 용서 — 실수했을 때 책임지기</li>
-      <li>거절과 선택 — "싫어요"라고 바르게 말하기</li>
-      <li>도움 주고받기 — 요청하고 감사하기</li>
-      <li>공공장소 예절 — 버스·가게에서의 말과 행동</li>
-      <li>전화 · 문자 예절 — 상대가 보이지 않을 때</li>
-      <li>정리 — 역할극과 나의 다짐</li>
-    </ol>
-  </div>
+ <div class="toc">
+ <h2>차례</h2>
+ <ol>
+ <li>인사와 소개 — 교실에서 처음 만났을 때</li>
+ <li>대화 시작하기 — 쉬는 시간의 말 걸기</li>
+ <li>함께 활동하기 — 모둠에서 의견 모으기</li>
+ <li>감정 표현하기 — 속상한 친구에게 위로 전하기</li>
+ <li>사과와 용서 — 실수했을 때 책임지기</li>
+ <li>거절과 선택 — "싫어요"라고 바르게 말하기</li>
+ <li>도움 주고받기 — 요청하고 감사하기</li>
+ <li>공공장소 예절 — 버스·가게에서의 말과 행동</li>
+ <li>전화 · 문자 예절 — 상대가 보이지 않을 때</li>
+ <li>정리 — 역할극과 나의 다짐</li>
+ </ol>
+ </div>
 </section>
 
 <!-- ============================================================
-  1) 인사와 소개
+ 1) 인사와 소개
 ============================================================ -->
 <section class="page">
-  <header class="ph">
-    <div class="ph-num">01</div>
-    <div class="ph-title">
-      <h2>인사와 소개</h2>
-      <p>교실에서 처음 만났을 때</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">01</div>
+ <div class="ph-title">
+ <h2>인사와 소개</h2>
+ <p>교실에서 처음 만났을 때</p>
+ </div>
+ </header>
 
-  <div class="scene">
-    <p>새 학기 첫날입니다. <b>주은</b>이는 교실에 혼자 앉아 있습니다.
-    옆자리로 <b>채원</b>이가 다가옵니다.</p>
-  </div>
+ <div class="scene">
+ <p>새 학기 첫날입니다. <b>주은</b>이는 교실에 혼자 앉아 있습니다.
+ 옆자리로 <b>채원</b>이가 다가옵니다.</p>
+ </div>
 
-  <div class="dialogue">
-    <div class="turn"><div class="tag d1">채원</div><div class="bubble">"안녕? 나는 1학년 3반 채원이야. 네 이름은 뭐야?"</div></div>
-    <div class="turn right"><div class="bubble">"나는 주은이야. 만나서 반가워."</div><div class="tag d4">주은</div></div>
-    <div class="turn"><div class="tag d1">채원</div><div class="bubble">"나도 반가워. 우리 옆자리 짝꿍이네. 잘 지내자."</div></div>
-  </div>
+ <div class="dialogue">
+ <div class="turn"><div class="tag d1">채원</div><div class="bubble">"안녕? 나는 1학년 3반 채원이야. 네 이름은 뭐야?"</div></div>
+ <div class="turn right"><div class="bubble">"나는 주은이야. 만나서 반가워."</div><div class="tag d4">주은</div></div>
+ <div class="turn"><div class="tag d1">채원</div><div class="bubble">"나도 반가워. 우리 옆자리 짝꿍이네. 잘 지내자."</div></div>
+ </div>
 
-  <div class="practice">
-    <h3>연습해 봅시다</h3>
+ <div class="practice">
+ <h3>연습해 봅시다</h3>
 
-    <div class="q">
-      <span class="no">1</span>
-      <div>
-        <p>처음 만난 사람에게 나를 소개할 때 꼭 말해야 하는 것은 무엇인가요? <b>세 가지</b>만 써 봅시다.</p>
-        <div class="lines three"></div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">1</span>
+ <div>
+ <p>처음 만난 사람에게 나를 소개할 때 꼭 말해야 하는 것은 무엇인가요? <b>세 가지</b>만 써 봅시다.</p>
+ <div class="lines three"></div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <div>
-        <p>아래 상황에서 내가 할 인사말을 써 봅시다.</p>
-        <div class="situ-card">
-          <div><b>가.</b> 아침에 교실에 들어가면서 선생님께</div>
-          <div class="line"></div>
-          <div><b>나.</b> 복도에서 처음 보는 친구에게</div>
-          <div class="line"></div>
-          <div><b>다.</b> 하루 수업을 마치고 친구들에게</div>
-          <div class="line"></div>
-        </div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">2</span>
+ <div>
+ <p>아래 상황에서 내가 할 인사말을 써 봅시다.</p>
+ <div class="situ-card">
+ <div><b>가.</b> 아침에 교실에 들어가면서 선생님께</div>
+ <div class="line"></div>
+ <div><b>나.</b> 복도에서 처음 보는 친구에게</div>
+ <div class="line"></div>
+ <div><b>다.</b> 하루 수업을 마치고 친구들에게</div>
+ <div class="line"></div>
+ </div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">3</span>
-      <div>
-        <p>내 소개 카드를 만들어 봅시다.</p>
-        <table class="card-table">
-          <tr><th style="width:30%">이름</th><td></td></tr>
-          <tr><th>좋아하는 것</th><td></td></tr>
-          <tr><th>잘하는 것</th><td></td></tr>
-          <tr><th>친구에게 한마디</th><td></td></tr>
-        </table>
-      </div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">3</span>
+ <div>
+ <p>내 소개 카드를 만들어 봅시다.</p>
+ <table class="card-table">
+ <tr><th style="width:30%">이름</th><td></td></tr>
+ <tr><th>좋아하는 것</th><td></td></tr>
+ <tr><th>잘하는 것</th><td></td></tr>
+ <tr><th>친구에게 한마디</th><td></td></tr>
+ </table>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- ============================================================
-  2) 대화 시작하기
+ 2) 대화 시작하기
 ============================================================ -->
 <section class="page">
-  <header class="ph">
-    <div class="ph-num">02</div>
-    <div class="ph-title">
-      <h2>대화 시작하기</h2>
-      <p>쉬는 시간, 어떻게 말을 걸까요?</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">02</div>
+ <div class="ph-title">
+ <h2>대화 시작하기</h2>
+ <p>쉬는 시간, 어떻게 말을 걸까요?</p>
+ </div>
+ </header>
 
-  <div class="scene">
-    <p><b>하영</b>이는 <b>하은</b>이와 친해지고 싶지만 무슨 말을 해야 할지 모르겠습니다.
-    그래서 하은이가 읽고 있는 책을 보고 이야기를 꺼냅니다.</p>
-  </div>
+ <div class="scene">
+ <p><b>하영</b>이는 <b>하은</b>이와 친해지고 싶지만 무슨 말을 해야 할지 모르겠습니다.
+ 그래서 하은이가 읽고 있는 책을 보고 이야기를 꺼냅니다.</p>
+ </div>
 
-  <div class="dialogue">
-    <div class="turn"><div class="tag d6">하영</div><div class="bubble">"하은아, 그 책 재밌어 보이는데 무슨 이야기야?"</div></div>
-    <div class="turn right"><div class="bubble">"응, 학교에서 일어난 일을 쓴 책이야. 읽어 볼래?"</div><div class="tag d2">하은</div></div>
-    <div class="turn"><div class="tag d6">하영</div><div class="bubble">"좋아. 다 읽으면 빌려줘. 그런데 너는 책 많이 읽어?"</div></div>
-    <div class="turn right"><div class="bubble">"일주일에 한 권 정도. 너도 같이 도서관 갈래?"</div><div class="tag d2">하은</div></div>
-  </div>
+ <div class="dialogue">
+ <div class="turn"><div class="tag d6">하영</div><div class="bubble">"하은아, 그 책 재밌어 보이는데 무슨 이야기야?"</div></div>
+ <div class="turn right"><div class="bubble">"응, 학교에서 일어난 일을 쓴 책이야. 읽어 볼래?"</div><div class="tag d2">하은</div></div>
+ <div class="turn"><div class="tag d6">하영</div><div class="bubble">"좋아. 다 읽으면 빌려줘. 그런데 너는 책 많이 읽어?"</div></div>
+ <div class="turn right"><div class="bubble">"일주일에 한 권 정도. 너도 같이 도서관 갈래?"</div><div class="tag d2">하은</div></div>
+ </div>
 
-  <div class="practice">
-    <h3>연습해 봅시다</h3>
+ <div class="practice">
+ <h3>연습해 봅시다</h3>
 
-    <div class="q">
-      <span class="no">1</span>
-      <div>
-        <p>대화를 시작할 때 할 수 있는 말을 찾아 ○ 해 봅시다. (여러 개 골라도 좋아요)</p>
-        <div class="chip-group">
-          <span class="chip">"지금 뭐 해?"</span>
-          <span class="chip">"야, 비켜."</span>
-          <span class="chip">"이거 같이 볼래?"</span>
-          <span class="chip">"네 옷 예쁘다."</span>
-          <span class="chip">"너 이상해."</span>
-          <span class="chip">"주말에 뭐 했어?"</span>
-        </div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">1</span>
+ <div>
+ <p>대화를 시작할 때 할 수 있는 말을 찾아 ○ 해 봅시다. (여러 개 골라도 좋아요)</p>
+ <div class="chip-group">
+ <span class="chip">"지금 뭐 해?"</span>
+ <span class="chip">"야, 비켜."</span>
+ <span class="chip">"이거 같이 볼래?"</span>
+ <span class="chip">"네 옷 예쁘다."</span>
+ <span class="chip">"너 이상해."</span>
+ <span class="chip">"주말에 뭐 했어?"</span>
+ </div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <div>
-        <p>친구에게 말을 걸 때 <b>피해야 할 행동</b>을 써 봅시다.</p>
-        <div class="lines two"></div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">2</span>
+ <div>
+ <p>친구에게 말을 걸 때 <b>피해야 할 행동</b>을 써 봅시다.</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">3</span>
-      <div>
-        <p>다음 친구에게 자연스럽게 말을 거는 문장을 만들어 봅시다.</p>
-        <div class="situ-card">
-          <div><b>가.</b> 점심시간에 혼자 앉아 있는 친구에게</div>
-          <div class="line"></div>
-          <div><b>나.</b> 체육복을 안 가져와서 곤란해 보이는 친구에게</div>
-          <div class="line"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">3</span>
+ <div>
+ <p>다음 친구에게 자연스럽게 말을 거는 문장을 만들어 봅시다.</p>
+ <div class="situ-card">
+ <div><b>가.</b> 점심시간에 혼자 앉아 있는 친구에게</div>
+ <div class="line"></div>
+ <div><b>나.</b> 체육복을 안 가져와서 곤란해 보이는 친구에게</div>
+ <div class="line"></div>
+ </div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- ============================================================
-  3) 함께 활동하기
+ 3) 함께 활동하기
 ============================================================ -->
 <section class="page">
-  <header class="ph">
-    <div class="ph-num">03</div>
-    <div class="ph-title">
-      <h2>함께 활동하기</h2>
-      <p>모둠에서 의견을 모을 때</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">03</div>
+ <div class="ph-title">
+ <h2>함께 활동하기</h2>
+ <p>모둠에서 의견을 모을 때</p>
+ </div>
+ </header>
 
-  <div class="scene">
-    <p>모둠 수업 시간입니다. <b>주현</b>, <b>예은</b>, <b>채원</b>이는 함께 발표 주제를 정해야 합니다.
-    서로 의견이 달라 잠시 이야기가 멈췄습니다.</p>
-  </div>
+ <div class="scene">
+ <p>모둠 수업 시간입니다. <b>주현</b>, <b>예은</b>, <b>채원</b>이는 함께 발표 주제를 정해야 합니다.
+ 서로 의견이 달라 잠시 이야기가 멈췄습니다.</p>
+ </div>
 
-  <div class="dialogue">
-    <div class="turn"><div class="tag d3">주현</div><div class="bubble">"나는 '환경'을 주제로 하고 싶어."</div></div>
-    <div class="turn right"><div class="bubble">"나는 '음식'이 더 재미있을 것 같은데…"</div><div class="tag d5">예은</div></div>
-    <div class="turn"><div class="tag d1">채원</div><div class="bubble">"그럼 '환경을 지키는 음식 만들기' 어때? 두 가지를 합칠 수 있잖아."</div></div>
-    <div class="turn right"><div class="bubble">"오, 좋은 생각이다!"</div><div class="tag d3">주현</div></div>
-    <div class="turn right"><div class="bubble">"그럼 각자 맡을 부분을 정하자."</div><div class="tag d5">예은</div></div>
-  </div>
+ <div class="dialogue">
+ <div class="turn"><div class="tag d3">주현</div><div class="bubble">"나는 '환경'을 주제로 하고 싶어."</div></div>
+ <div class="turn right"><div class="bubble">"나는 '음식'이 더 재미있을 것 같은데…"</div><div class="tag d5">예은</div></div>
+ <div class="turn"><div class="tag d1">채원</div><div class="bubble">"그럼 '환경을 지키는 음식 만들기' 어때? 두 가지를 합칠 수 있잖아."</div></div>
+ <div class="turn right"><div class="bubble">"오, 좋은 생각이다!"</div><div class="tag d3">주현</div></div>
+ <div class="turn right"><div class="bubble">"그럼 각자 맡을 부분을 정하자."</div><div class="tag d5">예은</div></div>
+ </div>
 
-  <div class="practice">
-    <h3>연습해 봅시다</h3>
+ <div class="practice">
+ <h3>연습해 봅시다</h3>
 
-    <div class="q">
-      <span class="no">1</span>
-      <div>
-        <p>모둠에서 <b>내 의견이 다를 때</b> 어떻게 말하면 좋을까요? 알맞은 표현에 ○ 해 봅시다.</p>
-        <ul class="check-list">
-          <li>□ "네 말도 좋은데, 나는 조금 다르게 생각해."</li>
-          <li>□ "왜 그런 말도 안 되는 소릴 해?"</li>
-          <li>□ "나는 이렇게 해 보면 어떨까 싶어."</li>
-          <li>□ "그냥 네 마음대로 해."</li>
-          <li>□ "좋아, 그럼 이렇게 바꿔 보는 건 어때?"</li>
-        </ul>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">1</span>
+ <div>
+ <p>모둠에서 <b>내 의견이 다를 때</b> 어떻게 말하면 좋을까요? 알맞은 표현에 ○ 해 봅시다.</p>
+ <ul class="check-list">
+ <li>□ "네 말도 좋은데, 나는 조금 다르게 생각해."</li>
+ <li>□ "왜 그런 말도 안 되는 소릴 해?"</li>
+ <li>□ "나는 이렇게 해 보면 어떨까 싶어."</li>
+ <li>□ "그냥 네 마음대로 해."</li>
+ <li>□ "좋아, 그럼 이렇게 바꿔 보는 건 어때?"</li>
+ </ul>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <div>
-        <p>모둠 활동에서 내가 할 수 있는 역할을 써 봅시다.</p>
-        <table class="role-table">
-          <tr><th>역할</th><th>내가 할 일</th></tr>
-          <tr><td>진행자</td><td></td></tr>
-          <tr><td>기록이</td><td></td></tr>
-          <tr><td>발표자</td><td></td></tr>
-          <tr><td>도우미</td><td></td></tr>
-        </table>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">2</span>
+ <div>
+ <p>모둠 활동에서 내가 할 수 있는 역할을 써 봅시다.</p>
+ <table class="role-table">
+ <tr><th>역할</th><th>내가 할 일</th></tr>
+ <tr><td>진행자</td><td></td></tr>
+ <tr><td>기록이</td><td></td></tr>
+ <tr><td>발표자</td><td></td></tr>
+ <tr><td>도우미</td><td></td></tr>
+ </table>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">3</span>
-      <div>
-        <p>모둠원과 함께 잘 지내기 위한 나만의 <b>약속 3가지</b>를 만들어 봅시다.</p>
-        <div class="lines three"></div>
-      </div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">3</span>
+ <div>
+ <p>모둠원과 함께 잘 지내기 위한 나만의 <b>약속 3가지</b>를 만들어 봅시다.</p>
+ <div class="lines three"></div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- ============================================================
-  4) 감정 표현하기
+ 4) 감정 표현하기
 ============================================================ -->
 <section class="page">
-  <header class="ph">
-    <div class="ph-num">04</div>
-    <div class="ph-title">
-      <h2>감정 표현하기</h2>
-      <p>속상한 친구에게 위로를 전해요</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">04</div>
+ <div class="ph-title">
+ <h2>감정 표현하기</h2>
+ <p>속상한 친구에게 위로를 전해요</p>
+ </div>
+ </header>
 
-  <div class="scene">
-    <p><b>하은</b>이는 오늘 시험 점수를 보고 기분이 좋지 않습니다. 쉬는 시간 내내 말이 없습니다.
-    <b>하영</b>이는 하은이에게 어떻게 말을 걸지 고민합니다.</p>
-  </div>
+ <div class="scene">
+ <p><b>하은</b>이는 오늘 시험 점수를 보고 기분이 좋지 않습니다. 쉬는 시간 내내 말이 없습니다.
+ <b>하영</b>이는 하은이에게 어떻게 말을 걸지 고민합니다.</p>
+ </div>
 
-  <div class="dialogue">
-    <div class="turn"><div class="tag d6">하영</div><div class="bubble">"하은아, 오늘 힘들어 보여. 무슨 일 있었어?"</div></div>
-    <div class="turn right"><div class="bubble">"시험 점수가 낮게 나왔어. 열심히 했는데…"</div><div class="tag d2">하은</div></div>
-    <div class="turn"><div class="tag d6">하영</div><div class="bubble">"그랬구나. 속상하겠다. 네가 얼마나 열심히 했는지 나는 알아."</div></div>
-    <div class="turn right"><div class="bubble">"고마워. 조금 나아졌어."</div><div class="tag d2">하은</div></div>
-  </div>
+ <div class="dialogue">
+ <div class="turn"><div class="tag d6">하영</div><div class="bubble">"하은아, 오늘 힘들어 보여. 무슨 일 있었어?"</div></div>
+ <div class="turn right"><div class="bubble">"시험 점수가 낮게 나왔어. 열심히 했는데…"</div><div class="tag d2">하은</div></div>
+ <div class="turn"><div class="tag d6">하영</div><div class="bubble">"그랬구나. 속상하겠다. 네가 얼마나 열심히 했는지 나는 알아."</div></div>
+ <div class="turn right"><div class="bubble">"고마워. 조금 나아졌어."</div><div class="tag d2">하은</div></div>
+ </div>
 
-  <div class="practice">
-    <h3>연습해 봅시다</h3>
+ <div class="practice">
+ <h3>연습해 봅시다</h3>
 
-    <div class="q">
-      <span class="no">1</span>
-      <div>
-        <p>친구를 위로할 때 <b>좋은 말</b>과 <b>상처 주는 말</b>을 구분해 봅시다.</p>
-        <table class="judge-table">
-          <tr><th>말</th><th>좋은 말</th><th>상처 주는 말</th></tr>
-          <tr><td>"많이 속상했겠다."</td><td></td><td></td></tr>
-          <tr><td>"그러게, 네가 공부를 안 했잖아."</td><td></td><td></td></tr>
-          <tr><td>"네 마음이 어떨지 상상이 돼."</td><td></td><td></td></tr>
-          <tr><td>"별거 아니네, 뭘 그래."</td><td></td><td></td></tr>
-          <tr><td>"내가 옆에 있을게."</td><td></td><td></td></tr>
-        </table>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">1</span>
+ <div>
+ <p>친구를 위로할 때 <b>좋은 말</b>과 <b>상처 주는 말</b>을 구분해 봅시다.</p>
+ <table class="judge-table">
+ <tr><th>말</th><th>좋은 말</th><th>상처 주는 말</th></tr>
+ <tr><td>"많이 속상했겠다."</td><td></td><td></td></tr>
+ <tr><td>"그러게, 네가 공부를 안 했잖아."</td><td></td><td></td></tr>
+ <tr><td>"네 마음이 어떨지 상상이 돼."</td><td></td><td></td></tr>
+ <tr><td>"별거 아니네, 뭘 그래."</td><td></td><td></td></tr>
+ <tr><td>"내가 옆에 있을게."</td><td></td><td></td></tr>
+ </table>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <div>
-        <p>여러 가지 감정 중에서 오늘 내 마음과 가장 비슷한 것에 ○ 해 봅시다.</p>
-        <div class="emo-row">
-          <span>기쁨</span><span>슬픔</span><span>화남</span><span>긴장</span>
-          <span>설렘</span><span>속상함</span><span>부끄러움</span><span>뿌듯함</span>
-        </div>
-        <p class="sub-q">그런 마음이 든 이유를 써 봅시다.</p>
-        <div class="lines two"></div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">2</span>
+ <div>
+ <p>여러 가지 감정 중에서 오늘 내 마음과 가장 비슷한 것에 ○ 해 봅시다.</p>
+ <div class="emo-row">
+ <span>기쁨</span><span>슬픔</span><span>화남</span><span>긴장</span>
+ <span>설렘</span><span>속상함</span><span>부끄러움</span><span>뿌듯함</span>
+ </div>
+ <p class="sub-q">그런 마음이 든 이유를 써 봅시다.</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">3</span>
-      <div>
-        <p>내가 속상할 때 <b>도움이 되는 방법</b>을 세 가지만 적어 봅시다.</p>
-        <div class="lines three"></div>
-      </div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">3</span>
+ <div>
+ <p>내가 속상할 때 <b>도움이 되는 방법</b>을 세 가지만 적어 봅시다.</p>
+ <div class="lines three"></div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- ============================================================
-  5) 사과와 용서
+ 5) 사과와 용서
 ============================================================ -->
 <section class="page">
-  <header class="ph">
-    <div class="ph-num">05</div>
-    <div class="ph-title">
-      <h2>사과와 용서</h2>
-      <p>실수했을 때 책임지기</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">05</div>
+ <div class="ph-title">
+ <h2>사과와 용서</h2>
+ <p>실수했을 때 책임지기</p>
+ </div>
+ </header>
 
-  <div class="scene">
-    <p><b>채원</b>이가 복도에서 뛰다가 <b>하은</b>이와 부딪쳤습니다.
-    하은이의 교과서가 바닥에 떨어지고 모서리가 구겨졌습니다.</p>
-  </div>
+ <div class="scene">
+ <p><b>채원</b>이가 복도에서 뛰다가 <b>하은</b>이와 부딪쳤습니다.
+ 하은이의 교과서가 바닥에 떨어지고 모서리가 구겨졌습니다.</p>
+ </div>
 
-  <div class="dialogue">
-    <div class="turn"><div class="tag d1">채원</div><div class="bubble">"하은아, 정말 미안해. 내가 뛰다가 부딪쳤어."</div></div>
-    <div class="turn right"><div class="bubble">"책이 구겨졌어… 좀 놀랐어."</div><div class="tag d2">하은</div></div>
-    <div class="turn"><div class="tag d1">채원</div><div class="bubble">"미안해. 책 같이 정리하고, 다음부턴 복도에서 뛰지 않을게."</div></div>
-    <div class="turn right"><div class="bubble">"응, 알겠어. 그렇게 말해 줘서 기분이 풀렸어."</div><div class="tag d2">하은</div></div>
-  </div>
+ <div class="dialogue">
+ <div class="turn"><div class="tag d1">채원</div><div class="bubble">"하은아, 정말 미안해. 내가 뛰다가 부딪쳤어."</div></div>
+ <div class="turn right"><div class="bubble">"책이 구겨졌어… 좀 놀랐어."</div><div class="tag d2">하은</div></div>
+ <div class="turn"><div class="tag d1">채원</div><div class="bubble">"미안해. 책 같이 정리하고, 다음부턴 복도에서 뛰지 않을게."</div></div>
+ <div class="turn right"><div class="bubble">"응, 알겠어. 그렇게 말해 줘서 기분이 풀렸어."</div><div class="tag d2">하은</div></div>
+ </div>
 
-  <div class="practice">
-    <h3>연습해 봅시다</h3>
+ <div class="practice">
+ <h3>연습해 봅시다</h3>
 
-    <div class="q">
-      <span class="no">1</span>
-      <div>
-        <p>바른 사과의 네 단계를 순서대로 써 봅시다.</p>
-        <div class="order-grid">
-          <div class="step"><b>ㄱ.</b> 앞으로 어떻게 할지 약속한다.</div>
-          <div class="step"><b>ㄴ.</b> "미안해"라고 말한다.</div>
-          <div class="step"><b>ㄷ.</b> 무엇을 잘못했는지 말한다.</div>
-          <div class="step"><b>ㄹ.</b> 내가 할 수 있는 일을 한다.</div>
-        </div>
-        <p class="order-line">순서: (　　) → (　　) → (　　) → (　　)</p>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">1</span>
+ <div>
+ <p>바른 사과의 네 단계를 순서대로 써 봅시다.</p>
+ <div class="order-grid">
+ <div class="step"><b>ㄱ.</b> 앞으로 어떻게 할지 약속한다.</div>
+ <div class="step"><b>ㄴ.</b> "미안해"라고 말한다.</div>
+ <div class="step"><b>ㄷ.</b> 무엇을 잘못했는지 말한다.</div>
+ <div class="step"><b>ㄹ.</b> 내가 할 수 있는 일을 한다.</div>
+ </div>
+ <p class="order-line">순서: (　　) → (　　) → (　　) → (　　)</p>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <div>
-        <p>아래 상황에서 내가 할 사과의 말을 직접 써 봅시다.</p>
-        <div class="situ-card">
-          <div><b>가.</b> 친구와의 약속 시간을 지키지 못했을 때</div>
-          <div class="line"></div>
-          <div><b>나.</b> 부모님께 거짓말을 했던 일을 사과할 때</div>
-          <div class="line"></div>
-          <div><b>다.</b> 모둠 활동에서 내가 맡은 일을 하지 못했을 때</div>
-          <div class="line"></div>
-        </div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">2</span>
+ <div>
+ <p>아래 상황에서 내가 할 사과의 말을 직접 써 봅시다.</p>
+ <div class="situ-card">
+ <div><b>가.</b> 친구와의 약속 시간을 지키지 못했을 때</div>
+ <div class="line"></div>
+ <div><b>나.</b> 부모님께 거짓말을 했던 일을 사과할 때</div>
+ <div class="line"></div>
+ <div><b>다.</b> 모둠 활동에서 내가 맡은 일을 하지 못했을 때</div>
+ <div class="line"></div>
+ </div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">3</span>
-      <div>
-        <p>친구가 나에게 사과했을 때, 내가 해 줄 수 있는 <b>용서의 말</b>을 써 봅시다.</p>
-        <div class="lines two"></div>
-      </div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">3</span>
+ <div>
+ <p>친구가 나에게 사과했을 때, 내가 해 줄 수 있는 <b>용서의 말</b>을 써 봅시다.</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- ============================================================
-  6) 거절과 선택
+ 6) 거절과 선택
 ============================================================ -->
 <section class="page">
-  <header class="ph">
-    <div class="ph-num">06</div>
-    <div class="ph-title">
-      <h2>거절과 선택</h2>
-      <p>"싫어요"라고 바르게 말하기</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">06</div>
+ <div class="ph-title">
+ <h2>거절과 선택</h2>
+ <p>"싫어요"라고 바르게 말하기</p>
+ </div>
+ </header>
 
-  <div class="scene">
-    <p>방과 후, <b>예은</b>이가 <b>주현</b>이에게 말합니다.
-    주현이는 예은이의 말이 옳지 않다고 생각합니다.</p>
-  </div>
+ <div class="scene">
+ <p>방과 후, <b>예은</b>이가 <b>주현</b>이에게 말합니다.
+ 주현이는 예은이의 말이 옳지 않다고 생각합니다.</p>
+ </div>
 
-  <div class="dialogue">
-    <div class="turn"><div class="tag d5">예은</div><div class="bubble">"주현아, 편의점에서 그냥 하나 가져가자. 아무도 안 봐."</div></div>
-    <div class="turn right"><div class="bubble">"아니, 그건 훔치는 거야. 나는 하고 싶지 않아."</div><div class="tag d3">주현</div></div>
-    <div class="turn"><div class="tag d5">예은</div><div class="bubble">"에이, 재미없어. 겁쟁이."</div></div>
-    <div class="turn right"><div class="bubble">"겁이 나서가 아니라 잘못된 일이야. 우리 다른 거 먹으러 가자."</div><div class="tag d3">주현</div></div>
-  </div>
+ <div class="dialogue">
+ <div class="turn"><div class="tag d5">예은</div><div class="bubble">"주현아, 편의점에서 그냥 하나 가져가자. 아무도 안 봐."</div></div>
+ <div class="turn right"><div class="bubble">"아니, 그건 훔치는 거야. 나는 하고 싶지 않아."</div><div class="tag d3">주현</div></div>
+ <div class="turn"><div class="tag d5">예은</div><div class="bubble">"에이, 재미없어. 겁쟁이."</div></div>
+ <div class="turn right"><div class="bubble">"겁이 나서가 아니라 잘못된 일이야. 우리 다른 거 먹으러 가자."</div><div class="tag d3">주현</div></div>
+ </div>
 
-  <div class="practice">
-    <h3>연습해 봅시다</h3>
+ <div class="practice">
+ <h3>연습해 봅시다</h3>
 
-    <div class="q">
-      <span class="no">1</span>
-      <div>
-        <p><b>바르게 거절하는 말</b>에 ○ 표시해 봅시다.</p>
-        <ul class="check-list two-col">
-          <li>□ "싫어, 그건 좋은 일이 아니야."</li>
-          <li>□ "야! 꺼져."</li>
-          <li>□ "미안하지만 나는 안 할래."</li>
-          <li>□ "너 정말 바보 같다."</li>
-          <li>□ "그건 하면 안 돼. 다른 걸 해 보자."</li>
-          <li>□ "마음대로 해. 나는 몰라."</li>
-        </ul>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">1</span>
+ <div>
+ <p><b>바르게 거절하는 말</b>에 ○ 표시해 봅시다.</p>
+ <ul class="check-list two-col">
+ <li>□ "싫어, 그건 좋은 일이 아니야."</li>
+ <li>□ "야! 꺼져."</li>
+ <li>□ "미안하지만 나는 안 할래."</li>
+ <li>□ "너 정말 바보 같다."</li>
+ <li>□ "그건 하면 안 돼. 다른 걸 해 보자."</li>
+ <li>□ "마음대로 해. 나는 몰라."</li>
+ </ul>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <div>
-        <p>아래 상황에서 내가 쓸 거절의 문장을 만들어 봅시다.</p>
-        <div class="situ-card">
-          <div><b>가.</b> 친구가 다른 친구를 놀리자고 할 때</div>
-          <div class="line"></div>
-          <div><b>나.</b> 누군가 내 비밀번호나 개인정보를 묻고 답을 요구할 때</div>
-          <div class="line"></div>
-          <div><b>다.</b> 모르는 사람이 차에 태워 주겠다고 할 때</div>
-          <div class="line"></div>
-        </div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">2</span>
+ <div>
+ <p>아래 상황에서 내가 쓸 거절의 문장을 만들어 봅시다.</p>
+ <div class="situ-card">
+ <div><b>가.</b> 친구가 다른 친구를 놀리자고 할 때</div>
+ <div class="line"></div>
+ <div><b>나.</b> 누군가 내 비밀번호나 개인정보를 묻고 답을 요구할 때</div>
+ <div class="line"></div>
+ <div><b>다.</b> 모르는 사람이 차에 태워 주겠다고 할 때</div>
+ <div class="line"></div>
+ </div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">3</span>
-      <div>
-        <p>거절을 해도 문제가 계속될 때 <b>도움을 요청할 사람</b>을 3명 적어 봅시다.</p>
-        <div class="lines three"></div>
-      </div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">3</span>
+ <div>
+ <p>거절을 해도 문제가 계속될 때 <b>도움을 요청할 사람</b>을 3명 적어 봅시다.</p>
+ <div class="lines three"></div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- ============================================================
-  7) 도움 주고받기
+ 7) 도움 주고받기
 ============================================================ -->
 <section class="page">
-  <header class="ph">
-    <div class="ph-num">07</div>
-    <div class="ph-title">
-      <h2>도움 주고받기</h2>
-      <p>요청하고, 감사하고, 돕는 마음</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">07</div>
+ <div class="ph-title">
+ <h2>도움 주고받기</h2>
+ <p>요청하고, 감사하고, 돕는 마음</p>
+ </div>
+ </header>
 
-  <div class="scene">
-    <p>청소 시간입니다. <b>주은</b>이가 교실 뒤 무거운 책상을 혼자 옮기려다 힘들어합니다.
-    마침 <b>하영</b>이가 지나갑니다.</p>
-  </div>
+ <div class="scene">
+ <p>청소 시간입니다. <b>주은</b>이가 교실 뒤 무거운 책상을 혼자 옮기려다 힘들어합니다.
+ 마침 <b>하영</b>이가 지나갑니다.</p>
+ </div>
 
-  <div class="dialogue">
-    <div class="turn"><div class="tag d4">주은</div><div class="bubble">"하영아, 혹시 시간 괜찮으면 책상 옮기는 것 좀 도와줄 수 있어?"</div></div>
-    <div class="turn right"><div class="bubble">"응, 그럼. 같이 들자. 하나, 둘, 셋!"</div><div class="tag d6">하영</div></div>
-    <div class="turn"><div class="tag d4">주은</div><div class="bubble">"정말 고마워. 혼자서는 너무 무거웠어."</div></div>
-    <div class="turn right"><div class="bubble">"별거 아니야. 다음에 내가 도움 필요하면 너도 도와줘."</div><div class="tag d6">하영</div></div>
-  </div>
+ <div class="dialogue">
+ <div class="turn"><div class="tag d4">주은</div><div class="bubble">"하영아, 혹시 시간 괜찮으면 책상 옮기는 것 좀 도와줄 수 있어?"</div></div>
+ <div class="turn right"><div class="bubble">"응, 그럼. 같이 들자. 하나, 둘, 셋!"</div><div class="tag d6">하영</div></div>
+ <div class="turn"><div class="tag d4">주은</div><div class="bubble">"정말 고마워. 혼자서는 너무 무거웠어."</div></div>
+ <div class="turn right"><div class="bubble">"별거 아니야. 다음에 내가 도움 필요하면 너도 도와줘."</div><div class="tag d6">하영</div></div>
+ </div>
 
-  <div class="practice">
-    <h3>연습해 봅시다</h3>
+ <div class="practice">
+ <h3>연습해 봅시다</h3>
 
-    <div class="q">
-      <span class="no">1</span>
-      <div>
-        <p>도움을 요청할 때의 <b>바른 말 순서</b>를 완성해 봅시다.</p>
-        <div class="request-box">
-          <p>"<b>(상대방 이름)</b>아, <span class="blank"></span> 한데<br>
-          <span class="blank long"></span> 좀 도와줄 수 있어?"</p>
-        </div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">1</span>
+ <div>
+ <p>도움을 요청할 때의 <b>바른 말 순서</b>를 완성해 봅시다.</p>
+ <div class="request-box">
+ <p>"<b>(상대방 이름)</b>아, <span class="blank"></span> 한데<br>
+ <span class="blank long"></span> 좀 도와줄 수 있어?"</p>
+ </div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <div>
-        <p>내가 <b>도움이 필요한 순간</b>과 <b>도와줄 수 있는 사람</b>을 연결해 봅시다.</p>
-        <table class="help-table">
-          <tr><th>어려운 일</th><th>도움을 청할 사람</th></tr>
-          <tr><td>공부하다 모르는 문제가 생겼을 때</td><td></td></tr>
-          <tr><td>몸이 갑자기 아플 때</td><td></td></tr>
-          <tr><td>친구 관계가 어려워졌을 때</td><td></td></tr>
-          <tr><td>가족 일로 마음이 힘들 때</td><td></td></tr>
-        </table>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">2</span>
+ <div>
+ <p>내가 <b>도움이 필요한 순간</b>과 <b>도와줄 수 있는 사람</b>을 연결해 봅시다.</p>
+ <table class="help-table">
+ <tr><th>어려운 일</th><th>도움을 청할 사람</th></tr>
+ <tr><td>공부하다 모르는 문제가 생겼을 때</td><td></td></tr>
+ <tr><td>몸이 갑자기 아플 때</td><td></td></tr>
+ <tr><td>친구 관계가 어려워졌을 때</td><td></td></tr>
+ <tr><td>가족 일로 마음이 힘들 때</td><td></td></tr>
+ </table>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">3</span>
-      <div>
-        <p>오늘 <b>내가 친구에게 줄 수 있는 도움</b>을 한 가지만 써 봅시다.</p>
-        <div class="lines two"></div>
-      </div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">3</span>
+ <div>
+ <p>오늘 <b>내가 친구에게 줄 수 있는 도움</b>을 한 가지만 써 봅시다.</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- ============================================================
-  8) 공공장소 예절
+ 8) 공공장소 예절
 ============================================================ -->
 <section class="page">
-  <header class="ph">
-    <div class="ph-num">08</div>
-    <div class="ph-title">
-      <h2>공공장소 예절</h2>
-      <p>버스·가게에서의 말과 행동</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">08</div>
+ <div class="ph-title">
+ <h2>공공장소 예절</h2>
+ <p>버스·가게에서의 말과 행동</p>
+ </div>
+ </header>
 
-  <div class="scene">
-    <p>하교 후 <b>채원</b>이와 <b>예은</b>이는 버스를 타고 분식집에 갑니다.
-    여러 사람이 함께 쓰는 공간에서 지켜야 할 일을 생각해 봅시다.</p>
-  </div>
+ <div class="scene">
+ <p>하교 후 <b>채원</b>이와 <b>예은</b>이는 버스를 타고 분식집에 갑니다.
+ 여러 사람이 함께 쓰는 공간에서 지켜야 할 일을 생각해 봅시다.</p>
+ </div>
 
-  <div class="dialogue">
-    <div class="turn"><div class="tag d1">채원</div><div class="bubble">(버스에서 큰 소리로) "예은아, 오늘 떡볶이 진짜 맛있겠지?!"</div></div>
-    <div class="turn right"><div class="bubble">"채원아, 버스 안이니까 조금 작게 이야기하자."</div><div class="tag d5">예은</div></div>
-    <div class="turn"><div class="tag d1">채원</div><div class="bubble">"아, 맞다. 미안. 다른 분들께 방해됐겠다."</div></div>
-  </div>
+ <div class="dialogue">
+ <div class="turn"><div class="tag d1">채원</div><div class="bubble">(버스에서 큰 소리로) "예은아, 오늘 떡볶이 진짜 맛있겠지?!"</div></div>
+ <div class="turn right"><div class="bubble">"채원아, 버스 안이니까 조금 작게 이야기하자."</div><div class="tag d5">예은</div></div>
+ <div class="turn"><div class="tag d1">채원</div><div class="bubble">"아, 맞다. 미안. 다른 분들께 방해됐겠다."</div></div>
+ </div>
 
-  <div class="practice">
-    <h3>연습해 봅시다</h3>
+ <div class="practice">
+ <h3>연습해 봅시다</h3>
 
-    <div class="q">
-      <span class="no">1</span>
-      <div>
-        <p>장소에 따라 지켜야 할 예절을 써 봅시다.</p>
-        <table class="place-table">
-          <tr><th>장소</th><th>지켜야 할 일</th></tr>
-          <tr><td>버스 · 지하철</td><td></td></tr>
-          <tr><td>식당</td><td></td></tr>
-          <tr><td>영화관 · 도서관</td><td></td></tr>
-          <tr><td>병원</td><td></td></tr>
-        </table>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">1</span>
+ <div>
+ <p>장소에 따라 지켜야 할 예절을 써 봅시다.</p>
+ <table class="place-table">
+ <tr><th>장소</th><th>지켜야 할 일</th></tr>
+ <tr><td>버스 · 지하철</td><td></td></tr>
+ <tr><td>식당</td><td></td></tr>
+ <tr><td>영화관 · 도서관</td><td></td></tr>
+ <tr><td>병원</td><td></td></tr>
+ </table>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <div>
-        <p>분식집에서 주문하는 상황을 연습해 봅시다. 빈칸을 채워 대화를 완성하세요.</p>
-        <div class="fill-dialog">
-          <p><b>주인:</b> 어서 오세요. 무엇을 드릴까요?</p>
-          <p><b>나  :</b> <span class="blank xl"></span></p>
-          <p><b>주인:</b> 네, 떡볶이 1인분 나왔습니다.</p>
-          <p><b>나  :</b> <span class="blank xl"></span></p>
-          <p><b>주인:</b> 7,000원입니다.</p>
-          <p><b>나  :</b> <span class="blank xl"></span></p>
-        </div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">2</span>
+ <div>
+ <p>분식집에서 주문하는 상황을 연습해 봅시다. 빈칸을 채워 대화를 완성하세요.</p>
+ <div class="fill-dialog">
+ <p><b>주인:</b> 어서 오세요. 무엇을 드릴까요?</p>
+ <p><b>나 :</b> <span class="blank xl"></span></p>
+ <p><b>주인:</b> 네, 떡볶이 1인분 나왔습니다.</p>
+ <p><b>나 :</b> <span class="blank xl"></span></p>
+ <p><b>주인:</b> 7,000원입니다.</p>
+ <p><b>나 :</b> <span class="blank xl"></span></p>
+ </div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">3</span>
-      <div>
-        <p>버스에서 할아버지께 자리를 양보할 때 어떻게 말하면 좋을까요?</p>
-        <div class="lines two"></div>
-      </div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">3</span>
+ <div>
+ <p>버스에서 할아버지께 자리를 양보할 때 어떻게 말하면 좋을까요?</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- ============================================================
-  9) 전화 · 문자 예절
+ 9) 전화 · 문자 예절
 ============================================================ -->
 <section class="page">
-  <header class="ph">
-    <div class="ph-num">09</div>
-    <div class="ph-title">
-      <h2>전화 · 문자 예절</h2>
-      <p>상대가 보이지 않을 때</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">09</div>
+ <div class="ph-title">
+ <h2>전화 · 문자 예절</h2>
+ <p>상대가 보이지 않을 때</p>
+ </div>
+ </header>
 
-  <div class="scene">
-    <p><b>주현</b>이는 모둠 과제 때문에 <b>하영</b>이에게 전화를 겁니다.
-    얼굴이 보이지 않기 때문에 <b>목소리와 말투</b>가 더 중요합니다.</p>
-  </div>
+ <div class="scene">
+ <p><b>주현</b>이는 모둠 과제 때문에 <b>하영</b>이에게 전화를 겁니다.
+ 얼굴이 보이지 않기 때문에 <b>목소리와 말투</b>가 더 중요합니다.</p>
+ </div>
 
-  <div class="dialogue">
-    <div class="turn"><div class="tag d3">주현</div><div class="bubble">(전화) "여보세요, 하영아. 나 주현이야. 지금 통화 괜찮아?"</div></div>
-    <div class="turn right"><div class="bubble">"응, 괜찮아. 무슨 일이야?"</div><div class="tag d6">하영</div></div>
-    <div class="turn"><div class="tag d3">주현</div><div class="bubble">"내일 발표 자료 때문에 물어볼 게 있어서 전화했어."</div></div>
-    <div class="turn right"><div class="bubble">"응, 말해 봐. 내가 아는 만큼 알려줄게."</div><div class="tag d6">하영</div></div>
-  </div>
+ <div class="dialogue">
+ <div class="turn"><div class="tag d3">주현</div><div class="bubble">(전화) "여보세요, 하영아. 나 주현이야. 지금 통화 괜찮아?"</div></div>
+ <div class="turn right"><div class="bubble">"응, 괜찮아. 무슨 일이야?"</div><div class="tag d6">하영</div></div>
+ <div class="turn"><div class="tag d3">주현</div><div class="bubble">"내일 발표 자료 때문에 물어볼 게 있어서 전화했어."</div></div>
+ <div class="turn right"><div class="bubble">"응, 말해 봐. 내가 아는 만큼 알려줄게."</div><div class="tag d6">하영</div></div>
+ </div>
 
-  <div class="practice">
-    <h3>연습해 봅시다</h3>
+ <div class="practice">
+ <h3>연습해 봅시다</h3>
 
-    <div class="q">
-      <span class="no">1</span>
-      <div>
-        <p>전화를 걸 때의 <b>바른 순서</b>를 완성해 봅시다.</p>
-        <ol class="phone-order">
-          <li>"여보세요"라고 인사한다.</li>
-          <li>내가 누구인지 밝힌다. &nbsp; <span class="tip">예: "저는 ○○○입니다."</span></li>
-          <li>지금 통화할 수 있는지 묻는다.</li>
-          <li>용건을 간단히 말한다.</li>
-          <li>인사하고 전화를 끊는다.</li>
-        </ol>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">1</span>
+ <div>
+ <p>전화를 걸 때의 <b>바른 순서</b>를 완성해 봅시다.</p>
+ <ol class="phone-order">
+ <li>"여보세요"라고 인사한다.</li>
+ <li>내가 누구인지 밝힌다. &nbsp; <span class="tip">예: "저는 ○○○입니다."</span></li>
+ <li>지금 통화할 수 있는지 묻는다.</li>
+ <li>용건을 간단히 말한다.</li>
+ <li>인사하고 전화를 끊는다.</li>
+ </ol>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">2</span>
-      <div>
-        <p>다음 문자 메시지 중에서 <b>바르게 쓴 것</b>에 ○ 해 봅시다.</p>
-        <div class="msg-box">
-          <div class="msg">가. "ㅇㅋ. 알아서 해."</div>
-          <div class="msg">나. "선생님, 안녕하세요. 2학년 1반 채원입니다. 내일 과제 제출 시간을 여쭤봐도 될까요?"</div>
-          <div class="msg">다. "야 빨리 답장."</div>
-          <div class="msg">라. "하은아, 오늘 몸 아프다고 해서 걱정돼. 푹 쉬어. 내일 학교에서 만나자."</div>
-        </div>
-      </div>
-    </div>
+ <div class="q">
+ <span class="no">2</span>
+ <div>
+ <p>다음 문자 메시지 중에서 <b>바르게 쓴 것</b>에 ○ 해 봅시다.</p>
+ <div class="msg-box">
+ <div class="msg">가. "ㅇㅋ. 알아서 해."</div>
+ <div class="msg">나. "선생님, 안녕하세요. 2학년 1반 채원입니다. 내일 과제 제출 시간을 여쭤봐도 될까요?"</div>
+ <div class="msg">다. "야 빨리 답장."</div>
+ <div class="msg">라. "하은아, 오늘 몸 아프다고 해서 걱정돼. 푹 쉬어. 내일 학교에서 만나자."</div>
+ </div>
+ </div>
+ </div>
 
-    <div class="q">
-      <span class="no">3</span>
-      <div>
-        <p>선생님께 <b>결석을 미리 알리는 문자</b>를 써 봅시다.</p>
-        <div class="msg-template">
-          <p>선생님, 안녕하세요.</p>
-          <p><span class="blank xl"></span></p>
-          <p><span class="blank xl"></span></p>
-          <p><span class="blank xl"></span></p>
-          <p class="right">- <span class="blank"></span> 올림</p>
-        </div>
-      </div>
-    </div>
-  </div>
+ <div class="q">
+ <span class="no">3</span>
+ <div>
+ <p>선생님께 <b>결석을 미리 알리는 문자</b>를 써 봅시다.</p>
+ <div class="msg-template">
+ <p>선생님, 안녕하세요.</p>
+ <p><span class="blank xl"></span></p>
+ <p><span class="blank xl"></span></p>
+ <p><span class="blank xl"></span></p>
+ <p class="right">- <span class="blank"></span> 올림</p>
+ </div>
+ </div>
+ </div>
+ </div>
 </section>
 
 <!-- ============================================================
-  10) 정리 – 역할극과 다짐
+ 10) 정리 – 역할극과 다짐
 ============================================================ -->
 <section class="page">
-  <header class="ph">
-    <div class="ph-num">10</div>
-    <div class="ph-title">
-      <h2>정리하기</h2>
-      <p>역할극과 나의 다짐</p>
-    </div>
-  </header>
+ <header class="ph">
+ <div class="ph-num">10</div>
+ <div class="ph-title">
+ <h2>정리하기</h2>
+ <p>역할극과 나의 다짐</p>
+ </div>
+ </header>
 
-  <section class="final-block">
-    <h3>가. 역할극 해 보기</h3>
-    <p class="guide">짝과 함께 아래 상황 카드 중 <b>한 개</b>를 골라 역할극을 해 봅시다.</p>
-    <div class="rp-grid">
-      <div class="rp">① 혼자 앉아 있는 <b>주은</b>에게 <b>채원</b>이 말을 건다.</div>
-      <div class="rp">② 시험에 속상한 <b>하은</b>을 <b>하영</b>이 위로한다.</div>
-      <div class="rp">③ 모둠에서 의견이 다를 때 <b>주현·예은·채원</b>이 합의한다.</div>
-      <div class="rp">④ 복도에서 부딪친 <b>채원</b>이 <b>하은</b>에게 사과한다.</div>
-      <div class="rp">⑤ <b>예은</b>의 잘못된 제안을 <b>주현</b>이 바르게 거절한다.</div>
-      <div class="rp">⑥ <b>주은</b>이 <b>하영</b>에게 도움을 요청하고 감사한다.</div>
-    </div>
-  </section>
+ <section class="final-block">
+ <h3>가. 역할극 해 보기</h3>
+ <p class="guide">짝과 함께 아래 상황 카드 중 <b>한 개</b>를 골라 역할극을 해 봅시다.</p>
+ <div class="rp-grid">
+ <div class="rp">① 혼자 앉아 있는 <b>주은</b>에게 <b>채원</b>이 말을 건다.</div>
+ <div class="rp">② 시험에 속상한 <b>하은</b>을 <b>하영</b>이 위로한다.</div>
+ <div class="rp">③ 모둠에서 의견이 다를 때 <b>주현·예은·채원</b>이 합의한다.</div>
+ <div class="rp">④ 복도에서 부딪친 <b>채원</b>이 <b>하은</b>에게 사과한다.</div>
+ <div class="rp">⑤ <b>예은</b>의 잘못된 제안을 <b>주현</b>이 바르게 거절한다.</div>
+ <div class="rp">⑥ <b>주은</b>이 <b>하영</b>에게 도움을 요청하고 감사한다.</div>
+ </div>
+ </section>
 
-  <section class="final-block">
-    <h3>나. 역할극 점검표 <span class="small">(짝과 서로 체크)</span></h3>
-    <table class="check2">
-      <tr><th style="width:55%">항목</th><th>잘함</th><th>보통</th><th>노력</th></tr>
-      <tr><td>상대방의 눈을 보며 말했다</td><td></td><td></td><td></td></tr>
-      <tr><td>알맞은 목소리 크기로 말했다</td><td></td><td></td><td></td></tr>
-      <tr><td>예의 바른 말을 사용했다</td><td></td><td></td><td></td></tr>
-      <tr><td>상대방의 말을 끝까지 들었다</td><td></td><td></td><td></td></tr>
-      <tr><td>상황에 어울리는 표정과 몸짓을 사용했다</td><td></td><td></td><td></td></tr>
-    </table>
-  </section>
+ <section class="final-block">
+ <h3>나. 역할극 점검표 <span class="small">(짝과 서로 체크)</span></h3>
+ <table class="check2">
+ <tr><th style="width:55%">항목</th><th>잘함</th><th>보통</th><th>노력</th></tr>
+ <tr><td>상대방의 눈을 보며 말했다</td><td></td><td></td><td></td></tr>
+ <tr><td>알맞은 목소리 크기로 말했다</td><td></td><td></td><td></td></tr>
+ <tr><td>예의 바른 말을 사용했다</td><td></td><td></td><td></td></tr>
+ <tr><td>상대방의 말을 끝까지 들었다</td><td></td><td></td><td></td></tr>
+ <tr><td>상황에 어울리는 표정과 몸짓을 사용했다</td><td></td><td></td><td></td></tr>
+ </table>
+ </section>
 
-  <section class="final-block">
-    <h3>다. 배운 것 한 줄로 정리하기</h3>
-    <div class="oneline">
-      <p>① 친구와 잘 지내려면, 먼저 <span class="blank xl"></span></p>
-      <p>② 친구가 힘들어할 때는, <span class="blank xl"></span></p>
-      <p>③ 실수를 했을 때는, <span class="blank xl"></span></p>
-      <p>④ 싫은 일은, <span class="blank xl"></span></p>
-    </div>
-  </section>
+ <section class="final-block">
+ <h3>다. 배운 것 한 줄로 정리하기</h3>
+ <div class="oneline">
+ <p>① 친구와 잘 지내려면, 먼저 <span class="blank xl"></span></p>
+ <p>② 친구가 힘들어할 때는, <span class="blank xl"></span></p>
+ <p>③ 실수를 했을 때는, <span class="blank xl"></span></p>
+ <p>④ 싫은 일은, <span class="blank xl"></span></p>
+ </div>
+ </section>
 
-  <section class="final-block pledge">
-    <h3>라. 나의 다짐</h3>
-    <p class="guide">오늘 배운 내용 중 한 가지를 골라, 이번 주에 꼭 실천할 일을 적어 봅시다.</p>
-    <div class="pledge-box">
-      <p>나, <span class="blank long"></span>은(는)</p>
-      <p>이번 주에 <span class="blank xl"></span></p>
-      <p><span class="blank xl"></span></p>
-      <p>을(를) 꼭 실천하겠습니다.</p>
-      <p class="right">날짜: <span class="blank"></span> &nbsp; 서명: <span class="blank"></span></p>
-    </div>
-  </section>
+ <section class="final-block pledge">
+ <h3>라. 나의 다짐</h3>
+ <p class="guide">오늘 배운 내용 중 한 가지를 골라, 이번 주에 꼭 실천할 일을 적어 봅시다.</p>
+ <div class="pledge-box">
+ <p>나, <span class="blank long"></span>은(는)</p>
+ <p>이번 주에 <span class="blank xl"></span></p>
+ <p><span class="blank xl"></span></p>
+ <p>을(를) 꼭 실천하겠습니다.</p>
+ <p class="right">날짜: <span class="blank"></span> &nbsp; 서명: <span class="blank"></span></p>
+ </div>
+ </section>
 </section>
 
 </body>

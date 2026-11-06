@@ -8,38 +8,38 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body {
-  margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  font-size: 11pt; line-height: 1.5;
+ margin: 0; background: #eceff1; color: #1f2d3d;
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+ font-size: 11pt; line-height: 1.5;
 }
 .toolbar {
-  position: sticky; top: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #00838f; color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+ position: sticky; top: 0; z-index: 50;
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 10px 18px; background: #00838f; color: #fff;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b2ebf2; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button {
-  background: #ffd54f; color: #006064; border: none; font: inherit; font-weight: 700;
-  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+ background: #ffd54f; color: #006064; border: none; font: inherit; font-weight: 700;
+ padding: 8px 18px; border-radius: 6px; cursor: pointer;
 }
 .page {
-  width: 210mm; min-height: 297mm;
-  margin: 10mm auto; padding: 13mm 14mm 16mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  position: relative; page-break-after: always;
+ width: 210mm; min-height: 297mm;
+ margin: 10mm auto; padding: 13mm 14mm 16mm;
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+ position: relative; page-break-after: always;
 }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 20mm 16mm; background: linear-gradient(135deg, #fff 0%, #e0f7fa 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.95em; color: #607d8b;
-  border-bottom: 2px solid #cfd8dc; padding-bottom: 8px; margin-bottom: 22px; }
+ border-bottom: 2px solid #cfd8dc; padding-bottom: 8px; margin-bottom: 22px; }
 .cover-top .subject { font-weight: 700; color: #00838f; }
 .cover-main { text-align: center; padding: 10px 0; }
 .cover-main .badge {
-  display: inline-block; padding: 6px 18px; border-radius: 20px;
-  background: #00838f; color: #fff; font-weight: 700; font-size: 1em; margin-bottom: 12px;
+ display: inline-block; padding: 6px 18px; border-radius: 20px;
+ background: #00838f; color: #fff; font-weight: 700; font-size: 1em; margin-bottom: 12px;
 }
 .cover-main h1 { margin: 0; font-size: 2.3em; letter-spacing: -1.5px; color: #006064; font-weight: 900; }
 .cover-main .lead { margin: 10px 0 0; font-size: 1.05em; color: #455a64; font-weight: 500; }
@@ -66,13 +66,13 @@ body {
 .cover-name .label { color: #455a64; font-weight: 700; margin-right: 6px; }
 
 .page-head {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #00838f; padding-bottom: 6px; margin-bottom: 12px;
+ display: flex; justify-content: space-between; align-items: flex-end;
+ border-bottom: 2.5px solid #00838f; padding-bottom: 6px; margin-bottom: 12px;
 }
 .page-head h2 { margin: 0; color: #006064; font-size: 1.45em; letter-spacing: -0.5px; }
 .page-head .step {
-  font-size: 0.88em; color: #fff; background: #00838f;
-  padding: 4px 12px; border-radius: 12px; font-weight: 700;
+ font-size: 0.88em; color: #fff; background: #00838f;
+ padding: 4px 12px; border-radius: 12px; font-weight: 700;
 }
 
 .intro { background: #e0f7fa; border-left: 4px solid #00acc1; padding: 10px 14px; margin: 8px 0 14px; border-radius: 0 6px 6px 0; font-size: 1em; }
@@ -113,10 +113,10 @@ table.props td.left { text-align: left; }
 .unit-card .ex { font-size: 0.85em; color: #546e7a; margin-top: 3px; line-height: 1.3; }
 
 .rule-box {
-  background: #fffde7; border: 1.8px dashed #fbc02d;
-  border-radius: 10px; padding: 12px 16px; text-align: center;
-  font-size: 1.15em; font-weight: 700; margin: 10px 0;
-  color: #6d4c41;
+ background: #fffde7; border: 1.8px dashed #fbc02d;
+ border-radius: 10px; padding: 12px 16px; text-align: center;
+ font-size: 1.15em; font-weight: 700; margin: 10px 0;
+ color: #6d4c41;
 }
 .rule-box .big { font-size: 1.4em; color: #ef6c00; font-weight: 900; }
 
@@ -139,418 +139,418 @@ table.props td.left { text-align: left; }
 .page-foot { position: absolute; bottom: 6mm; left: 0; right: 0; text-align: center; font-size: 0.78em; color: #90a4ae; }
 
 @media print {
-  body { background: #fff; }
-  .toolbar { display: none; }
-  .page { box-shadow: none; margin: 0 auto; padding: 12mm 14mm 14mm; }
+ body { background: #fff; }
+ .toolbar { display: none; }
+ .page { box-shadow: none; margin: 0 auto; padding: 12mm 14mm 14mm; }
 }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div><span class="title">📏 길이·무게·부피 학습지</span><span class="muted">단위와 간단한 변환</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">📏 길이·무게·부피 학습지</span><span class="muted">단위와 간단한 변환</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- ============ 표지 ============ -->
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">수학</span> · 측정 영역</span>
-    <span>고등학교 특수학급</span>
-  </div>
+ <div class="cover-top">
+ <span><span class="subject">수학</span> · 측정 영역</span>
+ <span>고등학교 </span>
+ </div>
 
-  <div class="cover-main">
-    <span class="badge">측정 익히기</span>
-    <h1>길이 · 무게 · 부피</h1>
-    <p class="lead">단위를 알고, 쉽게 바꾸어 보아요</p>
-  </div>
+ <div class="cover-main">
+ <span class="badge">측정 익히기</span>
+ <h1>길이 · 무게 · 부피</h1>
+ <p class="lead">단위를 알고, 쉽게 바꾸어 보아요</p>
+ </div>
 
-  <div class="cover-hero">
-    <div class="box l">
-      <div class="icon">📏</div>
-      <div class="label">길이</div>
-      <div class="units">cm · m · km</div>
-      <div class="ex">연필, 키, 거리</div>
-    </div>
-    <div class="box w">
-      <div class="icon">⚖️</div>
-      <div class="label">무게</div>
-      <div class="units">g · kg</div>
-      <div class="ex">과자, 사람, 가방</div>
-    </div>
-    <div class="box v">
-      <div class="icon">🥤</div>
-      <div class="label">부피</div>
-      <div class="units">mL · L</div>
-      <div class="ex">우유, 음료, 물</div>
-    </div>
-  </div>
+ <div class="cover-hero">
+ <div class="box l">
+ <div class="icon">📏</div>
+ <div class="label">길이</div>
+ <div class="units">cm · m · km</div>
+ <div class="ex">연필, 키, 거리</div>
+ </div>
+ <div class="box w">
+ <div class="icon">⚖️</div>
+ <div class="label">무게</div>
+ <div class="units">g · kg</div>
+ <div class="ex">과자, 사람, 가방</div>
+ </div>
+ <div class="box v">
+ <div class="icon">🥤</div>
+ <div class="label">부피</div>
+ <div class="units">mL · L</div>
+ <div class="ex">우유, 음료, 물</div>
+ </div>
+ </div>
 
-  <div class="cover-info">
-    <h3>🎯 학습 목표</h3>
-    <ul>
-      <li>길이·무게·부피의 단위 이름과 표시를 안다.</li>
-      <li>상황에 맞는 단위를 골라 쓴다.</li>
-      <li>간단한 단위 변환을 한다. (cm ↔ m, kg ↔ g, L ↔ mL)</li>
-    </ul>
-  </div>
+ <div class="cover-info">
+ <h3>🎯 학습 목표</h3>
+ <ul>
+ <li>길이·무게·부피의 단위 이름과 표시를 안다.</li>
+ <li>상황에 맞는 단위를 골라 쓴다.</li>
+ <li>간단한 단위 변환을 한다. (cm ↔ m, kg ↔ g, L ↔ mL)</li>
+ </ul>
+ </div>
 
-  <div class="cover-name">
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
 
-  <div class="page-foot">길이·무게·부피 학습지 · 표지</div>
+ <div class="page-foot">길이·무게·부피 학습지 · 표지</div>
 </section>
 
 <!-- ============ 1쪽: 길이 단위 ============ -->
 <section class="page">
-  <div class="page-head">
-    <h2>📏 길이의 단위</h2>
-    <span class="step">1쪽 · 길이</span>
-  </div>
+ <div class="page-head">
+ <h2>📏 길이의 단위</h2>
+ <span class="step">1쪽 · 길이</span>
+ </div>
 
-  <div class="intro">
-    <b>길이</b>는 얼마나 길고 짧은지 나타내요. 짧은 것은 <b>cm</b>, 사람 키는 <b>m</b>, 먼 거리는 <b>km</b>를 써요.
-  </div>
+ <div class="intro">
+ <b>길이</b>는 얼마나 길고 짧은지 나타내요. 짧은 것은 <b>cm</b>, 사람 키는 <b>m</b>, 먼 거리는 <b>km</b>를 써요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 길이 단위 알아보기</h3><span class="tag">개념</span></div>
-    <div class="unit-grid">
-      <div class="unit-card length">
-        <div class="sym">mm</div>
-        <div class="nm">밀리미터</div>
-        <div class="ex">아주 짧음<br>손톱 두께</div>
-      </div>
-      <div class="unit-card length">
-        <div class="sym">cm</div>
-        <div class="nm">센티미터</div>
-        <div class="ex">연필, 책<br>스마트폰</div>
-      </div>
-      <div class="unit-card length">
-        <div class="sym">m</div>
-        <div class="nm">미터</div>
-        <div class="ex">내 키<br>교실 가로</div>
-      </div>
-      <div class="unit-card length">
-        <div class="sym">km</div>
-        <div class="nm">킬로미터</div>
-        <div class="ex">학교에서<br>집까지</div>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 길이 단위 알아보기</h3><span class="tag">개념</span></div>
+ <div class="unit-grid">
+ <div class="unit-card length">
+ <div class="sym">mm</div>
+ <div class="nm">밀리미터</div>
+ <div class="ex">아주 짧음<br>손톱 두께</div>
+ </div>
+ <div class="unit-card length">
+ <div class="sym">cm</div>
+ <div class="nm">센티미터</div>
+ <div class="ex">연필, 책<br>스마트폰</div>
+ </div>
+ <div class="unit-card length">
+ <div class="sym">m</div>
+ <div class="nm">미터</div>
+ <div class="ex">내 키<br>교실 가로</div>
+ </div>
+ <div class="unit-card length">
+ <div class="sym">km</div>
+ <div class="nm">킬로미터</div>
+ <div class="ex">학교에서<br>집까지</div>
+ </div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 알맞은 단위 고르기</h3><span class="tag">단위 선택</span></div>
-    <p>다음을 잴 때 어떤 단위가 좋을까요? <b>cm · m · km</b> 중에 골라 쓰세요.</p>
-    <table class="props">
-      <tr><th>친구</th><th>측정할 것</th><th>알맞은 단위</th></tr>
-      <tr><td>주은</td><td class="left">연필의 길이</td><td><span class="blank short">&nbsp;</span></td></tr>
-      <tr><td>주현</td><td class="left">교실의 가로</td><td><span class="blank short">&nbsp;</span></td></tr>
-      <tr><td>예은</td><td class="left">집에서 학교까지 거리</td><td><span class="blank short">&nbsp;</span></td></tr>
-      <tr><td>하은</td><td class="left">내 키</td><td><span class="blank short">&nbsp;</span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 알맞은 단위 고르기</h3><span class="tag">단위 선택</span></div>
+ <p>다음을 잴 때 어떤 단위가 좋을까요? <b>cm · m · km</b> 중에 골라 쓰세요.</p>
+ <table class="props">
+ <tr><th>친구</th><th>측정할 것</th><th>알맞은 단위</th></tr>
+ <tr><td>주은</td><td class="left">연필의 길이</td><td><span class="blank short">&nbsp;</span></td></tr>
+ <tr><td>주현</td><td class="left">교실의 가로</td><td><span class="blank short">&nbsp;</span></td></tr>
+ <tr><td>예은</td><td class="left">집에서 학교까지 거리</td><td><span class="blank short">&nbsp;</span></td></tr>
+ <tr><td>하은</td><td class="left">내 키</td><td><span class="blank short">&nbsp;</span></td></tr>
+ </table>
+ </div>
 
-  <div class="life-bar">
-    <span class="title">💭 길이 느낌</span>
-    <span class="items">
-      <span>새끼손톱 ≒ 1 cm</span>
-      <span>연필 ≒ 15 cm</span>
-      <span>책상 높이 ≒ 70 cm</span>
-      <span>내 키 ≒ 160 cm</span>
-    </span>
-  </div>
+ <div class="life-bar">
+ <span class="title">💭 길이 느낌</span>
+ <span class="items">
+ <span>새끼손톱 ≒ 1 cm</span>
+ <span>연필 ≒ 15 cm</span>
+ <span>책상 높이 ≒ 70 cm</span>
+ <span>내 키 ≒ 160 cm</span>
+ </span>
+ </div>
 
-  <div class="page-foot">길이·무게·부피 학습지 · 1쪽 / 6</div>
+ <div class="page-foot">길이·무게·부피 학습지 · 1쪽 / 6</div>
 </section>
 
 <!-- ============ 2쪽: 길이 변환 ============ -->
 <section class="page">
-  <div class="page-head">
-    <h2>🔄 길이 단위 바꾸기</h2>
-    <span class="step">2쪽 · 길이 변환</span>
-  </div>
+ <div class="page-head">
+ <h2>🔄 길이 단위 바꾸기</h2>
+ <span class="step">2쪽 · 길이 변환</span>
+ </div>
 
-  <div class="intro">
-    같은 길이도 단위를 바꿔 쓸 수 있어요. 아래 두 가지만 기억해요!
-  </div>
+ <div class="intro">
+ 같은 길이도 단위를 바꿔 쓸 수 있어요. 아래 두 가지만 기억해요!
+ </div>
 
-  <div class="rule-box">
-    <span class="big">1 cm = 10 mm</span> &nbsp; · &nbsp; <span class="big">1 m = 100 cm</span> &nbsp; · &nbsp; <span class="big">1 km = 1000 m</span>
-  </div>
+ <div class="rule-box">
+ <span class="big">1 cm = 10 mm</span> &nbsp; · &nbsp; <span class="big">1 m = 100 cm</span> &nbsp; · &nbsp; <span class="big">1 km = 1000 m</span>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. cm → mm (10을 곱해요)</h3><span class="tag">변환</span></div>
-    <p>cm에 <b>10</b>을 곱하면 mm가 돼요.</p>
-    <table class="props">
-      <tr><td>① 1 cm = <span class="blank short">10</span> mm</td><td>② 3 cm = <span class="blank short">&nbsp;</span> mm</td></tr>
-      <tr><td>③ 5 cm = <span class="blank short">&nbsp;</span> mm</td><td>④ 10 cm = <span class="blank short">&nbsp;</span> mm</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. cm → mm (10을 곱해요)</h3><span class="tag">변환</span></div>
+ <p>cm에 <b>10</b>을 곱하면 mm가 돼요.</p>
+ <table class="props">
+ <tr><td>① 1 cm = <span class="blank short">10</span> mm</td><td>② 3 cm = <span class="blank short">&nbsp;</span> mm</td></tr>
+ <tr><td>③ 5 cm = <span class="blank short">&nbsp;</span> mm</td><td>④ 10 cm = <span class="blank short">&nbsp;</span> mm</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. m → cm (100을 곱해요)</h3><span class="tag">변환</span></div>
-    <p>m에 <b>100</b>을 곱하면 cm가 돼요.</p>
-    <table class="props">
-      <tr><td>① 1 m = <span class="blank">100</span> cm</td><td>② 2 m = <span class="blank">&nbsp;</span> cm</td></tr>
-      <tr><td>③ 3 m = <span class="blank">&nbsp;</span> cm</td><td>④ 5 m = <span class="blank">&nbsp;</span> cm</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. m → cm (100을 곱해요)</h3><span class="tag">변환</span></div>
+ <p>m에 <b>100</b>을 곱하면 cm가 돼요.</p>
+ <table class="props">
+ <tr><td>① 1 m = <span class="blank">100</span> cm</td><td>② 2 m = <span class="blank">&nbsp;</span> cm</td></tr>
+ <tr><td>③ 3 m = <span class="blank">&nbsp;</span> cm</td><td>④ 5 m = <span class="blank">&nbsp;</span> cm</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. 친구들의 키</h3><span class="tag">실생활</span></div>
-    <p>친구들의 키를 두 가지 방법으로 써 보세요.</p>
-    <table class="props">
-      <tr><th>친구</th><th>키 (cm)</th><th>키 (m와 cm)</th></tr>
-      <tr><td>채원</td><td>160 cm</td><td>1 m <span class="blank short">60</span> cm</td></tr>
-      <tr><td>하영</td><td>162 cm</td><td>1 m <span class="blank short">&nbsp;</span> cm</td></tr>
-      <tr><td>주은</td><td>155 cm</td><td>1 m <span class="blank short">&nbsp;</span> cm</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 친구들의 키</h3><span class="tag">실생활</span></div>
+ <p>친구들의 키를 두 가지 방법으로 써 보세요.</p>
+ <table class="props">
+ <tr><th>친구</th><th>키 (cm)</th><th>키 (m와 cm)</th></tr>
+ <tr><td>채원</td><td>160 cm</td><td>1 m <span class="blank short">60</span> cm</td></tr>
+ <tr><td>하영</td><td>162 cm</td><td>1 m <span class="blank short">&nbsp;</span> cm</td></tr>
+ <tr><td>주은</td><td>155 cm</td><td>1 m <span class="blank short">&nbsp;</span> cm</td></tr>
+ </table>
+ </div>
 
-  <div class="tip">💡 <b>외울 것은 단 두 개!</b> 1 m = 100 cm, 1 cm = 10 mm</div>
+ <div class="tip">💡 <b>외울 것은 단 두 개!</b> 1 m = 100 cm, 1 cm = 10 mm</div>
 
-  <div class="page-foot">길이·무게·부피 학습지 · 2쪽 / 6</div>
+ <div class="page-foot">길이·무게·부피 학습지 · 2쪽 / 6</div>
 </section>
 
 <!-- ============ 3쪽: 무게 단위 ============ -->
 <section class="page">
-  <div class="page-head">
-    <h2>⚖️ 무게의 단위</h2>
-    <span class="step">3쪽 · 무게</span>
-  </div>
+ <div class="page-head">
+ <h2>⚖️ 무게의 단위</h2>
+ <span class="step">3쪽 · 무게</span>
+ </div>
 
-  <div class="intro">
-    <b>무게</b>는 얼마나 무거운지 나타내요. 가벼운 것은 <b>g</b>(그램), 무거운 것은 <b>kg</b>(킬로그램)를 써요.
-  </div>
+ <div class="intro">
+ <b>무게</b>는 얼마나 무거운지 나타내요. 가벼운 것은 <b>g</b>(그램), 무거운 것은 <b>kg</b>(킬로그램)를 써요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 6. 무게 단위 알아보기</h3><span class="tag">개념</span></div>
-    <div class="unit-grid two">
-      <div class="unit-card weight">
-        <div class="sym">g</div>
-        <div class="nm">그램</div>
-        <div class="ex">가벼운 것 — 사과, 과자, 우유 한 컵</div>
-      </div>
-      <div class="unit-card weight">
-        <div class="sym">kg</div>
-        <div class="nm">킬로그램</div>
-        <div class="ex">무거운 것 — 사람, 가방, 수박</div>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 6. 무게 단위 알아보기</h3><span class="tag">개념</span></div>
+ <div class="unit-grid two">
+ <div class="unit-card weight">
+ <div class="sym">g</div>
+ <div class="nm">그램</div>
+ <div class="ex">가벼운 것 — 사과, 과자, 우유 한 컵</div>
+ </div>
+ <div class="unit-card weight">
+ <div class="sym">kg</div>
+ <div class="nm">킬로그램</div>
+ <div class="ex">무거운 것 — 사람, 가방, 수박</div>
+ </div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 7. 알맞은 단위 고르기</h3><span class="tag">단위 선택</span></div>
-    <p>다음을 잴 때 어떤 단위가 좋을까요? <b>g · kg</b> 중에 골라 쓰세요.</p>
-    <table class="props">
-      <tr><th>측정할 것</th><th>알맞은 단위</th></tr>
-      <tr><td class="left">① 과자 한 봉지</td><td><span class="blank short">&nbsp;</span></td></tr>
-      <tr><td class="left">② <b>주현</b>이의 몸무게</td><td><span class="blank short">&nbsp;</span></td></tr>
-      <tr><td class="left">③ 사과 한 개</td><td><span class="blank short">&nbsp;</span></td></tr>
-      <tr><td class="left">④ <b>예은</b>이의 가방</td><td><span class="blank short">&nbsp;</span></td></tr>
-      <tr><td class="left">⑤ 수박 한 통</td><td><span class="blank short">&nbsp;</span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 7. 알맞은 단위 고르기</h3><span class="tag">단위 선택</span></div>
+ <p>다음을 잴 때 어떤 단위가 좋을까요? <b>g · kg</b> 중에 골라 쓰세요.</p>
+ <table class="props">
+ <tr><th>측정할 것</th><th>알맞은 단위</th></tr>
+ <tr><td class="left">① 과자 한 봉지</td><td><span class="blank short">&nbsp;</span></td></tr>
+ <tr><td class="left">② <b>주현</b>이의 몸무게</td><td><span class="blank short">&nbsp;</span></td></tr>
+ <tr><td class="left">③ 사과 한 개</td><td><span class="blank short">&nbsp;</span></td></tr>
+ <tr><td class="left">④ <b>예은</b>이의 가방</td><td><span class="blank short">&nbsp;</span></td></tr>
+ <tr><td class="left">⑤ 수박 한 통</td><td><span class="blank short">&nbsp;</span></td></tr>
+ </table>
+ </div>
 
-  <div class="life-bar">
-    <span class="title">💭 무게 느낌</span>
-    <span class="items">
-      <span>사과 1개 ≒ 300 g</span>
-      <span>책 1권 ≒ 500 g</span>
-      <span>가방 ≒ 3 kg</span>
-      <span>고등학생 몸무게 ≒ 55 kg</span>
-    </span>
-  </div>
+ <div class="life-bar">
+ <span class="title">💭 무게 느낌</span>
+ <span class="items">
+ <span>사과 1개 ≒ 300 g</span>
+ <span>책 1권 ≒ 500 g</span>
+ <span>가방 ≒ 3 kg</span>
+ <span>고등학생 몸무게 ≒ 55 kg</span>
+ </span>
+ </div>
 
-  <div class="page-foot">길이·무게·부피 학습지 · 3쪽 / 6</div>
+ <div class="page-foot">길이·무게·부피 학습지 · 3쪽 / 6</div>
 </section>
 
 <!-- ============ 4쪽: 무게 변환 ============ -->
 <section class="page">
-  <div class="page-head">
-    <h2>🔄 무게 단위 바꾸기</h2>
-    <span class="step">4쪽 · 무게 변환</span>
-  </div>
+ <div class="page-head">
+ <h2>🔄 무게 단위 바꾸기</h2>
+ <span class="step">4쪽 · 무게 변환</span>
+ </div>
 
-  <div class="intro">
-    무게는 외울 게 <b>딱 하나</b>예요. 1 kg = 1000 g!
-  </div>
+ <div class="intro">
+ 무게는 외울 게 <b>딱 하나</b>예요. 1 kg = 1000 g!
+ </div>
 
-  <div class="rule-box">
-    <span class="big">1 kg = 1000 g</span>
-  </div>
+ <div class="rule-box">
+ <span class="big">1 kg = 1000 g</span>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 8. kg → g (1000을 곱해요)</h3><span class="tag">변환</span></div>
-    <p>kg에 <b>1000</b>을 곱하면 g가 돼요.</p>
-    <table class="props">
-      <tr><td>① 1 kg = <span class="blank">1000</span> g</td><td>② 2 kg = <span class="blank">&nbsp;</span> g</td></tr>
-      <tr><td>③ 3 kg = <span class="blank">&nbsp;</span> g</td><td>④ 5 kg = <span class="blank">&nbsp;</span> g</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 8. kg → g (1000을 곱해요)</h3><span class="tag">변환</span></div>
+ <p>kg에 <b>1000</b>을 곱하면 g가 돼요.</p>
+ <table class="props">
+ <tr><td>① 1 kg = <span class="blank">1000</span> g</td><td>② 2 kg = <span class="blank">&nbsp;</span> g</td></tr>
+ <tr><td>③ 3 kg = <span class="blank">&nbsp;</span> g</td><td>④ 5 kg = <span class="blank">&nbsp;</span> g</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 9. g → kg (1000으로 나눠요)</h3><span class="tag">변환</span></div>
-    <p>g를 <b>1000</b>으로 나누면 kg가 돼요.</p>
-    <table class="props">
-      <tr><td>① 1000 g = <span class="blank short">1</span> kg</td><td>② 2000 g = <span class="blank short">&nbsp;</span> kg</td></tr>
-      <tr><td>③ 4000 g = <span class="blank short">&nbsp;</span> kg</td><td>④ 6000 g = <span class="blank short">&nbsp;</span> kg</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 9. g → kg (1000으로 나눠요)</h3><span class="tag">변환</span></div>
+ <p>g를 <b>1000</b>으로 나누면 kg가 돼요.</p>
+ <table class="props">
+ <tr><td>① 1000 g = <span class="blank short">1</span> kg</td><td>② 2000 g = <span class="blank short">&nbsp;</span> kg</td></tr>
+ <tr><td>③ 4000 g = <span class="blank short">&nbsp;</span> kg</td><td>④ 6000 g = <span class="blank short">&nbsp;</span> kg</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 10. 친구들의 장 보기</h3><span class="tag">실생활</span></div>
-    <p>친구들이 산 물건의 무게를 보고 큰 쪽에 ○ 표 하세요.</p>
-    <table class="props">
-      <tr><th>친구</th><th>물건 A</th><th>물건 B</th><th>더 무거운 것</th></tr>
-      <tr><td>하은</td><td>사과 500 g</td><td>배 800 g</td><td><span class="blank">&nbsp;</span></td></tr>
-      <tr><td>채원</td><td>쌀 2 kg</td><td>밀가루 1500 g</td><td><span class="blank">&nbsp;</span></td></tr>
-      <tr><td>주은</td><td>가방 3 kg</td><td>책 2 kg</td><td><span class="blank">&nbsp;</span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 10. 친구들의 장 보기</h3><span class="tag">실생활</span></div>
+ <p>친구들이 산 물건의 무게를 보고 큰 쪽에 ○ 표 하세요.</p>
+ <table class="props">
+ <tr><th>친구</th><th>물건 A</th><th>물건 B</th><th>더 무거운 것</th></tr>
+ <tr><td>하은</td><td>사과 500 g</td><td>배 800 g</td><td><span class="blank">&nbsp;</span></td></tr>
+ <tr><td>채원</td><td>쌀 2 kg</td><td>밀가루 1500 g</td><td><span class="blank">&nbsp;</span></td></tr>
+ <tr><td>주은</td><td>가방 3 kg</td><td>책 2 kg</td><td><span class="blank">&nbsp;</span></td></tr>
+ </table>
+ </div>
 
-  <div class="tip">💡 비교할 때는 <b>단위를 같게</b>! kg를 g로 바꾸거나, g를 kg로 바꿔서 비교해요.</div>
+ <div class="tip">💡 비교할 때는 <b>단위를 같게</b>! kg를 g로 바꾸거나, g를 kg로 바꿔서 비교해요.</div>
 
-  <div class="page-foot">길이·무게·부피 학습지 · 4쪽 / 6</div>
+ <div class="page-foot">길이·무게·부피 학습지 · 4쪽 / 6</div>
 </section>
 
 <!-- ============ 5쪽: 부피 단위와 변환 ============ -->
 <section class="page">
-  <div class="page-head">
-    <h2>🥤 부피의 단위와 바꾸기</h2>
-    <span class="step">5쪽 · 부피</span>
-  </div>
+ <div class="page-head">
+ <h2>🥤 부피의 단위와 바꾸기</h2>
+ <span class="step">5쪽 · 부피</span>
+ </div>
 
-  <div class="intro">
-    <b>부피</b>는 액체가 얼마나 들었는지 나타내요. 작은 양은 <b>mL</b>(밀리리터), 많은 양은 <b>L</b>(리터)를 써요.
-  </div>
+ <div class="intro">
+ <b>부피</b>는 액체가 얼마나 들었는지 나타내요. 작은 양은 <b>mL</b>(밀리리터), 많은 양은 <b>L</b>(리터)를 써요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 11. 부피 단위 알아보기</h3><span class="tag">개념</span></div>
-    <div class="unit-grid two">
-      <div class="unit-card volume">
-        <div class="sym">mL</div>
-        <div class="nm">밀리리터</div>
-        <div class="ex">작은 양 — 요구르트, 약, 한 컵</div>
-      </div>
-      <div class="unit-card volume">
-        <div class="sym">L</div>
-        <div class="nm">리터</div>
-        <div class="ex">많은 양 — 큰 생수, 우유 한 통</div>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 11. 부피 단위 알아보기</h3><span class="tag">개념</span></div>
+ <div class="unit-grid two">
+ <div class="unit-card volume">
+ <div class="sym">mL</div>
+ <div class="nm">밀리리터</div>
+ <div class="ex">작은 양 — 요구르트, 약, 한 컵</div>
+ </div>
+ <div class="unit-card volume">
+ <div class="sym">L</div>
+ <div class="nm">리터</div>
+ <div class="ex">많은 양 — 큰 생수, 우유 한 통</div>
+ </div>
+ </div>
+ </div>
 
-  <div class="rule-box">
-    <span class="big">1 L = 1000 mL</span>
-  </div>
+ <div class="rule-box">
+ <span class="big">1 L = 1000 mL</span>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 12. L → mL (1000을 곱해요)</h3><span class="tag">변환</span></div>
-    <table class="props">
-      <tr><td>① 1 L = <span class="blank">1000</span> mL</td><td>② 2 L = <span class="blank">&nbsp;</span> mL</td></tr>
-      <tr><td>③ 3 L = <span class="blank">&nbsp;</span> mL</td><td>④ 5 L = <span class="blank">&nbsp;</span> mL</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 12. L → mL (1000을 곱해요)</h3><span class="tag">변환</span></div>
+ <table class="props">
+ <tr><td>① 1 L = <span class="blank">1000</span> mL</td><td>② 2 L = <span class="blank">&nbsp;</span> mL</td></tr>
+ <tr><td>③ 3 L = <span class="blank">&nbsp;</span> mL</td><td>④ 5 L = <span class="blank">&nbsp;</span> mL</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 13. 친구들의 음료수</h3><span class="tag">실생활</span></div>
-    <p>친구들이 산 음료의 양을 보고 알맞은 단위를 골라요.</p>
-    <table class="props">
-      <tr><th>친구</th><th>음료</th><th>양</th><th>단위</th></tr>
-      <tr><td>하영</td><td class="left">요구르트 한 병</td><td>65</td><td><span class="blank short">mL</span></td></tr>
-      <tr><td>주현</td><td class="left">생수 큰 병</td><td>2</td><td><span class="blank short">&nbsp;</span></td></tr>
-      <tr><td>예은</td><td class="left">우유 한 컵</td><td>200</td><td><span class="blank short">&nbsp;</span></td></tr>
-      <tr><td>채원</td><td class="left">콜라 큰 병</td><td>1.5</td><td><span class="blank short">&nbsp;</span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 13. 친구들의 음료수</h3><span class="tag">실생활</span></div>
+ <p>친구들이 산 음료의 양을 보고 알맞은 단위를 골라요.</p>
+ <table class="props">
+ <tr><th>친구</th><th>음료</th><th>양</th><th>단위</th></tr>
+ <tr><td>하영</td><td class="left">요구르트 한 병</td><td>65</td><td><span class="blank short">mL</span></td></tr>
+ <tr><td>주현</td><td class="left">생수 큰 병</td><td>2</td><td><span class="blank short">&nbsp;</span></td></tr>
+ <tr><td>예은</td><td class="left">우유 한 컵</td><td>200</td><td><span class="blank short">&nbsp;</span></td></tr>
+ <tr><td>채원</td><td class="left">콜라 큰 병</td><td>1.5</td><td><span class="blank short">&nbsp;</span></td></tr>
+ </table>
+ </div>
 
-  <div class="life-bar">
-    <span class="title">💭 부피 느낌</span>
-    <span class="items">
-      <span>요구르트 ≒ 65 mL</span>
-      <span>종이컵 ≒ 200 mL</span>
-      <span>작은 생수 ≒ 500 mL</span>
-      <span>큰 콜라 ≒ 1.5 L</span>
-    </span>
-  </div>
+ <div class="life-bar">
+ <span class="title">💭 부피 느낌</span>
+ <span class="items">
+ <span>요구르트 ≒ 65 mL</span>
+ <span>종이컵 ≒ 200 mL</span>
+ <span>작은 생수 ≒ 500 mL</span>
+ <span>큰 콜라 ≒ 1.5 L</span>
+ </span>
+ </div>
 
-  <div class="page-foot">길이·무게·부피 학습지 · 5쪽 / 6</div>
+ <div class="page-foot">길이·무게·부피 학습지 · 5쪽 / 6</div>
 </section>
 
 <!-- ============ 6쪽: 정리 ============ -->
 <section class="page">
-  <div class="page-head">
-    <h2>📌 정리 & 자기 점검</h2>
-    <span class="step">6쪽 · 마무리</span>
-  </div>
+ <div class="page-head">
+ <h2>📌 정리 & 자기 점검</h2>
+ <span class="step">6쪽 · 마무리</span>
+ </div>
 
-  <div class="intro">
-    세 가지 단위 변환만 기억하면 돼요! <b>1 m = 100 cm · 1 kg = 1000 g · 1 L = 1000 mL</b>
-  </div>
+ <div class="intro">
+ 세 가지 단위 변환만 기억하면 돼요! <b>1 m = 100 cm · 1 kg = 1000 g · 1 L = 1000 mL</b>
+ </div>
 
-  <div class="summary-grid">
-    <div class="summary-card l">
-      <div class="name">📏 길이</div>
-      <ul class="pts">
-        <li>cm, m, km</li>
-        <li>1 m = 100 cm</li>
-        <li>1 km = 1000 m</li>
-        <li>키, 거리, 물건 길이</li>
-      </ul>
-    </div>
-    <div class="summary-card w">
-      <div class="name">⚖️ 무게</div>
-      <ul class="pts">
-        <li>g, kg</li>
-        <li>1 kg = 1000 g</li>
-        <li>사람, 가방, 음식</li>
-      </ul>
-    </div>
-    <div class="summary-card v">
-      <div class="name">🥤 부피</div>
-      <ul class="pts">
-        <li>mL, L</li>
-        <li>1 L = 1000 mL</li>
-        <li>음료수, 물, 우유</li>
-      </ul>
-    </div>
-  </div>
+ <div class="summary-grid">
+ <div class="summary-card l">
+ <div class="name">📏 길이</div>
+ <ul class="pts">
+ <li>cm, m, km</li>
+ <li>1 m = 100 cm</li>
+ <li>1 km = 1000 m</li>
+ <li>키, 거리, 물건 길이</li>
+ </ul>
+ </div>
+ <div class="summary-card w">
+ <div class="name">⚖️ 무게</div>
+ <ul class="pts">
+ <li>g, kg</li>
+ <li>1 kg = 1000 g</li>
+ <li>사람, 가방, 음식</li>
+ </ul>
+ </div>
+ <div class="summary-card v">
+ <div class="name">🥤 부피</div>
+ <ul class="pts">
+ <li>mL, L</li>
+ <li>1 L = 1000 mL</li>
+ <li>음료수, 물, 우유</li>
+ </ul>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 14. 종합 문제</h3><span class="tag">총정리</span></div>
-    <p>빈칸을 채워 보세요.</p>
-    <table class="props">
-      <tr><td>① 2 m = <span class="blank">&nbsp;</span> cm</td><td>② 3 kg = <span class="blank">&nbsp;</span> g</td></tr>
-      <tr><td>③ 5 L = <span class="blank">&nbsp;</span> mL</td><td>④ 1000 g = <span class="blank short">&nbsp;</span> kg</td></tr>
-      <tr><td>⑤ 200 cm = <span class="blank short">&nbsp;</span> m</td><td>⑥ 2000 mL = <span class="blank short">&nbsp;</span> L</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 14. 종합 문제</h3><span class="tag">총정리</span></div>
+ <p>빈칸을 채워 보세요.</p>
+ <table class="props">
+ <tr><td>① 2 m = <span class="blank">&nbsp;</span> cm</td><td>② 3 kg = <span class="blank">&nbsp;</span> g</td></tr>
+ <tr><td>③ 5 L = <span class="blank">&nbsp;</span> mL</td><td>④ 1000 g = <span class="blank short">&nbsp;</span> kg</td></tr>
+ <tr><td>⑤ 200 cm = <span class="blank short">&nbsp;</span> m</td><td>⑥ 2000 mL = <span class="blank short">&nbsp;</span> L</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 15. 자기 점검</h3><span class="tag">자기 확인</span></div>
-    <table class="props">
-      <tr><th style="width:60%;">확인할 내용</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
-      <tr><td class="left">길이 단위(cm·m·km)를 안다.</td><td>○</td><td>○</td><td>○</td></tr>
-      <tr><td class="left">무게 단위(g·kg)를 안다.</td><td>○</td><td>○</td><td>○</td></tr>
-      <tr><td class="left">부피 단위(mL·L)를 안다.</td><td>○</td><td>○</td><td>○</td></tr>
-      <tr><td class="left">1 m = 100 cm로 바꿀 수 있다.</td><td>○</td><td>○</td><td>○</td></tr>
-      <tr><td class="left">1 kg = 1000 g로 바꿀 수 있다.</td><td>○</td><td>○</td><td>○</td></tr>
-      <tr><td class="left">1 L = 1000 mL로 바꿀 수 있다.</td><td>○</td><td>○</td><td>○</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 15. 자기 점검</h3><span class="tag">자기 확인</span></div>
+ <table class="props">
+ <tr><th style="width:60%;">확인할 내용</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+ <tr><td class="left">길이 단위(cm·m·km)를 안다.</td><td>○</td><td>○</td><td>○</td></tr>
+ <tr><td class="left">무게 단위(g·kg)를 안다.</td><td>○</td><td>○</td><td>○</td></tr>
+ <tr><td class="left">부피 단위(mL·L)를 안다.</td><td>○</td><td>○</td><td>○</td></tr>
+ <tr><td class="left">1 m = 100 cm로 바꿀 수 있다.</td><td>○</td><td>○</td><td>○</td></tr>
+ <tr><td class="left">1 kg = 1000 g로 바꿀 수 있다.</td><td>○</td><td>○</td><td>○</td></tr>
+ <tr><td class="left">1 L = 1000 mL로 바꿀 수 있다.</td><td>○</td><td>○</td><td>○</td></tr>
+ </table>
+ </div>
 
-  <div class="activity" style="border-color:#a5d6a7; background:#f1f8e9;">
-    <div class="head"><h3>🌟 마무리 한마디</h3><span class="tag" style="background:#c8e6c9; color:#1b5e20;">기록</span></div>
-    <p>오늘 가장 쉬웠던 단위는 무엇인가요?</p>
-    <div class="write-line"></div>
-    <p>한 번 더 연습하고 싶은 부분은 무엇인가요?</p>
-    <div class="write-line"></div>
-  </div>
+ <div class="activity" style="border-color:#a5d6a7; background:#f1f8e9;">
+ <div class="head"><h3>🌟 마무리 한마디</h3><span class="tag" style="background:#c8e6c9; color:#1b5e20;">기록</span></div>
+ <p>오늘 가장 쉬웠던 단위는 무엇인가요?</p>
+ <div class="write-line"></div>
+ <p>한 번 더 연습하고 싶은 부분은 무엇인가요?</p>
+ <div class="write-line"></div>
+ </div>
 
-  <div class="page-foot">길이·무게·부피 학습지 · 6쪽 / 6 · 수고하셨습니다 👏</div>
+ <div class="page-foot">길이·무게·부피 학습지 · 6쪽 / 6 · 수고하셨습니다 👏</div>
 </section>
 
 </body>

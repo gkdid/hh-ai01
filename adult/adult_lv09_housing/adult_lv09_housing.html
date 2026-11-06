@@ -8,22 +8,22 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #5d4037; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #5d4037; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; } .toolbar .muted { color: #d7ccc8; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #d7ccc8 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #3e2723;
-  border-bottom: 2px solid #8d6e63; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #8d6e63; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; }
 .cover-main { text-align: center; padding: 10px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #5d4037; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #5d4037; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #3e2723; font-weight: 900; }
 .cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #5d4037; font-weight: 500; }
 .cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
@@ -35,7 +35,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #3e2723; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #5d4037; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #5d4037; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #3e2723; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #5d4037; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -71,324 +71,323 @@ table.qa td.left { text-align: left; }
 .contract-doc .row .k { font-weight: 700; color: #3e2723; }
 
 .footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
-  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+ color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
 @media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div><span class="title">성인 생활 9차시</span><span class="muted">자립 주거·월세 · A4 4쪽</span></div>
-  <button onclick="window.print()">🖨 인쇄하기</button>
+ <div><span class="title">성인 생활 9차시</span><span class="muted">자립 주거·월세 · A4 4쪽</span></div>
+ <button onclick="window.print">🖨 인쇄하기</button>
 </div>
 
 <!-- 표지 -->
 <div class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">생활·자립</span> · 성인 생활 단원 9/10</div>
-    <div>혜화여자고등학교 특수학급</div>
-  </div>
-  <div class="cover-main">
-    <span class="badge">Lv.9 자립 주거</span>
-    <h1>나만의 공간, 어떻게 구할까?</h1>
-    <p class="lead">월세·전세·관리비 · 부동산·계약 기본 상식</p>
-  </div>
-  <div class="cover-emoji">🏠 🔑 📄 💰</div>
-  <div class="cover-info">
-    <h3>이번 시간에 배울 것</h3>
-    <ul>
-      <li>주거 형태 3가지: <b>월세·전세·매매</b> 차이</li>
-      <li>월세 계약 시 <b>보증금·관리비·확정일자</b>의 의미</li>
-      <li>부동산에서 집 볼 때 <b>체크리스트</b>와 <b>계약서 주의점</b></li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-    <div class="line"><span class="label">반</span></div>
-  </div>
+ <div class="cover-top">
+ <div><span class="subject">생활·자립</span> · 성인 생활 단원 9/10</div>
+ </div>
+ <div class="cover-main">
+ <span class="badge">Lv.9 자립 주거</span>
+ <h1>나만의 공간, 어떻게 구할까?</h1>
+ <p class="lead">월세·전세·관리비 · 부동산·계약 기본 상식</p>
+ </div>
+ <div class="cover-emoji">🏠 🔑 📄 💰</div>
+ <div class="cover-info">
+ <h3>이번 시간에 배울 것</h3>
+ <ul>
+ <li>주거 형태 3가지: <b>월세·전세·매매</b> 차이</li>
+ <li>월세 계약 시 <b>보증금·관리비·확정일자</b>의 의미</li>
+ <li>부동산에서 집 볼 때 <b>체크리스트</b>와 <b>계약서 주의점</b></li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ <div class="line"><span class="label">반</span></div>
+ </div>
 </div>
 
 <!-- 1쪽 : 주거 형태 -->
 <div class="page">
-  <div class="page-head"><h2>1. 주거 3가지 형태</h2><span class="step">Step 1</span></div>
+ <div class="page-head"><h2>1. 주거 3가지 형태</h2><span class="step">Step 1</span></div>
 
-  <div class="types">
-    <div class="type"><div class="em">📅</div><div class="n">월세</div><div class="p">보증금 + 매달 임대료. 시작 자금 적음, 매달 지출 부담.</div></div>
-    <div class="type"><div class="em">💰</div><div class="n">전세</div><div class="p">큰 보증금만 맡기고 살다가 나갈 때 <b>돌려받음</b>. 매달 임대료 X.</div></div>
-    <div class="type"><div class="em">🏠</div><div class="n">매매</div><div class="p">집을 <b>완전히 소유</b>. 큰 돈 필요 (대출 활용). 시세 변동 있음.</div></div>
-  </div>
+ <div class="types">
+ <div class="type"><div class="em">📅</div><div class="n">월세</div><div class="p">보증금 + 매달 임대료. 시작 자금 적음, 매달 지출 부담.</div></div>
+ <div class="type"><div class="em">💰</div><div class="n">전세</div><div class="p">큰 보증금만 맡기고 살다가 나갈 때 <b>돌려받음</b>. 매달 임대료 X.</div></div>
+ <div class="type"><div class="em">🏠</div><div class="n">매매</div><div class="p">집을 <b>완전히 소유</b>. 큰 돈 필요 (대출 활용). 시세 변동 있음.</div></div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 상황별 어떤 게 좋을까?</h3><span class="tag">판단</span></div>
-    <table class="qa">
-      <tr><th>상황</th><th>추천</th><th>이유</th></tr>
-      <tr><td class="left"><b>하은</b>이가 첫 취업 후 자취 시작 (모은 돈 500만원)</td><td><span class="blank">월세</span></td><td class="left">시작 자금이 적음</td></tr>
-      <tr><td class="left"><b>하영</b>이가 부모님과 5,000만원 마련 (안정적 직장)</td><td><span class="blank"></span></td><td class="left"><span class="blank long"></span></td></tr>
-      <tr><td class="left"><b>주은</b>이가 결혼 후 2억+대출로 아파트 마련</td><td><span class="blank"></span></td><td class="left"><span class="blank long"></span></td></tr>
-      <tr><td class="left"><b>주현</b>이가 대학 근처 4년만 살 예정</td><td><span class="blank"></span></td><td class="left"><span class="blank long"></span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 상황별 어떤 게 좋을까?</h3><span class="tag">판단</span></div>
+ <table class="qa">
+ <tr><th>상황</th><th>추천</th><th>이유</th></tr>
+ <tr><td class="left"><b>하은</b>이가 첫 취업 후 자취 시작 (모은 돈 500만원)</td><td><span class="blank">월세</span></td><td class="left">시작 자금이 적음</td></tr>
+ <tr><td class="left"><b>하영</b>이가 부모님과 5,000만원 마련 (안정적 직장)</td><td><span class="blank"></span></td><td class="left"><span class="blank long"></span></td></tr>
+ <tr><td class="left"><b>주은</b>이가 결혼 후 2억+대출로 아파트 마련</td><td><span class="blank"></span></td><td class="left"><span class="blank long"></span></td></tr>
+ <tr><td class="left"><b>주현</b>이가 대학 근처 4년만 살 예정</td><td><span class="blank"></span></td><td class="left"><span class="blank long"></span></td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 월세·전세 비용 비교</h3><span class="tag">계산</span></div>
-    <p>같은 원룸, 두 가지 조건 비교:</p>
-    <table class="qa">
-      <tr><th>조건</th><th>보증금</th><th>매달</th><th>2년 총 지출</th></tr>
-      <tr><td><b>월세형</b></td><td>10,000,000</td><td>500,000</td><td>500,000 × 24 = <span class="blank">12,000,000</span> + 회수 10,000,000</td></tr>
-      <tr><td><b>전세형</b></td><td>100,000,000</td><td>0</td><td>0 + 회수 100,000,000 (2년 후 돌려받음)</td></tr>
-    </table>
-    <div class="tip"><b>💡 요령</b> 보증금 여유 있으면 <b>전세</b>가 저렴. 다만 <b>전세 사기</b> 조심! 계약 전 등기부등본 확인 필수.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 월세·전세 비용 비교</h3><span class="tag">계산</span></div>
+ <p>같은 원룸, 두 가지 조건 비교:</p>
+ <table class="qa">
+ <tr><th>조건</th><th>보증금</th><th>매달</th><th>2년 총 지출</th></tr>
+ <tr><td><b>월세형</b></td><td>10,000,000</td><td>500,000</td><td>500,000 × 24 = <span class="blank">12,000,000</span> + 회수 10,000,000</td></tr>
+ <tr><td><b>전세형</b></td><td>100,000,000</td><td>0</td><td>0 + 회수 100,000,000 (2년 후 돌려받음)</td></tr>
+ </table>
+ <div class="tip"><b>💡 요령</b> 보증금 여유 있으면 <b>전세</b>가 저렴. 다만 <b>전세 사기</b> 조심! 계약 전 등기부등본 확인 필수.</div>
+ </div>
 
-  <div class="footer-note">성인 생활 9차시 · 1/4쪽 · 주거 형태</div>
+ <div class="footer-note">성인 생활 9차시 · 1/4쪽 · 주거 형태</div>
 </div>
 
 <!-- 2쪽 : 월세 상세 -->
 <div class="page">
-  <div class="page-head"><h2>2. 월세 계약 A to Z</h2><span class="step">Step 2</span></div>
-  <div class="intro">
-    <b>💡 월세 = 보증금 + 매달 임대료 + 관리비</b> 로 이뤄져요. 각각의 <b>의미와 반환</b> 조건을 알아봐요.
-  </div>
+ <div class="page-head"><h2>2. 월세 계약 A to Z</h2><span class="step">Step 2</span></div>
+ <div class="intro">
+ <b>💡 월세 = 보증금 + 매달 임대료 + 관리비</b> 로 이뤄져요. 각각의 <b>의미와 반환</b> 조건을 알아봐요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 월세 구성 요소</h3><span class="tag">구성</span></div>
-    <table class="qa">
-      <tr><th>항목</th><th>내용</th><th>반환?</th></tr>
-      <tr><td>보증금</td><td class="left">계약 시 임대인에게 맡기는 돈</td><td>나갈 때 O (일부 손상비 제외)</td></tr>
-      <tr><td>월 임대료(월세)</td><td class="left">매달 임대인에게 내는 돈</td><td>X</td></tr>
-      <tr><td>관리비</td><td class="left">청소·경비·공용전기·인터넷 등 (건물 관리 회사에)</td><td>X</td></tr>
-      <tr><td>공과금 (개별)</td><td class="left">전기·가스·수도·인터넷 (개별 사용량)</td><td>X</td></tr>
-    </table>
-    <div class="note"><b>❗ 관리비 vs 공과금 헷갈리지 말기</b> 관리비는 건물 <b>전체 공용</b> 부담. 공과금은 <b>내 방 개별</b> 사용량!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 월세 구성 요소</h3><span class="tag">구성</span></div>
+ <table class="qa">
+ <tr><th>항목</th><th>내용</th><th>반환?</th></tr>
+ <tr><td>보증금</td><td class="left">계약 시 임대인에게 맡기는 돈</td><td>나갈 때 O (일부 손상비 제외)</td></tr>
+ <tr><td>월 임대료(월세)</td><td class="left">매달 임대인에게 내는 돈</td><td>X</td></tr>
+ <tr><td>관리비</td><td class="left">청소·경비·공용전기·인터넷 등 (건물 관리 회사에)</td><td>X</td></tr>
+ <tr><td>공과금 (개별)</td><td class="left">전기·가스·수도·인터넷 (개별 사용량)</td><td>X</td></tr>
+ </table>
+ <div class="note"><b>❗ 관리비 vs 공과금 헷갈리지 말기</b> 관리비는 건물 <b>전체 공용</b> 부담. 공과금은 <b>내 방 개별</b> 사용량!</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 미정이의 월 주거비 계산</h3><span class="tag">월 비용</span></div>
-    <p><b>미정</b>이가 서울 원룸을 계약해요. 조건: 보증금 <b>10,000,000원</b>, 월세 <b>500,000원</b>, 관리비 <b>80,000원</b>, 개별 공과금 <b>90,000원</b></p>
-    <table class="qa">
-      <tr><th>항목</th><th>금액</th></tr>
-      <tr><td class="left">월세</td><td>500,000</td></tr>
-      <tr><td class="left">관리비</td><td><span class="blank short"></span></td></tr>
-      <tr><td class="left">개별 공과금 (평균)</td><td><span class="blank short"></span></td></tr>
-      <tr><th>월 총 주거비</th><th><span class="blank"></span></th></tr>
-    </table>
-    <p>월급 2,000,000원 대비 주거비 비율 = <span class="blank short"></span>% (권장: <b>30% 이하</b>)</p>
-    <div class="tip"><b>💡 자립 첫 해</b>는 <b>부모님 지원 or 저렴한 곳</b> 선택. 무리하면 지속 불가능!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 미정이의 월 주거비 계산</h3><span class="tag">월 비용</span></div>
+ <p><b>미정</b>이가 서울 원룸을 계약해요. 조건: 보증금 <b>10,000,000원</b>, 월세 <b>500,000원</b>, 관리비 <b>80,000원</b>, 개별 공과금 <b>90,000원</b></p>
+ <table class="qa">
+ <tr><th>항목</th><th>금액</th></tr>
+ <tr><td class="left">월세</td><td>500,000</td></tr>
+ <tr><td class="left">관리비</td><td><span class="blank short"></span></td></tr>
+ <tr><td class="left">개별 공과금 (평균)</td><td><span class="blank short"></span></td></tr>
+ <tr><th>월 총 주거비</th><th><span class="blank"></span></th></tr>
+ </table>
+ <p>월급 2,000,000원 대비 주거비 비율 = <span class="blank short"></span>% (권장: <b>30% 이하</b>)</p>
+ <div class="tip"><b>💡 자립 첫 해</b>는 <b>부모님 지원 or 저렴한 곳</b> 선택. 무리하면 지속 불가능!</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. 확정일자와 전입신고</h3><span class="tag">보증금 지키기</span></div>
-    <p>보증금을 <b>지키는 3단계</b> — 잊으면 큰 손실!</p>
-    <table class="qa">
-      <tr><th>단계</th><th>할 일</th><th>어디서</th></tr>
-      <tr><td>1</td><td class="left">등기부등본 열람 (집주인 확인·근저당 확인)</td><td>인터넷등기소</td></tr>
-      <tr><td>2</td><td class="left"><b>전입신고</b> (이사 후 14일 이내)</td><td>주민센터 or 정부24</td></tr>
-      <tr><td>3</td><td class="left"><b>확정일자</b> 받기 (계약서에 도장)</td><td>주민센터</td></tr>
-    </table>
-    <div class="note"><b>❗ 안 하면?</b> 집주인이 파산하거나 집이 경매 넘어갈 때 <b>보증금 못 돌려받을 수도!</b> 반드시 전입신고+확정일자.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 확정일자와 전입신고</h3><span class="tag">보증금 지키기</span></div>
+ <p>보증금을 <b>지키는 3단계</b> — 잊으면 큰 손실!</p>
+ <table class="qa">
+ <tr><th>단계</th><th>할 일</th><th>어디서</th></tr>
+ <tr><td>1</td><td class="left">등기부등본 열람 (집주인 확인·근저당 확인)</td><td>인터넷등기소</td></tr>
+ <tr><td>2</td><td class="left"><b>전입신고</b> (이사 후 14일 이내)</td><td>주민센터 or 정부24</td></tr>
+ <tr><td>3</td><td class="left"><b>확정일자</b> 받기 (계약서에 도장)</td><td>주민센터</td></tr>
+ </table>
+ <div class="note"><b>❗ 안 하면?</b> 집주인이 파산하거나 집이 경매 넘어갈 때 <b>보증금 못 돌려받을 수도!</b> 반드시 전입신고+확정일자.</div>
+ </div>
 
-  <div class="footer-note">성인 생활 9차시 · 2/4쪽 · 월세 계약</div>
+ <div class="footer-note">성인 생활 9차시 · 2/4쪽 · 월세 계약</div>
 </div>
 
 <!-- 3쪽 : 집 보러 가기 -->
 <div class="page">
-  <div class="page-head"><h2>3. 집 보러 가기 — 체크리스트</h2><span class="step">Step 3</span></div>
-  <div class="intro">
-    <b>💡 집은 눈으로만 봐선 안 됨.</b> 살면서 <b>매일 부딪히는 것</b>을 미리 확인!
-  </div>
+ <div class="page-head"><h2>3. 집 보러 가기 — 체크리스트</h2><span class="step">Step 3</span></div>
+ <div class="intro">
+ <b>💡 집은 눈으로만 봐선 안 됨.</b> 살면서 <b>매일 부딪히는 것</b>을 미리 확인!
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 6. 채원이의 방문 체크리스트</h3><span class="tag">체크</span></div>
-    <table class="qa">
-      <tr><th style="width:60%">체크 항목</th><th>확인?</th></tr>
-      <tr><td class="left">🚿 물이 잘 나오나? (수압 체크)</td><td>☐</td></tr>
-      <tr><td class="left">🚽 변기·세면대 배수 잘되나?</td><td>☐</td></tr>
-      <tr><td class="left">💡 모든 전등·콘센트 작동?</td><td>☐</td></tr>
-      <tr><td class="left">📶 휴대폰 신호·인터넷 상태?</td><td>☐</td></tr>
-      <tr><td class="left">🔒 현관·창문 잠금 튼튼한가?</td><td>☐</td></tr>
-      <tr><td class="left">🌡️ 난방·에어컨 작동?</td><td>☐</td></tr>
-      <tr><td class="left">🐜 곰팡이·벌레 흔적?</td><td>☐</td></tr>
-      <tr><td class="left">🔊 옆·위·아래 방 소음?</td><td>☐</td></tr>
-      <tr><td class="left">🚇 대중교통 거리?</td><td>☐</td></tr>
-      <tr><td class="left">🛒 편의점·마트 거리?</td><td>☐</td></tr>
-      <tr><td class="left">🌙 밤에도 안전한 골목인가?</td><td>☐</td></tr>
-      <tr><td class="left">📄 계약서에 특약(수리 책임·반려동물) 명시?</td><td>☐</td></tr>
-    </table>
-    <div class="tip"><b>💡 팁</b> <b>낮과 밤</b> 두 번 방문! 낮에는 안 보이던 <b>동네 분위기</b>가 밤에 드러남.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 6. 채원이의 방문 체크리스트</h3><span class="tag">체크</span></div>
+ <table class="qa">
+ <tr><th style="width:60%">체크 항목</th><th>확인?</th></tr>
+ <tr><td class="left">🚿 물이 잘 나오나? (수압 체크)</td><td>☐</td></tr>
+ <tr><td class="left">🚽 변기·세면대 배수 잘되나?</td><td>☐</td></tr>
+ <tr><td class="left">💡 모든 전등·콘센트 작동?</td><td>☐</td></tr>
+ <tr><td class="left">📶 휴대폰 신호·인터넷 상태?</td><td>☐</td></tr>
+ <tr><td class="left">🔒 현관·창문 잠금 튼튼한가?</td><td>☐</td></tr>
+ <tr><td class="left">🌡️ 난방·에어컨 작동?</td><td>☐</td></tr>
+ <tr><td class="left">🐜 곰팡이·벌레 흔적?</td><td>☐</td></tr>
+ <tr><td class="left">🔊 옆·위·아래 방 소음?</td><td>☐</td></tr>
+ <tr><td class="left">🚇 대중교통 거리?</td><td>☐</td></tr>
+ <tr><td class="left">🛒 편의점·마트 거리?</td><td>☐</td></tr>
+ <tr><td class="left">🌙 밤에도 안전한 골목인가?</td><td>☐</td></tr>
+ <tr><td class="left">📄 계약서에 특약(수리 책임·반려동물) 명시?</td><td>☐</td></tr>
+ </table>
+ <div class="tip"><b>💡 팁</b> <b>낮과 밤</b> 두 번 방문! 낮에는 안 보이던 <b>동네 분위기</b>가 밤에 드러남.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 7. 예은이의 월세 계약서</h3><span class="tag">계약서</span></div>
-    <div class="contract-doc">
-      <div class="title">📄 부동산 임대차계약서 (월세)</div>
-      <div class="row"><div class="k">부동산 소재지</div><div>서울시 성북구 ○○동 000-00 101호 (원룸)</div></div>
-      <div class="row"><div class="k">임대인 (집주인)</div><div>김○○ · 010-****-**** · 주민등록번호 </div></div>
-      <div class="row"><div class="k">임차인 (내가)</div><div><span class="sn">예은</span> · 010-****-**** </div></div>
-      <div class="row"><div class="k">계약 기간</div><div>2027-02-01 ~ 2029-01-31 (2년)</div></div>
-      <div class="row"><div class="k">보증금</div><div><b>10,000,000원</b></div></div>
-      <div class="row"><div class="k">월세</div><div><b>500,000원</b> · 매월 <b>1일</b> 임대인 계좌로 이체</div></div>
-      <div class="row"><div class="k">관리비</div><div>80,000원 (인터넷·청소 포함)</div></div>
-      <div class="row"><div class="k">특약 사항</div><div class="left">1. 원상복구 의무. 2. 벽에 못질 시 임대인 동의. 3. 반려동물 사육 X</div></div>
-    </div>
-    <p>Q. 예은이가 1년 만에 나가려면? → <b>중도 해지</b>는 계약 위반. 다음 세입자 구할 때까지 <b>월세 계속 부담</b>이 일반적.</p>
-    <div class="note"><b>❗ 계약 전 3번 읽기</b> 계약서 사인 = 법적 책임 발생. 이해 안 되는 조항은 <b>바로 물어보고</b> 수정 요청.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 7. 예은이의 월세 계약서</h3><span class="tag">계약서</span></div>
+ <div class="contract-doc">
+ <div class="title">📄 부동산 임대차계약서 (월세)</div>
+ <div class="row"><div class="k">부동산 소재지</div><div>서울시 성북구 ○○동 000-00 101호 (원룸)</div></div>
+ <div class="row"><div class="k">임대인 (집주인)</div><div>김○○ · 010-****-**** · 주민등록번호 </div></div>
+ <div class="row"><div class="k">임차인 (내가)</div><div><span class="sn">예은</span> · 010-****-**** </div></div>
+ <div class="row"><div class="k">계약 기간</div><div>2027-02-01 ~ 2029-01-31 (2년)</div></div>
+ <div class="row"><div class="k">보증금</div><div><b>10,000,000원</b></div></div>
+ <div class="row"><div class="k">월세</div><div><b>500,000원</b> · 매월 <b>1일</b> 임대인 계좌로 이체</div></div>
+ <div class="row"><div class="k">관리비</div><div>80,000원 (인터넷·청소 포함)</div></div>
+ <div class="row"><div class="k">특약 사항</div><div class="left">1. 원상복구 의무. 2. 벽에 못질 시 임대인 동의. 3. 반려동물 사육 X</div></div>
+ </div>
+ <p>Q. 예은이가 1년 만에 나가려면? → <b>중도 해지</b>는 계약 위반. 다음 세입자 구할 때까지 <b>월세 계속 부담</b>이 일반적.</p>
+ <div class="note"><b>❗ 계약 전 3번 읽기</b> 계약서 사인 = 법적 책임 발생. 이해 안 되는 조항은 <b>바로 물어보고</b> 수정 요청.</div>
+ </div>
 
-  <div class="footer-note">성인 생활 9차시 · 3/4쪽 · 집 보러가기·계약</div>
+ <div class="footer-note">성인 생활 9차시 · 3/4쪽 · 집 보러가기·계약</div>
 </div>
 
 <!-- 4쪽 : 종합 -->
 <div class="page">
-  <div class="page-head"><h2>4. 종합 — 나의 자취 계획</h2><span class="step">Step 4</span></div>
+ <div class="page-head"><h2>4. 종합 — 나의 자취 계획</h2><span class="step">Step 4</span></div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 8. 자취 시작 총비용 계산</h3><span class="tag">시작 자금</span></div>
-    <p><b>주은</b>이가 자취를 시작할 때 <b>한 번에</b> 필요한 총비용:</p>
-    <table class="qa">
-      <tr><th>항목</th><th>대략 금액</th><th>비고</th></tr>
-      <tr><td class="left">보증금</td><td>10,000,000</td><td>계약 시</td></tr>
-      <tr><td class="left">첫 달 월세 (선불)</td><td>500,000</td><td>입주 시</td></tr>
-      <tr><td class="left">부동산 중개 수수료</td><td>200,000</td><td>중개인에게</td></tr>
-      <tr><td class="left">이사 비용</td><td>300,000</td><td>이삿짐 차량</td></tr>
-      <tr><td class="left">가전·가구 (기본 세팅)</td><td>1,500,000</td><td>세탁기·냉장고·침대 등</td></tr>
-      <tr><td class="left">생필품 (수건·이불·주방용품)</td><td>300,000</td><td>다이소·마트</td></tr>
-      <tr><td class="left">인터넷 개통</td><td>50,000</td><td>가입비</td></tr>
-      <tr><th>총 시작 자금</th><th><span class="blank"></span></th><th></th></tr>
-    </table>
-    <div class="tip"><b>💡 준비</b> 최소 <b>12,850,000원</b> 필요. 매달 100만원씩 저축하면 <b>약 13개월</b>. 부모님 지원·정부 지원(청년 월세 등)도 알아보기.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 8. 자취 시작 총비용 계산</h3><span class="tag">시작 자금</span></div>
+ <p><b>주은</b>이가 자취를 시작할 때 <b>한 번에</b> 필요한 총비용:</p>
+ <table class="qa">
+ <tr><th>항목</th><th>대략 금액</th><th>비고</th></tr>
+ <tr><td class="left">보증금</td><td>10,000,000</td><td>계약 시</td></tr>
+ <tr><td class="left">첫 달 월세 (선불)</td><td>500,000</td><td>입주 시</td></tr>
+ <tr><td class="left">부동산 중개 수수료</td><td>200,000</td><td>중개인에게</td></tr>
+ <tr><td class="left">이사 비용</td><td>300,000</td><td>이삿짐 차량</td></tr>
+ <tr><td class="left">가전·가구 (기본 세팅)</td><td>1,500,000</td><td>세탁기·냉장고·침대 등</td></tr>
+ <tr><td class="left">생필품 (수건·이불·주방용품)</td><td>300,000</td><td>다이소·마트</td></tr>
+ <tr><td class="left">인터넷 개통</td><td>50,000</td><td>가입비</td></tr>
+ <tr><th>총 시작 자금</th><th><span class="blank"></span></th><th></th></tr>
+ </table>
+ <div class="tip"><b>💡 준비</b> 최소 <b>12,850,000원</b> 필요. 매달 100만원씩 저축하면 <b>약 13개월</b>. 부모님 지원·정부 지원(청년 월세 등)도 알아보기.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 9. 정부·공공 주거 지원</h3><span class="tag">지원제도</span></div>
-    <table class="qa">
-      <tr><th>제도</th><th>내용</th></tr>
-      <tr><td class="left">청년 월세 지원</td><td class="left">만 19~34세 · 월 최대 20만원 지원 · 최대 12개월 (지자체별)</td></tr>
-      <tr><td class="left">청년 매입임대주택</td><td class="left">LH가 사서 청년에게 시세 40~50%로 임대</td></tr>
-      <tr><td class="left">중소기업 청년 전세자금대출</td><td class="left">중기업 근무 청년에 낮은 이자로 전세금 대출</td></tr>
-      <tr><td class="left">주거급여</td><td class="left">저소득층 대상 월세 지원</td></tr>
-    </table>
-    <div class="good"><b>✅ 활용 팁</b> "복지로(www.bokjiro.go.kr)"에서 조건 확인 → 신청. 특수교육 대상 학생도 <b>졸업 후</b> 지원 대상!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 9. 정부·공공 주거 지원</h3><span class="tag">지원제도</span></div>
+ <table class="qa">
+ <tr><th>제도</th><th>내용</th></tr>
+ <tr><td class="left">청년 월세 지원</td><td class="left">만 19~34세 · 월 최대 20만원 지원 · 최대 12개월 (지자체별)</td></tr>
+ <tr><td class="left">청년 매입임대주택</td><td class="left">LH가 사서 청년에게 시세 40~50%로 임대</td></tr>
+ <tr><td class="left">중소기업 청년 전세자금대출</td><td class="left">중기업 근무 청년에 낮은 이자로 전세금 대출</td></tr>
+ <tr><td class="left">주거급여</td><td class="left">저소득층 대상 월세 지원</td></tr>
+ </table>
+ <div class="good"><b>✅ 활용 팁</b> "복지로(www.bokjiro.go.kr)"에서 조건 확인 → 신청. 특수교육 대상 학생도 <b>졸업 후</b> 지원 대상!</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 10. 스스로 확인</h3><span class="tag">자기점검</span></div>
-    <table class="qa">
-      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
-      <tr><td class="left">월세·전세·매매 차이를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">월세 구성(보증금·월세·관리비)을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">전입신고·확정일자의 중요성 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">집 볼 때 체크 항목 5개 이상 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 10. 스스로 확인</h3><span class="tag">자기점검</span></div>
+ <table class="qa">
+ <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+ <tr><td class="left">월세·전세·매매 차이를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">월세 구성(보증금·월세·관리비)을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">전입신고·확정일자의 중요성 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">집 볼 때 체크 항목 5개 이상 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ </table>
+ </div>
 
-  <div class="footer-note">성인 생활 9차시 · 4/4쪽 · 자립 주거 마무리</div>
+ <div class="footer-note">성인 생활 9차시 · 4/4쪽 · 자립 주거 마무리</div>
 </div>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

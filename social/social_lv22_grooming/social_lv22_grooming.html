@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #e1bee7 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #4a148c;
-  border-bottom: 2px solid #ba68c8; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #ba68c8; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #6a1b9a; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #6a1b9a; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #6a1b9a; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #4a148c; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #6a1b9a; font-weight: 500; }
 .cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 8px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #4a148c; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #6a1b9a; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #6a1b9a; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #4a148c; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #6a1b9a; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -95,292 +95,292 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">📱 S22 낯선 어른의 접근 · 온라인 안전</span><span class="muted">사회성 · Level 22 · 안전</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">📱 S22 낯선 어른의 접근 · 온라인 안전</span><span class="muted">사회성 · Level 22 · 안전</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#4a148c;">S22 · 온라인 안전</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">낯선 접근 · SNS·게임</span>
-    <h1>온라인에서 만난 어른, 안전할까요?</h1>
-    <p class="lead">이상한 신호를 알아채고 <b>거절·차단·신고</b>해요</p>
-  </div>
-  <div class="cover-emoji">📱 💬 🚫</div>
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul>
-      <li>SNS·게임에서 어른이 접근할 때 <b>위험 신호</b>를 알아본다.</li>
-      <li>개인정보·사진·만남 요구를 <b>단호하게 거절</b>한다.</li>
-      <li>부모·선생님·경찰에 <b>알리고 차단·신고</b>한다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
-    <ul>
-      <li><b>주은</b>: 게임 길드에서 만난 어른이 자꾸 사적인 대화를 걸어옴</li>
-      <li><b>예은</b>: 인스타 DM으로 모델·아이돌 스카우트라며 접근받음</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">사회성 시리즈 · S22 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#4a148c;">S22 · 온라인 안전</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">낯선 접근 · SNS·게임</span>
+ <h1>온라인에서 만난 어른, 안전할까요?</h1>
+ <p class="lead">이상한 신호를 알아채고 <b>거절·차단·신고</b>해요</p>
+ </div>
+ <div class="cover-emoji">📱 💬 🚫</div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul>
+ <li>SNS·게임에서 어른이 접근할 때 <b>위험 신호</b>를 알아본다.</li>
+ <li>개인정보·사진·만남 요구를 <b>단호하게 거절</b>한다.</li>
+ <li>부모·선생님·경찰에 <b>알리고 차단·신고</b>한다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+ <ul>
+ <li><b>주은</b>: 게임 길드에서 만난 어른이 자꾸 사적인 대화를 걸어옴</li>
+ <li><b>예은</b>: 인스타 DM으로 모델·아이돌 스카우트라며 접근받음</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">사회성 시리즈 · S22 · 표지</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>📱 온라인 위험 신호 5가지</h2>
-    <span class="step">1쪽 · 알기</span>
-  </div>
-  <div class="intro">
-    온라인에서 만난 어른이 <b>친절하고 이해심 많아 보여도</b>, 아래 5가지 신호가 하나라도 있으면
-    <b>그루밍(길들이기)</b>일 수 있어요. 얼굴 안 봤어도, 여러 달 대화했어도 <b>낯선 사람</b>이에요.
-  </div>
+ <div class="page-head">
+ <h2>📱 온라인 위험 신호 5가지</h2>
+ <span class="step">1쪽 · 알기</span>
+ </div>
+ <div class="intro">
+ 온라인에서 만난 어른이 <b>친절하고 이해심 많아 보여도</b>, 아래 5가지 신호가 하나라도 있으면
+ <b>그루밍(길들이기)</b>일 수 있어요. 얼굴 안 봤어도, 여러 달 대화했어도 <b>낯선 사람</b>이에요.
+ </div>
 
-  <div class="principles">
-    <div class="pri-card">
-      <div class="icon">🎁</div>
-      <div class="name">① 지나친 호의</div>
-      <div class="desc">기프티콘·현금·선물</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">🤫</div>
-      <div class="name">② 비밀·사진 요구</div>
-      <div class="desc">"부모님 몰래" · 셀카</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">🚗</div>
-      <div class="name">③ 만남 요구</div>
-      <div class="desc">단둘이·차·모텔</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">💔</div>
-      <div class="name">④ 위협·죄책감</div>
-      <div class="desc">"말하면 너 망해"</div>
-    </div>
-  </div>
+ <div class="principles">
+ <div class="pri-card">
+ <div class="icon">🎁</div>
+ <div class="name">① 지나친 호의</div>
+ <div class="desc">기프티콘·현금·선물</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">🤫</div>
+ <div class="name">② 비밀·사진 요구</div>
+ <div class="desc">"부모님 몰래" · 셀카</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">🚗</div>
+ <div class="name">③ 만남 요구</div>
+ <div class="desc">단둘이·차·모텔</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">💔</div>
+ <div class="name">④ 위협·죄책감</div>
+ <div class="desc">"말하면 너 망해"</div>
+ </div>
+ </div>
 
-  <div class="warn">
-    ⚠ <b>절대 하지 말 것</b>: 개인정보(집·학교·번호) 알려주기 · 얼굴/몸 사진 보내기 · 단둘이 만나기 · 계좌·비밀번호 알려주기.
-    한 번 보낸 사진·정보는 <b>영원히 회수 불가</b>예요.
-  </div>
+ <div class="warn">
+ ⚠ <b>절대 하지 말 것</b>: 개인정보(집·학교·번호) 알려주기 · 얼굴/몸 사진 보내기 · 단둘이 만나기 · 계좌·비밀번호 알려주기.
+ 한 번 보낸 사진·정보는 <b>영원히 회수 불가</b>예요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 위험 신호 찾기</h3><span class="tag">O/X 5문항</span></div>
-    <p>위험 신호가 있으면 <b>X</b>, 없으면 <b>O</b>. 어떤 신호인지 짧게 써요.</p>
-    <p>① "안녕! 게임 잘하네~ 다음에 파티하자~" ( <span class="blank">O · X</span> ) <span class="blank long">&nbsp;</span></p>
-    <p>② "너 몇 살이야? 학교 어디야? 놀러 갈게" ( <span class="blank">O · X</span> ) <span class="blank long">&nbsp;</span></p>
-    <p>③ "우리 오빠·언니 하자. 부모님한테는 말하지 마" ( <span class="blank">O · X</span> ) <span class="blank long">&nbsp;</span></p>
-    <p>④ "옷 이쁘겠다. 셀카 보내 봐. 상반신도~" ( <span class="blank">O · X</span> ) <span class="blank long">&nbsp;</span></p>
-    <p>⑤ "만나서 얘기하자. 우리 집으로 오면 편해" ( <span class="blank">O · X</span> ) <span class="blank long">&nbsp;</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 위험 신호 찾기</h3><span class="tag">O/X 5문항</span></div>
+ <p>위험 신호가 있으면 <b>X</b>, 없으면 <b>O</b>. 어떤 신호인지 짧게 써요.</p>
+ <p>① "안녕! 게임 잘하네~ 다음에 파티하자~" ( <span class="blank">O · X</span> ) <span class="blank long">&nbsp;</span></p>
+ <p>② "너 몇 살이야? 학교 어디야? 놀러 갈게" ( <span class="blank">O · X</span> ) <span class="blank long">&nbsp;</span></p>
+ <p>③ "우리 오빠·언니 하자. 부모님한테는 말하지 마" ( <span class="blank">O · X</span> ) <span class="blank long">&nbsp;</span></p>
+ <p>④ "옷 이쁘겠다. 셀카 보내 봐. 상반신도~" ( <span class="blank">O · X</span> ) <span class="blank long">&nbsp;</span></p>
+ <p>⑤ "만나서 얘기하자. 우리 집으로 오면 편해" ( <span class="blank">O · X</span> ) <span class="blank long">&nbsp;</span></p>
+ </div>
 
-  <div class="dialogue">
-    <div class="title">📖 예은이의 좋은 예 — 인스타 DM</div>
-    <div class="speech">
-      <div class="avatar">DM</div>
-      <div class="bubble">
-        <div class="who">낯선 계정</div>
-        안녕~ 저 ○○기획사 실장인데, 예은씨 얼굴이 딱 우리 캐스팅이에요. 셀카 몇 장만 보내 줄래요?
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">예은</div>
-        <b>안 보냅니다.</b> 정식 오디션이면 <b>회사 이메일·홈페이지</b>를 알려 주세요. 부모님과 확인 후 연락드릴게요.
-      </div>
-      <div class="avatar">예은</div>
-    </div>
-    <div class="speech">
-      <div class="avatar">DM</div>
-      <div class="bubble">
-        <div class="who">낯선 계정</div>
-        아 그런 거 없어. 그냥 나 믿고 보내 줘~ 부모님한테는 말하지 말고~
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">예은</div>
-        (즉시) <b>대화 종료 · 계정 신고 · 차단.</b> 부모님·담임 선생님께 캡처 보여 드리기.
-      </div>
-      <div class="avatar">예은</div>
-    </div>
-  </div>
+ <div class="dialogue">
+ <div class="title">📖 예은이의 좋은 예 — 인스타 DM</div>
+ <div class="speech">
+ <div class="avatar">DM</div>
+ <div class="bubble">
+ <div class="who">낯선 계정</div>
+ 안녕~ 저 ○○기획사 실장인데, 예은씨 얼굴이 딱 우리 캐스팅이에요. 셀카 몇 장만 보내 줄래요?
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">예은</div>
+ <b>안 보냅니다.</b> 정식 오디션이면 <b>회사 이메일·홈페이지</b>를 알려 주세요. 부모님과 확인 후 연락드릴게요.
+ </div>
+ <div class="avatar">예은</div>
+ </div>
+ <div class="speech">
+ <div class="avatar">DM</div>
+ <div class="bubble">
+ <div class="who">낯선 계정</div>
+ 아 그런 거 없어. 그냥 나 믿고 보내 줘~ 부모님한테는 말하지 말고~
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">예은</div>
+ (즉시) <b>대화 종료 · 계정 신고 · 차단.</b> 부모님·담임 선생님께 캡처 보여 드리기.
+ </div>
+ <div class="avatar">예은</div>
+ </div>
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S22 · 1쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S22 · 1쪽 / 2</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>🚫 거절·차단·신고 3단계</h2>
-    <span class="step">2쪽 · 대응</span>
-  </div>
-  <div class="intro">
-    위험 신호가 보이면 <b>한 마디로 거절</b> → <b>차단</b> → <b>알리고 신고</b>. 이 순서예요.
-    <b>설명하지 말고, 사과하지 말고, 이유 대지 말기.</b>
-  </div>
+ <div class="page-head">
+ <h2>🚫 거절·차단·신고 3단계</h2>
+ <span class="step">2쪽 · 대응</span>
+ </div>
+ <div class="intro">
+ 위험 신호가 보이면 <b>한 마디로 거절</b> → <b>차단</b> → <b>알리고 신고</b>. 이 순서예요.
+ <b>설명하지 말고, 사과하지 말고, 이유 대지 말기.</b>
+ </div>
 
-  <table class="compare-table" style="border-color:#7986cb;">
-    <tr>
-      <th style="background:#e8eaf6; color:#1a237e; width:18%;">112 경찰</th>
-      <th style="background:#e8eaf6; color:#1a237e; width:22%;">117 학교·성폭력</th>
-      <th style="background:#e8eaf6; color:#1a237e; width:22%;">1388 청소년상담</th>
-      <th style="background:#e8eaf6; color:#1a237e; width:22%;">#0117 문자 신고</th>
-      <th style="background:#e8eaf6; color:#1a237e; width:16%;">safe182.go.kr</th>
-    </tr>
-    <tr><td>즉시 위험</td><td>24시간·학생</td><td>고민·상담</td><td>말 못할 때</td><td>앱·홈</td></tr>
-  </table>
+ <table class="compare-table" style="border-color:#7986cb;">
+ <tr>
+ <th style="background:#e8eaf6; color:#1a237e; width:18%;">112 경찰</th>
+ <th style="background:#e8eaf6; color:#1a237e; width:22%;">117 학교·성폭력</th>
+ <th style="background:#e8eaf6; color:#1a237e; width:22%;">1388 청소년상담</th>
+ <th style="background:#e8eaf6; color:#1a237e; width:22%;">#0117 문자 신고</th>
+ <th style="background:#e8eaf6; color:#1a237e; width:16%;">safe182.go.kr</th>
+ </tr>
+ <tr><td>즉시 위험</td><td>24시간·학생</td><td>고민·상담</td><td>말 못할 때</td><td>앱·홈</td></tr>
+ </table>
 
-  <div class="tip">
-    💡 <b>증거 남기기</b>: 대화·프로필 <b>캡처</b>, 계정 아이디·URL 기록. 지우지 말고 부모·선생님·경찰에게 그대로.
-  </div>
+ <div class="tip">
+ 💡 <b>증거 남기기</b>: 대화·프로필 <b>캡처</b>, 계정 아이디·URL 기록. 지우지 말고 부모·선생님·경찰에게 그대로.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 짧은 거절 문장 만들기</h3><span class="tag">5문항</span></div>
-    <p>아래 요구를 <b>한 문장으로 단호하게</b> 거절. (설명·사과 없이)</p>
-    <p>① "카톡 아이디 뭐야? 친해지자~" → "<span class="blank long">&nbsp;</span>"</p>
-    <p>② "학교 어디 다녀? 몇 반?" → "<span class="blank long">&nbsp;</span>"</p>
-    <p>③ "셀카 하나만 보내 봐" → "<span class="blank long">&nbsp;</span>"</p>
-    <p>④ "이번 주 토요일 만나자. 픽업할게" → "<span class="blank long">&nbsp;</span>"</p>
-    <p>⑤ "이미 사진 있어. 말 안 들으면 뿌린다" → "<span class="blank long">&nbsp;</span>"</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 짧은 거절 문장 만들기</h3><span class="tag">5문항</span></div>
+ <p>아래 요구를 <b>한 문장으로 단호하게</b> 거절. (설명·사과 없이)</p>
+ <p>① "카톡 아이디 뭐야? 친해지자~" → "<span class="blank long">&nbsp;</span>"</p>
+ <p>② "학교 어디 다녀? 몇 반?" → "<span class="blank long">&nbsp;</span>"</p>
+ <p>③ "셀카 하나만 보내 봐" → "<span class="blank long">&nbsp;</span>"</p>
+ <p>④ "이번 주 토요일 만나자. 픽업할게" → "<span class="blank long">&nbsp;</span>"</p>
+ <p>⑤ "이미 사진 있어. 말 안 들으면 뿌린다" → "<span class="blank long">&nbsp;</span>"</p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 주은이가 부모님께 알리기 — 대화 완성</h3><span class="tag">쓰기</span></div>
-    <p>게임 길드 어른이 자꾸 사적인 톡·기프티콘을 보내요. 주은이가 부모님께 <b>어떻게 말할지</b>.</p>
-    <p>① 시작(엄마·아빠 시간 있어요?): "<span class="blank long">&nbsp;</span>"</p>
-    <p>② 상황(어디서·누가·어떤 말): "<span class="blank long">&nbsp;</span>"</p>
-    <p>③ 증거(캡처 보여 드리기): "<span class="blank long">&nbsp;</span>"</p>
-    <p>④ 도움 요청(차단·신고 함께): "<span class="blank long">&nbsp;</span>"</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 주은이가 부모님께 알리기 — 대화 완성</h3><span class="tag">쓰기</span></div>
+ <p>게임 길드 어른이 자꾸 사적인 톡·기프티콘을 보내요. 주은이가 부모님께 <b>어떻게 말할지</b>.</p>
+ <p>① 시작(엄마·아빠 시간 있어요?): "<span class="blank long">&nbsp;</span>"</p>
+ <p>② 상황(어디서·누가·어떤 말): "<span class="blank long">&nbsp;</span>"</p>
+ <p>③ 증거(캡처 보여 드리기): "<span class="blank long">&nbsp;</span>"</p>
+ <p>④ 도움 요청(차단·신고 함께): "<span class="blank long">&nbsp;</span>"</p>
+ </div>
 
-  <div class="checklist">
-    <div class="title">✅ 온라인 안전 5가지 자기 점검</div>
-    <label><input type="checkbox" style="margin-right:6px;"> 얼굴·몸·교복 사진을 <b>낯선 사람</b>에게 보내지 않았다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 집 주소·학교·전화번호를 <b>온라인</b>에 올리지 않았다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> SNS 계정을 <b>비공개</b>로 하고 <b>모르는 사람 차단</b>했다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 이상한 DM은 <b>부모·선생님께 공유</b>하고 <b>차단·신고</b>했다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> "만나자" 요구는 <b>절대 거절</b>. 만나야 하면 <b>어른 동행</b></label>
-  </div>
+ <div class="checklist">
+ <div class="title">✅ 온라인 안전 5가지 자기 점검</div>
+ <label><input type="checkbox" style="margin-right:6px;"> 얼굴·몸·교복 사진을 <b>낯선 사람</b>에게 보내지 않았다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 집 주소·학교·전화번호를 <b>온라인</b>에 올리지 않았다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> SNS 계정을 <b>비공개</b>로 하고 <b>모르는 사람 차단</b>했다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 이상한 DM은 <b>부모·선생님께 공유</b>하고 <b>차단·신고</b>했다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> "만나자" 요구는 <b>절대 거절</b>. 만나야 하면 <b>어른 동행</b></label>
+ </div>
 
-  <div class="note">
-    🌱 <b>기억해요.</b> 인터넷에서는 <b>진짜 나이·직업·성별을 감추기 쉬워요.</b>
-    친절해 보여도, 오래 대화했어도, <b>얼굴 못 본 사람은 낯선 사람</b>이에요.
-    <b>내 잘못이 아니에요.</b> 알아채고 알린 것만으로도 <b>잘한 거예요.</b>
-  </div>
+ <div class="note">
+ 🌱 <b>기억해요.</b> 인터넷에서는 <b>진짜 나이·직업·성별을 감추기 쉬워요.</b>
+ 친절해 보여도, 오래 대화했어도, <b>얼굴 못 본 사람은 낯선 사람</b>이에요.
+ <b>내 잘못이 아니에요.</b> 알아채고 알린 것만으로도 <b>잘한 거예요.</b>
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S22 · 2쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S22 · 2쪽 / 2</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

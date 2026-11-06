@@ -8,26 +8,26 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  font-size: 10.5pt; line-height: 1.45; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+ font-size: 10.5pt; line-height: 1.45; }
 .toolbar { position: sticky; top: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700;
-  padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+ padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffe0b2 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #6d4c41;
-  border-bottom: 2px solid #ffcc80; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #ffcc80; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #e65100; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #e65100; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #e65100; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #bf360c; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #6d4c41; font-weight: 500; }
 .cover-clock { margin: 16px auto; display: block; }
@@ -39,10 +39,10 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #4e342e; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #e65100; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #e65100; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #bf360c; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #e65100;
-  padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+ padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
 .intro { background: #fff3e0; border-left: 4px solid #ef6c00; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
 .intro b { color: #bf360c; }
@@ -78,790 +78,790 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">🌅 L1 하은이의 아침</span><span class="muted">몇 시 정각 · 심화</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">🌅 L1 하은이의 아침</span><span class="muted">몇 시 정각 · 심화</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">수학</span> · 시계 시리즈 · <b style="color:#bf360c;">Level 1</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">몇 시 정각 · 심화</span>
-    <h1>하은이의 아침 일과</h1>
-    <p class="lead">긴 바늘이 12에 있을 때, 짧은 바늘 숫자만 읽어요</p>
-  </div>
-  <!-- 7시 정각 -->
-  <svg class="cover-clock" viewBox="0 0 200 200" width="180" height="180">
-    <circle cx="100" cy="100" r="88" fill="#fff" stroke="#bf360c" stroke-width="4"/>
-    <g stroke="#3e2723" stroke-width="2.5">
-      <line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/>
-      <line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/>
-    </g>
-    <g stroke="#5d4037" stroke-width="1.5">
-      <line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/>
-      <line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/>
-      <line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/>
-      <line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/>
-    </g>
-    <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723">
-      <text x="100" y="38">12</text><text x="162" y="100">3</text>
-      <text x="100" y="162">6</text><text x="38" y="100">9</text>
-    </g>
-    <!-- 7시(210°): 79, 136.4 -->
-    <line x1="100" y1="100" x2="79" y2="136.4" stroke="#c62828" stroke-width="7" stroke-linecap="round"/>
-    <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="5" stroke-linecap="round"/>
-    <circle cx="100" cy="100" r="5" fill="#3e2723"/>
-  </svg>
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul>
-      <li>긴 바늘이 <b>12</b>에 있으면 <b>정각</b>이라는 것을 안다.</li>
-      <li>짧은 바늘이 가리키는 숫자를 정확히 <b>1시~12시</b>로 읽는다.</li>
-      <li>하은이의 아침 일과를 시각과 연결하여 이해한다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
-    <ul>
-      <li><b>하은이</b>는 아침 일찍 일어나는 성실한 학생이에요. 하은이의 하루를 시계로 살펴봐요.</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">시계 시리즈 · L1 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">수학</span> · 시계 시리즈 · <b style="color:#bf360c;">Level 1</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">몇 시 정각 · 심화</span>
+ <h1>하은이의 아침 일과</h1>
+ <p class="lead">긴 바늘이 12에 있을 때, 짧은 바늘 숫자만 읽어요</p>
+ </div>
+ <!-- 7시 정각 -->
+ <svg class="cover-clock" viewBox="0 0 200 200" width="180" height="180">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#bf360c" stroke-width="4"/>
+ <g stroke="#3e2723" stroke-width="2.5">
+ <line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/>
+ <line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/>
+ </g>
+ <g stroke="#5d4037" stroke-width="1.5">
+ <line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/>
+ <line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/>
+ <line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/>
+ <line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/>
+ </g>
+ <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723">
+ <text x="100" y="38">12</text><text x="162" y="100">3</text>
+ <text x="100" y="162">6</text><text x="38" y="100">9</text>
+ </g>
+ <!-- 7시(210°): 79, 136.4 -->
+ <line x1="100" y1="100" x2="79" y2="136.4" stroke="#c62828" stroke-width="7" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="5" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="5" fill="#3e2723"/>
+ </svg>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul>
+ <li>긴 바늘이 <b>12</b>에 있으면 <b>정각</b>이라는 것을 안다.</li>
+ <li>짧은 바늘이 가리키는 숫자를 정확히 <b>1시~12시</b>로 읽는다.</li>
+ <li>하은이의 아침 일과를 시각과 연결하여 이해한다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+ <ul>
+ <li><b>하은이</b>는 아침 일찍 일어나는 성실한 학생이에요. 하은이의 하루를 시계로 살펴봐요.</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">시계 시리즈 · L1 · 표지</div>
 </section>
 
 <!-- 1쪽: 하은이의 아침, 정각 읽기 -->
 <section class="page">
-  <div class="page-head">
-    <h2>🌅 하은이의 아침 시각 읽기</h2>
-    <span class="step">1쪽 · 정각 6문항</span>
-  </div>
-  <div class="intro">
-    <b>하은이의 하루</b>가 시작돼요. 아래 시계는 모두 <b>긴 바늘이 12</b>에 있어요. 그래서 모두 <b>정각</b>이에요.
-    <b>짧은 바늘의 숫자</b>만 읽으면 돼요.
-  </div>
-  <div class="story">
-    <span class="who">하은</span>알람이 울렸어요. "벌써 일어날 시간이네!" 하은이는 눈을 뜨고 시계를 봐요.
-    시침이 <b>6</b>을 가리키고, 분침은 <b>12</b>에 있어요. 지금은 <b>6시</b>예요.
-  </div>
+ <div class="page-head">
+ <h2>🌅 하은이의 아침 시각 읽기</h2>
+ <span class="step">1쪽 · 정각 6문항</span>
+ </div>
+ <div class="intro">
+ <b>하은이의 하루</b>가 시작돼요. 아래 시계는 모두 <b>긴 바늘이 12</b>에 있어요. 그래서 모두 <b>정각</b>이에요.
+ <b>짧은 바늘의 숫자</b>만 읽으면 돼요.
+ </div>
+ <div class="story">
+ <span class="who">하은</span>알람이 울렸어요. "벌써 일어날 시간이네!" 하은이는 눈을 뜨고 시계를 봐요.
+ 시침이 <b>6</b>을 가리키고, 분침은 <b>12</b>에 있어요. 지금은 <b>6시</b>예요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 하은이의 아침 시각</h3><span class="tag">정각 읽기</span></div>
-    <div class="clock-row">
-      <div class="clock-cell">
-        <div class="label">① 일어나기</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 6시: (100,142) -->
-          <line x1="100" y1="100" x2="100" y2="142" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">② 세수하기</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 6시30분 → 아니 정각만이니 7시(210°): (79, 136.4) -->
-          <line x1="100" y1="100" x2="79" y2="136.4" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">③ 아침 식사</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 7시30분? 아니. 다양성을 위해 다른 정각도. 8시(240°): (63.6, 121) -->
-          <line x1="100" y1="100" x2="63.6" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-    </div>
-    <div class="clock-row">
-      <div class="clock-cell">
-        <div class="label">④ 옷 갈아입기</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 9시(270°): (58, 100) -->
-          <line x1="100" y1="100" x2="58" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">⑤ 등교 준비</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 10시(300°): (63.6, 79) -->
-          <line x1="100" y1="100" x2="63.6" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">⑥ 학교 도착</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="62.5" y2="164"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 11시(330°): (79, 63.6) -->
-          <line x1="100" y1="100" x2="79" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 하은이의 아침 시각</h3><span class="tag">정각 읽기</span></div>
+ <div class="clock-row">
+ <div class="clock-cell">
+ <div class="label">① 일어나기</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 6시: (100,142) -->
+ <line x1="100" y1="100" x2="100" y2="142" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">② 세수하기</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 6시30분 → 아니 정각만이니 7시(210°): (79, 136.4) -->
+ <line x1="100" y1="100" x2="79" y2="136.4" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">③ 아침 식사</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 7시30분? 아니. 다양성을 위해 다른 정각도. 8시(240°): (63.6, 121) -->
+ <line x1="100" y1="100" x2="63.6" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ </div>
+ <div class="clock-row">
+ <div class="clock-cell">
+ <div class="label">④ 옷 갈아입기</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 9시(270°): (58, 100) -->
+ <line x1="100" y1="100" x2="58" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">⑤ 등교 준비</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 10시(300°): (63.6, 79) -->
+ <line x1="100" y1="100" x2="63.6" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">⑥ 학교 도착</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="62.5" y2="164"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 11시(330°): (79, 63.6) -->
+ <line x1="100" y1="100" x2="79" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ </div>
+ </div>
 
-  <div class="tip">💡 <b>순서대로 살펴보기:</b> 하은이의 아침은 <b>6시 → 7시 → 8시 → 9시 → 10시 → 11시</b> 이렇게 정각으로 이어졌어요. 시계 순서와 하는 일 순서가 같은지 확인해 봐요.</div>
+ <div class="tip">💡 <b>순서대로 살펴보기:</b> 하은이의 아침은 <b>6시 → 7시 → 8시 → 9시 → 10시 → 11시</b> 이렇게 정각으로 이어졌어요. 시계 순서와 하는 일 순서가 같은지 확인해 봐요.</div>
 
-  <div class="page-foot">시계 시리즈 · L1 · 1쪽 / 3</div>
+ <div class="page-foot">시계 시리즈 · L1 · 1쪽 / 3</div>
 </section>
 
 <!-- 2쪽: 빈 시계에 시침·분침 그리기 -->
 <section class="page">
-  <div class="page-head">
-    <h2>✏️ 시계에 바늘 그리기</h2>
-    <span class="step">2쪽 · 시각 표시</span>
-  </div>
-  <div class="intro">
-    이번에는 반대로! <b>글로 쓴 시각</b>을 보고 <b>빈 시계에 짧은 바늘과 긴 바늘</b>을 직접 그려 봐요.
-    <b>정각</b>이니까 긴 바늘은 <b>모두 12</b>를 가리켜요.
-  </div>
-  <div class="story">
-    <span class="who">하은</span>학교에서 하은이의 오후 일과예요. 하은이가 몇 시에 무엇을 하는지 시계에 <b>바늘을 그려</b> 완성해요.
-  </div>
+ <div class="page-head">
+ <h2>✏️ 시계에 바늘 그리기</h2>
+ <span class="step">2쪽 · 시각 표시</span>
+ </div>
+ <div class="intro">
+ 이번에는 반대로! <b>글로 쓴 시각</b>을 보고 <b>빈 시계에 짧은 바늘과 긴 바늘</b>을 직접 그려 봐요.
+ <b>정각</b>이니까 긴 바늘은 <b>모두 12</b>를 가리켜요.
+ </div>
+ <div class="story">
+ <span class="who">하은</span>학교에서 하은이의 오후 일과예요. 하은이가 몇 시에 무엇을 하는지 시계에 <b>바늘을 그려</b> 완성해요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 시각에 맞게 바늘 그리기</h3><span class="tag">그리기</span></div>
-    <div class="clock-row four" style="grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;">
-      <div class="clock-cell">
-        <div class="label">① 12시</div>
-        <div class="caption">점심시간!</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="clock-cell">
-        <div class="label">② 1시</div>
-        <div class="caption">낮잠 자기</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="clock-cell">
-        <div class="label">③ 3시</div>
-        <div class="caption">하교 시간</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="clock-cell">
-        <div class="label">④ 5시</div>
-        <div class="caption">숙제 시작</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 시각에 맞게 바늘 그리기</h3><span class="tag">그리기</span></div>
+ <div class="clock-row four" style="grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;">
+ <div class="clock-cell">
+ <div class="label">① 12시</div>
+ <div class="caption">점심시간!</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="clock-cell">
+ <div class="label">② 1시</div>
+ <div class="caption">낮잠 자기</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="clock-cell">
+ <div class="label">③ 3시</div>
+ <div class="caption">하교 시간</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="clock-cell">
+ <div class="label">④ 5시</div>
+ <div class="caption">숙제 시작</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ </div>
+ </div>
 
-  <div class="tip">
-    ✍️ <b>바늘 그리는 순서:</b><br>
-    ① 먼저 <b>긴 바늘(분침)</b>을 <b>12</b>까지 <span style="color:#1565c0;">파란색</span>으로 그려요.<br>
-    ② 다음 <b>짧은 바늘(시침)</b>을 문제의 숫자까지 <span style="color:#c62828;">빨간색</span>으로 그려요.<br>
-    ③ 짧은 바늘은 <b>더 짧게</b>, 긴 바늘은 <b>더 길게</b> 그리는 걸 잊지 마세요!
-  </div>
+ <div class="tip">
+ ✍️ <b>바늘 그리는 순서:</b><br>
+ ① 먼저 <b>긴 바늘(분침)</b>을 <b>12</b>까지 <span style="color:#1565c0;">파란색</span>으로 그려요.<br>
+ ② 다음 <b>짧은 바늘(시침)</b>을 문제의 숫자까지 <span style="color:#c62828;">빨간색</span>으로 그려요.<br>
+ ③ 짧은 바늘은 <b>더 짧게</b>, 긴 바늘은 <b>더 길게</b> 그리는 걸 잊지 마세요!
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 하은이에게 편지 쓰기</h3><span class="tag">글쓰기</span></div>
-    <p>내가 <b>일찍 일어나는 하은이</b>에게 편지를 쓴다면? 나의 <b>아침 시각</b>도 소개해 봐요.</p>
-    <div style="background:#fff8e1; border:1px dashed #ffb74d; border-radius:8px; padding:10px; min-height:60px;">
-      <div style="border-bottom:1px solid #ccc; height:22px;"></div>
-      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
-      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 하은이에게 편지 쓰기</h3><span class="tag">글쓰기</span></div>
+ <p>내가 <b>일찍 일어나는 하은이</b>에게 편지를 쓴다면? 나의 <b>아침 시각</b>도 소개해 봐요.</p>
+ <div style="background:#fff8e1; border:1px dashed #ffb74d; border-radius:8px; padding:10px; min-height:60px;">
+ <div style="border-bottom:1px solid #ccc; height:22px;"></div>
+ <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+ <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+ </div>
+ </div>
 
-  <div class="note">🌟 <b>실천 과제:</b> 오늘 내가 <b>일어난 시각</b>을 시계로 그려 보고, 하은이보다 얼마나 일찍/늦게 일어났는지 이야기해 봐요.</div>
+ <div class="note">🌟 <b>실천 과제:</b> 오늘 내가 <b>일어난 시각</b>을 시계로 그려 보고, 하은이보다 얼마나 일찍/늦게 일어났는지 이야기해 봐요.</div>
 
-  <div class="page-foot">시계 시리즈 · L1 · 2쪽 / 3</div>
+ <div class="page-foot">시계 시리즈 · L1 · 2쪽 / 3</div>
 </section>
 
 <!-- 3쪽: 하은이의 오후 정각 읽기 + 시각-활동 짝짓기 -->
 <section class="page">
-  <div class="page-head">
-    <h2>🍱 하은이의 오후 시각 읽기</h2>
-    <span class="step">3쪽 · 정각 6문항 + 짝짓기</span>
-  </div>
-  <div class="intro">
-    학교가 끝난 뒤 하은이의 <b>오후 일과</b>예요. 시계는 모두 <b>긴 바늘이 12</b>에 있어요.
-    <b>짧은 바늘의 숫자</b>만 잘 보고 <b>몇 시</b>인지 읽어 봐요.
-  </div>
-  <div class="story">
-    <span class="who">하은</span>수업이 끝났어요. "이제 오후에는 무엇을 할까?" 하은이의 오후 시각을 함께 살펴봐요.
-    친구들과 함께 지내고, 간식도 먹고, 저녁 준비도 도와요.
-  </div>
+ <div class="page-head">
+ <h2>🍱 하은이의 오후 시각 읽기</h2>
+ <span class="step">3쪽 · 정각 6문항 + 짝짓기</span>
+ </div>
+ <div class="intro">
+ 학교가 끝난 뒤 하은이의 <b>오후 일과</b>예요. 시계는 모두 <b>긴 바늘이 12</b>에 있어요.
+ <b>짧은 바늘의 숫자</b>만 잘 보고 <b>몇 시</b>인지 읽어 봐요.
+ </div>
+ <div class="story">
+ <span class="who">하은</span>수업이 끝났어요. "이제 오후에는 무엇을 할까?" 하은이의 오후 시각을 함께 살펴봐요.
+ 친구들과 함께 지내고, 간식도 먹고, 저녁 준비도 도와요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 하은이의 오후 시각</h3><span class="tag">정각 읽기</span></div>
-    <div class="clock-row">
-      <div class="clock-cell">
-        <div class="label">① 점심 식사</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 12si -->
-          <line x1="100" y1="100" x2="100" y2="58" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">② 도서관에서 책 읽기</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 1si -->
-          <line x1="100" y1="100" x2="121" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">③ 친구와 이야기</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 2si -->
-          <line x1="100" y1="100" x2="136.4" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-    </div>
-    <div class="clock-row">
-      <div class="clock-cell">
-        <div class="label">④ 간식 먹기</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 3si -->
-          <line x1="100" y1="100" x2="142" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">⑤ 산책 나가기</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 4si -->
-          <line x1="100" y1="100" x2="136.4" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">⑥ 저녁 준비 돕기</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 5si -->
-          <line x1="100" y1="100" x2="121" y2="136.4" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 하은이의 오후 시각</h3><span class="tag">정각 읽기</span></div>
+ <div class="clock-row">
+ <div class="clock-cell">
+ <div class="label">① 점심 식사</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 12si -->
+ <line x1="100" y1="100" x2="100" y2="58" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">② 도서관에서 책 읽기</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 1si -->
+ <line x1="100" y1="100" x2="121" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">③ 친구와 이야기</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 2si -->
+ <line x1="100" y1="100" x2="136.4" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ </div>
+ <div class="clock-row">
+ <div class="clock-cell">
+ <div class="label">④ 간식 먹기</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 3si -->
+ <line x1="100" y1="100" x2="142" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">⑤ 산책 나가기</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 4si -->
+ <line x1="100" y1="100" x2="136.4" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">⑥ 저녁 준비 돕기</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 5si -->
+ <line x1="100" y1="100" x2="121" y2="136.4" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ </div>
+ </div>
 
-  <div class="tip">💡 <b>오후 흐름:</b> 하은이의 오후는 <b>12시 → 1시 → 2시 → 3시 → 4시 → 5시</b> 순서로 이어졌어요. 시각이 <b>1시간씩</b> 흘러가는 것을 느껴 봐요.</div>
+ <div class="tip">💡 <b>오후 흐름:</b> 하은이의 오후는 <b>12시 → 1시 → 2시 → 3시 → 4시 → 5시</b> 순서로 이어졌어요. 시각이 <b>1시간씩</b> 흘러가는 것을 느껴 봐요.</div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. 시각과 하는 일 짝짓기</h3><span class="tag">선 잇기</span></div>
-    <p>왼쪽의 <b>시각</b>과 오른쪽의 <b>하은이가 하는 일</b>을 알맞게 <b>선</b>으로 이어 봐요. (활동 4를 참고해요.)</p>
-    <div style="display:grid; grid-template-columns: 1fr auto 1fr; gap: 6px 20px; align-items:center; background:#fffde7; border:1.5px dashed #ffb74d; border-radius:10px; padding:12px 18px;">
-      <div style="text-align:center; font-weight:700; color:#bf360c; border-bottom:1.5px solid #ffb74d; padding-bottom:4px;">시각</div>
-      <div></div>
-      <div style="text-align:center; font-weight:700; color:#bf360c; border-bottom:1.5px solid #ffb74d; padding-bottom:4px;">하는 일</div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 시각과 하는 일 짝짓기</h3><span class="tag">선 잇기</span></div>
+ <p>왼쪽의 <b>시각</b>과 오른쪽의 <b>하은이가 하는 일</b>을 알맞게 <b>선</b>으로 이어 봐요. (활동 4를 참고해요.)</p>
+ <div style="display:grid; grid-template-columns: 1fr auto 1fr; gap: 6px 20px; align-items:center; background:#fffde7; border:1.5px dashed #ffb74d; border-radius:10px; padding:12px 18px;">
+ <div style="text-align:center; font-weight:700; color:#bf360c; border-bottom:1.5px solid #ffb74d; padding-bottom:4px;">시각</div>
+ <div></div>
+ <div style="text-align:center; font-weight:700; color:#bf360c; border-bottom:1.5px solid #ffb74d; padding-bottom:4px;">하는 일</div>
 
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">① <b>12시</b></div>
-      <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄱ. 산책 나가기</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">① <b>12시</b></div>
+ <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄱ. 산책 나가기</div>
 
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">② <b>1시</b></div>
-      <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄴ. 저녁 준비 돕기</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">② <b>1시</b></div>
+ <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄴ. 저녁 준비 돕기</div>
 
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">③ <b>3시</b></div>
-      <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄷ. 점심 식사</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">③ <b>3시</b></div>
+ <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄷ. 점심 식사</div>
 
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">④ <b>4시</b></div>
-      <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄹ. 도서관에서 책 읽기</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">④ <b>4시</b></div>
+ <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄹ. 도서관에서 책 읽기</div>
 
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">⑤ <b>5시</b></div>
-      <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㅁ. 간식 먹기</div>
-    </div>
-  </div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">⑤ <b>5시</b></div>
+ <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㅁ. 간식 먹기</div>
+ </div>
+ </div>
 
-  <div class="note">🌟 <b>나의 오후 이야기:</b> 나는 오후 <span class="blank">&nbsp;</span>시에 <span class="blank" style="min-width:120px;">&nbsp;</span>을(를) 해요. 하은이의 오후와 <b>비슷한 점</b>과 <b>다른 점</b>을 짝꿍에게 이야기해 봐요.</div>
+ <div class="note">🌟 <b>나의 오후 이야기:</b> 나는 오후 <span class="blank">&nbsp;</span>시에 <span class="blank" style="min-width:120px;">&nbsp;</span>을(를) 해요. 하은이의 오후와 <b>비슷한 점</b>과 <b>다른 점</b>을 짝꿍에게 이야기해 봐요.</div>
 
-  <div class="page-foot">시계 시리즈 · L1 · 3쪽 / 3</div>
+ <div class="page-foot">시계 시리즈 · L1 · 3쪽 / 3</div>
 </section>
 
 <!-- 4쪽: 하은이의 저녁 정각 읽기 + 짝짓기 -->
 <section class="page">
-  <div class="page-head">
-    <h2>🌙 하은이의 저녁 시각 읽기</h2>
-    <span class="step">4쪽 · 정각 6문항 + 짝짓기</span>
-  </div>
-  <div class="intro">
-    이제 하은이의 <b>저녁과 밤</b> 시각이에요. 시계는 모두 <b>긴 바늘이 12</b>에 있어서 <b>정각</b>이에요.
-    <b>짧은 바늘</b>이 가리키는 <b>숫자</b>만 잘 읽어 봐요.
-  </div>
-  <div class="story">
-    <span class="who">하은</span>저녁이 되었어요. "오늘 하루도 참 알찼다!" 하은이는 저녁 시간에 무엇을 하는지 시계를 보며 순서대로 살펴봐요.
-  </div>
+ <div class="page-head">
+ <h2>🌙 하은이의 저녁 시각 읽기</h2>
+ <span class="step">4쪽 · 정각 6문항 + 짝짓기</span>
+ </div>
+ <div class="intro">
+ 이제 하은이의 <b>저녁과 밤</b> 시각이에요. 시계는 모두 <b>긴 바늘이 12</b>에 있어서 <b>정각</b>이에요.
+ <b>짧은 바늘</b>이 가리키는 <b>숫자</b>만 잘 읽어 봐요.
+ </div>
+ <div class="story">
+ <span class="who">하은</span>저녁이 되었어요. "오늘 하루도 참 알찼다!" 하은이는 저녁 시간에 무엇을 하는지 시계를 보며 순서대로 살펴봐요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 6. 하은이의 저녁 · 밤 시각</h3><span class="tag">정각 읽기</span></div>
-    <div class="clock-row">
-      <div class="clock-cell">
-        <div class="label">① 저녁 식사</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 6시 -->
-          <line x1="100" y1="100" x2="100" y2="142" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">② 숙제 시작</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 7시 -->
-          <line x1="100" y1="100" x2="79" y2="136.4" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">③ 샤워하기</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 8시 -->
-          <line x1="100" y1="100" x2="63.6" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-    </div>
-    <div class="clock-row">
-      <div class="clock-cell">
-        <div class="label">④ 책 읽기</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 9시 -->
-          <line x1="100" y1="100" x2="58" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">⑤ 잠자기 준비</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 10시 -->
-          <line x1="100" y1="100" x2="63.6" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">⑥ 잠자기</div>
-        <svg viewBox="0 0 200 200" width="120" height="120">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 11시 -->
-          <line x1="100" y1="100" x2="79" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 6. 하은이의 저녁 · 밤 시각</h3><span class="tag">정각 읽기</span></div>
+ <div class="clock-row">
+ <div class="clock-cell">
+ <div class="label">① 저녁 식사</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 6시 -->
+ <line x1="100" y1="100" x2="100" y2="142" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">② 숙제 시작</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 7시 -->
+ <line x1="100" y1="100" x2="79" y2="136.4" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">③ 샤워하기</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 8시 -->
+ <line x1="100" y1="100" x2="63.6" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ </div>
+ <div class="clock-row">
+ <div class="clock-cell">
+ <div class="label">④ 책 읽기</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 9시 -->
+ <line x1="100" y1="100" x2="58" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">⑤ 잠자기 준비</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 10시 -->
+ <line x1="100" y1="100" x2="63.6" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">⑥ 잠자기</div>
+ <svg viewBox="0 0 200 200" width="120" height="120">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 11시 -->
+ <line x1="100" y1="100" x2="79" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ </div>
+ </div>
 
-  <div class="tip">💡 <b>저녁 흐름:</b> 하은이의 저녁은 <b>6시 → 7시 → 8시 → 9시 → 10시 → 11시</b>로 이어졌어요. 시각이 <b>1시간씩</b> 흘러가면서 하루가 마무리돼요.</div>
+ <div class="tip">💡 <b>저녁 흐름:</b> 하은이의 저녁은 <b>6시 → 7시 → 8시 → 9시 → 10시 → 11시</b>로 이어졌어요. 시각이 <b>1시간씩</b> 흘러가면서 하루가 마무리돼요.</div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 7. 저녁 시각과 하는 일 짝짓기</h3><span class="tag">선 잇기</span></div>
-    <p>왼쪽의 <b>시각</b>과 오른쪽의 <b>하은이가 저녁에 하는 일</b>을 알맞게 <b>선</b>으로 이어 봐요. (활동 6을 참고해요.)</p>
-    <div style="display:grid; grid-template-columns: 1fr auto 1fr; gap: 6px 20px; align-items:center; background:#fffde7; border:1.5px dashed #ffb74d; border-radius:10px; padding:12px 18px;">
-      <div style="text-align:center; font-weight:700; color:#bf360c; border-bottom:1.5px solid #ffb74d; padding-bottom:4px;">시각</div>
-      <div></div>
-      <div style="text-align:center; font-weight:700; color:#bf360c; border-bottom:1.5px solid #ffb74d; padding-bottom:4px;">하는 일</div>
+ <div class="activity">
+ <div class="head"><h3>활동 7. 저녁 시각과 하는 일 짝짓기</h3><span class="tag">선 잇기</span></div>
+ <p>왼쪽의 <b>시각</b>과 오른쪽의 <b>하은이가 저녁에 하는 일</b>을 알맞게 <b>선</b>으로 이어 봐요. (활동 6을 참고해요.)</p>
+ <div style="display:grid; grid-template-columns: 1fr auto 1fr; gap: 6px 20px; align-items:center; background:#fffde7; border:1.5px dashed #ffb74d; border-radius:10px; padding:12px 18px;">
+ <div style="text-align:center; font-weight:700; color:#bf360c; border-bottom:1.5px solid #ffb74d; padding-bottom:4px;">시각</div>
+ <div></div>
+ <div style="text-align:center; font-weight:700; color:#bf360c; border-bottom:1.5px solid #ffb74d; padding-bottom:4px;">하는 일</div>
 
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">① <b>6시</b></div>
-      <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄱ. 잠자기 준비</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">① <b>6시</b></div>
+ <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄱ. 잠자기 준비</div>
 
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">② <b>7시</b></div>
-      <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄴ. 책 읽기</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">② <b>7시</b></div>
+ <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄴ. 책 읽기</div>
 
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">③ <b>8시</b></div>
-      <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄷ. 저녁 식사</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">③ <b>8시</b></div>
+ <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄷ. 저녁 식사</div>
 
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">④ <b>9시</b></div>
-      <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄹ. 숙제 시작</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">④ <b>9시</b></div>
+ <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㄹ. 숙제 시작</div>
 
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">⑤ <b>10시</b></div>
-      <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
-      <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㅁ. 샤워하기</div>
-    </div>
-  </div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">⑤ <b>10시</b></div>
+ <div style="text-align:center; color:#8d6e63;">●&nbsp;&nbsp;&nbsp;&nbsp;●</div>
+ <div style="text-align:center; background:#fff; border:1.5px solid #ffcc80; border-radius:8px; padding:6px;">ㅁ. 샤워하기</div>
+ </div>
+ </div>
 
-  <div class="note">🌟 <b>내 저녁 시간:</b> 나는 저녁 <span class="blank">&nbsp;</span>시에 저녁을 먹고, 밤 <span class="blank">&nbsp;</span>시에 잠자리에 들어요. 하은이보다 <b>일찍</b> 자나요, <b>늦게</b> 자나요?</div>
+ <div class="note">🌟 <b>내 저녁 시간:</b> 나는 저녁 <span class="blank">&nbsp;</span>시에 저녁을 먹고, 밤 <span class="blank">&nbsp;</span>시에 잠자리에 들어요. 하은이보다 <b>일찍</b> 자나요, <b>늦게</b> 자나요?</div>
 
-  <div class="page-foot">시계 시리즈 · L1 · 4쪽 / 5</div>
+ <div class="page-foot">시계 시리즈 · L1 · 4쪽 / 5</div>
 </section>
 
 <!-- 5쪽: 이야기 완성 + 정각 종합 -->
 <section class="page">
-  <div class="page-head">
-    <h2>🌈 하은이의 주말과 정각 종합</h2>
-    <span class="step">5쪽 · 이야기 3 + 정각 4문항</span>
-  </div>
-  <div class="intro">
-    이번에는 하은이의 <b>주말 이야기</b>를 읽고 <b>빈칸에 알맞은 시각</b>을 써 봐요.
-    마지막에는 <b>여러 가지 정각</b>을 한 번 더 정리해요.
-  </div>
+ <div class="page-head">
+ <h2>🌈 하은이의 주말과 정각 종합</h2>
+ <span class="step">5쪽 · 이야기 3 + 정각 4문항</span>
+ </div>
+ <div class="intro">
+ 이번에는 하은이의 <b>주말 이야기</b>를 읽고 <b>빈칸에 알맞은 시각</b>을 써 봐요.
+ 마지막에는 <b>여러 가지 정각</b>을 한 번 더 정리해요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 8. 하은이의 주말 이야기 완성</h3><span class="tag">빈칸 채우기</span></div>
-    <p>하은이가 이야기해요. 아래 <b>시계 그림</b>을 보고 <b>몇 시</b>인지 빈칸에 알맞게 써 봐요.</p>
+ <div class="activity">
+ <div class="head"><h3>활동 8. 하은이의 주말 이야기 완성</h3><span class="tag">빈칸 채우기</span></div>
+ <p>하은이가 이야기해요. 아래 <b>시계 그림</b>을 보고 <b>몇 시</b>인지 빈칸에 알맞게 써 봐요.</p>
 
-    <div class="story" style="display:flex; align-items:center; gap:14px;">
-      <svg viewBox="0 0 200 200" width="95" height="95" style="flex-shrink:0;">
-        <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-        <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-        <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-        <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-        <!-- 8시 -->
-        <line x1="100" y1="100" x2="63.6" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-        <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-      </svg>
-      <div>
-        <span class="who">하은</span>토요일 아침이에요. 알람이 울리지 않아서 <b>늦잠</b>을 잤어요.
-        시계를 보니 벌써 아침 ( <span class="blank short">&nbsp;</span> )시! "우와, 오늘은 푹 잤네." 하고 웃었어요.
-      </div>
-    </div>
+ <div class="story" style="display:flex; align-items:center; gap:14px;">
+ <svg viewBox="0 0 200 200" width="95" height="95" style="flex-shrink:0;">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 8시 -->
+ <line x1="100" y1="100" x2="63.6" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div>
+ <span class="who">하은</span>토요일 아침이에요. 알람이 울리지 않아서 <b>늦잠</b>을 잤어요.
+ 시계를 보니 벌써 아침 ( <span class="blank short">&nbsp;</span> )시! "우와, 오늘은 푹 잤네." 하고 웃었어요.
+ </div>
+ </div>
 
-    <div class="story" style="display:flex; align-items:center; gap:14px;">
-      <svg viewBox="0 0 200 200" width="95" height="95" style="flex-shrink:0;">
-        <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-        <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-        <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-        <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-        <!-- 2시 -->
-        <line x1="100" y1="100" x2="136.4" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-        <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-      </svg>
-      <div>
-        <span class="who">하은</span>오후 ( <span class="blank short">&nbsp;</span> )시에 친구를 만나기로 했어요.
-        약속 장소인 카페에 정확히 시간 맞춰 도착했어요. 친구가 "약속 잘 지키는구나!" 하고 칭찬해 줬어요.
-      </div>
-    </div>
+ <div class="story" style="display:flex; align-items:center; gap:14px;">
+ <svg viewBox="0 0 200 200" width="95" height="95" style="flex-shrink:0;">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 2시 -->
+ <line x1="100" y1="100" x2="136.4" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div>
+ <span class="who">하은</span>오후 ( <span class="blank short">&nbsp;</span> )시에 친구를 만나기로 했어요.
+ 약속 장소인 카페에 정확히 시간 맞춰 도착했어요. 친구가 "약속 잘 지키는구나!" 하고 칭찬해 줬어요.
+ </div>
+ </div>
 
-    <div class="story" style="display:flex; align-items:center; gap:14px;">
-      <svg viewBox="0 0 200 200" width="95" height="95" style="flex-shrink:0;">
-        <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-        <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-        <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-        <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-        <!-- 10시 -->
-        <line x1="100" y1="100" x2="63.6" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-        <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-      </svg>
-      <div>
-        <span class="who">하은</span>밤 ( <span class="blank short">&nbsp;</span> )시가 되었어요. 하은이는 <b>내일도 즐거운 하루가 되기</b>를 바라며
-        불을 끄고 잠자리에 들었어요. "안녕히 주무세요!"
-      </div>
-    </div>
-  </div>
+ <div class="story" style="display:flex; align-items:center; gap:14px;">
+ <svg viewBox="0 0 200 200" width="95" height="95" style="flex-shrink:0;">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 10시 -->
+ <line x1="100" y1="100" x2="63.6" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div>
+ <span class="who">하은</span>밤 ( <span class="blank short">&nbsp;</span> )시가 되었어요. 하은이는 <b>내일도 즐거운 하루가 되기</b>를 바라며
+ 불을 끄고 잠자리에 들었어요. "안녕히 주무세요!"
+ </div>
+ </div>
+ </div>
 
-  <div class="tip">💡 <b>이야기 속 시각 찾기:</b> 시계 그림에서 <b>긴 바늘</b>이 <b>12</b>에 있는지 먼저 확인하고, <b>짧은 바늘</b>이 가리키는 <b>숫자</b>를 빈칸에 써요.</div>
+ <div class="tip">💡 <b>이야기 속 시각 찾기:</b> 시계 그림에서 <b>긴 바늘</b>이 <b>12</b>에 있는지 먼저 확인하고, <b>짧은 바늘</b>이 가리키는 <b>숫자</b>를 빈칸에 써요.</div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 9. 정각 종합 읽기</h3><span class="tag">복습</span></div>
-    <p>지금까지 배운 <b>정각 읽기</b>를 정리해요. 시계를 보고 <b>몇 시</b>인지 써 봐요.</p>
-    <div class="clock-row four">
-      <div class="clock-cell">
-        <div class="label">①</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 4시 -->
-          <line x1="100" y1="100" x2="136.4" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">②</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 11시 -->
-          <line x1="100" y1="100" x2="79" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">③</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 2시 -->
-          <line x1="100" y1="100" x2="136.4" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">④</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 8시 -->
-          <line x1="100" y1="100" x2="63.6" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-        <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 9. 정각 종합 읽기</h3><span class="tag">복습</span></div>
+ <p>지금까지 배운 <b>정각 읽기</b>를 정리해요. 시계를 보고 <b>몇 시</b>인지 써 봐요.</p>
+ <div class="clock-row four">
+ <div class="clock-cell">
+ <div class="label">①</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 4시 -->
+ <line x1="100" y1="100" x2="136.4" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">②</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 11시 -->
+ <line x1="100" y1="100" x2="79" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">③</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 2시 -->
+ <line x1="100" y1="100" x2="136.4" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">④</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g stroke="#5d4037" stroke-width="1.5"><line x1="142.5" y1="27" x2="137.5" y2="36"/><line x1="173" y1="57.5" x2="164" y2="62.5"/><line x1="173" y1="142.5" x2="164" y2="137.5"/><line x1="142.5" y1="173" x2="137.5" y2="164"/><line x1="57.5" y1="173" x2="62.5" y2="164"/><line x1="27" y1="142.5" x2="36" y2="137.5"/><line x1="27" y1="57.5" x2="36" y2="62.5"/><line x1="57.5" y1="27" x2="62.5" y2="36"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 8시 -->
+ <line x1="100" y1="100" x2="63.6" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div class="ans">( <span class="blank short">&nbsp;</span> )시</div>
+ </div>
+ </div>
+ </div>
 
-  <div class="note">🌟 <b>배운 내용 확인:</b> 정각은 <b>긴 바늘이 항상 ( <span class="blank short">&nbsp;</span> )</b>에 있고, <b>짧은 바늘</b>이 가리키는 숫자를 읽어요. 이제 나는 <b>1시부터 12시까지</b> 정각을 자신 있게 읽을 수 있어요!</div>
+ <div class="note">🌟 <b>배운 내용 확인:</b> 정각은 <b>긴 바늘이 항상 ( <span class="blank short">&nbsp;</span> )</b>에 있고, <b>짧은 바늘</b>이 가리키는 숫자를 읽어요. 이제 나는 <b>1시부터 12시까지</b> 정각을 자신 있게 읽을 수 있어요!</div>
 
-  <div class="page-foot">시계 시리즈 · L1 · 5쪽 / 5</div>
+ <div class="page-foot">시계 시리즈 · L1 · 5쪽 / 5</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

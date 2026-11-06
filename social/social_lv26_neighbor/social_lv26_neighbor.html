@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #dcedc8 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #33691e;
-  border-bottom: 2px solid #9ccc65; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #9ccc65; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #558b2f; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #558b2f; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #558b2f; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #33691e; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #558b2f; font-weight: 500; }
 .cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 8px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #33691e; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #558b2f; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #558b2f; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #33691e; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #558b2f; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -95,346 +95,346 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">🏠 S26 이웃과 부딪히지 않기</span><span class="muted">사회성 · Level 26 · 이웃</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">🏠 S26 이웃과 부딪히지 않기</span><span class="muted">사회성 · Level 26 · 이웃</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#33691e;">S26 · 이웃</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">층간소음 · 이웃 갈등</span>
-    <h1>이웃과 매끄럽게 지내기</h1>
-    <p class="lead">층간소음·반려동물·주차 갈등을 <b>감정 아닌 절차</b>로 풀어요</p>
-  </div>
-  <div class="cover-emoji">🏠 🔔 🤝</div>
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul>
-      <li>이웃과 부딪힐 만한 <b>상황</b>을 안다.</li>
-      <li>직접 문 두드리기 전에 <b>관리실·경비실</b>을 활용한다.</li>
-      <li>감정 폭발 없이 <b>사실+부탁</b>으로 말한다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
-    <ul>
-      <li><b>하은</b>: 위층에서 밤늦게 뛰는 소리로 잠 못 잠</li>
-      <li><b>주현</b>: 옆집 강아지가 자꾸 짖고 복도가 지저분함</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">사회성 시리즈 · S26 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#33691e;">S26 · 이웃</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">층간소음 · 이웃 갈등</span>
+ <h1>이웃과 매끄럽게 지내기</h1>
+ <p class="lead">층간소음·반려동물·주차 갈등을 <b>감정 아닌 절차</b>로 풀어요</p>
+ </div>
+ <div class="cover-emoji">🏠 🔔 🤝</div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul>
+ <li>이웃과 부딪힐 만한 <b>상황</b>을 안다.</li>
+ <li>직접 문 두드리기 전에 <b>관리실·경비실</b>을 활용한다.</li>
+ <li>감정 폭발 없이 <b>사실+부탁</b>으로 말한다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+ <ul>
+ <li><b>하은</b>: 위층에서 밤늦게 뛰는 소리로 잠 못 잠</li>
+ <li><b>주현</b>: 옆집 강아지가 자꾸 짖고 복도가 지저분함</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">사회성 시리즈 · S26 · 표지</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>🔔 이웃 갈등, 이렇게 풀어요</h2>
-    <span class="step">1쪽 · 절차</span>
-  </div>
-  <div class="intro">
-    이웃과 갈등이 생기면 <b>바로 그 집 문을 두드리지 마세요</b>. 감정이 격해져 <b>싸움</b>이 되기 쉬워요.
-    <b>관리실·경비실</b>을 통해 정중히 요청하는 것이 <b>가장 안전한 순서</b>예요.
-  </div>
+ <div class="page-head">
+ <h2>🔔 이웃 갈등, 이렇게 풀어요</h2>
+ <span class="step">1쪽 · 절차</span>
+ </div>
+ <div class="intro">
+ 이웃과 갈등이 생기면 <b>바로 그 집 문을 두드리지 마세요</b>. 감정이 격해져 <b>싸움</b>이 되기 쉬워요.
+ <b>관리실·경비실</b>을 통해 정중히 요청하는 것이 <b>가장 안전한 순서</b>예요.
+ </div>
 
-  <div class="principles">
-    <div class="pri-card">
-      <div class="icon">✍</div>
-      <div class="name">① 기록하기</div>
-      <div class="desc">언제·얼마 동안</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">🏢</div>
-      <div class="name">② 관리실</div>
-      <div class="desc">먼저 안내 방송·쪽지</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">📞</div>
-      <div class="name">③ 공식 기관</div>
-      <div class="desc">이웃사이센터 1661-2642</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">🙅</div>
-      <div class="name">④ 자제</div>
-      <div class="desc">보복·직접 대응 X</div>
-    </div>
-  </div>
+ <div class="principles">
+ <div class="pri-card">
+ <div class="icon">✍</div>
+ <div class="name">① 기록하기</div>
+ <div class="desc">언제·얼마 동안</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">🏢</div>
+ <div class="name">② 관리실</div>
+ <div class="desc">먼저 안내 방송·쪽지</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">📞</div>
+ <div class="name">③ 공식 기관</div>
+ <div class="desc">이웃사이센터 1661-2642</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">🙅</div>
+ <div class="name">④ 자제</div>
+ <div class="desc">보복·직접 대응 X</div>
+ </div>
+ </div>
 
-  <table class="compare-table">
-    <tr>
-      <th style="width:30%;">상황</th>
-      <th style="width:35%;">이렇게 하면 갈등 커짐</th>
-      <th style="width:35%;">이렇게 하면 좋아요</th>
-    </tr>
-    <tr>
-      <td><b>층간소음</b></td>
-      <td class="bad">밤에 위층 문 두드림</td>
-      <td class="good">관리실 신고 → 방송·쪽지 → 이웃사이센터</td>
-    </tr>
-    <tr>
-      <td><b>반려동물 짖음</b></td>
-      <td class="bad">"개 좀 조용히 시켜!" 소리침</td>
-      <td class="good">관리실에 정중히 요청 → 견주와 대화</td>
-    </tr>
-    <tr>
-      <td><b>주차 시비</b></td>
-      <td class="bad">차에 손 대거나 메모지 붙임</td>
-      <td class="good">관리실 통해 이동 요청</td>
-    </tr>
-    <tr>
-      <td><b>복도 짐</b></td>
-      <td class="bad">몰래 치우거나 버림</td>
-      <td class="good">관리실에 사진과 함께 신고</td>
-    </tr>
-    <tr>
-      <td><b>담배 냄새</b></td>
-      <td class="bad">인터폰으로 화냄</td>
-      <td class="good">관리사무소·구청 민원</td>
-    </tr>
-    <tr>
-      <td><b>인사</b></td>
-      <td class="bad">엘리베이터에서 눈 안 마주침</td>
-      <td class="good">"안녕하세요~" 짧게 목례</td>
-    </tr>
-  </table>
+ <table class="compare-table">
+ <tr>
+ <th style="width:30%;">상황</th>
+ <th style="width:35%;">이렇게 하면 갈등 커짐</th>
+ <th style="width:35%;">이렇게 하면 좋아요</th>
+ </tr>
+ <tr>
+ <td><b>층간소음</b></td>
+ <td class="bad">밤에 위층 문 두드림</td>
+ <td class="good">관리실 신고 → 방송·쪽지 → 이웃사이센터</td>
+ </tr>
+ <tr>
+ <td><b>반려동물 짖음</b></td>
+ <td class="bad">"개 좀 조용히 시켜!" 소리침</td>
+ <td class="good">관리실에 정중히 요청 → 견주와 대화</td>
+ </tr>
+ <tr>
+ <td><b>주차 시비</b></td>
+ <td class="bad">차에 손 대거나 메모지 붙임</td>
+ <td class="good">관리실 통해 이동 요청</td>
+ </tr>
+ <tr>
+ <td><b>복도 짐</b></td>
+ <td class="bad">몰래 치우거나 버림</td>
+ <td class="good">관리실에 사진과 함께 신고</td>
+ </tr>
+ <tr>
+ <td><b>담배 냄새</b></td>
+ <td class="bad">인터폰으로 화냄</td>
+ <td class="good">관리사무소·구청 민원</td>
+ </tr>
+ <tr>
+ <td><b>인사</b></td>
+ <td class="bad">엘리베이터에서 눈 안 마주침</td>
+ <td class="good">"안녕하세요~" 짧게 목례</td>
+ </tr>
+ </table>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 이 상황, 어디에 요청?</h3><span class="tag">5문항</span></div>
-    <p>다음 상황에 <b>어디에 먼저 요청</b>할지 골라 써요. (관리실 / 이웃사이센터 / 경찰 112 / 구청)</p>
-    <p>① 새벽 2시 위층 발소리·물건 떨어뜨림 → <span class="blank long">&nbsp;</span></p>
-    <p>② 옆집 강아지가 하루 종일 짖음 → <span class="blank long">&nbsp;</span></p>
-    <p>③ 위층 사람이 술 마시고 문 앞에서 소리 지름·위협 → <span class="blank long">&nbsp;</span></p>
-    <p>④ 복도에 자꾸 짐을 쌓아 두는 이웃 → <span class="blank long">&nbsp;</span></p>
-    <p>⑤ 지속되는 담배 냄새 (베란다) → <span class="blank long">&nbsp;</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 이 상황, 어디에 요청?</h3><span class="tag">5문항</span></div>
+ <p>다음 상황에 <b>어디에 먼저 요청</b>할지 골라 써요. (관리실 / 이웃사이센터 / 경찰 112 / 구청)</p>
+ <p>① 새벽 2시 위층 발소리·물건 떨어뜨림 → <span class="blank long">&nbsp;</span></p>
+ <p>② 옆집 강아지가 하루 종일 짖음 → <span class="blank long">&nbsp;</span></p>
+ <p>③ 위층 사람이 술 마시고 문 앞에서 소리 지름·위협 → <span class="blank long">&nbsp;</span></p>
+ <p>④ 복도에 자꾸 짐을 쌓아 두는 이웃 → <span class="blank long">&nbsp;</span></p>
+ <p>⑤ 지속되는 담배 냄새 (베란다) → <span class="blank long">&nbsp;</span></p>
+ </div>
 
-  <div class="dialogue">
-    <div class="title">📖 하은이의 좋은 예 — 관리실 전화</div>
-    <div class="speech">
-      <div class="avatar">하은</div>
-      <div class="bubble">
-        <div class="who">하은</div>
-        (침착하게) 안녕하세요, 관리사무소죠? <b>1004호 하은입니다.</b> 위층에서 <b>밤 12시부터 새벽 2시까지 뛰는 소리</b>가 계속돼요. 잠을 못 자서요.
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">관리실</div>
-        네, 몇 번 그런 일이 있었나요?
-      </div>
-      <div class="avatar">관리실</div>
-    </div>
-    <div class="speech">
-      <div class="avatar">하은</div>
-      <div class="bubble">
-        <div class="who">하은</div>
-        이번 주에만 <b>세 번</b>이에요. 오늘도 지금 소리가 나요. <b>안내 방송</b> 부탁드려도 될까요?
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">관리실</div>
-        네, 방송하고 인터폰으로 안내드릴게요. 계속되면 <b>이웃사이센터 1661-2642</b>도 이용할 수 있어요.
-      </div>
-      <div class="avatar">관리실</div>
-    </div>
-  </div>
+ <div class="dialogue">
+ <div class="title">📖 하은이의 좋은 예 — 관리실 전화</div>
+ <div class="speech">
+ <div class="avatar">하은</div>
+ <div class="bubble">
+ <div class="who">하은</div>
+ (침착하게) 안녕하세요, 관리사무소죠? <b>1004호 하은입니다.</b> 위층에서 <b>밤 12시부터 새벽 2시까지 뛰는 소리</b>가 계속돼요. 잠을 못 자서요.
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">관리실</div>
+ 네, 몇 번 그런 일이 있었나요?
+ </div>
+ <div class="avatar">관리실</div>
+ </div>
+ <div class="speech">
+ <div class="avatar">하은</div>
+ <div class="bubble">
+ <div class="who">하은</div>
+ 이번 주에만 <b>세 번</b>이에요. 오늘도 지금 소리가 나요. <b>안내 방송</b> 부탁드려도 될까요?
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">관리실</div>
+ 네, 방송하고 인터폰으로 안내드릴게요. 계속되면 <b>이웃사이센터 1661-2642</b>도 이용할 수 있어요.
+ </div>
+ <div class="avatar">관리실</div>
+ </div>
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S26 · 1쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S26 · 1쪽 / 2</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>🤝 이웃과 오래 잘 지내기</h2>
-    <span class="step">2쪽 · 실전</span>
-  </div>
-  <div class="intro">
-    갈등만 없다고 이웃 관계가 좋은 것은 아니에요. <b>가벼운 인사</b>와 <b>배려</b>가 쌓여 <b>친절한 이웃</b>이 돼요.
-  </div>
+ <div class="page-head">
+ <h2>🤝 이웃과 오래 잘 지내기</h2>
+ <span class="step">2쪽 · 실전</span>
+ </div>
+ <div class="intro">
+ 갈등만 없다고 이웃 관계가 좋은 것은 아니에요. <b>가벼운 인사</b>와 <b>배려</b>가 쌓여 <b>친절한 이웃</b>이 돼요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 상황별 대응 정하기</h3><span class="tag">6장면</span></div>
-    <div class="situation-grid">
-      <div class="sit-card">
-        <div class="place">🌃 야간 소음</div>
-        <div class="role">위층 뛰는 소리</div>
-        <div class="example">예: 관리실 전화 → 안내 방송</div>
-        <div class="fill">첫 조치: </div>
-        <div class="fill">다음 조치: </div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🐕 개 짖음</div>
-        <div class="role">옆집 강아지</div>
-        <div class="example">예: 관리실에 정중히</div>
-        <div class="fill">첫 조치: </div>
-        <div class="fill">다음 조치: </div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🚗 주차 겹침</div>
-        <div class="role">이중 주차</div>
-        <div class="example">예: 관리실 연락 부탁</div>
-        <div class="fill">첫 조치: </div>
-        <div class="fill">다음 조치: </div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🚪 인사</div>
-        <div class="role">엘리베이터에서 마주침</div>
-        <div class="example">예: "안녕하세요~"</div>
-        <div class="fill">첫 조치: </div>
-        <div class="fill">다음 조치: </div>
-      </div>
-      <div class="sit-card">
-        <div class="place">📦 잘못 온 택배</div>
-        <div class="role">이웃 것이 우리 집에</div>
-        <div class="example">예: 문에 걸어 두거나 초인종</div>
-        <div class="fill">첫 조치: </div>
-        <div class="fill">다음 조치: </div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🎉 이사 인사</div>
-        <div class="role">위·아래·옆집에</div>
-        <div class="example">예: 간단한 인사말</div>
-        <div class="fill">첫마디: </div>
-        <div class="fill">준비물: </div>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 상황별 대응 정하기</h3><span class="tag">6장면</span></div>
+ <div class="situation-grid">
+ <div class="sit-card">
+ <div class="place">🌃 야간 소음</div>
+ <div class="role">위층 뛰는 소리</div>
+ <div class="example">예: 관리실 전화 → 안내 방송</div>
+ <div class="fill">첫 조치: </div>
+ <div class="fill">다음 조치: </div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🐕 개 짖음</div>
+ <div class="role">옆집 강아지</div>
+ <div class="example">예: 관리실에 정중히</div>
+ <div class="fill">첫 조치: </div>
+ <div class="fill">다음 조치: </div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🚗 주차 겹침</div>
+ <div class="role">이중 주차</div>
+ <div class="example">예: 관리실 연락 부탁</div>
+ <div class="fill">첫 조치: </div>
+ <div class="fill">다음 조치: </div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🚪 인사</div>
+ <div class="role">엘리베이터에서 마주침</div>
+ <div class="example">예: "안녕하세요~"</div>
+ <div class="fill">첫 조치: </div>
+ <div class="fill">다음 조치: </div>
+ </div>
+ <div class="sit-card">
+ <div class="place">📦 잘못 온 택배</div>
+ <div class="role">이웃 것이 우리 집에</div>
+ <div class="example">예: 문에 걸어 두거나 초인종</div>
+ <div class="fill">첫 조치: </div>
+ <div class="fill">다음 조치: </div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🎉 이사 인사</div>
+ <div class="role">위·아래·옆집에</div>
+ <div class="example">예: 간단한 인사말</div>
+ <div class="fill">첫마디: </div>
+ <div class="fill">준비물: </div>
+ </div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 주현이의 강아지 짖음 관리실 요청 대화</h3><span class="tag">쓰기</span></div>
-    <p>옆집 강아지가 하루 종일 짖어요. 주현이가 <b>관리실</b>에 전화해요. <b>인사·자기소개 → 상황 → 요청 → 감사</b>.</p>
-    <p>① 인사·자기소개: "<span class="blank long">&nbsp;</span>"</p>
-    <p>② 상황(언제·얼마 동안·누구): "<span class="blank long">&nbsp;</span>"</p>
-    <p>③ 요청(무엇을 부탁): "<span class="blank long">&nbsp;</span>"</p>
-    <p>④ 감사: "<span class="blank long">&nbsp;</span>"</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 주현이의 강아지 짖음 관리실 요청 대화</h3><span class="tag">쓰기</span></div>
+ <p>옆집 강아지가 하루 종일 짖어요. 주현이가 <b>관리실</b>에 전화해요. <b>인사·자기소개 → 상황 → 요청 → 감사</b>.</p>
+ <p>① 인사·자기소개: "<span class="blank long">&nbsp;</span>"</p>
+ <p>② 상황(언제·얼마 동안·누구): "<span class="blank long">&nbsp;</span>"</p>
+ <p>③ 요청(무엇을 부탁): "<span class="blank long">&nbsp;</span>"</p>
+ <p>④ 감사: "<span class="blank long">&nbsp;</span>"</p>
+ </div>
 
-  <div class="checklist">
-    <div class="title">✅ 이웃 관계 5가지</div>
-    <label><input type="checkbox" style="margin-right:6px;"> 밤에 뛰거나 큰 소리 내는 것 <b>피한다</b></label>
-    <label><input type="checkbox" style="margin-right:6px;"> 갈등 있을 때 <b>관리실</b>에 먼저 요청한다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 위층 문을 <b>직접 두드리지 않는다</b></label>
-    <label><input type="checkbox" style="margin-right:6px;"> 마주치면 <b>가벼운 인사</b>를 한다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 폭언·위협 발생 시 <b>112</b>에 신고</label>
-  </div>
+ <div class="checklist">
+ <div class="title">✅ 이웃 관계 5가지</div>
+ <label><input type="checkbox" style="margin-right:6px;"> 밤에 뛰거나 큰 소리 내는 것 <b>피한다</b></label>
+ <label><input type="checkbox" style="margin-right:6px;"> 갈등 있을 때 <b>관리실</b>에 먼저 요청한다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 위층 문을 <b>직접 두드리지 않는다</b></label>
+ <label><input type="checkbox" style="margin-right:6px;"> 마주치면 <b>가벼운 인사</b>를 한다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 폭언·위협 발생 시 <b>112</b>에 신고</label>
+ </div>
 
-  <div class="note">
-    🌱 이웃은 <b>매일 만나는</b> 사람이에요. 한 번 크게 다투면 <b>몇 년이 어색해요</b>.
-    <b>관리실이라는 완충 장치</b>가 있다는 걸 잊지 마세요.
-  </div>
+ <div class="note">
+ 🌱 이웃은 <b>매일 만나는</b> 사람이에요. 한 번 크게 다투면 <b>몇 년이 어색해요</b>.
+ <b>관리실이라는 완충 장치</b>가 있다는 걸 잊지 마세요.
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S26 · 2쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S26 · 2쪽 / 2</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

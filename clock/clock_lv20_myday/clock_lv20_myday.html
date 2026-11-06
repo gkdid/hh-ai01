@@ -8,24 +8,24 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.45; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.45; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #311b92; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #311b92; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #d1c4e9; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffd54f; color: #311b92; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 16mm 16mm; background: linear-gradient(135deg, #fff 0%, #f3e5f5 60%, #e1bee7 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #4a148c;
-  border-bottom: 2px solid #ba68c8; padding-bottom: 8px; margin-bottom: 14px; }
+ border-bottom: 2px solid #ba68c8; padding-bottom: 8px; margin-bottom: 14px; }
 .cover-top .subject { font-weight: 700; color: #6a1b9a; }
 .cover-main { text-align: center; padding: 4px 0; }
 .cover-main .badge { display: inline-block; padding: 6px 20px; border-radius: 20px;
-  background: linear-gradient(90deg, #4a148c, #7b1fa2); color: #ffd54f; font-weight: 700; font-size: 0.98em; margin-bottom: 8px;
-  box-shadow: 0 2px 5px rgba(74,20,140,0.3); letter-spacing: 0.5px; }
+ background: linear-gradient(90deg, #4a148c, #7b1fa2); color: #ffd54f; font-weight: 700; font-size: 0.98em; margin-bottom: 8px;
+ box-shadow: 0 2px 5px rgba(74,20,140,0.3); letter-spacing: 0.5px; }
 .cover-main h1 { margin: 0; font-size: 2.15em; letter-spacing: -1.5px; color: #4a148c; font-weight: 900; }
 .cover-main h1 .gold { color: #f57f17; text-shadow: 1px 1px 0 #fff59d; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #6a1b9a; font-weight: 500; }
@@ -38,7 +38,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #4a148c; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #7b1fa2; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #7b1fa2; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #4a148c; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #7b1fa2; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -63,7 +63,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .story .who { display: inline-block; background: #7b1fa2; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.85em; font-weight: 700; margin-right: 6px; }
 
 .time-chip { display: inline-block; background: #ffffff; border: 1.5px solid #78909c; color: #263238; font-family: 'Courier New', monospace;
-  font-weight: 900; font-size: 1.05em; padding: 3px 9px; border-radius: 6px; letter-spacing: 2px; min-width: 66px; text-align: center; }
+ font-weight: 900; font-size: 1.05em; padding: 3px 9px; border-radius: 6px; letter-spacing: 2px; min-width: 66px; text-align: center; }
 .time-chip.gold { color: #263238; }
 
 .calc-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
@@ -78,7 +78,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .clock-cell svg { display: block; margin: 0 auto; }
 
 .certificate { background: linear-gradient(135deg, #fff9c4 0%, #fff59d 100%);
-  border: 3px double #f57f17; border-radius: 14px; padding: 14px 18px; margin: 12px 0; position: relative; text-align: center; }
+ border: 3px double #f57f17; border-radius: 14px; padding: 14px 18px; margin: 12px 0; position: relative; text-align: center; }
 .certificate::before, .certificate::after { content: '★'; position: absolute; top: 8px; color: #f57f17; font-size: 1.3em; }
 .certificate::before { left: 12px; } .certificate::after { right: 12px; }
 .certificate h3 { margin: 0 0 4px; color: #bf360c; font-size: 1.15em; letter-spacing: 1px; }
@@ -88,8 +88,8 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .certificate .sig .line { border-bottom: 1.3px solid #6a1b9a; min-width: 100px; padding-bottom: 2px; }
 
 .ribbon { display: inline-block; background: linear-gradient(90deg, #4a148c 0%, #7b1fa2 50%, #4a148c 100%);
-  color: #ffd54f; font-weight: 900; padding: 3px 14px; border-radius: 3px; font-size: 0.9em;
-  position: relative; letter-spacing: 1.5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+ color: #ffd54f; font-weight: 900; padding: 3px 14px; border-radius: 3px; font-size: 0.9em;
+ position: relative; letter-spacing: 1.5px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
 
 .page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
 @media print { body { background: #fff; } .toolbar { display: none; } .page { box-shadow: none; margin: 0 auto; } }
@@ -98,501 +98,501 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">🏆 L20 나의 하루 만들기</span><span class="muted">시계 시리즈 완주 · 프로젝트</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">🏆 L20 나의 하루 만들기</span><span class="muted">시계 시리즈 완주 · 프로젝트</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">수학</span> · 시계 시리즈 · <b style="color:#4a148c;">Level 20 (FINAL)</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">🏆 L20 · 시계 시리즈 완주 · 프로젝트</span>
-    <h1>나의 <span class="gold">하루</span> 만들기</h1>
-    <p class="lead">L1부터 L19까지 배운 모든 것을 모아, <b>나만의 하루</b>를 시계로 그려 봐요!</p>
-  </div>
+ <div class="cover-top">
+ <span><span class="subject">수학</span> · 시계 시리즈 · <b style="color:#4a148c;">Level 20 (FINAL)</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">🏆 L20 · 시계 시리즈 완주 · 프로젝트</span>
+ <h1>나의 <span class="gold">하루</span> 만들기</h1>
+ <p class="lead">L1부터 L19까지 배운 모든 것을 모아, <b>나만의 하루</b>를 시계로 그려 봐요!</p>
+ </div>
 
-  <!-- 24시간 시간-원반(time-wheel) + 완주 메달 -->
-  <svg class="cover-clock" viewBox="0 0 260 200" width="360" height="220">
-    <!-- 24시간 원반 (왼쪽) -->
-    <g transform="translate(90,100)">
-      <circle cx="0" cy="0" r="80" fill="#fff" stroke="#4a148c" stroke-width="3"/>
-      <!-- 낮(6~18) / 밤 색칠 -->
-      <path d="M 0 0 L 0 -80 A 80 80 0 0 1 0 80 Z" fill="#fff59d" opacity="0.7"/>
-      <path d="M 0 0 L 0 80 A 80 80 0 0 1 0 -80 Z" fill="#311b92" opacity="0.2"/>
-      <!-- 24시간 눈금 -->
-      <g stroke="#4a148c" stroke-width="1.5">
-        <line x1="0" y1="-80" x2="0" y2="-72"/>
-        <line x1="40" y1="-69.3" x2="36" y2="-62.4"/>
-        <line x1="69.3" y1="-40" x2="62.4" y2="-36"/>
-        <line x1="80" y1="0" x2="72" y2="0"/>
-        <line x1="69.3" y1="40" x2="62.4" y2="36"/>
-        <line x1="40" y1="69.3" x2="36" y2="62.4"/>
-        <line x1="0" y1="80" x2="0" y2="72"/>
-        <line x1="-40" y1="69.3" x2="-36" y2="62.4"/>
-        <line x1="-69.3" y1="40" x2="-62.4" y2="36"/>
-        <line x1="-80" y1="0" x2="-72" y2="0"/>
-        <line x1="-69.3" y1="-40" x2="-62.4" y2="-36"/>
-        <line x1="-40" y1="-69.3" x2="-36" y2="-62.4"/>
-      </g>
-      <!-- 숫자 -->
-      <g font-size="11" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#4a148c">
-        <text x="0" y="-62">0</text><text x="34" y="-54">3</text><text x="54" y="-34">6</text>
-        <text x="62" y="0">9</text><text x="54" y="34">12</text><text x="34" y="54">15</text>
-        <text x="0" y="62">18</text><text x="-34" y="54">21</text>
-      </g>
-      <!-- 낮/밤 라벨 -->
-      <text x="45" y="-12" font-size="9" fill="#e65100" font-weight="700">낮</text>
-      <text x="-42" y="-12" font-size="9" fill="#4a148c" font-weight="700">밤</text>
-      <circle cx="0" cy="0" r="4" fill="#4a148c"/>
-    </g>
+ <!-- 24시간 시간-원반(time-wheel) + 완주 메달 -->
+ <svg class="cover-clock" viewBox="0 0 260 200" width="360" height="220">
+ <!-- 24시간 원반 (왼쪽) -->
+ <g transform="translate(90,100)">
+ <circle cx="0" cy="0" r="80" fill="#fff" stroke="#4a148c" stroke-width="3"/>
+ <!-- 낮(6~18) / 밤 색칠 -->
+ <path d="M 0 0 L 0 -80 A 80 80 0 0 1 0 80 Z" fill="#fff59d" opacity="0.7"/>
+ <path d="M 0 0 L 0 80 A 80 80 0 0 1 0 -80 Z" fill="#311b92" opacity="0.2"/>
+ <!-- 24시간 눈금 -->
+ <g stroke="#4a148c" stroke-width="1.5">
+ <line x1="0" y1="-80" x2="0" y2="-72"/>
+ <line x1="40" y1="-69.3" x2="36" y2="-62.4"/>
+ <line x1="69.3" y1="-40" x2="62.4" y2="-36"/>
+ <line x1="80" y1="0" x2="72" y2="0"/>
+ <line x1="69.3" y1="40" x2="62.4" y2="36"/>
+ <line x1="40" y1="69.3" x2="36" y2="62.4"/>
+ <line x1="0" y1="80" x2="0" y2="72"/>
+ <line x1="-40" y1="69.3" x2="-36" y2="62.4"/>
+ <line x1="-69.3" y1="40" x2="-62.4" y2="36"/>
+ <line x1="-80" y1="0" x2="-72" y2="0"/>
+ <line x1="-69.3" y1="-40" x2="-62.4" y2="-36"/>
+ <line x1="-40" y1="-69.3" x2="-36" y2="-62.4"/>
+ </g>
+ <!-- 숫자 -->
+ <g font-size="11" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#4a148c">
+ <text x="0" y="-62">0</text><text x="34" y="-54">3</text><text x="54" y="-34">6</text>
+ <text x="62" y="0">9</text><text x="54" y="34">12</text><text x="34" y="54">15</text>
+ <text x="0" y="62">18</text><text x="-34" y="54">21</text>
+ </g>
+ <!-- 낮/밤 라벨 -->
+ <text x="45" y="-12" font-size="9" fill="#e65100" font-weight="700">낮</text>
+ <text x="-42" y="-12" font-size="9" fill="#4a148c" font-weight="700">밤</text>
+ <circle cx="0" cy="0" r="4" fill="#4a148c"/>
+ </g>
 
-    <!-- 완주 메달 (오른쪽) -->
-    <g transform="translate(210,100)">
-      <!-- 리본 -->
-      <polygon points="-18,-70 -6,-70 -14,-40 -22,-40" fill="#7b1fa2"/>
-      <polygon points="18,-70 6,-70 14,-40 22,-40" fill="#4a148c"/>
-      <!-- 메달 -->
-      <circle cx="0" cy="0" r="42" fill="#ffd54f" stroke="#f57f17" stroke-width="3"/>
-      <circle cx="0" cy="0" r="34" fill="none" stroke="#f57f17" stroke-width="1" stroke-dasharray="2,3"/>
-      <text x="0" y="-6" text-anchor="middle" font-size="16" font-weight="900" fill="#4a148c">L20</text>
-      <text x="0" y="12" text-anchor="middle" font-size="10" font-weight="700" fill="#6a1b9a">완주</text>
-      <!-- 반짝 -->
-      <text x="-32" y="-30" font-size="12">✨</text>
-      <text x="30" y="35" font-size="10">✨</text>
-    </g>
-  </svg>
+ <!-- 완주 메달 (오른쪽) -->
+ <g transform="translate(210,100)">
+ <!-- 리본 -->
+ <polygon points="-18,-70 -6,-70 -14,-40 -22,-40" fill="#7b1fa2"/>
+ <polygon points="18,-70 6,-70 14,-40 22,-40" fill="#4a148c"/>
+ <!-- 메달 -->
+ <circle cx="0" cy="0" r="42" fill="#ffd54f" stroke="#f57f17" stroke-width="3"/>
+ <circle cx="0" cy="0" r="34" fill="none" stroke="#f57f17" stroke-width="1" stroke-dasharray="2,3"/>
+ <text x="0" y="-6" text-anchor="middle" font-size="16" font-weight="900" fill="#4a148c">L20</text>
+ <text x="0" y="12" text-anchor="middle" font-size="10" font-weight="700" fill="#6a1b9a">완주</text>
+ <!-- 반짝 -->
+ <text x="-32" y="-30" font-size="12">✨</text>
+ <text x="30" y="35" font-size="10">✨</text>
+ </g>
+ </svg>
 
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표 (시계 시리즈 총정리)</h3>
-    <ul>
-      <li>정각·5분·1분 단위로 <b>아날로그 시계</b>를 읽고 그릴 수 있다.</li>
-      <li>디지털 ↔ 아날로그, <b>오전/오후 ↔ 24시간제</b>로 자유롭게 바꿀 수 있다.</li>
-      <li>경과 시간·시차·마감 계산 등 <b>배운 기능을 하나로</b> 엮어 쓸 수 있다.</li>
-      <li>내 하루를 시계로 정리해 <b>계획을 세워 실천</b>할 수 있다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#f57f17; background:#fffde7;">
-    <h3 style="color:#e65100;">🏅 완주 축하 인사</h3>
-    <ul>
-      <li>L1의 <b>정각 읽기</b>부터 여기까지 정말 대단해요. 스무 걸음이나 걸어왔어요!</li>
-      <li>이번 L20은 <b>시험이 아니라 프로젝트</b>예요. 나만의 답을 채워 봐요.</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">시계 시리즈 · L20 · 표지</div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표 (시계 시리즈 총정리)</h3>
+ <ul>
+ <li>정각·5분·1분 단위로 <b>아날로그 시계</b>를 읽고 그릴 수 있다.</li>
+ <li>디지털 ↔ 아날로그, <b>오전/오후 ↔ 24시간제</b>로 자유롭게 바꿀 수 있다.</li>
+ <li>경과 시간·시차·마감 계산 등 <b>배운 기능을 하나로</b> 엮어 쓸 수 있다.</li>
+ <li>내 하루를 시계로 정리해 <b>계획을 세워 실천</b>할 수 있다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#f57f17; background:#fffde7;">
+ <h3 style="color:#e65100;">🏅 완주 축하 인사</h3>
+ <ul>
+ <li>L1의 <b>정각 읽기</b>부터 여기까지 정말 대단해요. 스무 걸음이나 걸어왔어요!</li>
+ <li>이번 L20은 <b>시험이 아니라 프로젝트</b>예요. 나만의 답을 채워 봐요.</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">시계 시리즈 · L20 · 표지</div>
 </section>
 
 <!-- 1쪽 -->
 <section class="page">
-  <div class="page-head">
-    <h2>📓 오늘 나의 하루 기록하기</h2>
-    <span class="step">1쪽 · 시간 일기</span>
-  </div>
-  <div class="intro">
-    오늘 하루를 돌아보며 <b>내가 무엇을 몇 시에 했는지</b> 시간 일기를 써 봐요.
-    그 다음 일까지 <b>걸린 시간</b>도 계산해서 채워요. (실제 하루가 아니라 <b>상상 속 하루</b>도 좋아요!)
-  </div>
-  <div class="story">
-    <span class="who">예은</span>예은이의 예시: 아침 <b>7:00 기상</b> → <b>7:30 아침밥</b> → 두 시각 사이는 <b>30분</b>이 걸렸어요.
-    이렇게 시각 두 개를 빼면 <b>걸린 시간</b>이 나와요.
-  </div>
+ <div class="page-head">
+ <h2>📓 오늘 나의 하루 기록하기</h2>
+ <span class="step">1쪽 · 시간 일기</span>
+ </div>
+ <div class="intro">
+ 오늘 하루를 돌아보며 <b>내가 무엇을 몇 시에 했는지</b> 시간 일기를 써 봐요.
+ 그 다음 일까지 <b>걸린 시간</b>도 계산해서 채워요. (실제 하루가 아니라 <b>상상 속 하루</b>도 좋아요!)
+ </div>
+ <div class="story">
+ <span class="who">예은</span>예은이의 예시: 아침 <b>7:00 기상</b> → <b>7:30 아침밥</b> → 두 시각 사이는 <b>30분</b>이 걸렸어요.
+ 이렇게 시각 두 개를 빼면 <b>걸린 시간</b>이 나와요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 나의 시간 일기 (7칸 채우기)</h3><span class="tag">기록·경과 · 6문항</span></div>
-    <p>왼쪽 칸에 <b>시각</b>을 쓰고, 오른쪽 칸에 <b>하는 일</b>을 써요. ①~⑥ 칸의 "걸린 시간"은 <b>다음 줄 시각 − 이번 줄 시각</b>이에요.</p>
-    <table class="calc-table">
-      <tr>
-        <th style="width:6%;">번호</th>
-        <th style="width:22%;">시각 (오전/오후 또는 24시간제)</th>
-        <th style="width:40%;">하는 일</th>
-        <th style="width:32%;">다음 일까지 걸린 시간</th>
-      </tr>
-      <tr>
-        <td>ⓐ</td>
-        <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
-        <td class="left">🌅 <span class="blank wide">&nbsp;</span></td>
-        <td>①  ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-      <tr>
-        <td>ⓑ</td>
-        <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
-        <td class="left">🍚 <span class="blank wide">&nbsp;</span></td>
-        <td>②  ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-      <tr>
-        <td>ⓒ</td>
-        <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
-        <td class="left">🏫 <span class="blank wide">&nbsp;</span></td>
-        <td>③  ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-      <tr>
-        <td>ⓓ</td>
-        <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
-        <td class="left">🍱 <span class="blank wide">&nbsp;</span></td>
-        <td>④  ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-      <tr>
-        <td>ⓔ</td>
-        <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
-        <td class="left">🎒 <span class="blank wide">&nbsp;</span></td>
-        <td>⑤  ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-      <tr>
-        <td>ⓕ</td>
-        <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
-        <td class="left">📺 <span class="blank wide">&nbsp;</span></td>
-        <td>⑥  ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-      <tr>
-        <td>ⓖ</td>
-        <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
-        <td class="left">🛏️ <span class="blank wide">&nbsp;</span></td>
-        <td style="background:#f5f5f5; color:#90a4ae;">(마지막 · 계산 없음)</td>
-      </tr>
-    </table>
-    <div class="tip">💡 <b>계산 팁:</b> "이번 시각"에서 "다음 시각"까지 몇 시간·몇 분 흘렀는지를 써요. 예) 07:00 → 07:30이면 <b>0시간 30분</b>.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 나의 시간 일기 (7칸 채우기)</h3><span class="tag">기록·경과 · 6문항</span></div>
+ <p>왼쪽 칸에 <b>시각</b>을 쓰고, 오른쪽 칸에 <b>하는 일</b>을 써요. ①~⑥ 칸의 "걸린 시간"은 <b>다음 줄 시각 − 이번 줄 시각</b>이에요.</p>
+ <table class="calc-table">
+ <tr>
+ <th style="width:6%;">번호</th>
+ <th style="width:22%;">시각 (오전/오후 또는 24시간제)</th>
+ <th style="width:40%;">하는 일</th>
+ <th style="width:32%;">다음 일까지 걸린 시간</th>
+ </tr>
+ <tr>
+ <td>ⓐ</td>
+ <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
+ <td class="left">🌅 <span class="blank wide">&nbsp;</span></td>
+ <td>① ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ <tr>
+ <td>ⓑ</td>
+ <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
+ <td class="left">🍚 <span class="blank wide">&nbsp;</span></td>
+ <td>② ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ <tr>
+ <td>ⓒ</td>
+ <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
+ <td class="left">🏫 <span class="blank wide">&nbsp;</span></td>
+ <td>③ ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ <tr>
+ <td>ⓓ</td>
+ <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
+ <td class="left">🍱 <span class="blank wide">&nbsp;</span></td>
+ <td>④ ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ <tr>
+ <td>ⓔ</td>
+ <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
+ <td class="left">🎒 <span class="blank wide">&nbsp;</span></td>
+ <td>⑤ ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ <tr>
+ <td>ⓕ</td>
+ <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
+ <td class="left">📺 <span class="blank wide">&nbsp;</span></td>
+ <td>⑥ ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ <tr>
+ <td>ⓖ</td>
+ <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
+ <td class="left">🛏️ <span class="blank wide">&nbsp;</span></td>
+ <td style="background:#f5f5f5; color:#90a4ae;">(마지막 · 계산 없음)</td>
+ </tr>
+ </table>
+ <div class="tip">💡 <b>계산 팁:</b> "이번 시각"에서 "다음 시각"까지 몇 시간·몇 분 흘렀는지를 써요. 예) 07:00 → 07:30이면 <b>0시간 30분</b>.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 내 하루의 5장면 · 시계에 바늘 그리기</h3><span class="tag">아날로그 그리기 · 5문항</span></div>
-    <p>아래 시각에 맞게 <b>짧은바늘(시침)</b>과 <b>긴바늘(분침)</b>을 직접 그려 넣어요.</p>
-    <div class="clock-row">
-      <div class="clock-cell">
-        <svg viewBox="0 0 200 200" width="140" height="140">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#7b1fa2" stroke-width="3"/>
-          <g stroke="#4a148c" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#4a148c"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <circle cx="100" cy="100" r="4" fill="#4a148c"/>
-        </svg>
-        <div class="lbl">⑦ 아침 <b>7:00</b></div>
-        <div class="sub">기상</div>
-      </div>
-      <div class="clock-cell">
-        <svg viewBox="0 0 200 200" width="140" height="140">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#7b1fa2" stroke-width="3"/>
-          <g stroke="#4a148c" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#4a148c"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <circle cx="100" cy="100" r="4" fill="#4a148c"/>
-        </svg>
-        <div class="lbl">⑧ 등교 <b>8:20</b></div>
-        <div class="sub">교문 통과</div>
-      </div>
-      <div class="clock-cell">
-        <svg viewBox="0 0 200 200" width="140" height="140">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#7b1fa2" stroke-width="3"/>
-          <g stroke="#4a148c" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#4a148c"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <circle cx="100" cy="100" r="4" fill="#4a148c"/>
-        </svg>
-        <div class="lbl">⑨ 점심 <b>12:35</b></div>
-        <div class="sub">급식</div>
-      </div>
-    </div>
-    <div class="clock-row">
-      <div class="clock-cell">
-        <svg viewBox="0 0 200 200" width="140" height="140">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#7b1fa2" stroke-width="3"/>
-          <g stroke="#4a148c" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#4a148c"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <circle cx="100" cy="100" r="4" fill="#4a148c"/>
-        </svg>
-        <div class="lbl">⑩ 하교 <b>3:50</b></div>
-        <div class="sub">교문 나감</div>
-      </div>
-      <div class="clock-cell">
-        <svg viewBox="0 0 200 200" width="140" height="140">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#7b1fa2" stroke-width="3"/>
-          <g stroke="#4a148c" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#4a148c"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <circle cx="100" cy="100" r="4" fill="#4a148c"/>
-        </svg>
-        <div class="lbl">⑪ 자기 전 <b>9:15</b></div>
-        <div class="sub">잘 준비</div>
-      </div>
-    </div>
-    <div class="tip">💡 <b>바늘 그리기 팁:</b> 짧은바늘은 <b>숫자 사이의 위치</b>도 신경 써요! 예) 3:50이면 짧은바늘은 3과 4 사이지만 <b>4에 훨씬 가깝게</b> 그려요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 내 하루의 5장면 · 시계에 바늘 그리기</h3><span class="tag">아날로그 그리기 · 5문항</span></div>
+ <p>아래 시각에 맞게 <b>짧은바늘(시침)</b>과 <b>긴바늘(분침)</b>을 직접 그려 넣어요.</p>
+ <div class="clock-row">
+ <div class="clock-cell">
+ <svg viewBox="0 0 200 200" width="140" height="140">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#7b1fa2" stroke-width="3"/>
+ <g stroke="#4a148c" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#4a148c"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <circle cx="100" cy="100" r="4" fill="#4a148c"/>
+ </svg>
+ <div class="lbl">⑦ 아침 <b>7:00</b></div>
+ <div class="sub">기상</div>
+ </div>
+ <div class="clock-cell">
+ <svg viewBox="0 0 200 200" width="140" height="140">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#7b1fa2" stroke-width="3"/>
+ <g stroke="#4a148c" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#4a148c"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <circle cx="100" cy="100" r="4" fill="#4a148c"/>
+ </svg>
+ <div class="lbl">⑧ 등교 <b>8:20</b></div>
+ <div class="sub">교문 통과</div>
+ </div>
+ <div class="clock-cell">
+ <svg viewBox="0 0 200 200" width="140" height="140">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#7b1fa2" stroke-width="3"/>
+ <g stroke="#4a148c" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#4a148c"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <circle cx="100" cy="100" r="4" fill="#4a148c"/>
+ </svg>
+ <div class="lbl">⑨ 점심 <b>12:35</b></div>
+ <div class="sub">급식</div>
+ </div>
+ </div>
+ <div class="clock-row">
+ <div class="clock-cell">
+ <svg viewBox="0 0 200 200" width="140" height="140">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#7b1fa2" stroke-width="3"/>
+ <g stroke="#4a148c" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#4a148c"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <circle cx="100" cy="100" r="4" fill="#4a148c"/>
+ </svg>
+ <div class="lbl">⑩ 하교 <b>3:50</b></div>
+ <div class="sub">교문 나감</div>
+ </div>
+ <div class="clock-cell">
+ <svg viewBox="0 0 200 200" width="140" height="140">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#7b1fa2" stroke-width="3"/>
+ <g stroke="#4a148c" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#4a148c"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <circle cx="100" cy="100" r="4" fill="#4a148c"/>
+ </svg>
+ <div class="lbl">⑪ 자기 전 <b>9:15</b></div>
+ <div class="sub">잘 준비</div>
+ </div>
+ </div>
+ <div class="tip">💡 <b>바늘 그리기 팁:</b> 짧은바늘은 <b>숫자 사이의 위치</b>도 신경 써요! 예) 3:50이면 짧은바늘은 3과 4 사이지만 <b>4에 훨씬 가깝게</b> 그려요.</div>
+ </div>
 
-  <div class="page-foot">시계 시리즈 · L20 · 1쪽 / 3</div>
+ <div class="page-foot">시계 시리즈 · L20 · 1쪽 / 3</div>
 </section>
 
 <!-- 2쪽 -->
 <section class="page">
-  <div class="page-head">
-    <h2>🎯 종합 도전 문제 · 시리즈 총정리</h2>
-    <span class="step">2쪽 · 종합 문제</span>
-  </div>
-  <div class="intro">
-    L1~L19에서 배운 <b>모든 기능</b>이 골고루 섞여 있어요. 친구들 이야기 속에서 시계 기술을 하나씩 꺼내 써 봐요.
-  </div>
+ <div class="page-head">
+ <h2>🎯 종합 도전 문제 · 시리즈 총정리</h2>
+ <span class="step">2쪽 · 종합 문제</span>
+ </div>
+ <div class="intro">
+ L1~L19에서 배운 <b>모든 기능</b>이 골고루 섞여 있어요. 친구들 이야기 속에서 시계 기술을 하나씩 꺼내 써 봐요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 친구들 하루 속 시계 문제</h3><span class="tag">종합 · 6문항</span></div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 친구들 하루 속 시계 문제</h3><span class="tag">종합 · 6문항</span></div>
 
-    <div class="story" style="margin-top:8px;">
-      <span class="who">하은</span><b>⑫ 아날로그 → 디지털.</b> 하은이의 손목시계는 짧은바늘이 <b>2와 3 사이</b>(3에 가까움), 긴바늘이 <b>10</b>을 가리켜요.
-      디지털로 쓰면? &nbsp; <span class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</span>
-    </div>
+ <div class="story" style="margin-top:8px;">
+ <span class="who">하은</span><b>⑫ 아날로그 → 디지털.</b> 하은이의 손목시계는 짧은바늘이 <b>2와 3 사이</b>(3에 가까움), 긴바늘이 <b>10</b>을 가리켜요.
+ 디지털로 쓰면? &nbsp; <span class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</span>
+ </div>
 
-    <div class="story">
-      <span class="who">하영</span><b>⑬ 디지털 → 24시간제.</b> 하영이의 학원 알림은 <b>오후 4:45</b>이에요.
-      이걸 24시간제로 쓰면? &nbsp; <span class="time-chip gold">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</span>
-    </div>
+ <div class="story">
+ <span class="who">하영</span><b>⑬ 디지털 → 24시간제.</b> 하영이의 학원 알림은 <b>오후 4:45</b>이에요.
+ 이걸 24시간제로 쓰면? &nbsp; <span class="time-chip gold">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</span>
+ </div>
 
-    <div class="story">
-      <span class="who">주은</span><b>⑭ 경과 시간.</b> 주은이는 <b>오전 9:20</b>에 봉사활동을 시작해서 <b>오후 1:05</b>에 끝냈어요.
-      봉사활동은 총 몇 시간 몇 분 했나요? &nbsp; ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분
-    </div>
+ <div class="story">
+ <span class="who">주은</span><b>⑭ 경과 시간.</b> 주은이는 <b>오전 9:20</b>에 봉사활동을 시작해서 <b>오후 1:05</b>에 끝냈어요.
+ 봉사활동은 총 몇 시간 몇 분 했나요? &nbsp; ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분
+ </div>
 
-    <div class="story">
-      <span class="who">주현</span><b>⑮ 24시간제 → 오전/오후.</b> 주현이의 기차표에는 출발 <b>18:30</b>, 도착 <b>21:15</b>라고 적혀 있어요.
-      · 출발: 오후 ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분 &nbsp;·&nbsp; 도착: 오후 ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분
-    </div>
+ <div class="story">
+ <span class="who">주현</span><b>⑮ 24시간제 → 오전/오후.</b> 주현이의 기차표에는 출발 <b>18:30</b>, 도착 <b>21:15</b>라고 적혀 있어요.
+ · 출발: 오후 ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분 &nbsp;·&nbsp; 도착: 오후 ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분
+ </div>
 
-    <div class="story">
-      <span class="who">미정</span><b>⑯ 마감·역계산.</b> 미정이는 <b>오후 6:00까지</b> 미술 과제를 제출해야 해요.
-      과제는 <b>2시간</b>이 걸리고, <b>여유 30분</b>을 두고 싶어요.
-      늦어도 몇 시부터 시작해야 하나요? &nbsp; 오후 ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분
-    </div>
+ <div class="story">
+ <span class="who">미정</span><b>⑯ 마감·역계산.</b> 미정이는 <b>오후 6:00까지</b> 미술 과제를 제출해야 해요.
+ 과제는 <b>2시간</b>이 걸리고, <b>여유 30분</b>을 두고 싶어요.
+ 늦어도 몇 시부터 시작해야 하나요? &nbsp; 오후 ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분
+ </div>
 
-    <div class="story">
-      <span class="who">채원</span><b>⑰ 시차.</b> 채원이는 <b>서울</b>에서, 이모는 <b>뉴욕</b>(서울보다 <b>14시간 느림</b>)에 살아요.
-      서울이 <b>오후 9:00</b>일 때, 뉴욕은 몇 월 며칠 몇 시인가요? (같은 날 아침이면 "오전"으로 써요)
-      &nbsp; 뉴욕: ( <span class="blank">&nbsp;</span> ) &nbsp; ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분
-    </div>
+ <div class="story">
+ <span class="who">채원</span><b>⑰ 시차.</b> 채원이는 <b>서울</b>에서, 이모는 <b>뉴욕</b>(서울보다 <b>14시간 느림</b>)에 살아요.
+ 서울이 <b>오후 9:00</b>일 때, 뉴욕은 몇 월 며칠 몇 시인가요? (같은 날 아침이면 "오전"으로 써요)
+ &nbsp; 뉴욕: ( <span class="blank">&nbsp;</span> ) &nbsp; ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분
+ </div>
 
-    <div class="tip">💡 <b>⑰번 힌트:</b> 21:00 − 14:00 = <b>07:00</b>. 서울보다 늦은 시각이므로 <b>같은 날 아침 7:00</b>이에요.</div>
-  </div>
+ <div class="tip">💡 <b>⑰번 힌트:</b> 21:00 − 14:00 = <b>07:00</b>. 서울보다 늦은 시각이므로 <b>같은 날 아침 7:00</b>이에요.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 예은이의 우선순위 · 응용</h3><span class="tag">응용 · 3문항</span></div>
-    <p>예은이는 오늘 <b>오후 4:00</b>에 학교를 마쳤어요. 아래 세 가지 일을 저녁 <b>9:00</b>까지 다 끝내려고 해요.</p>
-    <table class="calc-table">
-      <tr>
-        <th>할 일</th>
-        <th>필요 시간</th>
-        <th>마감</th>
-        <th>우선순위 (1·2·3)</th>
-      </tr>
-      <tr>
-        <td class="left">🥗 저녁 준비·먹기</td>
-        <td>1시간</td>
-        <td>오후 7:00</td>
-        <td>( <span class="blank short">&nbsp;</span> )</td>
-      </tr>
-      <tr>
-        <td class="left">📚 수학 숙제</td>
-        <td>1시간 30분</td>
-        <td>오후 9:00</td>
-        <td>( <span class="blank short">&nbsp;</span> )</td>
-      </tr>
-      <tr>
-        <td class="left">🎨 미술 준비물 챙기기</td>
-        <td>20분</td>
-        <td>오후 5:00</td>
-        <td>( <span class="blank short">&nbsp;</span> )</td>
-      </tr>
-    </table>
-    <p>· ⑱ 마감이 <b>가장 빠른 것</b>부터 1·2·3을 매겨 봐요.</p>
-    <p>· ⑲ 4:00에 시작해서 미술 준비물 20분 → 저녁 준비 1시간 → 수학 숙제 1시간 30분을 <b>이어서</b> 하면, 마지막에 끝나는 시각은? &nbsp; 오후 ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</p>
-    <p>· ⑳ ⑲의 결과가 <b>저녁 9:00 마감</b>보다 빠른가요, 늦은가요? &nbsp; ( <span class="blank">&nbsp;</span> )</p>
-    <div class="note">🌟 <b>실천 팁:</b> 실제 하루에도 이렇게 <b>"제일 급한 것 → 오래 걸리는 것"</b> 순서로 계획하면 마감을 지키기 쉬워요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 예은이의 우선순위 · 응용</h3><span class="tag">응용 · 3문항</span></div>
+ <p>예은이는 오늘 <b>오후 4:00</b>에 학교를 마쳤어요. 아래 세 가지 일을 저녁 <b>9:00</b>까지 다 끝내려고 해요.</p>
+ <table class="calc-table">
+ <tr>
+ <th>할 일</th>
+ <th>필요 시간</th>
+ <th>마감</th>
+ <th>우선순위 (1·2·3)</th>
+ </tr>
+ <tr>
+ <td class="left">🥗 저녁 준비·먹기</td>
+ <td>1시간</td>
+ <td>오후 7:00</td>
+ <td>( <span class="blank short">&nbsp;</span> )</td>
+ </tr>
+ <tr>
+ <td class="left">📚 수학 숙제</td>
+ <td>1시간 30분</td>
+ <td>오후 9:00</td>
+ <td>( <span class="blank short">&nbsp;</span> )</td>
+ </tr>
+ <tr>
+ <td class="left">🎨 미술 준비물 챙기기</td>
+ <td>20분</td>
+ <td>오후 5:00</td>
+ <td>( <span class="blank short">&nbsp;</span> )</td>
+ </tr>
+ </table>
+ <p>· ⑱ 마감이 <b>가장 빠른 것</b>부터 1·2·3을 매겨 봐요.</p>
+ <p>· ⑲ 4:00에 시작해서 미술 준비물 20분 → 저녁 준비 1시간 → 수학 숙제 1시간 30분을 <b>이어서</b> 하면, 마지막에 끝나는 시각은? &nbsp; 오후 ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</p>
+ <p>· ⑳ ⑲의 결과가 <b>저녁 9:00 마감</b>보다 빠른가요, 늦은가요? &nbsp; ( <span class="blank">&nbsp;</span> )</p>
+ <div class="note">🌟 <b>실천 팁:</b> 실제 하루에도 이렇게 <b>"제일 급한 것 → 오래 걸리는 것"</b> 순서로 계획하면 마감을 지키기 쉬워요.</div>
+ </div>
 
-  <div class="page-foot">시계 시리즈 · L20 · 2쪽 / 3</div>
+ <div class="page-foot">시계 시리즈 · L20 · 2쪽 / 3</div>
 </section>
 
 <!-- 3쪽 -->
 <section class="page">
-  <div class="page-head">
-    <h2>🏅 완주 소감 · 나의 시간 계획</h2>
-    <span class="step">3쪽 · 마무리·인증</span>
-  </div>
-  <div class="intro">
-    스무 걸음을 걸어 여기까지 온 <b>나</b>에게 박수! 이번 시리즈에서 배운 걸 돌아보고, 앞으로 시간을 어떻게 쓸지 계획을 써 봐요.
-  </div>
+ <div class="page-head">
+ <h2>🏅 완주 소감 · 나의 시간 계획</h2>
+ <span class="step">3쪽 · 마무리·인증</span>
+ </div>
+ <div class="intro">
+ 스무 걸음을 걸어 여기까지 온 <b>나</b>에게 박수! 이번 시리즈에서 배운 걸 돌아보고, 앞으로 시간을 어떻게 쓸지 계획을 써 봐요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. 시계 시리즈 돌아보기</h3><span class="tag">쓰기 · 3문항</span></div>
-    <p>㉑ 시계 시리즈에서 <b>가장 재미있었던 주제</b>는 무엇이었나요? (예: 정각 읽기, 아날로그↔디지털, 시차 등)</p>
-    <p style="margin-top:2px;"><span class="blank" style="min-width:400px;">&nbsp;</span></p>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 시계 시리즈 돌아보기</h3><span class="tag">쓰기 · 3문항</span></div>
+ <p>㉑ 시계 시리즈에서 <b>가장 재미있었던 주제</b>는 무엇이었나요? (예: 정각 읽기, 아날로그↔디지털, 시차 등)</p>
+ <p style="margin-top:2px;"><span class="blank" style="min-width:400px;">&nbsp;</span></p>
 
-    <p>㉒ 시계 시리즈에서 <b>가장 어려웠던 것</b>은 무엇이었고, 지금은 얼마나 잘하나요?</p>
-    <p style="margin-top:2px;"><span class="blank" style="min-width:400px;">&nbsp;</span></p>
+ <p>㉒ 시계 시리즈에서 <b>가장 어려웠던 것</b>은 무엇이었고, 지금은 얼마나 잘하나요?</p>
+ <p style="margin-top:2px;"><span class="blank" style="min-width:400px;">&nbsp;</span></p>
 
-    <p>㉓ 시계를 잘 볼 수 있게 된 <b>나</b>에게 해 주고 싶은 말은?</p>
-    <p style="margin-top:2px;"><span class="blank" style="min-width:400px;">&nbsp;</span></p>
-  </div>
+ <p>㉓ 시계를 잘 볼 수 있게 된 <b>나</b>에게 해 주고 싶은 말은?</p>
+ <p style="margin-top:2px;"><span class="blank" style="min-width:400px;">&nbsp;</span></p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 6. 내일 나의 시간 계획 세우기</h3><span class="tag">계획 · 2문항</span></div>
-    <p>㉔ 내일 하고 싶은 <b>중요한 일 3가지</b>와 그 <b>시각</b>을 계획해 봐요.</p>
-    <table class="calc-table">
-      <tr>
-        <th style="width:8%;">순서</th>
-        <th style="width:32%;">하고 싶은 일</th>
-        <th style="width:30%;">시작 시각</th>
-        <th style="width:30%;">끝나는 시각</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td class="left"><span class="blank wide">&nbsp;</span></td>
-        <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
-        <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td class="left"><span class="blank wide">&nbsp;</span></td>
-        <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
-        <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td class="left"><span class="blank wide">&nbsp;</span></td>
-        <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
-        <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
-      </tr>
-    </table>
+ <div class="activity">
+ <div class="head"><h3>활동 6. 내일 나의 시간 계획 세우기</h3><span class="tag">계획 · 2문항</span></div>
+ <p>㉔ 내일 하고 싶은 <b>중요한 일 3가지</b>와 그 <b>시각</b>을 계획해 봐요.</p>
+ <table class="calc-table">
+ <tr>
+ <th style="width:8%;">순서</th>
+ <th style="width:32%;">하고 싶은 일</th>
+ <th style="width:30%;">시작 시각</th>
+ <th style="width:30%;">끝나는 시각</th>
+ </tr>
+ <tr>
+ <td>1</td>
+ <td class="left"><span class="blank wide">&nbsp;</span></td>
+ <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
+ <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
+ </tr>
+ <tr>
+ <td>2</td>
+ <td class="left"><span class="blank wide">&nbsp;</span></td>
+ <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
+ <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
+ </tr>
+ <tr>
+ <td>3</td>
+ <td class="left"><span class="blank wide">&nbsp;</span></td>
+ <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
+ <td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td>
+ </tr>
+ </table>
 
-    <p style="margin-top:8px;">㉕ 시간을 <b>더 잘 쓰기 위한 나의 약속</b> 3가지를 써 봐요.</p>
-    <p style="margin:4px 0;">· 첫째, <span class="blank" style="min-width:340px;">&nbsp;</span></p>
-    <p style="margin:4px 0;">· 둘째, <span class="blank" style="min-width:340px;">&nbsp;</span></p>
-    <p style="margin:4px 0;">· 셋째, <span class="blank" style="min-width:340px;">&nbsp;</span></p>
-  </div>
+ <p style="margin-top:8px;">㉕ 시간을 <b>더 잘 쓰기 위한 나의 약속</b> 3가지를 써 봐요.</p>
+ <p style="margin:4px 0;">· 첫째, <span class="blank" style="min-width:340px;">&nbsp;</span></p>
+ <p style="margin:4px 0;">· 둘째, <span class="blank" style="min-width:340px;">&nbsp;</span></p>
+ <p style="margin:4px 0;">· 셋째, <span class="blank" style="min-width:340px;">&nbsp;</span></p>
+ </div>
 
-  <!-- 완주 인증서 -->
-  <div class="certificate">
-    <div style="margin-bottom:4px;"><span class="ribbon">CERTIFICATE</span></div>
-    <h3>🏆 시계 시리즈 완주 인증서 🏆</h3>
-    <div class="body">
-      위 학생은 시계 시리즈 <b>L1(정각)</b>부터 <b>L20(나의 하루)</b>까지<br>
-      <b>스무 단계</b>를 모두 마쳤음을 인증합니다.
-    </div>
-    <div class="body" style="font-size:0.9em; color:#6a1b9a;">
-      정각·5분·1분 읽기 · 아날로그↔디지털 · 오전/오후↔24시간제 · 경과 시간 · 마감 관리 · 시차 계산
-    </div>
-    <div class="sig">
-      <div><b>이름:</b> <span class="line">&nbsp;</span></div>
-      <div><b>날짜:</b> <span class="line">&nbsp;</span></div>
-      <div><b>선생님:</b> <span class="line">&nbsp;</span></div>
-    </div>
-  </div>
+ <!-- 완주 인증서 -->
+ <div class="certificate">
+ <div style="margin-bottom:4px;"><span class="ribbon">CERTIFICATE</span></div>
+ <h3>🏆 시계 시리즈 완주 인증서 🏆</h3>
+ <div class="body">
+ 위 학생은 시계 시리즈 <b>L1(정각)</b>부터 <b>L20(나의 하루)</b>까지<br>
+ <b>스무 단계</b>를 모두 마쳤음을 인증합니다.
+ </div>
+ <div class="body" style="font-size:0.9em; color:#6a1b9a;">
+ 정각·5분·1분 읽기 · 아날로그↔디지털 · 오전/오후↔24시간제 · 경과 시간 · 마감 관리 · 시차 계산
+ </div>
+ <div class="sig">
+ <div><b>이름:</b> <span class="line">&nbsp;</span></div>
+ <div><b>날짜:</b> <span class="line">&nbsp;</span></div>
+ <div><b>선생님:</b> <span class="line">&nbsp;</span></div>
+ </div>
+ </div>
 
-  <div class="note">🎉 <b>축하해요!</b> 이제 시계는 여러분의 <b>든든한 친구</b>예요. 앞으로 하루하루 계획한 대로 잘 살아 봐요!</div>
+ <div class="note">🎉 <b>축하해요!</b> 이제 시계는 여러분의 <b>든든한 친구</b>예요. 앞으로 하루하루 계획한 대로 잘 살아 봐요!</div>
 
-  <div class="page-foot">시계 시리즈 · L20 · 3쪽 / 3 · 완주!</div>
+ <div class="page-foot">시계 시리즈 · L20 · 3쪽 / 3 · 완주!</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

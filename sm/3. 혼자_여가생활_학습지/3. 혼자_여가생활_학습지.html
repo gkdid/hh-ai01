@@ -9,71 +9,71 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body {
-  margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  font-size: 12pt; line-height: 1.65;
+ margin: 0; background: #eceff1; color: #1f2d3d;
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+ font-size: 12pt; line-height: 1.65;
 }
 
 .toolbar {
-  position: sticky; top: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #e65100; color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+ position: sticky; top: 0; z-index: 50;
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 10px 18px; background: #e65100; color: #fff;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .toolbar .muted { color: #ffe0b2; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button {
-  background: #ffd54f; color: #bf360c; border: none; font: inherit; font-weight: 700;
-  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+ background: #ffd54f; color: #bf360c; border: none; font: inherit; font-weight: 700;
+ padding: 8px 18px; border-radius: 6px; cursor: pointer;
 }
 .toolbar button:hover { background: #ffe082; }
 
 .page {
-  width: 210mm; min-height: 297mm;
-  margin: 14mm auto; padding: 16mm 18mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  position: relative; page-break-after: always;
+ width: 210mm; min-height: 297mm;
+ margin: 14mm auto; padding: 16mm 18mm;
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+ position: relative; page-break-after: always;
 }
 .page:last-of-type { page-break-after: auto; }
 
 /* ===== 표지 ===== */
 .page.cover {
-  padding: 22mm 20mm;
-  background: linear-gradient(135deg, #fff 0%, #fff3e0 100%);
+ padding: 22mm 20mm;
+ background: linear-gradient(135deg, #fff 0%, #fff3e0 100%);
 }
 .cover-top {
-  display: flex; justify-content: space-between;
-  font-size: 0.9em; color: #607d8b;
-  border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 22px;
+ display: flex; justify-content: space-between;
+ font-size: 0.9em; color: #607d8b;
+ border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 22px;
 }
 .cover-top .subject { font-weight: 700; color: #e65100; }
 .cover-main { text-align: center; padding: 14px 0 12px; }
 .cover-main .badge {
-  display: inline-block; padding: 6px 18px; border-radius: 20px;
-  background: #e65100; color: #fff; font-weight: 700; font-size: 0.95em;
-  margin-bottom: 12px; letter-spacing: 0.5px;
+ display: inline-block; padding: 6px 18px; border-radius: 20px;
+ background: #e65100; color: #fff; font-weight: 700; font-size: 0.95em;
+ margin-bottom: 12px; letter-spacing: 0.5px;
 }
 .cover-main h1 {
-  margin: 0; font-size: 2.1em; letter-spacing: -1.5px;
-  color: #bf360c; font-weight: 900;
+ margin: 0; font-size: 2.1em; letter-spacing: -1.5px;
+ color: #bf360c; font-weight: 900;
 }
 .cover-main .lead {
-  margin: 8px 0 0; font-size: 1.05em; color: #5d4037; font-weight: 500;
+ margin: 8px 0 0; font-size: 1.05em; color: #5d4037; font-weight: 500;
 }
 .name-box {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 8px; margin: 16px 0;
+ display: grid; grid-template-columns: repeat(3, 1fr);
+ gap: 8px; margin: 16px 0;
 }
 .name-cell { border: 1.5px solid #ffb74d; border-radius: 8px; padding: 10px 12px; }
 .name-cell span { display: block; font-size: 0.78em; color: #e65100; font-weight: 500; }
 .name-cell em { display: block; min-height: 24px; font-style: normal; }
 
 .goal, .info, .toc, .cast {
-  border: 2px solid #ffb74d; border-radius: 10px;
-  padding: 12px 16px; margin-top: 10px; background: #fff3e0;
+ border: 2px solid #ffb74d; border-radius: 10px;
+ padding: 12px 16px; margin-top: 10px; background: #fff3e0;
 }
 .goal h2, .info h2, .toc h2, .cast h2 {
-  margin: 0 0 6px; font-size: 1.05em; color: #bf360c;
-  border-bottom: 1px dashed #ffa726; padding-bottom: 5px;
+ margin: 0 0 6px; font-size: 1.05em; color: #bf360c;
+ border-bottom: 1px dashed #ffa726; padding-bottom: 5px;
 }
 .goal ul { margin: 4px 0 0; padding-left: 20px; }
 .goal li { padding: 2px 0; }
@@ -83,10 +83,10 @@ body {
 
 .cast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 .person {
-  display: flex; align-items: center; gap: 8px;
-  padding: 7px 10px; background: #fff;
-  border: 1px solid #cfd8dc; border-radius: 8px;
-  font-weight: 500; color: #37474f; font-size: 0.92em;
+ display: flex; align-items: center; gap: 8px;
+ padding: 7px 10px; background: #fff;
+ border: 1px solid #cfd8dc; border-radius: 8px;
+ font-weight: 500; color: #37474f; font-size: 0.92em;
 }
 .person strong { color: #bf360c; font-weight: 700; }
 .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
@@ -95,48 +95,48 @@ body {
 
 /* ===== 쪽 머리 ===== */
 .ph {
-  display: flex; align-items: center; gap: 16px;
-  border-bottom: 3px solid #e65100; padding-bottom: 12px; margin-bottom: 18px;
+ display: flex; align-items: center; gap: 16px;
+ border-bottom: 3px solid #e65100; padding-bottom: 12px; margin-bottom: 18px;
 }
 .ph-num {
-  flex-shrink: 0; width: 60px; height: 60px;
-  background: #e65100; color: #ffd54f;
-  font-family: 'Noto Serif KR', serif;
-  font-size: 1.5em; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; border-radius: 10px;
-  text-align: center; line-height: 1;
+ flex-shrink: 0; width: 60px; height: 60px;
+ background: #e65100; color: #ffd54f;
+ font-family: 'Noto Serif KR', serif;
+ font-size: 1.5em; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; border-radius: 10px;
+ text-align: center; line-height: 1;
 }
 .ph-title h2 { margin: 0; font-size: 1.4em; color: #bf360c; }
 .ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.95em; }
 
 /* ===== 본문 글 ===== */
 .story {
-  background: #fff; border: 2px solid #ffcc80; border-radius: 8px;
-  padding: 12px 16px; margin: 8px 0 12px; line-height: 1.85;
+ background: #fff; border: 2px solid #ffcc80; border-radius: 8px;
+ padding: 12px 16px; margin: 8px 0 12px; line-height: 1.85;
 }
 .story p { margin: 0 0 6px; }
 
 .scene {
-  background: #fff8e1; border-left: 6px solid #ffb300;
-  border-radius: 6px; padding: 12px 16px; margin-bottom: 14px;
+ background: #fff8e1; border-left: 6px solid #ffb300;
+ border-radius: 6px; padding: 12px 16px; margin-bottom: 14px;
 }
 .scene p { margin: 0; }
 
 .tip {
-  background: #fff3e0; border-left: 5px solid #ef6c00;
-  border-radius: 6px; padding: 10px 14px; margin: 10px 0;
+ background: #fff3e0; border-left: 5px solid #ef6c00;
+ border-radius: 6px; padding: 10px 14px; margin: 10px 0;
 }
 .tip .tip-title { display: block; font-weight: 700; color: #bf360c; margin-bottom: 4px; }
 
 .warm {
-  background: #fce4ec; border-left: 6px solid #c2185b;
-  border-radius: 6px; padding: 10px 14px; margin: 10px 0;
+ background: #fce4ec; border-left: 6px solid #c2185b;
+ border-radius: 6px; padding: 10px 14px; margin: 10px 0;
 }
 .warm .tip-title { display: block; font-weight: 700; color: #880e4f; margin-bottom: 4px; }
 
 .calm {
-  background: #f3e5f5; border-left: 6px solid #7b1fa2;
-  border-radius: 6px; padding: 10px 14px; margin: 10px 0;
+ background: #f3e5f5; border-left: 6px solid #7b1fa2;
+ border-radius: 6px; padding: 10px 14px; margin: 10px 0;
 }
 .calm .tip-title { display: block; font-weight: 700; color: #4a148c; margin-bottom: 4px; }
 
@@ -145,9 +145,9 @@ body {
 .turn { display: flex; align-items: flex-start; gap: 10px; margin: 6px 0; }
 .turn.right { flex-direction: row-reverse; }
 .tag {
-  flex-shrink: 0; min-width: 60px; padding: 5px 10px;
-  background: #cfd8dc; color: #263238;
-  border-radius: 18px; font-weight: 700; font-size: 0.9em; text-align: center;
+ flex-shrink: 0; min-width: 60px; padding: 5px 10px;
+ background: #cfd8dc; color: #263238;
+ border-radius: 18px; font-weight: 700; font-size: 0.9em; text-align: center;
 }
 .tag.d1 { background: #FFCDD2; }
 .tag.d2 { background: #B2EBF2; }
@@ -156,28 +156,28 @@ body {
 .tag.d5 { background: #C8E6C9; }
 .tag.d6 { background: #F8BBD0; }
 .bubble {
-  background: #fff; padding: 7px 12px;
-  border: 1.5px solid #cfd8dc; border-radius: 14px;
-  max-width: 80%;
+ background: #fff; padding: 7px 12px;
+ border: 1.5px solid #cfd8dc; border-radius: 14px;
+ max-width: 80%;
 }
 .turn.right .bubble { background: #fff3e0; border-color: #ffcc80; }
 
 /* ===== 대비 박스 (외로움 vs 혼자 시간) ===== */
 .compare {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-  margin: 8px 0;
+ display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+ margin: 8px 0;
 }
 .compare-card {
-  border-radius: 10px; padding: 10px 14px;
+ border-radius: 10px; padding: 10px 14px;
 }
 .compare-card.left {
-  background: #eceff1; border: 1.5px solid #90a4ae;
+ background: #eceff1; border: 1.5px solid #90a4ae;
 }
 .compare-card.right {
-  background: #fff3e0; border: 1.5px solid #ffb74d;
+ background: #fff3e0; border: 1.5px solid #ffb74d;
 }
 .compare-card h4 {
-  margin: 0 0 4px; font-size: 1em;
+ margin: 0 0 4px; font-size: 1em;
 }
 .compare-card.left h4 { color: #455a64; }
 .compare-card.right h4 { color: #bf360c; }
@@ -186,193 +186,193 @@ body {
 
 /* ===== 활동 카드 ===== */
 .cat-title {
-  display: inline-block; background: #ffd54f; color: #bf360c;
-  padding: 4px 14px; border-radius: 16px; font-size: 0.95em;
-  margin: 8px 0 6px;
+ display: inline-block; background: #ffd54f; color: #bf360c;
+ padding: 4px 14px; border-radius: 16px; font-size: 0.95em;
+ margin: 8px 0 6px;
 }
 .act-grid {
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px;
-  margin-bottom: 6px;
+ display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px;
+ margin-bottom: 6px;
 }
 .act {
-  background: #fff3e0; border: 1.5px solid #ffcc80; border-radius: 8px;
-  padding: 6px 4px; text-align: center;
-  font-size: 0.85em;
+ background: #fff3e0; border: 1.5px solid #ffcc80; border-radius: 8px;
+ padding: 6px 4px; text-align: center;
+ font-size: 0.85em;
 }
 .act .icon { display: block; font-size: 1.4em; line-height: 1.1; }
 .act strong { display: block; color: #5d4037; margin-top: 2px; font-size: 0.92em; }
 
 /* ===== 비용 표 ===== */
 table.tbl {
-  width: 100%; border-collapse: collapse; margin: 8px 0;
+ width: 100%; border-collapse: collapse; margin: 8px 0;
 }
 .tbl th, .tbl td {
-  border: 1px solid #ffb74d; padding: 6px 10px;
-  text-align: left; font-size: 0.95em;
+ border: 1px solid #ffb74d; padding: 6px 10px;
+ text-align: left; font-size: 0.95em;
 }
 .tbl th {
-  background: #e65100; color: #fff;
-  font-weight: 700; text-align: center;
+ background: #e65100; color: #fff;
+ font-weight: 700; text-align: center;
 }
 .tbl tr:nth-child(even) td { background: #fff8e1; }
 
 /* ===== 일주일 표 ===== */
 table.week {
-  width: 100%; border-collapse: collapse; margin: 8px 0;
-  font-size: 0.92em;
+ width: 100%; border-collapse: collapse; margin: 8px 0;
+ font-size: 0.92em;
 }
 .week th, .week td {
-  border: 1px solid #ffb74d; padding: 7px 6px;
-  text-align: center;
-  height: 38px;
+ border: 1px solid #ffb74d; padding: 7px 6px;
+ text-align: center;
+ height: 38px;
 }
 .week th {
-  background: #e65100; color: #fff;
-  font-weight: 700;
+ background: #e65100; color: #fff;
+ font-weight: 700;
 }
 .week td.label {
-  background: #fff8e1; font-weight: 600; color: #bf360c;
-  width: 14%;
+ background: #fff8e1; font-weight: 600; color: #bf360c;
+ width: 14%;
 }
 
 /* ===== 5가지 태도 카드 ===== */
 .attitude-grid {
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
-  margin: 8px 0;
+ display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px;
+ margin: 8px 0;
 }
 .att {
-  background: #fff3e0; border: 1.5px solid #ffb74d; border-radius: 10px;
-  padding: 8px; text-align: center;
+ background: #fff3e0; border: 1.5px solid #ffb74d; border-radius: 10px;
+ padding: 8px; text-align: center;
 }
 .att .num {
-  display: inline-block; width: 26px; height: 26px;
-  background: #e65100; color: #fff; border-radius: 50%;
-  font-weight: 700; line-height: 26px; margin-bottom: 4px;
-  font-size: 0.9em;
+ display: inline-block; width: 26px; height: 26px;
+ background: #e65100; color: #fff; border-radius: 50%;
+ font-weight: 700; line-height: 26px; margin-bottom: 4px;
+ font-size: 0.9em;
 }
 .att strong { display: block; color: #bf360c; font-size: 0.92em; }
 .att small { display: block; color: #5d4037; font-size: 0.82em; margin-top: 2px; }
 
 /* ===== 문제 ===== */
 .practice h3 {
-  display: inline-block; background: #ffd54f; color: #bf360c;
-  padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
+ display: inline-block; background: #ffd54f; color: #bf360c;
+ padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
 }
 .q {
-  position: relative;
-  padding-left: 42px;
-  margin-bottom: 12px; padding-bottom: 10px;
-  border-bottom: 1px dashed #cfd8dc;
+ position: relative;
+ padding-left: 42px;
+ margin-bottom: 12px; padding-bottom: 10px;
+ border-bottom: 1px dashed #cfd8dc;
 }
 .q:last-child { border-bottom: none; }
 .q .no {
-  position: absolute; left: 0; top: 0;
-  width: 30px; height: 30px;
-  background: #e65100; color: #fff;
-  border-radius: 50%; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; font-size: 0.92em;
+ position: absolute; left: 0; top: 0;
+ width: 30px; height: 30px;
+ background: #e65100; color: #fff;
+ border-radius: 50%; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; font-size: 0.92em;
 }
 .q p { margin: 0 0 6px; }
 .q .sub-q { margin-top: 5px; font-weight: 500; color: #455a64; }
 
 .choice-box {
-  background: #fffde7; border: 1.5px solid #fdd835;
-  border-radius: 8px; padding: 7px 14px; margin: 6px 0;
-  font-weight: 500;
+ background: #fffde7; border: 1.5px solid #fdd835;
+ border-radius: 8px; padding: 7px 14px; margin: 6px 0;
+ font-weight: 500;
 }
 .choice-box::before { content: "<보기> "; font-weight: 700; color: #f57f17; }
 
 .blank {
-  display: inline-block; border-bottom: 1.5px solid #263238;
-  min-width: 70px; height: 22px; vertical-align: baseline;
+ display: inline-block; border-bottom: 1.5px solid #263238;
+ min-width: 70px; height: 22px; vertical-align: baseline;
 }
 .blank.long { min-width: 220px; }
 
 .lines {
-  background-image: repeating-linear-gradient(
-    to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px
-  );
-  height: 34px; margin: 4px 0;
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px
+ );
+ height: 34px; margin: 4px 0;
 }
 .lines.two { height: 68px; }
 .lines.three { height: 102px; }
 
 .pledge {
-  background: #fff8e1; border: 2px dashed #f57c00;
-  border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+ background: #fff8e1; border: 2px dashed #f57c00;
+ border-radius: 8px; padding: 12px 16px; margin: 10px 0;
 }
 .pledge h4 { margin: 0 0 6px; color: #e65100; font-size: 1.05em; }
 
 .self-check {
-  background: #f1f8e9; border: 1.5px solid #aed581;
-  border-radius: 8px; padding: 12px 16px; margin-top: 14px;
+ background: #f1f8e9; border: 1.5px solid #aed581;
+ border-radius: 8px; padding: 12px 16px; margin-top: 14px;
 }
 .self-check h4 { margin: 0 0 6px; color: #33691e; font-size: 1em; }
 .self-check label { display: block; padding: 2px 0; }
 .self-check input[type=checkbox] {
-  margin-right: 8px; width: 16px; height: 16px;
-  accent-color: #7cb342; vertical-align: middle;
+ margin-right: 8px; width: 16px; height: 16px;
+ accent-color: #7cb342; vertical-align: middle;
 }
 
 .page-no {
-  position: absolute; bottom: 8mm; right: 18mm;
-  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
+ position: absolute; bottom: 8mm; right: 18mm;
+ color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
 }
 
 /* ===== 인쇄 ===== */
 @media print {
-  @page { size: A4 portrait; margin: 0; }
-  html, body {
-    background: #fff !important; margin: 0; padding: 0;
-    font-size: 10pt; line-height: 1.38;
-  }
-  .toolbar, .no-print { display: none !important; }
-  .page {
-    width: 210mm; min-height: 297mm;
-    margin: 0 !important; padding: 10mm 13mm;
-    box-shadow: none; border: none;
-    page-break-after: always; break-after: page;
-  }
-  .page:last-of-type { page-break-after: auto; }
-  .q, .scene, .tip, .warm, .calm, .story, .dialogue, .compare,
-  .act-grid, .attitude-grid, .self-check, .pledge,
-  .name-box, .goal, .info, .toc, .cast, .ph, table.tbl, table.week, tr {
-    page-break-inside: avoid !important; break-inside: avoid !important;
-  }
-  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-  h1 { font-size: 1.8em; margin: 0; }
-  h2 { font-size: 1.18em; margin: 0 0 4px; }
-  h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
-  p { margin: 0 0 3px; }
-  ul, ol { margin: 3px 0; }
-  .page.cover { padding: 16mm 16mm; }
-  .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
-  .ph-num { width: 46px; height: 46px; font-size: 1.2em; border-radius: 8px; }
-  .ph-title h2 { font-size: 1.18em; }
-  .scene, .tip, .warm, .calm, .story { padding: 7px 12px; margin: 4px 0 8px; }
-  .dialogue { padding: 7px; margin: 4px 0 8px; }
-  .turn { margin: 3px 0; gap: 6px; }
-  .tag { min-width: 50px; padding: 3px 7px; font-size: 0.82em; }
-  .bubble { padding: 5px 9px; font-size: 0.92em; }
-  .compare { gap: 6px; }
-  .compare-card { padding: 7px 10px; }
-  .act-grid, .attitude-grid { gap: 4px; }
-  .act { padding: 4px 2px; font-size: 0.78em; }
-  .act .icon { font-size: 1.1em; }
-  .att { padding: 6px; }
-  .att .num { width: 22px; height: 22px; line-height: 22px; }
-  .tbl th, .tbl td { padding: 4px 7px; font-size: 0.88em; }
-  .week th, .week td { padding: 4px; height: 28px; font-size: 0.85em; }
-  .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
-  .q .no { width: 26px; height: 26px; font-size: 0.88em; }
-  .lines { height: 26px;
-    background-image: repeating-linear-gradient(
-      to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
-  .lines.two { height: 52px; }
-  .lines.three { height: 78px; }
-  .self-check { padding: 7px 12px; margin-top: 8px; }
-  .pledge { padding: 8px 12px; margin: 6px 0; }
-  .page-no { bottom: 6mm; right: 14mm; }
+ @page { size: A4 portrait; margin: 0; }
+ html, body {
+ background: #fff !important; margin: 0; padding: 0;
+ font-size: 10pt; line-height: 1.38;
+ }
+ .toolbar, .no-print { display: none !important; }
+ .page {
+ width: 210mm; min-height: 297mm;
+ margin: 0 !important; padding: 10mm 13mm;
+ box-shadow: none; border: none;
+ page-break-after: always; break-after: page;
+ }
+ .page:last-of-type { page-break-after: auto; }
+ .q, .scene, .tip, .warm, .calm, .story, .dialogue, .compare,
+ .act-grid, .attitude-grid, .self-check, .pledge,
+ .name-box, .goal, .info, .toc, .cast, .ph, table.tbl, table.week, tr {
+ page-break-inside: avoid !important; break-inside: avoid !important;
+ }
+ h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+ h1 { font-size: 1.8em; margin: 0; }
+ h2 { font-size: 1.18em; margin: 0 0 4px; }
+ h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
+ p { margin: 0 0 3px; }
+ ul, ol { margin: 3px 0; }
+ .page.cover { padding: 16mm 16mm; }
+ .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
+ .ph-num { width: 46px; height: 46px; font-size: 1.2em; border-radius: 8px; }
+ .ph-title h2 { font-size: 1.18em; }
+ .scene, .tip, .warm, .calm, .story { padding: 7px 12px; margin: 4px 0 8px; }
+ .dialogue { padding: 7px; margin: 4px 0 8px; }
+ .turn { margin: 3px 0; gap: 6px; }
+ .tag { min-width: 50px; padding: 3px 7px; font-size: 0.82em; }
+ .bubble { padding: 5px 9px; font-size: 0.92em; }
+ .compare { gap: 6px; }
+ .compare-card { padding: 7px 10px; }
+ .act-grid, .attitude-grid { gap: 4px; }
+ .act { padding: 4px 2px; font-size: 0.78em; }
+ .act .icon { font-size: 1.1em; }
+ .att { padding: 6px; }
+ .att .num { width: 22px; height: 22px; line-height: 22px; }
+ .tbl th, .tbl td { padding: 4px 7px; font-size: 0.88em; }
+ .week th, .week td { padding: 4px; height: 28px; font-size: 0.85em; }
+ .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
+ .q .no { width: 26px; height: 26px; font-size: 0.88em; }
+ .lines { height: 26px;
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
+ .lines.two { height: 52px; }
+ .lines.three { height: 78px; }
+ .self-check { padding: 7px 12px; margin-top: 8px; }
+ .pledge { padding: 8px 12px; margin: 6px 0; }
+ .page-no { bottom: 6mm; right: 14mm; }
 }
 
 
@@ -381,342 +381,342 @@ table.week {
 <body>
 
 <div class="toolbar no-print">
-  <div><strong>나만의 시간 — 혼자 즐기는 여가생활</strong>
-    <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
-  </div>
-  <button onclick="window.print()">🖨️ 인쇄하기</button>
+ <div><strong>나만의 시간 — 혼자 즐기는 여가생활</strong>
+ <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
+ </div>
+ <button onclick="window.print">🖨️ 인쇄하기</button>
 </div>
 
 <!-- =================================================== -->
 <!-- 표지 -->
 <!-- =================================================== -->
 <section class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">국어 · 사회성</span> &nbsp;|&nbsp; 고등학교 특수학급</div>
-    <div>2026학년도 1학기</div>
-  </div>
+ <div class="cover-top">
+ <div><span class="subject">국어 · 사회성</span> &nbsp;|&nbsp; 고등학교 </div>
+ <div>2026학년도 1학기</div>
+ </div>
 
-  <div class="cover-main">
-    <span class="badge">🌿 나만의 여가 학습지</span>
-    <h1>나만의 시간</h1>
-    <p class="lead">혼자서도 충분히 즐겁고 단단한 하루를 만들어 봐요.</p>
-  </div>
+ <div class="cover-main">
+ <span class="badge">🌿 나만의 여가 학습지</span>
+ <h1>나만의 시간</h1>
+ <p class="lead">혼자서도 충분히 즐겁고 단단한 하루를 만들어 봐요.</p>
+ </div>
 
-  <div class="name-box">
-    <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
-    <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
-    <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
-  </div>
+ <div class="name-box">
+ <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
+ <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
+ <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
+ </div>
 
-  <div class="info">
-    <h2>🌼 친구가 많아야 잘 사는 걸까요?</h2>
-    <p>친구가 많은 사람도, 적은 사람도, 자주 만나는 사람도, 가끔 만나는 사람도
-       모두 <strong>각자의 방식</strong>으로 잘 살아가요.
-       오늘은 <strong>‘혼자만의 시간’</strong>을 어떻게 즐겁고 알차게 보낼지 함께 살펴봐요.
-       혼자 있는 시간을 잘 보내는 사람이 친구와 만났을 때도 더 행복하답니다.</p>
-  </div>
+ <div class="info">
+ <h2>🌼 친구가 많아야 잘 사는 걸까요?</h2>
+ <p>친구가 많은 사람도, 적은 사람도, 자주 만나는 사람도, 가끔 만나는 사람도
+ 모두 <strong>각자의 방식</strong>으로 잘 살아가요.
+ 오늘은 <strong>‘혼자만의 시간’</strong>을 어떻게 즐겁고 알차게 보낼지 함께 살펴봐요.
+ 혼자 있는 시간을 잘 보내는 사람이 친구와 만났을 때도 더 행복하답니다.</p>
+ </div>
 
-  <div class="cast">
-    <h2>👫 오늘의 친구들</h2>
-    <div class="cast-grid">
-      <div class="person"><span class="dot d1"></span><strong>채원</strong>(나)</div>
-      <div class="person"><span class="dot d6"></span><strong>하영</strong>(책 좋아함)</div>
-      <div class="person"><span class="dot d2"></span><strong>하은</strong>(그림 좋아함)</div>
-      <div class="person"><span class="dot d4"></span><strong>주은</strong>(친구 많음)</div>
-      <div class="person"><span class="dot d5"></span><strong>예은</strong>(혼자 시간 어려움)</div>
-      <div class="person"><span class="dot d3"></span><strong>주현</strong>(산책 좋아함)</div>
-    </div>
-  </div>
+ <div class="cast">
+ <h2>👫 오늘의 친구들</h2>
+ <div class="cast-grid">
+ <div class="person"><span class="dot d1"></span><strong>채원</strong>(나)</div>
+ <div class="person"><span class="dot d6"></span><strong>하영</strong>(책 좋아함)</div>
+ <div class="person"><span class="dot d2"></span><strong>하은</strong>(그림 좋아함)</div>
+ <div class="person"><span class="dot d4"></span><strong>주은</strong>(친구 많음)</div>
+ <div class="person"><span class="dot d5"></span><strong>예은</strong>(혼자 시간 어려움)</div>
+ <div class="person"><span class="dot d3"></span><strong>주현</strong>(산책 좋아함)</div>
+ </div>
+ </div>
 
-  <div class="toc">
-    <h2>📚 차례</h2>
-    <ol>
-      <li>친구가 꼭 많아야 할까? — 혼자 시간의 가치</li>
-      <li>혼자 즐기는 여가 활동 — 다양한 활동 알기</li>
-      <li>나만의 여가 시간 만들기 — 시간·비용 계획</li>
-      <li>나의 여가 다짐 — 자기 발견과 약속</li>
-    </ol>
-  </div>
+ <div class="toc">
+ <h2>📚 차례</h2>
+ <ol>
+ <li>친구가 꼭 많아야 할까? — 혼자 시간의 가치</li>
+ <li>혼자 즐기는 여가 활동 — 다양한 활동 알기</li>
+ <li>나만의 여가 시간 만들기 — 시간·비용 계획</li>
+ <li>나의 여가 다짐 — 자기 발견과 약속</li>
+ </ol>
+ </div>
 
-  <div class="page-no">— 1 —</div>
+ <div class="page-no">— 1 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 1. 친구가 꼭 많아야 할까? -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">1</div>
-    <div class="ph-title">
-      <h2>친구가 꼭 많아야 할까?</h2>
-      <p>혼자 있는 시간은 외로움이 아니라, 나를 채우는 소중한 시간이에요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">1</div>
+ <div class="ph-title">
+ <h2>친구가 꼭 많아야 할까?</h2>
+ <p>혼자 있는 시간은 외로움이 아니라, 나를 채우는 소중한 시간이에요.</p>
+ </div>
+ </div>
 
-  <div class="story">
-    <p>‘친구가 많아야 인기 많은 사람’, ‘주말마다 친구를 만나야 잘 사는 거다’라는 생각을 한 적 있나요?
-       사실은 그렇지 않아요. 친구는 <strong>많은 것보다 마음이 통하는 사람 한두 명</strong>으로도 충분해요.
-       자주 만나는 것보다 <strong>가끔 만나도 진심을 나누는 것</strong>이 더 중요하지요.
-       그리고 <strong>혼자 있는 시간을 잘 보내는 사람</strong>이 친구와 만났을 때도 더 즐겁게 어울릴 수 있어요.</p>
-  </div>
+ <div class="story">
+ <p>‘친구가 많아야 인기 많은 사람’, ‘주말마다 친구를 만나야 잘 사는 거다’라는 생각을 한 적 있나요?
+ 사실은 그렇지 않아요. 친구는 <strong>많은 것보다 마음이 통하는 사람 한두 명</strong>으로도 충분해요.
+ 자주 만나는 것보다 <strong>가끔 만나도 진심을 나누는 것</strong>이 더 중요하지요.
+ 그리고 <strong>혼자 있는 시간을 잘 보내는 사람</strong>이 친구와 만났을 때도 더 즐겁게 어울릴 수 있어요.</p>
+ </div>
 
-  <div class="dialogue">
-    <div class="turn"><span class="tag d4">주은</span>
-      <div class="bubble">주말에 다 같이 안 만나면 친구 없는 사람 같지 않아? 난 매주 만나야 안심이 돼.</div></div>
-    <div class="turn right"><span class="tag d1">채원</span>
-      <div class="bubble">난 혼자 책 읽고 산책하는 시간이 좋아. <strong>친구는 가끔 봐도</strong> 충분히 친한걸 ☺</div></div>
-  </div>
+ <div class="dialogue">
+ <div class="turn"><span class="tag d4">주은</span>
+ <div class="bubble">주말에 다 같이 안 만나면 친구 없는 사람 같지 않아? 난 매주 만나야 안심이 돼.</div></div>
+ <div class="turn right"><span class="tag d1">채원</span>
+ <div class="bubble">난 혼자 책 읽고 산책하는 시간이 좋아. <strong>친구는 가끔 봐도</strong> 충분히 친한걸 ☺</div></div>
+ </div>
 
-  <div class="compare">
-    <div class="compare-card left">
-      <h4>😔 외로움</h4>
-      <ul>
-        <li>마음이 비어 있는 느낌</li>
-        <li>아무것도 하기 싫음</li>
-        <li>스마트폰만 계속 봄</li>
-        <li>자꾸 누군가가 그리움</li>
-      </ul>
-    </div>
-    <div class="compare-card right">
-      <h4>🌿 나만의 시간(고독)</h4>
-      <ul>
-        <li>마음이 차분해지는 느낌</li>
-        <li>좋아하는 일에 집중함</li>
-        <li>나에 대해 생각해 봄</li>
-        <li>에너지가 다시 채워짐</li>
-      </ul>
-    </div>
-  </div>
+ <div class="compare">
+ <div class="compare-card left">
+ <h4>😔 외로움</h4>
+ <ul>
+ <li>마음이 비어 있는 느낌</li>
+ <li>아무것도 하기 싫음</li>
+ <li>스마트폰만 계속 봄</li>
+ <li>자꾸 누군가가 그리움</li>
+ </ul>
+ </div>
+ <div class="compare-card right">
+ <h4>🌿 나만의 시간(고독)</h4>
+ <ul>
+ <li>마음이 차분해지는 느낌</li>
+ <li>좋아하는 일에 집중함</li>
+ <li>나에 대해 생각해 봄</li>
+ <li>에너지가 다시 채워짐</li>
+ </ul>
+ </div>
+ </div>
 
-  <div class="tip"><span class="tip-title">💡 혼자만의 시간이 주는 5가지 좋은 점</span>
-    ① 마음을 차분히 정리할 수 있어요.&nbsp; ② 에너지가 다시 채워져요.&nbsp;
-    ③ 내가 진짜 좋아하는 것을 발견해요.&nbsp; ④ 취미를 깊이 즐길 수 있어요.&nbsp;
-    ⑤ 나를 더 사랑하게 돼요.</div>
+ <div class="tip"><span class="tip-title">💡 혼자만의 시간이 주는 5가지 좋은 점</span>
+ ① 마음을 차분히 정리할 수 있어요.&nbsp; ② 에너지가 다시 채워져요.&nbsp;
+ ③ 내가 진짜 좋아하는 것을 발견해요.&nbsp; ④ 취미를 깊이 즐길 수 있어요.&nbsp;
+ ⑤ 나를 더 사랑하게 돼요.</div>
 
-  <div class="practice">
-    <h3>📝 생각 풀어보기</h3>
+ <div class="practice">
+ <h3>📝 생각 풀어보기</h3>
 
-    <div class="q"><div class="no">1</div>
-      <p>“친구는 많을수록 좋다”라는 말에 대해, 윗 글을 읽고 <strong>나의 생각</strong>을 한두 줄로 써 봅시다.</p>
-      <div class="lines two"></div>
-    </div>
+ <div class="q"><div class="no">1</div>
+ <p>“친구는 많을수록 좋다”라는 말에 대해, 윗 글을 읽고 <strong>나의 생각</strong>을 한두 줄로 써 봅시다.</p>
+ <div class="lines two"></div>
+ </div>
 
-    <div class="q"><div class="no">2</div>
-      <p>다음 상황이 <strong>‘외로움’</strong>인지 <strong>‘나만의 시간(고독)’</strong>인지 골라 적어 봅시다.</p>
-      <div class="choice-box">외로움, 나만의 시간</div>
-      <p class="sub-q">① 도서관에서 좋아하는 책에 푹 빠져 한 시간 동안 읽었다. → ( <span class="blank"></span> )</p>
-      <p class="sub-q">② 혼자 방에 누워 스마트폰을 두 시간째 의미 없이 넘기고 있다. → ( <span class="blank"></span> )</p>
-      <p class="sub-q">③ 산책하며 봄꽃을 보니 마음이 가벼워졌다. → ( <span class="blank"></span> )</p>
-      <p class="sub-q">④ 친구들 SNS를 보면서 ‘나만 빼고 다 만나는 것 같다’고 마음이 무거워졌다. → ( <span class="blank"></span> )</p>
-    </div>
+ <div class="q"><div class="no">2</div>
+ <p>다음 상황이 <strong>‘외로움’</strong>인지 <strong>‘나만의 시간(고독)’</strong>인지 골라 적어 봅시다.</p>
+ <div class="choice-box">외로움, 나만의 시간</div>
+ <p class="sub-q">① 도서관에서 좋아하는 책에 푹 빠져 한 시간 동안 읽었다. → ( <span class="blank"></span> )</p>
+ <p class="sub-q">② 혼자 방에 누워 스마트폰을 두 시간째 의미 없이 넘기고 있다. → ( <span class="blank"></span> )</p>
+ <p class="sub-q">③ 산책하며 봄꽃을 보니 마음이 가벼워졌다. → ( <span class="blank"></span> )</p>
+ <p class="sub-q">④ 친구들 SNS를 보면서 ‘나만 빼고 다 만나는 것 같다’고 마음이 무거워졌다. → ( <span class="blank"></span> )</p>
+ </div>
 
-    <div class="q"><div class="no">3</div>
-      <p>다음 중 <strong>알맞은 생각</strong>은 ⭕, <strong>고쳐야 할 생각</strong>은 ❌ 표시해 봅시다.</p>
-      <p class="sub-q">① 친구가 적으면 인기 없는 사람이다. → ( <span class="blank"></span> )</p>
-      <p class="sub-q">② 가끔 만나도 마음이 통하면 좋은 친구다. → ( <span class="blank"></span> )</p>
-      <p class="sub-q">③ 혼자 있는 시간은 외로워서 피해야 한다. → ( <span class="blank"></span> )</p>
-      <p class="sub-q">④ 혼자도 잘 지내는 사람이 친구와도 잘 지낸다. → ( <span class="blank"></span> )</p>
-    </div>
-  </div>
+ <div class="q"><div class="no">3</div>
+ <p>다음 중 <strong>알맞은 생각</strong>은 ⭕, <strong>고쳐야 할 생각</strong>은 ❌ 표시해 봅시다.</p>
+ <p class="sub-q">① 친구가 적으면 인기 없는 사람이다. → ( <span class="blank"></span> )</p>
+ <p class="sub-q">② 가끔 만나도 마음이 통하면 좋은 친구다. → ( <span class="blank"></span> )</p>
+ <p class="sub-q">③ 혼자 있는 시간은 외로워서 피해야 한다. → ( <span class="blank"></span> )</p>
+ <p class="sub-q">④ 혼자도 잘 지내는 사람이 친구와도 잘 지낸다. → ( <span class="blank"></span> )</p>
+ </div>
+ </div>
 
-  <div class="page-no">— 2 —</div>
+ <div class="page-no">— 2 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 2. 혼자 즐기는 여가 활동 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">2</div>
-    <div class="ph-title">
-      <h2>혼자 즐기는 여가 활동</h2>
-      <p>이렇게 다양해요! 나에게 맞는 활동을 찾아봅시다.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">2</div>
+ <div class="ph-title">
+ <h2>혼자 즐기는 여가 활동</h2>
+ <p>이렇게 다양해요! 나에게 맞는 활동을 찾아봅시다.</p>
+ </div>
+ </div>
 
-  <span class="cat-title">🌙 차분히 즐기기</span>
-  <div class="act-grid">
-    <div class="act"><span class="icon">📖</span><strong>책 읽기</strong></div>
-    <div class="act"><span class="icon">🎧</span><strong>음악 듣기</strong></div>
-    <div class="act"><span class="icon">🎬</span><strong>영화 보기</strong></div>
-    <div class="act"><span class="icon">✏️</span><strong>일기 쓰기</strong></div>
-    <div class="act"><span class="icon">🧩</span><strong>퍼즐</strong></div>
-    <div class="act"><span class="icon">🎮</span><strong>게임(적당히)</strong></div>
-  </div>
+ <span class="cat-title">🌙 차분히 즐기기</span>
+ <div class="act-grid">
+ <div class="act"><span class="icon">📖</span><strong>책 읽기</strong></div>
+ <div class="act"><span class="icon">🎧</span><strong>음악 듣기</strong></div>
+ <div class="act"><span class="icon">🎬</span><strong>영화 보기</strong></div>
+ <div class="act"><span class="icon">✏️</span><strong>일기 쓰기</strong></div>
+ <div class="act"><span class="icon">🧩</span><strong>퍼즐</strong></div>
+ <div class="act"><span class="icon">🎮</span><strong>게임(적당히)</strong></div>
+ </div>
 
-  <span class="cat-title">🚶 몸을 움직이기</span>
-  <div class="act-grid">
-    <div class="act"><span class="icon">🚶</span><strong>산책</strong></div>
-    <div class="act"><span class="icon">🚲</span><strong>자전거</strong></div>
-    <div class="act"><span class="icon">🧘</span><strong>요가·스트레칭</strong></div>
-    <div class="act"><span class="icon">🏃</span><strong>가벼운 달리기</strong></div>
-    <div class="act"><span class="icon">🥾</span><strong>등산</strong></div>
-    <div class="act"><span class="icon">💪</span><strong>홈트레이닝</strong></div>
-  </div>
+ <span class="cat-title">🚶 몸을 움직이기</span>
+ <div class="act-grid">
+ <div class="act"><span class="icon">🚶</span><strong>산책</strong></div>
+ <div class="act"><span class="icon">🚲</span><strong>자전거</strong></div>
+ <div class="act"><span class="icon">🧘</span><strong>요가·스트레칭</strong></div>
+ <div class="act"><span class="icon">🏃</span><strong>가벼운 달리기</strong></div>
+ <div class="act"><span class="icon">🥾</span><strong>등산</strong></div>
+ <div class="act"><span class="icon">💪</span><strong>홈트레이닝</strong></div>
+ </div>
 
-  <span class="cat-title">🎨 손으로 만들기</span>
-  <div class="act-grid">
-    <div class="act"><span class="icon">🎨</span><strong>그림 그리기</strong></div>
-    <div class="act"><span class="icon">🧶</span><strong>뜨개·자수</strong></div>
-    <div class="act"><span class="icon">🍰</span><strong>베이킹</strong></div>
-    <div class="act"><span class="icon">🪴</span><strong>식물 가꾸기</strong></div>
-    <div class="act"><span class="icon">📷</span><strong>사진 찍기</strong></div>
-    <div class="act"><span class="icon">🪡</span><strong>만들기·DIY</strong></div>
-  </div>
+ <span class="cat-title">🎨 손으로 만들기</span>
+ <div class="act-grid">
+ <div class="act"><span class="icon">🎨</span><strong>그림 그리기</strong></div>
+ <div class="act"><span class="icon">🧶</span><strong>뜨개·자수</strong></div>
+ <div class="act"><span class="icon">🍰</span><strong>베이킹</strong></div>
+ <div class="act"><span class="icon">🪴</span><strong>식물 가꾸기</strong></div>
+ <div class="act"><span class="icon">📷</span><strong>사진 찍기</strong></div>
+ <div class="act"><span class="icon">🪡</span><strong>만들기·DIY</strong></div>
+ </div>
 
-  <span class="cat-title">📚 배우기 & 외출하기</span>
-  <div class="act-grid">
-    <div class="act"><span class="icon">💻</span><strong>온라인 강의</strong></div>
-    <div class="act"><span class="icon">🌐</span><strong>외국어 공부</strong></div>
-    <div class="act"><span class="icon">🏛️</span><strong>도서관·서점</strong></div>
-    <div class="act"><span class="icon">☕</span><strong>카페</strong></div>
-    <div class="act"><span class="icon">🌳</span><strong>공원 가기</strong></div>
-    <div class="act"><span class="icon">🖼️</span><strong>미술관·박물관</strong></div>
-  </div>
+ <span class="cat-title">📚 배우기 & 외출하기</span>
+ <div class="act-grid">
+ <div class="act"><span class="icon">💻</span><strong>온라인 강의</strong></div>
+ <div class="act"><span class="icon">🌐</span><strong>외국어 공부</strong></div>
+ <div class="act"><span class="icon">🏛️</span><strong>도서관·서점</strong></div>
+ <div class="act"><span class="icon">☕</span><strong>카페</strong></div>
+ <div class="act"><span class="icon">🌳</span><strong>공원 가기</strong></div>
+ <div class="act"><span class="icon">🖼️</span><strong>미술관·박물관</strong></div>
+ </div>
 
-  <table class="tbl">
-    <tr><th style="width:20%;">비용</th><th>활동 예시</th></tr>
-    <tr><td>💰 무료</td><td>산책, 도서관 책 읽기, 일기 쓰기, 공원 가기, 가족·친구 빌린 책 읽기</td></tr>
-    <tr><td>💰 저렴(5천 원 이하)</td><td>카페에서 시간 보내기, 노트·필기구 사기, 무료 강의 + 자료비</td></tr>
-    <tr><td>💰💰 조금 비싸(1만 원~)</td><td>영화관, 미술관·박물관, 베이킹 재료, 새 책 사기</td></tr>
-  </table>
+ <table class="tbl">
+ <tr><th style="width:20%;">비용</th><th>활동 예시</th></tr>
+ <tr><td>💰 무료</td><td>산책, 도서관 책 읽기, 일기 쓰기, 공원 가기, 가족·친구 빌린 책 읽기</td></tr>
+ <tr><td>💰 저렴(5천 원 이하)</td><td>카페에서 시간 보내기, 노트·필기구 사기, 무료 강의 + 자료비</td></tr>
+ <tr><td>💰💰 조금 비싸(1만 원~)</td><td>영화관, 미술관·박물관, 베이킹 재료, 새 책 사기</td></tr>
+ </table>
 
-  <div class="practice">
-    <h3>📝 활동 살펴보기</h3>
+ <div class="practice">
+ <h3>📝 활동 살펴보기</h3>
 
-    <div class="q"><div class="no">4</div>
-      <p>다음 활동을 <strong>알맞은 분류</strong>에 넣어 봅시다.</p>
-      <div class="choice-box">차분히 즐기기, 몸을 움직이기, 손으로 만들기, 배우기·외출하기</div>
-      <p class="sub-q">① 동네 한 바퀴 산책하기 → ( <span class="blank long"></span> )</p>
-      <p class="sub-q">② 좋아하는 음악 듣고 가사 따라 쓰기 → ( <span class="blank long"></span> )</p>
-      <p class="sub-q">③ 화분에 물 주고 잎 닦아 주기 → ( <span class="blank long"></span> )</p>
-      <p class="sub-q">④ 도서관에 가서 새 책 빌려 오기 → ( <span class="blank long"></span> )</p>
-    </div>
+ <div class="q"><div class="no">4</div>
+ <p>다음 활동을 <strong>알맞은 분류</strong>에 넣어 봅시다.</p>
+ <div class="choice-box">차분히 즐기기, 몸을 움직이기, 손으로 만들기, 배우기·외출하기</div>
+ <p class="sub-q">① 동네 한 바퀴 산책하기 → ( <span class="blank long"></span> )</p>
+ <p class="sub-q">② 좋아하는 음악 듣고 가사 따라 쓰기 → ( <span class="blank long"></span> )</p>
+ <p class="sub-q">③ 화분에 물 주고 잎 닦아 주기 → ( <span class="blank long"></span> )</p>
+ <p class="sub-q">④ 도서관에 가서 새 책 빌려 오기 → ( <span class="blank long"></span> )</p>
+ </div>
 
-    <div class="q"><div class="no">5</div>
-      <p>위 활동 중 <strong>내가 이미 즐기고 있는 활동 3가지</strong>와 <strong>새로 해 보고 싶은 활동 2가지</strong>를 적어 봅시다.</p>
-      <p class="sub-q">▶ 이미 즐기는 활동: <span class="blank long"></span>, <span class="blank long"></span>, <span class="blank long"></span></p>
-      <p class="sub-q">▶ 새로 해 보고 싶은 활동: <span class="blank long"></span>, <span class="blank long"></span></p>
-    </div>
+ <div class="q"><div class="no">5</div>
+ <p>위 활동 중 <strong>내가 이미 즐기고 있는 활동 3가지</strong>와 <strong>새로 해 보고 싶은 활동 2가지</strong>를 적어 봅시다.</p>
+ <p class="sub-q">▶ 이미 즐기는 활동: <span class="blank long"></span>, <span class="blank long"></span>, <span class="blank long"></span></p>
+ <p class="sub-q">▶ 새로 해 보고 싶은 활동: <span class="blank long"></span>, <span class="blank long"></span></p>
+ </div>
 
-    <div class="q"><div class="no">6</div>
-      <p><strong>돈을 거의 쓰지 않고도</strong> 즐길 수 있는 혼자 여가 활동을 3가지 적어 봅시다.</p>
-      <p class="sub-q">① <span class="blank long"></span> &nbsp; ② <span class="blank long"></span> &nbsp; ③ <span class="blank long"></span></p>
-    </div>
-  </div>
+ <div class="q"><div class="no">6</div>
+ <p><strong>돈을 거의 쓰지 않고도</strong> 즐길 수 있는 혼자 여가 활동을 3가지 적어 봅시다.</p>
+ <p class="sub-q">① <span class="blank long"></span> &nbsp; ② <span class="blank long"></span> &nbsp; ③ <span class="blank long"></span></p>
+ </div>
+ </div>
 
-  <div class="page-no">— 3 —</div>
+ <div class="page-no">— 3 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 3. 나만의 여가 시간 만들기 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">3</div>
-    <div class="ph-title">
-      <h2>나만의 여가 시간 만들기</h2>
-      <p>일주일 속에서 ‘나의 시간’을 찾아 계획해 봅시다.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">3</div>
+ <div class="ph-title">
+ <h2>나만의 여가 시간 만들기</h2>
+ <p>일주일 속에서 ‘나의 시간’을 찾아 계획해 봅시다.</p>
+ </div>
+ </div>
 
-  <div class="tip"><span class="tip-title">⏰ 자투리 시간 찾기</span>
-    하루는 24시간! 그중 <strong>나만의 시간</strong>은 의외로 가까이 있어요.<br>
-    🌅 아침 등교 전 20분 &nbsp; 🍱 점심 후 15분 &nbsp; 🚌 등·하교 길 30분 &nbsp;
-    🌙 잠들기 전 30분 &nbsp; 📅 주말 오전 한두 시간</div>
+ <div class="tip"><span class="tip-title">⏰ 자투리 시간 찾기</span>
+ 하루는 24시간! 그중 <strong>나만의 시간</strong>은 의외로 가까이 있어요.<br>
+ 🌅 아침 등교 전 20분 &nbsp; 🍱 점심 후 15분 &nbsp; 🚌 등·하교 길 30분 &nbsp;
+ 🌙 잠들기 전 30분 &nbsp; 📅 주말 오전 한두 시간</div>
 
-  <div class="calm"><span class="tip-title">📵 시간 만드는 작은 비결</span>
-    스마트폰 SNS·짧은 영상을 <strong>하루 30분만 줄여도</strong> 일주일에 3시간 30분이 생겨요.
-    그 시간이면 책 한 권의 절반, 산책 7번, 그림 한 장을 그릴 수 있어요!</div>
+ <div class="calm"><span class="tip-title">📵 시간 만드는 작은 비결</span>
+ 스마트폰 SNS·짧은 영상을 <strong>하루 30분만 줄여도</strong> 일주일에 3시간 30분이 생겨요.
+ 그 시간이면 책 한 권의 절반, 산책 7번, 그림 한 장을 그릴 수 있어요!</div>
 
-  <h3 style="display:inline-block; background:#ffd54f; color:#bf360c; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">📅 나의 일주일 여가 계획표</h3>
-  <table class="week">
-    <tr><th>요일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th><th>일</th></tr>
-    <tr><td class="label">하고 싶은 활동</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-    <tr><td class="label">시간(분)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-  </table>
+ <h3 style="display:inline-block; background:#ffd54f; color:#bf360c; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">📅 나의 일주일 여가 계획표</h3>
+ <table class="week">
+ <tr><th>요일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th><th>일</th></tr>
+ <tr><td class="label">하고 싶은 활동</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+ <tr><td class="label">시간(분)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+ </table>
 
-  <div class="practice">
-    <h3>📝 계획 세우기</h3>
+ <div class="practice">
+ <h3>📝 계획 세우기</h3>
 
-    <div class="q"><div class="no">7</div>
-      <p>나의 하루에서 <strong>혼자만의 시간</strong>으로 쓸 수 있는 자투리 시간 두 가지를 찾아 적어 봅시다.</p>
-      <p class="sub-q">① 언제: <span class="blank long"></span> &nbsp; 무엇을 할까: <span class="blank long"></span></p>
-      <p class="sub-q">② 언제: <span class="blank long"></span> &nbsp; 무엇을 할까: <span class="blank long"></span></p>
-    </div>
+ <div class="q"><div class="no">7</div>
+ <p>나의 하루에서 <strong>혼자만의 시간</strong>으로 쓸 수 있는 자투리 시간 두 가지를 찾아 적어 봅시다.</p>
+ <p class="sub-q">① 언제: <span class="blank long"></span> &nbsp; 무엇을 할까: <span class="blank long"></span></p>
+ <p class="sub-q">② 언제: <span class="blank long"></span> &nbsp; 무엇을 할까: <span class="blank long"></span></p>
+ </div>
 
-    <div class="q"><div class="no">8</div>
-      <p>위 일주일 표에 <strong>나의 여가 계획</strong>을 직접 적어 봅시다. <em>(매일 다 채우지 않아도 좋아요. 비는 날도 ‘쉼’이에요.)</em></p>
-      <p class="sub-q">▶ 일주일 동안 가장 기대되는 여가 활동:
-        <span class="blank long"></span></p>
-      <p class="sub-q">▶ 그 이유: <span class="blank long"></span></p>
-    </div>
+ <div class="q"><div class="no">8</div>
+ <p>위 일주일 표에 <strong>나의 여가 계획</strong>을 직접 적어 봅시다. <em>(매일 다 채우지 않아도 좋아요. 비는 날도 ‘쉼’이에요.)</em></p>
+ <p class="sub-q">▶ 일주일 동안 가장 기대되는 여가 활동:
+ <span class="blank long"></span></p>
+ <p class="sub-q">▶ 그 이유: <span class="blank long"></span></p>
+ </div>
 
-    <div class="q"><div class="no">9</div>
-      <p><strong>여가 비용 계산</strong> — 이번 주 용돈이 <strong>15,000원</strong>이라면, 아래 활동들을 골라 어떻게 나누어 쓸지 계획해 봅시다.</p>
-      <p class="sub-q">▷ 카페 음료 4,000원, 영화 9,000원, 새 노트 2,500원, 도서관·산책 0원</p>
-      <p class="sub-q">① 내가 고른 활동들과 합계:
-        <span class="blank long"></span> &nbsp; 합계 = <span class="blank"></span> 원</p>
-      <p class="sub-q">② 남은 돈: 15,000 − <span class="blank"></span> = <span class="blank"></span> 원</p>
-      <p class="sub-q">③ 남은 돈은 어떻게 쓸까요? <em>(저축 / 다음 주 / 비상금 등)</em>
-        <span class="blank long"></span></p>
-    </div>
-  </div>
+ <div class="q"><div class="no">9</div>
+ <p><strong>여가 비용 계산</strong> — 이번 주 용돈이 <strong>15,000원</strong>이라면, 아래 활동들을 골라 어떻게 나누어 쓸지 계획해 봅시다.</p>
+ <p class="sub-q">▷ 카페 음료 4,000원, 영화 9,000원, 새 노트 2,500원, 도서관·산책 0원</p>
+ <p class="sub-q">① 내가 고른 활동들과 합계:
+ <span class="blank long"></span> &nbsp; 합계 = <span class="blank"></span> 원</p>
+ <p class="sub-q">② 남은 돈: 15,000 − <span class="blank"></span> = <span class="blank"></span> 원</p>
+ <p class="sub-q">③ 남은 돈은 어떻게 쓸까요? <em>(저축 / 다음 주 / 비상금 등)</em>
+ <span class="blank long"></span></p>
+ </div>
+ </div>
 
-  <div class="page-no">— 4 —</div>
+ <div class="page-no">— 4 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 4. 나의 여가 다짐 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">4</div>
-    <div class="ph-title">
-      <h2>나의 여가 다짐</h2>
-      <p>자기를 더 알고, 나만의 시간을 약속해 봅시다.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">4</div>
+ <div class="ph-title">
+ <h2>나의 여가 다짐</h2>
+ <p>자기를 더 알고, 나만의 시간을 약속해 봅시다.</p>
+ </div>
+ </div>
 
-  <h3 style="display:inline-block; background:#ffd54f; color:#bf360c; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">🌟 혼자 시간을 잘 보내는 사람의 5가지 태도</h3>
-  <div class="attitude-grid">
-    <div class="att"><span class="num">1</span><strong>나를 비교하지 않기</strong>
-      <small>SNS 속 친구와 비교 X</small></div>
-    <div class="att"><span class="num">2</span><strong>작은 즐거움 알아차리기</strong>
-      <small>책 한 쪽, 햇빛, 차 한 잔</small></div>
-    <div class="att"><span class="num">3</span><strong>한 가지에 집중</strong>
-      <small>스마트폰 잠시 내려두기</small></div>
-    <div class="att"><span class="num">4</span><strong>꾸준히 반복</strong>
-      <small>매일 10분도 좋아요</small></div>
-    <div class="att"><span class="num">5</span><strong>친구와도 잘 지내기</strong>
-      <small>혼자·함께 균형</small></div>
-  </div>
+ <h3 style="display:inline-block; background:#ffd54f; color:#bf360c; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">🌟 혼자 시간을 잘 보내는 사람의 5가지 태도</h3>
+ <div class="attitude-grid">
+ <div class="att"><span class="num">1</span><strong>나를 비교하지 않기</strong>
+ <small>SNS 속 친구와 비교 X</small></div>
+ <div class="att"><span class="num">2</span><strong>작은 즐거움 알아차리기</strong>
+ <small>책 한 쪽, 햇빛, 차 한 잔</small></div>
+ <div class="att"><span class="num">3</span><strong>한 가지에 집중</strong>
+ <small>스마트폰 잠시 내려두기</small></div>
+ <div class="att"><span class="num">4</span><strong>꾸준히 반복</strong>
+ <small>매일 10분도 좋아요</small></div>
+ <div class="att"><span class="num">5</span><strong>친구와도 잘 지내기</strong>
+ <small>혼자·함께 균형</small></div>
+ </div>
 
-  <div class="practice">
-    <h3>📝 자기 발견과 다짐</h3>
+ <div class="practice">
+ <h3>📝 자기 발견과 다짐</h3>
 
-    <div class="q"><div class="no">10</div>
-      <p><strong>나를 더 알아가는 질문</strong> — 한 줄씩 솔직히 적어 봅시다.</p>
-      <p class="sub-q">① 나는 무엇을 할 때 마음이 가장 편한가요?
-        <span class="blank long"></span></p>
-      <p class="sub-q">② 나는 어떤 활동을 하면 시간이 빠르게 가나요?
-        <span class="blank long"></span></p>
-      <p class="sub-q">③ 친구를 만나지 않고도 ‘잘 보낸 하루’라고 느낀 적은 언제였나요?
-        <span class="blank long"></span></p>
-      <p class="sub-q">④ 앞으로 더 자주 하고 싶은 혼자 활동은?
-        <span class="blank long"></span></p>
-    </div>
+ <div class="q"><div class="no">10</div>
+ <p><strong>나를 더 알아가는 질문</strong> — 한 줄씩 솔직히 적어 봅시다.</p>
+ <p class="sub-q">① 나는 무엇을 할 때 마음이 가장 편한가요?
+ <span class="blank long"></span></p>
+ <p class="sub-q">② 나는 어떤 활동을 하면 시간이 빠르게 가나요?
+ <span class="blank long"></span></p>
+ <p class="sub-q">③ 친구를 만나지 않고도 ‘잘 보낸 하루’라고 느낀 적은 언제였나요?
+ <span class="blank long"></span></p>
+ <p class="sub-q">④ 앞으로 더 자주 하고 싶은 혼자 활동은?
+ <span class="blank long"></span></p>
+ </div>
 
-    <div class="q"><div class="no">11</div>
-      <p>혼자 시간을 잘 보내고 있는 친구에게 <strong>응원의 한 마디</strong>를 적어 봅시다.</p>
-      <p class="sub-q"><em>(예: “많이 안 만나도 너는 잘 지내고 있어. 네 시간을 잘 채우는 모습이 멋져.”)</em></p>
-      <div class="lines two"></div>
-    </div>
+ <div class="q"><div class="no">11</div>
+ <p>혼자 시간을 잘 보내고 있는 친구에게 <strong>응원의 한 마디</strong>를 적어 봅시다.</p>
+ <p class="sub-q"><em>(예: “많이 안 만나도 너는 잘 지내고 있어. 네 시간을 잘 채우는 모습이 멋져.”)</em></p>
+ <div class="lines two"></div>
+ </div>
 
-  </div>
+ </div>
 
 
-  <div class="page-no">— 5 —</div>
+ <div class="page-no">— 5 —</div>
 </section>
 
 </body>

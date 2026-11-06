@@ -8,24 +8,24 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.45; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.45; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #880e4f; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #880e4f; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #f8bbd0; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffd54f; color: #880e4f; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 16mm 16mm; background: linear-gradient(135deg, #fff 0%, #fce4ec 60%, #f8bbd0 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #880e4f;
-  border-bottom: 2px solid #ad1457; padding-bottom: 8px; margin-bottom: 14px; }
+ border-bottom: 2px solid #ad1457; padding-bottom: 8px; margin-bottom: 14px; }
 .cover-top .subject { font-weight: 700; color: #880e4f; }
 .cover-main { text-align: center; padding: 4px 0; }
 .cover-main .badge { display: inline-block; padding: 6px 20px; border-radius: 20px;
-  background: linear-gradient(90deg, #880e4f, #ad1457); color: #ffd54f; font-weight: 700; font-size: 0.98em; margin-bottom: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); letter-spacing: 0.5px; }
+ background: linear-gradient(90deg, #880e4f, #ad1457); color: #ffd54f; font-weight: 700; font-size: 0.98em; margin-bottom: 8px;
+ box-shadow: 0 2px 5px rgba(0,0,0,0.2); letter-spacing: 0.5px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #880e4f; font-weight: 900; }
 .cover-main h1 .gold { color: #f57f17; text-shadow: 1px 1px 0 #fff59d; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #880e4f; font-weight: 500; }
@@ -37,7 +37,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #880e4f; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #ad1457; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #ad1457; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #880e4f; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #ad1457; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -62,7 +62,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .story .who { display: inline-block; background: #ad1457; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.85em; font-weight: 700; margin-right: 6px; }
 
 .time-chip { display: inline-block; background: #ffffff; border: 1.5px solid #78909c; color: #263238; font-family: 'Courier New', monospace;
-  font-weight: 900; font-size: 1.05em; padding: 3px 9px; border-radius: 6px; letter-spacing: 2px; min-width: 66px; text-align: center; margin-top: 4px; }
+ font-weight: 900; font-size: 1.05em; padding: 3px 9px; border-radius: 6px; letter-spacing: 2px; min-width: 66px; text-align: center; margin-top: 4px; }
 
 .clock-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-around; margin: 8px 0; }
 .clock-cell { text-align: center; }
@@ -91,407 +91,407 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">⏰ L35 택배 도착 예정</span><span class="muted">시계 시리즈 심화</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">⏰ L35 택배 도착 예정</span><span class="muted">시계 시리즈 심화</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">수학 · 시간</span> · 시계 시리즈 · <b style="color:#880e4f;">Level 35</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">📦 L35 · 배송 시간대</span>
-    <h1><span class="gold">택배</span> 도착 예정</h1>
-    <p class="lead">오후 2시~6시 사이 배송. 외출 가능 시간은?</p>
-  </div>
-  <div style="text-align:center; margin:8px 0;"><svg viewBox="0 0 200 200" width="160" height="160">
-  <circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/>
-  <g stroke="#880e4f" stroke-width="2">
-    <line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/>
-    <line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/>
-  </g>
-  <g stroke="#880e4f" stroke-width="1.2">
-    <line x1="142.5" y1="25.4" x2="138.5" y2="32.3"/><line x1="174.6" y1="57.5" x2="167.7" y2="61.5"/>
-    <line x1="174.6" y1="142.5" x2="167.7" y2="138.5"/><line x1="142.5" y1="174.6" x2="138.5" y2="167.7"/>
-    <line x1="57.5" y1="174.6" x2="61.5" y2="167.7"/><line x1="25.4" y1="142.5" x2="32.3" y2="138.5"/>
-    <line x1="25.4" y1="57.5" x2="32.3" y2="61.5"/><line x1="57.5" y1="25.4" x2="61.5" y2="32.3"/>
-  </g>
-  <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f">
-    <text x="100" y="38">12</text><text x="162" y="100">3</text>
-    <text x="100" y="162">6</text><text x="38" y="100">9</text>
-  </g>
-  <line x1="100" y1="100" x2="143.3" y2="75.0" stroke="#880e4f" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="100.0" y2="25.0" stroke="#880e4f" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="100" cy="100" r="4" fill="#880e4f"/>
+ <div class="cover-top">
+ <span><span class="subject">수학 · 시간</span> · 시계 시리즈 · <b style="color:#880e4f;">Level 35</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">📦 L35 · 배송 시간대</span>
+ <h1><span class="gold">택배</span> 도착 예정</h1>
+ <p class="lead">오후 2시~6시 사이 배송. 외출 가능 시간은?</p>
+ </div>
+ <div style="text-align:center; margin:8px 0;"><svg viewBox="0 0 200 200" width="160" height="160">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/>
+ <g stroke="#880e4f" stroke-width="2">
+ <line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/>
+ <line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/>
+ </g>
+ <g stroke="#880e4f" stroke-width="1.2">
+ <line x1="142.5" y1="25.4" x2="138.5" y2="32.3"/><line x1="174.6" y1="57.5" x2="167.7" y2="61.5"/>
+ <line x1="174.6" y1="142.5" x2="167.7" y2="138.5"/><line x1="142.5" y1="174.6" x2="138.5" y2="167.7"/>
+ <line x1="57.5" y1="174.6" x2="61.5" y2="167.7"/><line x1="25.4" y1="142.5" x2="32.3" y2="138.5"/>
+ <line x1="25.4" y1="57.5" x2="32.3" y2="61.5"/><line x1="57.5" y1="25.4" x2="61.5" y2="32.3"/>
+ </g>
+ <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f">
+ <text x="100" y="38">12</text><text x="162" y="100">3</text>
+ <text x="100" y="162">6</text><text x="38" y="100">9</text>
+ </g>
+ <line x1="100" y1="100" x2="143.3" y2="75.0" stroke="#880e4f" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="100.0" y2="25.0" stroke="#880e4f" stroke-width="3" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4" fill="#880e4f"/>
 </svg></div>
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul><li>배송 시간대(시작·종료)로 대기 시간을 계산할 수 있다.</li><li>시간대 외 외출 가능 시간을 계산할 수 있다.</li></ul>
-  </div>
-  <div class="cover-info" style="border-color:#ffd54f; background:#fffde7;">
-    <h3 style="color:#880e4f;">📌 오늘의 상황</h3>
-    <p style="margin:4px 0;"><b>채원</b>이는 온라인으로 가방을 샀어요. 배송 예정 시간을 보고 집에 있을 시간을 계획해요.</p>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">시계 시리즈 · L35 · 표지</div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul><li>배송 시간대(시작·종료)로 대기 시간을 계산할 수 있다.</li><li>시간대 외 외출 가능 시간을 계산할 수 있다.</li></ul>
+ </div>
+ <div class="cover-info" style="border-color:#ffd54f; background:#fffde7;">
+ <h3 style="color:#880e4f;">📌 오늘의 상황</h3>
+ <p style="margin:4px 0;"><b>채원</b>이는 온라인으로 가방을 샀어요. 배송 예정 시간을 보고 집에 있을 시간을 계획해요.</p>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">시계 시리즈 · L35 · 표지</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>📖 택배 도착 예정</h2>
-    <span class="step">1쪽 · 문제 풀기</span>
-  </div>
+ <div class="page-head">
+ <h2>📖 택배 도착 예정</h2>
+ <span class="step">1쪽 · 문제 풀기</span>
+ </div>
 
-  <div class="intro"><b>채원</b>이는 온라인으로 가방을 샀어요. 배송 예정 시간을 보고 집에 있을 시간을 계획해요. 아래 활동을 차례대로 풀어 봐요.</div>
+ <div class="intro"><b>채원</b>이는 온라인으로 가방을 샀어요. 배송 예정 시간을 보고 집에 있을 시간을 계획해요. 아래 활동을 차례대로 풀어 봐요.</div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 시계 읽고 디지털로 쓰기</h3><span class="tag">아날로그 → 디지털 · 3문항</span></div>
-    <p>아래 시계의 <b>짧은바늘(시침)</b>과 <b>긴바늘(분침)</b>을 보고 시각을 디지털로 써요.</p>
-    <div class="clock-row">
-        <div class="clock-cell">
-          <svg viewBox="0 0 200 200" width="130" height="130">
-  <circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/>
-  <g stroke="#880e4f" stroke-width="2">
-    <line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/>
-    <line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/>
-  </g>
-  <g stroke="#880e4f" stroke-width="1.2">
-    <line x1="142.5" y1="25.4" x2="138.5" y2="32.3"/><line x1="174.6" y1="57.5" x2="167.7" y2="61.5"/>
-    <line x1="174.6" y1="142.5" x2="167.7" y2="138.5"/><line x1="142.5" y1="174.6" x2="138.5" y2="167.7"/>
-    <line x1="57.5" y1="174.6" x2="61.5" y2="167.7"/><line x1="25.4" y1="142.5" x2="32.3" y2="138.5"/>
-    <line x1="25.4" y1="57.5" x2="32.3" y2="61.5"/><line x1="57.5" y1="25.4" x2="61.5" y2="32.3"/>
-  </g>
-  <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f">
-    <text x="100" y="38">12</text><text x="162" y="100">3</text>
-    <text x="100" y="162">6</text><text x="38" y="100">9</text>
-  </g>
-  <line x1="100" y1="100" x2="143.3" y2="75.0" stroke="#880e4f" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="100.0" y2="25.0" stroke="#880e4f" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="100" cy="100" r="4" fill="#880e4f"/>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 시계 읽고 디지털로 쓰기</h3><span class="tag">아날로그 → 디지털 · 3문항</span></div>
+ <p>아래 시계의 <b>짧은바늘(시침)</b>과 <b>긴바늘(분침)</b>을 보고 시각을 디지털로 써요.</p>
+ <div class="clock-row">
+ <div class="clock-cell">
+ <svg viewBox="0 0 200 200" width="130" height="130">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/>
+ <g stroke="#880e4f" stroke-width="2">
+ <line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/>
+ <line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/>
+ </g>
+ <g stroke="#880e4f" stroke-width="1.2">
+ <line x1="142.5" y1="25.4" x2="138.5" y2="32.3"/><line x1="174.6" y1="57.5" x2="167.7" y2="61.5"/>
+ <line x1="174.6" y1="142.5" x2="167.7" y2="138.5"/><line x1="142.5" y1="174.6" x2="138.5" y2="167.7"/>
+ <line x1="57.5" y1="174.6" x2="61.5" y2="167.7"/><line x1="25.4" y1="142.5" x2="32.3" y2="138.5"/>
+ <line x1="25.4" y1="57.5" x2="32.3" y2="61.5"/><line x1="57.5" y1="25.4" x2="61.5" y2="32.3"/>
+ </g>
+ <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f">
+ <text x="100" y="38">12</text><text x="162" y="100">3</text>
+ <text x="100" y="162">6</text><text x="38" y="100">9</text>
+ </g>
+ <line x1="100" y1="100" x2="143.3" y2="75.0" stroke="#880e4f" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="100.0" y2="25.0" stroke="#880e4f" stroke-width="3" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4" fill="#880e4f"/>
 </svg>
-          <div class="lbl">① 배송 시작</div>
-          <div class="sub">시각을 디지털로 쓰기</div>
-          <div class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</div>
-        </div>
-        <div class="clock-cell">
-          <svg viewBox="0 0 200 200" width="130" height="130">
-  <circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/>
-  <g stroke="#880e4f" stroke-width="2">
-    <line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/>
-    <line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/>
-  </g>
-  <g stroke="#880e4f" stroke-width="1.2">
-    <line x1="142.5" y1="25.4" x2="138.5" y2="32.3"/><line x1="174.6" y1="57.5" x2="167.7" y2="61.5"/>
-    <line x1="174.6" y1="142.5" x2="167.7" y2="138.5"/><line x1="142.5" y1="174.6" x2="138.5" y2="167.7"/>
-    <line x1="57.5" y1="174.6" x2="61.5" y2="167.7"/><line x1="25.4" y1="142.5" x2="32.3" y2="138.5"/>
-    <line x1="25.4" y1="57.5" x2="32.3" y2="61.5"/><line x1="57.5" y1="25.4" x2="61.5" y2="32.3"/>
-  </g>
-  <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f">
-    <text x="100" y="38">12</text><text x="162" y="100">3</text>
-    <text x="100" y="162">6</text><text x="38" y="100">9</text>
-  </g>
-  <line x1="100" y1="100" x2="100.0" y2="150.0" stroke="#880e4f" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="100.0" y2="25.0" stroke="#880e4f" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="100" cy="100" r="4" fill="#880e4f"/>
+ <div class="lbl">① 배송 시작</div>
+ <div class="sub">시각을 디지털로 쓰기</div>
+ <div class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</div>
+ </div>
+ <div class="clock-cell">
+ <svg viewBox="0 0 200 200" width="130" height="130">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/>
+ <g stroke="#880e4f" stroke-width="2">
+ <line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/>
+ <line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/>
+ </g>
+ <g stroke="#880e4f" stroke-width="1.2">
+ <line x1="142.5" y1="25.4" x2="138.5" y2="32.3"/><line x1="174.6" y1="57.5" x2="167.7" y2="61.5"/>
+ <line x1="174.6" y1="142.5" x2="167.7" y2="138.5"/><line x1="142.5" y1="174.6" x2="138.5" y2="167.7"/>
+ <line x1="57.5" y1="174.6" x2="61.5" y2="167.7"/><line x1="25.4" y1="142.5" x2="32.3" y2="138.5"/>
+ <line x1="25.4" y1="57.5" x2="32.3" y2="61.5"/><line x1="57.5" y1="25.4" x2="61.5" y2="32.3"/>
+ </g>
+ <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f">
+ <text x="100" y="38">12</text><text x="162" y="100">3</text>
+ <text x="100" y="162">6</text><text x="38" y="100">9</text>
+ </g>
+ <line x1="100" y1="100" x2="100.0" y2="150.0" stroke="#880e4f" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="100.0" y2="25.0" stroke="#880e4f" stroke-width="3" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4" fill="#880e4f"/>
 </svg>
-          <div class="lbl">② 배송 종료</div>
-          <div class="sub">시각을 디지털로 쓰기</div>
-          <div class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</div>
-        </div>
-        <div class="clock-cell">
-          <svg viewBox="0 0 200 200" width="130" height="130">
-  <circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/>
-  <g stroke="#880e4f" stroke-width="2">
-    <line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/>
-    <line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/>
-  </g>
-  <g stroke="#880e4f" stroke-width="1.2">
-    <line x1="142.5" y1="25.4" x2="138.5" y2="32.3"/><line x1="174.6" y1="57.5" x2="167.7" y2="61.5"/>
-    <line x1="174.6" y1="142.5" x2="167.7" y2="138.5"/><line x1="142.5" y1="174.6" x2="138.5" y2="167.7"/>
-    <line x1="57.5" y1="174.6" x2="61.5" y2="167.7"/><line x1="25.4" y1="142.5" x2="32.3" y2="138.5"/>
-    <line x1="25.4" y1="57.5" x2="32.3" y2="61.5"/><line x1="57.5" y1="25.4" x2="61.5" y2="32.3"/>
-  </g>
-  <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f">
-    <text x="100" y="38">12</text><text x="162" y="100">3</text>
-    <text x="100" y="162">6</text><text x="38" y="100">9</text>
-  </g>
-  <line x1="100" y1="100" x2="106.5" y2="149.6" stroke="#880e4f" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="25.0" y2="100.0" stroke="#880e4f" stroke-width="3" stroke-linecap="round"/>
-  <circle cx="100" cy="100" r="4" fill="#880e4f"/>
+ <div class="lbl">② 배송 종료</div>
+ <div class="sub">시각을 디지털로 쓰기</div>
+ <div class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</div>
+ </div>
+ <div class="clock-cell">
+ <svg viewBox="0 0 200 200" width="130" height="130">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/>
+ <g stroke="#880e4f" stroke-width="2">
+ <line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/>
+ <line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/>
+ </g>
+ <g stroke="#880e4f" stroke-width="1.2">
+ <line x1="142.5" y1="25.4" x2="138.5" y2="32.3"/><line x1="174.6" y1="57.5" x2="167.7" y2="61.5"/>
+ <line x1="174.6" y1="142.5" x2="167.7" y2="138.5"/><line x1="142.5" y1="174.6" x2="138.5" y2="167.7"/>
+ <line x1="57.5" y1="174.6" x2="61.5" y2="167.7"/><line x1="25.4" y1="142.5" x2="32.3" y2="138.5"/>
+ <line x1="25.4" y1="57.5" x2="32.3" y2="61.5"/><line x1="57.5" y1="25.4" x2="61.5" y2="32.3"/>
+ </g>
+ <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f">
+ <text x="100" y="38">12</text><text x="162" y="100">3</text>
+ <text x="100" y="162">6</text><text x="38" y="100">9</text>
+ </g>
+ <line x1="100" y1="100" x2="106.5" y2="149.6" stroke="#880e4f" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="25.0" y2="100.0" stroke="#880e4f" stroke-width="3" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4" fill="#880e4f"/>
 </svg>
-          <div class="lbl">③ 실제 도착</div>
-          <div class="sub">시각을 디지털로 쓰기</div>
-          <div class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</div>
-        </div></div>
-    <div class="tip">💡 <b>팁:</b> 시침이 숫자 사이에 있으면 <b>지나온 숫자</b>를 읽어요. 예) 3과 4 사이면 "3시 ○○분".</div>
-  </div>
+ <div class="lbl">③ 실제 도착</div>
+ <div class="sub">시각을 디지털로 쓰기</div>
+ <div class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</div>
+ </div></div>
+ <div class="tip">💡 <b>팁:</b> 시침이 숫자 사이에 있으면 <b>지나온 숫자</b>를 읽어요. 예) 3과 4 사이면 "3시 ○○분".</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 바늘 그리기</h3><span class="tag">디지털 → 아날로그 · 2문항</span></div>
-    <p>주어진 시각에 맞게 <b>시침과 분침</b>을 직접 그려 넣어요.</p>
-    <div class="clock-row">
-        <div class="clock-cell">
-          <svg viewBox="0 0 200 200" width="130" height="130">
-  <circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/>
-  <g stroke="#880e4f" stroke-width="2">
-    <line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/>
-    <line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/>
-  </g>
-  <g stroke="#880e4f" stroke-width="1.2">
-    <line x1="142.5" y1="25.4" x2="138.5" y2="32.3"/><line x1="174.6" y1="57.5" x2="167.7" y2="61.5"/>
-    <line x1="174.6" y1="142.5" x2="167.7" y2="138.5"/><line x1="142.5" y1="174.6" x2="138.5" y2="167.7"/>
-    <line x1="57.5" y1="174.6" x2="61.5" y2="167.7"/><line x1="25.4" y1="142.5" x2="32.3" y2="138.5"/>
-    <line x1="25.4" y1="57.5" x2="32.3" y2="61.5"/><line x1="57.5" y1="25.4" x2="61.5" y2="32.3"/>
-  </g>
-  <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f">
-    <text x="100" y="38">12</text><text x="162" y="100">3</text>
-    <text x="100" y="162">6</text><text x="38" y="100">9</text>
-  </g>
-  
-  <circle cx="100" cy="100" r="4" fill="#880e4f"/>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 바늘 그리기</h3><span class="tag">디지털 → 아날로그 · 2문항</span></div>
+ <p>주어진 시각에 맞게 <b>시침과 분침</b>을 직접 그려 넣어요.</p>
+ <div class="clock-row">
+ <div class="clock-cell">
+ <svg viewBox="0 0 200 200" width="130" height="130">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/>
+ <g stroke="#880e4f" stroke-width="2">
+ <line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/>
+ <line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/>
+ </g>
+ <g stroke="#880e4f" stroke-width="1.2">
+ <line x1="142.5" y1="25.4" x2="138.5" y2="32.3"/><line x1="174.6" y1="57.5" x2="167.7" y2="61.5"/>
+ <line x1="174.6" y1="142.5" x2="167.7" y2="138.5"/><line x1="142.5" y1="174.6" x2="138.5" y2="167.7"/>
+ <line x1="57.5" y1="174.6" x2="61.5" y2="167.7"/><line x1="25.4" y1="142.5" x2="32.3" y2="138.5"/>
+ <line x1="25.4" y1="57.5" x2="32.3" y2="61.5"/><line x1="57.5" y1="25.4" x2="61.5" y2="32.3"/>
+ </g>
+ <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f">
+ <text x="100" y="38">12</text><text x="162" y="100">3</text>
+ <text x="100" y="162">6</text><text x="38" y="100">9</text>
+ </g>
+ 
+ <circle cx="100" cy="100" r="4" fill="#880e4f"/>
 </svg>
-          <div class="lbl">④ 예상 도착 <b>3:15</b></div>
-          <div class="sub">바늘을 직접 그려요</div>
-        </div>
-        <div class="clock-cell">
-          <svg viewBox="0 0 200 200" width="130" height="130">
-  <circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/>
-  <g stroke="#880e4f" stroke-width="2">
-    <line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/>
-    <line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/>
-  </g>
-  <g stroke="#880e4f" stroke-width="1.2">
-    <line x1="142.5" y1="25.4" x2="138.5" y2="32.3"/><line x1="174.6" y1="57.5" x2="167.7" y2="61.5"/>
-    <line x1="174.6" y1="142.5" x2="167.7" y2="138.5"/><line x1="142.5" y1="174.6" x2="138.5" y2="167.7"/>
-    <line x1="57.5" y1="174.6" x2="61.5" y2="167.7"/><line x1="25.4" y1="142.5" x2="32.3" y2="138.5"/>
-    <line x1="25.4" y1="57.5" x2="32.3" y2="61.5"/><line x1="57.5" y1="25.4" x2="61.5" y2="32.3"/>
-  </g>
-  <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f">
-    <text x="100" y="38">12</text><text x="162" y="100">3</text>
-    <text x="100" y="162">6</text><text x="38" y="100">9</text>
-  </g>
-  
-  <circle cx="100" cy="100" r="4" fill="#880e4f"/>
+ <div class="lbl">④ 예상 도착 <b>3:15</b></div>
+ <div class="sub">바늘을 직접 그려요</div>
+ </div>
+ <div class="clock-cell">
+ <svg viewBox="0 0 200 200" width="130" height="130">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/>
+ <g stroke="#880e4f" stroke-width="2">
+ <line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/>
+ <line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/>
+ </g>
+ <g stroke="#880e4f" stroke-width="1.2">
+ <line x1="142.5" y1="25.4" x2="138.5" y2="32.3"/><line x1="174.6" y1="57.5" x2="167.7" y2="61.5"/>
+ <line x1="174.6" y1="142.5" x2="167.7" y2="138.5"/><line x1="142.5" y1="174.6" x2="138.5" y2="167.7"/>
+ <line x1="57.5" y1="174.6" x2="61.5" y2="167.7"/><line x1="25.4" y1="142.5" x2="32.3" y2="138.5"/>
+ <line x1="25.4" y1="57.5" x2="32.3" y2="61.5"/><line x1="57.5" y1="25.4" x2="61.5" y2="32.3"/>
+ </g>
+ <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f">
+ <text x="100" y="38">12</text><text x="162" y="100">3</text>
+ <text x="100" y="162">6</text><text x="38" y="100">9</text>
+ </g>
+ 
+ <circle cx="100" cy="100" r="4" fill="#880e4f"/>
 </svg>
-          <div class="lbl">⑤ 주은 주문 <b>10:15</b></div>
-          <div class="sub">바늘을 직접 그려요</div>
-        </div></div>
-    <div class="tip">💡 <b>팁:</b> 분침은 <b>숫자×5</b>가 분이에요. 예) 숫자 7에 있으면 35분.</div>
-  </div>
+ <div class="lbl">⑤ 주은 주문 <b>10:15</b></div>
+ <div class="sub">바늘을 직접 그려요</div>
+ </div></div>
+ <div class="tip">💡 <b>팁:</b> 분침은 <b>숫자×5</b>가 분이에요. 예) 숫자 7에 있으면 35분.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 친구들 이야기 · 시계로 생각하기</h3><span class="tag">읽기·계산 · 6문항</span></div>
-    <div class="story"><span class="who">채원</span>⑥ 채원이의 배송 시간대는 <b>오후 2:00~6:00</b>. 전체 대기 시간: ( <span class="blank short">&nbsp;</span> )시간.</div><div class="story"><span class="who">예은</span>⑦ 예은이의 배송은 <b>오전 10:00~12:30</b>으로 문자가 왔어요. 몇 시간 몇 분 대기? ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분.</div>
-    <p>⑧ 하은이는 <b>1시~5시 배송</b> 중에 <b>1:20~2:30 외출</b>했어요. 외출한 시간은 ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분.</p><p>⑨ 하영이는 <b>3:00 배송 알림</b>. 지금 2:40이면 ( <span class="blank short">&nbsp;</span> )분 남았어요.</p><p>⑩ 주은이의 <b>당일 배송</b>은 주문 후 5시간. 10:15 주문이면 도착은 <span class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</span>.</p><p>⑪ 주현이의 배송이 <b>5:45</b>에 도착했어요. 예정은 6:30이었어요. ( <span class="blank short">&nbsp;</span> )분 일찍 왔어요.</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 친구들 이야기 · 시계로 생각하기</h3><span class="tag">읽기·계산 · 6문항</span></div>
+ <div class="story"><span class="who">채원</span>⑥ 채원이의 배송 시간대는 <b>오후 2:00~6:00</b>. 전체 대기 시간: ( <span class="blank short">&nbsp;</span> )시간.</div><div class="story"><span class="who">예은</span>⑦ 예은이의 배송은 <b>오전 10:00~12:30</b>으로 문자가 왔어요. 몇 시간 몇 분 대기? ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분.</div>
+ <p>⑧ 하은이는 <b>1시~5시 배송</b> 중에 <b>1:20~2:30 외출</b>했어요. 외출한 시간은 ( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분.</p><p>⑨ 하영이는 <b>3:00 배송 알림</b>. 지금 2:40이면 ( <span class="blank short">&nbsp;</span> )분 남았어요.</p><p>⑩ 주은이의 <b>당일 배송</b>은 주문 후 5시간. 10:15 주문이면 도착은 <span class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</span>.</p><p>⑪ 주현이의 배송이 <b>5:45</b>에 도착했어요. 예정은 6:30이었어요. ( <span class="blank short">&nbsp;</span> )분 일찍 왔어요.</p>
+ </div>
 
-  <div class="note">🌟 <b>다음 레슨 미리보기:</b> 다음 단계에서는 더 다양한 상황에서 시간을 계획해요. 오늘 배운 걸 실제 생활에서 꼭 써 봐요!</div>
+ <div class="note">🌟 <b>다음 레슨 미리보기:</b> 다음 단계에서는 더 다양한 상황에서 시간을 계획해요. 오늘 배운 걸 실제 생활에서 꼭 써 봐요!</div>
 
-  <div class="page-foot">시계 시리즈 · L35 · 1쪽 / 3</div>
-</section>
-
-
-<section class="page">
-  <div class="page-head">
-    <h2>🧮 더 많이 연습하기</h2>
-    <span class="step">2쪽 · 변환·계산</span>
-  </div>
-  <div class="intro">배운 걸 더 많은 상황에 적용해 봐요. <b>오전/오후 ↔ 24시간제</b>와 <b>경과 시간</b>을 집중적으로 연습해요.</div>
-
-  <div class="activity">
-    <div class="head"><h3>활동 4. 오전/오후 ↔ 24시간제 변환</h3><span class="tag">6문항</span></div>
-    <p>왼쪽 또는 오른쪽 중 <b>비어 있는 칸</b>을 채워 넣어요.</p>
-    <table class="conv-table">
-      <tr><th>번호</th><th>오전/오후 표기</th><th>24시간제</th></tr>
-      <tr><td>①</td><td><b>오전 7:30</b></td><td>( <span class="blank wide">&nbsp;</span> )</td></tr><tr><td>②</td><td>( <span class="blank wide">&nbsp;</span> )</td><td><b>14:15</b></td></tr><tr><td>③</td><td><b>오후 3:50</b></td><td>( <span class="blank wide">&nbsp;</span> )</td></tr><tr><td>④</td><td>( <span class="blank wide">&nbsp;</span> )</td><td><b>09:20</b></td></tr><tr><td>⑤</td><td><b>오후 9:05</b></td><td>( <span class="blank wide">&nbsp;</span> )</td></tr><tr><td>⑥</td><td>( <span class="blank wide">&nbsp;</span> )</td><td><b>23:40</b></td></tr>
-    </table>
-    <div class="tip">💡 <b>팁:</b> 오후 시각은 <b>+12</b>를 해서 24시간제로 바꿔요. 예) 오후 3시 → 15시.</div>
-  </div>
-
-  <div class="activity">
-    <div class="head"><h3>활동 5. 시작·걸린 시간·끝 — 하나 비어 있어요</h3><span class="tag">5문항</span></div>
-    <p>표에서 <b>빈칸</b>을 채워 넣어요. (경과 시간 공식: <b>끝 − 시작 = 걸린 시간</b>)</p>
-    <table class="conv-table">
-      <tr><th>번호</th><th>시작</th><th>걸린 시간</th><th>끝</th></tr>
-      <tr><td>⑦</td><td><b>09:20</b></td><td><b>2시간 15분</b></td><td>( <span class="blank">&nbsp;</span> )</td></tr><tr><td>⑧</td><td>( <span class="blank">&nbsp;</span> )</td><td><b>45분</b></td><td><b>14:30</b></td></tr><tr><td>⑨</td><td><b>10:50</b></td><td>( <span class="blank">&nbsp;</span> )</td><td><b>12:05</b></td></tr><tr><td>⑩</td><td>( <span class="blank">&nbsp;</span> )</td><td><b>1시간 30분</b></td><td><b>19:15</b></td></tr><tr><td>⑪</td><td><b>07:45</b></td><td><b>3시간 20분</b></td><td>( <span class="blank">&nbsp;</span> )</td></tr>
-    </table>
-    <div class="tip">💡 <b>팁:</b> 분이 모자라면 <b>1시간을 60분으로 빌려서</b> 빼요. 예) 14:30 − 45분 = 13:45.</div>
-  </div>
-
-  <div class="activity">
-    <div class="head"><h3>활동 6. 시계를 읽어 보세요</h3><span class="tag">3문항</span></div>
-    <p>아래 아날로그 시계의 시각을 디지털로 써 봐요.</p>
-    <div class="clock-row"><div class="clock-cell">
-          <svg viewBox="0 0 200 200" width="130" height="130"><circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/><g stroke="#880e4f" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g><g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g><line x1="100" y1="100" x2="146.2" y2="80.9" stroke="#880e4f" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="175.0" y2="100.0" stroke="#880e4f" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="100" r="4" fill="#880e4f"/></svg>
-          <div class="lbl">⑫ 시각 A</div>
-          <div class="sub">읽은 시각</div>
-          <div class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</div>
-        </div><div class="clock-cell">
-          <svg viewBox="0 0 200 200" width="130" height="130"><circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/><g stroke="#880e4f" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g><g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g><line x1="100" y1="100" x2="50.2" y2="104.4" stroke="#880e4f" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="35.0" y2="62.5" stroke="#880e4f" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="100" r="4" fill="#880e4f"/></svg>
-          <div class="lbl">⑬ 시각 B</div>
-          <div class="sub">읽은 시각</div>
-          <div class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</div>
-        </div><div class="clock-cell">
-          <svg viewBox="0 0 200 200" width="130" height="130"><circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/><g stroke="#880e4f" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g><g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g><line x1="100" y1="100" x2="89.2" y2="51.2" stroke="#880e4f" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="62.5" y2="165.0" stroke="#880e4f" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="100" r="4" fill="#880e4f"/></svg>
-          <div class="lbl">⑭ 시각 C</div>
-          <div class="sub">읽은 시각</div>
-          <div class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</div>
-        </div></div>
-  </div>
-
-  <div class="page-foot">시계 시리즈 · L35 · 2쪽 / 3</div>
+ <div class="page-foot">시계 시리즈 · L35 · 1쪽 / 3</div>
 </section>
 
 
 <section class="page">
-  <div class="page-head">
-    <h2>✍️ 내 생활에 적용하기 — 택배</h2>
-    <span class="step">3쪽 · 쓰기·실천</span>
-  </div>
-  <div class="intro">
-    배운 시간 기술을 <b>내 생활</b>에 적용해 봐요. 계획을 쓰고, 지킬 약속을 정하고, 친구에게 문자도 써 봐요.
-  </div>
+ <div class="page-head">
+ <h2>🧮 더 많이 연습하기</h2>
+ <span class="step">2쪽 · 변환·계산</span>
+ </div>
+ <div class="intro">배운 걸 더 많은 상황에 적용해 봐요. <b>오전/오후 ↔ 24시간제</b>와 <b>경과 시간</b>을 집중적으로 연습해요.</div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 7. 이번 주 택배 수령 예정</h3><span class="tag">계획표 · 5문항</span></div>
-    <p>아래 표에 <b>구체적인 시각</b>을 적어 봐요. 힌트가 있는 칸은 참고용이에요.</p>
-    <table class="conv-table">
-      <tr><th>번호</th><th>항목</th><th>시각 (시 : 분)</th><th>메모·힌트</th></tr>
-      <tr><td>⑰</td><td class="left">화요일</td><td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td><td class="left"><span class="hint">가방 (1~5시)</span></td></tr><tr><td>⑱</td><td class="left">수요일</td><td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td><td class="left"></td></tr><tr><td>⑲</td><td class="left">목요일</td><td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td><td class="left"></td></tr><tr><td>⑳</td><td class="left">금요일</td><td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td><td class="left"></td></tr><tr><td>㉑</td><td class="left">토요일</td><td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td><td class="left"></td></tr>
-    </table>
-    <div class="tip">💡 <b>팁:</b> 항목 사이 <b>이동·준비 시간</b>도 10~15분씩 넣어 두면 늦지 않아요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 오전/오후 ↔ 24시간제 변환</h3><span class="tag">6문항</span></div>
+ <p>왼쪽 또는 오른쪽 중 <b>비어 있는 칸</b>을 채워 넣어요.</p>
+ <table class="conv-table">
+ <tr><th>번호</th><th>오전/오후 표기</th><th>24시간제</th></tr>
+ <tr><td>①</td><td><b>오전 7:30</b></td><td>( <span class="blank wide">&nbsp;</span> )</td></tr><tr><td>②</td><td>( <span class="blank wide">&nbsp;</span> )</td><td><b>14:15</b></td></tr><tr><td>③</td><td><b>오후 3:50</b></td><td>( <span class="blank wide">&nbsp;</span> )</td></tr><tr><td>④</td><td>( <span class="blank wide">&nbsp;</span> )</td><td><b>09:20</b></td></tr><tr><td>⑤</td><td><b>오후 9:05</b></td><td>( <span class="blank wide">&nbsp;</span> )</td></tr><tr><td>⑥</td><td>( <span class="blank wide">&nbsp;</span> )</td><td><b>23:40</b></td></tr>
+ </table>
+ <div class="tip">💡 <b>팁:</b> 오후 시각은 <b>+12</b>를 해서 24시간제로 바꿔요. 예) 오후 3시 → 15시.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 8. 오늘 꼭 지킬 시간 약속 — 체크리스트</h3><span class="tag">5개 약속</span></div>
-    <p>하루를 마무리하며 <b>지킨 약속에 ✔️</b> 표시를 해 봐요.</p>
-    <ul class="checklist">
-      <li><label><input type="checkbox" disabled> ㉒ 배송 시간대에 집에 있기</label></li><li><label><input type="checkbox" disabled> ㉓ 부재중 안내 바로 확인</label></li><li><label><input type="checkbox" disabled> ㉔ 문 앞 배송 사진 확인</label></li><li><label><input type="checkbox" disabled> ㉕ 반품·교환 시한 체크</label></li><li><label><input type="checkbox" disabled> ㉖ 택배함 비밀번호 숙지</label></li>
-    </ul>
-    <div class="note">🌟 3개 이상 지키면 <b>스스로에게 "잘했어!"</b> 한 마디!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 시작·걸린 시간·끝 — 하나 비어 있어요</h3><span class="tag">5문항</span></div>
+ <p>표에서 <b>빈칸</b>을 채워 넣어요. (경과 시간 공식: <b>끝 − 시작 = 걸린 시간</b>)</p>
+ <table class="conv-table">
+ <tr><th>번호</th><th>시작</th><th>걸린 시간</th><th>끝</th></tr>
+ <tr><td>⑦</td><td><b>09:20</b></td><td><b>2시간 15분</b></td><td>( <span class="blank">&nbsp;</span> )</td></tr><tr><td>⑧</td><td>( <span class="blank">&nbsp;</span> )</td><td><b>45분</b></td><td><b>14:30</b></td></tr><tr><td>⑨</td><td><b>10:50</b></td><td>( <span class="blank">&nbsp;</span> )</td><td><b>12:05</b></td></tr><tr><td>⑩</td><td>( <span class="blank">&nbsp;</span> )</td><td><b>1시간 30분</b></td><td><b>19:15</b></td></tr><tr><td>⑪</td><td><b>07:45</b></td><td><b>3시간 20분</b></td><td>( <span class="blank">&nbsp;</span> )</td></tr>
+ </table>
+ <div class="tip">💡 <b>팁:</b> 분이 모자라면 <b>1시간을 60분으로 빌려서</b> 빼요. 예) 14:30 − 45분 = 13:45.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 9. 친구에게 문자 쓰기</h3><span class="tag">상황 쓰기</span></div>
-    <p>아래 상황에 맞게 <b>구체적인 시각</b>을 넣어 문자를 써 봐요.</p>
-    <div class="story" style="margin-top:6px;"><b>상황:</b> 채원이에게: "오후 1~5시 집에 있을 거야, 택배 올 수도!"</div>
-    <div class="write-box">
-      <div class="label">내 문자:</div>
-      <div class="line">&nbsp;</div>
-      <div class="line">&nbsp;</div>
-      <div class="line">&nbsp;</div>
-    </div>
-    <div class="tip">💡 문자에는 <b>"몇 시에"</b>, <b>"몇 분 전에"</b>처럼 시간을 구체적으로 넣어 보면 좋아요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 6. 시계를 읽어 보세요</h3><span class="tag">3문항</span></div>
+ <p>아래 아날로그 시계의 시각을 디지털로 써 봐요.</p>
+ <div class="clock-row"><div class="clock-cell">
+ <svg viewBox="0 0 200 200" width="130" height="130"><circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/><g stroke="#880e4f" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g><g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g><line x1="100" y1="100" x2="146.2" y2="80.9" stroke="#880e4f" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="175.0" y2="100.0" stroke="#880e4f" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="100" r="4" fill="#880e4f"/></svg>
+ <div class="lbl">⑫ 시각 A</div>
+ <div class="sub">읽은 시각</div>
+ <div class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</div>
+ </div><div class="clock-cell">
+ <svg viewBox="0 0 200 200" width="130" height="130"><circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/><g stroke="#880e4f" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g><g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g><line x1="100" y1="100" x2="50.2" y2="104.4" stroke="#880e4f" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="35.0" y2="62.5" stroke="#880e4f" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="100" r="4" fill="#880e4f"/></svg>
+ <div class="lbl">⑬ 시각 B</div>
+ <div class="sub">읽은 시각</div>
+ <div class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</div>
+ </div><div class="clock-cell">
+ <svg viewBox="0 0 200 200" width="130" height="130"><circle cx="100" cy="100" r="88" fill="#fff" stroke="#ad1457" stroke-width="3"/><g stroke="#880e4f" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g><g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#880e4f"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g><line x1="100" y1="100" x2="89.2" y2="51.2" stroke="#880e4f" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="62.5" y2="165.0" stroke="#880e4f" stroke-width="3" stroke-linecap="round"/><circle cx="100" cy="100" r="4" fill="#880e4f"/></svg>
+ <div class="lbl">⑭ 시각 C</div>
+ <div class="sub">읽은 시각</div>
+ <div class="time-chip">( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</div>
+ </div></div>
+ </div>
 
-  <div class="page-foot">시계 시리즈 · L35 · 3쪽 / 3</div>
+ <div class="page-foot">시계 시리즈 · L35 · 2쪽 / 3</div>
+</section>
+
+
+<section class="page">
+ <div class="page-head">
+ <h2>✍️ 내 생활에 적용하기 — 택배</h2>
+ <span class="step">3쪽 · 쓰기·실천</span>
+ </div>
+ <div class="intro">
+ 배운 시간 기술을 <b>내 생활</b>에 적용해 봐요. 계획을 쓰고, 지킬 약속을 정하고, 친구에게 문자도 써 봐요.
+ </div>
+
+ <div class="activity">
+ <div class="head"><h3>활동 7. 이번 주 택배 수령 예정</h3><span class="tag">계획표 · 5문항</span></div>
+ <p>아래 표에 <b>구체적인 시각</b>을 적어 봐요. 힌트가 있는 칸은 참고용이에요.</p>
+ <table class="conv-table">
+ <tr><th>번호</th><th>항목</th><th>시각 (시 : 분)</th><th>메모·힌트</th></tr>
+ <tr><td>⑰</td><td class="left">화요일</td><td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td><td class="left"><span class="hint">가방 (1~5시)</span></td></tr><tr><td>⑱</td><td class="left">수요일</td><td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td><td class="left"></td></tr><tr><td>⑲</td><td class="left">목요일</td><td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td><td class="left"></td></tr><tr><td>⑳</td><td class="left">금요일</td><td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td><td class="left"></td></tr><tr><td>㉑</td><td class="left">토요일</td><td>( <span class="blank short">&nbsp;</span> ) : ( <span class="blank short">&nbsp;</span> )</td><td class="left"></td></tr>
+ </table>
+ <div class="tip">💡 <b>팁:</b> 항목 사이 <b>이동·준비 시간</b>도 10~15분씩 넣어 두면 늦지 않아요.</div>
+ </div>
+
+ <div class="activity">
+ <div class="head"><h3>활동 8. 오늘 꼭 지킬 시간 약속 — 체크리스트</h3><span class="tag">5개 약속</span></div>
+ <p>하루를 마무리하며 <b>지킨 약속에 ✔️</b> 표시를 해 봐요.</p>
+ <ul class="checklist">
+ <li><label><input type="checkbox" disabled> ㉒ 배송 시간대에 집에 있기</label></li><li><label><input type="checkbox" disabled> ㉓ 부재중 안내 바로 확인</label></li><li><label><input type="checkbox" disabled> ㉔ 문 앞 배송 사진 확인</label></li><li><label><input type="checkbox" disabled> ㉕ 반품·교환 시한 체크</label></li><li><label><input type="checkbox" disabled> ㉖ 택배함 비밀번호 숙지</label></li>
+ </ul>
+ <div class="note">🌟 3개 이상 지키면 <b>스스로에게 "잘했어!"</b> 한 마디!</div>
+ </div>
+
+ <div class="activity">
+ <div class="head"><h3>활동 9. 친구에게 문자 쓰기</h3><span class="tag">상황 쓰기</span></div>
+ <p>아래 상황에 맞게 <b>구체적인 시각</b>을 넣어 문자를 써 봐요.</p>
+ <div class="story" style="margin-top:6px;"><b>상황:</b> 채원이에게: "오후 1~5시 집에 있을 거야, 택배 올 수도!"</div>
+ <div class="write-box">
+ <div class="label">내 문자:</div>
+ <div class="line">&nbsp;</div>
+ <div class="line">&nbsp;</div>
+ <div class="line">&nbsp;</div>
+ </div>
+ <div class="tip">💡 문자에는 <b>"몇 시에"</b>, <b>"몇 분 전에"</b>처럼 시간을 구체적으로 넣어 보면 좋아요.</div>
+ </div>
+
+ <div class="page-foot">시계 시리즈 · L35 · 3쪽 / 3</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

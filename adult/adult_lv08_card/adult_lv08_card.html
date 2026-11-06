@@ -8,22 +8,22 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #b71c1c; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #b71c1c; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; } .toolbar .muted { color: #ffcdd2; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffcdd2 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #b71c1c;
-  border-bottom: 2px solid #ef5350; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #ef5350; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; }
 .cover-main { text-align: center; padding: 10px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #b71c1c; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #b71c1c; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #b71c1c; font-weight: 900; }
 .cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #7f0000; font-weight: 500; }
 .cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
@@ -35,7 +35,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #b71c1c; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #b71c1c; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #b71c1c; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #b71c1c; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #b71c1c; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -77,359 +77,358 @@ table.qa td.left { text-align: left; }
 .compare ul { margin: 0; padding-left: 18px; font-size: 0.94em; }
 
 .footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
-  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+ color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
 @media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div><span class="title">성인 생활 8차시</span><span class="muted">체크·신용카드 · A4 4쪽</span></div>
-  <button onclick="window.print()">🖨 인쇄하기</button>
+ <div><span class="title">성인 생활 8차시</span><span class="muted">체크·신용카드 · A4 4쪽</span></div>
+ <button onclick="window.print">🖨 인쇄하기</button>
 </div>
 
 <!-- 표지 -->
 <div class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">금융·자립</span> · 성인 생활 단원 8/10</div>
-    <div>혜화여자고등학교 특수학급</div>
-  </div>
-  <div class="cover-main">
-    <span class="badge">Lv.8 카드 안전</span>
-    <h1>카드, 똑똑하게 쓰자</h1>
-    <p class="lead">체크카드 vs 신용카드 · 신용점수 · 카드빚 조심!</p>
-  </div>
-  <div class="cover-emoji">💳 ⚠️ 📊 🚫</div>
-  <div class="cover-info">
-    <h3>이번 시간에 배울 것</h3>
-    <ul>
-      <li><b>체크카드</b>(잔액 안에서)와 <b>신용카드</b>(먼저 결제)의 차이</li>
-      <li>내가 성인 초기에 <b>안전하게 카드 쓰는 방법</b></li>
-      <li><b>신용점수</b>가 뭐고, 왜 소중한지</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-    <div class="line"><span class="label">반</span></div>
-  </div>
+ <div class="cover-top">
+ <div><span class="subject">금융·자립</span> · 성인 생활 단원 8/10</div>
+ </div>
+ <div class="cover-main">
+ <span class="badge">Lv.8 카드 안전</span>
+ <h1>카드, 똑똑하게 쓰자</h1>
+ <p class="lead">체크카드 vs 신용카드 · 신용점수 · 카드빚 조심!</p>
+ </div>
+ <div class="cover-emoji">💳 ⚠️ 📊 🚫</div>
+ <div class="cover-info">
+ <h3>이번 시간에 배울 것</h3>
+ <ul>
+ <li><b>체크카드</b>(잔액 안에서)와 <b>신용카드</b>(먼저 결제)의 차이</li>
+ <li>내가 성인 초기에 <b>안전하게 카드 쓰는 방법</b></li>
+ <li><b>신용점수</b>가 뭐고, 왜 소중한지</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ <div class="line"><span class="label">반</span></div>
+ </div>
 </div>
 
 <!-- 1쪽 : 카드 차이 -->
 <div class="page">
-  <div class="page-head"><h2>1. 체크카드 vs 신용카드</h2><span class="step">Step 1</span></div>
+ <div class="page-head"><h2>1. 체크카드 vs 신용카드</h2><span class="step">Step 1</span></div>
 
-  <div class="cards">
-    <div class="card-mock check">
-      <div class="type">CHECK CARD</div>
-      <div class="brand">체크카드</div>
-      <div class="no">1234 5678 **** ****</div>
-      <div class="name"><span class="sn">하은</span></div>
-    </div>
-    <div class="card-mock credit">
-      <div class="type">CREDIT CARD</div>
-      <div class="brand">신용카드</div>
-      <div class="no">9876 5432 **** ****</div>
-      <div class="name"><span class="sn">하영</span></div>
-    </div>
-  </div>
+ <div class="cards">
+ <div class="card-mock check">
+ <div class="type">CHECK CARD</div>
+ <div class="brand">체크카드</div>
+ <div class="no">1234 5678 **** ****</div>
+ <div class="name"><span class="sn">하은</span></div>
+ </div>
+ <div class="card-mock credit">
+ <div class="type">CREDIT CARD</div>
+ <div class="brand">신용카드</div>
+ <div class="no">9876 5432 **** ****</div>
+ <div class="name"><span class="sn">하영</span></div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 결정적 차이 4가지</h3><span class="tag">비교</span></div>
-    <table class="qa">
-      <tr><th></th><th style="background:#c8e6c9;">체크카드</th><th style="background:#ffcdd2;">신용카드</th></tr>
-      <tr><td>결제 방식</td><td>통장 <b>잔액</b>에서 <b>즉시</b> 인출</td><td>먼저 결제 → <b>다음 달</b>에 통장에서 인출</td></tr>
-      <tr><td>발급 자격</td><td>계좌만 있으면 발급</td><td class="left">일정 소득·신용점수 <b>필요</b></td></tr>
-      <tr><td>연체 위험</td><td>0원 → 결제 안 됨 (안전)</td><td class="left">과소비 → <b>카드빚</b> 발생 가능</td></tr>
-      <tr><td>혜택</td><td>포인트·소득공제 (30%)</td><td class="left">더 큰 포인트·할부·연말정산 (15%)</td></tr>
-    </table>
-    <div class="tip"><b>💡 결정</b> 성인 초기 <b>1~3년</b>은 체크카드로 시작. 습관이 잡히면 신용카드 <b>1장</b> 추가해 신용점수 관리.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 결정적 차이 4가지</h3><span class="tag">비교</span></div>
+ <table class="qa">
+ <tr><th></th><th style="background:#c8e6c9;">체크카드</th><th style="background:#ffcdd2;">신용카드</th></tr>
+ <tr><td>결제 방식</td><td>통장 <b>잔액</b>에서 <b>즉시</b> 인출</td><td>먼저 결제 → <b>다음 달</b>에 통장에서 인출</td></tr>
+ <tr><td>발급 자격</td><td>계좌만 있으면 발급</td><td class="left">일정 소득·신용점수 <b>필요</b></td></tr>
+ <tr><td>연체 위험</td><td>0원 → 결제 안 됨 (안전)</td><td class="left">과소비 → <b>카드빚</b> 발생 가능</td></tr>
+ <tr><td>혜택</td><td>포인트·소득공제 (30%)</td><td class="left">더 큰 포인트·할부·연말정산 (15%)</td></tr>
+ </table>
+ <div class="tip"><b>💡 결정</b> 성인 초기 <b>1~3년</b>은 체크카드로 시작. 습관이 잡히면 신용카드 <b>1장</b> 추가해 신용점수 관리.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 주은이의 카드 사용 판단</h3><span class="tag">판단</span></div>
-    <p>주은이가 다음 지출을 할 때 <b>어느 카드가 적절</b>할까요?</p>
-    <table class="qa">
-      <tr><th style="width:60%">지출</th><th>체크 / 신용</th></tr>
-      <tr><td class="left">매일 편의점·카페 (1~2만원)</td><td><span class="blank">체크</span></td></tr>
-      <tr><td class="left">한 달 통신비 자동납부 (7만원)</td><td><span class="blank"></span></td></tr>
-      <tr><td class="left">해외 쇼핑몰 결제 (10만원)</td><td><span class="blank">신용 (해외 결제 유리)</span></td></tr>
-      <tr><td class="left">노트북 할부 (100만원, 12개월)</td><td><span class="blank">신용 (할부 가능)</span></td></tr>
-      <tr><td class="left">한 달 생활비 총액 (100만원)</td><td><span class="blank"></span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 주은이의 카드 사용 판단</h3><span class="tag">판단</span></div>
+ <p>주은이가 다음 지출을 할 때 <b>어느 카드가 적절</b>할까요?</p>
+ <table class="qa">
+ <tr><th style="width:60%">지출</th><th>체크 / 신용</th></tr>
+ <tr><td class="left">매일 편의점·카페 (1~2만원)</td><td><span class="blank">체크</span></td></tr>
+ <tr><td class="left">한 달 통신비 자동납부 (7만원)</td><td><span class="blank"></span></td></tr>
+ <tr><td class="left">해외 쇼핑몰 결제 (10만원)</td><td><span class="blank">신용 (해외 결제 유리)</span></td></tr>
+ <tr><td class="left">노트북 할부 (100만원, 12개월)</td><td><span class="blank">신용 (할부 가능)</span></td></tr>
+ <tr><td class="left">한 달 생활비 총액 (100만원)</td><td><span class="blank"></span></td></tr>
+ </table>
+ </div>
 
-  <div class="footer-note">성인 생활 8차시 · 1/4쪽 · 카드 차이</div>
+ <div class="footer-note">성인 생활 8차시 · 1/4쪽 · 카드 차이</div>
 </div>
 
 <!-- 2쪽 : 신용카드 위험 -->
 <div class="page">
-  <div class="page-head"><h2>2. 신용카드의 함정</h2><span class="step">Step 2</span></div>
-  <div class="intro">
-    <b>💡 신용카드는 편리하지만 위험도 커요.</b> <b>내 돈 아닌 돈</b>을 쓰는 느낌이라 <b>과소비</b> 유혹이 큽니다.
-  </div>
+ <div class="page-head"><h2>2. 신용카드의 함정</h2><span class="step">Step 2</span></div>
+ <div class="intro">
+ <b>💡 신용카드는 편리하지만 위험도 커요.</b> <b>내 돈 아닌 돈</b>을 쓰는 느낌이라 <b>과소비</b> 유혹이 큽니다.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 카드빚이 눈덩이 되는 과정</h3><span class="tag">경각심</span></div>
-    <p><b>주현</b>이의 시나리오:</p>
-    <table class="qa">
-      <tr><th>월</th><th>이번 달 결제액</th><th>낼 수 있는 돈</th><th>미납액</th></tr>
-      <tr><td>1월</td><td>1,000,000</td><td>1,000,000</td><td>0</td></tr>
-      <tr><td>2월</td><td>1,200,000</td><td>1,000,000</td><td><span class="blank short">200,000</span> + 이자</td></tr>
-      <tr><td>3월</td><td>1,500,000</td><td>1,000,000</td><td>500,000 + <span class="blank short">이자 증가</span></td></tr>
-      <tr><td>4월</td><td>1,800,000</td><td>1,000,000</td><td><span class="blank short">800,000</span> + 큰 이자</td></tr>
-    </table>
-    <p>4개월 만에 미납액 <b>0 → 800,000+이자</b>. 신용카드 이자는 <b>연 15~20%</b>로 매우 높아요!</p>
-    <div class="note"><b>❗ 리볼빙 절대 금지</b> "이번 달 조금만 내고 나머지 나중에" — <b>겉으론 편리, 실제론 이자 폭탄</b>. 눈덩이 부채의 시작!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 카드빚이 눈덩이 되는 과정</h3><span class="tag">경각심</span></div>
+ <p><b>주현</b>이의 시나리오:</p>
+ <table class="qa">
+ <tr><th>월</th><th>이번 달 결제액</th><th>낼 수 있는 돈</th><th>미납액</th></tr>
+ <tr><td>1월</td><td>1,000,000</td><td>1,000,000</td><td>0</td></tr>
+ <tr><td>2월</td><td>1,200,000</td><td>1,000,000</td><td><span class="blank short">200,000</span> + 이자</td></tr>
+ <tr><td>3월</td><td>1,500,000</td><td>1,000,000</td><td>500,000 + <span class="blank short">이자 증가</span></td></tr>
+ <tr><td>4월</td><td>1,800,000</td><td>1,000,000</td><td><span class="blank short">800,000</span> + 큰 이자</td></tr>
+ </table>
+ <p>4개월 만에 미납액 <b>0 → 800,000+이자</b>. 신용카드 이자는 <b>연 15~20%</b>로 매우 높아요!</p>
+ <div class="note"><b>❗ 리볼빙 절대 금지</b> "이번 달 조금만 내고 나머지 나중에" — <b>겉으론 편리, 실제론 이자 폭탄</b>. 눈덩이 부채의 시작!</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 안전한 신용카드 사용 규칙</h3><span class="tag">규칙</span></div>
-    <div class="compare">
-      <div class="good-c">
-        <div class="title">👍 좋은 사용 — 미정</div>
-        <ul>
-          <li>월 사용액 = <b>월급의 30% 이하</b></li>
-          <li>매달 <b>전액</b> 결제 (리볼빙 X)</li>
-          <li>사용 즉시 앱으로 <b>바로 기록·확인</b></li>
-          <li>카드 <b>1~2장</b>만 (관리 용이)</li>
-          <li>혜택 위해 <b>필요한 것만</b> 결제</li>
-        </ul>
-      </div>
-      <div class="bad-c">
-        <div class="title">👎 위험한 사용 — 채원</div>
-        <ul>
-          <li>월 사용액 = 월급 이상</li>
-          <li>미납 → <b>리볼빙</b>·현금서비스로 돌려막기</li>
-          <li>얼마 썼는지 <b>모름</b>. 청구서에서 처음 봄</li>
-          <li>카드 <b>5장 이상</b> 무분별 발급</li>
-          <li>포인트·할인 챙기려 <b>필요없는 것도 결제</b></li>
-        </ul>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 안전한 신용카드 사용 규칙</h3><span class="tag">규칙</span></div>
+ <div class="compare">
+ <div class="good-c">
+ <div class="title">👍 좋은 사용 — 미정</div>
+ <ul>
+ <li>월 사용액 = <b>월급의 30% 이하</b></li>
+ <li>매달 <b>전액</b> 결제 (리볼빙 X)</li>
+ <li>사용 즉시 앱으로 <b>바로 기록·확인</b></li>
+ <li>카드 <b>1~2장</b>만 (관리 용이)</li>
+ <li>혜택 위해 <b>필요한 것만</b> 결제</li>
+ </ul>
+ </div>
+ <div class="bad-c">
+ <div class="title">👎 위험한 사용 — 채원</div>
+ <ul>
+ <li>월 사용액 = 월급 이상</li>
+ <li>미납 → <b>리볼빙</b>·현금서비스로 돌려막기</li>
+ <li>얼마 썼는지 <b>모름</b>. 청구서에서 처음 봄</li>
+ <li>카드 <b>5장 이상</b> 무분별 발급</li>
+ <li>포인트·할인 챙기려 <b>필요없는 것도 결제</b></li>
+ </ul>
+ </div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. 예은이의 첫 신용카드 결정</h3><span class="tag">결정</span></div>
-    <p>예은이가 신용카드를 만들지 고민 중. 아래 항목에 예/아니요로 답해 보세요.</p>
-    <table class="qa">
-      <tr><th style="width:70%">질문</th><th>예/아니오</th></tr>
-      <tr><td class="left">1. 이미 체크카드를 6개월 이상 안정적으로 쓰고 있다</td><td><span class="blank short"></span></td></tr>
-      <tr><td class="left">2. 매달 정기 수입(월급·용돈)이 있다</td><td><span class="blank short"></span></td></tr>
-      <tr><td class="left">3. 매달 지출을 스스로 기록·확인한다</td><td><span class="blank short"></span></td></tr>
-      <tr><td class="left">4. "이번 달만 조금 더" 유혹을 절제할 수 있다</td><td><span class="blank short"></span></td></tr>
-      <tr><td class="left">5. 급하게 큰 돈 필요한 상황이 아니다</td><td><span class="blank short"></span></td></tr>
-    </table>
-    <div class="good"><b>✅ 5개 모두 "예"</b>이면 신용카드 <b>1장</b> 준비. 하나라도 "아니오"면 <b>더 연습</b> 후 다시 결정!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 예은이의 첫 신용카드 결정</h3><span class="tag">결정</span></div>
+ <p>예은이가 신용카드를 만들지 고민 중. 아래 항목에 예/아니요로 답해 보세요.</p>
+ <table class="qa">
+ <tr><th style="width:70%">질문</th><th>예/아니오</th></tr>
+ <tr><td class="left">1. 이미 체크카드를 6개월 이상 안정적으로 쓰고 있다</td><td><span class="blank short"></span></td></tr>
+ <tr><td class="left">2. 매달 정기 수입(월급·용돈)이 있다</td><td><span class="blank short"></span></td></tr>
+ <tr><td class="left">3. 매달 지출을 스스로 기록·확인한다</td><td><span class="blank short"></span></td></tr>
+ <tr><td class="left">4. "이번 달만 조금 더" 유혹을 절제할 수 있다</td><td><span class="blank short"></span></td></tr>
+ <tr><td class="left">5. 급하게 큰 돈 필요한 상황이 아니다</td><td><span class="blank short"></span></td></tr>
+ </table>
+ <div class="good"><b>✅ 5개 모두 "예"</b>이면 신용카드 <b>1장</b> 준비. 하나라도 "아니오"면 <b>더 연습</b> 후 다시 결정!</div>
+ </div>
 
-  <div class="footer-note">성인 생활 8차시 · 2/4쪽 · 신용카드 위험</div>
+ <div class="footer-note">성인 생활 8차시 · 2/4쪽 · 신용카드 위험</div>
 </div>
 
 <!-- 3쪽 : 신용점수 -->
 <div class="page">
-  <div class="page-head"><h2>3. 신용점수란?</h2><span class="step">Step 3</span></div>
-  <div class="intro">
-    <b>💡 신용점수</b> — 은행·카드사가 "이 사람에게 <b>돈 빌려줘도 안전한지</b>"를 판단하는 점수.
-    <br>1000점 만점 (KCB 기준). 700점 이상이면 <b>양호</b>.
-  </div>
+ <div class="page-head"><h2>3. 신용점수란?</h2><span class="step">Step 3</span></div>
+ <div class="intro">
+ <b>💡 신용점수</b> — 은행·카드사가 "이 사람에게 <b>돈 빌려줘도 안전한지</b>"를 판단하는 점수.
+ <br>1000점 만점 (KCB 기준). 700점 이상이면 <b>양호</b>.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 6. 신용점수 등급</h3><span class="tag">등급</span></div>
-    <table class="qa">
-      <tr><th>점수</th><th>등급</th><th>대출·카드 가능성</th></tr>
-      <tr><td>942 ~ 1000</td><td>1등급 (최우수)</td><td>대부분 승인 · 최저 금리</td></tr>
-      <tr><td>891 ~ 941</td><td>2등급</td><td>대부분 승인</td></tr>
-      <tr><td>832 ~ 890</td><td>3등급</td><td>대부분 승인</td></tr>
-      <tr><td>768 ~ 831</td><td>4~5등급 (양호)</td><td>일반 은행 승인</td></tr>
-      <tr><td>630 ~ 767</td><td>6~7등급 (보통)</td><td>일부 제한</td></tr>
-      <tr><td>~ 629</td><td>8~10등급 (주의·위험)</td><td class="left">고금리·거절 많음</td></tr>
-    </table>
-    <div class="tip"><b>💡 확인 방법</b> "카카오뱅크·토스·나이스지키미·KCB" 앱에서 <b>무료</b>로 조회. 조회해도 <b>점수 안 떨어져요</b>.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 6. 신용점수 등급</h3><span class="tag">등급</span></div>
+ <table class="qa">
+ <tr><th>점수</th><th>등급</th><th>대출·카드 가능성</th></tr>
+ <tr><td>942 ~ 1000</td><td>1등급 (최우수)</td><td>대부분 승인 · 최저 금리</td></tr>
+ <tr><td>891 ~ 941</td><td>2등급</td><td>대부분 승인</td></tr>
+ <tr><td>832 ~ 890</td><td>3등급</td><td>대부분 승인</td></tr>
+ <tr><td>768 ~ 831</td><td>4~5등급 (양호)</td><td>일반 은행 승인</td></tr>
+ <tr><td>630 ~ 767</td><td>6~7등급 (보통)</td><td>일부 제한</td></tr>
+ <tr><td>~ 629</td><td>8~10등급 (주의·위험)</td><td class="left">고금리·거절 많음</td></tr>
+ </table>
+ <div class="tip"><b>💡 확인 방법</b> "카카오뱅크·토스·나이스지키미·KCB" 앱에서 <b>무료</b>로 조회. 조회해도 <b>점수 안 떨어져요</b>.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 7. 신용점수 올리는 법 vs 떨어뜨리는 것</h3><span class="tag">관리</span></div>
-    <div class="compare">
-      <div class="good-c">
-        <div class="title">👍 점수 올리기</div>
-        <ul>
-          <li>공과금·통신비 <b>연체 없이</b> 6개월 이상</li>
-          <li>체크카드 <b>꾸준히</b> 사용</li>
-          <li>신용카드 <b>매달 전액</b> 결제</li>
-          <li>대출 있다면 <b>제때</b> 갚기</li>
-          <li>본인 명의 통장·카드를 <b>안정적으로</b> 관리</li>
-        </ul>
-      </div>
-      <div class="bad-c">
-        <div class="title">👎 점수 떨어뜨리기</div>
-        <ul>
-          <li>공과금·카드값 <b>연체</b> (특히 90일 이상)</li>
-          <li>단기간에 <b>여러 대출 신청</b></li>
-          <li>현금서비스·카드론 사용</li>
-          <li>휴대폰 요금 미납 (통신 채권)</li>
-          <li>본인 명의 통장 <b>대여</b> (전자금융거래법 위반)</li>
-        </ul>
-      </div>
-    </div>
-    <div class="note"><b>❗ 왜 중요?</b> 낮으면 대출 거절, <b>전세자금 대출·자동차 할부·주택 청약</b>까지 어려워져요. <b>미래의 나</b>를 위해 지금부터 관리!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 7. 신용점수 올리는 법 vs 떨어뜨리는 것</h3><span class="tag">관리</span></div>
+ <div class="compare">
+ <div class="good-c">
+ <div class="title">👍 점수 올리기</div>
+ <ul>
+ <li>공과금·통신비 <b>연체 없이</b> 6개월 이상</li>
+ <li>체크카드 <b>꾸준히</b> 사용</li>
+ <li>신용카드 <b>매달 전액</b> 결제</li>
+ <li>대출 있다면 <b>제때</b> 갚기</li>
+ <li>본인 명의 통장·카드를 <b>안정적으로</b> 관리</li>
+ </ul>
+ </div>
+ <div class="bad-c">
+ <div class="title">👎 점수 떨어뜨리기</div>
+ <ul>
+ <li>공과금·카드값 <b>연체</b> (특히 90일 이상)</li>
+ <li>단기간에 <b>여러 대출 신청</b></li>
+ <li>현금서비스·카드론 사용</li>
+ <li>휴대폰 요금 미납 (통신 채권)</li>
+ <li>본인 명의 통장 <b>대여</b> (전자금융거래법 위반)</li>
+ </ul>
+ </div>
+ </div>
+ <div class="note"><b>❗ 왜 중요?</b> 낮으면 대출 거절, <b>전세자금 대출·자동차 할부·주택 청약</b>까지 어려워져요. <b>미래의 나</b>를 위해 지금부터 관리!</div>
+ </div>
 
-  <div class="footer-note">성인 생활 8차시 · 3/4쪽 · 신용점수</div>
+ <div class="footer-note">성인 생활 8차시 · 3/4쪽 · 신용점수</div>
 </div>
 
 <!-- 4쪽 : 종합 -->
 <div class="page">
-  <div class="page-head"><h2>4. 종합 — 카드 사용 계획</h2><span class="step">Step 4</span></div>
+ <div class="page-head"><h2>4. 종합 — 카드 사용 계획</h2><span class="step">Step 4</span></div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 8. 하은이의 한 달 카드 지출 진단</h3><span class="tag">진단</span></div>
-    <p><b>하은</b>이의 월급 <b>2,000,000원</b>. 이번 달 카드 지출:</p>
-    <table class="qa">
-      <tr><th>카드</th><th>지출</th><th>납부 방식</th></tr>
-      <tr><td>체크카드</td><td>800,000 (생활비)</td><td>즉시 인출됨</td></tr>
-      <tr><td>신용카드</td><td>500,000 (온라인 쇼핑)</td><td>다음 달 25일 결제</td></tr>
-      <tr><td>신용카드 할부</td><td>노트북 할부 월 100,000 (12개월)</td><td>매달 결제</td></tr>
-      <tr><th>이번 달 총 지출</th><th><span class="blank"></span></th><th></th></tr>
-    </table>
-    <p>월급 대비 카드 지출 비율 = <span class="blank short"></span>% · 안전 기준(30%) 대비 <b>초과/안전</b>: <span class="blank short"></span></p>
-    <p>개선안: <span class="blank long"></span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 8. 하은이의 한 달 카드 지출 진단</h3><span class="tag">진단</span></div>
+ <p><b>하은</b>이의 월급 <b>2,000,000원</b>. 이번 달 카드 지출:</p>
+ <table class="qa">
+ <tr><th>카드</th><th>지출</th><th>납부 방식</th></tr>
+ <tr><td>체크카드</td><td>800,000 (생활비)</td><td>즉시 인출됨</td></tr>
+ <tr><td>신용카드</td><td>500,000 (온라인 쇼핑)</td><td>다음 달 25일 결제</td></tr>
+ <tr><td>신용카드 할부</td><td>노트북 할부 월 100,000 (12개월)</td><td>매달 결제</td></tr>
+ <tr><th>이번 달 총 지출</th><th><span class="blank"></span></th><th></th></tr>
+ </table>
+ <p>월급 대비 카드 지출 비율 = <span class="blank short"></span>% · 안전 기준(30%) 대비 <b>초과/안전</b>: <span class="blank short"></span></p>
+ <p>개선안: <span class="blank long"></span></p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 9. 미정이의 위험 신호 감지</h3><span class="tag">경고</span></div>
-    <p>다음 중 카드 사용의 <b>위험 신호</b>에 O 표시.</p>
-    <ul>
-      <li>☐ 이번 달 청구액이 월급보다 많다</li>
-      <li>☐ 다음 달 결제일에 통장 잔액이 부족할 것 같다</li>
-      <li>☐ "리볼빙"이 뭔지 모르고 그냥 신청했다</li>
-      <li>☐ 얼마 썼는지 청구서 보고 처음 알았다</li>
-      <li>☐ 어제 밤에 홧김에 100만원짜리 옷을 결제했다</li>
-      <li>☐ 카드 3장 이상 사용 중이며 관리가 안 된다</li>
-    </ul>
-    <p>3개 이상 O → <b>즉시 브레이크</b>. 카드 <b>사용 정지</b>·상환 계획 세우기.</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 9. 미정이의 위험 신호 감지</h3><span class="tag">경고</span></div>
+ <p>다음 중 카드 사용의 <b>위험 신호</b>에 O 표시.</p>
+ <ul>
+ <li>☐ 이번 달 청구액이 월급보다 많다</li>
+ <li>☐ 다음 달 결제일에 통장 잔액이 부족할 것 같다</li>
+ <li>☐ "리볼빙"이 뭔지 모르고 그냥 신청했다</li>
+ <li>☐ 얼마 썼는지 청구서 보고 처음 알았다</li>
+ <li>☐ 어제 밤에 홧김에 100만원짜리 옷을 결제했다</li>
+ <li>☐ 카드 3장 이상 사용 중이며 관리가 안 된다</li>
+ </ul>
+ <p>3개 이상 O → <b>즉시 브레이크</b>. 카드 <b>사용 정지</b>·상환 계획 세우기.</p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 10. 나의 다짐 & 스스로 확인</h3><span class="tag">자기점검</span></div>
-    <p>내가 지킬 카드 사용 3가지 다짐:</p>
-    <p>1) <span class="blank long"></span></p>
-    <p>2) <span class="blank long"></span></p>
-    <p>3) <span class="blank long"></span></p>
-    <table class="qa">
-      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
-      <tr><td class="left">체크와 신용카드의 차이를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">신용카드의 위험(카드빚·리볼빙)을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">신용점수의 의미와 관리 방법을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 10. 나의 다짐 & 스스로 확인</h3><span class="tag">자기점검</span></div>
+ <p>내가 지킬 카드 사용 3가지 다짐:</p>
+ <p>1) <span class="blank long"></span></p>
+ <p>2) <span class="blank long"></span></p>
+ <p>3) <span class="blank long"></span></p>
+ <table class="qa">
+ <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+ <tr><td class="left">체크와 신용카드의 차이를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">신용카드의 위험(카드빚·리볼빙)을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">신용점수의 의미와 관리 방법을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ </table>
+ </div>
 
-  <div class="footer-note">성인 생활 8차시 · 4/4쪽 · 카드 마무리</div>
+ <div class="footer-note">성인 생활 8차시 · 4/4쪽 · 카드 마무리</div>
 </div>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

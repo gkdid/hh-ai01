@@ -8,22 +8,22 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #bf360c; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #bf360c; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; } .toolbar .muted { color: #ffccbc; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffccbc 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #bf360c;
-  border-bottom: 2px solid #ff7043; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #ff7043; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; }
 .cover-main { text-align: center; padding: 10px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #bf360c; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #bf360c; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #bf360c; font-weight: 900; }
 .cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #7f0000; font-weight: 500; }
 .cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
@@ -35,7 +35,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #bf360c; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #bf360c; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #bf360c; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #bf360c; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #bf360c; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -64,293 +64,292 @@ table.qa td.left { text-align: left; }
 .age .d { font-size: 0.88em; color: #37474f; margin-top: 3px; }
 
 .footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
-  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+ color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
 @media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div><span class="title">반려동물관리사 3차시</span><span class="muted">강아지 관리 · A4 4쪽</span></div>
-  <button onclick="window.print()">🖨 인쇄하기</button>
+ <div><span class="title">반려동물관리사 3차시</span><span class="muted">강아지 관리 · A4 4쪽</span></div>
+ <button onclick="window.print">🖨 인쇄하기</button>
 </div>
 
 <div class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">강아지 케어</span> · 반려동물 단원 3/10</div>
-    <div>혜화여자고등학교 특수학급</div>
-  </div>
-  <div class="cover-main">
-    <span class="badge">Lv.3 개 관리</span>
-    <h1>강아지, 건강하게 키우기</h1>
-    <p class="lead">사료 · 산책 · 배변 · 놀이</p>
-  </div>
-  <div class="cover-emoji">🐕 🍖 🚶 💩</div>
-  <div class="cover-info">
-    <h3>이번 시간에 배울 것</h3>
-    <ul>
-      <li>강아지 <b>연령별 사료 급여량·횟수</b></li>
-      <li>산책 규칙과 <b>배변 처리</b></li>
-      <li>강아지의 <b>스트레스 신호</b>와 놀이법</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-    <div class="line"><span class="label">반</span></div>
-  </div>
+ <div class="cover-top">
+ <div><span class="subject">강아지 케어</span> · 반려동물 단원 3/10</div>
+ </div>
+ <div class="cover-main">
+ <span class="badge">Lv.3 개 관리</span>
+ <h1>강아지, 건강하게 키우기</h1>
+ <p class="lead">사료 · 산책 · 배변 · 놀이</p>
+ </div>
+ <div class="cover-emoji">🐕 🍖 🚶 💩</div>
+ <div class="cover-info">
+ <h3>이번 시간에 배울 것</h3>
+ <ul>
+ <li>강아지 <b>연령별 사료 급여량·횟수</b></li>
+ <li>산책 규칙과 <b>배변 처리</b></li>
+ <li>강아지의 <b>스트레스 신호</b>와 놀이법</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ <div class="line"><span class="label">반</span></div>
+ </div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>1. 사료와 급여</h2><span class="step">Step 1</span></div>
-  <div class="intro">
-    <b>💡 강아지 사료 = 생명의 기본</b> 나이·체중·활동량에 따라 정확한 <b>양과 횟수</b>가 필요해요.
-  </div>
+ <div class="page-head"><h2>1. 사료와 급여</h2><span class="step">Step 1</span></div>
+ <div class="intro">
+ <b>💡 강아지 사료 = 생명의 기본</b> 나이·체중·활동량에 따라 정확한 <b>양과 횟수</b>가 필요해요.
+ </div>
 
-  <div class="food-schedule">
-    <div class="age"><div class="em">🍼</div><div class="n">2~4개월 (퍼피)</div><div class="d">하루 4회 · 소량<br>퍼피 사료·유아식</div></div>
-    <div class="age"><div class="em">🐕</div><div class="n">4개월~1년 (청소년)</div><div class="d">하루 3회<br>퍼피~성견 전환</div></div>
-    <div class="age"><div class="em">🦴</div><div class="n">1~7세 (성견)</div><div class="d">하루 2회<br>성견 사료</div></div>
-    <div class="age"><div class="em">🐾</div><div class="n">7세+ (시니어)</div><div class="d">하루 2회·연질<br>시니어 사료</div></div>
-    <div class="age"><div class="em">💊</div><div class="n">특수 (임신·질환)</div><div class="d">수의사 상담<br>처방식</div></div>
-    <div class="age"><div class="em">🎂</div><div class="n">간식</div><div class="d">하루 총 칼로리의<br>10% 이하</div></div>
-  </div>
+ <div class="food-schedule">
+ <div class="age"><div class="em">🍼</div><div class="n">2~4개월 (퍼피)</div><div class="d">하루 4회 · 소량<br>퍼피 사료·유아식</div></div>
+ <div class="age"><div class="em">🐕</div><div class="n">4개월~1년 (청소년)</div><div class="d">하루 3회<br>퍼피~성견 전환</div></div>
+ <div class="age"><div class="em">🦴</div><div class="n">1~7세 (성견)</div><div class="d">하루 2회<br>성견 사료</div></div>
+ <div class="age"><div class="em">🐾</div><div class="n">7세+ (시니어)</div><div class="d">하루 2회·연질<br>시니어 사료</div></div>
+ <div class="age"><div class="em">💊</div><div class="n">특수 (임신·질환)</div><div class="d">수의사 상담<br>처방식</div></div>
+ <div class="age"><div class="em">🎂</div><div class="n">간식</div><div class="d">하루 총 칼로리의<br>10% 이하</div></div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 하은이의 사료량 계산</h3><span class="tag">계산</span></div>
-    <p>강아지 체중별 하루 사료량 대략 (성견 기준, 사료 뒷면 확인):</p>
-    <table class="qa">
-      <tr><th>체중</th><th>하루 사료량</th><th>1회 급여 (2회/일)</th></tr>
-      <tr><td>3 kg (소형)</td><td>80~100 g</td><td><span class="blank short">40~50</span> g</td></tr>
-      <tr><td>5 kg</td><td>120~150 g</td><td><span class="blank short"></span> g</td></tr>
-      <tr><td>10 kg (중형)</td><td>200~250 g</td><td><span class="blank short"></span> g</td></tr>
-      <tr><td>25 kg (대형)</td><td>400~500 g</td><td><span class="blank short"></span> g</td></tr>
-    </table>
-    <div class="note"><b>❗ 위험한 음식</b> 초콜릿·양파·마늘·포도·자일리톨·아보카도 → <b>중독·사망</b>! 사람 음식 함부로 X.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 하은이의 사료량 계산</h3><span class="tag">계산</span></div>
+ <p>강아지 체중별 하루 사료량 대략 (성견 기준, 사료 뒷면 확인):</p>
+ <table class="qa">
+ <tr><th>체중</th><th>하루 사료량</th><th>1회 급여 (2회/일)</th></tr>
+ <tr><td>3 kg (소형)</td><td>80~100 g</td><td><span class="blank short">40~50</span> g</td></tr>
+ <tr><td>5 kg</td><td>120~150 g</td><td><span class="blank short"></span> g</td></tr>
+ <tr><td>10 kg (중형)</td><td>200~250 g</td><td><span class="blank short"></span> g</td></tr>
+ <tr><td>25 kg (대형)</td><td>400~500 g</td><td><span class="blank short"></span> g</td></tr>
+ </table>
+ <div class="note"><b>❗ 위험한 음식</b> 초콜릿·양파·마늘·포도·자일리톨·아보카도 → <b>중독·사망</b>! 사람 음식 함부로 X.</div>
+ </div>
 
-  <div class="footer-note">반려동물관리사 3차시 · 1/4쪽 · 사료</div>
+ <div class="footer-note">반려동물관리사 3차시 · 1/4쪽 · 사료</div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>2. 산책과 운동</h2><span class="step">Step 2</span></div>
-  <div class="intro">
-    <b>💡 산책은 개의 생명 활동!</b> 배변·냄새 맡기·사회화·에너지 발산 - 스트레스 해소의 핵심.
-  </div>
+ <div class="page-head"><h2>2. 산책과 운동</h2><span class="step">Step 2</span></div>
+ <div class="intro">
+ <b>💡 산책은 개의 생명 활동!</b> 배변·냄새 맡기·사회화·에너지 발산 - 스트레스 해소의 핵심.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 하영이의 산책 시간표</h3><span class="tag">산책</span></div>
-    <table class="qa">
-      <tr><th>크기</th><th>산책 횟수</th><th>1회 시간</th></tr>
-      <tr><td>소형견</td><td>하루 2회</td><td>20~30분</td></tr>
-      <tr><td>중형견</td><td>하루 2회</td><td>30~45분</td></tr>
-      <tr><td>대형견</td><td>하루 2회 이상</td><td>45~60분+</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 하영이의 산책 시간표</h3><span class="tag">산책</span></div>
+ <table class="qa">
+ <tr><th>크기</th><th>산책 횟수</th><th>1회 시간</th></tr>
+ <tr><td>소형견</td><td>하루 2회</td><td>20~30분</td></tr>
+ <tr><td>중형견</td><td>하루 2회</td><td>30~45분</td></tr>
+ <tr><td>대형견</td><td>하루 2회 이상</td><td>45~60분+</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 산책 필수 준비물 (주은)</h3><span class="tag">준비물</span></div>
-    <ul>
-      <li>☐ <b>목줄·하네스</b> (안전 필수)</li>
-      <li>☐ <b>배변 봉투·물티슈</b> (배변 처리)</li>
-      <li>☐ <b>물</b> (여름 필수)</li>
-      <li>☐ <b>간식</b> (훈련·격려용)</li>
-      <li>☐ 인식표 (이름·연락처)</li>
-      <li>☐ 야간 산책 시 <b>반사 벨트</b></li>
-    </ul>
-    <div class="note"><b>❗ 배변 안 치우면?</b> 동물보호법 위반. 과태료 5만원. <b>남의 산책로 오염</b>은 시민 매너 문제!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 산책 필수 준비물 (주은)</h3><span class="tag">준비물</span></div>
+ <ul>
+ <li>☐ <b>목줄·하네스</b> (안전 필수)</li>
+ <li>☐ <b>배변 봉투·물티슈</b> (배변 처리)</li>
+ <li>☐ <b>물</b> (여름 필수)</li>
+ <li>☐ <b>간식</b> (훈련·격려용)</li>
+ <li>☐ 인식표 (이름·연락처)</li>
+ <li>☐ 야간 산책 시 <b>반사 벨트</b></li>
+ </ul>
+ <div class="note"><b>❗ 배변 안 치우면?</b> 동물보호법 위반. 과태료 5만원. <b>남의 산책로 오염</b>은 시민 매너 문제!</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 배변 처리 5단계</h3><span class="tag">배변</span></div>
-    <ol style="padding-left: 22px;">
-      <li>배변 봉투로 손을 감싸 <b>배변 감싸기</b></li>
-      <li>봉투 뒤집어 배변 봉투 안으로</li>
-      <li>봉투 매듭 짓기</li>
-      <li>소변이면 물티슈로 살짝 닦고 <b>물</b>을 뿌려 희석</li>
-      <li>봉투는 <b>일반쓰레기</b>로 분류 (재활용 X)</li>
-    </ol>
-    <div class="tip"><b>💡 요령</b> 아침 산책 전 <b>사료 급여 후 30분</b>이면 배변 확률↑. 산책 시 배변 유도가 쉬워요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 배변 처리 5단계</h3><span class="tag">배변</span></div>
+ <ol style="padding-left: 22px;">
+ <li>배변 봉투로 손을 감싸 <b>배변 감싸기</b></li>
+ <li>봉투 뒤집어 배변 봉투 안으로</li>
+ <li>봉투 매듭 짓기</li>
+ <li>소변이면 물티슈로 살짝 닦고 <b>물</b>을 뿌려 희석</li>
+ <li>봉투는 <b>일반쓰레기</b>로 분류 (재활용 X)</li>
+ </ol>
+ <div class="tip"><b>💡 요령</b> 아침 산책 전 <b>사료 급여 후 30분</b>이면 배변 확률↑. 산책 시 배변 유도가 쉬워요.</div>
+ </div>
 
-  <div class="footer-note">반려동물관리사 3차시 · 2/4쪽 · 산책·배변</div>
+ <div class="footer-note">반려동물관리사 3차시 · 2/4쪽 · 산책·배변</div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>3. 강아지의 신호와 놀이</h2><span class="step">Step 3</span></div>
+ <div class="page-head"><h2>3. 강아지의 신호와 놀이</h2><span class="step">Step 3</span></div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. 강아지 몸짓 언어 (주현)</h3><span class="tag">신호</span></div>
-    <table class="qa">
-      <tr><th>몸짓</th><th>의미</th></tr>
-      <tr><td class="left">꼬리 힘차게 흔들기</td><td class="left">기쁨·환영</td></tr>
-      <tr><td class="left">꼬리 다리 사이로 넣음</td><td class="left"><b>공포·복종</b></td></tr>
-      <tr><td class="left">이빨 드러내고 으르렁</td><td class="left"><b>경고·공격 준비</b></td></tr>
-      <tr><td class="left">배 보이고 눕기</td><td class="left"><span class="blank long">애정·신뢰·놀아달라</span></td></tr>
-      <tr><td class="left">앞발 낮추고 엉덩이 올림 (플레이바우)</td><td class="left"><span class="blank long">놀자! 초대</span></td></tr>
-      <tr><td class="left">하품·입술 핥기</td><td class="left"><span class="blank long">긴장·스트레스 (진정 신호)</span></td></tr>
-    </table>
-    <div class="tip"><b>💡 관리사의 눈</b> 이상 신호를 <b>보호자에게 알림</b>. 스트레스가 심하면 놀이·환경 조정.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 강아지 몸짓 언어 (주현)</h3><span class="tag">신호</span></div>
+ <table class="qa">
+ <tr><th>몸짓</th><th>의미</th></tr>
+ <tr><td class="left">꼬리 힘차게 흔들기</td><td class="left">기쁨·환영</td></tr>
+ <tr><td class="left">꼬리 다리 사이로 넣음</td><td class="left"><b>공포·복종</b></td></tr>
+ <tr><td class="left">이빨 드러내고 으르렁</td><td class="left"><b>경고·공격 준비</b></td></tr>
+ <tr><td class="left">배 보이고 눕기</td><td class="left"><span class="blank long">애정·신뢰·놀아달라</span></td></tr>
+ <tr><td class="left">앞발 낮추고 엉덩이 올림 (플레이바우)</td><td class="left"><span class="blank long">놀자! 초대</span></td></tr>
+ <tr><td class="left">하품·입술 핥기</td><td class="left"><span class="blank long">긴장·스트레스 (진정 신호)</span></td></tr>
+ </table>
+ <div class="tip"><b>💡 관리사의 눈</b> 이상 신호를 <b>보호자에게 알림</b>. 스트레스가 심하면 놀이·환경 조정.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 6. 미정이의 놀이 5가지</h3><span class="tag">놀이</span></div>
-    <table class="qa">
-      <tr><th>놀이</th><th>효과</th></tr>
-      <tr><td class="left">🎾 공 던지기 (fetch)</td><td class="left">체력·집중력</td></tr>
-      <tr><td class="left">🪢 줄다리기</td><td class="left">근력·유대</td></tr>
-      <tr><td class="left">🍖 노즈워크 (냄새 찾기)</td><td class="left">두뇌·후각</td></tr>
-      <tr><td class="left">🧩 지능 장난감 (퍼즐)</td><td class="left">지능·문제 해결</td></tr>
-      <tr><td class="left">🤝 훈련 놀이 (앉아·엎드려)</td><td class="left">유대·규칙 학습</td></tr>
-    </table>
-    <div class="note"><b>❗ 놀이 후 마무리</b> 흥분 상태 → 물 마시고 <b>휴식</b>. 흥분한 상태로 방치하면 스트레스 축적.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 6. 미정이의 놀이 5가지</h3><span class="tag">놀이</span></div>
+ <table class="qa">
+ <tr><th>놀이</th><th>효과</th></tr>
+ <tr><td class="left">🎾 공 던지기 (fetch)</td><td class="left">체력·집중력</td></tr>
+ <tr><td class="left">🪢 줄다리기</td><td class="left">근력·유대</td></tr>
+ <tr><td class="left">🍖 노즈워크 (냄새 찾기)</td><td class="left">두뇌·후각</td></tr>
+ <tr><td class="left">🧩 지능 장난감 (퍼즐)</td><td class="left">지능·문제 해결</td></tr>
+ <tr><td class="left">🤝 훈련 놀이 (앉아·엎드려)</td><td class="left">유대·규칙 학습</td></tr>
+ </table>
+ <div class="note"><b>❗ 놀이 후 마무리</b> 흥분 상태 → 물 마시고 <b>휴식</b>. 흥분한 상태로 방치하면 스트레스 축적.</div>
+ </div>
 
-  <div class="footer-note">반려동물관리사 3차시 · 3/4쪽 · 신호·놀이</div>
+ <div class="footer-note">반려동물관리사 3차시 · 3/4쪽 · 신호·놀이</div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>4. 종합 · 자기점검</h2><span class="step">Step 4</span></div>
+ <div class="page-head"><h2>4. 종합 · 자기점검</h2><span class="step">Step 4</span></div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 7. 채원이의 3일 관리 일지</h3><span class="tag">일지</span></div>
-    <p>펫호텔 손님 <b>말티즈 5kg (성견)</b> 3일 케어 일지.</p>
-    <table class="qa">
-      <tr><th>날짜</th><th>사료</th><th>산책</th><th>배변</th><th>기력</th></tr>
-      <tr><td>1일</td><td>아침 70g · 저녁 70g</td><td>2회 (25분씩)</td><td>대 2회·소 4회</td><td>활발</td></tr>
-      <tr><td>2일</td><td>아침 <span class="blank short"></span>g · 저녁 <span class="blank short"></span>g</td><td>2회</td><td><span class="blank short"></span></td><td><span class="blank short"></span></td></tr>
-      <tr><td>3일</td><td><span class="blank short"></span></td><td><span class="blank short"></span></td><td><span class="blank short"></span></td><td><span class="blank short"></span></td></tr>
-    </table>
-    <p>이상 신호 있었나? <span class="blank"></span> (예/아니오) · 있었다면: <span class="blank long"></span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 7. 채원이의 3일 관리 일지</h3><span class="tag">일지</span></div>
+ <p>펫호텔 손님 <b>말티즈 5kg (성견)</b> 3일 케어 일지.</p>
+ <table class="qa">
+ <tr><th>날짜</th><th>사료</th><th>산책</th><th>배변</th><th>기력</th></tr>
+ <tr><td>1일</td><td>아침 70g · 저녁 70g</td><td>2회 (25분씩)</td><td>대 2회·소 4회</td><td>활발</td></tr>
+ <tr><td>2일</td><td>아침 <span class="blank short"></span>g · 저녁 <span class="blank short"></span>g</td><td>2회</td><td><span class="blank short"></span></td><td><span class="blank short"></span></td></tr>
+ <tr><td>3일</td><td><span class="blank short"></span></td><td><span class="blank short"></span></td><td><span class="blank short"></span></td><td><span class="blank short"></span></td></tr>
+ </table>
+ <p>이상 신호 있었나? <span class="blank"></span> (예/아니오) · 있었다면: <span class="blank long"></span></p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 8. 예은이의 상황 대응</h3><span class="tag">상황</span></div>
-    <table class="qa">
-      <tr><th style="width:60%">상황</th><th>대응</th></tr>
-      <tr><td class="left">사료를 갑자기 안 먹어요</td><td class="left"><span class="blank long">체온·활동 확인·수의사 상담</span></td></tr>
-      <tr><td class="left">산책 중 다른 개에게 짖어요</td><td class="left"><span class="blank long">즉시 거리 두기·시야 차단</span></td></tr>
-      <tr><td class="left">배변을 실내에서 해요</td><td class="left"><span class="blank long">배변 패드 위치·산책 시간 확인</span></td></tr>
-      <tr><td class="left">계속 짖어요</td><td class="left"><span class="blank long">이유 파악·불안·요구 신호</span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 8. 예은이의 상황 대응</h3><span class="tag">상황</span></div>
+ <table class="qa">
+ <tr><th style="width:60%">상황</th><th>대응</th></tr>
+ <tr><td class="left">사료를 갑자기 안 먹어요</td><td class="left"><span class="blank long">체온·활동 확인·수의사 상담</span></td></tr>
+ <tr><td class="left">산책 중 다른 개에게 짖어요</td><td class="left"><span class="blank long">즉시 거리 두기·시야 차단</span></td></tr>
+ <tr><td class="left">배변을 실내에서 해요</td><td class="left"><span class="blank long">배변 패드 위치·산책 시간 확인</span></td></tr>
+ <tr><td class="left">계속 짖어요</td><td class="left"><span class="blank long">이유 파악·불안·요구 신호</span></td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 9. 스스로 확인</h3><span class="tag">자기점검</span></div>
-    <table class="qa">
-      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
-      <tr><td class="left">사료 종류·양을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">산책·배변 처리 규칙을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">몸짓 신호를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 9. 스스로 확인</h3><span class="tag">자기점검</span></div>
+ <table class="qa">
+ <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+ <tr><td class="left">사료 종류·양을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">산책·배변 처리 규칙을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">몸짓 신호를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ </table>
+ </div>
 
-  <div class="footer-note">반려동물관리사 3차시 · 4/4쪽 · 강아지 마무리</div>
+ <div class="footer-note">반려동물관리사 3차시 · 4/4쪽 · 강아지 마무리</div>
 </div>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

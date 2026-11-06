@@ -8,22 +8,22 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #00695c; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #00695c; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; } .toolbar .muted { color: #b2dfdb; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #b2dfdb 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #004d40;
-  border-bottom: 2px solid #4db6ac; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #4db6ac; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; }
 .cover-main { text-align: center; padding: 10px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #00695c; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #00695c; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #004d40; font-weight: 900; }
 .cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #00695c; font-weight: 500; }
 .cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
@@ -35,7 +35,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #004d40; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #00695c; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #00695c; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #004d40; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #00695c; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -83,331 +83,330 @@ table.qa td.left { text-align: left; }
 .dress .no { color: #b71c1c; font-size: 0.85em; margin-top: 2px; }
 
 .footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
-  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+ color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
 @media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div><span class="title">성인 생활 2차시</span><span class="muted">첫 출근·직장 예절 · A4 4쪽</span></div>
-  <button onclick="window.print()">🖨 인쇄하기</button>
+ <div><span class="title">성인 생활 2차시</span><span class="muted">첫 출근·직장 예절 · A4 4쪽</span></div>
+ <button onclick="window.print">🖨 인쇄하기</button>
 </div>
 
 <!-- 표지 -->
 <div class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">진로·직업</span> · 성인 생활 단원 2/10</div>
-    <div>혜화여자고등학교 특수학급</div>
-  </div>
-  <div class="cover-main">
-    <span class="badge">Lv.2 첫 출근</span>
-    <h1>첫 출근, 어떻게 준비할까?</h1>
-    <p class="lead">복장·인사·시간약속 · 직장 예절 기본</p>
-  </div>
-  <div class="cover-emoji">👔 🕘 🙇 💼</div>
-  <div class="cover-info">
-    <h3>이번 시간에 배울 것</h3>
-    <ul>
-      <li>첫 출근 전날 <b>준비물과 마음가짐</b></li>
-      <li>직장에서의 <b>복장·인사·호칭·시간 약속</b></li>
-      <li>모르는 것을 <b>물어보는 법</b>과 <b>보고·연락·상담</b>의 3원칙</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-    <div class="line"><span class="label">반</span></div>
-  </div>
+ <div class="cover-top">
+ <div><span class="subject">진로·직업</span> · 성인 생활 단원 2/10</div>
+ </div>
+ <div class="cover-main">
+ <span class="badge">Lv.2 첫 출근</span>
+ <h1>첫 출근, 어떻게 준비할까?</h1>
+ <p class="lead">복장·인사·시간약속 · 직장 예절 기본</p>
+ </div>
+ <div class="cover-emoji">👔 🕘 🙇 💼</div>
+ <div class="cover-info">
+ <h3>이번 시간에 배울 것</h3>
+ <ul>
+ <li>첫 출근 전날 <b>준비물과 마음가짐</b></li>
+ <li>직장에서의 <b>복장·인사·호칭·시간 약속</b></li>
+ <li>모르는 것을 <b>물어보는 법</b>과 <b>보고·연락·상담</b>의 3원칙</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ <div class="line"><span class="label">반</span></div>
+ </div>
 </div>
 
 <!-- 1쪽 : 첫 출근 준비 -->
 <div class="page">
-  <div class="page-head"><h2>1. 첫 출근 전날, 무엇을 준비할까?</h2><span class="step">Step 1</span></div>
-  <div class="intro">
-    <b>💡 첫 인상은 3초</b> — 첫 출근날의 <b>복장·인사·시간</b>이 <b>3초 안</b>에 첫인상을 만들어요. 전날 준비가 반이에요.
-  </div>
+ <div class="page-head"><h2>1. 첫 출근 전날, 무엇을 준비할까?</h2><span class="step">Step 1</span></div>
+ <div class="intro">
+ <b>💡 첫 인상은 3초</b> — 첫 출근날의 <b>복장·인사·시간</b>이 <b>3초 안</b>에 첫인상을 만들어요. 전날 준비가 반이에요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 하은이의 전날 체크리스트</h3><span class="tag">준비물</span></div>
-    <p><b>하은</b>이는 내일 첫 출근이에요. 준비물을 확인해요.</p>
-    <table class="qa">
-      <tr><th>항목</th><th>왜 필요?</th><th>준비 O/X</th></tr>
-      <tr><td class="left">신분증(주민등록증)</td><td class="left">근로계약서 작성용</td><td>☐</td></tr>
-      <tr><td class="left">통장 사본 (본인 명의)</td><td class="left">월급 이체용</td><td>☐</td></tr>
-      <tr><td class="left">건강진단서(필요 시)</td><td class="left">식품·의료 등 업종</td><td>☐</td></tr>
-      <tr><td class="left">필기구·메모장</td><td class="left">업무 지시 받아 적기</td><td>☐</td></tr>
-      <tr><td class="left">깔끔한 복장 (미리 다림질)</td><td class="left">첫인상</td><td>☐</td></tr>
-      <tr><td class="left">회사 주소·연락처</td><td class="left">지각 방지</td><td>☐</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 하은이의 전날 체크리스트</h3><span class="tag">준비물</span></div>
+ <p><b>하은</b>이는 내일 첫 출근이에요. 준비물을 확인해요.</p>
+ <table class="qa">
+ <tr><th>항목</th><th>왜 필요?</th><th>준비 O/X</th></tr>
+ <tr><td class="left">신분증(주민등록증)</td><td class="left">근로계약서 작성용</td><td>☐</td></tr>
+ <tr><td class="left">통장 사본 (본인 명의)</td><td class="left">월급 이체용</td><td>☐</td></tr>
+ <tr><td class="left">건강진단서(필요 시)</td><td class="left">식품·의료 등 업종</td><td>☐</td></tr>
+ <tr><td class="left">필기구·메모장</td><td class="left">업무 지시 받아 적기</td><td>☐</td></tr>
+ <tr><td class="left">깔끔한 복장 (미리 다림질)</td><td class="left">첫인상</td><td>☐</td></tr>
+ <tr><td class="left">회사 주소·연락처</td><td class="left">지각 방지</td><td>☐</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 출근 시각 계산 — 하영이의 아침</h3><span class="tag">시간관리</span></div>
-    <p><b>하영</b>이의 첫 출근 시각은 <b>오전 9시</b>. 회사까지 지하철로 <b>40분</b>, 걷기 <b>15분</b> 총 <b>55분</b> 걸려요.
-      권장 도착 시각은 시작 <b>10분 전(8:50)</b>.</p>
-    <p>출발해야 할 시각 = 8:50 − 55분 = <span class="blank">7:55</span></p>
-    <p>아침 준비(씻기·옷·아침) 45분 → 몇 시에 일어나야? = 7:55 − 45분 = <span class="blank"></span></p>
-    <p>여유 시간 5분 더 = <span class="blank"></span></p>
-    <div class="tip"><b>💡 첫 출근 도착 규칙</b> "정시 도착 = 지각 아님"이 아니라 "10~15분 전 도착 = 예의". 첫 주는 <b>15분 전</b> 도착 권장.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 출근 시각 계산 — 하영이의 아침</h3><span class="tag">시간관리</span></div>
+ <p><b>하영</b>이의 첫 출근 시각은 <b>오전 9시</b>. 회사까지 지하철로 <b>40분</b>, 걷기 <b>15분</b> 총 <b>55분</b> 걸려요.
+ 권장 도착 시각은 시작 <b>10분 전(8:50)</b>.</p>
+ <p>출발해야 할 시각 = 8:50 − 55분 = <span class="blank">7:55</span></p>
+ <p>아침 준비(씻기·옷·아침) 45분 → 몇 시에 일어나야? = 7:55 − 45분 = <span class="blank"></span></p>
+ <p>여유 시간 5분 더 = <span class="blank"></span></p>
+ <div class="tip"><b>💡 첫 출근 도착 규칙</b> "정시 도착 = 지각 아님"이 아니라 "10~15분 전 도착 = 예의". 첫 주는 <b>15분 전</b> 도착 권장.</div>
+ </div>
 
-  <div class="footer-note">성인 생활 2차시 · 1/4쪽 · 전날 준비</div>
+ <div class="footer-note">성인 생활 2차시 · 1/4쪽 · 전날 준비</div>
 </div>
 
 <!-- 2쪽 : 복장·인사 -->
 <div class="page">
-  <div class="page-head"><h2>2. 복장과 인사</h2><span class="step">Step 2</span></div>
+ <div class="page-head"><h2>2. 복장과 인사</h2><span class="step">Step 2</span></div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 직장 복장 OK / NO</h3><span class="tag">복장</span></div>
-    <p>업종마다 다르지만, <b>사무직·서비스직</b>의 일반 기준:</p>
-    <div class="dress-grid">
-      <div class="dress"><div class="em">👔</div><div class="n">셔츠·블라우스</div><div class="ok">✓ OK</div></div>
-      <div class="dress"><div class="em">👖</div><div class="n">정장 바지·긴바지</div><div class="ok">✓ OK</div></div>
-      <div class="dress"><div class="em">👗</div><div class="n">단정한 원피스</div><div class="ok">✓ OK</div></div>
-      <div class="dress"><div class="em">👞</div><div class="n">구두·단화</div><div class="ok">✓ OK</div></div>
-      <div class="dress"><div class="em">🩳</div><div class="n">반바지</div><div class="no">✗ NO</div></div>
-      <div class="dress"><div class="em">👕</div><div class="n">민소매·크롭</div><div class="no">✗ NO</div></div>
-      <div class="dress"><div class="em">🩴</div><div class="n">슬리퍼</div><div class="no">✗ NO</div></div>
-      <div class="dress"><div class="em">👟</div><div class="n">화려한 운동화</div><div class="no">△ 업종별</div></div>
-    </div>
-    <div class="tip"><b>💡 판단 기준</b> "깨끗한지 · 단정한지 · 몸을 지나치게 드러내지 않는지". 회사 규칙(드레스코드)이 있으면 그것부터 확인해요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 직장 복장 OK / NO</h3><span class="tag">복장</span></div>
+ <p>업종마다 다르지만, <b>사무직·서비스직</b>의 일반 기준:</p>
+ <div class="dress-grid">
+ <div class="dress"><div class="em">👔</div><div class="n">셔츠·블라우스</div><div class="ok">✓ OK</div></div>
+ <div class="dress"><div class="em">👖</div><div class="n">정장 바지·긴바지</div><div class="ok">✓ OK</div></div>
+ <div class="dress"><div class="em">👗</div><div class="n">단정한 원피스</div><div class="ok">✓ OK</div></div>
+ <div class="dress"><div class="em">👞</div><div class="n">구두·단화</div><div class="ok">✓ OK</div></div>
+ <div class="dress"><div class="em">🩳</div><div class="n">반바지</div><div class="no">✗ NO</div></div>
+ <div class="dress"><div class="em">👕</div><div class="n">민소매·크롭</div><div class="no">✗ NO</div></div>
+ <div class="dress"><div class="em">🩴</div><div class="n">슬리퍼</div><div class="no">✗ NO</div></div>
+ <div class="dress"><div class="em">👟</div><div class="n">화려한 운동화</div><div class="no">△ 업종별</div></div>
+ </div>
+ <div class="tip"><b>💡 판단 기준</b> "깨끗한지 · 단정한지 · 몸을 지나치게 드러내지 않는지". 회사 규칙(드레스코드)이 있으면 그것부터 확인해요.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 인사의 4가지 상황</h3><span class="tag">인사</span></div>
-    <p>상황에 맞는 인사말을 골라 쓰세요.</p>
-    <table class="qa">
-      <tr><th style="width:40%">상황</th><th style="width:60%">알맞은 인사</th></tr>
-      <tr><td class="left">아침에 출근했을 때</td><td class="left"><span class="blank long">안녕하세요</span> / 좋은 아침입니다</td></tr>
-      <tr><td class="left">퇴근할 때 (동료가 아직 일하는 중)</td><td class="left"><span class="blank long"></span></td></tr>
-      <tr><td class="left">부탁을 받거나 지시를 받았을 때</td><td class="left"><span class="blank long"></span></td></tr>
-      <tr><td class="left">실수했을 때</td><td class="left"><span class="blank long"></span></td></tr>
-    </table>
-    <p style="font-size:0.9em; color:#546e7a;">
-      * 예시 인사말: 「안녕하세요」 · 「먼저 들어가 보겠습니다. 수고하세요.」 · 「네, 알겠습니다.」 · 「죄송합니다. 다시는 실수하지 않겠습니다.」
-    </p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 인사의 4가지 상황</h3><span class="tag">인사</span></div>
+ <p>상황에 맞는 인사말을 골라 쓰세요.</p>
+ <table class="qa">
+ <tr><th style="width:40%">상황</th><th style="width:60%">알맞은 인사</th></tr>
+ <tr><td class="left">아침에 출근했을 때</td><td class="left"><span class="blank long">안녕하세요</span> / 좋은 아침입니다</td></tr>
+ <tr><td class="left">퇴근할 때 (동료가 아직 일하는 중)</td><td class="left"><span class="blank long"></span></td></tr>
+ <tr><td class="left">부탁을 받거나 지시를 받았을 때</td><td class="left"><span class="blank long"></span></td></tr>
+ <tr><td class="left">실수했을 때</td><td class="left"><span class="blank long"></span></td></tr>
+ </table>
+ <p style="font-size:0.9em; color:#546e7a;">
+ * 예시 인사말: 「안녕하세요」 · 「먼저 들어가 보겠습니다. 수고하세요.」 · 「네, 알겠습니다.」 · 「죄송합니다. 다시는 실수하지 않겠습니다.」
+ </p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. 호칭 — 뭐라고 부를까?</h3><span class="tag">호칭</span></div>
-    <p>주은이가 카페에서 알바를 시작했어요. 각 사람을 뭐라고 부를까요?</p>
-    <table class="qa">
-      <tr><th>상대</th><th>호칭</th></tr>
-      <tr><td class="left">카페 사장님</td><td><span class="blank">사장님</span></td></tr>
-      <tr><td class="left">직급이 매니저인 선배</td><td><span class="blank"></span> (예: 매니저님)</td></tr>
-      <tr><td class="left">나보다 먼저 들어온 선배(직급 없음)</td><td><span class="blank"></span> (예: 선배님)</td></tr>
-      <tr><td class="left">같이 들어온 동기</td><td><span class="blank"></span></td></tr>
-      <tr><td class="left">손님</td><td><span class="blank"></span></td></tr>
-    </table>
-    <div class="note"><b>❗ 이름만 부르는 것은 X</b> "○○씨"보다 "○○ 선배님·매니저님"이 안전. 이름·나이 확인 전엔 <b>직급</b>으로 부르세요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 호칭 — 뭐라고 부를까?</h3><span class="tag">호칭</span></div>
+ <p>주은이가 카페에서 알바를 시작했어요. 각 사람을 뭐라고 부를까요?</p>
+ <table class="qa">
+ <tr><th>상대</th><th>호칭</th></tr>
+ <tr><td class="left">카페 사장님</td><td><span class="blank">사장님</span></td></tr>
+ <tr><td class="left">직급이 매니저인 선배</td><td><span class="blank"></span> (예: 매니저님)</td></tr>
+ <tr><td class="left">나보다 먼저 들어온 선배(직급 없음)</td><td><span class="blank"></span> (예: 선배님)</td></tr>
+ <tr><td class="left">같이 들어온 동기</td><td><span class="blank"></span></td></tr>
+ <tr><td class="left">손님</td><td><span class="blank"></span></td></tr>
+ </table>
+ <div class="note"><b>❗ 이름만 부르는 것은 X</b> "○○씨"보다 "○○ 선배님·매니저님"이 안전. 이름·나이 확인 전엔 <b>직급</b>으로 부르세요.</div>
+ </div>
 
-  <div class="footer-note">성인 생활 2차시 · 2/4쪽 · 복장·인사·호칭</div>
+ <div class="footer-note">성인 생활 2차시 · 2/4쪽 · 복장·인사·호칭</div>
 </div>
 
 <!-- 3쪽 : 지시 받기·질문 -->
 <div class="page">
-  <div class="page-head"><h2>3. 지시 받기와 질문하기</h2><span class="step">Step 3</span></div>
-  <div class="intro">
-    <b>💡 첫 달의 황금 규칙</b> — <b>"모르면 즉시 물어보기"</b>. 혼자 판단해서 잘못하면 되돌리기 어렵지만,
-    묻는 건 <b>1분</b>이면 돼요. 선배·상사는 오히려 물어보는 걸 좋아해요.
-  </div>
+ <div class="page-head"><h2>3. 지시 받기와 질문하기</h2><span class="step">Step 3</span></div>
+ <div class="intro">
+ <b>💡 첫 달의 황금 규칙</b> — <b>"모르면 즉시 물어보기"</b>. 혼자 판단해서 잘못하면 되돌리기 어렵지만,
+ 묻는 건 <b>1분</b>이면 돼요. 선배·상사는 오히려 물어보는 걸 좋아해요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 6. 지시 받는 3단계 — 주현이의 첫 업무</h3><span class="tag">받아쓰기</span></div>
-    <p><b>주현</b>이가 상사에게 첫 업무 지시를 받아요.</p>
-    <div class="speech">
-      <div class="avatar boss">상사</div>
-      <div class="bubble"><div class="who">김 팀장님</div>주현씨, 오후 3시까지 이 서류 20부 복사해서 회의실에 놓아 주세요.</div>
-    </div>
-    <div class="speech right">
-      <div class="bubble"><div class="who">주현</div>네, 알겠습니다. 확인 위해 다시 말씀드리면 — <b><span class="blank long"></span></b>까지 <b>이 서류 <span class="blank short"></span> 부</b>를 복사해서 <b><span class="blank"></span></b>에 놓으면 되겠습니까?</div>
-      <div class="avatar">주</div>
-    </div>
-    <p><b>3단계</b>: ① <b>메모하며 듣기</b> ② <b>내가 이해한 것을 다시 말해서 확인</b> ③ <b>모르는 것 바로 질문</b></p>
-    <div class="good"><b>✅ 좋은 습관</b> "확인 위해 다시 말씀드리면…" 이 한 문장이 실수를 90% 줄여요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 6. 지시 받는 3단계 — 주현이의 첫 업무</h3><span class="tag">받아쓰기</span></div>
+ <p><b>주현</b>이가 상사에게 첫 업무 지시를 받아요.</p>
+ <div class="speech">
+ <div class="avatar boss">상사</div>
+ <div class="bubble"><div class="who">김 팀장님</div>주현씨, 오후 3시까지 이 서류 20부 복사해서 회의실에 놓아 주세요.</div>
+ </div>
+ <div class="speech right">
+ <div class="bubble"><div class="who">주현</div>네, 알겠습니다. 확인 위해 다시 말씀드리면 — <b><span class="blank long"></span></b>까지 <b>이 서류 <span class="blank short"></span> 부</b>를 복사해서 <b><span class="blank"></span></b>에 놓으면 되겠습니까?</div>
+ <div class="avatar">주</div>
+ </div>
+ <p><b>3단계</b>: ① <b>메모하며 듣기</b> ② <b>내가 이해한 것을 다시 말해서 확인</b> ③ <b>모르는 것 바로 질문</b></p>
+ <div class="good"><b>✅ 좋은 습관</b> "확인 위해 다시 말씀드리면…" 이 한 문장이 실수를 90% 줄여요.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 7. 질문 vs 무단 판단 — 비교</h3><span class="tag">비교</span></div>
-    <div class="compare">
-      <div class="good-c">
-        <div class="title">👍 좋은 예 — 미정</div>
-        <ul>
-          <li>복사 용지가 없어요. → "선배님, 복사 용지가 없는데 어디서 가져올 수 있을까요?"</li>
-          <li>서류 개수가 애매해요. → "20부요, 아니면 12부요?"</li>
-          <li>모르는 프로그램. → "이 프로그램 처음이라 5분만 설명 부탁드려도 될까요?"</li>
-        </ul>
-      </div>
-      <div class="bad-c">
-        <div class="title">👎 아쉬운 예 — 채원</div>
-        <ul>
-          <li>용지 없어서 그냥 <b>15부만</b> 복사. → 결과 문제 발생</li>
-          <li>애매해서 <b>임의로 30부</b> 복사. → 시간·자원 낭비</li>
-          <li>모르는 프로그램인데 <b>혼자 이것저것</b> 눌러 데이터 삭제</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 7. 질문 vs 무단 판단 — 비교</h3><span class="tag">비교</span></div>
+ <div class="compare">
+ <div class="good-c">
+ <div class="title">👍 좋은 예 — 미정</div>
+ <ul>
+ <li>복사 용지가 없어요. → "선배님, 복사 용지가 없는데 어디서 가져올 수 있을까요?"</li>
+ <li>서류 개수가 애매해요. → "20부요, 아니면 12부요?"</li>
+ <li>모르는 프로그램. → "이 프로그램 처음이라 5분만 설명 부탁드려도 될까요?"</li>
+ </ul>
+ </div>
+ <div class="bad-c">
+ <div class="title">👎 아쉬운 예 — 채원</div>
+ <ul>
+ <li>용지 없어서 그냥 <b>15부만</b> 복사. → 결과 문제 발생</li>
+ <li>애매해서 <b>임의로 30부</b> 복사. → 시간·자원 낭비</li>
+ <li>모르는 프로그램인데 <b>혼자 이것저것</b> 눌러 데이터 삭제</li>
+ </ul>
+ </div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 8. 보·연·상 (보고·연락·상담)</h3><span class="tag">기본3</span></div>
-    <p>직장의 3가지 기본 소통 규칙이에요. 각 상황에 알맞은 것을 골라 쓰세요.</p>
-    <table class="qa">
-      <tr><th style="width:60%">상황</th><th>보고 / 연락 / 상담</th></tr>
-      <tr><td class="left">지시받은 업무가 다 끝났을 때</td><td><span class="blank">보고</span></td></tr>
-      <tr><td class="left">몸이 아파 회사에 못 갈 것 같을 때</td><td><span class="blank"></span></td></tr>
-      <tr><td class="left">지시 사항이 이해가 안 될 때</td><td><span class="blank"></span></td></tr>
-      <tr><td class="left">진행 중 문제가 생겨서 도움이 필요할 때</td><td><span class="blank"></span></td></tr>
-      <tr><td class="left">일정보다 늦어질 것 같을 때 (지연 예상)</td><td><span class="blank"></span></td></tr>
-    </table>
-    <div class="tip"><b>💡 요령</b> <b>보고</b>=끝난 일 알림 · <b>연락</b>=현재 상태 공유 · <b>상담</b>=결정 전 조언 구함.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 8. 보·연·상 (보고·연락·상담)</h3><span class="tag">기본3</span></div>
+ <p>직장의 3가지 기본 소통 규칙이에요. 각 상황에 알맞은 것을 골라 쓰세요.</p>
+ <table class="qa">
+ <tr><th style="width:60%">상황</th><th>보고 / 연락 / 상담</th></tr>
+ <tr><td class="left">지시받은 업무가 다 끝났을 때</td><td><span class="blank">보고</span></td></tr>
+ <tr><td class="left">몸이 아파 회사에 못 갈 것 같을 때</td><td><span class="blank"></span></td></tr>
+ <tr><td class="left">지시 사항이 이해가 안 될 때</td><td><span class="blank"></span></td></tr>
+ <tr><td class="left">진행 중 문제가 생겨서 도움이 필요할 때</td><td><span class="blank"></span></td></tr>
+ <tr><td class="left">일정보다 늦어질 것 같을 때 (지연 예상)</td><td><span class="blank"></span></td></tr>
+ </table>
+ <div class="tip"><b>💡 요령</b> <b>보고</b>=끝난 일 알림 · <b>연락</b>=현재 상태 공유 · <b>상담</b>=결정 전 조언 구함.</div>
+ </div>
 
-  <div class="footer-note">성인 생활 2차시 · 3/4쪽 · 지시·질문·보연상</div>
+ <div class="footer-note">성인 생활 2차시 · 3/4쪽 · 지시·질문·보연상</div>
 </div>
 
 <!-- 4쪽 : 종합 상황극 -->
 <div class="page">
-  <div class="page-head"><h2>4. 종합 상황 — 예은이의 첫 출근일</h2><span class="step">Step 4</span></div>
+ <div class="page-head"><h2>4. 종합 상황 — 예은이의 첫 출근일</h2><span class="step">Step 4</span></div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 9. 오전 8:30 ~ 오후 6:00 하루 일지</h3><span class="tag">시뮬레이션</span></div>
-    <p><b>예은</b>이의 첫 출근일을 시각순으로 재구성해 보세요.</p>
-    <table class="qa">
-      <tr><th>시각</th><th>상황</th><th>내가 할 행동/말</th></tr>
-      <tr><td>08:45</td><td class="left">회사 도착. 사무실 문 앞</td><td class="left">✔ 노크 후 "<span class="blank long"></span>"</td></tr>
-      <tr><td>09:00</td><td class="left">팀장님이 자리를 알려줌</td><td class="left">"<span class="blank long"></span>"</td></tr>
-      <tr><td>10:00</td><td class="left">모르는 프로그램 사용 지시</td><td class="left"><span class="blank long"></span></td></tr>
-      <tr><td>12:30</td><td class="left">점심 시간. 선배들이 함께 가자고</td><td class="left"><span class="blank long"></span></td></tr>
-      <tr><td>14:00</td><td class="left">복사 지시 (20부, 3시까지)</td><td class="left"><span class="blank long">복사한 결과 3시 전 보고</span></td></tr>
-      <tr><td>16:00</td><td class="left">몸이 갑자기 안 좋음 (조퇴 필요)</td><td class="left"><span class="blank long"></span></td></tr>
-      <tr><td>18:00</td><td class="left">퇴근 시간, 선배는 아직 일하는 중</td><td class="left">"<span class="blank long">먼저 들어가 보겠습니다. 수고하세요.</span>"</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 9. 오전 8:30 ~ 오후 6:00 하루 일지</h3><span class="tag">시뮬레이션</span></div>
+ <p><b>예은</b>이의 첫 출근일을 시각순으로 재구성해 보세요.</p>
+ <table class="qa">
+ <tr><th>시각</th><th>상황</th><th>내가 할 행동/말</th></tr>
+ <tr><td>08:45</td><td class="left">회사 도착. 사무실 문 앞</td><td class="left">✔ 노크 후 "<span class="blank long"></span>"</td></tr>
+ <tr><td>09:00</td><td class="left">팀장님이 자리를 알려줌</td><td class="left">"<span class="blank long"></span>"</td></tr>
+ <tr><td>10:00</td><td class="left">모르는 프로그램 사용 지시</td><td class="left"><span class="blank long"></span></td></tr>
+ <tr><td>12:30</td><td class="left">점심 시간. 선배들이 함께 가자고</td><td class="left"><span class="blank long"></span></td></tr>
+ <tr><td>14:00</td><td class="left">복사 지시 (20부, 3시까지)</td><td class="left"><span class="blank long">복사한 결과 3시 전 보고</span></td></tr>
+ <tr><td>16:00</td><td class="left">몸이 갑자기 안 좋음 (조퇴 필요)</td><td class="left"><span class="blank long"></span></td></tr>
+ <tr><td>18:00</td><td class="left">퇴근 시간, 선배는 아직 일하는 중</td><td class="left">"<span class="blank long">먼저 들어가 보겠습니다. 수고하세요.</span>"</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 10. 스스로 확인</h3><span class="tag">자기점검</span></div>
-    <table class="qa">
-      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
-      <tr><td class="left">첫 출근 전날 준비물을 챙길 수 있다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">상황에 맞는 복장·인사·호칭을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">지시받고 다시 확인하는 습관이 있다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">모르는 것을 즉시 물어볼 수 있다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">보고·연락·상담 상황을 구분한다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 10. 스스로 확인</h3><span class="tag">자기점검</span></div>
+ <table class="qa">
+ <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+ <tr><td class="left">첫 출근 전날 준비물을 챙길 수 있다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">상황에 맞는 복장·인사·호칭을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">지시받고 다시 확인하는 습관이 있다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">모르는 것을 즉시 물어볼 수 있다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">보고·연락·상담 상황을 구분한다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ </table>
+ </div>
 
-  <div class="tip"><b>🎯 다음 시간 예고</b> 3차시 — <b>근로계약서와 급여명세서</b>를 배웁니다. "얼마 받을지, 언제 받을지"를 정확히 알아야 해요!</div>
+ <div class="tip"><b>🎯 다음 시간 예고</b> 3차시 — <b>근로계약서와 급여명세서</b>를 배웁니다. "얼마 받을지, 언제 받을지"를 정확히 알아야 해요!</div>
 
-  <div class="footer-note">성인 생활 2차시 · 4/4쪽 · 첫 출근 마무리</div>
+ <div class="footer-note">성인 생활 2차시 · 4/4쪽 · 첫 출근 마무리</div>
 </div>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

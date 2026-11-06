@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #f0f4c3 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #33691e;
-  border-bottom: 2px solid #cddc39; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #cddc39; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #689f38; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #689f38; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #689f38; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #33691e; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #689f38; font-weight: 500; }
 .cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 8px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #33691e; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #689f38; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #689f38; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #33691e; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #689f38; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -88,304 +88,304 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">🌿 S28 지역사회에 발 딛기</span><span class="muted">사회성 · Level 28 · 참여</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">🌿 S28 지역사회에 발 딛기</span><span class="muted">사회성 · Level 28 · 참여</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#33691e;">S28 · 참여</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">봉사·주민센터·동호회</span>
-    <h1>내가 사는 동네, 함께 살아요</h1>
-    <p class="lead">낯선 곳에 처음 참여할 때 <b>첫인사·소속감</b> 만들기</p>
-  </div>
-  <div class="cover-emoji">🌿 🤝 🏘</div>
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul>
-      <li>지역사회에 <b>어떤 곳</b>이 있는지 안다.</li>
-      <li>처음 참여할 때 <b>첫인사와 자기소개</b>를 할 수 있다.</li>
-      <li>계속 소속감을 이어갈 <b>작은 습관</b>을 만든다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
-    <ul>
-      <li><b>하영</b>: 주말 봉사 동아리 첫 참여</li>
-      <li><b>미정</b>: 주민센터 프로그램 등록</li>
-      <li><b>주은</b>: 지역 도서관 독서 모임 참여</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">사회성 시리즈 · S28 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#33691e;">S28 · 참여</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">봉사·주민센터·동호회</span>
+ <h1>내가 사는 동네, 함께 살아요</h1>
+ <p class="lead">낯선 곳에 처음 참여할 때 <b>첫인사·소속감</b> 만들기</p>
+ </div>
+ <div class="cover-emoji">🌿 🤝 🏘</div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul>
+ <li>지역사회에 <b>어떤 곳</b>이 있는지 안다.</li>
+ <li>처음 참여할 때 <b>첫인사와 자기소개</b>를 할 수 있다.</li>
+ <li>계속 소속감을 이어갈 <b>작은 습관</b>을 만든다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+ <ul>
+ <li><b>하영</b>: 주말 봉사 동아리 첫 참여</li>
+ <li><b>미정</b>: 주민센터 프로그램 등록</li>
+ <li><b>주은</b>: 지역 도서관 독서 모임 참여</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">사회성 시리즈 · S28 · 표지</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>🏘 우리 동네에 무엇이 있을까?</h2>
-    <span class="step">1쪽 · 알기</span>
-  </div>
-  <div class="intro">
-    학교·집만이 내 세상은 아니에요. <b>주민센터·복지관·도서관·봉사단체</b> 등 우리 동네에는
-    <b>친구와 어른을 만날 수 있는 곳</b>이 많아요. 관심 있는 곳에 <b>한 번</b>만 가 보면 시작이에요.
-  </div>
+ <div class="page-head">
+ <h2>🏘 우리 동네에 무엇이 있을까?</h2>
+ <span class="step">1쪽 · 알기</span>
+ </div>
+ <div class="intro">
+ 학교·집만이 내 세상은 아니에요. <b>주민센터·복지관·도서관·봉사단체</b> 등 우리 동네에는
+ <b>친구와 어른을 만날 수 있는 곳</b>이 많아요. 관심 있는 곳에 <b>한 번</b>만 가 보면 시작이에요.
+ </div>
 
-  <div class="principles">
-    <div class="pri-card">
-      <div class="icon">🔍</div>
-      <div class="name">① 찾기</div>
-      <div class="desc">앱·홈페이지·전단지</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">📞</div>
-      <div class="name">② 문의</div>
-      <div class="desc">"어떻게 참여하나요?"</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">👋</div>
-      <div class="name">③ 첫 방문</div>
-      <div class="desc">인사·자기소개</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">🔁</div>
-      <div class="name">④ 이어가기</div>
-      <div class="desc">주 1회 등 리듬 만들기</div>
-    </div>
-  </div>
+ <div class="principles">
+ <div class="pri-card">
+ <div class="icon">🔍</div>
+ <div class="name">① 찾기</div>
+ <div class="desc">앱·홈페이지·전단지</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">📞</div>
+ <div class="name">② 문의</div>
+ <div class="desc">"어떻게 참여하나요?"</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">👋</div>
+ <div class="name">③ 첫 방문</div>
+ <div class="desc">인사·자기소개</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">🔁</div>
+ <div class="name">④ 이어가기</div>
+ <div class="desc">주 1회 등 리듬 만들기</div>
+ </div>
+ </div>
 
-  <div class="place-grid">
-    <div class="place-card">
-      <div class="p-name">🏛 주민센터</div>
-      <div class="p-desc">평생학습·수업·서류 발급</div>
-      <div class="p-first">첫말: "안녕하세요, 프로그램 안내 부탁드려요."</div>
-    </div>
-    <div class="place-card">
-      <div class="p-name">📚 지역 도서관</div>
-      <div class="p-desc">독서모임·강연·자원봉사</div>
-      <div class="p-first">첫말: "○○모임 참여하려고 왔어요."</div>
-    </div>
-    <div class="place-card">
-      <div class="p-name">🤝 자원봉사센터</div>
-      <div class="p-desc">1365 봉사 활동 등록</div>
-      <div class="p-first">첫말: "봉사 신청하려고 왔습니다."</div>
-    </div>
-    <div class="place-card">
-      <div class="p-name">🏥 복지관</div>
-      <div class="p-desc">청년·장애인·노인 프로그램</div>
-      <div class="p-first">첫말: "청년 프로그램 안내 받고 싶어요."</div>
-    </div>
-    <div class="place-card">
-      <div class="p-name">🎨 문화센터</div>
-      <div class="p-desc">공예·요리·운동·음악</div>
-      <div class="p-first">첫말: "이번 학기 프로그램 안내지 있나요?"</div>
-    </div>
-    <div class="place-card">
-      <div class="p-name">🏋 청소년센터</div>
-      <div class="p-desc">1388·상담·동아리·캠프</div>
-      <div class="p-first">첫말: "동아리 참여하고 싶어요."</div>
-    </div>
-  </div>
+ <div class="place-grid">
+ <div class="place-card">
+ <div class="p-name">🏛 주민센터</div>
+ <div class="p-desc">평생학습·수업·서류 발급</div>
+ <div class="p-first">첫말: "안녕하세요, 프로그램 안내 부탁드려요."</div>
+ </div>
+ <div class="place-card">
+ <div class="p-name">📚 지역 도서관</div>
+ <div class="p-desc">독서모임·강연·자원봉사</div>
+ <div class="p-first">첫말: "○○모임 참여하려고 왔어요."</div>
+ </div>
+ <div class="place-card">
+ <div class="p-name">🤝 자원봉사센터</div>
+ <div class="p-desc">1365 봉사 활동 등록</div>
+ <div class="p-first">첫말: "봉사 신청하려고 왔습니다."</div>
+ </div>
+ <div class="place-card">
+ <div class="p-name">🏥 복지관</div>
+ <div class="p-desc">청년·장애인·노인 프로그램</div>
+ <div class="p-first">첫말: "청년 프로그램 안내 받고 싶어요."</div>
+ </div>
+ <div class="place-card">
+ <div class="p-name">🎨 문화센터</div>
+ <div class="p-desc">공예·요리·운동·음악</div>
+ <div class="p-first">첫말: "이번 학기 프로그램 안내지 있나요?"</div>
+ </div>
+ <div class="place-card">
+ <div class="p-name">🏋 청소년센터</div>
+ <div class="p-desc">1388·상담·동아리·캠프</div>
+ <div class="p-first">첫말: "동아리 참여하고 싶어요."</div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 내가 관심 있는 곳 3군데</h3><span class="tag">쓰기</span></div>
-    <p>위 6곳 중 관심 있는 곳 <b>3군데</b>를 고르고, <b>왜 관심이 있는지</b> 짧게 써요.</p>
-    <p>① <span class="blank long">&nbsp;</span> — 이유: <span class="blank long">&nbsp;</span></p>
-    <p>② <span class="blank long">&nbsp;</span> — 이유: <span class="blank long">&nbsp;</span></p>
-    <p>③ <span class="blank long">&nbsp;</span> — 이유: <span class="blank long">&nbsp;</span></p>
-    <p>📞 그중 <b>가장 먼저</b> 전화·방문할 곳: <span class="blank long">&nbsp;</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 내가 관심 있는 곳 3군데</h3><span class="tag">쓰기</span></div>
+ <p>위 6곳 중 관심 있는 곳 <b>3군데</b>를 고르고, <b>왜 관심이 있는지</b> 짧게 써요.</p>
+ <p>① <span class="blank long">&nbsp;</span> — 이유: <span class="blank long">&nbsp;</span></p>
+ <p>② <span class="blank long">&nbsp;</span> — 이유: <span class="blank long">&nbsp;</span></p>
+ <p>③ <span class="blank long">&nbsp;</span> — 이유: <span class="blank long">&nbsp;</span></p>
+ <p>📞 그중 <b>가장 먼저</b> 전화·방문할 곳: <span class="blank long">&nbsp;</span></p>
+ </div>
 
-  <div class="dialogue">
-    <div class="title">📖 하영이의 좋은 예 — 봉사동아리 첫 참여</div>
-    <div class="speech">
-      <div class="avatar">담당</div>
-      <div class="bubble">
-        <div class="who">담당 선생님</div>
-        어서 오세요. 오늘 처음이시죠?
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">하영</div>
-        네, 안녕하세요. <b>○○고 하영이라고 합니다.</b> 오늘 <b>지역 어르신 도시락 배달</b> 봉사에 참여하려고 왔어요.
-      </div>
-      <div class="avatar">하영</div>
-    </div>
-    <div class="speech">
-      <div class="avatar">담당</div>
-      <div class="bubble">
-        <div class="who">담당 선생님</div>
-        반가워요. 오늘 3명 팀이에요. 옆에 계신 분과 인사 나누세요.
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">하영</div>
-        <b>안녕하세요, 하영입니다.</b> 잘 부탁드려요.
-      </div>
-      <div class="avatar">하영</div>
-    </div>
-  </div>
+ <div class="dialogue">
+ <div class="title">📖 하영이의 좋은 예 — 봉사동아리 첫 참여</div>
+ <div class="speech">
+ <div class="avatar">담당</div>
+ <div class="bubble">
+ <div class="who">담당 선생님</div>
+ 어서 오세요. 오늘 처음이시죠?
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">하영</div>
+ 네, 안녕하세요. <b>○○고 하영이라고 합니다.</b> 오늘 <b>지역 어르신 도시락 배달</b> 봉사에 참여하려고 왔어요.
+ </div>
+ <div class="avatar">하영</div>
+ </div>
+ <div class="speech">
+ <div class="avatar">담당</div>
+ <div class="bubble">
+ <div class="who">담당 선생님</div>
+ 반가워요. 오늘 3명 팀이에요. 옆에 계신 분과 인사 나누세요.
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">하영</div>
+ <b>안녕하세요, 하영입니다.</b> 잘 부탁드려요.
+ </div>
+ <div class="avatar">하영</div>
+ </div>
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S28 · 1쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S28 · 1쪽 / 2</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>🤝 소속감 만드는 작은 습관</h2>
-    <span class="step">2쪽 · 실전</span>
-  </div>
-  <div class="intro">
-    한 번만 가고 그만두면 아까워요. <b>이름 외우기·오래 남기·감사 인사·꾸준한 출석</b> —
-    작은 습관 4가지가 <b>소속감</b>을 만들어요.
-  </div>
+ <div class="page-head">
+ <h2>🤝 소속감 만드는 작은 습관</h2>
+ <span class="step">2쪽 · 실전</span>
+ </div>
+ <div class="intro">
+ 한 번만 가고 그만두면 아까워요. <b>이름 외우기·오래 남기·감사 인사·꾸준한 출석</b> —
+ 작은 습관 4가지가 <b>소속감</b>을 만들어요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 상황별 첫마디·마무리 말</h3><span class="tag">5장면</span></div>
-    <p>다음 상황에 어떤 말을 할지 짧게 써 봐요.</p>
-    <p>① 주민센터 프로그램 <b>처음 등록</b> — "<span class="blank long">&nbsp;</span>"</p>
-    <p>② 동호회 모임에서 <b>자기소개</b> — "<span class="blank long">&nbsp;</span>"</p>
-    <p>③ 모임에서 <b>모르는 사람 옆</b>에 앉을 때 — "<span class="blank long">&nbsp;</span>"</p>
-    <p>④ 모임 끝난 뒤 <b>인사</b> — "<span class="blank long">&nbsp;</span>"</p>
-    <p>⑤ 다음 번 <b>다시 가서 인사</b> — "<span class="blank long">&nbsp;</span>"</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 상황별 첫마디·마무리 말</h3><span class="tag">5장면</span></div>
+ <p>다음 상황에 어떤 말을 할지 짧게 써 봐요.</p>
+ <p>① 주민센터 프로그램 <b>처음 등록</b> — "<span class="blank long">&nbsp;</span>"</p>
+ <p>② 동호회 모임에서 <b>자기소개</b> — "<span class="blank long">&nbsp;</span>"</p>
+ <p>③ 모임에서 <b>모르는 사람 옆</b>에 앉을 때 — "<span class="blank long">&nbsp;</span>"</p>
+ <p>④ 모임 끝난 뒤 <b>인사</b> — "<span class="blank long">&nbsp;</span>"</p>
+ <p>⑤ 다음 번 <b>다시 가서 인사</b> — "<span class="blank long">&nbsp;</span>"</p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 미정이의 주민센터 등록 계획</h3><span class="tag">쓰기</span></div>
-    <p>미정이가 <b>주민센터 요리 교실</b>에 등록하려고 해요. 순서대로 계획을 세워요.</p>
-    <p>① 정보 확인 방법(홈페이지·전화): "<span class="blank long">&nbsp;</span>"</p>
-    <p>② 필요한 준비물(신분증·회비 등): "<span class="blank long">&nbsp;</span>"</p>
-    <p>③ 첫날 인사말: "<span class="blank long">&nbsp;</span>"</p>
-    <p>④ 꾸준히 이어갈 방법(달력·알람): "<span class="blank long">&nbsp;</span>"</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 미정이의 주민센터 등록 계획</h3><span class="tag">쓰기</span></div>
+ <p>미정이가 <b>주민센터 요리 교실</b>에 등록하려고 해요. 순서대로 계획을 세워요.</p>
+ <p>① 정보 확인 방법(홈페이지·전화): "<span class="blank long">&nbsp;</span>"</p>
+ <p>② 필요한 준비물(신분증·회비 등): "<span class="blank long">&nbsp;</span>"</p>
+ <p>③ 첫날 인사말: "<span class="blank long">&nbsp;</span>"</p>
+ <p>④ 꾸준히 이어갈 방법(달력·알람): "<span class="blank long">&nbsp;</span>"</p>
+ </div>
 
-  <div class="checklist">
-    <div class="title">✅ 지역사회 참여 5가지</div>
-    <label><input type="checkbox" style="margin-right:6px;"> 관심 있는 곳 <b>한 군데</b>를 정한다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 전화·홈페이지로 <b>참여 방법</b>을 확인한다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 첫 방문 때 <b>인사·자기소개</b>를 한다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> <b>이름과 얼굴</b>을 하나씩 기억해 인사한다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 다음 참여 날짜를 <b>달력에 표시</b>한다</label>
-  </div>
+ <div class="checklist">
+ <div class="title">✅ 지역사회 참여 5가지</div>
+ <label><input type="checkbox" style="margin-right:6px;"> 관심 있는 곳 <b>한 군데</b>를 정한다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 전화·홈페이지로 <b>참여 방법</b>을 확인한다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 첫 방문 때 <b>인사·자기소개</b>를 한다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> <b>이름과 얼굴</b>을 하나씩 기억해 인사한다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 다음 참여 날짜를 <b>달력에 표시</b>한다</label>
+ </div>
 
-  <div class="note">
-    🌱 지역사회 참여는 <b>어색함과의 싸움</b>이에요. 처음 두 번만 가면 세 번째부터는 훨씬 쉬워져요.
-    지역사회는 <b>나를 도와주는 어른들이 있는 곳</b>이기도 해요.
-  </div>
+ <div class="note">
+ 🌱 지역사회 참여는 <b>어색함과의 싸움</b>이에요. 처음 두 번만 가면 세 번째부터는 훨씬 쉬워져요.
+ 지역사회는 <b>나를 도와주는 어른들이 있는 곳</b>이기도 해요.
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S28 · 2쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S28 · 2쪽 / 2</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

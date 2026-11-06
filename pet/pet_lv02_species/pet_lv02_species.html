@@ -8,22 +8,22 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #6d4c41; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #6d4c41; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; } .toolbar .muted { color: #d7ccc8; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #d7ccc8 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #3e2723;
-  border-bottom: 2px solid #8d6e63; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #8d6e63; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; }
 .cover-main { text-align: center; padding: 10px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #6d4c41; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #6d4c41; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #3e2723; font-weight: 900; }
 .cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #5d4037; font-weight: 500; }
 .cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
@@ -35,7 +35,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #3e2723; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #6d4c41; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #6d4c41; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #3e2723; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #6d4c41; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -71,287 +71,286 @@ table.qa td.left { text-align: left; }
 .br .d { font-size: 0.82em; color: #5d4037; margin-top: 3px; }
 
 .footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
-  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+ color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
 @media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div><span class="title">반려동물관리사 2차시</span><span class="muted">반려동물의 종류 · A4 4쪽</span></div>
-  <button onclick="window.print()">🖨 인쇄하기</button>
+ <div><span class="title">반려동물관리사 2차시</span><span class="muted">반려동물의 종류 · A4 4쪽</span></div>
+ <button onclick="window.print">🖨 인쇄하기</button>
 </div>
 
 <div class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">동물의 종류</span> · 반려동물 단원 2/10</div>
-    <div>혜화여자고등학교 특수학급</div>
-  </div>
-  <div class="cover-main">
-    <span class="badge">Lv.2 이해</span>
-    <h1>강아지·고양이, 그 외 친구들</h1>
-    <p class="lead">개·고양이·소동물·조류·파충류 특성</p>
-  </div>
-  <div class="cover-emoji">🐕 🐈 🐹 🦜</div>
-  <div class="cover-info">
-    <h3>이번 시간에 배울 것</h3>
-    <ul>
-      <li>대표 반려동물 <b>5종</b>의 특성</li>
-      <li>강아지 <b>대표 견종 8종</b>과 고양이 <b>대표 묘종 6종</b></li>
-      <li>동물별로 다른 <b>돌봄 방식</b></li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-    <div class="line"><span class="label">반</span></div>
-  </div>
+ <div class="cover-top">
+ <div><span class="subject">동물의 종류</span> · 반려동물 단원 2/10</div>
+ </div>
+ <div class="cover-main">
+ <span class="badge">Lv.2 이해</span>
+ <h1>강아지·고양이, 그 외 친구들</h1>
+ <p class="lead">개·고양이·소동물·조류·파충류 특성</p>
+ </div>
+ <div class="cover-emoji">🐕 🐈 🐹 🦜</div>
+ <div class="cover-info">
+ <h3>이번 시간에 배울 것</h3>
+ <ul>
+ <li>대표 반려동물 <b>5종</b>의 특성</li>
+ <li>강아지 <b>대표 견종 8종</b>과 고양이 <b>대표 묘종 6종</b></li>
+ <li>동물별로 다른 <b>돌봄 방식</b></li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ <div class="line"><span class="label">반</span></div>
+ </div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>1. 반려동물 5대 종</h2><span class="step">Step 1</span></div>
-  <div class="intro">
-    한국의 반려동물 순위: <b>1위 개, 2위 고양이, 3위 물고기, 4위 햄스터, 5위 조류</b>. 최근엔 <b>토끼·페럿</b>도 증가!
-  </div>
+ <div class="page-head"><h2>1. 반려동물 5대 종</h2><span class="step">Step 1</span></div>
+ <div class="intro">
+ 한국의 반려동물 순위: <b>1위 개, 2위 고양이, 3위 물고기, 4위 햄스터, 5위 조류</b>. 최근엔 <b>토끼·페럿</b>도 증가!
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 하은이의 종별 특징</h3><span class="tag">특징</span></div>
-    <table class="qa">
-      <tr><th>동물</th><th>수명</th><th>사회성</th><th>돌봄 난이도</th></tr>
-      <tr><td>🐕 개</td><td>10~15년</td><td>높음 (무리)</td><td>중~상 (산책 필수)</td></tr>
-      <tr><td>🐈 고양이</td><td>13~18년</td><td>보통 (독립)</td><td>중 (실내 가능)</td></tr>
-      <tr><td>🐹 햄스터</td><td>2~3년</td><td>낮음 (단독)</td><td>하 (케이지)</td></tr>
-      <tr><td>🐇 토끼</td><td>7~12년</td><td>보통</td><td>중 (케이지+운동)</td></tr>
-      <tr><td>🐦 앵무새</td><td>10~50년 (종별)</td><td>매우 높음</td><td>상 (오래 산다!)</td></tr>
-    </table>
-    <div class="note"><b>❗ 수명은 책임의 무게</b> 앵무새 중 큰 종은 <b>50년 이상</b> 살아요. 유언장에 반려 승계 남기는 사례도 있어요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 하은이의 종별 특징</h3><span class="tag">특징</span></div>
+ <table class="qa">
+ <tr><th>동물</th><th>수명</th><th>사회성</th><th>돌봄 난이도</th></tr>
+ <tr><td>🐕 개</td><td>10~15년</td><td>높음 (무리)</td><td>중~상 (산책 필수)</td></tr>
+ <tr><td>🐈 고양이</td><td>13~18년</td><td>보통 (독립)</td><td>중 (실내 가능)</td></tr>
+ <tr><td>🐹 햄스터</td><td>2~3년</td><td>낮음 (단독)</td><td>하 (케이지)</td></tr>
+ <tr><td>🐇 토끼</td><td>7~12년</td><td>보통</td><td>중 (케이지+운동)</td></tr>
+ <tr><td>🐦 앵무새</td><td>10~50년 (종별)</td><td>매우 높음</td><td>상 (오래 산다!)</td></tr>
+ </table>
+ <div class="note"><b>❗ 수명은 책임의 무게</b> 앵무새 중 큰 종은 <b>50년 이상</b> 살아요. 유언장에 반려 승계 남기는 사례도 있어요.</div>
+ </div>
 
-  <div class="footer-note">반려동물관리사 2차시 · 1/4쪽 · 5대 종</div>
+ <div class="footer-note">반려동물관리사 2차시 · 1/4쪽 · 5대 종</div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>2. 개 vs 고양이</h2><span class="step">Step 2</span></div>
+ <div class="page-head"><h2>2. 개 vs 고양이</h2><span class="step">Step 2</span></div>
 
-  <div class="compare">
-    <div class="dog">
-      <div class="title">🐕 개(Dog)</div>
-      <ul>
-        <li>사람에 <b>매우 의존적</b></li>
-        <li><b>산책 필수</b> (하루 1~2회)</li>
-        <li>훈련 잘 됨 (지시 이해)</li>
-        <li>표현이 <b>과감</b> (짖음·꼬리)</li>
-        <li>무리 생활 (사람이 리더)</li>
-        <li>배변 훈련 가능</li>
-      </ul>
-    </div>
-    <div class="cat">
-      <div class="title">🐈 고양이(Cat)</div>
-      <ul>
-        <li>사람에 <b>독립적</b></li>
-        <li>실내 생활 가능 (산책 X)</li>
-        <li>훈련 어려움 (자기 스타일)</li>
-        <li>표현이 <b>미묘</b> (꼬리·귀·눈)</li>
-        <li>단독 생활 (자기 영역)</li>
-        <li>본능적으로 <b>화장실 사용</b></li>
-      </ul>
-    </div>
-  </div>
+ <div class="compare">
+ <div class="dog">
+ <div class="title">🐕 개(Dog)</div>
+ <ul>
+ <li>사람에 <b>매우 의존적</b></li>
+ <li><b>산책 필수</b> (하루 1~2회)</li>
+ <li>훈련 잘 됨 (지시 이해)</li>
+ <li>표현이 <b>과감</b> (짖음·꼬리)</li>
+ <li>무리 생활 (사람이 리더)</li>
+ <li>배변 훈련 가능</li>
+ </ul>
+ </div>
+ <div class="cat">
+ <div class="title">🐈 고양이(Cat)</div>
+ <ul>
+ <li>사람에 <b>독립적</b></li>
+ <li>실내 생활 가능 (산책 X)</li>
+ <li>훈련 어려움 (자기 스타일)</li>
+ <li>표현이 <b>미묘</b> (꼬리·귀·눈)</li>
+ <li>단독 생활 (자기 영역)</li>
+ <li>본능적으로 <b>화장실 사용</b></li>
+ </ul>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 하영이의 선택 도움</h3><span class="tag">선택</span></div>
-    <p>다음 상황에서 <b>개·고양이</b> 중 어느 쪽을 추천할까?</p>
-    <table class="qa">
-      <tr><th style="width:65%">상황</th><th>추천</th></tr>
-      <tr><td class="left">"매일 산책 나가고 활동적으로 놀고 싶어요"</td><td><span class="blank">개</span></td></tr>
-      <tr><td class="left">"집에 오래 못 있어요. 하루 8시간 근무"</td><td><span class="blank">고양이</span></td></tr>
-      <tr><td class="left">"조용한 아파트 · 이웃 배려"</td><td><span class="blank"></span></td></tr>
-      <tr><td class="left">"어린이 있는 가정, 놀이 상대"</td><td><span class="blank"></span></td></tr>
-      <tr><td class="left">"알레르기 없는 사람, 털 알레르기 걱정"</td><td><span class="blank">둘 다 신중 (품종별 검토)</span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 하영이의 선택 도움</h3><span class="tag">선택</span></div>
+ <p>다음 상황에서 <b>개·고양이</b> 중 어느 쪽을 추천할까?</p>
+ <table class="qa">
+ <tr><th style="width:65%">상황</th><th>추천</th></tr>
+ <tr><td class="left">"매일 산책 나가고 활동적으로 놀고 싶어요"</td><td><span class="blank">개</span></td></tr>
+ <tr><td class="left">"집에 오래 못 있어요. 하루 8시간 근무"</td><td><span class="blank">고양이</span></td></tr>
+ <tr><td class="left">"조용한 아파트 · 이웃 배려"</td><td><span class="blank"></span></td></tr>
+ <tr><td class="left">"어린이 있는 가정, 놀이 상대"</td><td><span class="blank"></span></td></tr>
+ <tr><td class="left">"알레르기 없는 사람, 털 알레르기 걱정"</td><td><span class="blank">둘 다 신중 (품종별 검토)</span></td></tr>
+ </table>
+ </div>
 
-  <div class="footer-note">반려동물관리사 2차시 · 2/4쪽 · 개 vs 고양이</div>
+ <div class="footer-note">반려동물관리사 2차시 · 2/4쪽 · 개 vs 고양이</div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>3. 대표 견종·묘종</h2><span class="step">Step 3</span></div>
+ <div class="page-head"><h2>3. 대표 견종·묘종</h2><span class="step">Step 3</span></div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 대표 견종 8종 (주은)</h3><span class="tag">견종</span></div>
-    <div class="breeds">
-      <div class="br"><div class="em">🐕</div><div class="n">푸들</div><div class="d">소형·똑똑</div></div>
-      <div class="br"><div class="em">🐕</div><div class="n">말티즈</div><div class="d">소형·순함</div></div>
-      <div class="br"><div class="em">🐕</div><div class="n">포메라니안</div><div class="d">소형·활발</div></div>
-      <div class="br"><div class="em">🐕</div><div class="n">시츄</div><div class="d">소형·조용</div></div>
-      <div class="br"><div class="em">🐕</div><div class="n">비숑</div><div class="d">중형·솜사탕</div></div>
-      <div class="br"><div class="em">🐕</div><div class="n">웰시코기</div><div class="d">중형·다리 짧음</div></div>
-      <div class="br"><div class="em">🐕</div><div class="n">골든리트리버</div><div class="d">대형·순함</div></div>
-      <div class="br"><div class="em">🐕</div><div class="n">진돗개</div><div class="d">중대형·충성</div></div>
-    </div>
-    <div class="tip"><b>💡 국내 인기 견종</b> 소형견 위주 (아파트 문화). 대형견은 마당·큰 공간 필수.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 대표 견종 8종 (주은)</h3><span class="tag">견종</span></div>
+ <div class="breeds">
+ <div class="br"><div class="em">🐕</div><div class="n">푸들</div><div class="d">소형·똑똑</div></div>
+ <div class="br"><div class="em">🐕</div><div class="n">말티즈</div><div class="d">소형·순함</div></div>
+ <div class="br"><div class="em">🐕</div><div class="n">포메라니안</div><div class="d">소형·활발</div></div>
+ <div class="br"><div class="em">🐕</div><div class="n">시츄</div><div class="d">소형·조용</div></div>
+ <div class="br"><div class="em">🐕</div><div class="n">비숑</div><div class="d">중형·솜사탕</div></div>
+ <div class="br"><div class="em">🐕</div><div class="n">웰시코기</div><div class="d">중형·다리 짧음</div></div>
+ <div class="br"><div class="em">🐕</div><div class="n">골든리트리버</div><div class="d">대형·순함</div></div>
+ <div class="br"><div class="em">🐕</div><div class="n">진돗개</div><div class="d">중대형·충성</div></div>
+ </div>
+ <div class="tip"><b>💡 국내 인기 견종</b> 소형견 위주 (아파트 문화). 대형견은 마당·큰 공간 필수.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 대표 묘종 6종 (주현)</h3><span class="tag">묘종</span></div>
-    <div class="breeds">
-      <div class="br"><div class="em">🐈</div><div class="n">코숏</div><div class="d">한국 토종·튼튼</div></div>
-      <div class="br"><div class="em">🐈</div><div class="n">러시안블루</div><div class="d">회색·조용</div></div>
-      <div class="br"><div class="em">🐈</div><div class="n">스코티시폴드</div><div class="d">접힌 귀</div></div>
-      <div class="br"><div class="em">🐈</div><div class="n">먼치킨</div><div class="d">짧은 다리</div></div>
-      <div class="br"><div class="em">🐈</div><div class="n">랙돌</div><div class="d">순함·큰 체구</div></div>
-      <div class="br"><div class="em">🐈</div><div class="n">뱅갈</div><div class="d">활발·야생 무늬</div></div>
-    </div>
-    <div class="note"><b>❗ 유전병 주의</b> 스코티시폴드·먼치킨은 <b>골격 유전병</b> 위험. 브리더·병원 진료 이력 꼭 확인.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 대표 묘종 6종 (주현)</h3><span class="tag">묘종</span></div>
+ <div class="breeds">
+ <div class="br"><div class="em">🐈</div><div class="n">코숏</div><div class="d">한국 토종·튼튼</div></div>
+ <div class="br"><div class="em">🐈</div><div class="n">러시안블루</div><div class="d">회색·조용</div></div>
+ <div class="br"><div class="em">🐈</div><div class="n">스코티시폴드</div><div class="d">접힌 귀</div></div>
+ <div class="br"><div class="em">🐈</div><div class="n">먼치킨</div><div class="d">짧은 다리</div></div>
+ <div class="br"><div class="em">🐈</div><div class="n">랙돌</div><div class="d">순함·큰 체구</div></div>
+ <div class="br"><div class="em">🐈</div><div class="n">뱅갈</div><div class="d">활발·야생 무늬</div></div>
+ </div>
+ <div class="note"><b>❗ 유전병 주의</b> 스코티시폴드·먼치킨은 <b>골격 유전병</b> 위험. 브리더·병원 진료 이력 꼭 확인.</div>
+ </div>
 
-  <div class="footer-note">반려동물관리사 2차시 · 3/4쪽 · 견종·묘종</div>
+ <div class="footer-note">반려동물관리사 2차시 · 3/4쪽 · 견종·묘종</div>
 </div>
 
 <div class="page">
-  <div class="page-head"><h2>4. 소동물 · 자기점검</h2><span class="step">Step 4</span></div>
+ <div class="page-head"><h2>4. 소동물 · 자기점검</h2><span class="step">Step 4</span></div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. 소동물 3종 (미정)</h3><span class="tag">소동물</span></div>
-    <table class="qa">
-      <tr><th>동물</th><th>먹이</th><th>주의점</th></tr>
-      <tr><td class="left">🐹 햄스터</td><td>씨앗·채소·전용 사료</td><td>야행성·단독 사육</td></tr>
-      <tr><td class="left">🐇 토끼</td><td>건초·펠릿·채소</td><td>매일 운동 · 발톱 관리</td></tr>
-      <tr><td class="left">🐦 앵무새</td><td>씨앗·과일·전용 사료</td><td>오래 삶 · 시끄러움</td></tr>
-      <tr><td class="left">🐢 거북이</td><td>육식·잡식 (종별)</td><td>온도·수질 관리</td></tr>
-      <tr><td class="left">🦎 파충류</td><td>귀뚜라미·과일 등</td><td>온도·조명 특수</td></tr>
-    </table>
-    <div class="tip"><b>💡 소동물 사육 팁</b> 소동물은 겉보기와 달리 <b>세심한 관리</b>가 필요. 초보자는 <b>햄스터·토끼</b>부터.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 소동물 3종 (미정)</h3><span class="tag">소동물</span></div>
+ <table class="qa">
+ <tr><th>동물</th><th>먹이</th><th>주의점</th></tr>
+ <tr><td class="left">🐹 햄스터</td><td>씨앗·채소·전용 사료</td><td>야행성·단독 사육</td></tr>
+ <tr><td class="left">🐇 토끼</td><td>건초·펠릿·채소</td><td>매일 운동 · 발톱 관리</td></tr>
+ <tr><td class="left">🐦 앵무새</td><td>씨앗·과일·전용 사료</td><td>오래 삶 · 시끄러움</td></tr>
+ <tr><td class="left">🐢 거북이</td><td>육식·잡식 (종별)</td><td>온도·수질 관리</td></tr>
+ <tr><td class="left">🦎 파충류</td><td>귀뚜라미·과일 등</td><td>온도·조명 특수</td></tr>
+ </table>
+ <div class="tip"><b>💡 소동물 사육 팁</b> 소동물은 겉보기와 달리 <b>세심한 관리</b>가 필요. 초보자는 <b>햄스터·토끼</b>부터.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 6. 채원이의 매칭 퀴즈</h3><span class="tag">퀴즈</span></div>
-    <table class="qa">
-      <tr><th>동물</th><th>대표 특성</th></tr>
-      <tr><td>골든리트리버</td><td class="left"><span class="blank">대형·순함·가족견</span></td></tr>
-      <tr><td>스코티시폴드</td><td class="left"><span class="blank"></span></td></tr>
-      <tr><td>햄스터</td><td class="left"><span class="blank"></span></td></tr>
-      <tr><td>앵무새</td><td class="left"><span class="blank"></span></td></tr>
-      <tr><td>웰시코기</td><td class="left"><span class="blank"></span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 6. 채원이의 매칭 퀴즈</h3><span class="tag">퀴즈</span></div>
+ <table class="qa">
+ <tr><th>동물</th><th>대표 특성</th></tr>
+ <tr><td>골든리트리버</td><td class="left"><span class="blank">대형·순함·가족견</span></td></tr>
+ <tr><td>스코티시폴드</td><td class="left"><span class="blank"></span></td></tr>
+ <tr><td>햄스터</td><td class="left"><span class="blank"></span></td></tr>
+ <tr><td>앵무새</td><td class="left"><span class="blank"></span></td></tr>
+ <tr><td>웰시코기</td><td class="left"><span class="blank"></span></td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 7. 예은이의 스스로 확인</h3><span class="tag">자기점검</span></div>
-    <table class="qa">
-      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
-      <tr><td class="left">5대 반려동물의 특성을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">개와 고양이의 차이를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">대표 견종·묘종 5종 이상 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 7. 예은이의 스스로 확인</h3><span class="tag">자기점검</span></div>
+ <table class="qa">
+ <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+ <tr><td class="left">5대 반려동물의 특성을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">개와 고양이의 차이를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">대표 견종·묘종 5종 이상 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ </table>
+ </div>
 
-  <div class="footer-note">반려동물관리사 2차시 · 4/4쪽 · 종류 마무리</div>
+ <div class="footer-note">반려동물관리사 2차시 · 4/4쪽 · 종류 마무리</div>
 </div>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

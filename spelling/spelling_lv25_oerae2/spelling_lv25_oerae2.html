@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #c5cae9 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #1a237e;
-  border-bottom: 2px solid #3f51b5; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #3f51b5; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #303f9f; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #303f9f; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #303f9f; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 1.9em; letter-spacing: -1.5px; color: #1a237e; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #1a237e; font-weight: 500; }
 .cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 6px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #1a237e; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #303f9f; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #303f9f; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #1a237e; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #303f9f; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -99,408 +99,408 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">💻 L25 외래어 표기 2 (일상·기술)</span><span class="muted">맞춤법 · Level 25</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">💻 L25 외래어 표기 2 (일상·기술)</span><span class="muted">맞춤법 · Level 25</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">국어</span> · 맞춤법 시리즈 · <b style="color:#1a237e;">L25</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">일상·기술 외래어</span>
-    <h1>주현·주은의 SNS 소개글</h1>
-    <p class="lead">"악세사리"가 아니라 "액세서리"! 리더쉽? 리더십?</p>
-  </div>
-  <div class="cover-emoji">💻 📱 🎧</div>
-  <div class="cover-info">
-    <h3>🎯 학습 목표</h3>
-    <ul>
-      <li>일상·기술 외래어의 <b>표준 표기</b>를 익힌다.</li>
-      <li>SNS 프로필·자기소개에서 자주 틀리는 단어를 잡는다.</li>
-      <li>지원서·이력서의 외래어를 <b>바르게</b> 쓸 수 있다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
-    <ul>
-      <li><b>주현</b>: 인스타 프로필과 자기소개를 새로 쓰는 상황</li>
-      <li><b>주은</b>: 동아리 리더 지원서 쓰는 상황</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">맞춤법 시리즈 · L25 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">국어</span> · 맞춤법 시리즈 · <b style="color:#1a237e;">L25</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">일상·기술 외래어</span>
+ <h1>주현·주은의 SNS 소개글</h1>
+ <p class="lead">"악세사리"가 아니라 "액세서리"! 리더쉽? 리더십?</p>
+ </div>
+ <div class="cover-emoji">💻 📱 🎧</div>
+ <div class="cover-info">
+ <h3>🎯 학습 목표</h3>
+ <ul>
+ <li>일상·기술 외래어의 <b>표준 표기</b>를 익힌다.</li>
+ <li>SNS 프로필·자기소개에서 자주 틀리는 단어를 잡는다.</li>
+ <li>지원서·이력서의 외래어를 <b>바르게</b> 쓸 수 있다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+ <ul>
+ <li><b>주현</b>: 인스타 프로필과 자기소개를 새로 쓰는 상황</li>
+ <li><b>주은</b>: 동아리 리더 지원서 쓰는 상황</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">맞춤법 시리즈 · L25 · 표지</div>
 </section>
 
 <!-- 1쪽: 어휘 -->
 <section class="page">
-  <div class="page-head">
-    <h2>💻 일상·기술 외래어 표준 표기</h2>
-    <span class="step">1쪽 · 어휘</span>
-  </div>
-  <div class="intro">
-    스마트폰·컴퓨터·SNS 시대! 우리는 매일 수많은 외래어를 써요. 그중에서도 <b>가장 자주 틀리는</b> 것들을 모아 왔어요.
-    "메세지·리더쉽·악세사리"… 다 흔한 오표기예요. 바른 표기를 함께 익혀요.
-  </div>
+ <div class="page-head">
+ <h2>💻 일상·기술 외래어 표준 표기</h2>
+ <span class="step">1쪽 · 어휘</span>
+ </div>
+ <div class="intro">
+ 스마트폰·컴퓨터·SNS 시대! 우리는 매일 수많은 외래어를 써요. 그중에서도 <b>가장 자주 틀리는</b> 것들을 모아 왔어요.
+ "메세지·리더쉽·악세사리"… 다 흔한 오표기예요. 바른 표기를 함께 익혀요.
+ </div>
 
-  <div class="pair-grid">
-    <div class="pair-card">
-      <span class="cat">📱 기기·기술</span>
-      <div class="pair"><span class="w">컴퓨타</span><span class="r">컴퓨터</span></div>
-      <div class="pair"><span class="w">노트북</span><span class="r">노트북 ✓</span></div>
-      <div class="pair"><span class="w">밧데리</span><span class="r">배터리</span></div>
-      <div class="pair"><span class="w">테레비</span><span class="r">텔레비전</span></div>
-      <div class="pair"><span class="w">라됴</span><span class="r">라디오</span></div>
-      <div class="pair"><span class="w">스마트폰</span><span class="r">스마트폰 ✓</span></div>
-    </div>
-    <div class="pair-card">
-      <span class="cat">💬 SNS·메시지</span>
-      <div class="pair"><span class="w">메세지</span><span class="r">메시지</span></div>
-      <div class="pair"><span class="w">데이타</span><span class="r">데이터</span></div>
-      <div class="pair"><span class="w">앱리케이션</span><span class="r">애플리케이션</span></div>
-      <div class="pair"><span class="w">인터넷</span><span class="r">인터넷 ✓</span></div>
-      <div class="pair"><span class="w">유투브</span><span class="r">유튜브</span></div>
-      <div class="pair"><span class="w">에러</span><span class="r">에러 ✓</span></div>
-    </div>
-    <div class="pair-card">
-      <span class="cat">👔 사람·성격</span>
-      <div class="pair"><span class="w">리더쉽</span><span class="r">리더십</span></div>
-      <div class="pair"><span class="w">멤버쉽</span><span class="r">멤버십</span></div>
-      <div class="pair"><span class="w">챔피온</span><span class="r">챔피언</span></div>
-      <div class="pair"><span class="w">아나운써</span><span class="r">아나운서</span></div>
-      <div class="pair"><span class="w">디자이너</span><span class="r">디자이너 ✓</span></div>
-      <div class="pair"><span class="w">파트너쉽</span><span class="r">파트너십</span></div>
-    </div>
-    <div class="pair-card">
-      <span class="cat">👜 물건·패션</span>
-      <div class="pair"><span class="w">악세사리</span><span class="r">액세서리</span></div>
-      <div class="pair"><span class="w">헤어피이스</span><span class="r">헤어피스</span></div>
-      <div class="pair"><span class="w">쟈켓</span><span class="r">재킷</span></div>
-      <div class="pair"><span class="w">쉬폰</span><span class="r">시폰</span></div>
-      <div class="pair"><span class="w">쿠션</span><span class="r">쿠션 ✓</span></div>
-      <div class="pair"><span class="w">화잍셔츠</span><span class="r">화이트셔츠</span></div>
-    </div>
-    <div class="pair-card">
-      <span class="cat">🏢 장소·서비스</span>
-      <div class="pair"><span class="w">수퍼마켓</span><span class="r">슈퍼마켓</span></div>
-      <div class="pair"><span class="w">써비스</span><span class="r">서비스</span></div>
-      <div class="pair"><span class="w">싸인</span><span class="r">사인</span></div>
-      <div class="pair"><span class="w">마싸지</span><span class="r">마사지</span></div>
-      <div class="pair"><span class="w">까페</span><span class="r">카페</span></div>
-      <div class="pair"><span class="w">뷔페</span><span class="r">뷔페 ✓</span></div>
-    </div>
-    <div class="pair-card">
-      <span class="cat">🏋️ 운동·건강</span>
-      <div class="pair"><span class="w">발란스</span><span class="r">밸런스</span></div>
-      <div class="pair"><span class="w">런닝</span><span class="r">러닝</span></div>
-      <div class="pair"><span class="w">헬쓰</span><span class="r">헬스</span></div>
-      <div class="pair"><span class="w">스트레칭</span><span class="r">스트레칭 ✓</span></div>
-      <div class="pair"><span class="w">다이어트</span><span class="r">다이어트 ✓</span></div>
-      <div class="pair"><span class="w">플레이</span><span class="r">플레이 ✓</span></div>
-    </div>
-  </div>
+ <div class="pair-grid">
+ <div class="pair-card">
+ <span class="cat">📱 기기·기술</span>
+ <div class="pair"><span class="w">컴퓨타</span><span class="r">컴퓨터</span></div>
+ <div class="pair"><span class="w">노트북</span><span class="r">노트북 ✓</span></div>
+ <div class="pair"><span class="w">밧데리</span><span class="r">배터리</span></div>
+ <div class="pair"><span class="w">테레비</span><span class="r">텔레비전</span></div>
+ <div class="pair"><span class="w">라됴</span><span class="r">라디오</span></div>
+ <div class="pair"><span class="w">스마트폰</span><span class="r">스마트폰 ✓</span></div>
+ </div>
+ <div class="pair-card">
+ <span class="cat">💬 SNS·메시지</span>
+ <div class="pair"><span class="w">메세지</span><span class="r">메시지</span></div>
+ <div class="pair"><span class="w">데이타</span><span class="r">데이터</span></div>
+ <div class="pair"><span class="w">앱리케이션</span><span class="r">애플리케이션</span></div>
+ <div class="pair"><span class="w">인터넷</span><span class="r">인터넷 ✓</span></div>
+ <div class="pair"><span class="w">유투브</span><span class="r">유튜브</span></div>
+ <div class="pair"><span class="w">에러</span><span class="r">에러 ✓</span></div>
+ </div>
+ <div class="pair-card">
+ <span class="cat">👔 사람·성격</span>
+ <div class="pair"><span class="w">리더쉽</span><span class="r">리더십</span></div>
+ <div class="pair"><span class="w">멤버쉽</span><span class="r">멤버십</span></div>
+ <div class="pair"><span class="w">챔피온</span><span class="r">챔피언</span></div>
+ <div class="pair"><span class="w">아나운써</span><span class="r">아나운서</span></div>
+ <div class="pair"><span class="w">디자이너</span><span class="r">디자이너 ✓</span></div>
+ <div class="pair"><span class="w">파트너쉽</span><span class="r">파트너십</span></div>
+ </div>
+ <div class="pair-card">
+ <span class="cat">👜 물건·패션</span>
+ <div class="pair"><span class="w">악세사리</span><span class="r">액세서리</span></div>
+ <div class="pair"><span class="w">헤어피이스</span><span class="r">헤어피스</span></div>
+ <div class="pair"><span class="w">쟈켓</span><span class="r">재킷</span></div>
+ <div class="pair"><span class="w">쉬폰</span><span class="r">시폰</span></div>
+ <div class="pair"><span class="w">쿠션</span><span class="r">쿠션 ✓</span></div>
+ <div class="pair"><span class="w">화잍셔츠</span><span class="r">화이트셔츠</span></div>
+ </div>
+ <div class="pair-card">
+ <span class="cat">🏢 장소·서비스</span>
+ <div class="pair"><span class="w">수퍼마켓</span><span class="r">슈퍼마켓</span></div>
+ <div class="pair"><span class="w">써비스</span><span class="r">서비스</span></div>
+ <div class="pair"><span class="w">싸인</span><span class="r">사인</span></div>
+ <div class="pair"><span class="w">마싸지</span><span class="r">마사지</span></div>
+ <div class="pair"><span class="w">까페</span><span class="r">카페</span></div>
+ <div class="pair"><span class="w">뷔페</span><span class="r">뷔페 ✓</span></div>
+ </div>
+ <div class="pair-card">
+ <span class="cat">🏋️ 운동·건강</span>
+ <div class="pair"><span class="w">발란스</span><span class="r">밸런스</span></div>
+ <div class="pair"><span class="w">런닝</span><span class="r">러닝</span></div>
+ <div class="pair"><span class="w">헬쓰</span><span class="r">헬스</span></div>
+ <div class="pair"><span class="w">스트레칭</span><span class="r">스트레칭 ✓</span></div>
+ <div class="pair"><span class="w">다이어트</span><span class="r">다이어트 ✓</span></div>
+ <div class="pair"><span class="w">플레이</span><span class="r">플레이 ✓</span></div>
+ </div>
+ </div>
 
-  <div class="tip">
-    <b>일반 원칙 3가지</b><br>
-    ① 된소리(ㄲ·ㄸ·ㅃ·ㅆ·ㅉ) 최소화: <b>까페(X) → 카페 · 싸인(X) → 사인</b><br>
-    ② -ship은 <b>-십</b> (리더십·멤버십·파트너십), -sh-는 <b>-시-</b> (메시지·시폰)<br>
-    ③ 짧은 원어에 없는 <b>이중모음·받침 추가 금지</b>: 밧데리(X) → 배터리
-  </div>
+ <div class="tip">
+ <b>일반 원칙 3가지</b><br>
+ ① 된소리(ㄲ·ㄸ·ㅃ·ㅆ·ㅉ) 최소화: <b>까페(X) → 카페 · 싸인(X) → 사인</b><br>
+ ② -ship은 <b>-십</b> (리더십·멤버십·파트너십), -sh-는 <b>-시-</b> (메시지·시폰)<br>
+ ③ 짧은 원어에 없는 <b>이중모음·받침 추가 금지</b>: 밧데리(X) → 배터리
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 바른 표기 고르기</h3><span class="tag">5문항</span></div>
-    <p>① ( 메세지 / 메시지 ) 확인했어요 → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
-    <p>② ( 리더쉽 / 리더십 ) 있는 사람 → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
-    <p>③ ( 악세사리 / 액세서리 ) 매장 → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
-    <p>④ ( 밧데리 / 배터리 ) 부족 → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
-    <p>⑤ ( 유투브 / 유튜브 ) 채널 → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 바른 표기 고르기</h3><span class="tag">5문항</span></div>
+ <p>① ( 메세지 / 메시지 ) 확인했어요 → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+ <p>② ( 리더쉽 / 리더십 ) 있는 사람 → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+ <p>③ ( 악세사리 / 액세서리 ) 매장 → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+ <p>④ ( 밧데리 / 배터리 ) 부족 → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+ <p>⑤ ( 유투브 / 유튜브 ) 채널 → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+ </div>
 
-  <div class="page-foot">맞춤법 시리즈 · L25 · 1쪽 / 2</div>
+ <div class="page-foot">맞춤법 시리즈 · L25 · 1쪽 / 2</div>
 </section>
 
 <!-- 2쪽: SNS·지원서 첨삭 -->
 <section class="page">
-  <div class="page-head">
-    <h2>📱 SNS·지원서 외래어 첨삭</h2>
-    <span class="step">2쪽 · 실전</span>
-  </div>
-  <div class="intro">
-    SNS 프로필과 지원서에는 외래어가 정말 많이 들어가요.
-    주현·주은이의 실제 프로필·지원서를 함께 첨삭해요.
-  </div>
+ <div class="page-head">
+ <h2>📱 SNS·지원서 외래어 첨삭</h2>
+ <span class="step">2쪽 · 실전</span>
+ </div>
+ <div class="intro">
+ SNS 프로필과 지원서에는 외래어가 정말 많이 들어가요.
+ 주현·주은이의 실제 프로필·지원서를 함께 첨삭해요.
+ </div>
 
-  <div class="sns-post">
-    <div class="header">
-      <div class="avatar">주현</div>
-      <div><div class="user">@juhyun_daily</div></div>
-      <div class="time">1시간 전</div>
-    </div>
-    <div class="body">
-      안녕하세요, 주현입니다.<br>
-      💼 편의점 알바 중 · <span class="h">리더쉽</span> 있는 팀장이 되고 싶어요!<br>
-      📱 신제품 <span class="h">스마트폰</span>과 <span class="h">밧데리</span> 리뷰가 취미<br>
-      🎧 취향: <span class="h">유투브</span> 뮤직 스트리밍, <span class="h">플레이스토어</span> 앱 탐험<br>
-      💬 <span class="h">메세지</span> 언제든 환영! <span class="h">써비스</span> 정신 UP!<br>
-      🛍️ <span class="h">악세사리</span> · <span class="h">쟈켓</span> 자주 사요<br>
-      <span class="tag">#일상 #리뷰 #<span class="h">챔피온</span>정신</span>
-    </div>
-  </div>
+ <div class="sns-post">
+ <div class="header">
+ <div class="avatar">주현</div>
+ <div><div class="user">@juhyun_daily</div></div>
+ <div class="time">1시간 전</div>
+ </div>
+ <div class="body">
+ 안녕하세요, 주현입니다.<br>
+ 💼 편의점 알바 중 · <span class="h">리더쉽</span> 있는 팀장이 되고 싶어요!<br>
+ 📱 신제품 <span class="h">스마트폰</span>과 <span class="h">밧데리</span> 리뷰가 취미<br>
+ 🎧 취향: <span class="h">유투브</span> 뮤직 스트리밍, <span class="h">플레이스토어</span> 앱 탐험<br>
+ 💬 <span class="h">메세지</span> 언제든 환영! <span class="h">써비스</span> 정신 UP!<br>
+ 🛍️ <span class="h">악세사리</span> · <span class="h">쟈켓</span> 자주 사요<br>
+ <span class="tag">#일상 #리뷰 #<span class="h">챔피온</span>정신</span>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 주현이 인스타 소개 첨삭</h3><span class="tag">5군데</span></div>
-    <p>① <b>리더쉽</b> → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
-    <p>② <b>밧데리</b> → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
-    <p>③ <b>메세지</b> → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
-    <p>④ <b>악세사리</b>·<b>쟈켓</b> → <span class="blank" style="min-width:60px;">&nbsp;</span> · <span class="blank" style="min-width:60px;">&nbsp;</span></p>
-    <p>⑤ <b>챔피온</b>정신 → <span class="blank" style="min-width:60px;">&nbsp;</span> 정신</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 주현이 인스타 소개 첨삭</h3><span class="tag">5군데</span></div>
+ <p>① <b>리더쉽</b> → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+ <p>② <b>밧데리</b> → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+ <p>③ <b>메세지</b> → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+ <p>④ <b>악세사리</b>·<b>쟈켓</b> → <span class="blank" style="min-width:60px;">&nbsp;</span> · <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+ <p>⑤ <b>챔피온</b>정신 → <span class="blank" style="min-width:60px;">&nbsp;</span> 정신</p>
+ </div>
 
-  <div class="sns-post" style="border-color:#00695c;">
-    <div class="header">
-      <div class="avatar" style="background:#00695c;">주은</div>
-      <div><div class="user" style="color:#004d40;">📋 방송동아리 리더 지원서</div></div>
-    </div>
-    <div class="body">
-      제가 방송동아리 리더에 지원한 이유는 <span class="h">리더쉽</span>을 키우고 싶어서예요.<br>
-      중학교 때부터 <span class="h">아나운써</span>가 꿈이었고, <span class="h">유투브</span>에서 방송 자료를 자주 봐요.<br>
-      <span class="h">멤버쉽</span>을 강조하는 문화, 그리고 팀원과의 <span class="h">파트너쉽</span>을 소중히 생각해요.<br>
-      최근 <span class="h">발란스</span>있는 콘텐츠 기획을 배웠고, <span class="h">챔피온</span> 팀을 만들고 싶습니다.<br>
-      <span class="h">써비스</span> 정신과 <span class="h">데이타</span> 분석 능력, 그리고 촬영용 <span class="h">밧데리</span> 관리까지 자신 있어요!
-    </div>
-  </div>
+ <div class="sns-post" style="border-color:#00695c;">
+ <div class="header">
+ <div class="avatar" style="background:#00695c;">주은</div>
+ <div><div class="user" style="color:#004d40;">📋 방송동아리 리더 지원서</div></div>
+ </div>
+ <div class="body">
+ 제가 방송동아리 리더에 지원한 이유는 <span class="h">리더쉽</span>을 키우고 싶어서예요.<br>
+ 중학교 때부터 <span class="h">아나운써</span>가 꿈이었고, <span class="h">유투브</span>에서 방송 자료를 자주 봐요.<br>
+ <span class="h">멤버쉽</span>을 강조하는 문화, 그리고 팀원과의 <span class="h">파트너쉽</span>을 소중히 생각해요.<br>
+ 최근 <span class="h">발란스</span>있는 콘텐츠 기획을 배웠고, <span class="h">챔피온</span> 팀을 만들고 싶습니다.<br>
+ <span class="h">써비스</span> 정신과 <span class="h">데이타</span> 분석 능력, 그리고 촬영용 <span class="h">밧데리</span> 관리까지 자신 있어요!
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 주은이 지원서 첨삭</h3><span class="tag">5군데</span></div>
-    <p>① <b>아나운써</b> → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
-    <p>② <b>멤버쉽</b>·<b>파트너쉽</b> → <span class="blank" style="min-width:60px;">&nbsp;</span> · <span class="blank" style="min-width:80px;">&nbsp;</span></p>
-    <p>③ <b>발란스</b> → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
-    <p>④ <b>써비스</b> → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
-    <p>⑤ <b>데이타</b> → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 주은이 지원서 첨삭</h3><span class="tag">5군데</span></div>
+ <p>① <b>아나운써</b> → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+ <p>② <b>멤버쉽</b>·<b>파트너쉽</b> → <span class="blank" style="min-width:60px;">&nbsp;</span> · <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+ <p>③ <b>발란스</b> → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+ <p>④ <b>써비스</b> → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+ <p>⑤ <b>데이타</b> → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 내가 쓰는 SNS 프로필</h3><span class="tag">쓰기</span></div>
-    <p>내가 쓰고 싶은 인스타·블로그 프로필을 <b>3~4줄</b>로 써요. 외래어를 <b>3개 이상 정확히</b> 사용하기.</p>
-    <p>[프로필 제목/닉네임] <span class="blank" style="min-width:200px;">&nbsp;</span></p>
-    <div style="background:#e8eaf6; border:2px dashed #3f51b5; border-radius:10px; padding:10px; min-height:110px;">
-      <div style="border-bottom:1px solid #ccc; height:22px;"></div>
-      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
-      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
-      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 내가 쓰는 SNS 프로필</h3><span class="tag">쓰기</span></div>
+ <p>내가 쓰고 싶은 인스타·블로그 프로필을 <b>3~4줄</b>로 써요. 외래어를 <b>3개 이상 정확히</b> 사용하기.</p>
+ <p>[프로필 제목/닉네임] <span class="blank" style="min-width:200px;">&nbsp;</span></p>
+ <div style="background:#e8eaf6; border:2px dashed #3f51b5; border-radius:10px; padding:10px; min-height:110px;">
+ <div style="border-bottom:1px solid #ccc; height:22px;"></div>
+ <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+ <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+ <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+ </div>
+ </div>
 
-  <div class="note">
-    ⚡ <b>3원칙 다시!</b> ① 된소리 최소화 (까페 X → 카페) ② <b>-쉽 X → -십</b> (리더십·멤버십)
-    ③ <b>세 X → 시</b> (메시지·시폰). 외래어는 사전 검색이 <b>진짜 답</b>이에요!
-  </div>
+ <div class="note">
+ ⚡ <b>3원칙 다시!</b> ① 된소리 최소화 (까페 X → 카페) ② <b>-쉽 X → -십</b> (리더십·멤버십)
+ ③ <b>세 X → 시</b> (메시지·시폰). 외래어는 사전 검색이 <b>진짜 답</b>이에요!
+ </div>
 
-  <div class="page-foot">맞춤법 시리즈 · L25 · 2쪽 / 2</div>
+ <div class="page-foot">맞춤법 시리즈 · L25 · 2쪽 / 2</div>
 </section>
 
 
 <section class="page">
-  <div class="page-head">
-    <h2>🔁 복습 · 자기 점검 — 외래어 표기 (2)</h2>
-    <span class="step">추가 1쪽 · 복습</span>
-  </div>
-  <div class="intro">오늘 배운 <b>외래어 표기 (2)</b> 규칙을 <b>내 말로 다시</b> 써 보고, 평소 내가 자주 틀렸던 부분을 정리해 봐요.</div>
+ <div class="page-head">
+ <h2>🔁 복습 · 자기 점검 — 외래어 표기 (2)</h2>
+ <span class="step">추가 1쪽 · 복습</span>
+ </div>
+ <div class="intro">오늘 배운 <b>외래어 표기 (2)</b> 규칙을 <b>내 말로 다시</b> 써 보고, 평소 내가 자주 틀렸던 부분을 정리해 봐요.</div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 A1. 내 말로 규칙 쓰기</h3><span class="tag">서술형</span></div>
-    <p>오늘 배운 규칙을 <b>친구에게 설명하듯</b> 한두 문장으로 써 봐요.</p>
-    <div class="write-lines"><div class="wl">&nbsp;</div><div class="wl">&nbsp;</div></div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 A1. 내 말로 규칙 쓰기</h3><span class="tag">서술형</span></div>
+ <p>오늘 배운 규칙을 <b>친구에게 설명하듯</b> 한두 문장으로 써 봐요.</p>
+ <div class="write-lines"><div class="wl">&nbsp;</div><div class="wl">&nbsp;</div></div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 A2. 이 규칙이 필요한 상황 3개</h3><span class="tag">상황 떠올리기</span></div>
-    <p>이 맞춤법이 <b>실제로 쓰일 상황</b>을 떠올려 3개만 적어 봐요. (예: 문자할 때, 자기소개 쓸 때, 공지 쓸 때…)</p>
-    <ol style="margin:6px 0 6px 22px;">
-      <li style="margin:6px 0;">상황 ① <span class="blank" style="min-width:320px;">&nbsp;</span></li>
-      <li style="margin:6px 0;">상황 ② <span class="blank" style="min-width:320px;">&nbsp;</span></li>
-      <li style="margin:6px 0;">상황 ③ <span class="blank" style="min-width:320px;">&nbsp;</span></li>
-    </ol>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 A2. 이 규칙이 필요한 상황 3개</h3><span class="tag">상황 떠올리기</span></div>
+ <p>이 맞춤법이 <b>실제로 쓰일 상황</b>을 떠올려 3개만 적어 봐요. (예: 문자할 때, 자기소개 쓸 때, 공지 쓸 때…)</p>
+ <ol style="margin:6px 0 6px 22px;">
+ <li style="margin:6px 0;">상황 ① <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+ <li style="margin:6px 0;">상황 ② <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+ <li style="margin:6px 0;">상황 ③ <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+ </ol>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 A3. 내가 자주 틀리던 표기 → 바른 표기</h3><span class="tag">3행 표</span></div>
-    <p>이번 레슨과 관련해 <b>평소 내가 자주 틀리던 형태</b>와 <b>바른 형태</b>를 비교해 적어 봐요.</p>
-    <table class="sp-table">
-      <tr><th style="width:8%;">번호</th><th style="width:40%;">내가 자주 쓰던 형태 (❌)</th><th style="width:40%;">바른 형태 (⭕)</th><th style="width:12%;">언제?</th></tr>
-      <tr><td>①</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
-      <tr><td>②</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
-      <tr><td>③</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
-    </table>
-    <div class="tip">💡 "언제?" 칸에는 <b>문자·일기·숙제·시험</b> 같이 자주 쓰는 자리를 적어 두면 스스로 체크하기 좋아요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 A3. 내가 자주 틀리던 표기 → 바른 표기</h3><span class="tag">3행 표</span></div>
+ <p>이번 레슨과 관련해 <b>평소 내가 자주 틀리던 형태</b>와 <b>바른 형태</b>를 비교해 적어 봐요.</p>
+ <table class="sp-table">
+ <tr><th style="width:8%;">번호</th><th style="width:40%;">내가 자주 쓰던 형태 (❌)</th><th style="width:40%;">바른 형태 (⭕)</th><th style="width:12%;">언제?</th></tr>
+ <tr><td>①</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+ <tr><td>②</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+ <tr><td>③</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+ </table>
+ <div class="tip">💡 "언제?" 칸에는 <b>문자·일기·숙제·시험</b> 같이 자주 쓰는 자리를 적어 두면 스스로 체크하기 좋아요.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 A4. 자기 점검 체크리스트</h3><span class="tag">5개</span></div>
-    <ul class="check-list">
-      <li><label><input type="checkbox" disabled> 오늘 규칙을 <b>세 문장 이상</b> 소리 내어 읽어 봤다.</label></li>
-      <li><label><input type="checkbox" disabled> 어제·오늘 내가 쓴 글에서 이 규칙 자리를 <b>직접 확인</b>해 봤다.</label></li>
-      <li><label><input type="checkbox" disabled> 자주 틀리던 형태를 <b>표에 정리</b>했다.</label></li>
-      <li><label><input type="checkbox" disabled> 다음에 틀렸을 때 <b>스스로 고쳐 쓸 자신</b>이 조금 생겼다.</label></li>
-      <li><label><input type="checkbox" disabled> 다음 레슨을 <b>기대</b>한다.</label></li>
-    </ul>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 A4. 자기 점검 체크리스트</h3><span class="tag">5개</span></div>
+ <ul class="check-list">
+ <li><label><input type="checkbox" disabled> 오늘 규칙을 <b>세 문장 이상</b> 소리 내어 읽어 봤다.</label></li>
+ <li><label><input type="checkbox" disabled> 어제·오늘 내가 쓴 글에서 이 규칙 자리를 <b>직접 확인</b>해 봤다.</label></li>
+ <li><label><input type="checkbox" disabled> 자주 틀리던 형태를 <b>표에 정리</b>했다.</label></li>
+ <li><label><input type="checkbox" disabled> 다음에 틀렸을 때 <b>스스로 고쳐 쓸 자신</b>이 조금 생겼다.</label></li>
+ <li><label><input type="checkbox" disabled> 다음 레슨을 <b>기대</b>한다.</label></li>
+ </ul>
+ </div>
 
-  <div class="page-foot">맞춤법 시리즈 · 외래어 표기 (2) · 복습쪽</div>
+ <div class="page-foot">맞춤법 시리즈 · 외래어 표기 (2) · 복습쪽</div>
 </section>
 
 
 <section class="page">
-  <div class="page-head">
-    <h2>✍️ 쓰기 실전 — 외래어 표기 (2)</h2>
-    <span class="step">추가 2쪽 · 쓰기</span>
-  </div>
-  <div class="intro">배운 규칙을 <b>실제 문장으로 써 보기</b>로 마무리해요. 짧아도 좋으니 <b>직접</b> 써 보는 게 제일 중요해요.</div>
+ <div class="page-head">
+ <h2>✍️ 쓰기 실전 — 외래어 표기 (2)</h2>
+ <span class="step">추가 2쪽 · 쓰기</span>
+ </div>
+ <div class="intro">배운 규칙을 <b>실제 문장으로 써 보기</b>로 마무리해요. 짧아도 좋으니 <b>직접</b> 써 보는 게 제일 중요해요.</div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 B1. 오늘의 규칙을 넣은 문장 3개</h3><span class="tag">직접 쓰기</span></div>
-    <p>오늘 배운 <b>외래어 표기 (2)</b> 규칙이 꼭 보이는 문장을 세 개 써 봐요.</p>
-    <div class="write-lines">
-      <div class="wl">① &nbsp;</div>
-      <div class="wl">② &nbsp;</div>
-      <div class="wl">③ &nbsp;</div>
-    </div>
-    <div class="tip">💡 완성한 뒤 <b>소리 내어 읽어</b> 어색한 곳이 없는지 확인해요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 B1. 오늘의 규칙을 넣은 문장 3개</h3><span class="tag">직접 쓰기</span></div>
+ <p>오늘 배운 <b>외래어 표기 (2)</b> 규칙이 꼭 보이는 문장을 세 개 써 봐요.</p>
+ <div class="write-lines">
+ <div class="wl">① &nbsp;</div>
+ <div class="wl">② &nbsp;</div>
+ <div class="wl">③ &nbsp;</div>
+ </div>
+ <div class="tip">💡 완성한 뒤 <b>소리 내어 읽어</b> 어색한 곳이 없는지 확인해요.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 B2. 상황 메시지 쓰기 — 주현에게</h3><span class="tag">3~5문장</span></div>
-    <p><b>상황:</b> 내가 아는 외래어 상품명 소개</p>
-    <p>이 상황에 맞게 짧은 메시지를 써 봐요. 오늘 배운 <b>외래어 표기 (2)</b> 규칙이 들어가면 더 좋아요.</p>
-    <div class="write-lines">
-      <div class="wl">&nbsp;</div>
-      <div class="wl">&nbsp;</div>
-      <div class="wl">&nbsp;</div>
-      <div class="wl">&nbsp;</div>
-      <div class="wl">&nbsp;</div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 B2. 상황 메시지 쓰기 — 주현에게</h3><span class="tag">3~5문장</span></div>
+ <p><b>상황:</b> 내가 아는 외래어 상품명 소개</p>
+ <p>이 상황에 맞게 짧은 메시지를 써 봐요. 오늘 배운 <b>외래어 표기 (2)</b> 규칙이 들어가면 더 좋아요.</p>
+ <div class="write-lines">
+ <div class="wl">&nbsp;</div>
+ <div class="wl">&nbsp;</div>
+ <div class="wl">&nbsp;</div>
+ <div class="wl">&nbsp;</div>
+ <div class="wl">&nbsp;</div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 B3. 내 다짐 한 문장</h3><span class="tag">마무리</span></div>
-    <p>앞으로 <b>외래어 표기 (2)</b>이(가) 나오는 자리에서 <b>어떻게 신경 쓸지</b> 한 문장으로 적어 봐요.</p>
-    <div class="write-lines"><div class="wl">앞으로 나는, &nbsp;</div></div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 B3. 내 다짐 한 문장</h3><span class="tag">마무리</span></div>
+ <p>앞으로 <b>외래어 표기 (2)</b>이(가) 나오는 자리에서 <b>어떻게 신경 쓸지</b> 한 문장으로 적어 봐요.</p>
+ <div class="write-lines"><div class="wl">앞으로 나는, &nbsp;</div></div>
+ </div>
 
-  <div class="note">🌟 <b>진짜 배움은 쓸 때 일어나요.</b> 오늘 쓴 문장을 <b>하루 뒤 다시</b> 읽어 보면 눈에 보이는 것이 또 달라져요.</div>
+ <div class="note">🌟 <b>진짜 배움은 쓸 때 일어나요.</b> 오늘 쓴 문장을 <b>하루 뒤 다시</b> 읽어 보면 눈에 보이는 것이 또 달라져요.</div>
 
-  <div class="page-foot">맞춤법 시리즈 · 외래어 표기 (2) · 쓰기쪽</div>
+ <div class="page-foot">맞춤법 시리즈 · 외래어 표기 (2) · 쓰기쪽</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

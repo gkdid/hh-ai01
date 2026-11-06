@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #f8bbd0 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #880e4f;
-  border-bottom: 2px solid #f48fb1; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #f48fb1; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #ad1457; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #ad1457; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #ad1457; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #880e4f; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #880e4f; font-weight: 500; }
 .cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 6px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #880e4f; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #ad1457; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #ad1457; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #880e4f; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #ad1457; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -96,310 +96,310 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">💗 S3 감정 알아차리고 표현하기</span><span class="muted">사회성 · Level 3</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">💗 S3 감정 알아차리고 표현하기</span><span class="muted">사회성 · Level 3</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#880e4f;">S3</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">감정 · 나 표현</span>
-    <h1>예은이의 감정 표현</h1>
-    <p class="lead">내 마음을 알아차리고, 상대에게 잘 전해요</p>
-  </div>
-  <div class="cover-emoji">😊 😢 😡 😳 🥰</div>
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul>
-      <li>다양한 <b>감정 낱말</b>을 알고, 내 감정에 이름을 붙일 수 있다.</li>
-      <li>감정의 <b>강도</b>(약함·보통·강함)를 표현할 수 있다.</li>
-      <li><b>"나는 ~때문에 ~해"</b> 문장으로 감정을 상대에게 잘 전한다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
-    <ul>
-      <li><b>예은이</b>는 마음을 참는 편이에요. 오늘은 감정을 <b>말로 표현</b>하는 연습을 해요.</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">사회성 시리즈 · S3 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#880e4f;">S3</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">감정 · 나 표현</span>
+ <h1>예은이의 감정 표현</h1>
+ <p class="lead">내 마음을 알아차리고, 상대에게 잘 전해요</p>
+ </div>
+ <div class="cover-emoji">😊 😢 😡 😳 🥰</div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul>
+ <li>다양한 <b>감정 낱말</b>을 알고, 내 감정에 이름을 붙일 수 있다.</li>
+ <li>감정의 <b>강도</b>(약함·보통·강함)를 표현할 수 있다.</li>
+ <li><b>"나는 ~때문에 ~해"</b> 문장으로 감정을 상대에게 잘 전한다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+ <ul>
+ <li><b>예은이</b>는 마음을 참는 편이에요. 오늘은 감정을 <b>말로 표현</b>하는 연습을 해요.</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">사회성 시리즈 · S3 · 표지</div>
 </section>
 
 <!-- 1쪽: 감정 알아차리기 -->
 <section class="page">
-  <div class="page-head">
-    <h2>💭 내 감정에 이름 붙이기</h2>
-    <span class="step">1쪽 · 감정 어휘</span>
-  </div>
-  <div class="intro">
-    감정은 <b>여러 종류</b>가 있어요. 감정에 <b>이름을 붙일 수 있으면</b>, 남에게 설명하기도 쉬워지고 스스로 다스리기도 편해져요.
-  </div>
+ <div class="page-head">
+ <h2>💭 내 감정에 이름 붙이기</h2>
+ <span class="step">1쪽 · 감정 어휘</span>
+ </div>
+ <div class="intro">
+ 감정은 <b>여러 종류</b>가 있어요. 감정에 <b>이름을 붙일 수 있으면</b>, 남에게 설명하기도 쉬워지고 스스로 다스리기도 편해져요.
+ </div>
 
-  <div class="emotion-grid">
-    <div class="emo-card happy">
-      <div class="face">😊</div>
-      <div class="name">기쁨</div>
-      <div class="words">신나요·설레요·행복해요</div>
-    </div>
-    <div class="emo-card sad">
-      <div class="face">😢</div>
-      <div class="name">슬픔</div>
-      <div class="words">우울해요·서글퍼요·눈물나요</div>
-    </div>
-    <div class="emo-card angry">
-      <div class="face">😡</div>
-      <div class="name">화남</div>
-      <div class="words">짜증나요·분해요·억울해요</div>
-    </div>
-    <div class="emo-card scared">
-      <div class="face">😨</div>
-      <div class="name">두려움</div>
-      <div class="words">무서워요·불안해요·긴장돼요</div>
-    </div>
-    <div class="emo-card upset">
-      <div class="face">😔</div>
-      <div class="name">서운함</div>
-      <div class="words">아쉬워요·속상해요·실망해요</div>
-    </div>
-    <div class="emo-card shy">
-      <div class="face">😳</div>
-      <div class="name">부끄러움</div>
-      <div class="words">쑥스러워요·창피해요·수줍어요</div>
-    </div>
-    <div class="emo-card love">
-      <div class="face">🥰</div>
-      <div class="name">고마움·좋음</div>
-      <div class="words">감동이에요·따뜻해요·정겨워요</div>
-    </div>
-    <div class="emo-card calm">
-      <div class="face">😌</div>
-      <div class="name">편안함</div>
-      <div class="words">차분해요·안심돼요·홀가분해요</div>
-    </div>
-  </div>
+ <div class="emotion-grid">
+ <div class="emo-card happy">
+ <div class="face">😊</div>
+ <div class="name">기쁨</div>
+ <div class="words">신나요·설레요·행복해요</div>
+ </div>
+ <div class="emo-card sad">
+ <div class="face">😢</div>
+ <div class="name">슬픔</div>
+ <div class="words">우울해요·서글퍼요·눈물나요</div>
+ </div>
+ <div class="emo-card angry">
+ <div class="face">😡</div>
+ <div class="name">화남</div>
+ <div class="words">짜증나요·분해요·억울해요</div>
+ </div>
+ <div class="emo-card scared">
+ <div class="face">😨</div>
+ <div class="name">두려움</div>
+ <div class="words">무서워요·불안해요·긴장돼요</div>
+ </div>
+ <div class="emo-card upset">
+ <div class="face">😔</div>
+ <div class="name">서운함</div>
+ <div class="words">아쉬워요·속상해요·실망해요</div>
+ </div>
+ <div class="emo-card shy">
+ <div class="face">😳</div>
+ <div class="name">부끄러움</div>
+ <div class="words">쑥스러워요·창피해요·수줍어요</div>
+ </div>
+ <div class="emo-card love">
+ <div class="face">🥰</div>
+ <div class="name">고마움·좋음</div>
+ <div class="words">감동이에요·따뜻해요·정겨워요</div>
+ </div>
+ <div class="emo-card calm">
+ <div class="face">😌</div>
+ <div class="name">편안함</div>
+ <div class="words">차분해요·안심돼요·홀가분해요</div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 상황과 감정 짝짓기</h3><span class="tag">감정 이름 붙이기</span></div>
-    <p>다음 상황에서 예은이는 어떤 감정을 느꼈을까요? 알맞은 감정을 <b>보기</b>에서 골라 써 보세요.</p>
-    <p style="background:#fff8e1; padding:6px 10px; border-radius:6px;">
-      <b>보기:</b> 기쁨 · 슬픔 · 화남 · 두려움 · 서운함 · 부끄러움 · 고마움 · 편안함
-    </p>
-    <p>① 시험을 잘 봐서 부모님께 칭찬받았어요. → <span class="blank">&nbsp;</span></p>
-    <p>② 친구가 약속을 갑자기 취소했어요. → <span class="blank">&nbsp;</span></p>
-    <p>③ 반 앞에서 발표하려니 심장이 두근두근해요. → <span class="blank">&nbsp;</span></p>
-    <p>④ 오해로 혼났는데 억울했어요. → <span class="blank">&nbsp;</span></p>
-    <p>⑤ 힘들 때 친구가 옆에서 얘기 들어 줬어요. → <span class="blank">&nbsp;</span></p>
-    <p>⑥ 옷에 김치 국물이 튀어서 어쩔 줄 몰라요. → <span class="blank">&nbsp;</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 상황과 감정 짝짓기</h3><span class="tag">감정 이름 붙이기</span></div>
+ <p>다음 상황에서 예은이는 어떤 감정을 느꼈을까요? 알맞은 감정을 <b>보기</b>에서 골라 써 보세요.</p>
+ <p style="background:#fff8e1; padding:6px 10px; border-radius:6px;">
+ <b>보기:</b> 기쁨 · 슬픔 · 화남 · 두려움 · 서운함 · 부끄러움 · 고마움 · 편안함
+ </p>
+ <p>① 시험을 잘 봐서 부모님께 칭찬받았어요. → <span class="blank">&nbsp;</span></p>
+ <p>② 친구가 약속을 갑자기 취소했어요. → <span class="blank">&nbsp;</span></p>
+ <p>③ 반 앞에서 발표하려니 심장이 두근두근해요. → <span class="blank">&nbsp;</span></p>
+ <p>④ 오해로 혼났는데 억울했어요. → <span class="blank">&nbsp;</span></p>
+ <p>⑤ 힘들 때 친구가 옆에서 얘기 들어 줬어요. → <span class="blank">&nbsp;</span></p>
+ <p>⑥ 옷에 김치 국물이 튀어서 어쩔 줄 몰라요. → <span class="blank">&nbsp;</span></p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 감정 온도계</h3><span class="tag">강도</span></div>
-    <p>같은 화남도 <b>강도</b>가 달라요. 온도계로 표시해 봐요.</p>
-    <div class="thermometer">
-      <div class="scale">
-        <div><div class="n">1</div><div class="lbl">거의 없음</div></div>
-        <div><div class="n">2</div><div class="lbl">조금</div></div>
-        <div><div class="n">3</div><div class="lbl">보통</div></div>
-        <div><div class="n">4</div><div class="lbl">많이</div></div>
-        <div><div class="n">5</div><div class="lbl">아주 많이</div></div>
-      </div>
-    </div>
-    <p style="margin-top:6px;">① 친구가 실수로 내 발을 밟았어요. → 화남 온도: ( <span class="blank short">&nbsp;</span> )</p>
-    <p>② 친구가 내 물건을 허락 없이 가져갔어요. → 화남 온도: ( <span class="blank short">&nbsp;</span> )</p>
-    <p>③ 오랜만에 좋아하는 가수 콘서트에 갔어요. → 기쁨 온도: ( <span class="blank short">&nbsp;</span> )</p>
-    <p>④ 좋아하는 아이돌이 활동을 쉰다고 했어요. → 슬픔 온도: ( <span class="blank short">&nbsp;</span> )</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 감정 온도계</h3><span class="tag">강도</span></div>
+ <p>같은 화남도 <b>강도</b>가 달라요. 온도계로 표시해 봐요.</p>
+ <div class="thermometer">
+ <div class="scale">
+ <div><div class="n">1</div><div class="lbl">거의 없음</div></div>
+ <div><div class="n">2</div><div class="lbl">조금</div></div>
+ <div><div class="n">3</div><div class="lbl">보통</div></div>
+ <div><div class="n">4</div><div class="lbl">많이</div></div>
+ <div><div class="n">5</div><div class="lbl">아주 많이</div></div>
+ </div>
+ </div>
+ <p style="margin-top:6px;">① 친구가 실수로 내 발을 밟았어요. → 화남 온도: ( <span class="blank short">&nbsp;</span> )</p>
+ <p>② 친구가 내 물건을 허락 없이 가져갔어요. → 화남 온도: ( <span class="blank short">&nbsp;</span> )</p>
+ <p>③ 오랜만에 좋아하는 가수 콘서트에 갔어요. → 기쁨 온도: ( <span class="blank short">&nbsp;</span> )</p>
+ <p>④ 좋아하는 아이돌이 활동을 쉰다고 했어요. → 슬픔 온도: ( <span class="blank short">&nbsp;</span> )</p>
+ </div>
 
-  <div class="tip">💡 <b>감정에 이름을 붙이면</b> 그 감정이 조금 <b>작아져요.</b> 답답한 마음도, 이름을 붙이는 순간 다루기 쉬워져요.</div>
+ <div class="tip">💡 <b>감정에 이름을 붙이면</b> 그 감정이 조금 <b>작아져요.</b> 답답한 마음도, 이름을 붙이는 순간 다루기 쉬워져요.</div>
 
-  <div class="page-foot">사회성 시리즈 · S3 · 1쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S3 · 1쪽 / 2</div>
 </section>
 
 <!-- 2쪽: 나 전달법 -->
 <section class="page">
-  <div class="page-head">
-    <h2>🗣 감정을 말로 전하기 — 나 전달법</h2>
-    <span class="step">2쪽 · 표현</span>
-  </div>
-  <div class="intro">
-    감정을 <b>참기만</b> 하면 몸도 마음도 힘들어요. 그렇다고 <b>화를 내며</b> 표현하면 상대가 방어적으로 변해요.
-    가장 좋은 방법은 <b>나 전달법</b>이에요.
-  </div>
+ <div class="page-head">
+ <h2>🗣 감정을 말로 전하기 — 나 전달법</h2>
+ <span class="step">2쪽 · 표현</span>
+ </div>
+ <div class="intro">
+ 감정을 <b>참기만</b> 하면 몸도 마음도 힘들어요. 그렇다고 <b>화를 내며</b> 표현하면 상대가 방어적으로 변해요.
+ 가장 좋은 방법은 <b>나 전달법</b>이에요.
+ </div>
 
-  <div class="i-message">
-    <div class="title">💗 나 전달법 (I-Message)</div>
-    <div class="formula">
-      <b>"나는</b> [상황] <b>때문에</b> [감정]<b>했어."</b>
-    </div>
-    <div style="padding:6px 0; font-size:0.95em;">
-      <b>예시</b><br>
-      ✅ "나는 <b>네가 약속을 취소해서</b> 조금 <b>서운했어.</b>"<br>
-      ❌ "너 진짜 왜 그래! 짜증 나!" (상대를 공격 → 관계 나빠짐)
-    </div>
-  </div>
+ <div class="i-message">
+ <div class="title">💗 나 전달법 (I-Message)</div>
+ <div class="formula">
+ <b>"나는</b> [상황] <b>때문에</b> [감정]<b>했어."</b>
+ </div>
+ <div style="padding:6px 0; font-size:0.95em;">
+ <b>예시</b><br>
+ ✅ "나는 <b>네가 약속을 취소해서</b> 조금 <b>서운했어.</b>"<br>
+ ❌ "너 진짜 왜 그래! 짜증 나!" (상대를 공격 → 관계 나빠짐)
+ </div>
+ </div>
 
-  <div class="speech">
-    <div class="avatar">예은</div>
-    <div class="bubble">
-      <div class="who">예은이의 마음속</div>
-      친구가 오늘 약속을 갑자기 취소했어. <b>서운하지만</b>, 화만 내면 관계가 안 좋아질 것 같아. <b>나 전달법</b>으로 얘기해 볼까?
-    </div>
-  </div>
-  <div class="speech">
-    <div class="avatar">예은</div>
-    <div class="bubble">
-      <div class="who">예은</div>
-      "야, <b>나는</b> 오늘 <b>네가 갑자기 약속을 취소해서 조금 서운했어.</b> 오래 기다렸거든. 다음엔 미리 말해 주면 좋겠어."
-    </div>
-  </div>
+ <div class="speech">
+ <div class="avatar">예은</div>
+ <div class="bubble">
+ <div class="who">예은이의 마음속</div>
+ 친구가 오늘 약속을 갑자기 취소했어. <b>서운하지만</b>, 화만 내면 관계가 안 좋아질 것 같아. <b>나 전달법</b>으로 얘기해 볼까?
+ </div>
+ </div>
+ <div class="speech">
+ <div class="avatar">예은</div>
+ <div class="bubble">
+ <div class="who">예은</div>
+ "야, <b>나는</b> 오늘 <b>네가 갑자기 약속을 취소해서 조금 서운했어.</b> 오래 기다렸거든. 다음엔 미리 말해 주면 좋겠어."
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 나 전달법으로 바꾸기</h3><span class="tag">4문항</span></div>
-    <p>다음 <b>공격적 표현</b>을 <b>나 전달법</b>으로 바꿔 써 보세요.</p>
-    <p>① "너 진짜 왜 매번 늦어? 짜증 나!"<br>
-      → <b>나는</b> <span class="blank long">&nbsp;</span> 때문에 <span class="blank">&nbsp;</span>했어.</p>
-    <p>② "네가 그 말 해서 다 망친 거야!"<br>
-      → <b>나는</b> <span class="blank long">&nbsp;</span> 때문에 <span class="blank">&nbsp;</span>했어.</p>
-    <p>③ "왜 나만 뺐어? 진짜 별로다."<br>
-      → <b>나는</b> <span class="blank long">&nbsp;</span> 때문에 <span class="blank">&nbsp;</span>했어.</p>
-    <p>④ "너 좀 그만 좀 해!"<br>
-      → <b>나는</b> <span class="blank long">&nbsp;</span> 때문에 <span class="blank">&nbsp;</span>했어.</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 나 전달법으로 바꾸기</h3><span class="tag">4문항</span></div>
+ <p>다음 <b>공격적 표현</b>을 <b>나 전달법</b>으로 바꿔 써 보세요.</p>
+ <p>① "너 진짜 왜 매번 늦어? 짜증 나!"<br>
+ → <b>나는</b> <span class="blank long">&nbsp;</span> 때문에 <span class="blank">&nbsp;</span>했어.</p>
+ <p>② "네가 그 말 해서 다 망친 거야!"<br>
+ → <b>나는</b> <span class="blank long">&nbsp;</span> 때문에 <span class="blank">&nbsp;</span>했어.</p>
+ <p>③ "왜 나만 뺐어? 진짜 별로다."<br>
+ → <b>나는</b> <span class="blank long">&nbsp;</span> 때문에 <span class="blank">&nbsp;</span>했어.</p>
+ <p>④ "너 좀 그만 좀 해!"<br>
+ → <b>나는</b> <span class="blank long">&nbsp;</span> 때문에 <span class="blank">&nbsp;</span>했어.</p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 오늘의 감정 일기</h3><span class="tag">쓰기</span></div>
-    <p>오늘 하루 있었던 <b>감정 하나</b>를 골라 일기로 써 보세요.</p>
-    <div class="diary">
-      <div class="header">
-        <span>📅 날짜: <span class="blank">&nbsp;</span></span>
-        <span>💗 오늘의 감정: <span class="blank">&nbsp;</span> ( 온도: <span class="blank short">&nbsp;</span> )</span>
-      </div>
-      <div style="font-size:0.9em; color:#6d4c41; margin-bottom:4px;">✍️ 무슨 일이 있었나요?</div>
-      <div class="line"></div>
-      <div class="line"></div>
-      <div style="font-size:0.9em; color:#6d4c41; margin: 6px 0 4px;">✍️ 나 전달법으로 표현한다면?</div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 오늘의 감정 일기</h3><span class="tag">쓰기</span></div>
+ <p>오늘 하루 있었던 <b>감정 하나</b>를 골라 일기로 써 보세요.</p>
+ <div class="diary">
+ <div class="header">
+ <span>📅 날짜: <span class="blank">&nbsp;</span></span>
+ <span>💗 오늘의 감정: <span class="blank">&nbsp;</span> ( 온도: <span class="blank short">&nbsp;</span> )</span>
+ </div>
+ <div style="font-size:0.9em; color:#6d4c41; margin-bottom:4px;">✍️ 무슨 일이 있었나요?</div>
+ <div class="line"></div>
+ <div class="line"></div>
+ <div style="font-size:0.9em; color:#6d4c41; margin: 6px 0 4px;">✍️ 나 전달법으로 표현한다면?</div>
+ <div class="line"></div>
+ <div class="line"></div>
+ </div>
+ </div>
 
-  <div class="note">🌟 <b>실천:</b> 이번 주에 감정이 크게 흔들린 순간이 오면, <b>속으로라도 "나는 ~때문에 ~해"</b> 문장을 만들어 보세요.</div>
+ <div class="note">🌟 <b>실천:</b> 이번 주에 감정이 크게 흔들린 순간이 오면, <b>속으로라도 "나는 ~때문에 ~해"</b> 문장을 만들어 보세요.</div>
 
-  <div class="page-foot">사회성 시리즈 · S3 · 2쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S3 · 2쪽 / 2</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

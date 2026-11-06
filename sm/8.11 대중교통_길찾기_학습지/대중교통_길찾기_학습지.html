@@ -9,29 +9,29 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 12pt; line-height: 1.65; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 12pt; line-height: 1.65; }
 
 .toolbar { position: sticky; top: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #0277bd; color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 10px 18px; background: #0277bd; color: #fff;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .muted { color: #b3e5fc; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffd54f; color: #01579b; border: none; font: inherit; font-weight: 700;
-  padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+ padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 
 .page { width: 210mm; min-height: 297mm; margin: 14mm auto; padding: 16mm 18mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 22mm 20mm; background: linear-gradient(135deg, #fff 0%, #e1f5fe 100%); }
 .cover-top { display: flex; justify-content: space-between;
-  font-size: 0.9em; color: #607d8b;
-  border-bottom: 2px solid #b3e5fc; padding-bottom: 10px; margin-bottom: 22px; }
+ font-size: 0.9em; color: #607d8b;
+ border-bottom: 2px solid #b3e5fc; padding-bottom: 10px; margin-bottom: 22px; }
 .cover-top .subject { font-weight: 700; color: #0277bd; }
 .cover-main { text-align: center; padding: 14px 0 12px; }
 .cover-main .badge { display: inline-block; padding: 6px 18px; border-radius: 20px;
-  background: #0277bd; color: #fff; font-weight: 700; font-size: 0.95em;
-  margin-bottom: 12px; letter-spacing: 0.5px; }
+ background: #0277bd; color: #fff; font-weight: 700; font-size: 0.95em;
+ margin-bottom: 12px; letter-spacing: 0.5px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #01579b; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1.05em; color: #455a64; font-weight: 500; }
 
@@ -41,61 +41,61 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .name-cell em { display: block; min-height: 24px; font-style: normal; }
 
 .goal, .info, .toc, .cast { border: 2px solid #81d4fa; border-radius: 10px;
-  padding: 12px 16px; margin-top: 10px; background: #e1f5fe; }
+ padding: 12px 16px; margin-top: 10px; background: #e1f5fe; }
 .goal h2, .info h2, .toc h2, .cast h2 { margin: 0 0 6px; font-size: 1.05em; color: #01579b;
-  border-bottom: 1px dashed #4fc3f7; padding-bottom: 5px; }
+ border-bottom: 1px dashed #4fc3f7; padding-bottom: 5px; }
 .goal ul { margin: 4px 0 0; padding-left: 20px; } .goal li { padding: 2px 0; }
 .info p { margin: 0 0 4px; font-size: 0.95em; color: #01579b; }
 .toc ol { margin: 4px 0 0; padding-left: 24px; } .toc li { padding: 2px 0; }
 
 .cast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
 .person { display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: #fff;
-  border: 1px solid #cfd8dc; border-radius: 8px; font-weight: 500; color: #37474f; font-size: 0.92em; }
+ border: 1px solid #cfd8dc; border-radius: 8px; font-weight: 500; color: #37474f; font-size: 0.92em; }
 .person strong { color: #01579b; font-weight: 700; }
 .dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
 .d1 { background: #FF6B6B; } .d2 { background: #4ECDC4; } .d3 { background: #FFD166; }
 .d4 { background: #A78BFA; } .d5 { background: #6FCF97; } .d6 { background: #F48FB1; }
 
 .ph { display: flex; align-items: center; gap: 16px;
-  border-bottom: 3px solid #0277bd; padding-bottom: 12px; margin-bottom: 18px; }
+ border-bottom: 3px solid #0277bd; padding-bottom: 12px; margin-bottom: 18px; }
 .ph-num { flex-shrink: 0; width: 60px; height: 60px;
-  background: #0277bd; color: #ffd54f; font-family: 'Noto Serif KR', serif;
-  font-size: 1.5em; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; border-radius: 10px; }
+ background: #0277bd; color: #ffd54f; font-family: 'Noto Serif KR', serif;
+ font-size: 1.5em; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; border-radius: 10px; }
 .ph-title h2 { margin: 0; font-size: 1.4em; color: #01579b; }
 .ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.95em; }
 
 .story { background: #fff; border: 2px solid #b3e5fc; border-radius: 8px;
-  padding: 12px 16px; margin: 8px 0 12px; line-height: 1.85; }
+ padding: 12px 16px; margin: 8px 0 12px; line-height: 1.85; }
 .story p { margin: 0 0 6px; }
 
 .scene { background: #fff8e1; border-left: 6px solid #ffb300;
-  border-radius: 6px; padding: 12px 16px; margin-bottom: 14px; }
+ border-radius: 6px; padding: 12px 16px; margin-bottom: 14px; }
 .scene p { margin: 0; }
 
 .tip { background: #e1f5fe; border-left: 5px solid #0277bd;
-  border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
+ border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
 .tip .tip-title { display: block; font-weight: 700; color: #01579b; margin-bottom: 4px; }
 
 .warning { background: #ffebee; border-left: 6px solid #c62828;
-  border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
+ border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
 .warning .tip-title { display: block; font-weight: 700; color: #b71c1c; margin-bottom: 4px; }
 
 .warm { background: #fff3e0; border-left: 5px solid #ef6c00;
-  border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
+ border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
 .warm .tip-title { display: block; font-weight: 700; color: #bf360c; margin-bottom: 4px; }
 
 /* 지하철 노선도 */
 .line-map { background: #fff; border: 2px solid #b3e5fc; border-radius: 10px;
-  padding: 14px; margin: 8px 0 12px; }
+ padding: 14px; margin: 8px 0 12px; }
 .line-row { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; margin-bottom: 8px; }
 .station { background: #fff; border: 2px solid #0277bd; border-radius: 18px;
-  padding: 4px 10px; font-weight: 700; font-size: 0.88em; color: #01579b;
-  white-space: nowrap; }
+ padding: 4px 10px; font-weight: 700; font-size: 0.88em; color: #01579b;
+ white-space: nowrap; }
 .station.transfer { background: #fff59d; border-color: #f57f17; color: #e65100; border-style: dashed; }
 .line-arrow { color: #0277bd; font-weight: 700; font-size: 0.9em; padding: 0 2px; }
 .line-label { display: inline-block; padding: 3px 10px; border-radius: 12px;
-  color: #fff; font-weight: 700; font-size: 0.85em; margin-right: 8px; flex-shrink: 0; }
+ color: #fff; font-weight: 700; font-size: 0.85em; margin-right: 8px; flex-shrink: 0; }
 .l2 { background: #43a047; }
 .l3 { background: #ef6c00; }
 .l4 { background: #1976d2; }
@@ -103,8 +103,8 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 /* 카드 비교 */
 .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0; }
 .tcard {
-  background: #fff; border: 2px solid #81d4fa; border-radius: 10px;
-  padding: 10px 12px; text-align: center;
+ background: #fff; border: 2px solid #81d4fa; border-radius: 10px;
+ padding: 10px 12px; text-align: center;
 }
 .tcard h4 { margin: 0 0 4px; color: #01579b; font-size: 1em; }
 .tcard small { display: block; color: #455a64; font-size: 0.85em; }
@@ -112,20 +112,20 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 /* 요금표 */
 .fare-table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.92em; }
 .fare-table th, .fare-table td {
-  border: 1.5px solid #81d4fa; padding: 6px 9px; text-align: center;
+ border: 1.5px solid #81d4fa; padding: 6px 9px; text-align: center;
 }
 .fare-table th { background: #b3e5fc; color: #01579b; font-weight: 700; }
 
 /* 4단계 */
 .steps4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0; }
 .step4 {
-  background: #e1f5fe; border: 2px solid #81d4fa; border-radius: 10px;
-  padding: 9px; text-align: center;
+ background: #e1f5fe; border: 2px solid #81d4fa; border-radius: 10px;
+ padding: 9px; text-align: center;
 }
 .step4 .step-no {
-  display: inline-block; width: 26px; height: 26px;
-  background: #0277bd; color: #ffd54f; border-radius: 50%;
-  font-weight: 700; line-height: 26px; margin-bottom: 3px; font-size: 0.9em;
+ display: inline-block; width: 26px; height: 26px;
+ background: #0277bd; color: #ffd54f; border-radius: 50%;
+ font-weight: 700; line-height: 26px; margin-bottom: 3px; font-size: 0.9em;
 }
 .step4 strong { display: block; color: #01579b; font-size: 0.95em; }
 .step4 small { display: block; color: #455a64; font-size: 0.83em; margin-top: 2px; }
@@ -133,8 +133,8 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 /* 길 묻기 표현 */
 .phrase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 8px 0; }
 .phrase {
-  background: #fff; border: 1.5px solid #b3e5fc; border-radius: 10px;
-  padding: 9px 12px;
+ background: #fff; border: 1.5px solid #b3e5fc; border-radius: 10px;
+ padding: 9px 12px;
 }
 .phrase strong { display: block; color: #01579b; font-size: 0.95em; margin-bottom: 2px; }
 .phrase em { font-style: normal; color: #455a64; font-size: 0.92em; }
@@ -142,15 +142,15 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 /* 메신저 */
 .chat { background: #b2ebf2; border-radius: 12px; padding: 12px; margin: 8px 0 12px; }
 .chat .bg-label {
-  display: inline-block; background: #fff; padding: 3px 10px; border-radius: 10px;
-  font-size: 0.85em; color: #455a64; margin-bottom: 6px; font-weight: 700;
+ display: inline-block; background: #fff; padding: 3px 10px; border-radius: 10px;
+ font-size: 0.85em; color: #455a64; margin-bottom: 6px; font-weight: 700;
 }
 .msg { display: flex; align-items: flex-start; gap: 8px; margin: 4px 0; }
 .msg.right { flex-direction: row-reverse; }
 .msg .mtag {
-  flex-shrink: 0; min-width: 50px; padding: 4px 8px;
-  border-radius: 14px; font-weight: 700; font-size: 0.85em; text-align: center;
-  background: #cfd8dc; color: #263238;
+ flex-shrink: 0; min-width: 50px; padding: 4px 8px;
+ border-radius: 14px; font-weight: 700; font-size: 0.85em; text-align: center;
+ background: #cfd8dc; color: #263238;
 }
 .msg .mtag.d1 { background: #FFCDD2; }
 .msg .mtag.d2 { background: #B2EBF2; }
@@ -159,95 +159,95 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .msg .mtag.d5 { background: #C8E6C9; }
 .msg .mtag.d6 { background: #F8BBD0; }
 .mbubble { background: #fff; padding: 6px 11px;
-  border-radius: 14px; max-width: 78%; font-size: 0.95em;
-  border: 1.5px solid #cfd8dc; }
+ border-radius: 14px; max-width: 78%; font-size: 0.95em;
+ border: 1.5px solid #cfd8dc; }
 .msg.right .mbubble { background: #fff59d; border-color: #ffe082; }
 
 .practice h3 {
-  display: inline-block; background: #ffd54f; color: #01579b;
-  padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
+ display: inline-block; background: #ffd54f; color: #01579b;
+ padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
 }
 .q { position: relative; padding-left: 42px;
-  margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed #cfd8dc; }
+ margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed #cfd8dc; }
 .q:last-child { border-bottom: none; }
 .q .no { position: absolute; left: 0; top: 0; width: 30px; height: 30px;
-  background: #0277bd; color: #fff; border-radius: 50%; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; font-size: 0.92em; }
+ background: #0277bd; color: #fff; border-radius: 50%; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; font-size: 0.92em; }
 .q p { margin: 0 0 6px; }
 .q .sub-q { margin-top: 5px; font-weight: 500; color: #455a64; }
 .q .calc { background: #fffde7; border: 1.5px dashed #fbc02d; border-radius: 6px;
-  padding: 6px 10px; margin: 4px 0; font-size: 0.95em; color: #455a64; }
+ padding: 6px 10px; margin: 4px 0; font-size: 0.95em; color: #455a64; }
 
 .choice-box { background: #fffde7; border: 1.5px solid #fdd835;
-  border-radius: 8px; padding: 7px 14px; margin: 6px 0; font-weight: 500; }
+ border-radius: 8px; padding: 7px 14px; margin: 6px 0; font-weight: 500; }
 .choice-box::before { content: "<보기> "; font-weight: 700; color: #f57f17; }
 
 .blank { display: inline-block; border-bottom: 1.5px solid #263238;
-  min-width: 70px; height: 22px; vertical-align: baseline; }
+ min-width: 70px; height: 22px; vertical-align: baseline; }
 .blank.long { min-width: 220px; }
 
 .lines { background-image: repeating-linear-gradient(
-    to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px);
-  height: 34px; margin: 4px 0; }
+ to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px);
+ height: 34px; margin: 4px 0; }
 .lines.two { height: 68px; } .lines.three { height: 102px; }
 
 .pledge { background: #fff8e1; border: 2px dashed #f57c00;
-  border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+ border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
 .pledge h4 { margin: 0 0 6px; color: #e65100; font-size: 1.05em; }
 
 .self-check { background: #f1f8e9; border: 1.5px solid #aed581;
-  border-radius: 8px; padding: 12px 16px; margin-top: 14px; }
+ border-radius: 8px; padding: 12px 16px; margin-top: 14px; }
 .self-check h4 { margin: 0 0 6px; color: #33691e; font-size: 1em; }
 .self-check label { display: block; padding: 2px 0; }
 .self-check input[type=checkbox] { margin-right: 8px; width: 16px; height: 16px;
-  accent-color: #7cb342; vertical-align: middle; }
+ accent-color: #7cb342; vertical-align: middle; }
 
 .page-no { position: absolute; bottom: 8mm; right: 18mm;
-  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px; }
+ color: #90a4ae; font-size: 0.85em; letter-spacing: 1px; }
 
 @media print {
-  @page { size: A4 portrait; margin: 0; }
-  html, body { background: #fff !important; margin: 0; padding: 0;
-    font-size: 10pt; line-height: 1.38; }
-  .toolbar, .no-print { display: none !important; }
-  .page { width: 210mm; min-height: 297mm;
-    margin: 0 !important; padding: 10mm 13mm;
-    box-shadow: none; border: none;
-    page-break-after: always; break-after: page; }
-  .page:last-of-type { page-break-after: auto; }
-  .q, .scene, .tip, .warning, .warm, .story, .chat, .line-map, .card-grid,
-  .fare-table, .steps4, .phrase-grid, .self-check, .pledge, .name-box, .goal,
-  .info, .toc, .cast, .ph, tr {
-    page-break-inside: avoid !important; break-inside: avoid !important; }
-  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-  h1 { font-size: 1.8em; margin: 0; }
-  h2 { font-size: 1.18em; margin: 0 0 4px; }
-  h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
-  p { margin: 0 0 3px; } ul, ol { margin: 3px 0; }
-  .page.cover { padding: 16mm 16mm; }
-  .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
-  .ph-num { width: 46px; height: 46px; font-size: 1.2em; border-radius: 8px; }
-  .ph-title h2 { font-size: 1.18em; }
-  .scene, .tip, .warning, .warm, .story { padding: 7px 12px; margin: 4px 0 8px; }
-  .chat { padding: 7px; margin: 4px 0 8px; }
-  .msg { margin: 3px 0; gap: 6px; }
-  .mtag { min-width: 44px; padding: 3px 6px; font-size: 0.82em; }
-  .mbubble { padding: 4px 8px; font-size: 0.9em; }
-  .line-map { padding: 8px; }
-  .card-grid, .steps4, .phrase-grid { gap: 5px; }
-  .tcard, .step4, .phrase { padding: 6px 9px; }
-  .step4 .step-no { width: 22px; height: 22px; line-height: 22px; }
-  .fare-table th, .fare-table td { padding: 4px 6px; font-size: 0.86em; }
-  .station { padding: 3px 8px; font-size: 0.82em; }
-  .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
-  .q .no { width: 26px; height: 26px; font-size: 0.88em; }
-  .lines { height: 26px;
-    background-image: repeating-linear-gradient(
-      to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
-  .lines.two { height: 52px; } .lines.three { height: 78px; }
-  .self-check { padding: 7px 12px; margin-top: 8px; }
-  .pledge { padding: 8px 12px; margin: 6px 0; }
-  .page-no { bottom: 6mm; right: 14mm; }
+ @page { size: A4 portrait; margin: 0; }
+ html, body { background: #fff !important; margin: 0; padding: 0;
+ font-size: 10pt; line-height: 1.38; }
+ .toolbar, .no-print { display: none !important; }
+ .page { width: 210mm; min-height: 297mm;
+ margin: 0 !important; padding: 10mm 13mm;
+ box-shadow: none; border: none;
+ page-break-after: always; break-after: page; }
+ .page:last-of-type { page-break-after: auto; }
+ .q, .scene, .tip, .warning, .warm, .story, .chat, .line-map, .card-grid,
+ .fare-table, .steps4, .phrase-grid, .self-check, .pledge, .name-box, .goal,
+ .info, .toc, .cast, .ph, tr {
+ page-break-inside: avoid !important; break-inside: avoid !important; }
+ h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+ h1 { font-size: 1.8em; margin: 0; }
+ h2 { font-size: 1.18em; margin: 0 0 4px; }
+ h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
+ p { margin: 0 0 3px; } ul, ol { margin: 3px 0; }
+ .page.cover { padding: 16mm 16mm; }
+ .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
+ .ph-num { width: 46px; height: 46px; font-size: 1.2em; border-radius: 8px; }
+ .ph-title h2 { font-size: 1.18em; }
+ .scene, .tip, .warning, .warm, .story { padding: 7px 12px; margin: 4px 0 8px; }
+ .chat { padding: 7px; margin: 4px 0 8px; }
+ .msg { margin: 3px 0; gap: 6px; }
+ .mtag { min-width: 44px; padding: 3px 6px; font-size: 0.82em; }
+ .mbubble { padding: 4px 8px; font-size: 0.9em; }
+ .line-map { padding: 8px; }
+ .card-grid, .steps4, .phrase-grid { gap: 5px; }
+ .tcard, .step4, .phrase { padding: 6px 9px; }
+ .step4 .step-no { width: 22px; height: 22px; line-height: 22px; }
+ .fare-table th, .fare-table td { padding: 4px 6px; font-size: 0.86em; }
+ .station { padding: 3px 8px; font-size: 0.82em; }
+ .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
+ .q .no { width: 26px; height: 26px; font-size: 0.88em; }
+ .lines { height: 26px;
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
+ .lines.two { height: 52px; } .lines.three { height: 78px; }
+ .self-check { padding: 7px 12px; margin-top: 8px; }
+ .pledge { padding: 8px 12px; margin: 6px 0; }
+ .page-no { bottom: 6mm; right: 14mm; }
 }
 
 </style>
@@ -255,335 +255,335 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar no-print">
-  <div><strong>혼자서도 척척 — 대중교통과 길 찾기</strong>
-    <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
-  </div>
-  <button onclick="window.print()">🖨️ 인쇄하기</button>
+ <div><strong>혼자서도 척척 — 대중교통과 길 찾기</strong>
+ <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
+ </div>
+ <button onclick="window.print">🖨️ 인쇄하기</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">국어 · 사회 · 수학</span> &nbsp;|&nbsp; 고등학교 특수학급</div>
-    <div>2026학년도 1학기</div>
-  </div>
-  <div class="cover-main">
-    <span class="badge">🚇 대중교통·길찾기 학습지</span>
-    <h1>혼자서도 척척</h1>
-    <p class="lead">지하철·버스를 타고, 길을 묻고, 시간과 요금을 계산해요.</p>
-  </div>
-  <div class="name-box">
-    <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
-    <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
-    <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
-  </div>
-  <div class="info">
-    <h2>🚌 ‘혼자 다닐 수 있다’는 것은 ‘자유’예요</h2>
-    <p>대중교통을 잘 이용하면 학교·학원·시청·병원 어디든 <strong>혼자서 갈 수 있어요</strong>.
-       처음에는 어려워 보여도 <strong>몇 가지 규칙</strong>만 알면 어렵지 않아요. 오늘은
-       <strong>지하철·버스 이용법</strong>, <strong>환승·요금 계산</strong>, 그리고
-       <strong>길을 묻는 표현</strong>을 함께 익혀요.</p>
-  </div>
-  <div class="cast">
-    <h2>👫 오늘의 친구들</h2>
-    <div class="cast-grid">
-      <div class="person"><span class="dot d2"></span><strong>하은</strong>(나)</div>
-      <div class="person"><span class="dot d6"></span><strong>하영</strong></div>
-      <div class="person"><span class="dot d1"></span><strong>채원</strong></div>
-      <div class="person"><span class="dot d4"></span><strong>주은</strong></div>
-      <div class="person"><span class="dot d5"></span><strong>예은</strong></div>
-      <div class="person"><span class="dot d3"></span><strong>주현</strong></div>
-    </div>
-  </div>
-  <div class="toc">
-    <h2>📚 차례</h2>
-    <ol>
-      <li>지하철 — 노선·환승·이용 4단계</li>
-      <li>버스 — 정류장·내릴 곳·예절</li>
-      <li>요금·시간 수학 — 똑똑하게 계산</li>
-      <li>길 묻기 한국어와 다짐</li>
-    </ol>
-  </div>
-  <div class="page-no">— 1 —</div>
+ <div class="cover-top">
+ <div><span class="subject">국어 · 사회 · 수학</span> &nbsp;|&nbsp; 고등학교 </div>
+ <div>2026학년도 1학기</div>
+ </div>
+ <div class="cover-main">
+ <span class="badge">🚇 대중교통·길찾기 학습지</span>
+ <h1>혼자서도 척척</h1>
+ <p class="lead">지하철·버스를 타고, 길을 묻고, 시간과 요금을 계산해요.</p>
+ </div>
+ <div class="name-box">
+ <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
+ <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
+ <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
+ </div>
+ <div class="info">
+ <h2>🚌 ‘혼자 다닐 수 있다’는 것은 ‘자유’예요</h2>
+ <p>대중교통을 잘 이용하면 학교·학원·시청·병원 어디든 <strong>혼자서 갈 수 있어요</strong>.
+ 처음에는 어려워 보여도 <strong>몇 가지 규칙</strong>만 알면 어렵지 않아요. 오늘은
+ <strong>지하철·버스 이용법</strong>, <strong>환승·요금 계산</strong>, 그리고
+ <strong>길을 묻는 표현</strong>을 함께 익혀요.</p>
+ </div>
+ <div class="cast">
+ <h2>👫 오늘의 친구들</h2>
+ <div class="cast-grid">
+ <div class="person"><span class="dot d2"></span><strong>하은</strong>(나)</div>
+ <div class="person"><span class="dot d6"></span><strong>하영</strong></div>
+ <div class="person"><span class="dot d1"></span><strong>채원</strong></div>
+ <div class="person"><span class="dot d4"></span><strong>주은</strong></div>
+ <div class="person"><span class="dot d5"></span><strong>예은</strong></div>
+ <div class="person"><span class="dot d3"></span><strong>주현</strong></div>
+ </div>
+ </div>
+ <div class="toc">
+ <h2>📚 차례</h2>
+ <ol>
+ <li>지하철 — 노선·환승·이용 4단계</li>
+ <li>버스 — 정류장·내릴 곳·예절</li>
+ <li>요금·시간 수학 — 똑똑하게 계산</li>
+ <li>길 묻기 한국어와 다짐</li>
+ </ol>
+ </div>
+ <div class="page-no">— 1 —</div>
 </section>
 
 <!-- 1. 지하철 -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">1</div>
-    <div class="ph-title">
-      <h2>지하철 — 노선·환승·이용 4단계</h2>
-      <p>색깔·번호로 구분되는 노선을 잘 읽어요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">1</div>
+ <div class="ph-title">
+ <h2>지하철 — 노선·환승·이용 4단계</h2>
+ <p>색깔·번호로 구분되는 노선을 잘 읽어요.</p>
+ </div>
+ </div>
 
-  <div class="story">
-    <p>지하철은 노선마다 <strong>색깔과 번호</strong>가 있어요. 2호선은 초록, 3호선은 주황, 4호선은 파랑처럼요.
-       두 노선이 만나는 곳을 <strong>환승역</strong>이라고 해요. 가는 길을 정할 때는
-       <strong>① 출발역 → ② 환승역 → ③ 도착역</strong> 순서로 적어 보면 헷갈리지 않아요.</p>
-  </div>
+ <div class="story">
+ <p>지하철은 노선마다 <strong>색깔과 번호</strong>가 있어요. 2호선은 초록, 3호선은 주황, 4호선은 파랑처럼요.
+ 두 노선이 만나는 곳을 <strong>환승역</strong>이라고 해요. 가는 길을 정할 때는
+ <strong>① 출발역 → ② 환승역 → ③ 도착역</strong> 순서로 적어 보면 헷갈리지 않아요.</p>
+ </div>
 
-  <div class="tip">
-    <span class="tip-title">🚇 지하철 이용 4단계</span>
-    <div class="steps4">
-      <div class="step4"><span class="step-no">1</span><strong>찾기</strong><small>노선·방향 확인</small></div>
-      <div class="step4"><span class="step-no">2</span><strong>찍기</strong><small>카드로 입장</small></div>
-      <div class="step4"><span class="step-no">3</span><strong>타기</strong><small>방향·환승 따라</small></div>
-      <div class="step4"><span class="step-no">4</span><strong>내리기</strong><small>안내방송 듣고</small></div>
-    </div>
-  </div>
+ <div class="tip">
+ <span class="tip-title">🚇 지하철 이용 4단계</span>
+ <div class="steps4">
+ <div class="step4"><span class="step-no">1</span><strong>찾기</strong><small>노선·방향 확인</small></div>
+ <div class="step4"><span class="step-no">2</span><strong>찍기</strong><small>카드로 입장</small></div>
+ <div class="step4"><span class="step-no">3</span><strong>타기</strong><small>방향·환승 따라</small></div>
+ <div class="step4"><span class="step-no">4</span><strong>내리기</strong><small>안내방송 듣고</small></div>
+ </div>
+ </div>
 
-  <div class="line-map">
-    <div class="line-row">
-      <span class="line-label l2">2호선</span>
-      <span class="station">시청</span><span class="line-arrow">─</span>
-      <span class="station">을지로입구</span><span class="line-arrow">─</span>
-      <span class="station transfer">을지로3가</span><span class="line-arrow">─</span>
-      <span class="station">동대문역사문화공원</span>
-    </div>
-    <div class="line-row">
-      <span class="line-label l3">3호선</span>
-      <span class="station">충무로</span><span class="line-arrow">─</span>
-      <span class="station transfer">을지로3가</span><span class="line-arrow">─</span>
-      <span class="station">종로3가</span><span class="line-arrow">─</span>
-      <span class="station">안국</span>
-    </div>
-    <div class="line-row">
-      <span class="line-label l4">4호선</span>
-      <span class="station">서울역</span><span class="line-arrow">─</span>
-      <span class="station">회현</span><span class="line-arrow">─</span>
-      <span class="station">명동</span><span class="line-arrow">─</span>
-      <span class="station transfer">충무로</span><span class="line-arrow">─</span>
-      <span class="station">동대문</span>
-    </div>
-    <p style="margin: 6px 0 0; font-size: 0.85em; color: #455a64;">
-      🟡 점선 박스는 <strong>환승역</strong>이에요. (실제 노선과 차이가 있을 수 있어요. 학습용 가상 노선도)
-    </p>
-  </div>
+ <div class="line-map">
+ <div class="line-row">
+ <span class="line-label l2">2호선</span>
+ <span class="station">시청</span><span class="line-arrow">─</span>
+ <span class="station">을지로입구</span><span class="line-arrow">─</span>
+ <span class="station transfer">을지로3가</span><span class="line-arrow">─</span>
+ <span class="station">동대문역사문화공원</span>
+ </div>
+ <div class="line-row">
+ <span class="line-label l3">3호선</span>
+ <span class="station">충무로</span><span class="line-arrow">─</span>
+ <span class="station transfer">을지로3가</span><span class="line-arrow">─</span>
+ <span class="station">종로3가</span><span class="line-arrow">─</span>
+ <span class="station">안국</span>
+ </div>
+ <div class="line-row">
+ <span class="line-label l4">4호선</span>
+ <span class="station">서울역</span><span class="line-arrow">─</span>
+ <span class="station">회현</span><span class="line-arrow">─</span>
+ <span class="station">명동</span><span class="line-arrow">─</span>
+ <span class="station transfer">충무로</span><span class="line-arrow">─</span>
+ <span class="station">동대문</span>
+ </div>
+ <p style="margin: 6px 0 0; font-size: 0.85em; color: #455a64;">
+ 🟡 점선 박스는 <strong>환승역</strong>이에요. (실제 노선과 차이가 있을 수 있어요. 학습용 가상 노선도)
+ </p>
+ </div>
 
-  <div class="warning">
-    <span class="tip-title">⚠️ 지하철에서 지킬 것</span>
-    노란선 안쪽에 서기 / 내릴 사람부터 내리고 타기 / 큰 소리·통화 자제 /
-    <strong>임산부·어르신·다친 분 자리</strong>는 비워 두기.
-  </div>
+ <div class="warning">
+ <span class="tip-title">⚠️ 지하철에서 지킬 것</span>
+ 노란선 안쪽에 서기 / 내릴 사람부터 내리고 타기 / 큰 소리·통화 자제 /
+ <strong>임산부·어르신·다친 분 자리</strong>는 비워 두기.
+ </div>
 
-  <div class="practice">
-    <h3>📝 연습 문제</h3>
-    <div class="q"><div class="no">1</div>
-      <p>위 노선도를 보고, <strong>‘서울역 → 안국’</strong>으로 가는 길을 쓰세요.</p>
-      <p class="sub-q">① 출발역: <span class="blank"></span> &nbsp; (4호선)</p>
-      <p class="sub-q">② 환승역: <span class="blank"></span> &nbsp; (4호선 → 3호선)</p>
-      <p class="sub-q">③ 도착역: <span class="blank"></span> &nbsp; (3호선)</p>
-    </div>
+ <div class="practice">
+ <h3>📝 연습 문제</h3>
+ <div class="q"><div class="no">1</div>
+ <p>위 노선도를 보고, <strong>‘서울역 → 안국’</strong>으로 가는 길을 쓰세요.</p>
+ <p class="sub-q">① 출발역: <span class="blank"></span> &nbsp; (4호선)</p>
+ <p class="sub-q">② 환승역: <span class="blank"></span> &nbsp; (4호선 → 3호선)</p>
+ <p class="sub-q">③ 도착역: <span class="blank"></span> &nbsp; (3호선)</p>
+ </div>
 
-    <div class="q"><div class="no">2</div>
-      <p>‘시청 → 종로3가’로 가려고 해요. 어디서 갈아타야 할까요? &nbsp; 환승역: <span class="blank"></span>
-        &nbsp; (2호선 → 3호선)</p>
-    </div>
-  </div>
-  <div class="page-no">— 2 —</div>
+ <div class="q"><div class="no">2</div>
+ <p>‘시청 → 종로3가’로 가려고 해요. 어디서 갈아타야 할까요? &nbsp; 환승역: <span class="blank"></span>
+ &nbsp; (2호선 → 3호선)</p>
+ </div>
+ </div>
+ <div class="page-no">— 2 —</div>
 </section>
 
 <!-- 2. 버스 -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">2</div>
-    <div class="ph-title">
-      <h2>버스 — 정류장·내릴 곳·예절</h2>
-      <p>번호와 방향을 꼭 확인하고 타요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">2</div>
+ <div class="ph-title">
+ <h2>버스 — 정류장·내릴 곳·예절</h2>
+ <p>번호와 방향을 꼭 확인하고 타요.</p>
+ </div>
+ </div>
 
-  <div class="story">
-    <p>버스는 <strong>색깔로 종류</strong>를 알 수 있어요(서울 기준).
-       <strong>파란 버스</strong>는 멀리 가는 간선, <strong>초록 버스</strong>는 가까운 곳을 가는 지선,
-       <strong>빨간 버스</strong>는 다른 도시까지 가는 광역, <strong>노란 버스</strong>는 도심 순환 버스예요.
-       타기 전에 <strong>버스 번호와 방향</strong>을 꼭 확인해요.</p>
-  </div>
+ <div class="story">
+ <p>버스는 <strong>색깔로 종류</strong>를 알 수 있어요(서울 기준).
+ <strong>파란 버스</strong>는 멀리 가는 간선, <strong>초록 버스</strong>는 가까운 곳을 가는 지선,
+ <strong>빨간 버스</strong>는 다른 도시까지 가는 광역, <strong>노란 버스</strong>는 도심 순환 버스예요.
+ 타기 전에 <strong>버스 번호와 방향</strong>을 꼭 확인해요.</p>
+ </div>
 
-  <div class="card-grid">
-    <div class="tcard"><h4>🚍 파란 버스</h4><small>간선 — 멀리</small></div>
-    <div class="tcard"><h4>🚌 초록 버스</h4><small>지선 — 가까이</small></div>
-    <div class="tcard"><h4>🚐 빨간 버스</h4><small>광역 — 다른 도시</small></div>
-  </div>
+ <div class="card-grid">
+ <div class="tcard"><h4>🚍 파란 버스</h4><small>간선 — 멀리</small></div>
+ <div class="tcard"><h4>🚌 초록 버스</h4><small>지선 — 가까이</small></div>
+ <div class="tcard"><h4>🚐 빨간 버스</h4><small>광역 — 다른 도시</small></div>
+ </div>
 
-  <div class="tip">
-    <span class="tip-title">🚏 버스 이용 4단계</span>
-    <div class="steps4">
-      <div class="step4"><span class="step-no">1</span><strong>번호 확인</strong><small>방향도 함께</small></div>
-      <div class="step4"><span class="step-no">2</span><strong>손 들기</strong><small>버스 향해 살짝</small></div>
-      <div class="step4"><span class="step-no">3</span><strong>찍고 타기</strong><small>카드로 결제</small></div>
-      <div class="step4"><span class="step-no">4</span><strong>벨 누르기</strong><small>한 정거장 전</small></div>
-    </div>
-  </div>
+ <div class="tip">
+ <span class="tip-title">🚏 버스 이용 4단계</span>
+ <div class="steps4">
+ <div class="step4"><span class="step-no">1</span><strong>번호 확인</strong><small>방향도 함께</small></div>
+ <div class="step4"><span class="step-no">2</span><strong>손 들기</strong><small>버스 향해 살짝</small></div>
+ <div class="step4"><span class="step-no">3</span><strong>찍고 타기</strong><small>카드로 결제</small></div>
+ <div class="step4"><span class="step-no">4</span><strong>벨 누르기</strong><small>한 정거장 전</small></div>
+ </div>
+ </div>
 
-  <div class="warm">
-    <span class="tip-title">🧡 환승 30분 — 버스↔지하철·버스↔버스</span>
-    내릴 때도 <strong>카드를 한 번 더 찍으면</strong> 30분 안에 갈아탈 때 <strong>요금이 더 들지 않거나 적게 나와요</strong>.
-    안 찍고 내리면 다음 차에서 <strong>요금이 두 번</strong> 나가니 잊지 마세요.
-  </div>
+ <div class="warm">
+ <span class="tip-title">🧡 환승 30분 — 버스↔지하철·버스↔버스</span>
+ 내릴 때도 <strong>카드를 한 번 더 찍으면</strong> 30분 안에 갈아탈 때 <strong>요금이 더 들지 않거나 적게 나와요</strong>.
+ 안 찍고 내리면 다음 차에서 <strong>요금이 두 번</strong> 나가니 잊지 마세요.
+ </div>
 
-  <div class="chat">
-    <div class="bg-label">📱 단톡방 — 우리 반</div>
-    <div class="msg right"><span class="mtag d2">하은</span>
-      <div class="mbubble">141번 버스 타려는데, 신촌 가는 거 맞아?</div></div>
-    <div class="msg"><span class="mtag d6">하영</span>
-      <div class="mbubble">정류장 안내판에서 <strong>‘신촌역’</strong>이 적혀 있는 쪽을 골라야 해. 반대편은 거꾸로야!</div></div>
-    <div class="msg right"><span class="mtag d2">하은</span>
-      <div class="mbubble">맞다, 방향! 고마워 😊</div></div>
-  </div>
+ <div class="chat">
+ <div class="bg-label">📱 단톡방 — 우리 반</div>
+ <div class="msg right"><span class="mtag d2">하은</span>
+ <div class="mbubble">141번 버스 타려는데, 신촌 가는 거 맞아?</div></div>
+ <div class="msg"><span class="mtag d6">하영</span>
+ <div class="mbubble">정류장 안내판에서 <strong>‘신촌역’</strong>이 적혀 있는 쪽을 골라야 해. 반대편은 거꾸로야!</div></div>
+ <div class="msg right"><span class="mtag d2">하은</span>
+ <div class="mbubble">맞다, 방향! 고마워 😊</div></div>
+ </div>
 
-  <div class="practice">
-    <h3>📝 연습 문제</h3>
-    <div class="q"><div class="no">3</div>
-      <p>버스 색깔에 맞는 설명을 선으로 잇거나, 빈칸에 알맞은 글자를 쓰세요.</p>
-      <p class="sub-q">① 파란 버스 — (    ) &nbsp; ② 초록 버스 — (    ) &nbsp; ③ 빨간 버스 — (    )</p>
-      <p class="sub-q">㉠ 멀리 가는 간선 &nbsp; ㉡ 가까운 곳을 가는 지선 &nbsp; ㉢ 다른 도시까지 가는 광역</p>
-    </div>
+ <div class="practice">
+ <h3>📝 연습 문제</h3>
+ <div class="q"><div class="no">3</div>
+ <p>버스 색깔에 맞는 설명을 선으로 잇거나, 빈칸에 알맞은 글자를 쓰세요.</p>
+ <p class="sub-q">① 파란 버스 —  &nbsp; ② 초록 버스 —  &nbsp; ③ 빨간 버스 — </p>
+ <p class="sub-q">㉠ 멀리 가는 간선 &nbsp; ㉡ 가까운 곳을 가는 지선 &nbsp; ㉢ 다른 도시까지 가는 광역</p>
+ </div>
 
-    <div class="q"><div class="no">4</div>
-      <p>다음 중 <strong>옳은 행동</strong>을 모두 고르세요. (   )</p>
-      <p class="sub-q">① 버스 안에서 큰 소리로 통화한다.</p>
-      <p class="sub-q">② 내리기 한 정거장 전에 미리 벨을 누른다.</p>
-      <p class="sub-q">③ 내릴 때 카드를 안 찍어도 된다.</p>
-      <p class="sub-q">④ 어르신께 자리를 양보한다.</p>
-      <p class="sub-q">⑤ 버스 번호와 방향을 미리 확인한다.</p>
-    </div>
-  </div>
+ <div class="q"><div class="no">4</div>
+ <p>다음 중 <strong>옳은 행동</strong>을 모두 고르세요. </p>
+ <p class="sub-q">① 버스 안에서 큰 소리로 통화한다.</p>
+ <p class="sub-q">② 내리기 한 정거장 전에 미리 벨을 누른다.</p>
+ <p class="sub-q">③ 내릴 때 카드를 안 찍어도 된다.</p>
+ <p class="sub-q">④ 어르신께 자리를 양보한다.</p>
+ <p class="sub-q">⑤ 버스 번호와 방향을 미리 확인한다.</p>
+ </div>
+ </div>
 
-  <div class="page-no">— 3 —</div>
+ <div class="page-no">— 3 —</div>
 </section>
 
 <!-- 3. 요금·시간 수학 -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">3</div>
-    <div class="ph-title">
-      <h2>요금·시간 수학 — 똑똑하게 계산</h2>
-      <p>학생 요금·환승 할인·시간 계산을 익혀요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">3</div>
+ <div class="ph-title">
+ <h2>요금·시간 수학 — 똑똑하게 계산</h2>
+ <p>학생 요금·환승 할인·시간 계산을 익혀요.</p>
+ </div>
+ </div>
 
-  <table class="fare-table">
-    <thead>
-      <tr><th>구분</th><th>지하철 (10km 이내)</th><th>버스 (간선·지선)</th></tr>
-    </thead>
-    <tbody>
-      <tr><th>일반</th><td>1,500원</td><td>1,500원</td></tr>
-      <tr><th>청소년 (학생)</th><td>900원</td><td>900원</td></tr>
-      <tr><th>어린이</th><td>500원</td><td>500원</td></tr>
-    </tbody>
-  </table>
-  <p style="font-size: 0.88em; color: #607d8b; margin: 4px 0 8px;">
-    ※ 학습용 가상 요금이에요. 실제 요금과 다를 수 있어요.
-  </p>
+ <table class="fare-table">
+ <thead>
+ <tr><th>구분</th><th>지하철 (10km 이내)</th><th>버스 (간선·지선)</th></tr>
+ </thead>
+ <tbody>
+ <tr><th>일반</th><td>1,500원</td><td>1,500원</td></tr>
+ <tr><th>청소년 (학생)</th><td>900원</td><td>900원</td></tr>
+ <tr><th>어린이</th><td>500원</td><td>500원</td></tr>
+ </tbody>
+ </table>
+ <p style="font-size: 0.88em; color: #607d8b; margin: 4px 0 8px;">
+ ※ 학습용 가상 요금이에요. 실제 요금과 다를 수 있어요.
+ </p>
 
-  <div class="tip">
-    <span class="tip-title">💡 환승 30분 안에 갈아타면</span>
-    한 번 더 요금이 나오지 않아요. 단, <strong>같은 노선·같은 번호 버스</strong>를 다시 타면 환승이 안 돼요.
-  </div>
+ <div class="tip">
+ <span class="tip-title">💡 환승 30분 안에 갈아타면</span>
+ 한 번 더 요금이 나오지 않아요. 단, <strong>같은 노선·같은 번호 버스</strong>를 다시 타면 환승이 안 돼요.
+ </div>
 
-  <div class="practice">
-    <h3>📝 수학으로 따져보기</h3>
+ <div class="practice">
+ <h3>📝 수학으로 따져보기</h3>
 
-    <div class="q"><div class="no">5</div>
-      <p>하은이는 <strong>학교 → 시청 → 다시 학교</strong>로 지하철을 왕복했어요. 청소년 요금으로
-        한 번에 <strong>900원</strong>이라면, 왕복 요금은 얼마일까요?</p>
-      <div class="calc">계산: 900원 × 2 = <span class="blank"></span> 원</div>
-    </div>
+ <div class="q"><div class="no">5</div>
+ <p>하은이는 <strong>학교 → 시청 → 다시 학교</strong>로 지하철을 왕복했어요. 청소년 요금으로
+ 한 번에 <strong>900원</strong>이라면, 왕복 요금은 얼마일까요?</p>
+ <div class="calc">계산: 900원 × 2 = <span class="blank"></span> 원</div>
+ </div>
 
-    <div class="q"><div class="no">6</div>
-      <p>주은이는 한 달에 학교를 <strong>20일</strong> 등하교해요. 매일 <strong>버스(900원)</strong>로
-        왕복하면 한 달 교통비는 얼마인가요?</p>
-      <div class="calc">계산: 900원 × 2 × 20일 = <span class="blank"></span> 원</div>
-    </div>
+ <div class="q"><div class="no">6</div>
+ <p>주은이는 한 달에 학교를 <strong>20일</strong> 등하교해요. 매일 <strong>버스(900원)</strong>로
+ 왕복하면 한 달 교통비는 얼마인가요?</p>
+ <div class="calc">계산: 900원 × 2 × 20일 = <span class="blank"></span> 원</div>
+ </div>
 
-    <div class="q"><div class="no">7</div>
-      <p>예은이는 <strong>버스 → 30분 안에 지하철</strong>로 환승해서 도서관에 갔어요.
-        지하철·버스 요금이 각 900원이고 환승 할인이 적용돼 한 번만 결제됐다면,
-        예은이가 낸 돈은 얼마일까요?</p>
-      <div class="calc">계산: 900원 (환승 한 번 무료) → <span class="blank"></span> 원</div>
-    </div>
+ <div class="q"><div class="no">7</div>
+ <p>예은이는 <strong>버스 → 30분 안에 지하철</strong>로 환승해서 도서관에 갔어요.
+ 지하철·버스 요금이 각 900원이고 환승 할인이 적용돼 한 번만 결제됐다면,
+ 예은이가 낸 돈은 얼마일까요?</p>
+ <div class="calc">계산: 900원 (환승 한 번 무료) → <span class="blank"></span> 원</div>
+ </div>
 
-    <div class="q"><div class="no">8</div>
-      <p>주현이의 약속은 <strong>오후 3시 30분</strong>이에요. 집에서 약속 장소까지
-        <strong>지하철 25분 + 걷기 10분</strong>이 걸려요. 늦지 않으려면 늦어도 몇 시 몇 분에는 집에서 나가야 할까요?</p>
-      <div class="calc">계산: 25분 + 10분 = 35분 → 3시 30분에서 35분 전 = <span class="blank"></span></div>
-    </div>
+ <div class="q"><div class="no">8</div>
+ <p>주현이의 약속은 <strong>오후 3시 30분</strong>이에요. 집에서 약속 장소까지
+ <strong>지하철 25분 + 걷기 10분</strong>이 걸려요. 늦지 않으려면 늦어도 몇 시 몇 분에는 집에서 나가야 할까요?</p>
+ <div class="calc">계산: 25분 + 10분 = 35분 → 3시 30분에서 35분 전 = <span class="blank"></span></div>
+ </div>
 
-    <div class="q"><div class="no">9</div>
-      <p>하영이는 <strong>5,000원 교통카드</strong>로 한 번에 <strong>900원</strong>씩 내고 있어요.
-        몇 번까지 탈 수 있을까요? 그리고 남는 돈은 얼마인가요?</p>
-      <div class="calc">계산: 5,000 ÷ 900 = <span class="blank"></span> 번, 남는 돈 <span class="blank"></span> 원</div>
-    </div>
-  </div>
+ <div class="q"><div class="no">9</div>
+ <p>하영이는 <strong>5,000원 교통카드</strong>로 한 번에 <strong>900원</strong>씩 내고 있어요.
+ 몇 번까지 탈 수 있을까요? 그리고 남는 돈은 얼마인가요?</p>
+ <div class="calc">계산: 5,000 ÷ 900 = <span class="blank"></span> 번, 남는 돈 <span class="blank"></span> 원</div>
+ </div>
+ </div>
 
-  <div class="page-no">— 4 —</div>
+ <div class="page-no">— 4 —</div>
 </section>
 
 <!-- 4. 길 묻기와 다짐 -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">4</div>
-    <div class="ph-title">
-      <h2>길 묻기 한국어와 다짐</h2>
-      <p>모르면 묻기. 묻는 것은 똑똑한 행동이에요.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">4</div>
+ <div class="ph-title">
+ <h2>길 묻기 한국어와 다짐</h2>
+ <p>모르면 묻기. 묻는 것은 똑똑한 행동이에요.</p>
+ </div>
+ </div>
 
-  <div class="story">
-    <p>지도 앱이 있어도 <strong>사람에게 묻는 것이 더 빠를 때</strong>가 있어요.
-       정중하게 ‘<strong>실례합니다</strong>’로 시작하면, 대부분의 어른이 친절하게 알려 줘요.
-       모르는 것을 묻는 일은 부끄럽지 않아요. <strong>똑똑한 사람</strong>이 하는 행동이에요.</p>
-  </div>
+ <div class="story">
+ <p>지도 앱이 있어도 <strong>사람에게 묻는 것이 더 빠를 때</strong>가 있어요.
+ 정중하게 ‘<strong>실례합니다</strong>’로 시작하면, 대부분의 어른이 친절하게 알려 줘요.
+ 모르는 것을 묻는 일은 부끄럽지 않아요. <strong>똑똑한 사람</strong>이 하는 행동이에요.</p>
+ </div>
 
-  <h3 style="color:#01579b; font-size:1em; margin:6px 0 4px;">🗣️ 길 묻기·확인 표현</h3>
-  <div class="phrase-grid">
-    <div class="phrase"><strong>“실례합니다, 길 좀 여쭤봐도 될까요?”</strong>
-      <em>처음 말 걸 때.</em></div>
-    <div class="phrase"><strong>“○○역으로 가려면 어떻게 가야 하나요?”</strong>
-      <em>지하철·버스 묻기.</em></div>
-    <div class="phrase"><strong>“이 버스가 ○○ 가는 거 맞나요?”</strong>
-      <em>방향 확인.</em></div>
-    <div class="phrase"><strong>“다음 정거장이 ○○ 맞나요?”</strong>
-      <em>내릴 때 확인.</em></div>
-    <div class="phrase"><strong>“여기서 몇 번 출구로 나가야 하나요?”</strong>
-      <em>지하철 출구 묻기.</em></div>
-    <div class="phrase"><strong>“감사합니다.”</strong>
-      <em>도움을 받은 뒤 꼭!</em></div>
-  </div>
+ <h3 style="color:#01579b; font-size:1em; margin:6px 0 4px;">🗣️ 길 묻기·확인 표현</h3>
+ <div class="phrase-grid">
+ <div class="phrase"><strong>“실례합니다, 길 좀 여쭤봐도 될까요?”</strong>
+ <em>처음 말 걸 때.</em></div>
+ <div class="phrase"><strong>“○○역으로 가려면 어떻게 가야 하나요?”</strong>
+ <em>지하철·버스 묻기.</em></div>
+ <div class="phrase"><strong>“이 버스가 ○○ 가는 거 맞나요?”</strong>
+ <em>방향 확인.</em></div>
+ <div class="phrase"><strong>“다음 정거장이 ○○ 맞나요?”</strong>
+ <em>내릴 때 확인.</em></div>
+ <div class="phrase"><strong>“여기서 몇 번 출구로 나가야 하나요?”</strong>
+ <em>지하철 출구 묻기.</em></div>
+ <div class="phrase"><strong>“감사합니다.”</strong>
+ <em>도움을 받은 뒤 꼭!</em></div>
+ </div>
 
-  <div class="warning">
-    <span class="tip-title">⚠️ 길을 잘못 갔을 때 — 당황하지 마세요</span>
-    내려서 <strong>다시 타거나, 반대 방향으로 한 정거장</strong>이면 돼요.
-    심호흡 한 번 하고, <strong>지하철·버스 직원</strong>에게 물어요. 늦으면 가족·선생님께 <strong>전화로 알려요</strong>.
-  </div>
+ <div class="warning">
+ <span class="tip-title">⚠️ 길을 잘못 갔을 때 — 당황하지 마세요</span>
+ 내려서 <strong>다시 타거나, 반대 방향으로 한 정거장</strong>이면 돼요.
+ 심호흡 한 번 하고, <strong>지하철·버스 직원</strong>에게 물어요. 늦으면 가족·선생님께 <strong>전화로 알려요</strong>.
+ </div>
 
-  <div class="practice">
-    <h3>📝 연습 문제</h3>
+ <div class="practice">
+ <h3>📝 연습 문제</h3>
 
-    <div class="q"><div class="no">10</div>
-      <p>다음 상황에서 정중하게 길을 묻는 말을 <strong>한 문장</strong>으로 써 보세요.</p>
-      <p class="sub-q">① 처음 가 본 동네에서 ‘서울역’으로 가는 길이 헷갈릴 때:</p>
-      <div class="lines"></div>
-      <p class="sub-q">② 버스에 탔는데 이 버스가 맞는지 운전기사님께 확인할 때:</p>
-      <div class="lines"></div>
-    </div>
+ <div class="q"><div class="no">10</div>
+ <p>다음 상황에서 정중하게 길을 묻는 말을 <strong>한 문장</strong>으로 써 보세요.</p>
+ <p class="sub-q">① 처음 가 본 동네에서 ‘서울역’으로 가는 길이 헷갈릴 때:</p>
+ <div class="lines"></div>
+ <p class="sub-q">② 버스에 탔는데 이 버스가 맞는지 운전기사님께 확인할 때:</p>
+ <div class="lines"></div>
+ </div>
 
-    <div class="q"><div class="no">11</div>
-      <p>버스를 잘못 탔어요. 어떻게 해야 할지 <strong>두 문장</strong>으로 써 보세요.</p>
-      <div class="lines two"></div>
-    </div>
+ <div class="q"><div class="no">11</div>
+ <p>버스를 잘못 탔어요. 어떻게 해야 할지 <strong>두 문장</strong>으로 써 보세요.</p>
+ <div class="lines two"></div>
+ </div>
 
-    <div class="q"><div class="no">12</div>
-      <p>혼자 다닐 수 있게 되어 가장 가 보고 싶은 곳과 그 이유를 써 보세요.</p>
-      <div class="lines two"></div>
-    </div>
-  </div>
+ <div class="q"><div class="no">12</div>
+ <p>혼자 다닐 수 있게 되어 가장 가 보고 싶은 곳과 그 이유를 써 보세요.</p>
+ <div class="lines two"></div>
+ </div>
+ </div>
 
 
 
-  <div class="page-no">— 5 —</div>
+ <div class="page-no">— 5 —</div>
 </section>
 
 </body>

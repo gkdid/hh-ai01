@@ -9,71 +9,71 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body {
-  margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  font-size: 12pt; line-height: 1.65;
+ margin: 0; background: #eceff1; color: #1f2d3d;
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+ font-size: 12pt; line-height: 1.65;
 }
 
 .toolbar {
-  position: sticky; top: 0; z-index: 50;
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #00474f; color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+ position: sticky; top: 0; z-index: 50;
+ display: flex; justify-content: space-between; align-items: center;
+ padding: 10px 18px; background: #00474f; color: #fff;
+ box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .toolbar .muted { color: #b2dfdb; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button {
-  background: #ffd54f; color: #00474f; border: none; font: inherit; font-weight: 700;
-  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+ background: #ffd54f; color: #00474f; border: none; font: inherit; font-weight: 700;
+ padding: 8px 18px; border-radius: 6px; cursor: pointer;
 }
 .toolbar button:hover { background: #ffe082; }
 
 .page {
-  width: 210mm; min-height: 297mm;
-  margin: 14mm auto; padding: 16mm 18mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
-  position: relative; page-break-after: always;
+ width: 210mm; min-height: 297mm;
+ margin: 14mm auto; padding: 16mm 18mm;
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+ position: relative; page-break-after: always;
 }
 .page:last-of-type { page-break-after: auto; }
 
 /* ===== 표지 ===== */
 .page.cover {
-  padding: 22mm 20mm;
-  background: linear-gradient(135deg, #fff 0%, #e0f7fa 100%);
+ padding: 22mm 20mm;
+ background: linear-gradient(135deg, #fff 0%, #e0f7fa 100%);
 }
 .cover-top {
-  display: flex; justify-content: space-between;
-  font-size: 0.9em; color: #607d8b;
-  border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 26px;
+ display: flex; justify-content: space-between;
+ font-size: 0.9em; color: #607d8b;
+ border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 26px;
 }
 .cover-top .subject { font-weight: 700; color: #00838f; }
 .cover-main { text-align: center; padding: 20px 0 14px; }
 .cover-main .badge {
-  display: inline-block; padding: 6px 18px; border-radius: 20px;
-  background: #00838f; color: #fff; font-weight: 700; font-size: 0.95em;
-  margin-bottom: 14px; letter-spacing: 0.5px;
+ display: inline-block; padding: 6px 18px; border-radius: 20px;
+ background: #00838f; color: #fff; font-weight: 700; font-size: 0.95em;
+ margin-bottom: 14px; letter-spacing: 0.5px;
 }
 .cover-main h1 {
-  margin: 0; font-size: 2.4em; letter-spacing: -1.5px;
-  color: #006064; font-weight: 900;
+ margin: 0; font-size: 2.4em; letter-spacing: -1.5px;
+ color: #006064; font-weight: 900;
 }
 .cover-main .lead {
-  margin: 8px 0 0; font-size: 1.05em; color: #455a64; font-weight: 500;
+ margin: 8px 0 0; font-size: 1.05em; color: #455a64; font-weight: 500;
 }
 .name-box {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 8px; margin: 20px 0;
+ display: grid; grid-template-columns: repeat(3, 1fr);
+ gap: 8px; margin: 20px 0;
 }
 .name-cell { border: 1.5px solid #90a4ae; border-radius: 8px; padding: 10px 12px; }
 .name-cell span { display: block; font-size: 0.78em; color: #546e7a; font-weight: 500; }
 .name-cell em { display: block; min-height: 24px; font-style: normal; }
 
 .goal, .cast, .toc, .info {
-  border: 2px solid #b2dfdb; border-radius: 10px;
-  padding: 14px 18px; margin-top: 12px; background: #e0f7fa;
+ border: 2px solid #b2dfdb; border-radius: 10px;
+ padding: 14px 18px; margin-top: 12px; background: #e0f7fa;
 }
 .goal h2, .cast h2, .toc h2, .info h2 {
-  margin: 0 0 8px; font-size: 1.1em; color: #006064;
-  border-bottom: 1px dashed #4dd0e1; padding-bottom: 6px;
+ margin: 0 0 8px; font-size: 1.1em; color: #006064;
+ border-bottom: 1px dashed #4dd0e1; padding-bottom: 6px;
 }
 .goal ul { margin: 4px 0 0; padding-left: 20px; }
 .goal li { padding: 2px 0; }
@@ -81,10 +81,10 @@ body {
 
 .cast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
 .person {
-  display: flex; align-items: center; gap: 8px;
-  padding: 7px 10px; background: #fff;
-  border: 1px solid #eee; border-radius: 8px;
-  font-weight: 700; color: #37474f;
+ display: flex; align-items: center; gap: 8px;
+ padding: 7px 10px; background: #fff;
+ border: 1px solid #eee; border-radius: 8px;
+ font-weight: 700; color: #37474f;
 }
 .dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
 .d1 { background: #FF6B6B; }
@@ -99,88 +99,88 @@ body {
 
 /* ===== 쪽 머리 ===== */
 .ph {
-  display: flex; align-items: center; gap: 16px;
-  border-bottom: 3px solid #00474f; padding-bottom: 12px; margin-bottom: 18px;
+ display: flex; align-items: center; gap: 16px;
+ border-bottom: 3px solid #00474f; padding-bottom: 12px; margin-bottom: 18px;
 }
 .ph-num {
-  flex-shrink: 0; width: 60px; height: 60px;
-  background: #00474f; color: #ffd54f;
-  font-family: 'Noto Serif KR', serif;
-  font-size: 1.7em; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; border-radius: 10px;
+ flex-shrink: 0; width: 60px; height: 60px;
+ background: #00474f; color: #ffd54f;
+ font-family: 'Noto Serif KR', serif;
+ font-size: 1.7em; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; border-radius: 10px;
 }
 .ph-title h2 { margin: 0; font-size: 1.5em; color: #00474f; }
 .ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.95em; }
 
 /* ===== 이야기 / 도움말 ===== */
 .scene {
-  background: #e0f7fa; border-left: 6px solid #00acc1;
-  border-radius: 6px; padding: 12px 16px; margin-bottom: 14px;
+ background: #e0f7fa; border-left: 6px solid #00acc1;
+ border-radius: 6px; padding: 12px 16px; margin-bottom: 14px;
 }
 .scene p { margin: 0; }
 
 .tip {
-  background: #fff8e1; border-left: 5px solid #ffb300;
-  border-radius: 6px; padding: 10px 14px; margin: 10px 0;
+ background: #fff8e1; border-left: 5px solid #ffb300;
+ border-radius: 6px; padding: 10px 14px; margin: 10px 0;
 }
 .tip .tip-title { display: block; font-weight: 700; color: #e65100; margin-bottom: 4px; }
 
 /* ===== 문제 ===== */
 .practice h3 {
-  display: inline-block; background: #ffd54f; color: #00474f;
-  padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
+ display: inline-block; background: #ffd54f; color: #00474f;
+ padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
 }
 .q {
-  position: relative;
-  padding-left: 42px;
-  margin-bottom: 14px; padding-bottom: 12px;
-  border-bottom: 1px dashed #cfd8dc;
+ position: relative;
+ padding-left: 42px;
+ margin-bottom: 14px; padding-bottom: 12px;
+ border-bottom: 1px dashed #cfd8dc;
 }
 .q:last-child { border-bottom: none; }
 .q .no {
-  position: absolute; left: 0; top: 0;
-  width: 30px; height: 30px;
-  background: #00474f; color: #fff;
-  border-radius: 50%; font-weight: 700;
-  display: flex; align-items: center; justify-content: center; font-size: 0.92em;
+ position: absolute; left: 0; top: 0;
+ width: 30px; height: 30px;
+ background: #00474f; color: #fff;
+ border-radius: 50%; font-weight: 700;
+ display: flex; align-items: center; justify-content: center; font-size: 0.92em;
 }
 .q p { margin: 0 0 6px; }
 .q .sub-q { margin-top: 6px; font-weight: 500; color: #455a64; }
 
 /* ===== 빈칸·박스 ===== */
 .lines {
-  background-image: repeating-linear-gradient(
-    to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px
-  );
-  height: 34px; margin: 4px 0;
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px
+ );
+ height: 34px; margin: 4px 0;
 }
 .lines.two { height: 68px; }
 .lines.three { height: 102px; }
 
 .blank {
-  display: inline-block; border-bottom: 1.5px solid #263238;
-  min-width: 70px; height: 22px; vertical-align: baseline;
+ display: inline-block; border-bottom: 1.5px solid #263238;
+ min-width: 70px; height: 22px; vertical-align: baseline;
 }
 
 .box {
-  display: inline-block; min-width: 70px; height: 28px;
-  border: 2px solid #00474f; background: #fff;
-  border-radius: 4px; vertical-align: middle; margin: 0 3px;
+ display: inline-block; min-width: 70px; height: 28px;
+ border: 2px solid #00474f; background: #fff;
+ border-radius: 4px; vertical-align: middle; margin: 0 3px;
 }
 .box.wide { min-width: 110px; }
 .box.xwide { min-width: 160px; }
 
 .formula {
-  background: #f1f8e9; border: 1.5px dashed #9ccc65;
-  border-radius: 8px; padding: 10px 16px;
-  text-align: center; font-size: 1.1em; margin: 8px 0; font-weight: 500;
+ background: #f1f8e9; border: 1.5px dashed #9ccc65;
+ border-radius: 8px; padding: 10px 16px;
+ text-align: center; font-size: 1.1em; margin: 8px 0; font-weight: 500;
 }
 
 /* ===== 표 ===== */
 table { width: 100%; border-collapse: collapse; margin: 6px 0; }
 th, td {
-  border: 1.5px solid #90a4ae;
-  padding: 7px 10px; text-align: center; vertical-align: middle;
+ border: 1.5px solid #90a4ae;
+ padding: 7px 10px; text-align: center; vertical-align: middle;
 }
 th { background: #eceff1; font-weight: 700; color: #00474f; }
 td.left, th.left { text-align: left; }
@@ -188,83 +188,83 @@ td.left, th.left { text-align: left; }
 
 /* 처방전 / 영수증 카드 */
 .receipt {
-  border: 3px double #00838f;
-  border-radius: 12px; padding: 12px 16px; margin: 10px 0;
-  background: #f0fbfc;
+ border: 3px double #00838f;
+ border-radius: 12px; padding: 12px 16px; margin: 10px 0;
+ background: #f0fbfc;
 }
 .receipt h4 {
-  text-align: center; margin: 0 0 8px;
-  color: #00474f; font-size: 1.15em;
-  letter-spacing: 1px;
+ text-align: center; margin: 0 0 8px;
+ color: #00474f; font-size: 1.15em;
+ letter-spacing: 1px;
 }
 .receipt .meta-line {
-  display: flex; justify-content: space-between;
-  font-size: 0.88em; color: #455a64;
-  border-bottom: 1px dashed #80cbc4; padding-bottom: 4px; margin-bottom: 6px;
+ display: flex; justify-content: space-between;
+ font-size: 0.88em; color: #455a64;
+ border-bottom: 1px dashed #80cbc4; padding-bottom: 4px; margin-bottom: 6px;
 }
 .receipt table { margin: 0; }
 
 /* 자기 점검 */
 .self-check {
-  background: #f1f8e9; border: 1.5px solid #aed581;
-  border-radius: 8px; padding: 12px 16px; margin-top: 14px;
+ background: #f1f8e9; border: 1.5px solid #aed581;
+ border-radius: 8px; padding: 12px 16px; margin-top: 14px;
 }
 .self-check h4 { margin: 0 0 6px; color: #33691e; font-size: 1em; }
 .self-check label { display: block; padding: 2px 0; }
 .self-check input[type=checkbox] {
-  margin-right: 8px; width: 16px; height: 16px;
-  accent-color: #7cb342; vertical-align: middle;
+ margin-right: 8px; width: 16px; height: 16px;
+ accent-color: #7cb342; vertical-align: middle;
 }
 
 .page-no {
-  position: absolute; bottom: 8mm; right: 18mm;
-  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
+ position: absolute; bottom: 8mm; right: 18mm;
+ color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
 }
 
 /* ===== 인쇄 ===== */
 @media print {
-  @page { size: A4 portrait; margin: 0; }
-  html, body {
-    background: #fff !important; margin: 0; padding: 0;
-    font-size: 10pt; line-height: 1.38;
-  }
-  .toolbar, .no-print { display: none !important; }
-  .page {
-    width: 210mm; min-height: 297mm;
-    margin: 0 !important; padding: 10mm 13mm;
-    box-shadow: none; border: none;
-    page-break-after: always; break-after: page;
-  }
-  .page:last-of-type { page-break-after: auto; }
-  .q, .scene, .tip, .formula, .self-check, .receipt,
-  .name-box, .goal, .cast, .toc, .info, .ph, tr {
-    page-break-inside: avoid !important; break-inside: avoid !important;
-  }
-  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
-  h1 { font-size: 1.9em; margin: 0; }
-  h2 { font-size: 1.3em; margin: 0 0 4px; }
-  h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
-  p { margin: 0 0 4px; }
-  ul, ol { margin: 4px 0; }
-  .page.cover { padding: 16mm 16mm; }
-  .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
-  .ph-num { width: 46px; height: 46px; font-size: 1.4em; border-radius: 8px; }
-  .ph-title h2 { font-size: 1.25em; }
-  .scene, .tip { padding: 8px 12px; margin-bottom: 8px; }
-  .receipt { padding: 8px 12px; margin: 6px 0; }
-  .receipt h4 { font-size: 1.05em; }
-  .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
-  .q .no { width: 26px; height: 26px; font-size: 0.88em; }
-  .formula { padding: 6px 10px; margin: 4px 0; font-size: 1em; }
-  .box { min-width: 56px; height: 22px; }
-  th, td { padding: 4px 6px; }
-  .lines { height: 26px;
-    background-image: repeating-linear-gradient(
-      to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
-  .lines.two { height: 52px; }
-  .lines.three { height: 78px; }
-  .self-check { padding: 8px 12px; margin-top: 10px; }
-  .page-no { bottom: 6mm; right: 14mm; }
+ @page { size: A4 portrait; margin: 0; }
+ html, body {
+ background: #fff !important; margin: 0; padding: 0;
+ font-size: 10pt; line-height: 1.38;
+ }
+ .toolbar, .no-print { display: none !important; }
+ .page {
+ width: 210mm; min-height: 297mm;
+ margin: 0 !important; padding: 10mm 13mm;
+ box-shadow: none; border: none;
+ page-break-after: always; break-after: page;
+ }
+ .page:last-of-type { page-break-after: auto; }
+ .q, .scene, .tip, .formula, .self-check, .receipt,
+ .name-box, .goal, .cast, .toc, .info, .ph, tr {
+ page-break-inside: avoid !important; break-inside: avoid !important;
+ }
+ h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+ h1 { font-size: 1.9em; margin: 0; }
+ h2 { font-size: 1.3em; margin: 0 0 4px; }
+ h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
+ p { margin: 0 0 4px; }
+ ul, ol { margin: 4px 0; }
+ .page.cover { padding: 16mm 16mm; }
+ .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
+ .ph-num { width: 46px; height: 46px; font-size: 1.4em; border-radius: 8px; }
+ .ph-title h2 { font-size: 1.25em; }
+ .scene, .tip { padding: 8px 12px; margin-bottom: 8px; }
+ .receipt { padding: 8px 12px; margin: 6px 0; }
+ .receipt h4 { font-size: 1.05em; }
+ .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
+ .q .no { width: 26px; height: 26px; font-size: 0.88em; }
+ .formula { padding: 6px 10px; margin: 4px 0; font-size: 1em; }
+ .box { min-width: 56px; height: 22px; }
+ th, td { padding: 4px 6px; }
+ .lines { height: 26px;
+ background-image: repeating-linear-gradient(
+ to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
+ .lines.two { height: 52px; }
+ .lines.three { height: 78px; }
+ .self-check { padding: 8px 12px; margin-top: 10px; }
+ .page-no { bottom: 6mm; right: 14mm; }
 }
 
 </style>
@@ -272,372 +272,372 @@ td.left, th.left { text-align: left; }
 <body>
 
 <div class="toolbar no-print">
-  <div><strong>병원·약국 — 수학 학습지</strong>
-    <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
-  </div>
-  <button onclick="window.print()">🖨️ 인쇄하기</button>
+ <div><strong>병원·약국 — 수학 학습지</strong>
+ <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
+ </div>
+ <button onclick="window.print">🖨️ 인쇄하기</button>
 </div>
 
 <!-- =================================================== -->
 <!-- 표지 -->
 <!-- =================================================== -->
 <section class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">수학</span> &nbsp;|&nbsp; 고등학교 특수학급 자립 생활 수학</div>
-    <div>2026학년도 1학기</div>
-  </div>
+ <div class="cover-top">
+ <div><span class="subject">수학</span> &nbsp;|&nbsp; 고등학교 자립 생활 수학</div>
+ <div>2026학년도 1학기</div>
+ </div>
 
-  <div class="cover-main">
-    <span class="badge">자립 생활 수학 프로젝트</span>
-    <h1>🏥 병원·약국 똑똑하게 이용하기</h1>
-    <p class="lead">진료비 · 약값 · 대기 시간 — 수학으로 풀어요</p>
-  </div>
+ <div class="cover-main">
+ <span class="badge">자립 생활 수학 프로젝트</span>
+ <h1>🏥 병원·약국 똑똑하게 이용하기</h1>
+ <p class="lead">진료비 · 약값 · 대기 시간 — 수학으로 풀어요</p>
+ </div>
 
-  <div class="name-box">
-    <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
-    <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
-    <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
-  </div>
+ <div class="name-box">
+ <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
+ <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
+ <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
+ </div>
 
-  <div class="info">
-    <h2>🏥 우리는 왜 병원에 갈까요?</h2>
-    <p>아프거나 다쳤을 때 <strong>병원</strong>에 가서 진료를 받고, 의사가 써 준 <strong>처방전</strong>을 들고
-       <strong>약국</strong>에 가서 약을 받아요. 이때 <strong>건강보험</strong> 덕분에 진료비의
-       일부만 우리가 내고 (<strong>본인부담금</strong>), 나머지는 나라가 대신 내 줘요.
-       오늘은 그 비용과 시간을 직접 계산해 봅시다.</p>
-  </div>
+ <div class="info">
+ <h2>🏥 우리는 왜 병원에 갈까요?</h2>
+ <p>아프거나 다쳤을 때 <strong>병원</strong>에 가서 진료를 받고, 의사가 써 준 <strong>처방전</strong>을 들고
+ <strong>약국</strong>에 가서 약을 받아요. 이때 <strong>건강보험</strong> 덕분에 진료비의
+ 일부만 우리가 내고 (<strong>본인부담금</strong>), 나머지는 나라가 대신 내 줘요.
+ 오늘은 그 비용과 시간을 직접 계산해 봅시다.</p>
+ </div>
 
-  <div class="cast">
-    <h2>👫 오늘 함께 병원에 가는 친구들</h2>
-    <div class="cast-grid">
-      <div class="person"><span class="dot d6"></span>하영 · 감기 기침</div>
-      <div class="person"><span class="dot d2"></span>하은 · 배탈</div>
-      <div class="person"><span class="dot d1"></span>채원 · 손가락 다침</div>
-      <div class="person"><span class="dot d5"></span>예은 · 비염 처방</div>
-      <div class="person"><span class="dot d4"></span>주은 · 안과 검진</div>
-      <div class="person"><span class="dot d3"></span>주현 · 정기 진료</div>
-    </div>
-  </div>
+ <div class="cast">
+ <h2>👫 오늘 함께 병원에 가는 친구들</h2>
+ <div class="cast-grid">
+ <div class="person"><span class="dot d6"></span>하영 · 감기 기침</div>
+ <div class="person"><span class="dot d2"></span>하은 · 배탈</div>
+ <div class="person"><span class="dot d1"></span>채원 · 손가락 다침</div>
+ <div class="person"><span class="dot d5"></span>예은 · 비염 처방</div>
+ <div class="person"><span class="dot d4"></span>주은 · 안과 검진</div>
+ <div class="person"><span class="dot d3"></span>주현 · 정기 진료</div>
+ </div>
+ </div>
 
-  <div class="toc">
-    <h2>📚 차례</h2>
-    <ol>
-      <li><strong>1차시</strong> 병원 접수와 진료비 — 본인부담금 30% · 50% 계산</li>
-      <li><strong>2차시</strong> 예약과 대기 시간 — 시·분 더하고 빼기</li>
-      <li><strong>3차시</strong> 약국에서 약값 계산 — 처방약 · 일반약 · 거스름돈</li>
-      <li><strong>4차시</strong> 한 달 의료비 정리 — 합계 · 평균 · 비교</li>
-    </ol>
-  </div>
+ <div class="toc">
+ <h2>📚 차례</h2>
+ <ol>
+ <li><strong>1차시</strong> 병원 접수와 진료비 — 본인부담금 30% · 50% 계산</li>
+ <li><strong>2차시</strong> 예약과 대기 시간 — 시·분 더하고 빼기</li>
+ <li><strong>3차시</strong> 약국에서 약값 계산 — 처방약 · 일반약 · 거스름돈</li>
+ <li><strong>4차시</strong> 한 달 의료비 정리 — 합계 · 평균 · 비교</li>
+ </ol>
+ </div>
 
-  <div class="page-no">— 1 —</div>
+ <div class="page-no">— 1 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 1차시: 병원 접수와 진료비 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">1</div>
-    <div class="ph-title">
-      <h2>병원 접수와 진료비</h2>
-      <p>진료비 총액에서 본인이 내는 금액(본인부담금)을 계산해 봅시다.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">1</div>
+ <div class="ph-title">
+ <h2>병원 접수와 진료비</h2>
+ <p>진료비 총액에서 본인이 내는 금액(본인부담금)을 계산해 봅시다.</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>채원이는 어제부터 목이 아프고 기침이 나서 동네 <strong>○○이비인후과 의원</strong>에 갔어요.
-       접수하고 진료를 받은 뒤 <strong>수납창구</strong>에서 진료비를 냈습니다.
-       건강보험이 적용되면 <strong>진료비 전체</strong>가 아니라 <strong>일부만</strong> 우리가 내요.</p>
-  </div>
+ <div class="scene">
+ <p>채원이는 어제부터 목이 아프고 기침이 나서 동네 <strong>○○이비인후과 의원</strong>에 갔어요.
+ 접수하고 진료를 받은 뒤 <strong>수납창구</strong>에서 진료비를 냈습니다.
+ 건강보험이 적용되면 <strong>진료비 전체</strong>가 아니라 <strong>일부만</strong> 우리가 내요.</p>
+ </div>
 
-  <div class="tip"><span class="tip-title">💡 본인부담금이란?</span>
-    병원에서 든 비용 중 <strong>환자 본인이 직접 내는 돈</strong>이에요.
-    동네 의원은 진료비의 <strong>30%</strong>, 종합병원은 <strong>50%</strong> 정도를 본인이 내요.
-    <br>· 30% 계산: <strong>÷ 10 × 3</strong> &nbsp; · 50% 계산: <strong>÷ 2</strong>
-  </div>
+ <div class="tip"><span class="tip-title">💡 본인부담금이란?</span>
+ 병원에서 든 비용 중 <strong>환자 본인이 직접 내는 돈</strong>이에요.
+ 동네 의원은 진료비의 <strong>30%</strong>, 종합병원은 <strong>50%</strong> 정도를 본인이 내요.
+ <br>· 30% 계산: <strong>÷ 10 × 3</strong> &nbsp; · 50% 계산: <strong>÷ 2</strong>
+ </div>
 
-  <table class="price-table">
-    <tr><th>병원 종류</th><th>예시</th><th>진료비 총액</th><th>본인부담률</th></tr>
-    <tr class="hi"><td>의원 (1차)</td><td>○○이비인후과</td><td>20,000원</td><td>30%</td></tr>
-    <tr><td>병원 (2차)</td><td>△△외과병원</td><td>40,000원</td><td>40%</td></tr>
-    <tr><td>종합병원</td><td>□□대학교병원</td><td>80,000원</td><td>50%</td></tr>
-  </table>
+ <table class="price-table">
+ <tr><th>병원 종류</th><th>예시</th><th>진료비 총액</th><th>본인부담률</th></tr>
+ <tr class="hi"><td>의원 (1차)</td><td>○○이비인후과</td><td>20,000원</td><td>30%</td></tr>
+ <tr><td>병원 (2차)</td><td>△△외과병원</td><td>40,000원</td><td>40%</td></tr>
+ <tr><td>종합병원</td><td>□□대학교병원</td><td>80,000원</td><td>50%</td></tr>
+ </table>
 
-  <div class="practice">
-    <h3>💵 진료비 계산</h3>
+ <div class="practice">
+ <h3>💵 진료비 계산</h3>
 
-    <div class="q"><div class="no">1</div><div>
-      <p>채원이가 간 의원의 진료비 총액은 <strong>20,000원</strong>이에요. 본인부담금 <strong>30%</strong>는 얼마인가요?</p>
-      <div class="formula">20,000 &divide; 10 &times; 3 = <span class="box wide"></span> 원</div>
-    </div></div>
+ <div class="q"><div class="no">1</div><div>
+ <p>채원이가 간 의원의 진료비 총액은 <strong>20,000원</strong>이에요. 본인부담금 <strong>30%</strong>는 얼마인가요?</p>
+ <div class="formula">20,000 &divide; 10 &times; 3 = <span class="box wide"></span> 원</div>
+ </div></div>
 
-    <div class="q"><div class="no">2</div><div>
-      <p>하영이가 간 의원의 진료비 총액은 <strong>15,000원</strong>이에요. 본인부담금 <strong>30%</strong>는 얼마인가요?</p>
-      <div class="formula">15,000 &divide; 10 &times; 3 = <span class="box wide"></span> 원</div>
-    </div></div>
+ <div class="q"><div class="no">2</div><div>
+ <p>하영이가 간 의원의 진료비 총액은 <strong>15,000원</strong>이에요. 본인부담금 <strong>30%</strong>는 얼마인가요?</p>
+ <div class="formula">15,000 &divide; 10 &times; 3 = <span class="box wide"></span> 원</div>
+ </div></div>
 
-    <div class="q"><div class="no">3</div><div>
-      <p>주은이는 큰 안과 검진을 위해 <strong>종합병원</strong>에 갔어요. 진료비 총액은 <strong>80,000원</strong>,
-         본인부담률은 <strong>50%</strong>예요. 본인부담금은 얼마일까요?</p>
-      <div class="formula">80,000 &divide; 2 = <span class="box wide"></span> 원</div>
-    </div></div>
+ <div class="q"><div class="no">3</div><div>
+ <p>주은이는 큰 안과 검진을 위해 <strong>종합병원</strong>에 갔어요. 진료비 총액은 <strong>80,000원</strong>,
+ 본인부담률은 <strong>50%</strong>예요. 본인부담금은 얼마일까요?</p>
+ <div class="formula">80,000 &divide; 2 = <span class="box wide"></span> 원</div>
+ </div></div>
 
-    <div class="q"><div class="no">4</div><div>
-      <p>같은 진료를 <strong>의원</strong>에서 받으면 진료비 20,000원의 30%, <strong>종합병원</strong>에서 받으면
-         80,000원의 50%를 내요. 두 본인부담금의 <strong>차이</strong>는 얼마인가요?</p>
-      <div class="formula">40,000 &minus; 6,000 = <span class="box wide"></span> 원</div>
-      <p class="sub-q">👉 같은 증상이라면 어디부터 가는 게 좋을까요?
-         ▢ 동네 의원 &nbsp;&nbsp; ▢ 종합병원</p>
-    </div></div>
+ <div class="q"><div class="no">4</div><div>
+ <p>같은 진료를 <strong>의원</strong>에서 받으면 진료비 20,000원의 30%, <strong>종합병원</strong>에서 받으면
+ 80,000원의 50%를 내요. 두 본인부담금의 <strong>차이</strong>는 얼마인가요?</p>
+ <div class="formula">40,000 &minus; 6,000 = <span class="box wide"></span> 원</div>
+ <p class="sub-q">👉 같은 증상이라면 어디부터 가는 게 좋을까요?
+ ▢ 동네 의원 &nbsp;&nbsp; ▢ 종합병원</p>
+ </div></div>
 
-    <div class="q"><div class="no">5</div><div>
-      <p>친구 6명이 모두 동네 의원에 다녀왔어요. 본인부담금이 한 명당 <strong>6,000원</strong>이라면
-         6명의 진료비 합계는 얼마인가요?</p>
-      <div class="formula">6,000 &times; 6 = <span class="box wide"></span> 원</div>
-    </div></div>
+ <div class="q"><div class="no">5</div><div>
+ <p>친구 6명이 모두 동네 의원에 다녀왔어요. 본인부담금이 한 명당 <strong>6,000원</strong>이라면
+ 6명의 진료비 합계는 얼마인가요?</p>
+ <div class="formula">6,000 &times; 6 = <span class="box wide"></span> 원</div>
+ </div></div>
 
-    <div class="q"><div class="no">6</div><div>
-      <p>주현이는 정기 진료라서 진료비가 <strong>18,000원</strong>이 나왔어요. 본인부담금 30%를 내고
-         <strong>10,000원짜리 지폐</strong>로 냈다면 거스름돈은 얼마일까요?</p>
-      <div class="formula">18,000 &divide; 10 &times; 3 = <span class="box"></span> 원 (본인부담금)</div>
-      <div class="formula">10,000 &minus; <span class="box"></span> = <span class="box wide"></span> 원 거스름돈</div>
-    </div></div>
-  </div>
+ <div class="q"><div class="no">6</div><div>
+ <p>주현이는 정기 진료라서 진료비가 <strong>18,000원</strong>이 나왔어요. 본인부담금 30%를 내고
+ <strong>10,000원짜리 지폐</strong>로 냈다면 거스름돈은 얼마일까요?</p>
+ <div class="formula">18,000 &divide; 10 &times; 3 = <span class="box"></span> 원 (본인부담금)</div>
+ <div class="formula">10,000 &minus; <span class="box"></span> = <span class="box wide"></span> 원 거스름돈</div>
+ </div></div>
+ </div>
 
-  <div class="page-no">— 2 —</div>
+ <div class="page-no">— 2 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 2차시: 예약과 대기 시간 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">2</div>
-    <div class="ph-title">
-      <h2>예약과 대기 시간</h2>
-      <p>예약 시각, 도착 시각, 진료 시간을 더하고 빼서 시간을 관리해 봅시다.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">2</div>
+ <div class="ph-title">
+ <h2>예약과 대기 시간</h2>
+ <p>예약 시각, 도착 시각, 진료 시간을 더하고 빼서 시간을 관리해 봅시다.</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>병원은 보통 <strong>예약</strong>을 하고 가요. 예약을 했어도 앞 사람이 오래 걸리면 기다려야 해요.
-       이걸 <strong>대기 시간</strong>이라고 해요. 진료가 끝난 시각도 미리 알면, 다음 일정을 잘 짤 수 있어요.</p>
-  </div>
+ <div class="scene">
+ <p>병원은 보통 <strong>예약</strong>을 하고 가요. 예약을 했어도 앞 사람이 오래 걸리면 기다려야 해요.
+ 이걸 <strong>대기 시간</strong>이라고 해요. 진료가 끝난 시각도 미리 알면, 다음 일정을 잘 짤 수 있어요.</p>
+ </div>
 
-  <table class="price-table">
-    <tr><th>○○이비인후과 의원</th><th>오전</th><th>오후</th><th>점심</th></tr>
-    <tr><td>평일 운영시간</td><td>09:00 ~ 12:30</td><td>14:00 ~ 18:30</td><td>12:30 ~ 14:00</td></tr>
-    <tr><td>토요일 운영시간</td><td colspan="2">09:00 ~ 13:00</td><td>점심 없음</td></tr>
-  </table>
+ <table class="price-table">
+ <tr><th>○○이비인후과 의원</th><th>오전</th><th>오후</th><th>점심</th></tr>
+ <tr><td>평일 운영시간</td><td>09:00 ~ 12:30</td><td>14:00 ~ 18:30</td><td>12:30 ~ 14:00</td></tr>
+ <tr><td>토요일 운영시간</td><td colspan="2">09:00 ~ 13:00</td><td>점심 없음</td></tr>
+ </table>
 
-  <div class="tip"><span class="tip-title">⏱️ 시간 계산 도움</span>
-    · <strong>분이 60을 넘으면</strong> 1시간으로 올려요. 예) 1시간 70분 = 2시간 10분<br>
-    · <strong>분에서 분을 뺄 때 모자라면</strong> 앞의 1시간(=60분)을 빌려와요. 예) 11:10 − 0:40 = 10:30
-  </div>
+ <div class="tip"><span class="tip-title">⏱️ 시간 계산 도움</span>
+ · <strong>분이 60을 넘으면</strong> 1시간으로 올려요. 예) 1시간 70분 = 2시간 10분<br>
+ · <strong>분에서 분을 뺄 때 모자라면</strong> 앞의 1시간(=60분)을 빌려와요. 예) 11:10 − 0:40 = 10:30
+ </div>
 
-  <div class="practice">
-    <h3>⏰ 시·분 계산</h3>
+ <div class="practice">
+ <h3>⏰ 시·분 계산</h3>
 
-    <div class="q"><div class="no">7</div><div>
-      <p>하영이는 진료를 <strong>10:30</strong>으로 예약했어요. 실제로 진료가 시작된 시각은 <strong>11:10</strong>이었어요.
-         하영이가 기다린 <strong>대기 시간</strong>은 몇 분인가요?</p>
-      <div class="formula">11시 10분 &minus; 10시 30분 = <span class="box"></span> 분</div>
-    </div></div>
+ <div class="q"><div class="no">7</div><div>
+ <p>하영이는 진료를 <strong>10:30</strong>으로 예약했어요. 실제로 진료가 시작된 시각은 <strong>11:10</strong>이었어요.
+ 하영이가 기다린 <strong>대기 시간</strong>은 몇 분인가요?</p>
+ <div class="formula">11시 10분 &minus; 10시 30분 = <span class="box"></span> 분</div>
+ </div></div>
 
-    <div class="q"><div class="no">8</div><div>
-      <p>채원이는 <strong>14:20</strong>에 진료를 시작했어요. 진료가 <strong>15분</strong>이 걸렸다면 진료가 끝난 시각은
-         몇 시 몇 분인가요?</p>
-      <div class="formula">14시 20분 + 15분 = <span class="box"></span> 시 <span class="box"></span> 분</div>
-    </div></div>
+ <div class="q"><div class="no">8</div><div>
+ <p>채원이는 <strong>14:20</strong>에 진료를 시작했어요. 진료가 <strong>15분</strong>이 걸렸다면 진료가 끝난 시각은
+ 몇 시 몇 분인가요?</p>
+ <div class="formula">14시 20분 + 15분 = <span class="box"></span> 시 <span class="box"></span> 분</div>
+ </div></div>
 
-    <div class="q"><div class="no">9</div><div>
-      <p>친구 <strong>6명</strong>이 차례로 진료를 받는데, 한 사람에 <strong>10분</strong>씩 걸린다고 해요.
-         첫 친구가 <strong>10:00</strong>에 시작했다면, 마지막 6번째 친구의 진료가 <strong>끝나는</strong> 시각은?</p>
-      <div class="formula">10 &times; 6 = <span class="box"></span> 분 = <span class="box"></span> 시간</div>
-      <p class="sub-q">👉 끝나는 시각: <span class="box"></span> 시 <span class="box"></span> 분</p>
-    </div></div>
+ <div class="q"><div class="no">9</div><div>
+ <p>친구 <strong>6명</strong>이 차례로 진료를 받는데, 한 사람에 <strong>10분</strong>씩 걸린다고 해요.
+ 첫 친구가 <strong>10:00</strong>에 시작했다면, 마지막 6번째 친구의 진료가 <strong>끝나는</strong> 시각은?</p>
+ <div class="formula">10 &times; 6 = <span class="box"></span> 분 = <span class="box"></span> 시간</div>
+ <p class="sub-q">👉 끝나는 시각: <span class="box"></span> 시 <span class="box"></span> 분</p>
+ </div></div>
 
-    <div class="q"><div class="no">10</div><div>
-      <p>오늘은 토요일. 의원은 <strong>09:00 ~ 13:00</strong>까지 운영해요.
-         지금 시각이 <strong>12:35</strong>인데, 접수와 대기에 <strong>20분</strong>이 걸린다면
-         <strong>마감 시각 13:00 안에</strong> 진료를 시작할 수 있을까요?</p>
-      <div class="formula">12시 35분 + 20분 = <span class="box"></span> 시 <span class="box"></span> 분</div>
-      <p class="sub-q">👉 마감 13:00 보다 ▢ 빠르다(가능) &nbsp;&nbsp; ▢ 늦다(불가능)</p>
-    </div></div>
+ <div class="q"><div class="no">10</div><div>
+ <p>오늘은 토요일. 의원은 <strong>09:00 ~ 13:00</strong>까지 운영해요.
+ 지금 시각이 <strong>12:35</strong>인데, 접수와 대기에 <strong>20분</strong>이 걸린다면
+ <strong>마감 시각 13:00 안에</strong> 진료를 시작할 수 있을까요?</p>
+ <div class="formula">12시 35분 + 20분 = <span class="box"></span> 시 <span class="box"></span> 분</div>
+ <p class="sub-q">👉 마감 13:00 보다 ▢ 빠르다(가능) &nbsp;&nbsp; ▢ 늦다(불가능)</p>
+ </div></div>
 
-    <div class="q"><div class="no">11</div><div>
-      <p>예은이의 병원 하루 시간표예요. 빈칸에 알맞은 시각을 채우세요.
-        <em>(시작 시각 + 걸린 시간 = 끝난 시각)</em></p>
-      <table>
-        <tr><th>순서</th><th>활동</th><th>걸린 시간</th><th>시작</th><th>끝</th></tr>
-        <tr><td>1</td><td>병원 도착 · 접수</td><td>5분</td><td>10:00</td><td>10:05</td></tr>
-        <tr><td>2</td><td>대기실에서 기다리기</td><td>25분</td><td>10:05</td><td><span class="box"></span></td></tr>
-        <tr><td>3</td><td>진료</td><td>15분</td><td><span class="box"></span></td><td>10:45</td></tr>
-        <tr><td>4</td><td>수납 · 처방전 받기</td><td>5분</td><td>10:45</td><td><span class="box"></span></td></tr>
-        <tr><td>5</td><td>약국 가서 약 받기</td><td>10분</td><td><span class="box"></span></td><td><span class="box"></span></td></tr>
-      </table>
-    </div></div>
-  </div>
+ <div class="q"><div class="no">11</div><div>
+ <p>예은이의 병원 하루 시간표예요. 빈칸에 알맞은 시각을 채우세요.
+ <em>(시작 시각 + 걸린 시간 = 끝난 시각)</em></p>
+ <table>
+ <tr><th>순서</th><th>활동</th><th>걸린 시간</th><th>시작</th><th>끝</th></tr>
+ <tr><td>1</td><td>병원 도착 · 접수</td><td>5분</td><td>10:00</td><td>10:05</td></tr>
+ <tr><td>2</td><td>대기실에서 기다리기</td><td>25분</td><td>10:05</td><td><span class="box"></span></td></tr>
+ <tr><td>3</td><td>진료</td><td>15분</td><td><span class="box"></span></td><td>10:45</td></tr>
+ <tr><td>4</td><td>수납 · 처방전 받기</td><td>5분</td><td>10:45</td><td><span class="box"></span></td></tr>
+ <tr><td>5</td><td>약국 가서 약 받기</td><td>10분</td><td><span class="box"></span></td><td><span class="box"></span></td></tr>
+ </table>
+ </div></div>
+ </div>
 
-  <div class="page-no">— 3 —</div>
+ <div class="page-no">— 3 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 3차시: 약국에서 약값 계산 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">3</div>
-    <div class="ph-title">
-      <h2>약국에서 약값 계산</h2>
-      <p>처방약과 일반의약품의 가격을 더하고, 거스름돈을 구해 봅시다.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">3</div>
+ <div class="ph-title">
+ <h2>약국에서 약값 계산</h2>
+ <p>처방약과 일반의약품의 가격을 더하고, 거스름돈을 구해 봅시다.</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>병원에서 받은 <strong>처방전</strong>을 들고 약국에 가요. 약사 선생님이 약을 지어 주시는데,
-       이때 내는 돈은 <strong>약값(약품비)</strong>과 <strong>조제료</strong>의 합이에요.
-       이것도 건강보험이 적용되어 우리가 내는 건 보통 <strong>30%</strong>예요.
-       처방전 없이 살 수 있는 <strong>일반의약품(해열제, 파스 등)</strong>은 약국 가격 그대로 내요.</p>
-  </div>
+ <div class="scene">
+ <p>병원에서 받은 <strong>처방전</strong>을 들고 약국에 가요. 약사 선생님이 약을 지어 주시는데,
+ 이때 내는 돈은 <strong>약값(약품비)</strong>과 <strong>조제료</strong>의 합이에요.
+ 이것도 건강보험이 적용되어 우리가 내는 건 보통 <strong>30%</strong>예요.
+ 처방전 없이 살 수 있는 <strong>일반의약품(해열제, 파스 등)</strong>은 약국 가격 그대로 내요.</p>
+ </div>
 
-  <div class="receipt">
-    <h4>📋 처방전 / 약국 영수증 예시</h4>
-    <div class="meta-line">
-      <span>○○약국 · 환자: 채원</span>
-      <span>발행일 2026-06-04</span>
-    </div>
-    <table>
-      <tr><th class="left">항목</th><th>금액</th></tr>
-      <tr><td class="left">약품비 (3일치 감기약)</td><td>9,000원</td></tr>
-      <tr><td class="left">조제료</td><td>1,000원</td></tr>
-      <tr><th class="left">합계 (총액)</th><th>10,000원</th></tr>
-      <tr><td class="left">본인부담금 (30%)</td><td>?</td></tr>
-    </table>
-  </div>
+ <div class="receipt">
+ <h4>📋 처방전 / 약국 영수증 예시</h4>
+ <div class="meta-line">
+ <span>○○약국 · 환자: 채원</span>
+ <span>발행일 2026-06-04</span>
+ </div>
+ <table>
+ <tr><th class="left">항목</th><th>금액</th></tr>
+ <tr><td class="left">약품비 (3일치 감기약)</td><td>9,000원</td></tr>
+ <tr><td class="left">조제료</td><td>1,000원</td></tr>
+ <tr><th class="left">합계 (총액)</th><th>10,000원</th></tr>
+ <tr><td class="left">본인부담금 (30%)</td><td>?</td></tr>
+ </table>
+ </div>
 
-  <div class="practice">
-    <h3>💊 약값 계산</h3>
+ <div class="practice">
+ <h3>💊 약값 계산</h3>
 
-    <div class="q"><div class="no">12</div><div>
-      <p>위 영수증에서 약값 총액은 <strong>10,000원</strong>이에요. 본인부담금 <strong>30%</strong>는 얼마일까요?</p>
-      <div class="formula">10,000 &divide; 10 &times; 3 = <span class="box wide"></span> 원</div>
-    </div></div>
+ <div class="q"><div class="no">12</div><div>
+ <p>위 영수증에서 약값 총액은 <strong>10,000원</strong>이에요. 본인부담금 <strong>30%</strong>는 얼마일까요?</p>
+ <div class="formula">10,000 &divide; 10 &times; 3 = <span class="box wide"></span> 원</div>
+ </div></div>
 
-    <div class="q"><div class="no">13</div><div>
-      <p>예은이의 비염약은 약값 <strong>14,000원</strong> + 조제료 <strong>1,000원</strong>이에요.
-         약국 총액과 본인부담금 30%를 구해 봅시다.</p>
-      <div class="formula">14,000 + 1,000 = <span class="box"></span> 원 (총액)</div>
-      <div class="formula">(총액) &divide; 10 &times; 3 = <span class="box wide"></span> 원 (본인부담금)</div>
-    </div></div>
+ <div class="q"><div class="no">13</div><div>
+ <p>예은이의 비염약은 약값 <strong>14,000원</strong> + 조제료 <strong>1,000원</strong>이에요.
+ 약국 총액과 본인부담금 30%를 구해 봅시다.</p>
+ <div class="formula">14,000 + 1,000 = <span class="box"></span> 원 (총액)</div>
+ <div class="formula">(총액) &divide; 10 &times; 3 = <span class="box wide"></span> 원 (본인부담금)</div>
+ </div></div>
 
-    <div class="q"><div class="no">14</div><div>
-      <p>하은이는 처방 약 외에 <strong>일반의약품</strong>도 함께 샀어요. 다음 표를 보고 약국 합계를 구해 봅시다.
-         (일반의약품은 보험이 안 되니 가격 그대로 더해요.)</p>
-      <table>
-        <tr><th class="left">품목</th><th>구분</th><th>가격</th></tr>
-        <tr><td class="left">처방약 본인부담금</td><td>처방</td><td>3,000원</td></tr>
-        <tr><td class="left">소화제 1통</td><td>일반</td><td>4,500원</td></tr>
-        <tr><td class="left">파스 1팩</td><td>일반</td><td>5,500원</td></tr>
-        <tr><th colspan="2" class="left">약국 합계</th><th><span class="box wide"></span> 원</th></tr>
-      </table>
-    </div></div>
+ <div class="q"><div class="no">14</div><div>
+ <p>하은이는 처방 약 외에 <strong>일반의약품</strong>도 함께 샀어요. 다음 표를 보고 약국 합계를 구해 봅시다.
+ (일반의약품은 보험이 안 되니 가격 그대로 더해요.)</p>
+ <table>
+ <tr><th class="left">품목</th><th>구분</th><th>가격</th></tr>
+ <tr><td class="left">처방약 본인부담금</td><td>처방</td><td>3,000원</td></tr>
+ <tr><td class="left">소화제 1통</td><td>일반</td><td>4,500원</td></tr>
+ <tr><td class="left">파스 1팩</td><td>일반</td><td>5,500원</td></tr>
+ <tr><th colspan="2" class="left">약국 합계</th><th><span class="box wide"></span> 원</th></tr>
+ </table>
+ </div></div>
 
-    <div class="q"><div class="no">15</div><div>
-      <p>주은이가 약국에서 낼 돈은 모두 <strong>7,800원</strong>이에요.
-         지갑에는 <strong>10,000원짜리 1장</strong>과 <strong>1,000원짜리 2장</strong>이 있어요.
-         가장 적은 돈으로 딱 맞게 내려면 얼마를 내야 하고, 거스름돈은 얼마일까요?</p>
-      <p class="sub-q">👉 가장 적게 낼 수 있는 돈: <span class="box"></span> 원
-        &nbsp; (10,000짜리 ▢ 장 + 1,000짜리 ▢ 장)</p>
-      <div class="formula">(낸 돈) &minus; 7,800 = <span class="box wide"></span> 원 거스름돈</div>
-    </div></div>
+ <div class="q"><div class="no">15</div><div>
+ <p>주은이가 약국에서 낼 돈은 모두 <strong>7,800원</strong>이에요.
+ 지갑에는 <strong>10,000원짜리 1장</strong>과 <strong>1,000원짜리 2장</strong>이 있어요.
+ 가장 적은 돈으로 딱 맞게 내려면 얼마를 내야 하고, 거스름돈은 얼마일까요?</p>
+ <p class="sub-q">👉 가장 적게 낼 수 있는 돈: <span class="box"></span> 원
+ &nbsp; (10,000짜리 ▢ 장 + 1,000짜리 ▢ 장)</p>
+ <div class="formula">(낸 돈) &minus; 7,800 = <span class="box wide"></span> 원 거스름돈</div>
+ </div></div>
 
-    <div class="q"><div class="no">16</div><div>
-      <p>친구 6명이 같은 종류의 일반의약품(<strong>해열제, 한 통 4,000원</strong>)을 한 통씩 샀어요.
-         6명 합계는 얼마이고, 만약 <strong>5개 사면 1개 무료</strong> 행사가 있다면 얼마를 절약할 수 있을까요?</p>
-      <div class="formula">4,000 &times; 6 = <span class="box wide"></span> 원 (정상 합계)</div>
-      <div class="formula">4,000 &times; 5 = <span class="box wide"></span> 원 (행사 합계)</div>
-      <p class="sub-q">👉 절약 금액: <span class="box"></span> 원</p>
-    </div></div>
-  </div>
+ <div class="q"><div class="no">16</div><div>
+ <p>친구 6명이 같은 종류의 일반의약품(<strong>해열제, 한 통 4,000원</strong>)을 한 통씩 샀어요.
+ 6명 합계는 얼마이고, 만약 <strong>5개 사면 1개 무료</strong> 행사가 있다면 얼마를 절약할 수 있을까요?</p>
+ <div class="formula">4,000 &times; 6 = <span class="box wide"></span> 원 (정상 합계)</div>
+ <div class="formula">4,000 &times; 5 = <span class="box wide"></span> 원 (행사 합계)</div>
+ <p class="sub-q">👉 절약 금액: <span class="box"></span> 원</p>
+ </div></div>
+ </div>
 
-  <div class="page-no">— 4 —</div>
+ <div class="page-no">— 4 —</div>
 </section>
 
 <!-- =================================================== -->
 <!-- 4차시: 한 달 의료비 정리 -->
 <!-- =================================================== -->
 <section class="page">
-  <div class="ph">
-    <div class="ph-num">4</div>
-    <div class="ph-title">
-      <h2>한 달 의료비 정리</h2>
-      <p>이번 달 병원·약국에서 쓴 돈을 항목별로 정리하고 비교해 봅시다.</p>
-    </div>
-  </div>
+ <div class="ph">
+ <div class="ph-num">4</div>
+ <div class="ph-title">
+ <h2>한 달 의료비 정리</h2>
+ <p>이번 달 병원·약국에서 쓴 돈을 항목별로 정리하고 비교해 봅시다.</p>
+ </div>
+ </div>
 
-  <div class="scene">
-    <p>한 달이 지났어요. 우리가 병원과 약국에서 쓴 돈을 정리해 보면, <strong>건강한 소비 습관</strong>을 들일 수 있어요.
-       항목별 합계 → 한 달 총합 → 일주일 평균까지 차근차근 계산해 봅시다.</p>
-  </div>
+ <div class="scene">
+ <p>한 달이 지났어요. 우리가 병원과 약국에서 쓴 돈을 정리해 보면, <strong>건강한 소비 습관</strong>을 들일 수 있어요.
+ 항목별 합계 → 한 달 총합 → 일주일 평균까지 차근차근 계산해 봅시다.</p>
+ </div>
 
-  <div class="practice">
-    <h3>📊 6월 한 달 의료비 정리</h3>
+ <div class="practice">
+ <h3>📊 6월 한 달 의료비 정리</h3>
 
-    <div class="q"><div class="no">17</div><div>
-      <p>하영이의 6월 의료비 영수증 모음이에요. 항목별 합계와 <strong>한 달 총합</strong>을 구해 봅시다.</p>
-      <table>
-        <tr><th class="left">날짜</th><th class="left">내용</th><th>금액(원)</th></tr>
-        <tr><td>6/3</td><td class="left">의원 진료비 (본인부담금)</td><td>6,000</td></tr>
-        <tr><td>6/3</td><td class="left">약국 처방약 (본인부담금)</td><td>3,000</td></tr>
-        <tr><td>6/15</td><td class="left">치과 진료비 (본인부담금)</td><td>12,000</td></tr>
-        <tr><td>6/20</td><td class="left">일반의약품 (감기약)</td><td>8,500</td></tr>
-        <tr><td>6/28</td><td class="left">파스 · 밴드</td><td>4,500</td></tr>
-        <tr><th colspan="2" class="left">한 달 총합</th><th><span class="box wide"></span></th></tr>
-      </table>
-    </div></div>
+ <div class="q"><div class="no">17</div><div>
+ <p>하영이의 6월 의료비 영수증 모음이에요. 항목별 합계와 <strong>한 달 총합</strong>을 구해 봅시다.</p>
+ <table>
+ <tr><th class="left">날짜</th><th class="left">내용</th><th>금액(원)</th></tr>
+ <tr><td>6/3</td><td class="left">의원 진료비 (본인부담금)</td><td>6,000</td></tr>
+ <tr><td>6/3</td><td class="left">약국 처방약 (본인부담금)</td><td>3,000</td></tr>
+ <tr><td>6/15</td><td class="left">치과 진료비 (본인부담금)</td><td>12,000</td></tr>
+ <tr><td>6/20</td><td class="left">일반의약품 (감기약)</td><td>8,500</td></tr>
+ <tr><td>6/28</td><td class="left">파스 · 밴드</td><td>4,500</td></tr>
+ <tr><th colspan="2" class="left">한 달 총합</th><th><span class="box wide"></span></th></tr>
+ </table>
+ </div></div>
 
-    <div class="q"><div class="no">18</div><div>
-      <p>17번에서 구한 한 달 총합을 <strong>주당 평균</strong>으로 바꾸어 봅시다.
-         6월은 약 <strong>4주</strong>로 계산해요.</p>
-      <div class="formula">(한 달 총합) &divide; 4 = <span class="box wide"></span> 원 / 1주</div>
-    </div></div>
+ <div class="q"><div class="no">18</div><div>
+ <p>17번에서 구한 한 달 총합을 <strong>주당 평균</strong>으로 바꾸어 봅시다.
+ 6월은 약 <strong>4주</strong>로 계산해요.</p>
+ <div class="formula">(한 달 총합) &divide; 4 = <span class="box wide"></span> 원 / 1주</div>
+ </div></div>
 
-    <div class="q"><div class="no">19</div><div>
-      <p>채원이는 6월에 <strong>응급실</strong>을 한 번 다녀왔어요. 응급실 본인부담금은 <strong>45,000원</strong>이고,
-         같은 증상으로 미리 동네 의원에 갔다면 본인부담금은 <strong>6,000원</strong>이었을 거예요.
-         얼마나 더 냈을까요?</p>
-      <div class="formula">45,000 &minus; 6,000 = <span class="box wide"></span> 원 더 냄</div>
-      <div class="tip"><span class="tip-title">💡 생각해 보기</span>
-        응급실은 24시간 운영되지만 비싸요. 가벼운 증상은 평일 낮에 동네 의원에 가는 것이 더 좋아요.
-      </div>
-    </div></div>
+ <div class="q"><div class="no">19</div><div>
+ <p>채원이는 6월에 <strong>응급실</strong>을 한 번 다녀왔어요. 응급실 본인부담금은 <strong>45,000원</strong>이고,
+ 같은 증상으로 미리 동네 의원에 갔다면 본인부담금은 <strong>6,000원</strong>이었을 거예요.
+ 얼마나 더 냈을까요?</p>
+ <div class="formula">45,000 &minus; 6,000 = <span class="box wide"></span> 원 더 냄</div>
+ <div class="tip"><span class="tip-title">💡 생각해 보기</span>
+ 응급실은 24시간 운영되지만 비싸요. 가벼운 증상은 평일 낮에 동네 의원에 가는 것이 더 좋아요.
+ </div>
+ </div></div>
 
-    <div class="q"><div class="no">20</div><div>
-      <p>친구 6명의 6월 한 달 의료비를 보고, <strong>가장 많이 쓴 사람</strong>과 <strong>가장 적게 쓴 사람</strong>,
-         그리고 <strong>6명 평균</strong>을 구해 봅시다.</p>
-      <table>
-        <tr><th>이름</th><th>의료비(원)</th><th>이름</th><th>의료비(원)</th></tr>
-        <tr><td>하영</td><td>34,000</td><td>예은</td><td>22,000</td></tr>
-        <tr><td>하은</td><td>18,000</td><td>주은</td><td>26,000</td></tr>
-        <tr><td>채원</td><td>56,000</td><td>주현</td><td>12,000</td></tr>
-        <tr><th colspan="3" class="left">6명 합계</th><th><span class="box wide"></span></th></tr>
-        <tr><th colspan="3" class="left">6명 평균 (합계 &divide; 6)</th><th><span class="box wide"></span></th></tr>
-      </table>
-      <p class="sub-q">👉 가장 많이 쓴 사람: <span class="blank"></span>
-         &nbsp;&nbsp; 가장 적게 쓴 사람: <span class="blank"></span></p>
-    </div></div>
+ <div class="q"><div class="no">20</div><div>
+ <p>친구 6명의 6월 한 달 의료비를 보고, <strong>가장 많이 쓴 사람</strong>과 <strong>가장 적게 쓴 사람</strong>,
+ 그리고 <strong>6명 평균</strong>을 구해 봅시다.</p>
+ <table>
+ <tr><th>이름</th><th>의료비(원)</th><th>이름</th><th>의료비(원)</th></tr>
+ <tr><td>하영</td><td>34,000</td><td>예은</td><td>22,000</td></tr>
+ <tr><td>하은</td><td>18,000</td><td>주은</td><td>26,000</td></tr>
+ <tr><td>채원</td><td>56,000</td><td>주현</td><td>12,000</td></tr>
+ <tr><th colspan="3" class="left">6명 합계</th><th><span class="box wide"></span></th></tr>
+ <tr><th colspan="3" class="left">6명 평균 (합계 &divide; 6)</th><th><span class="box wide"></span></th></tr>
+ </table>
+ <p class="sub-q">👉 가장 많이 쓴 사람: <span class="blank"></span>
+ &nbsp;&nbsp; 가장 적게 쓴 사람: <span class="blank"></span></p>
+ </div></div>
 
-    <div class="q"><div class="no">21</div><div>
-      <p>주현이의 한 달 용돈은 <strong>50,000원</strong>이에요. 이 중 의료비로 <strong>12,000원</strong>을 썼다면,
-         의료비가 차지하는 비율은 몇 %인가요?</p>
-      <div class="formula">12,000 &divide; 50,000 &times; 100 = <span class="box"></span> %</div>
-      <p class="sub-q">👉 용돈에서 의료비 말고 남은 돈: 50,000 &minus; 12,000 = <span class="box"></span> 원</p>
-    </div></div>
-  </div>
+ <div class="q"><div class="no">21</div><div>
+ <p>주현이의 한 달 용돈은 <strong>50,000원</strong>이에요. 이 중 의료비로 <strong>12,000원</strong>을 썼다면,
+ 의료비가 차지하는 비율은 몇 %인가요?</p>
+ <div class="formula">12,000 &divide; 50,000 &times; 100 = <span class="box"></span> %</div>
+ <p class="sub-q">👉 용돈에서 의료비 말고 남은 돈: 50,000 &minus; 12,000 = <span class="box"></span> 원</p>
+ </div></div>
+ </div>
 
 
-  <div class="page-no">— 5 —</div>
+ <div class="page-no">— 5 —</div>
 </section>
 
 </body>

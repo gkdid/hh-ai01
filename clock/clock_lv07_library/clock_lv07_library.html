@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.45; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.45; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #bbdefb 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #0d47a1;
-  border-bottom: 2px solid #64b5f6; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #64b5f6; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #1565c0; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #1565c0; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #1565c0; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2.05em; letter-spacing: -1.5px; color: #0d47a1; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #0d47a1; font-weight: 500; }
 .cover-info { background: #fff; border: 2px solid #64b5f6; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
@@ -35,7 +35,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #0d47a1; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #1565c0; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #1565c0; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #0d47a1; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #1565c0; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -81,898 +81,898 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">📚 L7 채원이의 도서관</span><span class="muted">몇 시간 지났을까</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">📚 L7 채원이의 도서관</span><span class="muted">몇 시간 지났을까</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">수학</span> · 시계 시리즈 · <b style="color:#0d47a1;">Level 7</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">시간의 흐름 · 시간 단위</span>
-    <h1>채원이의 도서관 시간</h1>
-    <p class="lead">시각 A에서 시각 B까지, 몇 시간이 지났을까요?</p>
-  </div>
-  <div style="display: flex; justify-content: center; align-items: center; gap: 12px; margin: 22px 0;">
-    <div style="text-align: center;">
-      <svg viewBox="0 0 200 200" width="130" height="130">
-        <circle cx="100" cy="100" r="88" fill="#fff" stroke="#0d47a1" stroke-width="3.5"/>
-        <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-        <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-        <!-- 9시: (58, 100) -->
-        <line x1="100" y1="100" x2="58" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-        <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-      </svg>
-      <div style="font-weight:700; color:#0d47a1;">9시 (도착)</div>
-    </div>
-    <div style="font-size: 1.5em; color: #1565c0; font-weight: 900;">→ 3시간 →</div>
-    <div style="text-align: center;">
-      <svg viewBox="0 0 200 200" width="130" height="130">
-        <circle cx="100" cy="100" r="88" fill="#fff" stroke="#0d47a1" stroke-width="3.5"/>
-        <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-        <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-        <!-- 12시: (100, 58) -->
-        <line x1="100" y1="100" x2="100" y2="58" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-        <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-        <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-      </svg>
-      <div style="font-weight:700; color:#0d47a1;">12시 (귀가)</div>
-    </div>
-  </div>
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul>
-      <li>시각 <b>A → B</b> 사이에 <b>몇 시간</b>이 지났는지 셀 수 있다.</li>
-      <li>시계에서 <b>짧은 바늘이 몇 칸</b> 움직였는지 확인한다.</li>
-      <li>도서관에서 <b>얼마나 오래 있었는지</b> 계산해 본다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">📚 오늘의 친구</h3>
-    <ul>
-      <li><b>채원이</b>는 주말마다 도서관에 가서 책을 읽어요. 도서관에서 몇 시간이나 보냈을까요?</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">시계 시리즈 · L7 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">수학</span> · 시계 시리즈 · <b style="color:#0d47a1;">Level 7</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">시간의 흐름 · 시간 단위</span>
+ <h1>채원이의 도서관 시간</h1>
+ <p class="lead">시각 A에서 시각 B까지, 몇 시간이 지났을까요?</p>
+ </div>
+ <div style="display: flex; justify-content: center; align-items: center; gap: 12px; margin: 22px 0;">
+ <div style="text-align: center;">
+ <svg viewBox="0 0 200 200" width="130" height="130">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#0d47a1" stroke-width="3.5"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 9시: (58, 100) -->
+ <line x1="100" y1="100" x2="58" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div style="font-weight:700; color:#0d47a1;">9시 (도착)</div>
+ </div>
+ <div style="font-size: 1.5em; color: #1565c0; font-weight: 900;">→ 3시간 →</div>
+ <div style="text-align: center;">
+ <svg viewBox="0 0 200 200" width="130" height="130">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#0d47a1" stroke-width="3.5"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 12시: (100, 58) -->
+ <line x1="100" y1="100" x2="100" y2="58" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ <div style="font-weight:700; color:#0d47a1;">12시 (귀가)</div>
+ </div>
+ </div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul>
+ <li>시각 <b>A → B</b> 사이에 <b>몇 시간</b>이 지났는지 셀 수 있다.</li>
+ <li>시계에서 <b>짧은 바늘이 몇 칸</b> 움직였는지 확인한다.</li>
+ <li>도서관에서 <b>얼마나 오래 있었는지</b> 계산해 본다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">📚 오늘의 친구</h3>
+ <ul>
+ <li><b>채원이</b>는 주말마다 도서관에 가서 책을 읽어요. 도서관에서 몇 시간이나 보냈을까요?</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">시계 시리즈 · L7 · 표지</div>
 </section>
 
 <!-- 1쪽: 몇 시간 지났나 개념 -->
 <section class="page">
-  <div class="page-head">
-    <h2>⏳ 몇 시간이 지났을까?</h2>
-    <span class="step">1쪽 · 시간 계산</span>
-  </div>
-  <div class="intro">
-    시계에서 <b>짧은 바늘(시침)</b>이 <b>숫자 한 칸</b>을 지나면 <b>1시간</b>이 흘렀어요.
-    시침이 <b>2칸</b> 지나면 <b>2시간</b>! 시침이 움직인 <b>칸 수</b>를 세면 돼요.
-  </div>
+ <div class="page-head">
+ <h2>⏳ 몇 시간이 지났을까?</h2>
+ <span class="step">1쪽 · 시간 계산</span>
+ </div>
+ <div class="intro">
+ 시계에서 <b>짧은 바늘(시침)</b>이 <b>숫자 한 칸</b>을 지나면 <b>1시간</b>이 흘렀어요.
+ 시침이 <b>2칸</b> 지나면 <b>2시간</b>! 시침이 움직인 <b>칸 수</b>를 세면 돼요.
+ </div>
 
-  <div class="tip">
-    💡 <b>시간 세는 법:</b> 시작 시각의 시침에서 시작해 <b>한 칸 = 1시간</b>씩 세어 봐요.<br>
-    예: <b>3시 → 5시</b>: 3 → 4 (1시간), 4 → 5 (또 1시간). <b>총 2시간</b>!
-  </div>
+ <div class="tip">
+ 💡 <b>시간 세는 법:</b> 시작 시각의 시침에서 시작해 <b>한 칸 = 1시간</b>씩 세어 봐요.<br>
+ 예: <b>3시 → 5시</b>: 3 → 4 (1시간), 4 → 5 (또 1시간). <b>총 2시간</b>!
+ </div>
 
-  <div class="story">
-    <span class="who">채원</span>토요일 아침, 채원이는 도서관에 갔어요. 몇 시에 도착해서 몇 시에 나왔는지, 그리고 <b>몇 시간</b> 있었는지 확인해 봐요.
-  </div>
+ <div class="story">
+ <span class="who">채원</span>토요일 아침, 채원이는 도서관에 갔어요. 몇 시에 도착해서 몇 시에 나왔는지, 그리고 <b>몇 시간</b> 있었는지 확인해 봐요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 도서관에 있었던 시간</h3><span class="tag">4문항</span></div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 도서관에 있었던 시간</h3><span class="tag">4문항</span></div>
 
-    <div class="time-flow">
-      <div class="clock-cell">
-        <div class="label">① 시작: 9시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <line x1="100" y1="100" x2="58" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow">
-        <div class="arrow-line">→</div>
-        <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">끝: 11시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 11시(330°): (79, 63.6) -->
-          <line x1="100" y1="100" x2="79" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
-      <div style="text-align:center;">
-        <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
-      </div>
-    </div>
+ <div class="time-flow">
+ <div class="clock-cell">
+ <div class="label">① 시작: 9시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <line x1="100" y1="100" x2="58" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow">
+ <div class="arrow-line">→</div>
+ <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">끝: 11시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 11시(330°): (79, 63.6) -->
+ <line x1="100" y1="100" x2="79" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
+ <div style="text-align:center;">
+ <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
+ </div>
+ </div>
 
-    <div class="time-flow">
-      <div class="clock-cell">
-        <div class="label">② 시작: 1시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 1시(30°): (121, 63.6) -->
-          <line x1="100" y1="100" x2="121" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow">
-        <div class="arrow-line">→</div>
-        <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">끝: 4시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 4시(120°): (136.4, 121) -->
-          <line x1="100" y1="100" x2="136.4" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
-      <div style="text-align:center;">
-        <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
-      </div>
-    </div>
+ <div class="time-flow">
+ <div class="clock-cell">
+ <div class="label">② 시작: 1시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 1시(30°): (121, 63.6) -->
+ <line x1="100" y1="100" x2="121" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow">
+ <div class="arrow-line">→</div>
+ <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">끝: 4시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 4시(120°): (136.4, 121) -->
+ <line x1="100" y1="100" x2="136.4" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
+ <div style="text-align:center;">
+ <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
+ </div>
+ </div>
 
-    <div class="time-flow">
-      <div class="clock-cell">
-        <div class="label">③ 시작: 2시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 2시(60°): (136.4, 79) -->
-          <line x1="100" y1="100" x2="136.4" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow">
-        <div class="arrow-line">→</div>
-        <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">끝: 6시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <line x1="100" y1="100" x2="100" y2="142" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
-      <div style="text-align:center;">
-        <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
-      </div>
-    </div>
-  </div>
+ <div class="time-flow">
+ <div class="clock-cell">
+ <div class="label">③ 시작: 2시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 2시(60°): (136.4, 79) -->
+ <line x1="100" y1="100" x2="136.4" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow">
+ <div class="arrow-line">→</div>
+ <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">끝: 6시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <line x1="100" y1="100" x2="100" y2="142" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
+ <div style="text-align:center;">
+ <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
+ </div>
+ </div>
+ </div>
 
-  <div class="note">💡 <b>계산 팁:</b> <b>큰 수 − 작은 수</b>로도 구할 수 있어요! 예: 4시 − 1시 = <b>3시간</b>. 이 방법은 정각일 때 편해요.</div>
+ <div class="note">💡 <b>계산 팁:</b> <b>큰 수 − 작은 수</b>로도 구할 수 있어요! 예: 4시 − 1시 = <b>3시간</b>. 이 방법은 정각일 때 편해요.</div>
 
-  <div class="page-foot">시계 시리즈 · L7 · 1쪽 / 2</div>
+ <div class="page-foot">시계 시리즈 · L7 · 1쪽 / 2</div>
 </section>
 
 <!-- 2쪽: 도서관 일정 종합 -->
 <section class="page">
-  <div class="page-head">
-    <h2>📚 채원이의 토요일 도서관 일정</h2>
-    <span class="step">2쪽 · 응용</span>
-  </div>
-  <div class="intro">
-    채원이의 토요일 도서관 일정을 봐요. 채원이가 <b>얼마나 오래</b> 있었는지 시각을 보고 계산해 봐요.
-  </div>
+ <div class="page-head">
+ <h2>📚 채원이의 토요일 도서관 일정</h2>
+ <span class="step">2쪽 · 응용</span>
+ </div>
+ <div class="intro">
+ 채원이의 토요일 도서관 일정을 봐요. 채원이가 <b>얼마나 오래</b> 있었는지 시각을 보고 계산해 봐요.
+ </div>
 
-  <div class="story">
-    <span class="who">채원</span>토요일 오전 <b>9시</b>에 도서관에 도착해서, <b>12시</b>에 점심을 먹으러 집에 갔어요.
-    다시 <b>2시</b>에 돌아와서 <b>5시</b>까지 책을 읽었어요.
-  </div>
+ <div class="story">
+ <span class="who">채원</span>토요일 오전 <b>9시</b>에 도서관에 도착해서, <b>12시</b>에 점심을 먹으러 집에 갔어요.
+ 다시 <b>2시</b>에 돌아와서 <b>5시</b>까지 책을 읽었어요.
+ </div>
 
-  <div class="timeline" style="padding: 12px 20px 30px;">
-    <div class="line">
-      <div class="tick" style="left: 0%;"><div class="lbl">9시</div><div class="desc">도착 📚</div></div>
-      <div class="tick" style="left: 25%;"><div class="lbl">10시</div><div class="desc">동화책</div></div>
-      <div class="tick" style="left: 50%;"><div class="lbl">11시</div><div class="desc">위인전</div></div>
-      <div class="tick" style="left: 75%;"><div class="lbl">12시</div><div class="desc">🍚 점심</div></div>
-    </div>
-    <div style="text-align:center; margin-top:36px; font-size:0.9em; color:#0d47a1;"><b>오전 9시 ~ 12시</b>: 위 시간표대로 있었어요.</div>
-  </div>
+ <div class="timeline" style="padding: 12px 20px 30px;">
+ <div class="line">
+ <div class="tick" style="left: 0%;"><div class="lbl">9시</div><div class="desc">도착 📚</div></div>
+ <div class="tick" style="left: 25%;"><div class="lbl">10시</div><div class="desc">동화책</div></div>
+ <div class="tick" style="left: 50%;"><div class="lbl">11시</div><div class="desc">위인전</div></div>
+ <div class="tick" style="left: 75%;"><div class="lbl">12시</div><div class="desc">🍚 점심</div></div>
+ </div>
+ <div style="text-align:center; margin-top:36px; font-size:0.9em; color:#0d47a1;"><b>오전 9시 ~ 12시</b>: 위 시간표대로 있었어요.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 오전에 있었던 시간</h3><span class="tag">계산</span></div>
-    <p>① 채원이가 <b>오전에</b> 도서관에 있었던 시간은?</p>
-    <p style="margin-left: 20px;">시작: 9시 · 끝: 12시 → ( <span class="blank short">&nbsp;</span> )시간</p>
-    <p>② 채원이가 <b>오후에</b> 도서관에 있었던 시간은?</p>
-    <p style="margin-left: 20px;">시작: 2시 · 끝: 5시 → ( <span class="blank short">&nbsp;</span> )시간</p>
-    <p>③ 오전과 오후를 <b>모두 합하면</b>?</p>
-    <p style="margin-left: 20px;">( <span class="blank short">&nbsp;</span> )시간 + ( <span class="blank short">&nbsp;</span> )시간 = ( <span class="blank short">&nbsp;</span> )시간</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 오전에 있었던 시간</h3><span class="tag">계산</span></div>
+ <p>① 채원이가 <b>오전에</b> 도서관에 있었던 시간은?</p>
+ <p style="margin-left: 20px;">시작: 9시 · 끝: 12시 → ( <span class="blank short">&nbsp;</span> )시간</p>
+ <p>② 채원이가 <b>오후에</b> 도서관에 있었던 시간은?</p>
+ <p style="margin-left: 20px;">시작: 2시 · 끝: 5시 → ( <span class="blank short">&nbsp;</span> )시간</p>
+ <p>③ 오전과 오후를 <b>모두 합하면</b>?</p>
+ <p style="margin-left: 20px;">( <span class="blank short">&nbsp;</span> )시간 + ( <span class="blank short">&nbsp;</span> )시간 = ( <span class="blank short">&nbsp;</span> )시간</p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 다른 친구들도 계산해 봐요</h3><span class="tag">응용</span></div>
-    <p>다음 친구들도 도서관에 있었어요. <b>몇 시간</b>씩 있었을까요?</p>
-    <p>① 하은이: 오전 <b>10시</b> 도착 → 낮 <b>1시</b> 나감 → ( <span class="blank short">&nbsp;</span> )시간</p>
-    <p>② 미정이: 오후 <b>3시</b> 도착 → 오후 <b>7시</b> 나감 → ( <span class="blank short">&nbsp;</span> )시간</p>
-    <p>③ 예은이: 오전 <b>11시</b> 도착 → 오후 <b>4시</b> 나감 → ( <span class="blank short">&nbsp;</span> )시간</p>
-    <p>④ 주현이: 오전 <b>8시</b> 도착 → 오후 <b>2시</b> 나감 → ( <span class="blank short">&nbsp;</span> )시간</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 다른 친구들도 계산해 봐요</h3><span class="tag">응용</span></div>
+ <p>다음 친구들도 도서관에 있었어요. <b>몇 시간</b>씩 있었을까요?</p>
+ <p>① 하은이: 오전 <b>10시</b> 도착 → 낮 <b>1시</b> 나감 → ( <span class="blank short">&nbsp;</span> )시간</p>
+ <p>② 미정이: 오후 <b>3시</b> 도착 → 오후 <b>7시</b> 나감 → ( <span class="blank short">&nbsp;</span> )시간</p>
+ <p>③ 예은이: 오전 <b>11시</b> 도착 → 오후 <b>4시</b> 나감 → ( <span class="blank short">&nbsp;</span> )시간</p>
+ <p>④ 주현이: 오전 <b>8시</b> 도착 → 오후 <b>2시</b> 나감 → ( <span class="blank short">&nbsp;</span> )시간</p>
+ </div>
 
-  <div class="tip">💡 <b>오전과 오후 넘어갈 때:</b> 예은이는 11시 → 12시(1시간) → 1시(2시간) → 2시(3시간) → 3시(4시간) → 4시(5시간). 총 <b>5시간</b>이에요.</div>
+ <div class="tip">💡 <b>오전과 오후 넘어갈 때:</b> 예은이는 11시 → 12시(1시간) → 1시(2시간) → 2시(3시간) → 3시(4시간) → 4시(5시간). 총 <b>5시간</b>이에요.</div>
 
-  <div class="note">🌟 <b>실천:</b> 오늘 학교에 있었던 시간을 계산해 봐요. 등교 시각과 하교 시각을 확인해서 몇 시간인지 세어 보세요.</div>
+ <div class="note">🌟 <b>실천:</b> 오늘 학교에 있었던 시간을 계산해 봐요. 등교 시각과 하교 시각을 확인해서 몇 시간인지 세어 보세요.</div>
 
-  <div class="page-foot">시계 시리즈 · L7 · 2쪽 / 2</div>
+ <div class="page-foot">시계 시리즈 · L7 · 2쪽 / 2</div>
 </section>
 
 <!-- 3쪽: 시계 짝짓기 · 종합 연습 -->
 <section class="page">
-  <div class="page-head">
-    <h2>🕰️ 시계를 보고 몇 시간인지 세어 봐요</h2>
-    <span class="step">3쪽 · 종합 연습</span>
-  </div>
-  <div class="intro">
-    채원이가 도서관에 <b>들어간 시각</b>과 <b>나온 시각</b>이에요.
-    두 시계를 보고 <b>몇 시간</b> 있었는지 계산해 봐요.
-  </div>
-  <div class="tip">
-    💡 <b>스캐폴딩:</b> ① 시작 시각을 읽어요. ② 끝 시각을 읽어요.
-    ③ <b>시침이 몇 칸</b> 움직였는지 세어요. ④ 그게 <b>지난 시간</b>이에요!
-  </div>
+ <div class="page-head">
+ <h2>🕰️ 시계를 보고 몇 시간인지 세어 봐요</h2>
+ <span class="step">3쪽 · 종합 연습</span>
+ </div>
+ <div class="intro">
+ 채원이가 도서관에 <b>들어간 시각</b>과 <b>나온 시각</b>이에요.
+ 두 시계를 보고 <b>몇 시간</b> 있었는지 계산해 봐요.
+ </div>
+ <div class="tip">
+ 💡 <b>스캐폴딩:</b> ① 시작 시각을 읽어요. ② 끝 시각을 읽어요.
+ ③ <b>시침이 몇 칸</b> 움직였는지 세어요. ④ 그게 <b>지난 시간</b>이에요!
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 시계 짝을 보고 시간 세기</h3><span class="tag">5문항</span></div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 시계 짝을 보고 시간 세기</h3><span class="tag">5문항</span></div>
 
-    <!-- ① 3시 → 8시 = 5시간 -->
-    <div class="time-flow">
-      <div class="clock-cell">
-        <div class="label">① 입장: 3시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 3시(90°): (142, 100) -->
-          <line x1="100" y1="100" x2="142" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow">
-        <div class="arrow-line">→</div>
-        <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">퇴장: 8시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 8시(240°): (63.6, 121) -->
-          <line x1="100" y1="100" x2="63.6" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
-      <div style="text-align:center;">
-        <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
-      </div>
-    </div>
+ <!-- ① 3시 → 8시 = 5시간 -->
+ <div class="time-flow">
+ <div class="clock-cell">
+ <div class="label">① 입장: 3시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 3시(90°): (142, 100) -->
+ <line x1="100" y1="100" x2="142" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow">
+ <div class="arrow-line">→</div>
+ <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">퇴장: 8시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 8시(240°): (63.6, 121) -->
+ <line x1="100" y1="100" x2="63.6" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
+ <div style="text-align:center;">
+ <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
+ </div>
+ </div>
 
-    <!-- ② 10시 → 12시 = 2시간 -->
-    <div class="time-flow">
-      <div class="clock-cell">
-        <div class="label">② 입장: 10시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 10시(300°): (63.6, 79) -->
-          <line x1="100" y1="100" x2="63.6" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow">
-        <div class="arrow-line">→</div>
-        <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">퇴장: 12시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 12시(0°): (100, 58) -->
-          <line x1="100" y1="100" x2="100" y2="58" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
-      <div style="text-align:center;">
-        <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
-      </div>
-    </div>
+ <!-- ② 10시 → 12시 = 2시간 -->
+ <div class="time-flow">
+ <div class="clock-cell">
+ <div class="label">② 입장: 10시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 10시(300°): (63.6, 79) -->
+ <line x1="100" y1="100" x2="63.6" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow">
+ <div class="arrow-line">→</div>
+ <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">퇴장: 12시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 12시(0°): (100, 58) -->
+ <line x1="100" y1="100" x2="100" y2="58" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
+ <div style="text-align:center;">
+ <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
+ </div>
+ </div>
 
-    <!-- ③ 4시 → 9시 = 5시간 -->
-    <div class="time-flow">
-      <div class="clock-cell">
-        <div class="label">③ 입장: 4시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 4시(120°): (136.4, 121) -->
-          <line x1="100" y1="100" x2="136.4" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow">
-        <div class="arrow-line">→</div>
-        <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">퇴장: 9시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 9시(270°): (58, 100) -->
-          <line x1="100" y1="100" x2="58" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
-      <div style="text-align:center;">
-        <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
-      </div>
-    </div>
+ <!-- ③ 4시 → 9시 = 5시간 -->
+ <div class="time-flow">
+ <div class="clock-cell">
+ <div class="label">③ 입장: 4시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 4시(120°): (136.4, 121) -->
+ <line x1="100" y1="100" x2="136.4" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow">
+ <div class="arrow-line">→</div>
+ <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">퇴장: 9시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 9시(270°): (58, 100) -->
+ <line x1="100" y1="100" x2="58" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
+ <div style="text-align:center;">
+ <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
+ </div>
+ </div>
 
-    <!-- ④ 1시 → 7시 = 6시간 -->
-    <div class="time-flow">
-      <div class="clock-cell">
-        <div class="label">④ 입장: 1시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 1시(30°): (121, 63.6) -->
-          <line x1="100" y1="100" x2="121" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow">
-        <div class="arrow-line">→</div>
-        <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">퇴장: 7시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 7시(210°): (79, 136.4) -->
-          <line x1="100" y1="100" x2="79" y2="136.4" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
-      <div style="text-align:center;">
-        <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
-      </div>
-    </div>
+ <!-- ④ 1시 → 7시 = 6시간 -->
+ <div class="time-flow">
+ <div class="clock-cell">
+ <div class="label">④ 입장: 1시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 1시(30°): (121, 63.6) -->
+ <line x1="100" y1="100" x2="121" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow">
+ <div class="arrow-line">→</div>
+ <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">퇴장: 7시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 7시(210°): (79, 136.4) -->
+ <line x1="100" y1="100" x2="79" y2="136.4" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
+ <div style="text-align:center;">
+ <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
+ </div>
+ </div>
 
-    <!-- ⑤ 11시 → 2시 = 3시간 (오전→오후) -->
-    <div class="time-flow">
-      <div class="clock-cell">
-        <div class="label">⑤ 입장: 오전 11시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 11시(330°): (79, 63.6) -->
-          <line x1="100" y1="100" x2="79" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow">
-        <div class="arrow-line">→</div>
-        <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">퇴장: 오후 2시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 2시(60°): (136.4, 79) -->
-          <line x1="100" y1="100" x2="136.4" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
-      <div style="text-align:center;">
-        <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
-      </div>
-    </div>
-  </div>
+ <!-- ⑤ 11시 → 2시 = 3시간 (오전→오후) -->
+ <div class="time-flow">
+ <div class="clock-cell">
+ <div class="label">⑤ 입장: 오전 11시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 11시(330°): (79, 63.6) -->
+ <line x1="100" y1="100" x2="79" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow">
+ <div class="arrow-line">→</div>
+ <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">퇴장: 오후 2시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 2시(60°): (136.4, 79) -->
+ <line x1="100" y1="100" x2="136.4" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
+ <div style="text-align:center;">
+ <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
+ </div>
+ </div>
+ </div>
 
-  <div class="note">💡 <b>⑤번 도움말:</b> 11시 → 12시(1시간) → 1시(2시간) → 2시(3시간). 오전과 오후를 넘어갈 때는 <b>12시를 거쳐서</b> 셈해요.</div>
+ <div class="note">💡 <b>⑤번 도움말:</b> 11시 → 12시(1시간) → 1시(2시간) → 2시(3시간). 오전과 오후를 넘어갈 때는 <b>12시를 거쳐서</b> 셈해요.</div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. 도서관 이야기 문제</h3><span class="tag">3문항</span></div>
-    <p>① <b>채원</b>이는 도서관에서 책을 빌렸어요. 오후 <b>3시</b>에 빌려서 오후 <b>7시</b>에 반납했어요.
-       책을 <b>빌린 시간</b>은 ( <span class="blank short">&nbsp;</span> )시간이에요.</p>
-    <p>② <b>채원</b>이는 오전 <b>9시</b>부터 오후 <b>1시</b>까지 도서관에서 공부했어요.
-       공부한 시간은 ( <span class="blank short">&nbsp;</span> )시간이에요.</p>
-    <p>③ 도서관은 오전 <b>10시</b>에 문을 열고 오후 <b>6시</b>에 문을 닫아요.
-       도서관이 <b>열려 있는 시간</b>은 ( <span class="blank short">&nbsp;</span> )시간이에요.</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 도서관 이야기 문제</h3><span class="tag">3문항</span></div>
+ <p>① <b>채원</b>이는 도서관에서 책을 빌렸어요. 오후 <b>3시</b>에 빌려서 오후 <b>7시</b>에 반납했어요.
+ 책을 <b>빌린 시간</b>은 ( <span class="blank short">&nbsp;</span> )시간이에요.</p>
+ <p>② <b>채원</b>이는 오전 <b>9시</b>부터 오후 <b>1시</b>까지 도서관에서 공부했어요.
+ 공부한 시간은 ( <span class="blank short">&nbsp;</span> )시간이에요.</p>
+ <p>③ 도서관은 오전 <b>10시</b>에 문을 열고 오후 <b>6시</b>에 문을 닫아요.
+ 도서관이 <b>열려 있는 시간</b>은 ( <span class="blank short">&nbsp;</span> )시간이에요.</p>
+ </div>
 
-  <div class="tip">🌟 <b>스스로 확인:</b> ①·②·③ 답을 큰 소리로 읽어 봐요.
-    수를 셀 때 <b>손가락으로 시계 숫자를 하나씩 짚으면서</b> 세면 실수를 줄일 수 있어요.</div>
+ <div class="tip">🌟 <b>스스로 확인:</b> ①·②·③ 답을 큰 소리로 읽어 봐요.
+ 수를 셀 때 <b>손가락으로 시계 숫자를 하나씩 짚으면서</b> 세면 실수를 줄일 수 있어요.</div>
 
-  <div class="page-foot">시계 시리즈 · L7 · 3쪽 / 3</div>
+ <div class="page-foot">시계 시리즈 · L7 · 3쪽 / 3</div>
 </section>
 
 <!-- 4쪽: 새 시계 짝 6문항 -->
 <section class="page">
-  <div class="page-head">
-    <h2>🕰️ 시계 짝을 보고 시간 세기 (더 연습)</h2>
-    <span class="step">4쪽 · 연습</span>
-  </div>
-  <div class="intro">
-    채원이가 도서관에 <b>들어간 시각</b>과 <b>나온 시각</b>이에요.
-    시계를 보고 <b>시침이 몇 칸</b> 움직였는지 세어 <b>몇 시간</b> 있었는지 구해요.
-  </div>
-  <div class="tip">
-    💡 <b>순서:</b> ① 왼쪽 시계 시각 읽기 → ② 오른쪽 시계 시각 읽기 → ③ <b>시침이 지나간 칸 수</b> 세기 → ④ 그게 답!
-  </div>
+ <div class="page-head">
+ <h2>🕰️ 시계 짝을 보고 시간 세기 (더 연습)</h2>
+ <span class="step">4쪽 · 연습</span>
+ </div>
+ <div class="intro">
+ 채원이가 도서관에 <b>들어간 시각</b>과 <b>나온 시각</b>이에요.
+ 시계를 보고 <b>시침이 몇 칸</b> 움직였는지 세어 <b>몇 시간</b> 있었는지 구해요.
+ </div>
+ <div class="tip">
+ 💡 <b>순서:</b> ① 왼쪽 시계 시각 읽기 → ② 오른쪽 시계 시각 읽기 → ③ <b>시침이 지나간 칸 수</b> 세기 → ④ 그게 답!
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 6. 시계 짝 · 시간 계산</h3><span class="tag">6문항</span></div>
+ <div class="activity">
+ <div class="head"><h3>활동 6. 시계 짝 · 시간 계산</h3><span class="tag">6문항</span></div>
 
-    <!-- ① 8시 → 11시 = 3시간 -->
-    <div class="time-flow">
-      <div class="clock-cell">
-        <div class="label">① 입장: 8시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 8시: (63.6, 121) -->
-          <line x1="100" y1="100" x2="63.6" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow">
-        <div class="arrow-line">→</div>
-        <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">퇴장: 11시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 11시: (79, 63.6) -->
-          <line x1="100" y1="100" x2="79" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
-      <div style="text-align:center;">
-        <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
-      </div>
-    </div>
+ <!-- ① 8시 → 11시 = 3시간 -->
+ <div class="time-flow">
+ <div class="clock-cell">
+ <div class="label">① 입장: 8시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 8시: (63.6, 121) -->
+ <line x1="100" y1="100" x2="63.6" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow">
+ <div class="arrow-line">→</div>
+ <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">퇴장: 11시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 11시: (79, 63.6) -->
+ <line x1="100" y1="100" x2="79" y2="63.6" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
+ <div style="text-align:center;">
+ <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
+ </div>
+ </div>
 
-    <!-- ② 5시 → 9시 = 4시간 -->
-    <div class="time-flow">
-      <div class="clock-cell">
-        <div class="label">② 입장: 5시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 5시: (121, 136.4) -->
-          <line x1="100" y1="100" x2="121" y2="136.4" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow">
-        <div class="arrow-line">→</div>
-        <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">퇴장: 9시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 9시: (58, 100) -->
-          <line x1="100" y1="100" x2="58" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
-      <div style="text-align:center;">
-        <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
-      </div>
-    </div>
+ <!-- ② 5시 → 9시 = 4시간 -->
+ <div class="time-flow">
+ <div class="clock-cell">
+ <div class="label">② 입장: 5시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 5시: (121, 136.4) -->
+ <line x1="100" y1="100" x2="121" y2="136.4" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow">
+ <div class="arrow-line">→</div>
+ <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">퇴장: 9시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 9시: (58, 100) -->
+ <line x1="100" y1="100" x2="58" y2="100" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
+ <div style="text-align:center;">
+ <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
+ </div>
+ </div>
 
-    <!-- ③ 12시 → 5시 = 5시간 -->
-    <div class="time-flow">
-      <div class="clock-cell">
-        <div class="label">③ 입장: 12시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 12시: (100, 58) -->
-          <line x1="100" y1="100" x2="100" y2="58" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow">
-        <div class="arrow-line">→</div>
-        <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">퇴장: 5시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 5시: (121, 136.4) -->
-          <line x1="100" y1="100" x2="121" y2="136.4" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
-      <div style="text-align:center;">
-        <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
-      </div>
-    </div>
+ <!-- ③ 12시 → 5시 = 5시간 -->
+ <div class="time-flow">
+ <div class="clock-cell">
+ <div class="label">③ 입장: 12시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 12시: (100, 58) -->
+ <line x1="100" y1="100" x2="100" y2="58" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow">
+ <div class="arrow-line">→</div>
+ <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">퇴장: 5시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 5시: (121, 136.4) -->
+ <line x1="100" y1="100" x2="121" y2="136.4" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
+ <div style="text-align:center;">
+ <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
+ </div>
+ </div>
 
-    <!-- ④ 2시 → 8시 = 6시간 -->
-    <div class="time-flow">
-      <div class="clock-cell">
-        <div class="label">④ 입장: 2시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 2시: (136.4, 79) -->
-          <line x1="100" y1="100" x2="136.4" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow">
-        <div class="arrow-line">→</div>
-        <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">퇴장: 8시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 8시: (63.6, 121) -->
-          <line x1="100" y1="100" x2="63.6" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
-      <div style="text-align:center;">
-        <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
-      </div>
-    </div>
+ <!-- ④ 2시 → 8시 = 6시간 -->
+ <div class="time-flow">
+ <div class="clock-cell">
+ <div class="label">④ 입장: 2시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 2시: (136.4, 79) -->
+ <line x1="100" y1="100" x2="136.4" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow">
+ <div class="arrow-line">→</div>
+ <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">퇴장: 8시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 8시: (63.6, 121) -->
+ <line x1="100" y1="100" x2="63.6" y2="121" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
+ <div style="text-align:center;">
+ <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
+ </div>
+ </div>
 
-    <!-- ⑤ 7시 → 10시 = 3시간 -->
-    <div class="time-flow">
-      <div class="clock-cell">
-        <div class="label">⑤ 입장: 7시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 7시: (79, 136.4) -->
-          <line x1="100" y1="100" x2="79" y2="136.4" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow">
-        <div class="arrow-line">→</div>
-        <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">퇴장: 10시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 10시: (63.6, 79) -->
-          <line x1="100" y1="100" x2="63.6" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
-      <div style="text-align:center;">
-        <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
-      </div>
-    </div>
+ <!-- ⑤ 7시 → 10시 = 3시간 -->
+ <div class="time-flow">
+ <div class="clock-cell">
+ <div class="label">⑤ 입장: 7시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 7시: (79, 136.4) -->
+ <line x1="100" y1="100" x2="79" y2="136.4" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow">
+ <div class="arrow-line">→</div>
+ <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">퇴장: 10시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 10시: (63.6, 79) -->
+ <line x1="100" y1="100" x2="63.6" y2="79" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
+ <div style="text-align:center;">
+ <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
+ </div>
+ </div>
 
-    <!-- ⑥ 6시 → 12시 = 6시간 -->
-    <div class="time-flow">
-      <div class="clock-cell">
-        <div class="label">⑥ 입장: 6시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 6시: (100, 142) -->
-          <line x1="100" y1="100" x2="100" y2="142" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow">
-        <div class="arrow-line">→</div>
-        <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
-      </div>
-      <div class="clock-cell">
-        <div class="label">퇴장: 12시</div>
-        <svg viewBox="0 0 200 200" width="105" height="105">
-          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
-          <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-          <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-          <!-- 12시: (100, 58) -->
-          <line x1="100" y1="100" x2="100" y2="58" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-          <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
-        </svg>
-      </div>
-      <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
-      <div style="text-align:center;">
-        <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
-      </div>
-    </div>
-  </div>
+ <!-- ⑥ 6시 → 12시 = 6시간 -->
+ <div class="time-flow">
+ <div class="clock-cell">
+ <div class="label">⑥ 입장: 6시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 6시: (100, 142) -->
+ <line x1="100" y1="100" x2="100" y2="142" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow">
+ <div class="arrow-line">→</div>
+ <div class="arrow-label">( <span class="blank short">&nbsp;</span> )시간</div>
+ </div>
+ <div class="clock-cell">
+ <div class="label">퇴장: 12시</div>
+ <svg viewBox="0 0 200 200" width="105" height="105">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#3e2723" stroke-width="3"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="17" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 12시: (100, 58) -->
+ <line x1="100" y1="100" x2="100" y2="58" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="4.5" fill="#3e2723"/>
+ </svg>
+ </div>
+ <div class="arrow"><div style="font-size:1.5em; font-weight:900; color:#0d47a1;">=</div></div>
+ <div style="text-align:center;">
+ <div class="count-hours">( <span class="blank short">&nbsp;</span> )시간 있었어요</div>
+ </div>
+ </div>
+ </div>
 
-  <div class="note">💡 <b>확인:</b> 큰 수 − 작은 수로 검산! 예: 11 − 8 = 3, 9 − 5 = 4, 5 + 12 = ... (12시는 0시로 생각해도 돼요.) 답을 두 번 확인해요.</div>
+ <div class="note">💡 <b>확인:</b> 큰 수 − 작은 수로 검산! 예: 11 − 8 = 3, 9 − 5 = 4, 5 + 12 = ... (12시는 0시로 생각해도 돼요.) 답을 두 번 확인해요.</div>
 
-  <div class="page-foot">시계 시리즈 · L7 · 4쪽 / 5</div>
+ <div class="page-foot">시계 시리즈 · L7 · 4쪽 / 5</div>
 </section>
 
 <!-- 5쪽: 표 · 이야기 문제 · 도전 -->
 <section class="page">
-  <div class="page-head">
-    <h2>📖 도서관 대여 시간 표 · 이야기 문제</h2>
-    <span class="step">5쪽 · 응용과 도전</span>
-  </div>
-  <div class="intro">
-    도서관에서 여러 친구들이 책을 <b>얼마나 빌렸는지</b> 표로 정리해 봐요.
-    그리고 이야기 문제를 <b>거꾸로 세거나 비교</b>하며 풀어 봐요.
-  </div>
+ <div class="page-head">
+ <h2>📖 도서관 대여 시간 표 · 이야기 문제</h2>
+ <span class="step">5쪽 · 응용과 도전</span>
+ </div>
+ <div class="intro">
+ 도서관에서 여러 친구들이 책을 <b>얼마나 빌렸는지</b> 표로 정리해 봐요.
+ 그리고 이야기 문제를 <b>거꾸로 세거나 비교</b>하며 풀어 봐요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 7. 친구들의 책 대여 시간 표</h3><span class="tag">5문항</span></div>
-    <p>다음 표에서 <b>대여 시간(몇 시간 빌렸나)</b>을 계산해 빈칸을 채워요.</p>
-    <table style="width:100%; border-collapse:collapse; font-size:0.95em; margin-top:6px;">
-      <thead>
-        <tr style="background:#bbdefb; color:#0d47a1;">
-          <th style="border:1.5px solid #64b5f6; padding:6px;">이름</th>
-          <th style="border:1.5px solid #64b5f6; padding:6px;">빌린 시각</th>
-          <th style="border:1.5px solid #64b5f6; padding:6px;">반납 시각</th>
-          <th style="border:1.5px solid #64b5f6; padding:6px;">대여 시간</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">① 하은</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오전 10시</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오후 2시</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">( <span class="blank short">&nbsp;</span> )시간</td>
-        </tr>
-        <tr>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">② 하영</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오전 9시</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오후 3시</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">( <span class="blank short">&nbsp;</span> )시간</td>
-        </tr>
-        <tr>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">③ 주은</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오후 1시</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오후 6시</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">( <span class="blank short">&nbsp;</span> )시간</td>
-        </tr>
-        <tr>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">④ 주현</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오전 11시</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오후 4시</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">( <span class="blank short">&nbsp;</span> )시간</td>
-        </tr>
-        <tr>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">⑤ 미정</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오전 8시</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오후 5시</td>
-          <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">( <span class="blank short">&nbsp;</span> )시간</td>
-        </tr>
-      </tbody>
-    </table>
-    <p style="margin-top:8px;">👉 위 표에서 <b>가장 오래 빌린 친구</b>는 ( <span class="blank">&nbsp;</span> )이고, <b>가장 짧게 빌린 친구</b>는 ( <span class="blank">&nbsp;</span> )예요.</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 7. 친구들의 책 대여 시간 표</h3><span class="tag">5문항</span></div>
+ <p>다음 표에서 <b>대여 시간(몇 시간 빌렸나)</b>을 계산해 빈칸을 채워요.</p>
+ <table style="width:100%; border-collapse:collapse; font-size:0.95em; margin-top:6px;">
+ <thead>
+ <tr style="background:#bbdefb; color:#0d47a1;">
+ <th style="border:1.5px solid #64b5f6; padding:6px;">이름</th>
+ <th style="border:1.5px solid #64b5f6; padding:6px;">빌린 시각</th>
+ <th style="border:1.5px solid #64b5f6; padding:6px;">반납 시각</th>
+ <th style="border:1.5px solid #64b5f6; padding:6px;">대여 시간</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">① 하은</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오전 10시</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오후 2시</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">( <span class="blank short">&nbsp;</span> )시간</td>
+ </tr>
+ <tr>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">② 하영</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오전 9시</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오후 3시</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">( <span class="blank short">&nbsp;</span> )시간</td>
+ </tr>
+ <tr>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">③ 주은</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오후 1시</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오후 6시</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">( <span class="blank short">&nbsp;</span> )시간</td>
+ </tr>
+ <tr>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">④ 주현</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오전 11시</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오후 4시</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">( <span class="blank short">&nbsp;</span> )시간</td>
+ </tr>
+ <tr>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">⑤ 미정</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오전 8시</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">오후 5시</td>
+ <td style="border:1.5px solid #64b5f6; padding:6px; text-align:center;">( <span class="blank short">&nbsp;</span> )시간</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top:8px;">👉 위 표에서 <b>가장 오래 빌린 친구</b>는 ( <span class="blank">&nbsp;</span> )이고, <b>가장 짧게 빌린 친구</b>는 ( <span class="blank">&nbsp;</span> )예요.</p>
+ </div>
 
-  <div class="tip">💡 <b>오전 → 오후 넘어갈 때:</b> 오전 시각부터 12시까지 세고, 그 다음 오후 시각까지 이어서 세면 돼요.
-    예: 오전 10시 → 12시(2시간) → 오후 2시(4시간). 답 <b>4시간</b>.</div>
+ <div class="tip">💡 <b>오전 → 오후 넘어갈 때:</b> 오전 시각부터 12시까지 세고, 그 다음 오후 시각까지 이어서 세면 돼요.
+ 예: 오전 10시 → 12시(2시간) → 오후 2시(4시간). 답 <b>4시간</b>.</div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 8. 이야기 문제 · 거꾸로 · 비교</h3><span class="tag">4문항</span></div>
-    <p>① <b>채원</b>이는 오후 <b>6시</b>에 책을 반납했어요. <b>4시간 전</b>에 빌렸다면, 빌린 시각은 ( 오후 <span class="blank short">&nbsp;</span> )시예요.</p>
-    <p>② <b>하영</b>이는 오전 <b>10시</b>에 도서관에 들어가 오후 <b>1시</b>에 나왔어요. 도서관에 있었던 시간은 ( <span class="blank short">&nbsp;</span> )시간이에요.</p>
-    <p>③ 두 친구 비교하기: <b>예은</b>이는 오전 <b>9시</b> ~ 낮 <b>12시</b>, <b>채원</b>이는 오전 <b>10시</b> ~ 오후 <b>3시</b> 있었어요.<br>
-       → 예은: ( <span class="blank short">&nbsp;</span> )시간, 채원: ( <span class="blank short">&nbsp;</span> )시간. <b>더 오래</b> 있은 친구는 ( <span class="blank">&nbsp;</span> )이고, ( <span class="blank short">&nbsp;</span> )시간 더 있었어요.</p>
-    <p>④ 도서관 문은 오전 <b>10시</b>에 열어요. <b>8시간</b> 동안 열려 있다면, 문 닫는 시각은 ( 오후 <span class="blank short">&nbsp;</span> )시예요.</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 8. 이야기 문제 · 거꾸로 · 비교</h3><span class="tag">4문항</span></div>
+ <p>① <b>채원</b>이는 오후 <b>6시</b>에 책을 반납했어요. <b>4시간 전</b>에 빌렸다면, 빌린 시각은 ( 오후 <span class="blank short">&nbsp;</span> )시예요.</p>
+ <p>② <b>하영</b>이는 오전 <b>10시</b>에 도서관에 들어가 오후 <b>1시</b>에 나왔어요. 도서관에 있었던 시간은 ( <span class="blank short">&nbsp;</span> )시간이에요.</p>
+ <p>③ 두 친구 비교하기: <b>예은</b>이는 오전 <b>9시</b> ~ 낮 <b>12시</b>, <b>채원</b>이는 오전 <b>10시</b> ~ 오후 <b>3시</b> 있었어요.<br>
+ → 예은: ( <span class="blank short">&nbsp;</span> )시간, 채원: ( <span class="blank short">&nbsp;</span> )시간. <b>더 오래</b> 있은 친구는 ( <span class="blank">&nbsp;</span> )이고, ( <span class="blank short">&nbsp;</span> )시간 더 있었어요.</p>
+ <p>④ 도서관 문은 오전 <b>10시</b>에 열어요. <b>8시간</b> 동안 열려 있다면, 문 닫는 시각은 ( 오후 <span class="blank short">&nbsp;</span> )시예요.</p>
+ </div>
 
-  <div class="activity" style="border-color:#ef6c00; background:#fff8e1;">
-    <div class="head"><h3>🌟 활동 9. 도전! 오전 → 오후 넘어가기</h3><span class="tag" style="background:#ffe0b2; color:#bf360c;">2문항</span></div>
-    <p>오전과 오후를 <b>넘나드는</b> 문제예요. <b>12시(정오)</b>를 꼭 거쳐서 세어야 해요.</p>
-    <p>① <b>채원</b>이는 오전 <b>10시</b>에 도서관에 도착해서 오후 <b>4시</b>에 나왔어요.<br>
-       → 오전 10시 → 12시( <span class="blank short">&nbsp;</span> 시간) → 오후 4시( <span class="blank short">&nbsp;</span> 시간). 총 ( <span class="blank short">&nbsp;</span> )시간!</p>
-    <p>② <b>주은</b>이는 오전 <b>11시</b>에 도서관에 들어가 오후 <b>5시</b>에 나왔어요.<br>
-       도서관에 있었던 시간은 총 ( <span class="blank short">&nbsp;</span> )시간이에요.</p>
-  </div>
+ <div class="activity" style="border-color:#ef6c00; background:#fff8e1;">
+ <div class="head"><h3>🌟 활동 9. 도전! 오전 → 오후 넘어가기</h3><span class="tag" style="background:#ffe0b2; color:#bf360c;">2문항</span></div>
+ <p>오전과 오후를 <b>넘나드는</b> 문제예요. <b>12시(정오)</b>를 꼭 거쳐서 세어야 해요.</p>
+ <p>① <b>채원</b>이는 오전 <b>10시</b>에 도서관에 도착해서 오후 <b>4시</b>에 나왔어요.<br>
+ → 오전 10시 → 12시( <span class="blank short">&nbsp;</span> 시간) → 오후 4시( <span class="blank short">&nbsp;</span> 시간). 총 ( <span class="blank short">&nbsp;</span> )시간!</p>
+ <p>② <b>주은</b>이는 오전 <b>11시</b>에 도서관에 들어가 오후 <b>5시</b>에 나왔어요.<br>
+ 도서관에 있었던 시간은 총 ( <span class="blank short">&nbsp;</span> )시간이에요.</p>
+ </div>
 
-  <div class="note">🌟 <b>실천 과제:</b> 오늘 <b>학교 등교 → 하교</b>까지 몇 시간 있었는지 계산해 봐요.
-    오전에 등교해서 오후에 하교하니까 <b>12시를 거쳐서</b> 세면 돼요. 등교 ( <span class="blank short">&nbsp;</span> )시 → 하교 ( <span class="blank short">&nbsp;</span> )시 → 총 ( <span class="blank short">&nbsp;</span> )시간!</div>
+ <div class="note">🌟 <b>실천 과제:</b> 오늘 <b>학교 등교 → 하교</b>까지 몇 시간 있었는지 계산해 봐요.
+ 오전에 등교해서 오후에 하교하니까 <b>12시를 거쳐서</b> 세면 돼요. 등교 ( <span class="blank short">&nbsp;</span> )시 → 하교 ( <span class="blank short">&nbsp;</span> )시 → 총 ( <span class="blank short">&nbsp;</span> )시간!</div>
 
-  <div class="page-foot">시계 시리즈 · L7 · 5쪽 / 5</div>
+ <div class="page-foot">시계 시리즈 · L7 · 5쪽 / 5</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #c5cae9 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #1a237e;
-  border-bottom: 2px solid #7986cb; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #7986cb; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #283593; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #283593; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #283593; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #1a237e; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #283593; font-weight: 500; }
 .cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 8px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #1a237e; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #283593; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #283593; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #1a237e; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #283593; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -95,346 +95,346 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">💼 S23 사장님·상사와 대화하기</span><span class="muted">사회성 · Level 23 · 직장</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">💼 S23 사장님·상사와 대화하기</span><span class="muted">사회성 · Level 23 · 직장</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#1a237e;">S23 · 직장</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">직장·아르바이트 · 상사 대화</span>
-    <h1>사장님·상사와 잘 통하는 말</h1>
-    <p class="lead">지시 확인·실수 보고·사전 연락, <b>믿음직한 직원</b>이 되는 대화법</p>
-  </div>
-  <div class="cover-emoji">💼 📋 📞</div>
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul>
-      <li>지시를 <b>다시 말하며 확인</b>하는 방법을 안다.</li>
-      <li>실수·문제를 <b>빨리·정직하게</b> 보고한다.</li>
-      <li>지각·결근을 <b>미리 연락</b>하는 순서를 안다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
-    <ul>
-      <li><b>미정</b>: 카페 알바에서 사장님 지시를 확인·재확인하는 상황</li>
-      <li><b>주현</b>: 편의점 알바 첫날 실수를 보고하고, 다음 날 컨디션 안 좋아 사전 연락</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">사회성 시리즈 · S23 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#1a237e;">S23 · 직장</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">직장·아르바이트 · 상사 대화</span>
+ <h1>사장님·상사와 잘 통하는 말</h1>
+ <p class="lead">지시 확인·실수 보고·사전 연락, <b>믿음직한 직원</b>이 되는 대화법</p>
+ </div>
+ <div class="cover-emoji">💼 📋 📞</div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul>
+ <li>지시를 <b>다시 말하며 확인</b>하는 방법을 안다.</li>
+ <li>실수·문제를 <b>빨리·정직하게</b> 보고한다.</li>
+ <li>지각·결근을 <b>미리 연락</b>하는 순서를 안다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+ <ul>
+ <li><b>미정</b>: 카페 알바에서 사장님 지시를 확인·재확인하는 상황</li>
+ <li><b>주현</b>: 편의점 알바 첫날 실수를 보고하고, 다음 날 컨디션 안 좋아 사전 연락</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">사회성 시리즈 · S23 · 표지</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>📋 지시 이해와 확인 질문</h2>
-    <span class="step">1쪽 · 지시 받기</span>
-  </div>
-  <div class="intro">
-    사장님이 여러 가지를 한꺼번에 말할 때, "네~"만 하면 <b>기억이 안 남</b>거나 <b>다르게 이해</b>할 수 있어요.
-    <b>다시 말하며 확인</b>하면 실수가 줄고, <b>믿을 만한 직원</b>이 돼요.
-  </div>
+ <div class="page-head">
+ <h2>📋 지시 이해와 확인 질문</h2>
+ <span class="step">1쪽 · 지시 받기</span>
+ </div>
+ <div class="intro">
+ 사장님이 여러 가지를 한꺼번에 말할 때, "네~"만 하면 <b>기억이 안 남</b>거나 <b>다르게 이해</b>할 수 있어요.
+ <b>다시 말하며 확인</b>하면 실수가 줄고, <b>믿을 만한 직원</b>이 돼요.
+ </div>
 
-  <div class="principles">
-    <div class="pri-card">
-      <div class="icon">👂</div>
-      <div class="name">① 끝까지 듣기</div>
-      <div class="desc">중간에 자르지 말고</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">✍</div>
-      <div class="name">② 메모하기</div>
-      <div class="desc">수첩·폰 메모</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">🔁</div>
-      <div class="name">③ 다시 말하기</div>
-      <div class="desc">"~하는 거 맞나요?"</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">❓</div>
-      <div class="name">④ 모르면 묻기</div>
-      <div class="desc">"이 부분 한 번만 더"</div>
-    </div>
-  </div>
+ <div class="principles">
+ <div class="pri-card">
+ <div class="icon">👂</div>
+ <div class="name">① 끝까지 듣기</div>
+ <div class="desc">중간에 자르지 말고</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">✍</div>
+ <div class="name">② 메모하기</div>
+ <div class="desc">수첩·폰 메모</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">🔁</div>
+ <div class="name">③ 다시 말하기</div>
+ <div class="desc">"~하는 거 맞나요?"</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">❓</div>
+ <div class="name">④ 모르면 묻기</div>
+ <div class="desc">"이 부분 한 번만 더"</div>
+ </div>
+ </div>
 
-  <table class="compare-table">
-    <tr>
-      <th style="width:34%;">상황</th>
-      <th style="width:33%;">이렇게 말하면 곤란</th>
-      <th style="width:33%;">이렇게 하면 좋아요</th>
-    </tr>
-    <tr>
-      <td><b>지시 들을 때</b></td>
-      <td class="bad">(고개만 끄덕) "네~"</td>
-      <td class="good">"메모할게요. A는 ○○, B는 △△ 맞나요?"</td>
-    </tr>
-    <tr>
-      <td><b>모를 때</b></td>
-      <td class="bad">(대충 시작함)</td>
-      <td class="good">"죄송합니다, 이 부분 한 번만 더 알려 주세요."</td>
-    </tr>
-    <tr>
-      <td><b>실수했을 때</b></td>
-      <td class="bad">숨김·핑계·미룸</td>
-      <td class="good">"실수가 있었습니다. 지금 상황은 ○○입니다."</td>
-    </tr>
-    <tr>
-      <td><b>지각·결근</b></td>
-      <td class="bad">그냥 안 감·문자만</td>
-      <td class="good">전날/당일 <b>전화</b>로 알림</td>
-    </tr>
-    <tr>
-      <td><b>일 끝나고</b></td>
-      <td class="bad">인사 없이 사라짐</td>
-      <td class="good">"오늘 감사했습니다. 내일 뵙겠습니다."</td>
-    </tr>
-  </table>
+ <table class="compare-table">
+ <tr>
+ <th style="width:34%;">상황</th>
+ <th style="width:33%;">이렇게 말하면 곤란</th>
+ <th style="width:33%;">이렇게 하면 좋아요</th>
+ </tr>
+ <tr>
+ <td><b>지시 들을 때</b></td>
+ <td class="bad">(고개만 끄덕) "네~"</td>
+ <td class="good">"메모할게요. A는 ○○, B는 △△ 맞나요?"</td>
+ </tr>
+ <tr>
+ <td><b>모를 때</b></td>
+ <td class="bad">(대충 시작함)</td>
+ <td class="good">"죄송합니다, 이 부분 한 번만 더 알려 주세요."</td>
+ </tr>
+ <tr>
+ <td><b>실수했을 때</b></td>
+ <td class="bad">숨김·핑계·미룸</td>
+ <td class="good">"실수가 있었습니다. 지금 상황은 ○○입니다."</td>
+ </tr>
+ <tr>
+ <td><b>지각·결근</b></td>
+ <td class="bad">그냥 안 감·문자만</td>
+ <td class="good">전날/당일 <b>전화</b>로 알림</td>
+ </tr>
+ <tr>
+ <td><b>일 끝나고</b></td>
+ <td class="bad">인사 없이 사라짐</td>
+ <td class="good">"오늘 감사했습니다. 내일 뵙겠습니다."</td>
+ </tr>
+ </table>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 지시를 다시 말해 보기</h3><span class="tag">5문항</span></div>
-    <p>사장님 지시를 <b>내가 다시 말하며 확인</b>하는 문장을 만들어 봐요.</p>
-    <p>① 사장님: "테이블 3번 커피 두 잔, 8번은 물수건 갖다 드려."<br>→ "네, <span class="blank long">&nbsp;</span> 맞습니까?"</p>
-    <p>② 사장님: "청소 마치고 계산기 정산까지."<br>→ "<span class="blank long">&nbsp;</span> 다음 <span class="blank long">&nbsp;</span> 순서 맞나요?"</p>
-    <p>③ 사장님: "다음 주 화·목 오후만 나와."<br>→ "<span class="blank long">&nbsp;</span> 근무 맞으시죠?"</p>
-    <p>④ 사장님: "재료 부족하면 냉장고 위 종이에 적어."<br>→ "부족한 재료를 <span class="blank long">&nbsp;</span> 하면 되죠?"</p>
-    <p>⑤ 사장님: "손님한테는 반말하지 말고 존댓말만."<br>→ "손님께는 <span class="blank long">&nbsp;</span> 알겠습니다."</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 지시를 다시 말해 보기</h3><span class="tag">5문항</span></div>
+ <p>사장님 지시를 <b>내가 다시 말하며 확인</b>하는 문장을 만들어 봐요.</p>
+ <p>① 사장님: "테이블 3번 커피 두 잔, 8번은 물수건 갖다 드려."<br>→ "네, <span class="blank long">&nbsp;</span> 맞습니까?"</p>
+ <p>② 사장님: "청소 마치고 계산기 정산까지."<br>→ "<span class="blank long">&nbsp;</span> 다음 <span class="blank long">&nbsp;</span> 순서 맞나요?"</p>
+ <p>③ 사장님: "다음 주 화·목 오후만 나와."<br>→ "<span class="blank long">&nbsp;</span> 근무 맞으시죠?"</p>
+ <p>④ 사장님: "재료 부족하면 냉장고 위 종이에 적어."<br>→ "부족한 재료를 <span class="blank long">&nbsp;</span> 하면 되죠?"</p>
+ <p>⑤ 사장님: "손님한테는 반말하지 말고 존댓말만."<br>→ "손님께는 <span class="blank long">&nbsp;</span> 알겠습니다."</p>
+ </div>
 
-  <div class="dialogue">
-    <div class="title">📖 미정이의 좋은 예 — 지시 받고 확인</div>
-    <div class="speech">
-      <div class="avatar">사장</div>
-      <div class="bubble">
-        <div class="who">사장님</div>
-        미정아, 5번 테이블에 아이스 아메리카노 두 잔, 6번은 카페라떼 하나 뜨겁게. 7번은 계산.
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">미정</div>
-        (메모하며) 네, 사장님. <b>5번 아메리카노 아이스 2잔, 6번 라떼 뜨겁게 1잔, 7번 계산</b> 맞으세요?
-      </div>
-      <div class="avatar">미정</div>
-    </div>
-    <div class="speech">
-      <div class="avatar">사장</div>
-      <div class="bubble">
-        <div class="who">사장님</div>
-        맞아. 계산부터 하고 음료 갖다 드려.
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">미정</div>
-        <b>네, 계산 먼저 → 음료 순서.</b> 알겠습니다.
-      </div>
-      <div class="avatar">미정</div>
-    </div>
-  </div>
+ <div class="dialogue">
+ <div class="title">📖 미정이의 좋은 예 — 지시 받고 확인</div>
+ <div class="speech">
+ <div class="avatar">사장</div>
+ <div class="bubble">
+ <div class="who">사장님</div>
+ 미정아, 5번 테이블에 아이스 아메리카노 두 잔, 6번은 카페라떼 하나 뜨겁게. 7번은 계산.
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">미정</div>
+ (메모하며) 네, 사장님. <b>5번 아메리카노 아이스 2잔, 6번 라떼 뜨겁게 1잔, 7번 계산</b> 맞으세요?
+ </div>
+ <div class="avatar">미정</div>
+ </div>
+ <div class="speech">
+ <div class="avatar">사장</div>
+ <div class="bubble">
+ <div class="who">사장님</div>
+ 맞아. 계산부터 하고 음료 갖다 드려.
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">미정</div>
+ <b>네, 계산 먼저 → 음료 순서.</b> 알겠습니다.
+ </div>
+ <div class="avatar">미정</div>
+ </div>
+ </div>
 
-  <div class="tip">
-    💡 <b>메모의 힘</b>. 지시받는 즉시 <b>수첩/폰 메모장</b>에 키워드만이라도 적어요. 나중에 물어보기 미안한 상황을 줄여요.
-  </div>
+ <div class="tip">
+ 💡 <b>메모의 힘</b>. 지시받는 즉시 <b>수첩/폰 메모장</b>에 키워드만이라도 적어요. 나중에 물어보기 미안한 상황을 줄여요.
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S23 · 1쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S23 · 1쪽 / 2</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>📞 실수 보고와 사전 연락</h2>
-    <span class="step">2쪽 · 보고·연락</span>
-  </div>
-  <div class="intro">
-    실수는 누구나 해요. 중요한 건 <b>숨기지 않고 빨리 알리기</b>예요. 지각·결근도 <b>미리 전화</b>하면 대부분 이해받을 수 있어요.
-  </div>
+ <div class="page-head">
+ <h2>📞 실수 보고와 사전 연락</h2>
+ <span class="step">2쪽 · 보고·연락</span>
+ </div>
+ <div class="intro">
+ 실수는 누구나 해요. 중요한 건 <b>숨기지 않고 빨리 알리기</b>예요. 지각·결근도 <b>미리 전화</b>하면 대부분 이해받을 수 있어요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 상황별 말하기</h3><span class="tag">6장면</span></div>
-    <div class="situation-grid">
-      <div class="sit-card">
-        <div class="place">📞 사전 연락</div>
-        <div class="role"><b>주현</b> 30분 늦을 상황</div>
-        <div class="example">예: "사장님, 지하철이 지연돼 30분 정도 늦을 것 같습니다. 죄송합니다."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🤒 결근 요청</div>
-        <div class="role">몸이 아파 하루 쉬어야</div>
-        <div class="example">예: "열이 있어서요. 오늘 하루 쉴 수 있을까요? 병원 진단서 갖다 드리겠습니다."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🚨 실수 보고</div>
-        <div class="role">컵을 깨트림</div>
-        <div class="example">예: "사장님, 죄송합니다. 컵 하나 깼습니다. 지금 치우겠습니다."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">❓ 재확인</div>
-        <div class="role">지시가 이해 안 됨</div>
-        <div class="example">예: "죄송합니다, 이 부분 한 번만 더 말씀해 주세요."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🙋 도움 요청</div>
-        <div class="role">손님이 많아 힘듦</div>
-        <div class="example">예: "사장님, 지금 손님이 몰려서요. 도와주실 수 있으실까요?"</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">👋 퇴근 인사</div>
-        <div class="role">하루 마무리</div>
-        <div class="example">예: "오늘 감사했습니다. 내일도 잘 부탁드립니다."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 상황별 말하기</h3><span class="tag">6장면</span></div>
+ <div class="situation-grid">
+ <div class="sit-card">
+ <div class="place">📞 사전 연락</div>
+ <div class="role"><b>주현</b> 30분 늦을 상황</div>
+ <div class="example">예: "사장님, 지하철이 지연돼 30분 정도 늦을 것 같습니다. 죄송합니다."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🤒 결근 요청</div>
+ <div class="role">몸이 아파 하루 쉬어야</div>
+ <div class="example">예: "열이 있어서요. 오늘 하루 쉴 수 있을까요? 병원 진단서 갖다 드리겠습니다."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🚨 실수 보고</div>
+ <div class="role">컵을 깨트림</div>
+ <div class="example">예: "사장님, 죄송합니다. 컵 하나 깼습니다. 지금 치우겠습니다."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">❓ 재확인</div>
+ <div class="role">지시가 이해 안 됨</div>
+ <div class="example">예: "죄송합니다, 이 부분 한 번만 더 말씀해 주세요."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🙋 도움 요청</div>
+ <div class="role">손님이 많아 힘듦</div>
+ <div class="example">예: "사장님, 지금 손님이 몰려서요. 도와주실 수 있으실까요?"</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">👋 퇴근 인사</div>
+ <div class="role">하루 마무리</div>
+ <div class="example">예: "오늘 감사했습니다. 내일도 잘 부탁드립니다."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 주현이의 실수 보고 대화 완성</h3><span class="tag">쓰기</span></div>
-    <p>주현이가 편의점에서 손님 카드 결제를 <b>실수로 2번</b> 눌렀어요. 사장님께 어떻게 보고할까요?
-    <b>사실 → 사과 → 조치 → 배움</b> 순서로.</p>
-    <p>① 상황(사실): "<span class="blank long">&nbsp;</span>"</p>
-    <p>② 사과: "<span class="blank long">&nbsp;</span>"</p>
-    <p>③ 조치(어떻게 했나 or 어떻게 할지): "<span class="blank long">&nbsp;</span>"</p>
-    <p>④ 배움(앞으로 이렇게): "<span class="blank long">&nbsp;</span>"</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 주현이의 실수 보고 대화 완성</h3><span class="tag">쓰기</span></div>
+ <p>주현이가 편의점에서 손님 카드 결제를 <b>실수로 2번</b> 눌렀어요. 사장님께 어떻게 보고할까요?
+ <b>사실 → 사과 → 조치 → 배움</b> 순서로.</p>
+ <p>① 상황(사실): "<span class="blank long">&nbsp;</span>"</p>
+ <p>② 사과: "<span class="blank long">&nbsp;</span>"</p>
+ <p>③ 조치(어떻게 했나 or 어떻게 할지): "<span class="blank long">&nbsp;</span>"</p>
+ <p>④ 배움(앞으로 이렇게): "<span class="blank long">&nbsp;</span>"</p>
+ </div>
 
-  <div class="checklist">
-    <div class="title">✅ 사장님·상사와 잘 지내는 5가지</div>
-    <label><input type="checkbox" style="margin-right:6px;"> 지시받으면 <b>메모</b>하고 <b>다시 말하며 확인</b>한다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 모르면 <b>바로 그때</b> 다시 여쭙는다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 실수는 <b>숨기지 않고 즉시 보고</b>한다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 지각·결근은 <b>미리 전화</b>로 알린다 (문자만 X)</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 출근·퇴근할 때 <b>인사</b>를 잊지 않는다</label>
-  </div>
+ <div class="checklist">
+ <div class="title">✅ 사장님·상사와 잘 지내는 5가지</div>
+ <label><input type="checkbox" style="margin-right:6px;"> 지시받으면 <b>메모</b>하고 <b>다시 말하며 확인</b>한다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 모르면 <b>바로 그때</b> 다시 여쭙는다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 실수는 <b>숨기지 않고 즉시 보고</b>한다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 지각·결근은 <b>미리 전화</b>로 알린다 (문자만 X)</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 출근·퇴근할 때 <b>인사</b>를 잊지 않는다</label>
+ </div>
 
-  <div class="note">
-    🌱 사장님이 원하는 건 <b>완벽한 사람</b>이 아니에요. <b>말이 통하는 사람</b>이에요.
-    실수해도 <b>빠르고 정직한 보고</b>가 있으면 신뢰가 쌓여요.
-  </div>
+ <div class="note">
+ 🌱 사장님이 원하는 건 <b>완벽한 사람</b>이 아니에요. <b>말이 통하는 사람</b>이에요.
+ 실수해도 <b>빠르고 정직한 보고</b>가 있으면 신뢰가 쌓여요.
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S23 · 2쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S23 · 2쪽 / 2</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #f8bbd0 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #880e4f;
-  border-bottom: 2px solid #ec407a; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #ec407a; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #c2185b; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #c2185b; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #c2185b; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 1.9em; letter-spacing: -1.5px; color: #880e4f; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #880e4f; font-weight: 500; }
 .cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 6px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #880e4f; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #c2185b; padding-bottom: 5px; margin-bottom: 8px; }
+ border-bottom: 2.5px solid #c2185b; padding-bottom: 5px; margin-bottom: 8px; }
 .page-head h2 { margin: 0; color: #880e4f; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #c2185b; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -75,11 +75,11 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 
 .page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
 @media print {
-  body { background: #fff; font-size: 9.5pt; line-height: 1.35; }
-  .toolbar { display: none; }
-  .page { box-shadow: none; margin: 0 auto; padding: 10mm 12mm; }
-  .activity { padding: 8px 11px; margin: 7px 0; }
-  .intro, .tip, .note { padding: 6px 10px; margin: 5px 0; }
+ body { background: #fff; font-size: 9.5pt; line-height: 1.35; }
+ .toolbar { display: none; }
+ .page { box-shadow: none; margin: 0 auto; padding: 10mm 12mm; }
+ .activity { padding: 8px 11px; margin: 7px 0; }
+ .intro, .tip, .note { padding: 6px 10px; margin: 5px 0; }
 }
 
 .sp-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
@@ -102,367 +102,367 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">✋ L20 갈게요·할게요</span><span class="muted">맞춤법 · Level 20</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">✋ L20 갈게요·할게요</span><span class="muted">맞춤법 · Level 20</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">국어</span> · 맞춤법 시리즈 · <b style="color:#880e4f;">L20 · 약속 어미</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">어미 · -ㄹ게 vs -ㄹ께</span>
-    <h1>예은·주은의 약속 카톡</h1>
-    <p class="lead">"할게요·갈게요"가 맞아요! "할께·갈께"는 잘못!</p>
-  </div>
-  <div class="cover-emoji">📲 🤝 ✅</div>
-  <div class="cover-info">
-    <h3>🎯 학습 목표</h3>
-    <ul>
-      <li>약속·의지의 어미는 <b>-ㄹ게(요)</b>임을 알고 <b>-ㄹ께</b>가 잘못임을 안다.</li>
-      <li><b>께</b>는 존칭 조사(어른<b>께</b> 드리다)로만 쓰임을 안다.</li>
-      <li>카톡·톡방에서 자주 하는 실수를 스스로 고칠 수 있다.</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">맞춤법 시리즈 · L20 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">국어</span> · 맞춤법 시리즈 · <b style="color:#880e4f;">L20 · 약속 어미</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">어미 · -ㄹ게 vs -ㄹ께</span>
+ <h1>예은·주은의 약속 카톡</h1>
+ <p class="lead">"할게요·갈게요"가 맞아요! "할께·갈께"는 잘못!</p>
+ </div>
+ <div class="cover-emoji">📲 🤝 ✅</div>
+ <div class="cover-info">
+ <h3>🎯 학습 목표</h3>
+ <ul>
+ <li>약속·의지의 어미는 <b>-ㄹ게(요)</b>임을 알고 <b>-ㄹ께</b>가 잘못임을 안다.</li>
+ <li><b>께</b>는 존칭 조사(어른<b>께</b> 드리다)로만 쓰임을 안다.</li>
+ <li>카톡·톡방에서 자주 하는 실수를 스스로 고칠 수 있다.</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">맞춤법 시리즈 · L20 · 표지</div>
 </section>
 
 <!-- 1쪽 -->
 <section class="page">
-  <div class="page-head">
-    <h2>📚 -ㄹ게(요)와 -께의 차이</h2>
-    <span class="step">1쪽 · 규칙</span>
-  </div>
-  <div class="intro">
-    발음이 [께]로 들려서 자꾸 <b>-ㄹ께</b>로 쓰지만, 표기는 반드시 <b>-ㄹ게(요)</b>가 맞아요! <b>께</b>는 어른께·부모님께처럼 <b>존칭 조사</b>일 때만 씁니다.
-  </div>
+ <div class="page-head">
+ <h2>📚 -ㄹ게(요)와 -께의 차이</h2>
+ <span class="step">1쪽 · 규칙</span>
+ </div>
+ <div class="intro">
+ 발음이 [께]로 들려서 자꾸 <b>-ㄹ께</b>로 쓰지만, 표기는 반드시 <b>-ㄹ게(요)</b>가 맞아요! <b>께</b>는 어른께·부모님께처럼 <b>존칭 조사</b>일 때만 씁니다.
+ </div>
 
-  <table class="rule-table">
-    <tr>
-      <th style="width:20%;">구분</th>
-      <th style="width:40%;">-ㄹ게(요) ✅ 바른 표기</th>
-      <th style="width:40%;">-ㄹ께 ❌ 잘못된 표기</th>
-    </tr>
-    <tr>
-      <td><b>뜻</b></td>
-      <td class="left">약속·의지("~하겠다")를 나타내는 <b>종결 어미</b></td>
-      <td class="right">발음만 [께]로 들릴 뿐, 표기는 잘못</td>
-    </tr>
-    <tr>
-      <td><b>예 1</b></td>
-      <td class="left">이따 <b>갈게</b>. / 이따 <b>갈게요</b>.</td>
-      <td class="right">이따 갈<b>께</b>. ❌</td>
-    </tr>
-    <tr>
-      <td><b>예 2</b></td>
-      <td class="left">숙제 다 <b>할게요</b>.</td>
-      <td class="right">숙제 다 할<b>께</b>요. ❌</td>
-    </tr>
-    <tr>
-      <td><b>예 3</b></td>
-      <td class="left">내가 <b>먹을게</b>. / 조금만 <b>기다릴게</b>.</td>
-      <td class="right">먹을<b>께</b>. ❌ / 기다릴<b>께</b>. ❌</td>
-    </tr>
-    <tr>
-      <td><b>께 쓰는 경우</b></td>
-      <td class="left" colspan="2" style="text-align:center;">부모님<b>께</b>, 선생님<b>께</b>, 어른<b>께</b> 드리다 (존칭 조사)</td>
-    </tr>
-  </table>
+ <table class="rule-table">
+ <tr>
+ <th style="width:20%;">구분</th>
+ <th style="width:40%;">-ㄹ게(요) ✅ 바른 표기</th>
+ <th style="width:40%;">-ㄹ께 ❌ 잘못된 표기</th>
+ </tr>
+ <tr>
+ <td><b>뜻</b></td>
+ <td class="left">약속·의지("~하겠다")를 나타내는 <b>종결 어미</b></td>
+ <td class="right">발음만 [께]로 들릴 뿐, 표기는 잘못</td>
+ </tr>
+ <tr>
+ <td><b>예 1</b></td>
+ <td class="left">이따 <b>갈게</b>. / 이따 <b>갈게요</b>.</td>
+ <td class="right">이따 갈<b>께</b>. ❌</td>
+ </tr>
+ <tr>
+ <td><b>예 2</b></td>
+ <td class="left">숙제 다 <b>할게요</b>.</td>
+ <td class="right">숙제 다 할<b>께</b>요. ❌</td>
+ </tr>
+ <tr>
+ <td><b>예 3</b></td>
+ <td class="left">내가 <b>먹을게</b>. / 조금만 <b>기다릴게</b>.</td>
+ <td class="right">먹을<b>께</b>. ❌ / 기다릴<b>께</b>. ❌</td>
+ </tr>
+ <tr>
+ <td><b>께 쓰는 경우</b></td>
+ <td class="left" colspan="2" style="text-align:center;">부모님<b>께</b>, 선생님<b>께</b>, 어른<b>께</b> 드리다 (존칭 조사)</td>
+ </tr>
+ </table>
 
-  <div class="tip">
-    💡 <b>암기 팁</b>: "~할<b>게요</b>" = <b>게</b>임 하겠다("게"임 = 약속 게이지 UP!). <b>께</b>는 <b>어른께</b>만! 카톡에서 자기가 <b>약속</b>할 때는 무조건 <b>-게(요)</b>.
-  </div>
+ <div class="tip">
+ 💡 <b>암기 팁</b>: "~할<b>게요</b>" = <b>게</b>임 하겠다("게"임 = 약속 게이지 UP!). <b>께</b>는 <b>어른께</b>만! 카톡에서 자기가 <b>약속</b>할 때는 무조건 <b>-게(요)</b>.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 바른 표기 고르기</h3><span class="tag">5문항</span></div>
-    <p>① 나 지금 (갈게 / 갈께).</p>
-    <p>② 숙제는 내가 (할게요 / 할께요).</p>
-    <p>③ 조금만 (기다릴게 / 기다릴께).</p>
-    <p>④ 이 편지는 선생님 (께 / 게) 드릴 거야.</p>
-    <p>⑤ 다음엔 꼭 (지킬게 / 지킬께).</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 바른 표기 고르기</h3><span class="tag">5문항</span></div>
+ <p>① 나 지금 (갈게 / 갈께).</p>
+ <p>② 숙제는 내가 (할게요 / 할께요).</p>
+ <p>③ 조금만 (기다릴게 / 기다릴께).</p>
+ <p>④ 이 편지는 선생님 (께 / 게) 드릴 거야.</p>
+ <p>⑤ 다음엔 꼭 (지킬게 / 지킬께).</p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 문장 완성 (바른 어미로)</h3><span class="tag">5문항</span></div>
-    <p>① 내가 먼저 <span class="blank" style="min-width:80px;">&nbsp;</span> (전화)</p>
-    <p>② 5분만 <span class="blank" style="min-width:80px;">&nbsp;</span> (기다림)</p>
-    <p>③ 이건 부모님 <span class="blank" style="min-width:60px;">&nbsp;</span> 드릴 선물이야. (존칭 조사)</p>
-    <p>④ 오늘은 내가 <span class="blank" style="min-width:80px;">&nbsp;</span> (설거지)</p>
-    <p>⑤ 진심으로 <span class="blank" style="min-width:80px;">&nbsp;</span> (사과)</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 문장 완성 (바른 어미로)</h3><span class="tag">5문항</span></div>
+ <p>① 내가 먼저 <span class="blank" style="min-width:80px;">&nbsp;</span> (전화)</p>
+ <p>② 5분만 <span class="blank" style="min-width:80px;">&nbsp;</span> (기다림)</p>
+ <p>③ 이건 부모님 <span class="blank" style="min-width:60px;">&nbsp;</span> 드릴 선물이야. (존칭 조사)</p>
+ <p>④ 오늘은 내가 <span class="blank" style="min-width:80px;">&nbsp;</span> (설거지)</p>
+ <p>⑤ 진심으로 <span class="blank" style="min-width:80px;">&nbsp;</span> (사과)</p>
+ </div>
 
-  <div class="page-foot">맞춤법 시리즈 · L20 · 1쪽 / 2</div>
+ <div class="page-foot">맞춤법 시리즈 · L20 · 1쪽 / 2</div>
 </section>
 
 <!-- 2쪽 -->
 <section class="page">
-  <div class="page-head">
-    <h2>💬 카톡 첨삭 · 내 약속 쓰기</h2>
-    <span class="step">2쪽 · 실전</span>
-  </div>
+ <div class="page-head">
+ <h2>💬 카톡 첨삭 · 내 약속 쓰기</h2>
+ <span class="step">2쪽 · 실전</span>
+ </div>
 
-  <div class="dialogue">
-    <div class="title">💬 예은 ↔ 주은 (약속 카톡 · 오답 6군데)</div>
-    <div class="speech">
-      <div class="avatar">예은</div>
-      <div class="bubble">
-        <div class="who">예은</div>
-        오늘 학원 끝나고 만나! 나 5시까지 <span class="h">갈께</span> 🚗
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">주은</div>
-        오키! 나도 이따가 <span class="h">도착할께</span>. 조금 늦으면 <span class="h">기다려줄께</span>?
-      </div>
-      <div class="avatar">주은</div>
-    </div>
-    <div class="speech">
-      <div class="avatar">예은</div>
-      <div class="bubble">
-        <div class="who">예은</div>
-        그래! 내가 카페 자리 <span class="h">잡을께</span>. 참, 엄마 <span class="h">게</span> 드릴 케이크도 살 거야 🎂
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">주은</div>
-        오~ 나 5분 늦어. 미안. 진짜 다음엔 안 늦게 <span class="h">올께</span> 😅
-      </div>
-      <div class="avatar">주은</div>
-    </div>
-  </div>
+ <div class="dialogue">
+ <div class="title">💬 예은 ↔ 주은 (약속 카톡 · 오답 6군데)</div>
+ <div class="speech">
+ <div class="avatar">예은</div>
+ <div class="bubble">
+ <div class="who">예은</div>
+ 오늘 학원 끝나고 만나! 나 5시까지 <span class="h">갈께</span> 🚗
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">주은</div>
+ 오키! 나도 이따가 <span class="h">도착할께</span>. 조금 늦으면 <span class="h">기다려줄께</span>?
+ </div>
+ <div class="avatar">주은</div>
+ </div>
+ <div class="speech">
+ <div class="avatar">예은</div>
+ <div class="bubble">
+ <div class="who">예은</div>
+ 그래! 내가 카페 자리 <span class="h">잡을께</span>. 참, 엄마 <span class="h">게</span> 드릴 케이크도 살 거야 🎂
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">주은</div>
+ 오~ 나 5분 늦어. 미안. 진짜 다음엔 안 늦게 <span class="h">올께</span> 😅
+ </div>
+ <div class="avatar">주은</div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 카톡 첨삭</h3><span class="tag">6군데</span></div>
-    <p>① 5시까지 <b>갈께</b> → 5시까지 <span class="blank" style="min-width:80px;">&nbsp;</span></p>
-    <p>② <b>도착할께</b> → <span class="blank" style="min-width:100px;">&nbsp;</span></p>
-    <p>③ <b>기다려줄께</b> → <span class="blank" style="min-width:120px;">&nbsp;</span></p>
-    <p>④ 자리 <b>잡을께</b> → 자리 <span class="blank" style="min-width:100px;">&nbsp;</span></p>
-    <p>⑤ 엄마 <b>게</b> 드릴 (존칭 조사) → 엄마 <span class="blank short">&nbsp;</span> 드릴</p>
-    <p>⑥ 안 늦게 <b>올께</b> → 안 늦게 <span class="blank" style="min-width:80px;">&nbsp;</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 카톡 첨삭</h3><span class="tag">6군데</span></div>
+ <p>① 5시까지 <b>갈께</b> → 5시까지 <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+ <p>② <b>도착할께</b> → <span class="blank" style="min-width:100px;">&nbsp;</span></p>
+ <p>③ <b>기다려줄께</b> → <span class="blank" style="min-width:120px;">&nbsp;</span></p>
+ <p>④ 자리 <b>잡을께</b> → 자리 <span class="blank" style="min-width:100px;">&nbsp;</span></p>
+ <p>⑤ 엄마 <b>게</b> 드릴 (존칭 조사) → 엄마 <span class="blank short">&nbsp;</span> 드릴</p>
+ <p>⑥ 안 늦게 <b>올께</b> → 안 늦게 <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 나의 약속 4문장</h3><span class="tag">쓰기</span></div>
-    <p>친구·가족·선생님께 자주 하는 약속을 <b>바른 어미(-ㄹ게/-ㄹ게요)</b>로 4문장 써 봐요.</p>
-    <p>① [친구에게] <span class="blank" style="min-width:320px;">&nbsp;</span></p>
-    <p>② [부모님께] <span class="blank" style="min-width:320px;">&nbsp;</span></p>
-    <p>③ [선생님께] <span class="blank" style="min-width:320px;">&nbsp;</span></p>
-    <p>④ [나 자신에게] <span class="blank" style="min-width:320px;">&nbsp;</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 나의 약속 4문장</h3><span class="tag">쓰기</span></div>
+ <p>친구·가족·선생님께 자주 하는 약속을 <b>바른 어미(-ㄹ게/-ㄹ게요)</b>로 4문장 써 봐요.</p>
+ <p>① [친구에게] <span class="blank" style="min-width:320px;">&nbsp;</span></p>
+ <p>② [부모님께] <span class="blank" style="min-width:320px;">&nbsp;</span></p>
+ <p>③ [선생님께] <span class="blank" style="min-width:320px;">&nbsp;</span></p>
+ <p>④ [나 자신에게] <span class="blank" style="min-width:320px;">&nbsp;</span></p>
+ </div>
 
-  <div class="note">
-    ✨ <b>정리</b>: 약속·의지 = <b>-ㄹ게(요)</b> ✅ (할게, 갈게, 먹을게, 지킬게요). <b>-ㄹ께</b>는 항상 잘못! <b>께</b>는 "부모님<b>께</b>·선생님<b>께</b>"처럼 존칭 조사일 때만!<br>
-    🎉 <b>축하해요!</b> 맞춤법 심화 <b>L11~L20</b>을 모두 마쳤어요. 다음 <b>L21~L30</b>에서 만나요!
-  </div>
+ <div class="note">
+ ✨ <b>정리</b>: 약속·의지 = <b>-ㄹ게(요)</b> ✅ (할게, 갈게, 먹을게, 지킬게요). <b>-ㄹ께</b>는 항상 잘못! <b>께</b>는 "부모님<b>께</b>·선생님<b>께</b>"처럼 존칭 조사일 때만!<br>
+ 🎉 <b>축하해요!</b> 맞춤법 심화 <b>L11~L20</b>을 모두 마쳤어요. 다음 <b>L21~L30</b>에서 만나요!
+ </div>
 
-  <div class="page-foot">맞춤법 시리즈 · L20 · 2쪽 / 2</div>
+ <div class="page-foot">맞춤법 시리즈 · L20 · 2쪽 / 2</div>
 </section>
 
 
 <section class="page">
-  <div class="page-head">
-    <h2>🔁 복습 · 자기 점검 — -할게요 · -할께요</h2>
-    <span class="step">추가 1쪽 · 복습</span>
-  </div>
-  <div class="intro">오늘 배운 <b>-할게요 · -할께요</b> 규칙을 <b>내 말로 다시</b> 써 보고, 평소 내가 자주 틀렸던 부분을 정리해 봐요.</div>
+ <div class="page-head">
+ <h2>🔁 복습 · 자기 점검 — -할게요 · -할께요</h2>
+ <span class="step">추가 1쪽 · 복습</span>
+ </div>
+ <div class="intro">오늘 배운 <b>-할게요 · -할께요</b> 규칙을 <b>내 말로 다시</b> 써 보고, 평소 내가 자주 틀렸던 부분을 정리해 봐요.</div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 A1. 내 말로 규칙 쓰기</h3><span class="tag">서술형</span></div>
-    <p>오늘 배운 규칙을 <b>친구에게 설명하듯</b> 한두 문장으로 써 봐요.</p>
-    <div class="write-lines"><div class="wl">&nbsp;</div><div class="wl">&nbsp;</div></div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 A1. 내 말로 규칙 쓰기</h3><span class="tag">서술형</span></div>
+ <p>오늘 배운 규칙을 <b>친구에게 설명하듯</b> 한두 문장으로 써 봐요.</p>
+ <div class="write-lines"><div class="wl">&nbsp;</div><div class="wl">&nbsp;</div></div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 A2. 이 규칙이 필요한 상황 3개</h3><span class="tag">상황 떠올리기</span></div>
-    <p>이 맞춤법이 <b>실제로 쓰일 상황</b>을 떠올려 3개만 적어 봐요. (예: 문자할 때, 자기소개 쓸 때, 공지 쓸 때…)</p>
-    <ol style="margin:6px 0 6px 22px;">
-      <li style="margin:6px 0;">상황 ① <span class="blank" style="min-width:320px;">&nbsp;</span></li>
-      <li style="margin:6px 0;">상황 ② <span class="blank" style="min-width:320px;">&nbsp;</span></li>
-      <li style="margin:6px 0;">상황 ③ <span class="blank" style="min-width:320px;">&nbsp;</span></li>
-    </ol>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 A2. 이 규칙이 필요한 상황 3개</h3><span class="tag">상황 떠올리기</span></div>
+ <p>이 맞춤법이 <b>실제로 쓰일 상황</b>을 떠올려 3개만 적어 봐요. (예: 문자할 때, 자기소개 쓸 때, 공지 쓸 때…)</p>
+ <ol style="margin:6px 0 6px 22px;">
+ <li style="margin:6px 0;">상황 ① <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+ <li style="margin:6px 0;">상황 ② <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+ <li style="margin:6px 0;">상황 ③ <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+ </ol>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 A3. 내가 자주 틀리던 표기 → 바른 표기</h3><span class="tag">3행 표</span></div>
-    <p>이번 레슨과 관련해 <b>평소 내가 자주 틀리던 형태</b>와 <b>바른 형태</b>를 비교해 적어 봐요.</p>
-    <table class="sp-table">
-      <tr><th style="width:8%;">번호</th><th style="width:40%;">내가 자주 쓰던 형태 (❌)</th><th style="width:40%;">바른 형태 (⭕)</th><th style="width:12%;">언제?</th></tr>
-      <tr><td>①</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
-      <tr><td>②</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
-      <tr><td>③</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
-    </table>
-    <div class="tip">💡 "언제?" 칸에는 <b>문자·일기·숙제·시험</b> 같이 자주 쓰는 자리를 적어 두면 스스로 체크하기 좋아요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 A3. 내가 자주 틀리던 표기 → 바른 표기</h3><span class="tag">3행 표</span></div>
+ <p>이번 레슨과 관련해 <b>평소 내가 자주 틀리던 형태</b>와 <b>바른 형태</b>를 비교해 적어 봐요.</p>
+ <table class="sp-table">
+ <tr><th style="width:8%;">번호</th><th style="width:40%;">내가 자주 쓰던 형태 (❌)</th><th style="width:40%;">바른 형태 (⭕)</th><th style="width:12%;">언제?</th></tr>
+ <tr><td>①</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+ <tr><td>②</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+ <tr><td>③</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+ </table>
+ <div class="tip">💡 "언제?" 칸에는 <b>문자·일기·숙제·시험</b> 같이 자주 쓰는 자리를 적어 두면 스스로 체크하기 좋아요.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 A4. 자기 점검 체크리스트</h3><span class="tag">5개</span></div>
-    <ul class="check-list">
-      <li><label><input type="checkbox" disabled> 오늘 규칙을 <b>세 문장 이상</b> 소리 내어 읽어 봤다.</label></li>
-      <li><label><input type="checkbox" disabled> 어제·오늘 내가 쓴 글에서 이 규칙 자리를 <b>직접 확인</b>해 봤다.</label></li>
-      <li><label><input type="checkbox" disabled> 자주 틀리던 형태를 <b>표에 정리</b>했다.</label></li>
-      <li><label><input type="checkbox" disabled> 다음에 틀렸을 때 <b>스스로 고쳐 쓸 자신</b>이 조금 생겼다.</label></li>
-      <li><label><input type="checkbox" disabled> 다음 레슨을 <b>기대</b>한다.</label></li>
-    </ul>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 A4. 자기 점검 체크리스트</h3><span class="tag">5개</span></div>
+ <ul class="check-list">
+ <li><label><input type="checkbox" disabled> 오늘 규칙을 <b>세 문장 이상</b> 소리 내어 읽어 봤다.</label></li>
+ <li><label><input type="checkbox" disabled> 어제·오늘 내가 쓴 글에서 이 규칙 자리를 <b>직접 확인</b>해 봤다.</label></li>
+ <li><label><input type="checkbox" disabled> 자주 틀리던 형태를 <b>표에 정리</b>했다.</label></li>
+ <li><label><input type="checkbox" disabled> 다음에 틀렸을 때 <b>스스로 고쳐 쓸 자신</b>이 조금 생겼다.</label></li>
+ <li><label><input type="checkbox" disabled> 다음 레슨을 <b>기대</b>한다.</label></li>
+ </ul>
+ </div>
 
-  <div class="page-foot">맞춤법 시리즈 · -할게요 · -할께요 · 복습쪽</div>
+ <div class="page-foot">맞춤법 시리즈 · -할게요 · -할께요 · 복습쪽</div>
 </section>
 
 
 <section class="page">
-  <div class="page-head">
-    <h2>✍️ 쓰기 실전 — -할게요 · -할께요</h2>
-    <span class="step">추가 2쪽 · 쓰기</span>
-  </div>
-  <div class="intro">배운 규칙을 <b>실제 문장으로 써 보기</b>로 마무리해요. 짧아도 좋으니 <b>직접</b> 써 보는 게 제일 중요해요.</div>
+ <div class="page-head">
+ <h2>✍️ 쓰기 실전 — -할게요 · -할께요</h2>
+ <span class="step">추가 2쪽 · 쓰기</span>
+ </div>
+ <div class="intro">배운 규칙을 <b>실제 문장으로 써 보기</b>로 마무리해요. 짧아도 좋으니 <b>직접</b> 써 보는 게 제일 중요해요.</div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 B1. 오늘의 규칙을 넣은 문장 3개</h3><span class="tag">직접 쓰기</span></div>
-    <p>오늘 배운 <b>-할게요 · -할께요</b> 규칙이 꼭 보이는 문장을 세 개 써 봐요.</p>
-    <div class="write-lines">
-      <div class="wl">① &nbsp;</div>
-      <div class="wl">② &nbsp;</div>
-      <div class="wl">③ &nbsp;</div>
-    </div>
-    <div class="tip">💡 완성한 뒤 <b>소리 내어 읽어</b> 어색한 곳이 없는지 확인해요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 B1. 오늘의 규칙을 넣은 문장 3개</h3><span class="tag">직접 쓰기</span></div>
+ <p>오늘 배운 <b>-할게요 · -할께요</b> 규칙이 꼭 보이는 문장을 세 개 써 봐요.</p>
+ <div class="write-lines">
+ <div class="wl">① &nbsp;</div>
+ <div class="wl">② &nbsp;</div>
+ <div class="wl">③ &nbsp;</div>
+ </div>
+ <div class="tip">💡 완성한 뒤 <b>소리 내어 읽어</b> 어색한 곳이 없는지 확인해요.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 B2. 상황 메시지 쓰기 — 엄마에게</h3><span class="tag">3~5문장</span></div>
-    <p><b>상황:</b> 오늘 늦게 갈게요 라는 안내</p>
-    <p>이 상황에 맞게 짧은 메시지를 써 봐요. 오늘 배운 <b>-할게요 · -할께요</b> 규칙이 들어가면 더 좋아요.</p>
-    <div class="write-lines">
-      <div class="wl">&nbsp;</div>
-      <div class="wl">&nbsp;</div>
-      <div class="wl">&nbsp;</div>
-      <div class="wl">&nbsp;</div>
-      <div class="wl">&nbsp;</div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 B2. 상황 메시지 쓰기 — 엄마에게</h3><span class="tag">3~5문장</span></div>
+ <p><b>상황:</b> 오늘 늦게 갈게요 라는 안내</p>
+ <p>이 상황에 맞게 짧은 메시지를 써 봐요. 오늘 배운 <b>-할게요 · -할께요</b> 규칙이 들어가면 더 좋아요.</p>
+ <div class="write-lines">
+ <div class="wl">&nbsp;</div>
+ <div class="wl">&nbsp;</div>
+ <div class="wl">&nbsp;</div>
+ <div class="wl">&nbsp;</div>
+ <div class="wl">&nbsp;</div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 B3. 내 다짐 한 문장</h3><span class="tag">마무리</span></div>
-    <p>앞으로 <b>-할게요 · -할께요</b>이(가) 나오는 자리에서 <b>어떻게 신경 쓸지</b> 한 문장으로 적어 봐요.</p>
-    <div class="write-lines"><div class="wl">앞으로 나는, &nbsp;</div></div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 B3. 내 다짐 한 문장</h3><span class="tag">마무리</span></div>
+ <p>앞으로 <b>-할게요 · -할께요</b>이(가) 나오는 자리에서 <b>어떻게 신경 쓸지</b> 한 문장으로 적어 봐요.</p>
+ <div class="write-lines"><div class="wl">앞으로 나는, &nbsp;</div></div>
+ </div>
 
-  <div class="note">🌟 <b>진짜 배움은 쓸 때 일어나요.</b> 오늘 쓴 문장을 <b>하루 뒤 다시</b> 읽어 보면 눈에 보이는 것이 또 달라져요.</div>
+ <div class="note">🌟 <b>진짜 배움은 쓸 때 일어나요.</b> 오늘 쓴 문장을 <b>하루 뒤 다시</b> 읽어 보면 눈에 보이는 것이 또 달라져요.</div>
 
-  <div class="page-foot">맞춤법 시리즈 · -할게요 · -할께요 · 쓰기쪽</div>
+ <div class="page-foot">맞춤법 시리즈 · -할게요 · -할께요 · 쓰기쪽</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

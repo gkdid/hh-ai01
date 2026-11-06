@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffe0b2 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #bf360c;
-  border-bottom: 2px solid #ffa726; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #ffa726; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #ef6c00; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #ef6c00; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #ef6c00; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #bf360c; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #ef6c00; font-weight: 500; }
 .cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 8px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #bf360c; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #ef6c00; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #ef6c00; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #bf360c; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #ef6c00; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -95,342 +95,342 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">🍽 S25 어려운 손님 응대하기</span><span class="muted">사회성 · Level 25 · 서비스직</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">🍽 S25 어려운 손님 응대하기</span><span class="muted">사회성 · Level 25 · 서비스직</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#bf360c;">S25 · 서비스직</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">감정노동 · 자기보호</span>
-    <h1>어려운 손님, 나를 지키며 응대해요</h1>
-    <p class="lead">진상·컴플레인·무리한 요구 앞에서 <b>매너 있게, 단호하게</b></p>
-  </div>
-  <div class="cover-emoji">🍽 🙋 🛎</div>
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul>
-      <li>당연한 컴플레인과 <b>안 되는 요구</b>를 구분한다.</li>
-      <li>정중하게 <b>거절</b>하고 <b>매니저·사장</b>에게 넘긴다.</li>
-      <li>감정노동에서 <b>내 마음을 지키는 방법</b>을 안다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
-    <ul>
-      <li><b>미정</b>: 카페에서 반말·큰소리 손님을 응대</li>
-      <li><b>주현</b>: 편의점에서 물건 트집·환불 무리한 요구</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">사회성 시리즈 · S25 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#bf360c;">S25 · 서비스직</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">감정노동 · 자기보호</span>
+ <h1>어려운 손님, 나를 지키며 응대해요</h1>
+ <p class="lead">진상·컴플레인·무리한 요구 앞에서 <b>매너 있게, 단호하게</b></p>
+ </div>
+ <div class="cover-emoji">🍽 🙋 🛎</div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul>
+ <li>당연한 컴플레인과 <b>안 되는 요구</b>를 구분한다.</li>
+ <li>정중하게 <b>거절</b>하고 <b>매니저·사장</b>에게 넘긴다.</li>
+ <li>감정노동에서 <b>내 마음을 지키는 방법</b>을 안다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+ <ul>
+ <li><b>미정</b>: 카페에서 반말·큰소리 손님을 응대</li>
+ <li><b>주현</b>: 편의점에서 물건 트집·환불 무리한 요구</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">사회성 시리즈 · S25 · 표지</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>🛎 손님 응대의 4단계</h2>
-    <span class="step">1쪽 · 원칙</span>
-  </div>
-  <div class="intro">
-    손님이 화가 나거나 무리한 요구를 할 때, 개인적으로 받지 말고 <b>4단계</b>로 응대해요.
-    <b>내가 잘못한 것이 아니면 사과하지 않아요</b>. 대신 <b>공감</b>부터.
-  </div>
+ <div class="page-head">
+ <h2>🛎 손님 응대의 4단계</h2>
+ <span class="step">1쪽 · 원칙</span>
+ </div>
+ <div class="intro">
+ 손님이 화가 나거나 무리한 요구를 할 때, 개인적으로 받지 말고 <b>4단계</b>로 응대해요.
+ <b>내가 잘못한 것이 아니면 사과하지 않아요</b>. 대신 <b>공감</b>부터.
+ </div>
 
-  <div class="principles">
-    <div class="pri-card">
-      <div class="icon">👂</div>
-      <div class="name">① 듣기</div>
-      <div class="desc">끝까지, 반박 X</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">💗</div>
-      <div class="name">② 공감</div>
-      <div class="desc">"불편하셨겠어요"</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">✅</div>
-      <div class="name">③ 가능·불가능</div>
-      <div class="desc">"이건 됩니다/어렵습니다"</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">📞</div>
-      <div class="name">④ 상급자 호출</div>
-      <div class="desc">화·위협·폭언 시</div>
-    </div>
-  </div>
+ <div class="principles">
+ <div class="pri-card">
+ <div class="icon">👂</div>
+ <div class="name">① 듣기</div>
+ <div class="desc">끝까지, 반박 X</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">💗</div>
+ <div class="name">② 공감</div>
+ <div class="desc">"불편하셨겠어요"</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">✅</div>
+ <div class="name">③ 가능·불가능</div>
+ <div class="desc">"이건 됩니다/어렵습니다"</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">📞</div>
+ <div class="name">④ 상급자 호출</div>
+ <div class="desc">화·위협·폭언 시</div>
+ </div>
+ </div>
 
-  <table class="compare-table">
-    <tr>
-      <th style="width:32%;">손님 요구</th>
-      <th style="width:33%;">이렇게 응대</th>
-      <th style="width:35%;">한계 넘으면</th>
-    </tr>
-    <tr>
-      <td>주문한 것과 다름</td>
-      <td class="good">"확인 후 바로 다시 만들어 드릴게요"</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>비 오는데 자리 없음, 큰 소리</td>
-      <td class="good">"자리 안내가 어려워 죄송해요. 대기 예약 도와드릴게요"</td>
-      <td>큰소리 지속 → 매니저</td>
-    </tr>
-    <tr>
-      <td>영수증 없이 환불 요구</td>
-      <td class="good">"영수증이 있어야 처리가 가능해요"</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>반말·인신공격</td>
-      <td class="bad">참지 말고 곧바로 매니저</td>
-      <td class="bad">폭언·위협 → 112</td>
-    </tr>
-    <tr>
-      <td>몸을 만지려 함·성적 발언</td>
-      <td class="bad">"싫습니다. 그만하세요"</td>
-      <td class="bad">즉시 매니저 + 112</td>
-    </tr>
-  </table>
+ <table class="compare-table">
+ <tr>
+ <th style="width:32%;">손님 요구</th>
+ <th style="width:33%;">이렇게 응대</th>
+ <th style="width:35%;">한계 넘으면</th>
+ </tr>
+ <tr>
+ <td>주문한 것과 다름</td>
+ <td class="good">"확인 후 바로 다시 만들어 드릴게요"</td>
+ <td>—</td>
+ </tr>
+ <tr>
+ <td>비 오는데 자리 없음, 큰 소리</td>
+ <td class="good">"자리 안내가 어려워 죄송해요. 대기 예약 도와드릴게요"</td>
+ <td>큰소리 지속 → 매니저</td>
+ </tr>
+ <tr>
+ <td>영수증 없이 환불 요구</td>
+ <td class="good">"영수증이 있어야 처리가 가능해요"</td>
+ <td>—</td>
+ </tr>
+ <tr>
+ <td>반말·인신공격</td>
+ <td class="bad">참지 말고 곧바로 매니저</td>
+ <td class="bad">폭언·위협 → 112</td>
+ </tr>
+ <tr>
+ <td>몸을 만지려 함·성적 발언</td>
+ <td class="bad">"싫습니다. 그만하세요"</td>
+ <td class="bad">즉시 매니저 + 112</td>
+ </tr>
+ </table>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 응대 문장 만들기 (4단계)</h3><span class="tag">4문항</span></div>
-    <p>손님 상황을 읽고 <b>① 공감 → ② 안내</b>로 응대하는 말을 완성해요.</p>
-    <p>① "아메리카노 시켰는데 라떼가 왔잖아!"<br>공감: "<span class="blank long">&nbsp;</span>" / 안내: "<span class="blank long">&nbsp;</span>"</p>
-    <p>② "왜 이렇게 오래 걸려? 빨리 안 해?"<br>공감: "<span class="blank long">&nbsp;</span>" / 안내: "<span class="blank long">&nbsp;</span>"</p>
-    <p>③ "영수증 잃어버렸는데 환불해 줘."<br>공감: "<span class="blank long">&nbsp;</span>" / 안내: "<span class="blank long">&nbsp;</span>"</p>
-    <p>④ "너 몇 살이야? 반말 좀 하지 마." (손님이 <b>반말</b>했음)<br>대응: "<span class="blank long">&nbsp;</span>" (매니저 호출 여부: <span class="blank">O · X</span>)</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 응대 문장 만들기 (4단계)</h3><span class="tag">4문항</span></div>
+ <p>손님 상황을 읽고 <b>① 공감 → ② 안내</b>로 응대하는 말을 완성해요.</p>
+ <p>① "아메리카노 시켰는데 라떼가 왔잖아!"<br>공감: "<span class="blank long">&nbsp;</span>" / 안내: "<span class="blank long">&nbsp;</span>"</p>
+ <p>② "왜 이렇게 오래 걸려? 빨리 안 해?"<br>공감: "<span class="blank long">&nbsp;</span>" / 안내: "<span class="blank long">&nbsp;</span>"</p>
+ <p>③ "영수증 잃어버렸는데 환불해 줘."<br>공감: "<span class="blank long">&nbsp;</span>" / 안내: "<span class="blank long">&nbsp;</span>"</p>
+ <p>④ "너 몇 살이야? 반말 좀 하지 마." (손님이 <b>반말</b>했음)<br>대응: "<span class="blank long">&nbsp;</span>" (매니저 호출 여부: <span class="blank">O · X</span>)</p>
+ </div>
 
-  <div class="dialogue">
-    <div class="title">📖 미정이의 좋은 예 — 화난 손님</div>
-    <div class="speech">
-      <div class="avatar">손님</div>
-      <div class="bubble">
-        <div class="who">손님</div>
-        (큰 소리로) 야! 왜 이렇게 오래 걸려! 나 20분 기다렸어!
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">미정</div>
-        (한 톤 낮게, 눈 맞춤) <b>오래 기다리게 해서 정말 죄송합니다.</b> 지금 바로 확인해 볼게요. 성함이 어떻게 되실까요?
-      </div>
-      <div class="avatar">미정</div>
-    </div>
-    <div class="speech">
-      <div class="avatar">손님</div>
-      <div class="bubble">
-        <div class="who">손님</div>
-        됐고, 그냥 환불해!
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">미정</div>
-        환불 도와드릴 수 있어요. <b>영수증만 주시면</b> 바로 처리해 드릴게요.
-        (상황이 계속 커지면) 매니저님을 <b>모셔 오겠습니다.</b>
-      </div>
-      <div class="avatar">미정</div>
-    </div>
-  </div>
+ <div class="dialogue">
+ <div class="title">📖 미정이의 좋은 예 — 화난 손님</div>
+ <div class="speech">
+ <div class="avatar">손님</div>
+ <div class="bubble">
+ <div class="who">손님</div>
+ (큰 소리로) 야! 왜 이렇게 오래 걸려! 나 20분 기다렸어!
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">미정</div>
+ (한 톤 낮게, 눈 맞춤) <b>오래 기다리게 해서 정말 죄송합니다.</b> 지금 바로 확인해 볼게요. 성함이 어떻게 되실까요?
+ </div>
+ <div class="avatar">미정</div>
+ </div>
+ <div class="speech">
+ <div class="avatar">손님</div>
+ <div class="bubble">
+ <div class="who">손님</div>
+ 됐고, 그냥 환불해!
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">미정</div>
+ 환불 도와드릴 수 있어요. <b>영수증만 주시면</b> 바로 처리해 드릴게요.
+ (상황이 계속 커지면) 매니저님을 <b>모셔 오겠습니다.</b>
+ </div>
+ <div class="avatar">미정</div>
+ </div>
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S25 · 1쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S25 · 1쪽 / 2</div>
 </section>
 
 <section class="page">
-  <div class="page-head">
-    <h2>🛡 나를 지키는 응대</h2>
-    <span class="step">2쪽 · 자기보호</span>
-  </div>
-  <div class="intro">
-    손님이 <b>선을 넘으면</b>(반말·폭언·위협·신체 접촉) 참지 말고 <b>즉시 매니저</b>를 부르거나 <b>112</b>에 신고해요.
-    감정노동은 <b>모두 내 몫이 아니에요</b>.
-  </div>
+ <div class="page-head">
+ <h2>🛡 나를 지키는 응대</h2>
+ <span class="step">2쪽 · 자기보호</span>
+ </div>
+ <div class="intro">
+ 손님이 <b>선을 넘으면</b>(반말·폭언·위협·신체 접촉) 참지 말고 <b>즉시 매니저</b>를 부르거나 <b>112</b>에 신고해요.
+ 감정노동은 <b>모두 내 몫이 아니에요</b>.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 매니저·경찰 부를까? 판단</h3><span class="tag">O/X 6장면</span></div>
-    <div class="situation-grid">
-      <div class="sit-card">
-        <div class="place">☕ 실수 지적</div>
-        <div class="role">"음료가 뜨겁지 않네요"</div>
-        <div class="example">응대 방향</div>
-        <div class="fill">매니저 호출? (O · X)</div>
-        <div class="fill">이유: </div>
-      </div>
-      <div class="sit-card">
-        <div class="place">😡 큰 소리</div>
-        <div class="role">"야, 빨리 해!"</div>
-        <div class="example">응대 방향</div>
-        <div class="fill">매니저 호출? (O · X)</div>
-        <div class="fill">이유: </div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🤬 욕설</div>
-        <div class="role">인신공격·욕설</div>
-        <div class="example">응대 방향</div>
-        <div class="fill">매니저 호출? (O · X)</div>
-        <div class="fill">이유: </div>
-      </div>
-      <div class="sit-card">
-        <div class="place">✊ 물건 던짐</div>
-        <div class="role">영수증을 얼굴로 던짐</div>
-        <div class="example">응대 방향</div>
-        <div class="fill">112 신고? (O · X)</div>
-        <div class="fill">이유: </div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🍾 취객</div>
-        <div class="role">술 마시고 반말·시비</div>
-        <div class="example">응대 방향</div>
-        <div class="fill">매니저 호출? (O · X)</div>
-        <div class="fill">이유: </div>
-      </div>
-      <div class="sit-card">
-        <div class="place">👀 성적 언행</div>
-        <div class="role">외모·몸 발언, 접촉 시도</div>
-        <div class="example">응대 방향</div>
-        <div class="fill">112 신고? (O · X)</div>
-        <div class="fill">이유: </div>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 매니저·경찰 부를까? 판단</h3><span class="tag">O/X 6장면</span></div>
+ <div class="situation-grid">
+ <div class="sit-card">
+ <div class="place">☕ 실수 지적</div>
+ <div class="role">"음료가 뜨겁지 않네요"</div>
+ <div class="example">응대 방향</div>
+ <div class="fill">매니저 호출? (O · X)</div>
+ <div class="fill">이유: </div>
+ </div>
+ <div class="sit-card">
+ <div class="place">😡 큰 소리</div>
+ <div class="role">"야, 빨리 해!"</div>
+ <div class="example">응대 방향</div>
+ <div class="fill">매니저 호출? (O · X)</div>
+ <div class="fill">이유: </div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🤬 욕설</div>
+ <div class="role">인신공격·욕설</div>
+ <div class="example">응대 방향</div>
+ <div class="fill">매니저 호출? (O · X)</div>
+ <div class="fill">이유: </div>
+ </div>
+ <div class="sit-card">
+ <div class="place">✊ 물건 던짐</div>
+ <div class="role">영수증을 얼굴로 던짐</div>
+ <div class="example">응대 방향</div>
+ <div class="fill">112 신고? (O · X)</div>
+ <div class="fill">이유: </div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🍾 취객</div>
+ <div class="role">술 마시고 반말·시비</div>
+ <div class="example">응대 방향</div>
+ <div class="fill">매니저 호출? (O · X)</div>
+ <div class="fill">이유: </div>
+ </div>
+ <div class="sit-card">
+ <div class="place">👀 성적 언행</div>
+ <div class="role">외모·몸 발언, 접촉 시도</div>
+ <div class="example">응대 방향</div>
+ <div class="fill">112 신고? (O · X)</div>
+ <div class="fill">이유: </div>
+ </div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 주현이의 무리한 환불 응대</h3><span class="tag">쓰기</span></div>
-    <p>손님이 <b>먹다 남은 삼각김밥</b>을 들고 "맛없다, 환불해"라고 해요. 주현이가 <b>공감 → 안내 → 대안 → 상급자</b> 4단계로 응대.</p>
-    <p>① 공감: "<span class="blank long">&nbsp;</span>"</p>
-    <p>② 안내(정책상 처리 방법): "<span class="blank long">&nbsp;</span>"</p>
-    <p>③ 대안(가능한 것): "<span class="blank long">&nbsp;</span>"</p>
-    <p>④ 상급자 필요 시: "<span class="blank long">&nbsp;</span>"</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 주현이의 무리한 환불 응대</h3><span class="tag">쓰기</span></div>
+ <p>손님이 <b>먹다 남은 삼각김밥</b>을 들고 "맛없다, 환불해"라고 해요. 주현이가 <b>공감 → 안내 → 대안 → 상급자</b> 4단계로 응대.</p>
+ <p>① 공감: "<span class="blank long">&nbsp;</span>"</p>
+ <p>② 안내(정책상 처리 방법): "<span class="blank long">&nbsp;</span>"</p>
+ <p>③ 대안(가능한 것): "<span class="blank long">&nbsp;</span>"</p>
+ <p>④ 상급자 필요 시: "<span class="blank long">&nbsp;</span>"</p>
+ </div>
 
-  <div class="checklist">
-    <div class="title">✅ 손님 응대 5가지 원칙</div>
-    <label><input type="checkbox" style="margin-right:6px;"> 손님 말이 끝날 때까지 <b>끊지 않는다</b></label>
-    <label><input type="checkbox" style="margin-right:6px;"> <b>공감</b>부터, 그 다음 <b>가능·불가능</b></label>
-    <label><input type="checkbox" style="margin-right:6px;"> 반말·폭언은 <b>참지 않고 매니저 호출</b></label>
-    <label><input type="checkbox" style="margin-right:6px;"> 신체 접촉·위협은 <b>즉시 112</b></label>
-    <label><input type="checkbox" style="margin-right:6px;"> 근무 후 <b>화·억울함</b>은 가족·친구에게 나눈다</label>
-  </div>
+ <div class="checklist">
+ <div class="title">✅ 손님 응대 5가지 원칙</div>
+ <label><input type="checkbox" style="margin-right:6px;"> 손님 말이 끝날 때까지 <b>끊지 않는다</b></label>
+ <label><input type="checkbox" style="margin-right:6px;"> <b>공감</b>부터, 그 다음 <b>가능·불가능</b></label>
+ <label><input type="checkbox" style="margin-right:6px;"> 반말·폭언은 <b>참지 않고 매니저 호출</b></label>
+ <label><input type="checkbox" style="margin-right:6px;"> 신체 접촉·위협은 <b>즉시 112</b></label>
+ <label><input type="checkbox" style="margin-right:6px;"> 근무 후 <b>화·억울함</b>은 가족·친구에게 나눈다</label>
+ </div>
 
-  <div class="note">
-    🌱 손님이 무례해도 <b>내가 무례한 사람은 아니에요</b>. 매너 있게 응대했다면 <b>내 몫은 끝</b>.
-    나머지는 <b>매니저·경찰의 몫</b>이에요. 감정노동 스트레스는 <b>혼자 담아 두지 마세요.</b>
-  </div>
+ <div class="note">
+ 🌱 손님이 무례해도 <b>내가 무례한 사람은 아니에요</b>. 매너 있게 응대했다면 <b>내 몫은 끝</b>.
+ 나머지는 <b>매니저·경찰의 몫</b>이에요. 감정노동 스트레스는 <b>혼자 담아 두지 마세요.</b>
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S25 · 2쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S25 · 2쪽 / 2</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

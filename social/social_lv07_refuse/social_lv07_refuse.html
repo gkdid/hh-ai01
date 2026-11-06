@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffcdd2 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #b71c1c;
-  border-bottom: 2px solid #ef9a9a; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #ef9a9a; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #c62828; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #c62828; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #c62828; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #b71c1c; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #b71c1c; font-weight: 500; }
 .cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 8px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #b71c1c; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #c62828; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #c62828; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #b71c1c; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #c62828; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -92,298 +92,298 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">🛡 S7 무리한 부탁·유혹 거절</span><span class="muted">사회성 · Level 7</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">🛡 S7 무리한 부탁·유혹 거절</span><span class="muted">사회성 · Level 7</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#b71c1c;">S7</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">단호한 NO · 나를 지키기</span>
-    <h1>주현이의 단호한 거절</h1>
-    <p class="lead">해서는 안 되는 부탁·유혹은 <b>분명히 NO!</b></p>
-  </div>
-  <div class="cover-emoji">🚫 🛡 💪</div>
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul>
-      <li><b>해서는 안 되는 부탁</b>(부정행위·거짓말·규칙 위반)을 알아본다.</li>
-      <li><b>흡연·음주·불법 행위</b> 등 유혹 상황에서 단호히 거절한다.</li>
-      <li>거절 후 <b>자리를 뜨거나 어른에게 알리는</b> 방법을 익힌다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
-    <ul>
-      <li><b>주현이</b>는 착해서 부탁을 잘 못 거절해요. 하지만 <b>지켜야 할 선</b>이 있어요. 오늘 그 선을 지키는 법을 배워요.</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">사회성 시리즈 · S7 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#b71c1c;">S7</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">단호한 NO · 나를 지키기</span>
+ <h1>주현이의 단호한 거절</h1>
+ <p class="lead">해서는 안 되는 부탁·유혹은 <b>분명히 NO!</b></p>
+ </div>
+ <div class="cover-emoji">🚫 🛡 💪</div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul>
+ <li><b>해서는 안 되는 부탁</b>(부정행위·거짓말·규칙 위반)을 알아본다.</li>
+ <li><b>흡연·음주·불법 행위</b> 등 유혹 상황에서 단호히 거절한다.</li>
+ <li>거절 후 <b>자리를 뜨거나 어른에게 알리는</b> 방법을 익힌다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+ <ul>
+ <li><b>주현이</b>는 착해서 부탁을 잘 못 거절해요. 하지만 <b>지켜야 할 선</b>이 있어요. 오늘 그 선을 지키는 법을 배워요.</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">사회성 시리즈 · S7 · 표지</div>
 </section>
 
 <!-- 1쪽: 단호한 거절 -->
 <section class="page">
-  <div class="page-head">
-    <h2>🚫 이런 부탁은 반드시 NO!</h2>
-    <span class="step">1쪽 · 단호한 거절</span>
-  </div>
-  <div class="intro">
-    친구의 부탁을 부드럽게 거절하는 법(S2)을 배웠어요. 그런데 <b>절대 들어주면 안 되는 부탁</b>도 있어요. 이럴 땐 <b>단호하게 NO</b>라고 말해야 나와 상대 모두 지킬 수 있어요.
-  </div>
+ <div class="page-head">
+ <h2>🚫 이런 부탁은 반드시 NO!</h2>
+ <span class="step">1쪽 · 단호한 거절</span>
+ </div>
+ <div class="intro">
+ 친구의 부탁을 부드럽게 거절하는 법(S2)을 배웠어요. 그런데 <b>절대 들어주면 안 되는 부탁</b>도 있어요. 이럴 땐 <b>단호하게 NO</b>라고 말해야 나와 상대 모두 지킬 수 있어요.
+ </div>
 
-  <div class="principle-box">
-    <div class="main">🛡 나를 지키는 3원칙</div>
-    <div class="desc">
-      ① <b>내 몸·마음</b>을 다치게 하는 부탁 → <b>NO</b><br>
-      ② <b>규칙·법</b>을 어기는 부탁 → <b>NO</b><br>
-      ③ <b>다른 사람</b>을 다치게 하는 부탁 → <b>NO</b>
-    </div>
-  </div>
+ <div class="principle-box">
+ <div class="main">🛡 나를 지키는 3원칙</div>
+ <div class="desc">
+ ① <b>내 몸·마음</b>을 다치게 하는 부탁 → <b>NO</b><br>
+ ② <b>규칙·법</b>을 어기는 부탁 → <b>NO</b><br>
+ ③ <b>다른 사람</b>을 다치게 하는 부탁 → <b>NO</b>
+ </div>
+ </div>
 
-  <div class="warning">
-    ⚠️ <b>대표적인 위험한 부탁·유혹:</b><br>
-    · 시험지·답 <b>커닝</b>(부정행위) &nbsp; · <b>담배·술·전자담배</b> 권유 &nbsp; · 대신 <b>거짓말</b>해 달라기<br>
-    · 남의 물건 <b>훔치기·훼손</b> &nbsp; · 다른 친구 <b>따돌리기·놀리기</b>에 참여 &nbsp; · <b>돈·비밀번호</b> 요구<br>
-    · 원치 않는 <b>사진·개인정보</b> 요구 &nbsp; · <b>몸이 불편한</b> 접촉
-  </div>
+ <div class="warning">
+ ⚠️ <b>대표적인 위험한 부탁·유혹:</b><br>
+ · 시험지·답 <b>커닝</b>(부정행위) &nbsp; · <b>담배·술·전자담배</b> 권유 &nbsp; · 대신 <b>거짓말</b>해 달라기<br>
+ · 남의 물건 <b>훔치기·훼손</b> &nbsp; · 다른 친구 <b>따돌리기·놀리기</b>에 참여 &nbsp; · <b>돈·비밀번호</b> 요구<br>
+ · 원치 않는 <b>사진·개인정보</b> 요구 &nbsp; · <b>몸이 불편한</b> 접촉
+ </div>
 
-  <div class="methods">
-    <div class="method-card">
-      <div class="num">1</div>
-      <div class="name">🗣 단호하게 말한다</div>
-      <div class="ex">"안 돼. 나는 그렇게 못 해."<br>이유는 짧게: "그건 규칙이야."</div>
-    </div>
-    <div class="method-card">
-      <div class="num">2</div>
-      <div class="name">🚶 자리를 뜬다</div>
-      <div class="ex">"난 그만 갈게."<br>계속 붙잡으면 <b>거리를 두고 이동</b>.</div>
-    </div>
-    <div class="method-card">
-      <div class="num">3</div>
-      <div class="name">📢 어른에게 알린다</div>
-      <div class="ex">반복되거나 위험하면 <b>선생님·부모님</b>께<br>바로 상황을 전한다.</div>
-    </div>
-  </div>
+ <div class="methods">
+ <div class="method-card">
+ <div class="num">1</div>
+ <div class="name">🗣 단호하게 말한다</div>
+ <div class="ex">"안 돼. 나는 그렇게 못 해."<br>이유는 짧게: "그건 규칙이야."</div>
+ </div>
+ <div class="method-card">
+ <div class="num">2</div>
+ <div class="name">🚶 자리를 뜬다</div>
+ <div class="ex">"난 그만 갈게."<br>계속 붙잡으면 <b>거리를 두고 이동</b>.</div>
+ </div>
+ <div class="method-card">
+ <div class="num">3</div>
+ <div class="name">📢 어른에게 알린다</div>
+ <div class="ex">반복되거나 위험하면 <b>선생님·부모님</b>께<br>바로 상황을 전한다.</div>
+ </div>
+ </div>
 
-  <div class="dialogue">
-    <div class="title">📖 주현이의 단호한 거절</div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">친구</div>
-        주현아, 나 이번 시험 진짜 망하면 안 되거든. <b>답 좀 보여줘.</b> 응? 잠깐만.
-      </div>
-      <div class="avatar">친구</div>
-    </div>
-    <div class="speech">
-      <div class="avatar">주현</div>
-      <div class="bubble">
-        <div class="who">주현</div>
-        <b>안 돼.</b> 그건 부정행위잖아. 우리 <b>둘 다 큰일 나.</b> 나도 힘든데 <b>같이 열심히 준비하자.</b>
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">친구</div>
-        아 야, 한 번만~ 아무도 몰라.
-      </div>
-      <div class="avatar">친구</div>
-    </div>
-    <div class="speech">
-      <div class="avatar">주현</div>
-      <div class="bubble">
-        <div class="who">주현</div>
-        <b>안 된다니까.</b> 이 얘기 그만하자. 나 자리에서 좀 나갈게. 시험 잘 보자, 화이팅. 💪
-      </div>
-    </div>
-  </div>
+ <div class="dialogue">
+ <div class="title">📖 주현이의 단호한 거절</div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">친구</div>
+ 주현아, 나 이번 시험 진짜 망하면 안 되거든. <b>답 좀 보여줘.</b> 응? 잠깐만.
+ </div>
+ <div class="avatar">친구</div>
+ </div>
+ <div class="speech">
+ <div class="avatar">주현</div>
+ <div class="bubble">
+ <div class="who">주현</div>
+ <b>안 돼.</b> 그건 부정행위잖아. 우리 <b>둘 다 큰일 나.</b> 나도 힘든데 <b>같이 열심히 준비하자.</b>
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">친구</div>
+ 아 야, 한 번만~ 아무도 몰라.
+ </div>
+ <div class="avatar">친구</div>
+ </div>
+ <div class="speech">
+ <div class="avatar">주현</div>
+ <div class="bubble">
+ <div class="who">주현</div>
+ <b>안 된다니까.</b> 이 얘기 그만하자. 나 자리에서 좀 나갈게. 시험 잘 보자, 화이팅. 💪
+ </div>
+ </div>
+ </div>
 
-  <div class="tip">💡 <b>거절 뒤 붙이면 좋은 말:</b> "<b>대신 이건 할 수 있어</b>" 하고 다른 방법을 제안하면, 관계가 크게 상하지 않아요. (예: "답은 못 보여주지만, <b>같이 문제 풀어 볼래?</b>")</div>
+ <div class="tip">💡 <b>거절 뒤 붙이면 좋은 말:</b> "<b>대신 이건 할 수 있어</b>" 하고 다른 방법을 제안하면, 관계가 크게 상하지 않아요. (예: "답은 못 보여주지만, <b>같이 문제 풀어 볼래?</b>")</div>
 
-  <div class="page-foot">사회성 시리즈 · S7 · 1쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S7 · 1쪽 / 2</div>
 </section>
 
 <!-- 2쪽: 상황 연습 + 어른 알리기 -->
 <section class="page">
-  <div class="page-head">
-    <h2>💪 나를 지키는 상황 연습</h2>
-    <span class="step">2쪽 · 실전</span>
-  </div>
-  <div class="intro">
-    실제 위험 상황이 오면 <b>당황해서 아무 말도 못 하는</b> 경우가 많아요. 그래서 <b>미리 연습</b>해 두는 것이 중요해요.
-  </div>
+ <div class="page-head">
+ <h2>💪 나를 지키는 상황 연습</h2>
+ <span class="step">2쪽 · 실전</span>
+ </div>
+ <div class="intro">
+ 실제 위험 상황이 오면 <b>당황해서 아무 말도 못 하는</b> 경우가 많아요. 그래서 <b>미리 연습</b>해 두는 것이 중요해요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 상황별 단호한 거절</h3><span class="tag">4문항</span></div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 상황별 단호한 거절</h3><span class="tag">4문항</span></div>
 
-    <div class="case-list">
-      <div class="case-box">
-        <div class="situation">🚬 <b>상황 1</b>: 학교 뒤 골목에서 선배가 "<b>담배 한 대 피워 볼래?</b> 남들 다 해."라고 권해요.</div>
-        <div style="font-weight:700; color:#b71c1c; font-size:0.9em;">→ 뭐라고 거절할까?</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="case-box">
-        <div class="situation">💰 <b>상황 2</b>: <b>미정</b>이가 "너 지갑에 3만 원 있지? <b>다 빌려줘.</b> 언젠가 갚을게."라고 반복해서 요구해요.</div>
-        <div style="font-weight:700; color:#b71c1c; font-size:0.9em;">→ 뭐라고 거절할까?</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="case-box">
-        <div class="situation">📷 <b>상황 3</b>: 잘 모르는 SNS 친구가 "<b>얼굴 사진 하나만 보내 줘.</b> 프로필에만 쓸 거야."라고 계속 요청해요.</div>
-        <div style="font-weight:700; color:#b71c1c; font-size:0.9em;">→ 뭐라고 거절할까?</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="case-box">
-        <div class="situation">😠 <b>상황 4</b>: 반 친구들이 <b>예은이를 놀리며</b> "너도 같이 놀리자~" 라고 부추겨요.</div>
-        <div style="font-weight:700; color:#b71c1c; font-size:0.9em;">→ 뭐라고 거절할까?</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-    </div>
-  </div>
+ <div class="case-list">
+ <div class="case-box">
+ <div class="situation">🚬 <b>상황 1</b>: 학교 뒤 골목에서 선배가 "<b>담배 한 대 피워 볼래?</b> 남들 다 해."라고 권해요.</div>
+ <div style="font-weight:700; color:#b71c1c; font-size:0.9em;">→ 뭐라고 거절할까?</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="case-box">
+ <div class="situation">💰 <b>상황 2</b>: <b>미정</b>이가 "너 지갑에 3만 원 있지? <b>다 빌려줘.</b> 언젠가 갚을게."라고 반복해서 요구해요.</div>
+ <div style="font-weight:700; color:#b71c1c; font-size:0.9em;">→ 뭐라고 거절할까?</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="case-box">
+ <div class="situation">📷 <b>상황 3</b>: 잘 모르는 SNS 친구가 "<b>얼굴 사진 하나만 보내 줘.</b> 프로필에만 쓸 거야."라고 계속 요청해요.</div>
+ <div style="font-weight:700; color:#b71c1c; font-size:0.9em;">→ 뭐라고 거절할까?</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="case-box">
+ <div class="situation">😠 <b>상황 4</b>: 반 친구들이 <b>예은이를 놀리며</b> "너도 같이 놀리자~" 라고 부추겨요.</div>
+ <div style="font-weight:700; color:#b71c1c; font-size:0.9em;">→ 뭐라고 거절할까?</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ </div>
+ </div>
 
-  <div class="emergency">
-    <div class="title">🆘 어른에게 도움을 청해야 할 때</div>
-    <ul>
-      <li>여러 번 거절했는데도 <b>계속 강요</b>할 때</li>
-      <li>몸에 <b>손을 대거나 위협</b>할 때</li>
-      <li><b>돈·물건·비밀번호</b>를 뺏길 것 같을 때</li>
-      <li><b>사진·영상</b>이 이미 유포됐거나 위협받을 때</li>
-      <li>친구가 <b>담배·술·불법 약물</b>을 계속 권할 때</li>
-    </ul>
-    <div style="background:#fff; color:#b71c1c; padding:8px 12px; border-radius:8px; margin-top:8px; font-weight:700;">
-      → <b>담임 선생님, 부모님, 상담 선생님, 학교 밖 상담(1388 청소년전화)</b>에 꼭 알려요!
-    </div>
-  </div>
+ <div class="emergency">
+ <div class="title">🆘 어른에게 도움을 청해야 할 때</div>
+ <ul>
+ <li>여러 번 거절했는데도 <b>계속 강요</b>할 때</li>
+ <li>몸에 <b>손을 대거나 위협</b>할 때</li>
+ <li><b>돈·물건·비밀번호</b>를 뺏길 것 같을 때</li>
+ <li><b>사진·영상</b>이 이미 유포됐거나 위협받을 때</li>
+ <li>친구가 <b>담배·술·불법 약물</b>을 계속 권할 때</li>
+ </ul>
+ <div style="background:#fff; color:#b71c1c; padding:8px 12px; border-radius:8px; margin-top:8px; font-weight:700;">
+ → <b>담임 선생님, 부모님, 상담 선생님, 학교 밖 상담(1388 청소년전화)</b>에 꼭 알려요!
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 나만의 3단계 대처 계획</h3><span class="tag">쓰기</span></div>
-    <p>만약 위험한 상황이 나에게 생긴다면, 나는 어떤 순서로 대처할까요? 내 <b>3단계 계획</b>을 세워 봐요.</p>
-    <p>1단계 (그 자리에서): <span class="blank long">&nbsp;</span></p>
-    <p>2단계 (그 뒤에): <span class="blank long">&nbsp;</span></p>
-    <p>3단계 (누구에게): <span class="blank long">&nbsp;</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 나만의 3단계 대처 계획</h3><span class="tag">쓰기</span></div>
+ <p>만약 위험한 상황이 나에게 생긴다면, 나는 어떤 순서로 대처할까요? 내 <b>3단계 계획</b>을 세워 봐요.</p>
+ <p>1단계 (그 자리에서): <span class="blank long">&nbsp;</span></p>
+ <p>2단계 (그 뒤에): <span class="blank long">&nbsp;</span></p>
+ <p>3단계 (누구에게): <span class="blank long">&nbsp;</span></p>
+ </div>
 
-  <div class="warning" style="background:#fff8e1; border-color:#f9a825;">
-    🌟 <b>기억할 것:</b> "안 돼"라고 말할 수 있는 <b>용기</b>는 나를 지키는 힘이에요. 그리고 <b>어른에게 알리는 것</b>은 부끄러운 일이 아니라, 지혜롭고 안전한 선택이에요.
-  </div>
+ <div class="warning" style="background:#fff8e1; border-color:#f9a825;">
+ 🌟 <b>기억할 것:</b> "안 돼"라고 말할 수 있는 <b>용기</b>는 나를 지키는 힘이에요. 그리고 <b>어른에게 알리는 것</b>은 부끄러운 일이 아니라, 지혜롭고 안전한 선택이에요.
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S7 · 2쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S7 · 2쪽 / 2</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

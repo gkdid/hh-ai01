@@ -8,22 +8,22 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #bf360c; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #bf360c; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; } .toolbar .muted { color: #ffccbc; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffccbc 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #bf360c;
-  border-bottom: 2px solid #ff7043; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #ff7043; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; }
 .cover-main { text-align: center; padding: 10px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #bf360c; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #bf360c; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #bf360c; font-weight: 900; }
 .cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #7f0000; font-weight: 500; }
 .cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
@@ -35,7 +35,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #bf360c; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #bf360c; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #bf360c; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #bf360c; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #bf360c; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -77,314 +77,313 @@ table.qa td.left { text-align: left; }
 .fl .d { font-size: 0.82em; color: #37474f; margin-top: 3px; }
 
 .footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
-  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+ color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
 @media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div><span class="title">바리스타 3차시</span><span class="muted">로스팅·향미 · A4 4쪽</span></div>
-  <button onclick="window.print()">🖨 인쇄하기</button>
+ <div><span class="title">바리스타 3차시</span><span class="muted">로스팅·향미 · A4 4쪽</span></div>
+ <button onclick="window.print">🖨 인쇄하기</button>
 </div>
 
 <!-- 표지 -->
 <div class="page cover">
-  <div class="cover-top">
-    <div><span class="subject">로스팅과 향미</span> · 바리스타 단원 3/10</div>
-    <div>혜화여자고등학교 특수학급</div>
-  </div>
-  <div class="cover-main">
-    <span class="badge">Lv.3 로스팅의 마법</span>
-    <h1>초록 콩이 검은 원두로!</h1>
-    <p class="lead">로스팅 8단계 · 크랙 · 향미 프로파일</p>
-  </div>
-  <div class="cover-emoji">🌱 🔥 ☕ 👃</div>
-  <div class="cover-info">
-    <h3>이번 시간에 배울 것</h3>
-    <ul>
-      <li>생두 → 원두, <b>로스팅 8단계</b>의 이름과 색</li>
-      <li>1차 크랙·2차 크랙의 의미</li>
-      <li>로스팅에 따른 <b>산미·바디·쓴맛</b>의 변화</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-    <div class="line"><span class="label">반</span></div>
-  </div>
+ <div class="cover-top">
+ <div><span class="subject">로스팅과 향미</span> · 바리스타 단원 3/10</div>
+ </div>
+ <div class="cover-main">
+ <span class="badge">Lv.3 로스팅의 마법</span>
+ <h1>초록 콩이 검은 원두로!</h1>
+ <p class="lead">로스팅 8단계 · 크랙 · 향미 프로파일</p>
+ </div>
+ <div class="cover-emoji">🌱 🔥 ☕ 👃</div>
+ <div class="cover-info">
+ <h3>이번 시간에 배울 것</h3>
+ <ul>
+ <li>생두 → 원두, <b>로스팅 8단계</b>의 이름과 색</li>
+ <li>1차 크랙·2차 크랙의 의미</li>
+ <li>로스팅에 따른 <b>산미·바디·쓴맛</b>의 변화</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ <div class="line"><span class="label">반</span></div>
+ </div>
 </div>
 
 <!-- 1쪽 : 로스팅 8단계 -->
 <div class="page">
-  <div class="page-head"><h2>1. 로스팅 8단계 (SCA 기준)</h2><span class="step">Step 1</span></div>
-  <div class="intro">
-    <b>💡 로스팅이란?</b> 초록빛 <b>생두(Green Bean)</b>를 <b>고온</b>으로 볶아 갈색·검은색 <b>원두</b>로 만드는 과정. <b>200°C</b> 안팎에서 이뤄져요.
-  </div>
+ <div class="page-head"><h2>1. 로스팅 8단계 (SCA 기준)</h2><span class="step">Step 1</span></div>
+ <div class="intro">
+ <b>💡 로스팅이란?</b> 초록빛 <b>생두(Green Bean)</b>를 <b>고온</b>으로 볶아 갈색·검은색 <b>원두</b>로 만드는 과정. <b>200°C</b> 안팎에서 이뤄져요.
+ </div>
 
-  <div class="roast-scale">
-    <div class="rl l1"><div class="n">Light</div><div class="d">라이트</div></div>
-    <div class="rl l2"><div class="n">Cinnamon</div><div class="d">시나몬</div></div>
-    <div class="rl l3"><div class="n">Medium</div><div class="d">미디엄</div></div>
-    <div class="rl l4"><div class="n">High</div><div class="d">하이</div></div>
-    <div class="rl l5"><div class="n">City</div><div class="d">시티</div></div>
-    <div class="rl l6"><div class="n">Full City</div><div class="d">풀시티</div></div>
-    <div class="rl l7"><div class="n">French</div><div class="d">프렌치</div></div>
-    <div class="rl l8"><div class="n">Italian</div><div class="d">이탈리안</div></div>
-  </div>
-  <p style="text-align:center; font-size:0.85em; color:#546e7a;">← 밝음 (약한 로스팅) &nbsp;&nbsp;&nbsp;&nbsp; 어두움 (강한 로스팅) →</p>
+ <div class="roast-scale">
+ <div class="rl l1"><div class="n">Light</div><div class="d">라이트</div></div>
+ <div class="rl l2"><div class="n">Cinnamon</div><div class="d">시나몬</div></div>
+ <div class="rl l3"><div class="n">Medium</div><div class="d">미디엄</div></div>
+ <div class="rl l4"><div class="n">High</div><div class="d">하이</div></div>
+ <div class="rl l5"><div class="n">City</div><div class="d">시티</div></div>
+ <div class="rl l6"><div class="n">Full City</div><div class="d">풀시티</div></div>
+ <div class="rl l7"><div class="n">French</div><div class="d">프렌치</div></div>
+ <div class="rl l8"><div class="n">Italian</div><div class="d">이탈리안</div></div>
+ </div>
+ <p style="text-align:center; font-size:0.85em; color:#546e7a;">← 밝음 (약한 로스팅) &nbsp;&nbsp;&nbsp;&nbsp; 어두움 (강한 로스팅) →</p>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 하은이의 로스팅 단계 매칭</h3><span class="tag">단계</span></div>
-    <table class="qa">
-      <tr><th>단계</th><th>특징</th></tr>
-      <tr><td>Light (라이트)</td><td class="left">신맛 강함 · 곡물향 · 커피 원산지 특징 잘 드러남</td></tr>
-      <tr><td>Medium (미디엄)</td><td class="left"><span class="blank long">균형 잡힌 맛 · 드립 커피에 많이 사용</span></td></tr>
-      <tr><td>City (시티)</td><td class="left"><span class="blank long">스페셜티·핸드드립 카페 표준</span></td></tr>
-      <tr><td>Full City (풀시티)</td><td class="left"><span class="blank long">에스프레소 블렌드에 많이 사용</span></td></tr>
-      <tr><td>French (프렌치)</td><td class="left"><span class="blank long">강한 쓴맛 · 스모키 향 · 우유 메뉴 어울림</span></td></tr>
-      <tr><td>Italian (이탈리안)</td><td class="left"><span class="blank long">가장 진하고 쓴맛 · 표면 오일 많음</span></td></tr>
-    </table>
-    <div class="tip"><b>💡 KCA 시험 원두</b>는 대부분 <b>Full City ~ French</b> 사이. 에스프레소용으로 크레마와 바디감이 좋아요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 하은이의 로스팅 단계 매칭</h3><span class="tag">단계</span></div>
+ <table class="qa">
+ <tr><th>단계</th><th>특징</th></tr>
+ <tr><td>Light (라이트)</td><td class="left">신맛 강함 · 곡물향 · 커피 원산지 특징 잘 드러남</td></tr>
+ <tr><td>Medium (미디엄)</td><td class="left"><span class="blank long">균형 잡힌 맛 · 드립 커피에 많이 사용</span></td></tr>
+ <tr><td>City (시티)</td><td class="left"><span class="blank long">스페셜티·핸드드립 카페 표준</span></td></tr>
+ <tr><td>Full City (풀시티)</td><td class="left"><span class="blank long">에스프레소 블렌드에 많이 사용</span></td></tr>
+ <tr><td>French (프렌치)</td><td class="left"><span class="blank long">강한 쓴맛 · 스모키 향 · 우유 메뉴 어울림</span></td></tr>
+ <tr><td>Italian (이탈리안)</td><td class="left"><span class="blank long">가장 진하고 쓴맛 · 표면 오일 많음</span></td></tr>
+ </table>
+ <div class="tip"><b>💡 KCA 시험 원두</b>는 대부분 <b>Full City ~ French</b> 사이. 에스프레소용으로 크레마와 바디감이 좋아요.</div>
+ </div>
 
-  <div class="footer-note">바리스타 3차시 · 1/4쪽 · 로스팅 8단계</div>
+ <div class="footer-note">바리스타 3차시 · 1/4쪽 · 로스팅 8단계</div>
 </div>
 
 <!-- 2쪽 : 크랙과 화학변화 -->
 <div class="page">
-  <div class="page-head"><h2>2. 크랙(Crack) 소리 듣기</h2><span class="step">Step 2</span></div>
-  <div class="intro">
-    <b>💡 크랙(Crack)</b>이란 로스팅 중 원두가 <b>펑! 하고 튀는 소리</b>. 두 번 있어요.
-  </div>
+ <div class="page-head"><h2>2. 크랙(Crack) 소리 듣기</h2><span class="step">Step 2</span></div>
+ <div class="intro">
+ <b>💡 크랙(Crack)</b>이란 로스팅 중 원두가 <b>펑! 하고 튀는 소리</b>. 두 번 있어요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 1차 크랙 vs 2차 크랙</h3><span class="tag">과학</span></div>
-    <table class="qa">
-      <tr><th>구분</th><th>1차 크랙</th><th>2차 크랙</th></tr>
-      <tr><td>시각</td><td>로스팅 후 약 <b>8~10분</b></td><td>약 <b>12~14분</b></td></tr>
-      <tr><td>온도</td><td>약 <b>200°C</b></td><td>약 <b>225°C</b></td></tr>
-      <tr><td>원인</td><td class="left">수분 증발로 원두가 팽창</td><td class="left">이산화탄소 방출·오일 표면화</td></tr>
-      <tr><td>소리</td><td>팝콘 튀는 소리</td><td>더 미세한 "탁탁"</td></tr>
-      <tr><td>대응 로스팅</td><td>미디엄 ~ 시티</td><td>풀시티 ~ 프렌치·이탈리안</td></tr>
-    </table>
-    <div class="note"><b>❗ 로스팅 실전 원칙</b> 크랙 소리를 <b>귀로 듣고</b> 색깔 변화를 <b>눈으로 확인</b>해서 원하는 단계에서 <b>즉시 배출</b>. 5초 차이가 맛을 결정!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 1차 크랙 vs 2차 크랙</h3><span class="tag">과학</span></div>
+ <table class="qa">
+ <tr><th>구분</th><th>1차 크랙</th><th>2차 크랙</th></tr>
+ <tr><td>시각</td><td>로스팅 후 약 <b>8~10분</b></td><td>약 <b>12~14분</b></td></tr>
+ <tr><td>온도</td><td>약 <b>200°C</b></td><td>약 <b>225°C</b></td></tr>
+ <tr><td>원인</td><td class="left">수분 증발로 원두가 팽창</td><td class="left">이산화탄소 방출·오일 표면화</td></tr>
+ <tr><td>소리</td><td>팝콘 튀는 소리</td><td>더 미세한 "탁탁"</td></tr>
+ <tr><td>대응 로스팅</td><td>미디엄 ~ 시티</td><td>풀시티 ~ 프렌치·이탈리안</td></tr>
+ </table>
+ <div class="note"><b>❗ 로스팅 실전 원칙</b> 크랙 소리를 <b>귀로 듣고</b> 색깔 변화를 <b>눈으로 확인</b>해서 원하는 단계에서 <b>즉시 배출</b>. 5초 차이가 맛을 결정!</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 로스팅 중 화학 변화</h3><span class="tag">화학</span></div>
-    <p>로스팅에서 일어나는 3가지 반응.</p>
-    <table class="qa">
-      <tr><th>반응</th><th>내용</th><th>결과</th></tr>
-      <tr><td>수분 증발</td><td class="left">생두의 물이 증발</td><td>무게 <b>15~20% 감소</b></td></tr>
-      <tr><td>메일라드 반응</td><td class="left">아미노산 + 당 → 갈변</td><td>색·향미 발달</td></tr>
-      <tr><td>캐러멜화</td><td class="left">당분이 열에 의해 변화</td><td>단맛·쓴맛 형성</td></tr>
-    </table>
-    <div class="tip"><b>💡 팁</b> 로스팅 후 원두는 <b>더 가볍고 부피가 큼</b>. 생두 100g → 원두 약 80g.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 로스팅 중 화학 변화</h3><span class="tag">화학</span></div>
+ <p>로스팅에서 일어나는 3가지 반응.</p>
+ <table class="qa">
+ <tr><th>반응</th><th>내용</th><th>결과</th></tr>
+ <tr><td>수분 증발</td><td class="left">생두의 물이 증발</td><td>무게 <b>15~20% 감소</b></td></tr>
+ <tr><td>메일라드 반응</td><td class="left">아미노산 + 당 → 갈변</td><td>색·향미 발달</td></tr>
+ <tr><td>캐러멜화</td><td class="left">당분이 열에 의해 변화</td><td>단맛·쓴맛 형성</td></tr>
+ </table>
+ <div class="tip"><b>💡 팁</b> 로스팅 후 원두는 <b>더 가볍고 부피가 큼</b>. 생두 100g → 원두 약 80g.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 하영이의 로스팅 실습 관찰</h3><span class="tag">관찰</span></div>
-    <p>하영이가 커피 학원에서 로스팅 실습. 시간별 관찰 일지:</p>
-    <table class="qa">
-      <tr><th>시각</th><th>온도</th><th>색·소리·향</th></tr>
-      <tr><td>0분</td><td>150</td><td class="left">초록·풀 냄새</td></tr>
-      <tr><td>5분</td><td>170</td><td class="left"><span class="blank long">노란색·건초 향</span></td></tr>
-      <tr><td>8분</td><td>195</td><td class="left"><span class="blank long">갈색·1차 크랙!</span></td></tr>
-      <tr><td>10분</td><td>210</td><td class="left"><span class="blank long">진한 갈색·달콤한 향</span></td></tr>
-      <tr><td>12분</td><td>225</td><td class="left"><span class="blank long">검은색·2차 크랙!</span></td></tr>
-      <tr><td>13분</td><td>230</td><td class="left"><span class="blank long">표면 오일·연기</span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 하영이의 로스팅 실습 관찰</h3><span class="tag">관찰</span></div>
+ <p>하영이가 커피 학원에서 로스팅 실습. 시간별 관찰 일지:</p>
+ <table class="qa">
+ <tr><th>시각</th><th>온도</th><th>색·소리·향</th></tr>
+ <tr><td>0분</td><td>150</td><td class="left">초록·풀 냄새</td></tr>
+ <tr><td>5분</td><td>170</td><td class="left"><span class="blank long">노란색·건초 향</span></td></tr>
+ <tr><td>8분</td><td>195</td><td class="left"><span class="blank long">갈색·1차 크랙!</span></td></tr>
+ <tr><td>10분</td><td>210</td><td class="left"><span class="blank long">진한 갈색·달콤한 향</span></td></tr>
+ <tr><td>12분</td><td>225</td><td class="left"><span class="blank long">검은색·2차 크랙!</span></td></tr>
+ <tr><td>13분</td><td>230</td><td class="left"><span class="blank long">표면 오일·연기</span></td></tr>
+ </table>
+ </div>
 
-  <div class="footer-note">바리스타 3차시 · 2/4쪽 · 크랙과 화학</div>
+ <div class="footer-note">바리스타 3차시 · 2/4쪽 · 크랙과 화학</div>
 </div>
 
 <!-- 3쪽 : 향미 -->
 <div class="page">
-  <div class="page-head"><h2>3. 로스팅에 따른 향미 변화</h2><span class="step">Step 3</span></div>
-  <div class="intro">
-    <b>💡 규칙</b> — 약할수록 <b>산미↑·향↑</b>, 강할수록 <b>쓴맛↑·바디↑</b>. 로스팅으로 커피의 <b>성격</b>이 완전히 달라져요.
-  </div>
+ <div class="page-head"><h2>3. 로스팅에 따른 향미 변화</h2><span class="step">Step 3</span></div>
+ <div class="intro">
+ <b>💡 규칙</b> — 약할수록 <b>산미↑·향↑</b>, 강할수록 <b>쓴맛↑·바디↑</b>. 로스팅으로 커피의 <b>성격</b>이 완전히 달라져요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. 향미 프로파일</h3><span class="tag">향미</span></div>
-    <table class="qa">
-      <tr><th>로스팅</th><th>산미</th><th>단맛</th><th>바디</th><th>쓴맛</th><th>주요 향</th></tr>
-      <tr><td>Light</td><td>★★★★★</td><td>★★</td><td>★</td><td>★</td><td class="left">과일·꽃·산뜻</td></tr>
-      <tr><td>Medium</td><td>★★★★</td><td>★★★</td><td>★★</td><td>★★</td><td class="left">균형·너트</td></tr>
-      <tr><td>City</td><td>★★★</td><td>★★★★</td><td>★★★</td><td>★★★</td><td class="left">캐러멜·초콜릿</td></tr>
-      <tr><td>Full City</td><td>★★</td><td>★★★★</td><td>★★★★</td><td>★★★</td><td class="left">다크초콜릿·너트</td></tr>
-      <tr><td>French</td><td>★</td><td>★★</td><td>★★★★★</td><td>★★★★</td><td class="left">스모키·탄맛</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 향미 프로파일</h3><span class="tag">향미</span></div>
+ <table class="qa">
+ <tr><th>로스팅</th><th>산미</th><th>단맛</th><th>바디</th><th>쓴맛</th><th>주요 향</th></tr>
+ <tr><td>Light</td><td>★★★★★</td><td>★★</td><td>★</td><td>★</td><td class="left">과일·꽃·산뜻</td></tr>
+ <tr><td>Medium</td><td>★★★★</td><td>★★★</td><td>★★</td><td>★★</td><td class="left">균형·너트</td></tr>
+ <tr><td>City</td><td>★★★</td><td>★★★★</td><td>★★★</td><td>★★★</td><td class="left">캐러멜·초콜릿</td></tr>
+ <tr><td>Full City</td><td>★★</td><td>★★★★</td><td>★★★★</td><td>★★★</td><td class="left">다크초콜릿·너트</td></tr>
+ <tr><td>French</td><td>★</td><td>★★</td><td>★★★★★</td><td>★★★★</td><td class="left">스모키·탄맛</td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 6. 5가지 기본 향미</h3><span class="tag">감각</span></div>
-    <div class="flavor">
-      <div class="fl"><div class="em">🍋</div><div class="n">산미</div><div class="d">사과·오렌지</div></div>
-      <div class="fl"><div class="em">🍯</div><div class="n">단맛</div><div class="d">꿀·설탕</div></div>
-      <div class="fl"><div class="em">💪</div><div class="n">바디</div><div class="d">묵직함·질감</div></div>
-      <div class="fl"><div class="em">☕</div><div class="n">쓴맛</div><div class="d">다크초콜릿</div></div>
-      <div class="fl"><div class="em">🌰</div><div class="n">향</div><div class="d">꽃·너트·과일</div></div>
-    </div>
-    <p><b>주은</b>이가 다음 커피를 마셔봤어요. 어떤 로스팅에 가까울까?</p>
-    <table class="qa">
-      <tr><th>주은이의 표현</th><th>추정 로스팅</th></tr>
-      <tr><td class="left">"신맛이 강하고 사과 향이 나요"</td><td><span class="blank">Light</span></td></tr>
-      <tr><td class="left">"쓴맛이 강하고 탄 맛도 있어요"</td><td><span class="blank"></span></td></tr>
-      <tr><td class="left">"균형 잡히고 초콜릿 같아요"</td><td><span class="blank"></span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 6. 5가지 기본 향미</h3><span class="tag">감각</span></div>
+ <div class="flavor">
+ <div class="fl"><div class="em">🍋</div><div class="n">산미</div><div class="d">사과·오렌지</div></div>
+ <div class="fl"><div class="em">🍯</div><div class="n">단맛</div><div class="d">꿀·설탕</div></div>
+ <div class="fl"><div class="em">💪</div><div class="n">바디</div><div class="d">묵직함·질감</div></div>
+ <div class="fl"><div class="em">☕</div><div class="n">쓴맛</div><div class="d">다크초콜릿</div></div>
+ <div class="fl"><div class="em">🌰</div><div class="n">향</div><div class="d">꽃·너트·과일</div></div>
+ </div>
+ <p><b>주은</b>이가 다음 커피를 마셔봤어요. 어떤 로스팅에 가까울까?</p>
+ <table class="qa">
+ <tr><th>주은이의 표현</th><th>추정 로스팅</th></tr>
+ <tr><td class="left">"신맛이 강하고 사과 향이 나요"</td><td><span class="blank">Light</span></td></tr>
+ <tr><td class="left">"쓴맛이 강하고 탄 맛도 있어요"</td><td><span class="blank"></span></td></tr>
+ <tr><td class="left">"균형 잡히고 초콜릿 같아요"</td><td><span class="blank"></span></td></tr>
+ </table>
+ </div>
 
-  <div class="footer-note">바리스타 3차시 · 3/4쪽 · 향미</div>
+ <div class="footer-note">바리스타 3차시 · 3/4쪽 · 향미</div>
 </div>
 
 <!-- 4쪽 : 종합 -->
 <div class="page">
-  <div class="page-head"><h2>4. 종합 · 원두 보관</h2><span class="step">Step 4</span></div>
+ <div class="page-head"><h2>4. 종합 · 원두 보관</h2><span class="step">Step 4</span></div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 7. 로스팅 후 원두의 상태</h3><span class="tag">보관</span></div>
-    <table class="qa">
-      <tr><th>기간</th><th>상태</th><th>사용</th></tr>
-      <tr><td>1~2일</td><td>가스 방출 활발</td><td>추출 어려움 (거품 심함)</td></tr>
-      <tr><td>3~14일</td><td><b>최적 (황금 기간)</b></td><td>가장 맛있음</td></tr>
-      <tr><td>15~30일</td><td>서서히 산화</td><td>맛 조금 떨어짐</td></tr>
-      <tr><td>30일 이후</td><td>산패 진행</td><td>기름 냄새·비추천</td></tr>
-    </table>
-    <div class="tip"><b>💡 신선함 지키기</b> ① <b>밀폐용기</b> ② <b>서늘·건조·햇빛 X</b> ③ 냉장·냉동 <b>비추천</b>(습기 흡수) ④ 한 번에 <b>2주 분량</b>만 개봉</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 7. 로스팅 후 원두의 상태</h3><span class="tag">보관</span></div>
+ <table class="qa">
+ <tr><th>기간</th><th>상태</th><th>사용</th></tr>
+ <tr><td>1~2일</td><td>가스 방출 활발</td><td>추출 어려움 (거품 심함)</td></tr>
+ <tr><td>3~14일</td><td><b>최적 (황금 기간)</b></td><td>가장 맛있음</td></tr>
+ <tr><td>15~30일</td><td>서서히 산화</td><td>맛 조금 떨어짐</td></tr>
+ <tr><td>30일 이후</td><td>산패 진행</td><td>기름 냄새·비추천</td></tr>
+ </table>
+ <div class="tip"><b>💡 신선함 지키기</b> ① <b>밀폐용기</b> ② <b>서늘·건조·햇빛 X</b> ③ 냉장·냉동 <b>비추천</b>(습기 흡수) ④ 한 번에 <b>2주 분량</b>만 개봉</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 8. 주현이의 카페 원두 관리</h3><span class="tag">현장</span></div>
-    <p>주현이 카페에서 다음 원두들이 있어요. 사용 가능 여부 판단.</p>
-    <table class="qa">
-      <tr><th>원두</th><th>로스팅일</th><th>오늘 (2026-09-18)</th><th>사용?</th></tr>
-      <tr><td>A 블렌드</td><td>2026-09-15</td><td>3일차</td><td><span class="blank">O 최적</span></td></tr>
-      <tr><td>B 콜롬비아</td><td>2026-09-01</td><td>17일차</td><td><span class="blank"></span></td></tr>
-      <tr><td>C 케냐</td><td>2026-08-01</td><td>48일차</td><td><span class="blank">X 폐기</span></td></tr>
-      <tr><td>D 브라질</td><td>2026-09-17</td><td>1일차</td><td><span class="blank">△ 조금 더 숙성</span></td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 8. 주현이의 카페 원두 관리</h3><span class="tag">현장</span></div>
+ <p>주현이 카페에서 다음 원두들이 있어요. 사용 가능 여부 판단.</p>
+ <table class="qa">
+ <tr><th>원두</th><th>로스팅일</th><th>오늘 (2026-09-18)</th><th>사용?</th></tr>
+ <tr><td>A 블렌드</td><td>2026-09-15</td><td>3일차</td><td><span class="blank">O 최적</span></td></tr>
+ <tr><td>B 콜롬비아</td><td>2026-09-01</td><td>17일차</td><td><span class="blank"></span></td></tr>
+ <tr><td>C 케냐</td><td>2026-08-01</td><td>48일차</td><td><span class="blank">X 폐기</span></td></tr>
+ <tr><td>D 브라질</td><td>2026-09-17</td><td>1일차</td><td><span class="blank">△ 조금 더 숙성</span></td></tr>
+ </table>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 9. 스스로 확인</h3><span class="tag">자기점검</span></div>
-    <table class="qa">
-      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
-      <tr><td class="left">로스팅 8단계 이름을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">1차·2차 크랙의 의미를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">로스팅과 향미의 관계를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-      <tr><td class="left">원두의 신선도·보관법을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 9. 스스로 확인</h3><span class="tag">자기점검</span></div>
+ <table class="qa">
+ <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+ <tr><td class="left">로스팅 8단계 이름을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">1차·2차 크랙의 의미를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">로스팅과 향미의 관계를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ <tr><td class="left">원두의 신선도·보관법을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+ </table>
+ </div>
 
-  <div class="footer-note">바리스타 3차시 · 4/4쪽 · 로스팅 마무리</div>
+ <div class="footer-note">바리스타 3차시 · 4/4쪽 · 로스팅 마무리</div>
 </div>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

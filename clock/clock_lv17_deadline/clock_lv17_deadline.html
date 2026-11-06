@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.45; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.45; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffebee 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #b71c1c;
-  border-bottom: 2px solid #ef9a9a; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #ef9a9a; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #c62828; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #c62828; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #c62828; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #b71c1c; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #c62828; font-weight: 500; }
 .cover-clock { margin: 14px auto; display: block; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #b71c1c; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #c62828; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #c62828; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #b71c1c; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #c62828; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -60,7 +60,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .story .who { display: inline-block; background: #c62828; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.85em; font-weight: 700; margin-right: 6px; }
 
 .time-chip { display: inline-block; background: #ffffff; border: 1.5px solid #78909c; color: #263238; font-family: 'Courier New', monospace;
-  font-weight: 900; font-size: 1.05em; padding: 3px 9px; border-radius: 6px; letter-spacing: 2px; min-width: 66px; text-align: center; }
+ font-weight: 900; font-size: 1.05em; padding: 3px 9px; border-radius: 6px; letter-spacing: 2px; min-width: 66px; text-align: center; }
 .time-chip.due { color: #263238; }
 
 .calc-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
@@ -78,356 +78,356 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 <body>
 
 <div class="toolbar">
-  <div><span class="title">⏳ L17 하영이의 마감 관리</span><span class="muted">데드라인 · 심화</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">⏳ L17 하영이의 마감 관리</span><span class="muted">데드라인 · 심화</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">수학</span> · 시계 시리즈 · <b style="color:#c62828;">Level 17</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">마감 · 데드라인</span>
-    <h1>하영이의 마감 관리</h1>
-    <p class="lead">지금부터 마감까지 <b>몇 시간</b> 남았을까요? 언제부터 시작해야 할까요?</p>
-  </div>
+ <div class="cover-top">
+ <span><span class="subject">수학</span> · 시계 시리즈 · <b style="color:#c62828;">Level 17</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">마감 · 데드라인</span>
+ <h1>하영이의 마감 관리</h1>
+ <p class="lead">지금부터 마감까지 <b>몇 시간</b> 남았을까요? 언제부터 시작해야 할까요?</p>
+ </div>
 
-  <svg class="cover-clock" viewBox="0 0 200 200" width="170" height="170">
-    <circle cx="100" cy="100" r="88" fill="#fff" stroke="#c62828" stroke-width="4"/>
-    <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
-    <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
-    <!-- 11:50 hour: θ_h=355°; sin=-0.0872 cos=0.9962; h_x=96.3 h_y=57.76 -->
-    <line x1="100" y1="100" x2="96.3" y2="57.8" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
-    <!-- 11:50 min at 10 (300°): m_x=46.3 m_y=69 -->
-    <line x1="100" y1="100" x2="46.3" y2="69.0" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
-    <circle cx="100" cy="100" r="5" fill="#3e2723"/>
-    <!-- 마감 임박 표시 -->
-    <path d="M 100 100 L 100 30 A 70 70 0 0 1 39.66 135 Z" fill="rgba(198,40,40,0.15)"/>
-    <text x="100" y="200" text-anchor="middle" font-size="14" font-weight="900" fill="#b71c1c">⏰ 마감 10분 전!</text>
-  </svg>
+ <svg class="cover-clock" viewBox="0 0 200 200" width="170" height="170">
+ <circle cx="100" cy="100" r="88" fill="#fff" stroke="#c62828" stroke-width="4"/>
+ <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+ <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+ <!-- 11:50 hour: θ_h=355°; sin=-0.0872 cos=0.9962; h_x=96.3 h_y=57.76 -->
+ <line x1="100" y1="100" x2="96.3" y2="57.8" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+ <!-- 11:50 min at 10 (300°): m_x=46.3 m_y=69 -->
+ <line x1="100" y1="100" x2="46.3" y2="69.0" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+ <circle cx="100" cy="100" r="5" fill="#3e2723"/>
+ <!-- 마감 임박 표시 -->
+ <path d="M 100 100 L 100 30 A 70 70 0 0 1 39.66 135 Z" fill="rgba(198,40,40,0.15)"/>
+ <text x="100" y="200" text-anchor="middle" font-size="14" font-weight="900" fill="#b71c1c">⏰ 마감 10분 전!</text>
+ </svg>
 
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul>
-      <li>지금 시각과 마감 시각으로 <b>남은 시간</b>을 계산할 수 있다.</li>
-      <li>과제에 걸리는 시간을 예측해 <b>언제 시작할지</b> 역계산할 수 있다.</li>
-      <li>여러 마감이 겹칠 때 <b>우선순위</b>를 정할 수 있다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#ffb300; background:#fffde7;">
-    <h3 style="color:#e65100;">💡 알아 두기</h3>
-    <ul>
-      <li><b>남은 시간</b> = 마감 시각 − 지금 시각</li>
-      <li><b>시작 시각</b> = 마감 시각 − 필요한 시간 (역계산)</li>
-      <li>실제로는 <b>여유 30분</b>을 더해서 계획하면 안전해요!</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">시계 시리즈 · L17 · 표지</div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul>
+ <li>지금 시각과 마감 시각으로 <b>남은 시간</b>을 계산할 수 있다.</li>
+ <li>과제에 걸리는 시간을 예측해 <b>언제 시작할지</b> 역계산할 수 있다.</li>
+ <li>여러 마감이 겹칠 때 <b>우선순위</b>를 정할 수 있다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#ffb300; background:#fffde7;">
+ <h3 style="color:#e65100;">💡 알아 두기</h3>
+ <ul>
+ <li><b>남은 시간</b> = 마감 시각 − 지금 시각</li>
+ <li><b>시작 시각</b> = 마감 시각 − 필요한 시간 (역계산)</li>
+ <li>실제로는 <b>여유 30분</b>을 더해서 계획하면 안전해요!</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">시계 시리즈 · L17 · 표지</div>
 </section>
 
 <!-- 1쪽 -->
 <section class="page">
-  <div class="page-head">
-    <h2>⏳ 마감까지 남은 시간</h2>
-    <span class="step">1쪽 · 남은 시간 계산</span>
-  </div>
-  <div class="intro">
-    <b>마감(데드라인)</b>은 반드시 그 시각 전에 끝내야 한다는 뜻이에요. 지금 시각과 마감 시각으로
-    <b>얼마나 남았는지</b>를 알면, 급한 일과 여유 있는 일을 구분할 수 있어요.
-  </div>
-  <div class="story">
-    <span class="who">하영</span>하영이는 <b>3시</b>부터 국어 수행평가를 시작했어요. 마감이 <b>5시 30분</b>이에요.
-    3:00 → 5:00 = 2시간, 5:00 → 5:30 = 30분. 하영이에게는 <b>2시간 30분</b>이 남아 있어요.
-  </div>
+ <div class="page-head">
+ <h2>⏳ 마감까지 남은 시간</h2>
+ <span class="step">1쪽 · 남은 시간 계산</span>
+ </div>
+ <div class="intro">
+ <b>마감(데드라인)</b>은 반드시 그 시각 전에 끝내야 한다는 뜻이에요. 지금 시각과 마감 시각으로
+ <b>얼마나 남았는지</b>를 알면, 급한 일과 여유 있는 일을 구분할 수 있어요.
+ </div>
+ <div class="story">
+ <span class="who">하영</span>하영이는 <b>3시</b>부터 국어 수행평가를 시작했어요. 마감이 <b>5시 30분</b>이에요.
+ 3:00 → 5:00 = 2시간, 5:00 → 5:30 = 30분. 하영이에게는 <b>2시간 30분</b>이 남아 있어요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 지금 → 마감, 얼마나 남았을까?</h3><span class="tag">기본 · 5문항</span></div>
-    <table class="calc-table">
-      <tr>
-        <th style="width:8%;">번호</th>
-        <th style="width:28%;">과제·신청</th>
-        <th style="width:20%;">지금 시각</th>
-        <th style="width:20%;">마감 시각</th>
-        <th style="width:24%;">남은 시간</th>
-      </tr>
-      <tr>
-        <td>①</td>
-        <td class="left">📝 국어 수행평가 제출</td>
-        <td><span class="time-chip">3:00</span></td>
-        <td><span class="time-chip due">5:30</span></td>
-        <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-      <tr>
-        <td>②</td>
-        <td class="left">📄 학생회 임원 신청 마감</td>
-        <td><span class="time-chip">10:20</span></td>
-        <td><span class="time-chip due">12:00</span></td>
-        <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-      <tr>
-        <td>③</td>
-        <td class="left">💻 온라인 수강 신청</td>
-        <td><span class="time-chip">1:45</span></td>
-        <td><span class="time-chip due">4:00</span></td>
-        <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-      <tr>
-        <td>④</td>
-        <td class="left">📚 도서관 반납</td>
-        <td><span class="time-chip">4:30</span></td>
-        <td><span class="time-chip due">6:00</span></td>
-        <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-      <tr>
-        <td>⑤</td>
-        <td class="left">📮 우체국 등기 발송</td>
-        <td><span class="time-chip">2:50</span></td>
-        <td><span class="time-chip due">5:00</span></td>
-        <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-    </table>
-    <div class="tip">💡 <b>⑤번 팁:</b> 2:50 → 3:00 = 10분, 3:00 → 5:00 = 2시간. 합쳐서 <b>2시간 10분</b> 남았어요.</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 지금 → 마감, 얼마나 남았을까?</h3><span class="tag">기본 · 5문항</span></div>
+ <table class="calc-table">
+ <tr>
+ <th style="width:8%;">번호</th>
+ <th style="width:28%;">과제·신청</th>
+ <th style="width:20%;">지금 시각</th>
+ <th style="width:20%;">마감 시각</th>
+ <th style="width:24%;">남은 시간</th>
+ </tr>
+ <tr>
+ <td>①</td>
+ <td class="left">📝 국어 수행평가 제출</td>
+ <td><span class="time-chip">3:00</span></td>
+ <td><span class="time-chip due">5:30</span></td>
+ <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ <tr>
+ <td>②</td>
+ <td class="left">📄 학생회 임원 신청 마감</td>
+ <td><span class="time-chip">10:20</span></td>
+ <td><span class="time-chip due">12:00</span></td>
+ <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ <tr>
+ <td>③</td>
+ <td class="left">💻 온라인 수강 신청</td>
+ <td><span class="time-chip">1:45</span></td>
+ <td><span class="time-chip due">4:00</span></td>
+ <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ <tr>
+ <td>④</td>
+ <td class="left">📚 도서관 반납</td>
+ <td><span class="time-chip">4:30</span></td>
+ <td><span class="time-chip due">6:00</span></td>
+ <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ <tr>
+ <td>⑤</td>
+ <td class="left">📮 우체국 등기 발송</td>
+ <td><span class="time-chip">2:50</span></td>
+ <td><span class="time-chip due">5:00</span></td>
+ <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ </table>
+ <div class="tip">💡 <b>⑤번 팁:</b> 2:50 → 3:00 = 10분, 3:00 → 5:00 = 2시간. 합쳐서 <b>2시간 10분</b> 남았어요.</div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 언제부터 시작해야 할까? (역계산)</h3><span class="tag">응용 · 4문항</span></div>
-    <p>시작 시각 = <b>마감 시각 − 필요한 시간</b></p>
-    <table class="calc-table">
-      <tr>
-        <th style="width:6%;">번호</th>
-        <th style="width:26%;">과제</th>
-        <th style="width:20%;">마감</th>
-        <th style="width:22%;">필요한 시간</th>
-        <th style="width:26%;">늦어도 시작 시각</th>
-      </tr>
-      <tr>
-        <td>⑥</td>
-        <td class="left">📝 독서록 (1페이지)</td>
-        <td><span class="time-chip due">6:00</span></td>
-        <td>1시간</td>
-        <td>( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-      <tr>
-        <td>⑦</td>
-        <td class="left">📊 조별 발표 자료</td>
-        <td><span class="time-chip due">4:30</span></td>
-        <td>2시간 30분</td>
-        <td>( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-      <tr>
-        <td>⑧</td>
-        <td class="left">🎨 미술 포트폴리오</td>
-        <td><span class="time-chip due">8:00</span></td>
-        <td>3시간 15분</td>
-        <td>( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-      <tr>
-        <td>⑨</td>
-        <td class="left">📄 자기소개서 (여유 30분 포함)</td>
-        <td><span class="time-chip due">11:00</span></td>
-        <td>1시간 + 여유 30분</td>
-        <td>( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
-      </tr>
-    </table>
-    <div class="tip">💡 <b>⑨번:</b> 필요한 시간 1시간 30분(=1h+30m 여유) 이므로 11:00 − 1시간 30분 = <b>9:30</b>부터 시작!</div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 언제부터 시작해야 할까? (역계산)</h3><span class="tag">응용 · 4문항</span></div>
+ <p>시작 시각 = <b>마감 시각 − 필요한 시간</b></p>
+ <table class="calc-table">
+ <tr>
+ <th style="width:6%;">번호</th>
+ <th style="width:26%;">과제</th>
+ <th style="width:20%;">마감</th>
+ <th style="width:22%;">필요한 시간</th>
+ <th style="width:26%;">늦어도 시작 시각</th>
+ </tr>
+ <tr>
+ <td>⑥</td>
+ <td class="left">📝 독서록 (1페이지)</td>
+ <td><span class="time-chip due">6:00</span></td>
+ <td>1시간</td>
+ <td>( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ <tr>
+ <td>⑦</td>
+ <td class="left">📊 조별 발표 자료</td>
+ <td><span class="time-chip due">4:30</span></td>
+ <td>2시간 30분</td>
+ <td>( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ <tr>
+ <td>⑧</td>
+ <td class="left">🎨 미술 포트폴리오</td>
+ <td><span class="time-chip due">8:00</span></td>
+ <td>3시간 15분</td>
+ <td>( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ <tr>
+ <td>⑨</td>
+ <td class="left">📄 자기소개서 (여유 30분 포함)</td>
+ <td><span class="time-chip due">11:00</span></td>
+ <td>1시간 + 여유 30분</td>
+ <td>( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+ </tr>
+ </table>
+ <div class="tip">💡 <b>⑨번:</b> 필요한 시간 1시간 30분(=1h+30m 여유) 이므로 11:00 − 1시간 30분 = <b>9:30</b>부터 시작!</div>
+ </div>
 
-  <div class="page-foot">시계 시리즈 · L17 · 1쪽 / 2</div>
+ <div class="page-foot">시계 시리즈 · L17 · 1쪽 / 2</div>
 </section>
 
 <!-- 2쪽 -->
 <section class="page">
-  <div class="page-head">
-    <h2>📋 여러 마감을 한꺼번에</h2>
-    <span class="step">2쪽 · 우선순위·계획</span>
-  </div>
-  <div class="intro">
-    같은 날에 <b>여러 마감</b>이 있을 때는 마감이 <b>가장 빠른 것부터</b> 처리하는 게 안전해요.
-    각 과제에 걸리는 시간을 예측해서 <b>일과표</b>에 넣어 봐요.
-  </div>
+ <div class="page-head">
+ <h2>📋 여러 마감을 한꺼번에</h2>
+ <span class="step">2쪽 · 우선순위·계획</span>
+ </div>
+ <div class="intro">
+ 같은 날에 <b>여러 마감</b>이 있을 때는 마감이 <b>가장 빠른 것부터</b> 처리하는 게 안전해요.
+ 각 과제에 걸리는 시간을 예측해서 <b>일과표</b>에 넣어 봐요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 오늘 하영이의 3개 마감</h3><span class="tag">응용 · 4문항</span></div>
-    <p>하영이는 오늘 <b>3시 정각</b>에 학교를 마쳤어요. 아래 세 가지 마감이 남아 있어요.</p>
-    <table class="calc-table">
-      <tr>
-        <th>과제</th>
-        <th>마감</th>
-        <th>필요 시간</th>
-        <th>우선순위</th>
-      </tr>
-      <tr>
-        <td class="left">🅰️ 온라인 수강 신청</td>
-        <td><span class="time-chip due">5:00</span></td>
-        <td>30분</td>
-        <td>( <span class="blank short">&nbsp;</span> )</td>
-      </tr>
-      <tr>
-        <td class="left">🅱️ 조별 과제 (온라인 문서 작성)</td>
-        <td><span class="time-chip due">9:00</span></td>
-        <td>1시간 30분</td>
-        <td>( <span class="blank short">&nbsp;</span> )</td>
-      </tr>
-      <tr>
-        <td class="left">🅲 독서록</td>
-        <td><span class="time-chip due">밤 11:00</span></td>
-        <td>1시간</td>
-        <td>( <span class="blank short">&nbsp;</span> )</td>
-      </tr>
-    </table>
-    <p>· ⑩ 우선순위(1·2·3)를 <b>마감이 빠른 순서</b>로 매겨 보세요.</p>
-    <p>· ⑪ 3:00에 시작해 🅰 30분을 하면 몇 시에 끝나나요? ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
-    <p>· ⑫ 저녁밥·휴식을 위해 <b>5:30 ~ 7:00</b>은 쉬려고 해요. 🅱 조별 과제는 <b>7:00부터</b> 시작하면 몇 시에 끝나나요? ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
-    <p>· ⑬ 🅲 독서록을 <b>9:30에 시작</b>하면, 마감(밤 11:00)까지 여유가 ( <span class="blank">&nbsp;</span> )분 남아요.</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 오늘 하영이의 3개 마감</h3><span class="tag">응용 · 4문항</span></div>
+ <p>하영이는 오늘 <b>3시 정각</b>에 학교를 마쳤어요. 아래 세 가지 마감이 남아 있어요.</p>
+ <table class="calc-table">
+ <tr>
+ <th>과제</th>
+ <th>마감</th>
+ <th>필요 시간</th>
+ <th>우선순위</th>
+ </tr>
+ <tr>
+ <td class="left">🅰️ 온라인 수강 신청</td>
+ <td><span class="time-chip due">5:00</span></td>
+ <td>30분</td>
+ <td>( <span class="blank short">&nbsp;</span> )</td>
+ </tr>
+ <tr>
+ <td class="left">🅱️ 조별 과제 (온라인 문서 작성)</td>
+ <td><span class="time-chip due">9:00</span></td>
+ <td>1시간 30분</td>
+ <td>( <span class="blank short">&nbsp;</span> )</td>
+ </tr>
+ <tr>
+ <td class="left">🅲 독서록</td>
+ <td><span class="time-chip due">밤 11:00</span></td>
+ <td>1시간</td>
+ <td>( <span class="blank short">&nbsp;</span> )</td>
+ </tr>
+ </table>
+ <p>· ⑩ 우선순위(1·2·3)를 <b>마감이 빠른 순서</b>로 매겨 보세요.</p>
+ <p>· ⑪ 3:00에 시작해 🅰 30분을 하면 몇 시에 끝나나요? ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
+ <p>· ⑫ 저녁밥·휴식을 위해 <b>5:30 ~ 7:00</b>은 쉬려고 해요. 🅱 조별 과제는 <b>7:00부터</b> 시작하면 몇 시에 끝나나요? ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
+ <p>· ⑬ 🅲 독서록을 <b>9:30에 시작</b>하면, 마감(밤 11:00)까지 여유가 ( <span class="blank">&nbsp;</span> )분 남아요.</p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 4. 이야기 문제 · 지각 방지</h3><span class="tag">서술형 · 3문항</span></div>
-    <p>⑭ 미정이는 <b>7:50 등교</b> 시각을 지키려고 해요. 집에서 학교까지 <b>25분</b>이 걸리고 준비에 <b>40분</b>이 필요하면, 몇 시에 <b>일어나야</b> 하나요? ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
-    <p>⑮ 채원이는 <b>2:00</b> 학원 시작 전에 도착해야 해요. 이동 <b>30분</b>, 간식·준비 <b>15분</b>이 필요하다면, 몇 시에 집을 <b>나서야</b> 하나요? ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
-    <p>⑯ 하은이는 <b>영화 6:30 시작</b>에 늦지 않게 가려고 해요. 극장 도착 <b>15분 전</b>에 가고 싶고, 집에서 극장까지 <b>1시간</b> 걸리면, 집을 나서는 시각은 ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 4. 이야기 문제 · 지각 방지</h3><span class="tag">서술형 · 3문항</span></div>
+ <p>⑭ 미정이는 <b>7:50 등교</b> 시각을 지키려고 해요. 집에서 학교까지 <b>25분</b>이 걸리고 준비에 <b>40분</b>이 필요하면, 몇 시에 <b>일어나야</b> 하나요? ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
+ <p>⑮ 채원이는 <b>2:00</b> 학원 시작 전에 도착해야 해요. 이동 <b>30분</b>, 간식·준비 <b>15분</b>이 필요하다면, 몇 시에 집을 <b>나서야</b> 하나요? ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
+ <p>⑯ 하은이는 <b>영화 6:30 시작</b>에 늦지 않게 가려고 해요. 극장 도착 <b>15분 전</b>에 가고 싶고, 집에서 극장까지 <b>1시간</b> 걸리면, 집을 나서는 시각은 ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 5. 내 마감 관리표 만들기</h3><span class="tag">쓰기</span></div>
-    <p>이번 주에 있는 <b>내 마감</b> 2가지를 적어 봐요.</p>
-    <table class="calc-table">
-      <tr>
-        <th>마감 이름</th>
-        <th>마감 시각</th>
-        <th>필요 시간</th>
-        <th>시작 시각</th>
-      </tr>
-      <tr>
-        <td class="left"><span class="blank" style="min-width:120px;">&nbsp;</span></td>
-        <td>( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</td>
-        <td>( <span class="blank">&nbsp;</span> )시간 ( <span class="blank">&nbsp;</span> )분</td>
-        <td>( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</td>
-      </tr>
-      <tr>
-        <td class="left"><span class="blank" style="min-width:120px;">&nbsp;</span></td>
-        <td>( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</td>
-        <td>( <span class="blank">&nbsp;</span> )시간 ( <span class="blank">&nbsp;</span> )분</td>
-        <td>( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</td>
-      </tr>
-    </table>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 5. 내 마감 관리표 만들기</h3><span class="tag">쓰기</span></div>
+ <p>이번 주에 있는 <b>내 마감</b> 2가지를 적어 봐요.</p>
+ <table class="calc-table">
+ <tr>
+ <th>마감 이름</th>
+ <th>마감 시각</th>
+ <th>필요 시간</th>
+ <th>시작 시각</th>
+ </tr>
+ <tr>
+ <td class="left"><span class="blank" style="min-width:120px;">&nbsp;</span></td>
+ <td>( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</td>
+ <td>( <span class="blank">&nbsp;</span> )시간 ( <span class="blank">&nbsp;</span> )분</td>
+ <td>( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</td>
+ </tr>
+ <tr>
+ <td class="left"><span class="blank" style="min-width:120px;">&nbsp;</span></td>
+ <td>( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</td>
+ <td>( <span class="blank">&nbsp;</span> )시간 ( <span class="blank">&nbsp;</span> )분</td>
+ <td>( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</td>
+ </tr>
+ </table>
+ </div>
 
-  <div class="note">🌟 <b>실천 팁:</b> 마감 시각을 <b>휴대전화 알람</b>으로 <b>30분 전</b>과 <b>정각</b>에 두 번 맞춰 두면 안심이에요.</div>
+ <div class="note">🌟 <b>실천 팁:</b> 마감 시각을 <b>휴대전화 알람</b>으로 <b>30분 전</b>과 <b>정각</b>에 두 번 맞춰 두면 안심이에요.</div>
 
-  <div class="page-foot">시계 시리즈 · L17 · 2쪽 / 2</div>
+ <div class="page-foot">시계 시리즈 · L17 · 2쪽 / 2</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 

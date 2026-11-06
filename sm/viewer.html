@@ -3,100 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MD 뷰어 — 고등학교 특수학급 학습지</title>
+<title>MD 뷰어 — 고등학교 학습지</title>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <style>
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; height: 100%; }
 body {
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-  font-size: 15px; line-height: 1.65; color: #1f2d3d; background: #f4f6f8;
-  display: grid; grid-template-columns: 320px 1fr; height: 100vh;
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+ font-size: 15px; line-height: 1.65; color: #1f2d3d; background: #f4f6f8;
+ display: grid; grid-template-columns: 320px 1fr; height: 100vh;
 }
 @media (max-width: 800px) {
-  body { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
-  aside { max-height: 40vh; }
+ body { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+ aside { max-height: 40vh; }
 }
 
 aside {
-  background: #fff; border-right: 1px solid #e0e6ec;
-  overflow-y: auto; padding: 18px 16px 60px;
+ background: #fff; border-right: 1px solid #e0e6ec;
+ overflow-y: auto; padding: 18px 16px 60px;
 }
 aside .brand {
-  display: flex; align-items: center; gap: 8px;
-  font-weight: 800; font-size: 1.05em; color: #1a237e;
-  margin-bottom: 12px;
+ display: flex; align-items: center; gap: 8px;
+ font-weight: 800; font-size: 1.05em; color: #1a237e;
+ margin-bottom: 12px;
 }
 aside .brand .home {
-  font-size: 0.7em; padding: 4px 10px; border-radius: 12px;
-  background: #eceff1; color: #455a64; text-decoration: none; font-weight: 700;
+ font-size: 0.7em; padding: 4px 10px; border-radius: 12px;
+ background: #eceff1; color: #455a64; text-decoration: none; font-weight: 700;
 }
 aside input[type="search"] {
-  width: 100%; padding: 8px 10px; font-size: 0.95em;
-  border: 1.5px solid #cfd8dc; border-radius: 8px; outline: none;
-  margin-bottom: 12px;
+ width: 100%; padding: 8px 10px; font-size: 0.95em;
+ border: 1.5px solid #cfd8dc; border-radius: 8px; outline: none;
+ margin-bottom: 12px;
 }
 aside input[type="search"]:focus { border-color: #5e35b1; }
 .group-title {
-  margin: 14px 0 6px; font-size: 0.78em; font-weight: 700;
-  color: #607d8b; letter-spacing: 0.5px; text-transform: uppercase;
+ margin: 14px 0 6px; font-size: 0.78em; font-weight: 700;
+ color: #607d8b; letter-spacing: 0.5px; text-transform: uppercase;
 }
 aside ul { list-style: none; margin: 0; padding: 0; }
 aside li a {
-  display: block; padding: 7px 10px; border-radius: 7px; color: #1f2d3d;
-  font-size: 0.92em; text-decoration: none; line-height: 1.4;
-  border-left: 3px solid transparent;
+ display: block; padding: 7px 10px; border-radius: 7px; color: #1f2d3d;
+ font-size: 0.92em; text-decoration: none; line-height: 1.4;
+ border-left: 3px solid transparent;
 }
 aside li a:hover { background: #f1f3f5; }
 aside li a.active {
-  background: #ede7f6; color: #4a148c; font-weight: 700;
-  border-left-color: #5e35b1;
+ background: #ede7f6; color: #4a148c; font-weight: 700;
+ border-left-color: #5e35b1;
 }
 
 main { overflow-y: auto; padding: 24px 32px 80px; }
 .toolbar {
-  display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end;
-  margin-bottom: 14px; font-size: 0.88em;
+ display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end;
+ margin-bottom: 14px; font-size: 0.88em;
 }
 .toolbar a, .toolbar button {
-  padding: 6px 12px; border-radius: 8px; border: 1px solid #cfd8dc;
-  background: #fff; color: #455a64; text-decoration: none;
-  cursor: pointer; font-size: 0.95em; font-family: inherit;
+ padding: 6px 12px; border-radius: 8px; border: 1px solid #cfd8dc;
+ background: #fff; color: #455a64; text-decoration: none;
+ cursor: pointer; font-size: 0.95em; font-family: inherit;
 }
 .toolbar a:hover, .toolbar button:hover { background: #f1f3f5; border-color: #90a4ae; }
 .toolbar .primary { background: #5e35b1; color: #fff; border-color: #5e35b1; }
 .toolbar .primary:hover { background: #4527a0; }
 
 article {
-  background: #fff; border: 1px solid #e0e6ec; border-radius: 12px;
-  padding: 28px 32px; max-width: 880px;
+ background: #fff; border: 1px solid #e0e6ec; border-radius: 12px;
+ padding: 28px 32px; max-width: 880px;
 }
 article h1 { font-size: 1.7em; color: #1a237e; margin-top: 0; }
 article h2 { font-size: 1.3em; color: #283593; margin-top: 1.6em;
-  border-bottom: 2px solid #e0e6ec; padding-bottom: 4px; }
+ border-bottom: 2px solid #e0e6ec; padding-bottom: 4px; }
 article h3 { font-size: 1.08em; color: #4527a0; margin-top: 1.3em;
-  background: #f3e5f5; padding: 6px 10px; border-radius: 4px;
-  border-left: 3px solid #7e57c2; }
+ background: #f3e5f5; padding: 6px 10px; border-radius: 4px;
+ border-left: 3px solid #7e57c2; }
 article p { margin: 0.6em 0; }
 article ul, article ol { margin: 0.5em 0; padding-left: 1.6em; }
 article li { margin-bottom: 4px; }
 article blockquote {
-  border-left: 4px solid #b39ddb; background: #f3e5f5;
-  margin: 0.8em 0; padding: 8px 14px; border-radius: 0 8px 8px 0;
-  color: #4527a0;
+ border-left: 4px solid #b39ddb; background: #f3e5f5;
+ margin: 0.8em 0; padding: 8px 14px; border-radius: 0 8px 8px 0;
+ color: #4527a0;
 }
 article code {
-  background: #eceff1; padding: 2px 6px; border-radius: 4px;
-  font-size: 0.9em;
+ background: #eceff1; padding: 2px 6px; border-radius: 4px;
+ font-size: 0.9em;
 }
 article pre { background: #263238; color: #eceff1; padding: 12px;
-  border-radius: 8px; overflow-x: auto; }
+ border-radius: 8px; overflow-x: auto; }
 article hr { border: none; border-top: 2px dashed #cfd8dc; margin: 1.6em 0; }
 article table { border-collapse: collapse; margin: 0.8em 0; width: 100%; }
 article th, article td { border: 1px solid #cfd8dc; padding: 6px 10px; text-align: left; }
 article th { background: #eceff1; }
 article details { background: #fff8e1; border: 1px solid #ffe082;
-  border-radius: 8px; padding: 8px 14px; margin: 0.8em 0; }
+ border-radius: 8px; padding: 8px 14px; margin: 0.8em 0; }
 article details summary { cursor: pointer; font-weight: 700; color: #ef6c00; }
 article u { text-decoration: underline; text-decoration-color: #ef6c00; }
 
@@ -104,133 +104,133 @@ article u { text-decoration: underline; text-decoration-color: #ef6c00; }
 .empty h2 { color: #455a64; }
 
 @media print {
-  aside, .toolbar { display: none !important; }
-  body { display: block; }
-  main { padding: 0; }
-  article { border: none; padding: 0; max-width: 100%; }
+ aside, .toolbar { display: none !important; }
+ body { display: block; }
+ main { padding: 0; }
+ article { border: none; padding: 0; max-width: 100%; }
 }
 </style>
 </head>
 <body>
 
 <aside>
-  <div class="brand">
-    📄 MD 뷰어
-    <a class="home" href="index.html">메인 ↩</a>
-  </div>
-  <input type="search" id="q" placeholder="🔍 학습지 이름 검색...">
-  <div id="list">불러오는 중…</div>
+ <div class="brand">
+ 📄 MD 뷰어
+ <a class="home" href="index.html">메인 ↩</a>
+ </div>
+ <input type="search" id="q" placeholder="🔍 학습지 이름 검색...">
+ <div id="list">불러오는 중…</div>
 </aside>
 
 <main>
-  <div class="toolbar" id="toolbar" style="display:none;">
-    <a id="open-html" target="_blank" rel="noopener">🌐 HTML 원본</a>
-    <a id="open-md" target="_blank" rel="noopener">📝 MD 원문</a>
-    <button class="primary" onclick="window.print()">🖨 인쇄</button>
-  </div>
-  <article id="content">
-    <div class="empty">
-      <h2>왼쪽에서 학습지를 선택하세요</h2>
-      <p>26개의 worksheet가 마크다운 버전으로 준비되어 있어요.</p>
-    </div>
-  </article>
+ <div class="toolbar" id="toolbar" style="display:none;">
+ <a id="open-html" target="_blank" rel="noopener">🌐 HTML 원본</a>
+ <a id="open-md" target="_blank" rel="noopener">📝 MD 원문</a>
+ <button class="primary" onclick="window.print">🖨 인쇄</button>
+ </div>
+ <article id="content">
+ <div class="empty">
+ <h2>왼쪽에서 학습지를 선택하세요</h2>
+ <p>26개의 worksheet가 마크다운 버전으로 준비되어 있어요.</p>
+ </div>
+ </article>
 </main>
 
 <script>
 const GROUPS = [
-  { name: '🌱 마음과 감정',     match: /^worksheet_/ },
-  { name: '🤝 사회성과 관계',   match: /(국어_사회성|국어_갈등해결|하교후_만남)/ },
-  { name: '📱 디지털·미디어',   match: /(SNS|메신저|사이버)/ },
-  { name: '🚇 자립과 시민생활', match: /(대중교통|소비자|영수증|환불|직장|혼자_여가|애완동물)/ },
-  { name: '🛡️ 안전과 응급',    match: /(응급|클라이밍|자전거|서울숲)/ },
-  { name: '🧮 융합·프로젝트',   match: /(용돈|롯데월드|스포츠몬스터|salary|lotteworld|jeju|osaka)/ },
-  { name: '🍔 외식·소비 체험',  match: /(haidilao|malatang|mams|delivery|배달|spelling|korean_spelling)/ },
-  { name: '📚 그 외',           match: /.*/ },
+ { name: '🌱 마음과 감정', match: /^worksheet_/ },
+ { name: '🤝 사회성과 관계', match: /(국어_사회성|국어_갈등해결|하교후_만남)/ },
+ { name: '📱 디지털·미디어', match: /(SNS|메신저|사이버)/ },
+ { name: '🚇 자립과 시민생활', match: /(대중교통|소비자|영수증|환불|직장|혼자_여가|애완동물)/ },
+ { name: '🛡️ 안전과 응급', match: /(응급|클라이밍|자전거|서울숲)/ },
+ { name: '🧮 융합·프로젝트', match: /(용돈|롯데월드|스포츠몬스터|salary|lotteworld|jeju|osaka)/ },
+ { name: '🍔 외식·소비 체험', match: /(haidilao|malatang|mams|delivery|배달|spelling|korean_spelling)/ },
+ { name: '📚 그 외', match: /.*/ },
 ];
 
 let MANIFEST = [];
 
-async function loadManifest() {
-  try {
-    const res = await fetch('_build/manifest.json', { cache: 'no-cache' });
-    if (!res.ok) throw new Error('manifest.json not found');
-    MANIFEST = await res.json();
-  } catch (e) {
-    document.getElementById('list').innerHTML =
-      '<p style="color:#c62828;">manifest.json을 읽을 수 없어요.<br>브라우저에서 직접 파일 시스템을 열면 fetch가 막힙니다. <code>python -m http.server</code>로 sm/ 폴더를 띄워 주세요.</p>';
-    return;
-  }
-  renderSidebar();
-  loadFromHash();
+async function loadManifest {
+ try {
+ const res = await fetch('_build/manifest.json', { cache: 'no-cache' });
+ if (!res.ok) throw new Error('manifest.json not found');
+ MANIFEST = await res.json;
+ } catch (e) {
+ document.getElementById('list').innerHTML =
+ '<p style="color:#c62828;">manifest.json을 읽을 수 없어요.<br>브라우저에서 직접 파일 시스템을 열면 fetch가 막힙니다. <code>python -m http.server</code>로 sm/ 폴더를 띄워 주세요.</p>';
+ return;
+ }
+ renderSidebar;
+ loadFromHash;
 }
 
 function groupOf(item) {
-  const key = (item.stem + ' ' + item.title);
-  for (const g of GROUPS) {
-    if (g.match.test(key)) return g.name;
-  }
-  return '📚 그 외';
+ const key = (item.stem + ' ' + item.title);
+ for (const g of GROUPS) {
+ if (g.match.test(key)) return g.name;
+ }
+ return '📚 그 외';
 }
 
 function renderSidebar(filter = '') {
-  const list = document.getElementById('list');
-  const grouped = {};
-  for (const item of MANIFEST) {
-    const display = (item.title || item.stem).replace(/^[0-9.]+\s*/, '').replace(/_/g, ' ');
-    if (filter && !(item.title + ' ' + item.stem).toLowerCase().includes(filter.toLowerCase())) continue;
-    const g = groupOf(item);
-    if (!grouped[g]) grouped[g] = [];
-    grouped[g].push({ ...item, display });
-  }
-  let html = '';
-  for (const g of GROUPS.map(x => x.name)) {
-    if (!grouped[g] || grouped[g].length === 0) continue;
-    html += `<div class="group-title">${g} <span style="opacity:0.6">(${grouped[g].length})</span></div>`;
-    html += '<ul>';
-    for (const it of grouped[g]) {
-      html += `<li><a href="#${encodeURIComponent(it.md)}" data-md="${escapeAttr(it.md)}">${escapeHtml(it.display)}</a></li>`;
-    }
-    html += '</ul>';
-  }
-  if (!html) html = '<p style="color:#78909c;">검색 결과 없음</p>';
-  list.innerHTML = html;
+ const list = document.getElementById('list');
+ const grouped = {};
+ for (const item of MANIFEST) {
+ const display = (item.title || item.stem).replace(/^[0-9.]+\s*/, '').replace(/_/g, ' ');
+ if (filter && !(item.title + ' ' + item.stem).toLowerCase.includes(filter.toLowerCase)) continue;
+ const g = groupOf(item);
+ if (!grouped[g]) grouped[g] = [];
+ grouped[g].push({ ...item, display });
+ }
+ let html = '';
+ for (const g of GROUPS.map(x => x.name)) {
+ if (!grouped[g] || grouped[g].length === 0) continue;
+ html += `<div class="group-title">${g} <span style="opacity:0.6">(${grouped[g].length})</span></div>`;
+ html += '<ul>';
+ for (const it of grouped[g]) {
+ html += `<li><a href="#${encodeURIComponent(it.md)}" data-md="${escapeAttr(it.md)}">${escapeHtml(it.display)}</a></li>`;
+ }
+ html += '</ul>';
+ }
+ if (!html) html = '<p style="color:#78909c;">검색 결과 없음</p>';
+ list.innerHTML = html;
 }
 
 function escapeHtml(s) {
-  return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 }
 function escapeAttr(s) { return escapeHtml(s); }
 
 async function loadDoc(mdPath) {
-  const item = MANIFEST.find(x => x.md === mdPath);
-  if (!item) {
-    document.getElementById('content').innerHTML = '<div class="empty"><h2>찾을 수 없는 학습지입니다.</h2></div>';
-    document.getElementById('toolbar').style.display = 'none';
-    return;
-  }
-  try {
-    const res = await fetch(encodeURI(item.md));
-    if (!res.ok) throw new Error('fetch failed: ' + res.status);
-    const md = await res.text();
-    document.getElementById('content').innerHTML = marked.parse(md);
-    document.title = (item.title || item.stem) + ' — MD 뷰어';
-    document.getElementById('toolbar').style.display = 'flex';
-    document.getElementById('open-html').href = encodeURI(item.html);
-    document.getElementById('open-md').href = encodeURI(item.md);
-    // Highlight active link
-    document.querySelectorAll('aside a[data-md]').forEach(a => {
-      a.classList.toggle('active', a.dataset.md === mdPath);
-    });
-    document.querySelector('main').scrollTop = 0;
-  } catch (e) {
-    document.getElementById('content').innerHTML =
-      `<div class="empty"><h2>학습지를 불러올 수 없어요</h2><p>${escapeHtml(e.message)}</p></div>`;
-  }
+ const item = MANIFEST.find(x => x.md === mdPath);
+ if (!item) {
+ document.getElementById('content').innerHTML = '<div class="empty"><h2>찾을 수 없는 학습지입니다.</h2></div>';
+ document.getElementById('toolbar').style.display = 'none';
+ return;
+ }
+ try {
+ const res = await fetch(encodeURI(item.md));
+ if (!res.ok) throw new Error('fetch failed: ' + res.status);
+ const md = await res.text;
+ document.getElementById('content').innerHTML = marked.parse(md);
+ document.title = (item.title || item.stem) + ' — MD 뷰어';
+ document.getElementById('toolbar').style.display = 'flex';
+ document.getElementById('open-html').href = encodeURI(item.html);
+ document.getElementById('open-md').href = encodeURI(item.md);
+ // Highlight active link
+ document.querySelectorAll('aside a[data-md]').forEach(a => {
+ a.classList.toggle('active', a.dataset.md === mdPath);
+ });
+ document.querySelector('main').scrollTop = 0;
+ } catch (e) {
+ document.getElementById('content').innerHTML =
+ `<div class="empty"><h2>학습지를 불러올 수 없어요</h2><p>${escapeHtml(e.message)}</p></div>`;
+ }
 }
 
-function loadFromHash() {
-  const h = decodeURIComponent(location.hash.slice(1));
-  if (h) loadDoc(h);
+function loadFromHash {
+ const h = decodeURIComponent(location.hash.slice(1));
+ if (h) loadDoc(h);
 }
 
 window.addEventListener('hashchange', loadFromHash);
@@ -239,7 +239,7 @@ document.getElementById('q').addEventListener('input', e => renderSidebar(e.targ
 // marked options
 marked.setOptions({ breaks: false, gfm: true });
 
-loadManifest();
+loadManifest;
 </script>
 
 </body>

@@ -8,23 +8,23 @@
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 body { margin: 0; background: #eceff1; color: #1f2d3d;
-  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+ font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
 .toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
-  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+ padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
 .toolbar .title { font-weight: 700; }
 .toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
 .toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
 .page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
-  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+ background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
 .page:last-of-type { page-break-after: auto; }
 
 .page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #f8bbd0 100%); }
 .cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #880e4f;
-  border-bottom: 2px solid #f06292; padding-bottom: 8px; margin-bottom: 18px; }
+ border-bottom: 2px solid #f06292; padding-bottom: 8px; margin-bottom: 18px; }
 .cover-top .subject { font-weight: 700; color: #ad1457; }
 .cover-main { text-align: center; padding: 8px 0; }
 .cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
-  background: #c2185b; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+ background: #c2185b; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
 .cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #880e4f; font-weight: 900; }
 .cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #ad1457; font-weight: 500; }
 .cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 8px; }
@@ -36,7 +36,7 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 .cover-name .label { color: #880e4f; font-weight: 700; margin-right: 6px; }
 
 .page-head { display: flex; justify-content: space-between; align-items: flex-end;
-  border-bottom: 2.5px solid #c2185b; padding-bottom: 5px; margin-bottom: 10px; }
+ border-bottom: 2.5px solid #c2185b; padding-bottom: 5px; margin-bottom: 10px; }
 .page-head h2 { margin: 0; color: #880e4f; font-size: 1.3em; letter-spacing: -0.5px; }
 .page-head .step { font-size: 0.82em; color: #fff; background: #c2185b; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
 
@@ -90,360 +90,360 @@ body { margin: 0; background: #eceff1; color: #1f2d3d;
 
 .page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
 @media print {
-  body { background: #fff; font-size: 9.5pt; line-height: 1.35; }
-  .toolbar, #name-editor { display: none; }
-  .page { box-shadow: none; margin: 0 auto; padding: 10mm 12mm; }
-  .activity { padding: 8px 11px; margin: 7px 0; }
-  .intro, .tip, .note { padding: 6px 10px; margin: 5px 0; }
-  .dialogue { padding: 8px 11px; margin: 6px 0; }
-  .speech { margin: 5px 0; }
-  .speech .bubble { padding: 6px 10px; }
+ body { background: #fff; font-size: 9.5pt; line-height: 1.35; }
+ .toolbar, #name-editor { display: none; }
+ .page { box-shadow: none; margin: 0 auto; padding: 10mm 12mm; }
+ .activity { padding: 8px 11px; margin: 7px 0; }
+ .intro, .tip, .note { padding: 6px 10px; margin: 5px 0; }
+ .dialogue { padding: 8px 11px; margin: 6px 0; }
+ .speech { margin: 5px 0; }
+ .speech .bubble { padding: 6px 10px; }
 }
 </style>
 </head>
 <body>
 
 <div class="toolbar">
-  <div><span class="title">🌸 S11 칭찬 주고받기</span><span class="muted">사회성 · Level 11</span></div>
-  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+ <div><span class="title">🌸 S11 칭찬 주고받기</span><span class="muted">사회성 · Level 11</span></div>
+ <button onclick="window.print">🖨️ 인쇄 / PDF</button>
 </div>
 
 <!-- 표지 -->
 <section class="page cover">
-  <div class="cover-top">
-    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#880e4f;">S11 · 심화</b></span>
-    <span>고등학교 특수학급</span>
-  </div>
-  <div class="cover-main">
-    <span class="badge">칭찬 · 진심 표현</span>
-    <h1>하영·주은·채원의 칭찬 연습</h1>
-    <p class="lead">진심을 담아 칭찬하고, 부끄러워하지 않고 받기</p>
-  </div>
-  <div class="cover-emoji">🌸 👏 💬</div>
-  <div class="cover-info">
-    <h3>🎯 오늘의 목표</h3>
-    <ul>
-      <li><b>진심 칭찬</b>과 <b>빈말</b>의 차이를 안다.</li>
-      <li>구체적으로 칭찬하는 <b>3요소 공식</b>을 익힌다.</li>
-      <li>칭찬을 받으면 자연스럽게 <b>"고마워요"</b>라고 답한다.</li>
-    </ul>
-  </div>
-  <div class="cover-info" style="border-color:#a5d6a7;">
-    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
-    <ul>
-      <li><b>하영</b>: 친구가 새 옷을 입은 걸 칭찬하고 싶은데 뭐라 말할지 모름</li>
-      <li><b>주은</b>: 칭찬을 받으면 "아니야, 별거 아니야"만 반복함</li>
-      <li><b>채원</b>: 진짜 마음 없이 "예뻐~"라고 빈말하는 습관</li>
-    </ul>
-  </div>
-  <div class="cover-name">
-    <div class="line"><span class="label">학년·반</span></div>
-    <div class="line"><span class="label">이름</span></div>
-    <div class="line"><span class="label">날짜</span></div>
-  </div>
-  <div class="page-foot">사회성 시리즈 · S11 · 표지</div>
+ <div class="cover-top">
+ <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#880e4f;">S11 · 심화</b></span>
+ <span>고등학교 </span>
+ </div>
+ <div class="cover-main">
+ <span class="badge">칭찬 · 진심 표현</span>
+ <h1>하영·주은·채원의 칭찬 연습</h1>
+ <p class="lead">진심을 담아 칭찬하고, 부끄러워하지 않고 받기</p>
+ </div>
+ <div class="cover-emoji">🌸 👏 💬</div>
+ <div class="cover-info">
+ <h3>🎯 오늘의 목표</h3>
+ <ul>
+ <li><b>진심 칭찬</b>과 <b>빈말</b>의 차이를 안다.</li>
+ <li>구체적으로 칭찬하는 <b>3요소 공식</b>을 익힌다.</li>
+ <li>칭찬을 받으면 자연스럽게 <b>"고마워요"</b>라고 답한다.</li>
+ </ul>
+ </div>
+ <div class="cover-info" style="border-color:#a5d6a7;">
+ <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+ <ul>
+ <li><b>하영</b>: 친구가 새 옷을 입은 걸 칭찬하고 싶은데 뭐라 말할지 모름</li>
+ <li><b>주은</b>: 칭찬을 받으면 "아니야, 별거 아니야"만 반복함</li>
+ <li><b>채원</b>: 진짜 마음 없이 "예뻐~"라고 빈말하는 습관</li>
+ </ul>
+ </div>
+ <div class="cover-name">
+ <div class="line"><span class="label">학년·반</span></div>
+ <div class="line"><span class="label">이름</span></div>
+ <div class="line"><span class="label">날짜</span></div>
+ </div>
+ <div class="page-foot">사회성 시리즈 · S11 · 표지</div>
 </section>
 
 <!-- 1쪽: 칭찬 공식과 진심 vs 빈말 -->
 <section class="page">
-  <div class="page-head">
-    <h2>👏 칭찬은 관계의 씨앗</h2>
-    <span class="step">1쪽 · 공식</span>
-  </div>
-  <div class="intro">
-    좋은 칭찬은 <b>진심</b>이 담겨 있고, <b>구체적</b>이며, <b>상대를 편안하게</b> 만들어요.
-    반대로 빈말은 티가 나서 오히려 어색해져요. 오늘은 <b>3요소 공식</b>을 배워요.
-  </div>
+ <div class="page-head">
+ <h2>👏 칭찬은 관계의 씨앗</h2>
+ <span class="step">1쪽 · 공식</span>
+ </div>
+ <div class="intro">
+ 좋은 칭찬은 <b>진심</b>이 담겨 있고, <b>구체적</b>이며, <b>상대를 편안하게</b> 만들어요.
+ 반대로 빈말은 티가 나서 오히려 어색해져요. 오늘은 <b>3요소 공식</b>을 배워요.
+ </div>
 
-  <div class="principles">
-    <div class="pri-card">
-      <div class="icon">🔍</div>
-      <div class="name">① 구체적으로</div>
-      <div class="desc">"예뻐"보다 <b>"그 노란색이 얼굴에 잘 어울려"</b></div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">💗</div>
-      <div class="name">② 진심으로</div>
-      <div class="desc">진짜 그렇게 생각할 때만</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">👤</div>
-      <div class="name">③ 그 사람에게</div>
-      <div class="desc">겉모습 + <b>노력·태도</b>도 함께</div>
-    </div>
-    <div class="pri-card">
-      <div class="icon">🎁</div>
-      <div class="name">받을 때</div>
-      <div class="desc"><b>"고마워요"</b> 웃으며 받기</div>
-    </div>
-  </div>
+ <div class="principles">
+ <div class="pri-card">
+ <div class="icon">🔍</div>
+ <div class="name">① 구체적으로</div>
+ <div class="desc">"예뻐"보다 <b>"그 노란색이 얼굴에 잘 어울려"</b></div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">💗</div>
+ <div class="name">② 진심으로</div>
+ <div class="desc">진짜 그렇게 생각할 때만</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">👤</div>
+ <div class="name">③ 그 사람에게</div>
+ <div class="desc">겉모습 + <b>노력·태도</b>도 함께</div>
+ </div>
+ <div class="pri-card">
+ <div class="icon">🎁</div>
+ <div class="name">받을 때</div>
+ <div class="desc"><b>"고마워요"</b> 웃으며 받기</div>
+ </div>
+ </div>
 
-  <table class="compare-table">
-    <tr>
-      <th style="width:26%;">상황</th>
-      <th style="width:37%;">빈말·어색한 칭찬</th>
-      <th style="width:37%;">진심 · 구체 칭찬</th>
-    </tr>
-    <tr>
-      <td><b>친구 옷</b></td>
-      <td class="bad">"오~ 예뻐 예뻐" (안 쳐다보면서)</td>
-      <td class="good">"그 파란색 니트, 잘 어울려."</td>
-    </tr>
-    <tr>
-      <td><b>친구 발표</b></td>
-      <td class="bad">"잘했어" (한 마디만)</td>
-      <td class="good">"목소리가 또렷해서 잘 들렸어."</td>
-    </tr>
-    <tr>
-      <td><b>친구 그림</b></td>
-      <td class="bad">"오, 대박~"</td>
-      <td class="good">"색을 섞은 게 부드럽다. 어떻게 했어?"</td>
-    </tr>
-    <tr>
-      <td><b>친구 도움</b></td>
-      <td class="bad">"고마워" (지나가면서)</td>
-      <td class="good">"어제 필기 빌려줘서 정말 큰 도움이 됐어."</td>
-    </tr>
-  </table>
+ <table class="compare-table">
+ <tr>
+ <th style="width:26%;">상황</th>
+ <th style="width:37%;">빈말·어색한 칭찬</th>
+ <th style="width:37%;">진심 · 구체 칭찬</th>
+ </tr>
+ <tr>
+ <td><b>친구 옷</b></td>
+ <td class="bad">"오~ 예뻐 예뻐" (안 쳐다보면서)</td>
+ <td class="good">"그 파란색 니트, 잘 어울려."</td>
+ </tr>
+ <tr>
+ <td><b>친구 발표</b></td>
+ <td class="bad">"잘했어" (한 마디만)</td>
+ <td class="good">"목소리가 또렷해서 잘 들렸어."</td>
+ </tr>
+ <tr>
+ <td><b>친구 그림</b></td>
+ <td class="bad">"오, 대박~"</td>
+ <td class="good">"색을 섞은 게 부드럽다. 어떻게 했어?"</td>
+ </tr>
+ <tr>
+ <td><b>친구 도움</b></td>
+ <td class="bad">"고마워" (지나가면서)</td>
+ <td class="good">"어제 필기 빌려줘서 정말 큰 도움이 됐어."</td>
+ </tr>
+ </table>
 
-  <div class="dialogue">
-    <div class="title">📖 하영이가 채원이의 새 헤어스타일을 칭찬</div>
-    <div class="speech">
-      <div class="avatar">하영</div>
-      <div class="bubble">
-        <div class="who">하영</div>
-        채원아, 머리 잘랐네! <b>단발이 얼굴형이랑 잘 어울려.</b> 훨씬 시원해 보여.
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">채원</div>
-        진짜? <b>고마워.</b> 사실 잘랐는데 어색할까 봐 걱정했거든.
-      </div>
-      <div class="avatar">채원</div>
-    </div>
-    <div class="speech">
-      <div class="avatar">하영</div>
-      <div class="bubble">
-        <div class="who">하영</div>
-        아니야, 잘 어울려. 이 스타일이 <b>너답다</b>는 느낌이야.
-      </div>
-    </div>
-    <div class="speech right">
-      <div class="bubble">
-        <div class="who">채원</div>
-        기분 좋다. 하영이가 그렇게 말해 주니까.
-      </div>
-      <div class="avatar">채원</div>
-    </div>
-  </div>
+ <div class="dialogue">
+ <div class="title">📖 하영이가 채원이의 새 헤어스타일을 칭찬</div>
+ <div class="speech">
+ <div class="avatar">하영</div>
+ <div class="bubble">
+ <div class="who">하영</div>
+ 채원아, 머리 잘랐네! <b>단발이 얼굴형이랑 잘 어울려.</b> 훨씬 시원해 보여.
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">채원</div>
+ 진짜? <b>고마워.</b> 사실 잘랐는데 어색할까 봐 걱정했거든.
+ </div>
+ <div class="avatar">채원</div>
+ </div>
+ <div class="speech">
+ <div class="avatar">하영</div>
+ <div class="bubble">
+ <div class="who">하영</div>
+ 아니야, 잘 어울려. 이 스타일이 <b>너답다</b>는 느낌이야.
+ </div>
+ </div>
+ <div class="speech right">
+ <div class="bubble">
+ <div class="who">채원</div>
+ 기분 좋다. 하영이가 그렇게 말해 주니까.
+ </div>
+ <div class="avatar">채원</div>
+ </div>
+ </div>
 
-  <div class="tip">
-    💡 <b>Tip.</b> 칭찬은 <b>겉모습만</b>보다 <b>노력·태도·습관</b>을 봐 주면 더 오래 남는 감동이 돼요.
-    "예뻐"보다 "그거 매일 연습했다며, 대단해"가 훨씬 힘이 있어요.
-  </div>
+ <div class="tip">
+ 💡 <b>Tip.</b> 칭찬은 <b>겉모습만</b>보다 <b>노력·태도·습관</b>을 봐 주면 더 오래 남는 감동이 돼요.
+ "예뻐"보다 "그거 매일 연습했다며, 대단해"가 훨씬 힘이 있어요.
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 1. 빈말을 진심 칭찬으로 바꾸기</h3><span class="tag">4문항</span></div>
-    <p>같은 상황에서 <b>구체적</b>이고 <b>진심</b>이 담긴 칭찬으로 바꿔 써요.</p>
-    <p>① "오~ 잘 그렸네" (친구 그림) → "<span class="blank long">&nbsp;</span>"</p>
-    <p>② "발표 잘했어" (친구 발표) → "<span class="blank long">&nbsp;</span>"</p>
-    <p>③ "예쁘다~" (친구 새 신발) → "<span class="blank long">&nbsp;</span>"</p>
-    <p>④ "고마워" (숙제 도와준 친구) → "<span class="blank long">&nbsp;</span>"</p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 1. 빈말을 진심 칭찬으로 바꾸기</h3><span class="tag">4문항</span></div>
+ <p>같은 상황에서 <b>구체적</b>이고 <b>진심</b>이 담긴 칭찬으로 바꿔 써요.</p>
+ <p>① "오~ 잘 그렸네" (친구 그림) → "<span class="blank long">&nbsp;</span>"</p>
+ <p>② "발표 잘했어" (친구 발표) → "<span class="blank long">&nbsp;</span>"</p>
+ <p>③ "예쁘다~" (친구 새 신발) → "<span class="blank long">&nbsp;</span>"</p>
+ <p>④ "고마워" (숙제 도와준 친구) → "<span class="blank long">&nbsp;</span>"</p>
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S11 · 1쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S11 · 1쪽 / 2</div>
 </section>
 
 <!-- 2쪽: 받기 연습 + 실전 -->
 <section class="page">
-  <div class="page-head">
-    <h2>🎁 칭찬 받기 연습과 실전</h2>
-    <span class="step">2쪽 · 실전</span>
-  </div>
-  <div class="intro">
-    칭찬을 받았을 때 "아니야, 아니야" 하면 상대는 <b>민망</b>해져요. 자연스럽게 <b>"고마워요"</b>라고 받아 주기.
-    &nbsp;&nbsp;<b>❌ "아니야, 별로야."</b> &nbsp;&nbsp; <b>✅ "고마워. 새로 산 거야."</b>
-  </div>
+ <div class="page-head">
+ <h2>🎁 칭찬 받기 연습과 실전</h2>
+ <span class="step">2쪽 · 실전</span>
+ </div>
+ <div class="intro">
+ 칭찬을 받았을 때 "아니야, 아니야" 하면 상대는 <b>민망</b>해져요. 자연스럽게 <b>"고마워요"</b>라고 받아 주기.
+ &nbsp;&nbsp;<b>❌ "아니야, 별로야."</b> &nbsp;&nbsp; <b>✅ "고마워. 새로 산 거야."</b>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 2. 상황별 칭찬 만들기</h3><span class="tag">6장면</span></div>
-    <p>각 상황에서 <b>진심 칭찬 한 마디</b>를 써 봐요. 3요소(구체·진심·그 사람)를 챙기세요.</p>
-    <div class="situation-grid">
-      <div class="sit-card">
-        <div class="place">🎨 미술 시간</div>
-        <div class="role">주은이가 그린 풍경화</div>
-        <div class="example">예: "하늘 색이 정말 부드럽다."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🍳 조리 실습</div>
-        <div class="role">채원이가 만든 김밥</div>
-        <div class="example">예: "재료가 예쁘게 잘렸다."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🏃 체육</div>
-        <div class="role">하영이가 달리기 최선</div>
-        <div class="example">예: "끝까지 포기 안 한 게 멋있어."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">🧹 청소</div>
-        <div class="role">친구가 창틀까지 닦음</div>
-        <div class="example">예: "구석까지 닦다니, 꼼꼼하다."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">📚 공부</div>
-        <div class="role">쉬는 시간에도 문제 풀이</div>
-        <div class="example">예: "성실한 태도가 대단해."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-      <div class="sit-card">
-        <div class="place">💬 위로</div>
-        <div class="role">힘든 내 얘기 들어준 친구</div>
-        <div class="example">예: "네가 들어줘서 마음이 편해졌어."</div>
-        <div class="fill"></div>
-        <div class="fill"></div>
-      </div>
-    </div>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 2. 상황별 칭찬 만들기</h3><span class="tag">6장면</span></div>
+ <p>각 상황에서 <b>진심 칭찬 한 마디</b>를 써 봐요. 3요소(구체·진심·그 사람)를 챙기세요.</p>
+ <div class="situation-grid">
+ <div class="sit-card">
+ <div class="place">🎨 미술 시간</div>
+ <div class="role">주은이가 그린 풍경화</div>
+ <div class="example">예: "하늘 색이 정말 부드럽다."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🍳 조리 실습</div>
+ <div class="role">채원이가 만든 김밥</div>
+ <div class="example">예: "재료가 예쁘게 잘렸다."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🏃 체육</div>
+ <div class="role">하영이가 달리기 최선</div>
+ <div class="example">예: "끝까지 포기 안 한 게 멋있어."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">🧹 청소</div>
+ <div class="role">친구가 창틀까지 닦음</div>
+ <div class="example">예: "구석까지 닦다니, 꼼꼼하다."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">📚 공부</div>
+ <div class="role">쉬는 시간에도 문제 풀이</div>
+ <div class="example">예: "성실한 태도가 대단해."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ <div class="sit-card">
+ <div class="place">💬 위로</div>
+ <div class="role">힘든 내 얘기 들어준 친구</div>
+ <div class="example">예: "네가 들어줘서 마음이 편해졌어."</div>
+ <div class="fill"></div>
+ <div class="fill"></div>
+ </div>
+ </div>
+ </div>
 
-  <div class="activity">
-    <div class="head"><h3>활동 3. 오늘 한 사람에게 진심 칭찬 편지</h3><span class="tag">쓰기</span></div>
-    <p>오늘 <b>진심으로 칭찬하고 싶은 사람 한 명</b>을 정해서, 세 문장으로 편지를 써요.</p>
-    <p>[대상] <span class="blank long">&nbsp;</span></p>
-    <p>① 무엇을 잘했는지 (구체적): <span class="blank long">&nbsp;</span></p>
-    <p>② 그것이 나에게 어떤 느낌을 주는지: <span class="blank long">&nbsp;</span></p>
-    <p>③ 앞으로도 응원한다는 말: <span class="blank long">&nbsp;</span></p>
-  </div>
+ <div class="activity">
+ <div class="head"><h3>활동 3. 오늘 한 사람에게 진심 칭찬 편지</h3><span class="tag">쓰기</span></div>
+ <p>오늘 <b>진심으로 칭찬하고 싶은 사람 한 명</b>을 정해서, 세 문장으로 편지를 써요.</p>
+ <p>[대상] <span class="blank long">&nbsp;</span></p>
+ <p>① 무엇을 잘했는지 (구체적): <span class="blank long">&nbsp;</span></p>
+ <p>② 그것이 나에게 어떤 느낌을 주는지: <span class="blank long">&nbsp;</span></p>
+ <p>③ 앞으로도 응원한다는 말: <span class="blank long">&nbsp;</span></p>
+ </div>
 
-  <div class="checklist">
-    <div class="title">✅ 칭찬 셀프 체크</div>
-    <label><input type="checkbox" style="margin-right:6px;"> 칭찬이 <b>구체적</b>이었다 ("예뻐" 대신 "그 색이 잘 어울려")</label>
-    <label><input type="checkbox" style="margin-right:6px;"> <b>진심</b>이 담겨 있었다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 겉모습뿐 아니라 <b>노력·태도</b>도 봤다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 상대의 눈을 보고 <b>웃으며</b> 말했다</label>
-    <label><input type="checkbox" style="margin-right:6px;"> 칭찬을 받았을 때 "<b>고마워</b>"라고 답했다</label>
-  </div>
+ <div class="checklist">
+ <div class="title">✅ 칭찬 셀프 체크</div>
+ <label><input type="checkbox" style="margin-right:6px;"> 칭찬이 <b>구체적</b>이었다 ("예뻐" 대신 "그 색이 잘 어울려")</label>
+ <label><input type="checkbox" style="margin-right:6px;"> <b>진심</b>이 담겨 있었다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 겉모습뿐 아니라 <b>노력·태도</b>도 봤다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 상대의 눈을 보고 <b>웃으며</b> 말했다</label>
+ <label><input type="checkbox" style="margin-right:6px;"> 칭찬을 받았을 때 "<b>고마워</b>"라고 답했다</label>
+ </div>
 
-  <div class="note">
-    🌸 <b>기억해요.</b> 오늘 한 명에게라도 진심 칭찬 한 마디를 건네 보세요.
-    상대의 하루가 밝아지고, 내 마음도 함께 따뜻해져요.
-  </div>
+ <div class="note">
+ 🌸 <b>기억해요.</b> 오늘 한 명에게라도 진심 칭찬 한 마디를 건네 보세요.
+ 상대의 하루가 밝아지고, 내 마음도 함께 따뜻해져요.
+ </div>
 
-  <div class="page-foot">사회성 시리즈 · S11 · 2쪽 / 2</div>
+ <div class="page-foot">사회성 시리즈 · S11 · 2쪽 / 2</div>
 </section>
 
 <!-- NAME_EDITOR_START -->
 <style>
 #name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
-  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
-  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+ padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+ box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+ font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
 #name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
 #name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
 #name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 #name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
-  padding: 4px 6px; border-radius: 4px; }
+ padding: 4px 6px; border-radius: 4px; }
 #name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
 #name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
-  border-radius: 4px; font: inherit; }
+ border-radius: 4px; font: inherit; }
 #name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
 #name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
-  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+ border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
 #name-editor button:hover { background: #cfd8dc; }
 .sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
 @media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
 </style>
 <script>
-(function() {
-  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
-  var found = {};
-  function wrap(node) {
-    if (node.nodeType === 3) {
-      var text = node.nodeValue;
-      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
-      if (!re.test(text)) return;
-      var parent = node.parentNode;
-      var frag = document.createDocumentFragment();
-      var last = 0; re.lastIndex = 0; var m;
-      while ((m = re.exec(text)) !== null) {
-        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
-        var span = document.createElement('span');
-        span.className = 'sn';
-        span.setAttribute('data-original', m[1]);
-        span.textContent = m[1];
-        frag.appendChild(span);
-        found[m[1]] = true;
-        last = m.index + m[1].length;
-      }
-      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
-      parent.replaceChild(frag, node);
-    } else if (node.nodeType === 1 &&
-        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
-        node.id !== 'name-editor') {
-      var kids = Array.prototype.slice.call(node.childNodes);
-      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
-    }
-  }
-  function editor(detected) {
-    if (detected.length === 0) return;
-    var panel = document.createElement('div');
-    panel.id = 'name-editor';
-    var cells = detected.map(function(n) {
-      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
-             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
-    }).join('');
-    panel.innerHTML =
-      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
-      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
-      '<div class="ne-row">' + cells + '</div>' +
-      '<div class="ne-actions">' +
-      '<button type="button" id="ne-reset">원래대로</button>' +
-      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
-    var toolbar = document.querySelector('.toolbar');
-    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
-    else document.body.insertBefore(panel, document.body.firstChild);
-    var inputs = panel.querySelectorAll('input');
-    for (var i = 0; i < inputs.length; i++) {
-      inputs[i].addEventListener('input', function(e) {
-        var orig = e.target.getAttribute('data-original');
-        var v = e.target.value || orig;
-        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
-        for (var j = 0; j < spans.length; j++) {
-          spans[j].textContent = v;
-          if (v !== orig) spans[j].classList.add('changed');
-          else spans[j].classList.remove('changed');
-        }
-      });
-    }
-    document.getElementById('ne-reset').addEventListener('click', function() {
-      for (var i = 0; i < inputs.length; i++) {
-        inputs[i].value = inputs[i].getAttribute('data-original');
-        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
-        inputs[i].dispatchEvent(evt);
-      }
-    });
-    document.getElementById('ne-hide').addEventListener('click', function() {
-      panel.style.display = 'none';
-    });
-  }
-  function init() {
-    wrap(document.body);
-    var detected = STUDENTS.filter(function(n) { return found[n]; });
-    editor(detected);
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else { init(); }
-})();
+(function {
+ var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+ var found = {};
+ function wrap(node) {
+ if (node.nodeType === 3) {
+ var text = node.nodeValue;
+ var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+ if (!re.test(text)) return;
+ var parent = node.parentNode;
+ var frag = document.createDocumentFragment;
+ var last = 0; re.lastIndex = 0; var m;
+ while ((m = re.exec(text)) !== null) {
+ if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+ var span = document.createElement('span');
+ span.className = 'sn';
+ span.setAttribute('data-original', m[1]);
+ span.textContent = m[1];
+ frag.appendChild(span);
+ found[m[1]] = true;
+ last = m.index + m[1].length;
+ }
+ if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+ parent.replaceChild(frag, node);
+ } else if (node.nodeType === 1 &&
+ ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+ node.id !== 'name-editor') {
+ var kids = Array.prototype.slice.call(node.childNodes);
+ for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+ }
+ }
+ function editor(detected) {
+ if (detected.length === 0) return;
+ var panel = document.createElement('div');
+ panel.id = 'name-editor';
+ var cells = detected.map(function(n) {
+ return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+ '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+ }).join('');
+ panel.innerHTML =
+ '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+ '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+ '<div class="ne-row">' + cells + '</div>' +
+ '<div class="ne-actions">' +
+ '<button type="button" id="ne-reset">원래대로</button>' +
+ '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+ var toolbar = document.querySelector('.toolbar');
+ if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+ else document.body.insertBefore(panel, document.body.firstChild);
+ var inputs = panel.querySelectorAll('input');
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].addEventListener('input', function(e) {
+ var orig = e.target.getAttribute('data-original');
+ var v = e.target.value || orig;
+ var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+ for (var j = 0; j < spans.length; j++) {
+ spans[j].textContent = v;
+ if (v !== orig) spans[j].classList.add('changed');
+ else spans[j].classList.remove('changed');
+ }
+ });
+ }
+ document.getElementById('ne-reset').addEventListener('click', function {
+ for (var i = 0; i < inputs.length; i++) {
+ inputs[i].value = inputs[i].getAttribute('data-original');
+ var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+ inputs[i].dispatchEvent(evt);
+ }
+ });
+ document.getElementById('ne-hide').addEventListener('click', function {
+ panel.style.display = 'none';
+ });
+ }
+ function init {
+ wrap(document.body);
+ var detected = STUDENTS.filter(function(n) { return found[n]; });
+ editor(detected);
+ }
+ if (document.readyState === 'loading') {
+ document.addEventListener('DOMContentLoaded', init);
+ } else { init; }
+});
 </script>
 <!-- NAME_EDITOR_END -->
 
