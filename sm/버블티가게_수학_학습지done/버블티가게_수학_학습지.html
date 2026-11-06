@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>버블티 가게 — 수학 학습지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4 portrait; margin: 14mm 15mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  font-size: 12pt; line-height: 1.65;
+}
+
+.toolbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #6a1b9a; color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.toolbar .muted { color: #e1bee7; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button {
+  background: #ffd54f; color: #4a148c; border: none; font: inherit; font-weight: 700;
+  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+}
+.toolbar button:hover { background: #ffe082; }
+
+.page {
+  width: 210mm; min-height: 297mm;
+  margin: 14mm auto; padding: 16mm 18mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  position: relative; page-break-after: always;
+}
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover {
+  padding: 22mm 20mm;
+  background: linear-gradient(135deg, #fff 0%, #f3e5f5 100%);
+}
+.cover-top {
+  display: flex; justify-content: space-between;
+  font-size: 0.9em; color: #607d8b;
+  border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 26px;
+}
+.cover-top .subject { font-weight: 700; color: #6a1b9a; }
+.cover-main { text-align: center; padding: 20px 0 14px; }
+.cover-main .badge {
+  display: inline-block; padding: 6px 18px; border-radius: 20px;
+  background: #6a1b9a; color: #fff; font-weight: 700; font-size: 0.95em;
+  margin-bottom: 14px; letter-spacing: 0.5px;
+}
+.cover-main h1 {
+  margin: 0; font-size: 2.4em; letter-spacing: -1.5px;
+  color: #4a148c; font-weight: 900;
+}
+.cover-main .lead {
+  margin: 8px 0 0; font-size: 1.05em; color: #455a64; font-weight: 500;
+}
+.name-box {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin: 20px 0;
+}
+.name-cell { border: 1.5px solid #90a4ae; border-radius: 8px; padding: 10px 12px; }
+.name-cell span { display: block; font-size: 0.78em; color: #546e7a; font-weight: 500; }
+.name-cell em { display: block; min-height: 24px; font-style: normal; }
+
+.goal, .cast, .toc, .info {
+  border: 2px solid #ce93d8; border-radius: 10px;
+  padding: 14px 18px; margin-top: 12px; background: #f3e5f5;
+}
+.goal h2, .cast h2, .toc h2, .info h2 {
+  margin: 0 0 8px; font-size: 1.1em; color: #4a148c;
+  border-bottom: 1px dashed #ba68c8; padding-bottom: 6px;
+}
+.goal ul { margin: 4px 0 0; padding-left: 20px; }
+.goal li { padding: 2px 0; }
+.info p { margin: 0; font-size: 0.95em; color: #263238; }
+
+.cast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.person {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 10px; background: #fff;
+  border: 1px solid #eee; border-radius: 8px;
+  font-weight: 700; color: #37474f;
+}
+.dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+.d1 { background: #FF6B6B; }
+.d2 { background: #4ECDC4; }
+.d3 { background: #FFD166; }
+.d4 { background: #A78BFA; }
+.d5 { background: #6FCF97; }
+.d6 { background: #F48FB1; }
+
+.toc ol { margin: 4px 0 0; padding-left: 24px; }
+.toc li { padding: 3px 0; }
+
+.ph {
+  display: flex; align-items: center; gap: 16px;
+  border-bottom: 3px solid #4a148c; padding-bottom: 12px; margin-bottom: 18px;
+}
+.ph-num {
+  flex-shrink: 0; width: 60px; height: 60px;
+  background: #4a148c; color: #ffd54f;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.7em; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; border-radius: 10px;
+}
+.ph-title h2 { margin: 0; font-size: 1.5em; color: #4a148c; }
+.ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.95em; }
+
+.scene {
+  background: #f3e5f5; border-left: 6px solid #ab47bc;
+  border-radius: 6px; padding: 12px 16px; margin-bottom: 14px;
+}
+.scene p { margin: 0; }
+
+.tip {
+  background: #fff8e1; border-left: 5px solid #ffb300;
+  border-radius: 6px; padding: 10px 14px; margin: 10px 0;
+}
+.tip .tip-title { display: block; font-weight: 700; color: #e65100; margin-bottom: 4px; }
+
+.practice h3 {
+  display: inline-block; background: #ffd54f; color: #4a148c;
+  padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
+}
+.q {
+  position: relative;
+  padding-left: 42px;
+  margin-bottom: 14px; padding-bottom: 12px;
+  border-bottom: 1px dashed #cfd8dc;
+}
+.q:last-child { border-bottom: none; }
+.q .no {
+  position: absolute; left: 0; top: 0;
+  width: 30px; height: 30px;
+  background: #4a148c; color: #fff;
+  border-radius: 50%; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; font-size: 0.92em;
+}
+.q p { margin: 0 0 6px; }
+.q .sub-q { margin-top: 6px; font-weight: 500; color: #455a64; }
+
+.lines {
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px
+  );
+  height: 34px; margin: 4px 0;
+}
+.lines.two { height: 68px; }
+.lines.three { height: 102px; }
+
+.blank {
+  display: inline-block; border-bottom: 1.5px solid #263238;
+  min-width: 70px; height: 22px; vertical-align: baseline;
+}
+
+.box {
+  display: inline-block; min-width: 70px; height: 28px;
+  border: 2px solid #4a148c; background: #fff;
+  border-radius: 4px; vertical-align: middle; margin: 0 3px;
+}
+.box.wide { min-width: 110px; }
+.box.xwide { min-width: 160px; }
+
+.formula {
+  background: #fffde7; border: 1.5px dashed #fbc02d;
+  border-radius: 8px; padding: 10px 16px;
+  text-align: center; font-size: 1.1em; margin: 8px 0; font-weight: 500;
+}
+
+table { width: 100%; border-collapse: collapse; margin: 6px 0; }
+th, td {
+  border: 1.5px solid #90a4ae;
+  padding: 7px 10px; text-align: center; vertical-align: middle;
+}
+th { background: #f3e5f5; font-weight: 700; color: #4a148c; }
+td.left, th.left { text-align: left; }
+.price-table .hi { background: #fff3e0; font-weight: 700; }
+
+/* 메뉴판 */
+.menu-board {
+  border: 3px double #6a1b9a;
+  border-radius: 12px; padding: 12px 16px; margin: 10px 0;
+  background: #faf3fb;
+}
+.menu-board h4 {
+  text-align: center; margin: 0 0 8px;
+  color: #4a148c; font-size: 1.2em;
+}
+.menu-board table { margin: 0; }
+
+/* 자기 점검 */
+.self-check {
+  background: #f1f8e9; border: 1.5px solid #aed581;
+  border-radius: 8px; padding: 12px 16px; margin-top: 14px;
+}
+.self-check h4 { margin: 0 0 6px; color: #33691e; font-size: 1em; }
+.self-check label { display: block; padding: 2px 0; }
+.self-check input[type=checkbox] {
+  margin-right: 8px; width: 16px; height: 16px;
+  accent-color: #7cb342; vertical-align: middle;
+}
+
+.page-no {
+  position: absolute; bottom: 8mm; right: 18mm;
+  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
+}
+
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  html, body {
+    background: #fff !important; margin: 0; padding: 0;
+    font-size: 10pt; line-height: 1.38;
+  }
+  .toolbar, .no-print { display: none !important; }
+  .page {
+    width: 210mm; min-height: 297mm;
+    margin: 0 !important; padding: 10mm 13mm;
+    box-shadow: none; border: none;
+    page-break-after: always; break-after: page;
+  }
+  .page:last-of-type { page-break-after: auto; }
+  .q, .scene, .tip, .formula, .self-check, .menu-board,
+  .name-box, .goal, .cast, .toc, .info, .ph, tr {
+    page-break-inside: avoid !important; break-inside: avoid !important;
+  }
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  h1 { font-size: 1.9em; margin: 0; }
+  h2 { font-size: 1.3em; margin: 0 0 4px; }
+  h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
+  p { margin: 0 0 4px; }
+  ul, ol { margin: 4px 0; }
+  .page.cover { padding: 16mm 16mm; }
+  .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
+  .ph-num { width: 46px; height: 46px; font-size: 1.4em; border-radius: 8px; }
+  .ph-title h2 { font-size: 1.25em; }
+  .scene, .tip { padding: 8px 12px; margin-bottom: 8px; }
+  .menu-board { padding: 8px 12px; margin: 6px 0; }
+  .menu-board h4 { font-size: 1.05em; }
+  .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
+  .q .no { width: 26px; height: 26px; font-size: 0.88em; }
+  .formula { padding: 6px 10px; margin: 4px 0; font-size: 1em; }
+  .box { min-width: 56px; height: 22px; }
+  th, td { padding: 4px 6px; }
+  .lines { height: 26px;
+    background-image: repeating-linear-gradient(
+      to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
+  .lines.two { height: 52px; }
+  .lines.three { height: 78px; }
+  .self-check { padding: 8px 12px; margin-top: 10px; }
+  .page-no { bottom: 6mm; right: 14mm; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <div><strong>버블티 가게 — 수학 학습지</strong>
+    <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
+  </div>
+  <button onclick="window.print()">🖨️ 인쇄하기</button>
+</div>
+
+<!-- =================================================== -->
+<!-- 표지 -->
+<!-- =================================================== -->
+<section class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">수학</span> &nbsp;|&nbsp; 고등학교 특수학급 자립 생활 수학</div>
+    <div>2026학년도 1학기</div>
+  </div>
+
+  <div class="cover-main">
+    <span class="badge">자립 생활 수학 프로젝트</span>
+    <h1>🧋 버블티 가게 똑똑하게 이용하기</h1>
+    <p class="lead">메뉴 · 토핑 · 사이즈 · 할인 — 수학으로 주문해요</p>
+  </div>
+
+  <div class="name-box">
+    <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
+    <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
+    <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
+  </div>
+
+  <div class="info">
+    <h2>🧋 버블티 가게에서 주문하기</h2>
+    <p>버블티 가게에는 <strong>음료 메뉴</strong> · <strong>사이즈(R/L)</strong> · <strong>토핑 추가</strong> ·
+       <strong>당도/얼음 선택</strong>이 있어요. 키오스크나 카운터에서 주문할 때
+       <strong>음료값 + 토핑값</strong>을 더해 합계를 계산해요.
+       오늘은 친구들과 함께 주문하면서 합계, 거스름돈, 할인, 더치페이를 풀어 봅시다.</p>
+  </div>
+
+  <div class="cast">
+    <h2>👫 오늘 같이 가는 친구들</h2>
+    <div class="cast-grid">
+      <div class="person"><span class="dot d6"></span>하영 · 흑당 좋아함</div>
+      <div class="person"><span class="dot d2"></span>하은 · 녹차 좋아함</div>
+      <div class="person"><span class="dot d1"></span>채원 · 딸기 좋아함</div>
+      <div class="person"><span class="dot d5"></span>예은 · 우유 좋아함</div>
+      <div class="person"><span class="dot d4"></span>주은 · 망고 좋아함</div>
+      <div class="person"><span class="dot d3"></span>주현 · 초코 좋아함</div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h2>📚 차례</h2>
+    <ol>
+      <li><strong>1차시</strong> 메뉴 · 사이즈 가격 비교 — R/L 차이, 한 잔 합계</li>
+      <li><strong>2차시</strong> 토핑 추가와 합계 — 음료값 + 토핑값</li>
+      <li><strong>3차시</strong> 6명 주문 · 멤버십 할인 — 합계, 10%·15% 할인</li>
+      <li><strong>4차시</strong> 더치페이와 거스름돈 — ÷6, 잔돈 계산</li>
+    </ol>
+  </div>
+
+  <div class="page-no">— 1 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 1차시: 메뉴·사이즈 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">1</div>
+    <div class="ph-title">
+      <h2>메뉴와 사이즈 가격 비교</h2>
+      <p>같은 음료라도 R(레귤러)과 L(라지) 가격이 달라요. 차이를 계산해 봅시다.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>친구들이 학교 앞 <strong>🧋공차 비슷한 버블티 가게</strong>에 들어왔어요.
+       메뉴판을 보고 한 잔씩 음료를 고르려고 해요. 같은 음료라도 <strong>R 사이즈</strong>(작은 컵)과
+       <strong>L 사이즈</strong>(큰 컵) 가격이 달라요.</p>
+  </div>
+
+  <div class="menu-board">
+    <h4>🧋 음료 메뉴판 (사이즈별)</h4>
+    <table>
+      <tr><th class="left">메뉴</th><th>R 가격</th><th>L 가격</th><th>L − R 차이</th></tr>
+      <tr><td class="left">흑당 밀크티</td><td>4,500원</td><td>5,500원</td><td>1,000원</td></tr>
+      <tr><td class="left">녹차 라떼</td><td>4,000원</td><td>5,000원</td><td>1,000원</td></tr>
+      <tr><td class="left">딸기 스무디</td><td>5,000원</td><td>6,200원</td><td>?</td></tr>
+      <tr><td class="left">초코 밀크티</td><td>4,500원</td><td>5,500원</td><td>?</td></tr>
+      <tr><td class="left">망고 요거트</td><td>5,500원</td><td>6,800원</td><td>?</td></tr>
+      <tr><td class="left">바닐라 라떼</td><td>4,000원</td><td>4,900원</td><td>?</td></tr>
+    </table>
+  </div>
+
+  <div class="practice">
+    <h3>💛 사이즈 가격 비교</h3>
+
+    <div class="q"><div class="no">1</div><div>
+      <p>메뉴판의 <strong>딸기 스무디</strong>는 R 5,000원, L 6,200원이에요. L과 R의 가격 차이는 얼마인가요?</p>
+      <div class="formula">6,200 &minus; 5,000 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">2</div><div>
+      <p>같은 방법으로 메뉴판의 <strong>망고 요거트</strong>의 L − R 차이를 구해 봅시다.</p>
+      <div class="formula">6,800 &minus; 5,500 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">3</div><div>
+      <p>하영이는 <strong>흑당 밀크티 L</strong>, 하은이는 <strong>녹차 라떼 R</strong>을 시켰어요.
+         두 사람 합계는 얼마인가요?</p>
+      <div class="formula">5,500 + 4,000 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">4</div><div>
+      <p>채원이는 처음에 <strong>딸기 스무디 R</strong>을 시켰다가, 사이즈 업(L)으로 바꿨어요.
+         얼마를 추가로 내야 하나요?</p>
+      <div class="formula">6,200 &minus; 5,000 = <span class="box wide"></span> 원 추가</div>
+    </div></div>
+
+    <div class="q"><div class="no">5</div><div>
+      <p>주은이는 <strong>망고 요거트 L</strong>을 한 잔 시켰어요. <strong>10,000원짜리 1장</strong>을 냈다면
+         거스름돈은 얼마일까요?</p>
+      <div class="formula">10,000 &minus; 6,800 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">6</div><div>
+      <p>예은이는 <strong>바닐라 라떼 R</strong> 두 잔을 시켜서 친구와 한 잔씩 나눠 마시려고 해요. 두 잔 합계는 얼마이고,
+         5,000원짜리 두 장을 냈을 때 거스름돈은 얼마인가요?</p>
+      <div class="formula">4,000 &times; 2 = <span class="box"></span> 원 (합계)</div>
+      <div class="formula">5,000 &times; 2 &minus; (합계) = <span class="box wide"></span> 원 거스름돈</div>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 2 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 2차시: 토핑 추가 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">2</div>
+    <div class="ph-title">
+      <h2>토핑 추가와 합계</h2>
+      <p>음료값 + 토핑값 = 한 잔 합계. 여러 토핑을 더해 봅시다.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>버블티 가게의 매력은 <strong>토핑</strong>이에요! 타피오카 펄, 코코넛, 푸딩, 알로에 등을 골라
+       <strong>음료값에 더해</strong> 내요. 토핑은 보통 한 가지에 <strong>500~1,000원</strong> 정도 해요.</p>
+  </div>
+
+  <div class="menu-board">
+    <h4>🧁 토핑 가격표</h4>
+    <table>
+      <tr><th class="left">토핑</th><th>가격</th><th class="left">토핑</th><th>가격</th></tr>
+      <tr><td class="left">타피오카 펄</td><td>500원</td><td class="left">코코넛 젤리</td><td>700원</td></tr>
+      <tr><td class="left">푸딩</td><td>1,000원</td><td class="left">알로에</td><td>700원</td></tr>
+      <tr><td class="left">크림 휘핑</td><td>800원</td><td class="left">치즈폼</td><td>1,200원</td></tr>
+    </table>
+  </div>
+
+  <div class="tip"><span class="tip-title">💡 한 잔 합계 공식</span>
+    <strong>음료값 + (토핑값들의 합)</strong> = 그 잔의 총 가격
+  </div>
+
+  <div class="practice">
+    <h3>🧋 토핑 합계 계산</h3>
+
+    <div class="q"><div class="no">7</div><div>
+      <p>하영이는 <strong>흑당 밀크티 R(4,500원)</strong>에 <strong>타피오카 펄 + 푸딩</strong>을 추가했어요. 합계는?</p>
+      <div class="formula">4,500 + 500 + 1,000 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">8</div><div>
+      <p>주현이는 <strong>초코 밀크티 L(5,500원)</strong>에 <strong>크림 휘핑 + 코코넛 젤리</strong>를 추가했어요. 합계는?</p>
+      <div class="formula">5,500 + 800 + 700 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">9</div><div>
+      <p>채원이는 <strong>딸기 스무디 L(6,200원)</strong>에 <strong>치즈폼</strong>을 올렸어요.
+         <strong>10,000원짜리 1장</strong>을 냈다면 거스름돈은 얼마일까요?</p>
+      <div class="formula">6,200 + 1,200 = <span class="box"></span> 원 (합계)</div>
+      <div class="formula">10,000 &minus; (합계) = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">10</div><div>
+      <p>예은이는 음료 한 잔에 <strong>토핑 3가지</strong>를 다 넣고 싶어요.
+         타피오카 펄 + 푸딩 + 크림 휘핑을 모두 추가하면 <strong>토핑값 합계</strong>는 얼마인가요?</p>
+      <div class="formula">500 + 1,000 + 800 = <span class="box wide"></span> 원</div>
+      <p class="sub-q">👉 이 토핑값을 바닐라 라떼 R(4,000원)에 더하면 <span class="box"></span> 원</p>
+    </div></div>
+
+    <div class="q"><div class="no">11</div><div>
+      <p>주은이의 주문서를 보고 빈칸을 채워 한 잔 합계를 구해 봅시다.</p>
+      <table>
+        <tr><th class="left">항목</th><th>금액(원)</th></tr>
+        <tr><td class="left">망고 요거트 L</td><td>6,800</td></tr>
+        <tr><td class="left">알로에 토핑</td><td>700</td></tr>
+        <tr><td class="left">치즈폼 토핑</td><td>1,200</td></tr>
+        <tr><th class="left">한 잔 합계</th><th><span class="box wide"></span></th></tr>
+      </table>
+    </div></div>
+
+    <div class="q"><div class="no">12</div><div>
+      <p>한 잔 예산이 <strong>7,000원</strong>이에요. <strong>녹차 라떼 R(4,000원)</strong>에 토핑을 추가하려고 해요.
+         어떤 토핑을 골라도 좋지만 <strong>예산 안</strong>에 들어와야 해요.
+         아래 중 가능한 조합을 모두 골라 ○ 하세요.</p>
+      <p>(가) 타피오카 펄 + 푸딩 + 치즈폼 &nbsp;&nbsp; (나) 코코넛 젤리 + 크림 휘핑<br>
+         (다) 푸딩 + 치즈폼 &nbsp;&nbsp; (라) 알로에 + 크림 휘핑 + 타피오카 펄</p>
+      <p class="sub-q">👉 (가) <span class="blank"></span> &nbsp; (나) <span class="blank"></span>
+        &nbsp; (다) <span class="blank"></span> &nbsp; (라) <span class="blank"></span></p>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 3 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 3차시: 6명 주문 + 멤버십 할인 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">3</div>
+    <div class="ph-title">
+      <h2>6명 주문과 멤버십 할인</h2>
+      <p>6명 합계를 먼저 구하고, 멤버십 10%·15% 할인을 적용해 봅시다.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>친구 6명이 함께 주문해서 <strong>한꺼번에 결제</strong>하려고 해요. 멤버십 카드가 있으면
+       <strong>10% 또는 15% 할인</strong>을 받을 수 있어요. 큰 금액일수록 할인 효과가 커요.</p>
+  </div>
+
+  <div class="tip"><span class="tip-title">💡 % 할인 계산</span>
+    · <strong>10% 할인</strong>: 합계 &divide; 10 = 할인 금액 &nbsp;|&nbsp; 낼 돈 = 합계 − 할인 금액<br>
+    · <strong>15% 할인</strong>: 합계 &divide; 100 × 15 = 할인 금액
+  </div>
+
+  <div class="practice">
+    <h3>🎟️ 6명 주문서 합계</h3>
+
+    <div class="q"><div class="no">13</div><div>
+      <p>친구 6명의 주문을 정리한 표예요. 각자 합계와 <strong>6명 전체 합계</strong>를 구해 봅시다.</p>
+      <table>
+        <tr><th>이름</th><th class="left">음료 + 토핑</th><th>합계(원)</th></tr>
+        <tr><td>하영</td><td class="left">흑당 밀크티 R(4,500) + 타피오카(500)</td><td><span class="box"></span></td></tr>
+        <tr><td>하은</td><td class="left">녹차 라떼 R(4,000) + 푸딩(1,000)</td><td><span class="box"></span></td></tr>
+        <tr><td>채원</td><td class="left">딸기 스무디 L(6,200)</td><td><span class="box"></span></td></tr>
+        <tr><td>예은</td><td class="left">바닐라 라떼 R(4,000) + 크림 휘핑(800)</td><td><span class="box"></span></td></tr>
+        <tr><td>주은</td><td class="left">망고 요거트 L(6,800) + 알로에(700)</td><td><span class="box"></span></td></tr>
+        <tr><td>주현</td><td class="left">초코 밀크티 L(5,500) + 코코넛(700)</td><td><span class="box"></span></td></tr>
+        <tr><th colspan="2" class="left">6명 전체 합계</th><th><span class="box wide"></span></th></tr>
+      </table>
+    </div></div>
+
+    <div class="q"><div class="no">14</div><div>
+      <p>13번에서 구한 <strong>6명 전체 합계</strong>에 <strong>멤버십 10% 할인</strong>을 적용해 봅시다.</p>
+      <div class="formula">(합계) &divide; 10 = <span class="box"></span> 원 (할인 금액)</div>
+      <div class="formula">(합계) &minus; (할인 금액) = <span class="box wide"></span> 원 (낼 돈)</div>
+    </div></div>
+
+    <div class="q"><div class="no">15</div><div>
+      <p>오늘은 특별히 <strong>VIP 15% 할인</strong>을 적용해 주는 행사가 있다고 해요.
+         13번 합계가 만약 <strong>40,000원</strong>이라면 할인 금액과 낼 돈은?</p>
+      <div class="formula">40,000 &divide; 100 &times; 15 = <span class="box"></span> 원 (할인 금액)</div>
+      <div class="formula">40,000 &minus; (할인 금액) = <span class="box wide"></span> 원 (낼 돈)</div>
+    </div></div>
+
+    <div class="q"><div class="no">16</div><div>
+      <p>스탬프 행사도 있어요. 10잔 마실 때마다 <strong>1잔 무료</strong>! 6명이 한 번에 6잔 마시면 스탬프 6개를 받아요.
+         앞으로 몇 잔을 더 마시면 무료 1잔을 받을 수 있을까요?</p>
+      <div class="formula">10 &minus; 6 = <span class="box wide"></span> 잔 더 필요</div>
+    </div></div>
+
+    <div class="q"><div class="no">17</div><div>
+      <p>가게에 <strong>‘2잔 구매 시 1잔 50% 할인’</strong> 이벤트가 있어요.
+         흑당 밀크티 R(4,500원) 두 잔을 사면서 한 잔에 50% 할인을 받으면 두 잔 합계는?</p>
+      <div class="formula">4,500 + (4,500 &divide; 2) = <span class="box wide"></span> 원</div>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 4 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 4차시: 더치페이와 거스름돈 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">4</div>
+    <div class="ph-title">
+      <h2>더치페이와 거스름돈</h2>
+      <p>전체 비용을 6명이 똑같이 나누고, 낸 돈에서 거스름돈을 구해 봅시다.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>합계가 정해졌으니 이제 결제예요. 친구들끼리는 <strong>각자 시킨 만큼</strong> 내는 게 보통이지만,
+       오늘은 한 사람이 카드로 먼저 계산하고 <strong>똑같이 더치페이</strong>로 정산하기로 했어요.</p>
+  </div>
+
+  <div class="tip"><span class="tip-title">💡 더치페이</span>
+    함께 쓴 돈을 인원 수로 <strong>나누어</strong> 각자 자기 몫을 내는 것이에요.
+    누구 한 명에게 부담이 가지 않아 친구 사이에서 자주 써요.
+  </div>
+
+  <div class="practice">
+    <h3>💸 정산하기</h3>
+
+    <div class="q"><div class="no">18</div><div>
+      <p>오늘 합계가 <strong>36,000원</strong>이라고 합시다. 6명이 똑같이 더치페이 하면
+         한 사람이 얼마씩 내야 할까요?</p>
+      <div class="formula">36,000 &divide; 6 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">19</div><div>
+      <p>합계가 <strong>39,000원</strong>이라면 6명이 똑같이 나누었을 때 얼마씩이고, 얼마가 남나요?
+         (남는 돈은 다음에 음료 마실 때 더 쓰기로 했어요.)</p>
+      <div class="formula">39,000 &divide; 6 = <span class="box"></span> 원, 나머지 <span class="box"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">20</div><div>
+      <p>주은이는 더치페이 1인당 금액(<strong>6,500원</strong>)을 내려고 해요.
+         지갑에 <strong>5,000원 1장, 1,000원 2장</strong>이 있을 때 모자란 돈은 얼마인가요?</p>
+      <div class="formula">6,500 &minus; (5,000 + 1,000 &times; 2) = <span class="box wide"></span> 원 모자람</div>
+    </div></div>
+
+    <div class="q"><div class="no">21</div><div>
+      <p>친구 4명이 음료를 시켰는데 합계가 <strong>22,000원</strong>이에요. 카드로 결제하면서
+         포인트 적립률 <strong>5%</strong>를 받을 수 있어요. 적립 포인트는 몇 점인가요?</p>
+      <div class="formula">22,000 &divide; 100 &times; 5 = <span class="box wide"></span> 점</div>
+    </div></div>
+
+    <div class="q"><div class="no">22</div><div>
+      <p>친구 6명이 한 달에 한 번씩 만나서 평균 <strong>한 사람 6,000원</strong>씩 버블티에 쓴다고 해요.
+         <strong>1년</strong>(12개월) 동안 한 친구가 버블티에 쓰는 돈은 얼마일까요?
+         또 그 돈으로 살 수 있는 <strong>대안</strong>은 무엇이 있을지 적어 봅시다.</p>
+      <div class="formula">6,000 &times; 12 = <span class="box wide"></span> 원 / 1년</div>
+      <p class="sub-q">👉 그 돈으로 할 수 있는 일:</p>
+      <div class="lines two"></div>
+    </div></div>
+  </div>
+
+
+  <div class="page-no">— 5 —</div>
+</section>
+
+</body>
+</html>

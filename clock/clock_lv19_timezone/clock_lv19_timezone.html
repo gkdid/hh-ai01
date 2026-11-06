@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>L19 채원이의 세계 시각 — 나라별 시차 계산</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.45; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #1a237e; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #c5cae9; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffca28; color: #1a237e; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #e8eaf6 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #1a237e;
+  border-bottom: 2px solid #7986cb; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; color: #283593; }
+.cover-main { text-align: center; padding: 8px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #283593; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #1a237e; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #283593; font-weight: 500; }
+.cover-clocks { display: flex; justify-content: center; align-items: center; gap: 22px; margin: 14px auto; }
+.cover-clocks .city-cap { text-align: center; font-weight: 700; color: #1a237e; margin-top: 4px; font-size: 0.95em; }
+.cover-clocks .plus { font-size: 1.6em; color: #7986cb; font-weight: 900; }
+.cover-info { background: #fff; border: 2px solid #3949ab; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 6px; color: #1a237e; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 3px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 14px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #283593; padding-bottom: 3px; }
+.cover-name .label { color: #1a237e; font-weight: 700; margin-right: 6px; }
+
+.tz-table { width: 100%; border-collapse: collapse; margin: 8px 0 2px; font-size: 0.92em; }
+.tz-table th, .tz-table td { border: 1.3px solid #7986cb; padding: 4px 6px; text-align: center; }
+.tz-table th { background: #c5cae9; color: #1a237e; font-weight: 700; }
+.tz-table td.city { font-weight: 700; color: #283593; }
+.tz-table td.diff { font-family: 'Courier New', monospace; font-weight: 700; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #283593; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #1a237e; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #283593; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #e8eaf6; border-left: 4px solid #3949ab; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #1a237e; }
+.tip { background: #fff8e1; border-left: 4px solid #ffa000; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.9em; }
+.tip b { color: #e65100; }
+.note { background: #e8f5e9; border-left: 4px solid #43a047; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.9em; }
+.note b { color: #1b5e20; }
+
+.activity { background: #fff; border: 1.8px solid #3949ab; border-radius: 10px; padding: 9px 13px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.activity h3 { margin: 0; color: #1a237e; font-size: 1.02em; }
+.activity .tag { background: #c5cae9; color: #1a237e; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.activity p { margin: 4px 0; }
+.blank { display: inline-block; min-width: 44px; border-bottom: 2px solid #37474f; text-align: center; padding: 0 6px; color: #1a237e; font-weight: 700; }
+.blank.short { min-width: 30px; }
+.blank.long { min-width: 90px; }
+
+.story { background: #fff3e0; border: 1.5px solid #ffb74d; border-radius: 10px; padding: 10px 14px; margin: 8px 0; font-size: 0.98em; }
+.story b { color: #bf360c; }
+.story .who { display: inline-block; background: #283593; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.85em; font-weight: 700; margin-right: 6px; }
+
+.time-chip { display: inline-block; background: #ffffff; border: 1.5px solid #78909c; color: #263238; font-family: 'Courier New', monospace;
+  font-weight: 900; font-size: 1.05em; padding: 3px 9px; border-radius: 6px; letter-spacing: 2px; min-width: 66px; text-align: center; }
+.time-chip.dest { color: #263238; }
+
+.calc-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
+.calc-table th, .calc-table td { border: 1.3px solid #7986cb; padding: 5px 6px; text-align: center; vertical-align: middle; }
+.calc-table th { background: #c5cae9; color: #1a237e; font-weight: 700; }
+.calc-table td.left { text-align: left; }
+.calc-table td.city { font-weight: 700; color: #283593; }
+
+.clock-row { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 10px; margin: 8px 0; }
+.clock-cell { text-align: center; min-width: 32%; }
+.clock-cell .label { font-weight: 700; color: #1a237e; margin-bottom: 3px; font-size: 0.95em; }
+.clock-cell .arrow { font-size: 1.8em; color: #7986cb; font-weight: 900; align-self: center; padding-top: 60px; }
+.clock-cell .qbox { display: inline-block; background: #fff; border: 1.5px dashed #3949ab; border-radius: 6px; padding: 4px 10px; margin-top: 4px; font-weight: 700; color: #1a237e; font-size: 0.9em; }
+
+.pair-row { display: flex; justify-content: center; align-items: center; gap: 6px; margin: 10px 0; flex-wrap: wrap; }
+.pair-row .arrow { font-size: 1.6em; color: #7986cb; font-weight: 900; padding: 0 6px; }
+
+.page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
+@media print { body { background: #fff; } .toolbar { display: none; } .page { box-shadow: none; margin: 0 auto; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">🌏 L19 채원이의 세계 시각</span><span class="muted">시차 계산 · 심화</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<!-- 표지 -->
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">수학</span> · 시계 시리즈 · <b style="color:#283593;">Level 19</b></span>
+    <span>고등학교 특수학급</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">세계 시각 · 시차</span>
+    <h1>채원이의 세계 시각</h1>
+    <p class="lead">지금 서울이 <b>오후 3시</b>! 그럼 <b>뉴욕</b>은? <b>파리</b>는? <b>시드니</b>는?</p>
+  </div>
+
+  <div class="cover-clocks">
+    <div>
+      <svg viewBox="0 0 200 200" width="140" height="140">
+        <circle cx="100" cy="100" r="88" fill="#fff" stroke="#1a237e" stroke-width="4"/>
+        <g stroke="#1a237e" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+        <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#1a237e"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+        <!-- Seoul 15:00 : 시침 -> (142, 100), 분침 -> (100, 38) -->
+        <line x1="100" y1="100" x2="142" y2="100" stroke="#283593" stroke-width="6" stroke-linecap="round"/>
+        <line x1="100" y1="100" x2="100" y2="38" stroke="#ffab00" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="100" cy="100" r="5" fill="#1a237e"/>
+      </svg>
+      <div class="city-cap">🇰🇷 서울 15:00<br>(오후 3시)</div>
+    </div>
+    <div class="plus">⇄</div>
+    <div>
+      <svg viewBox="0 0 200 200" width="140" height="140">
+        <circle cx="100" cy="100" r="88" fill="#0d1440" stroke="#3949ab" stroke-width="4"/>
+        <g stroke="#c5cae9" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+        <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#c5cae9"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+        <!-- NY 01:00 : 시침 -> (121, 63.6), 분침 -> (100, 38) -->
+        <line x1="100" y1="100" x2="121" y2="63.6" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+        <line x1="100" y1="100" x2="100" y2="38" stroke="#ffab00" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="100" cy="100" r="5" fill="#c5cae9"/>
+        <text x="100" y="196" text-anchor="middle" font-size="12" font-weight="700" fill="#ffab00">🌙 새벽</text>
+      </svg>
+      <div class="city-cap">🇺🇸 뉴욕 01:00<br>(새벽 1시)</div>
+    </div>
+  </div>
+
+  <div class="cover-info">
+    <h3>🎯 오늘의 목표</h3>
+    <ul>
+      <li>서울과 다른 나라의 <b>시차(時差)</b>를 알고 계산할 수 있다.</li>
+      <li>서울 시각을 기준으로 <b>도쿄·베이징·뉴욕·런던·파리·시드니·LA</b>의 시각을 구할 수 있다.</li>
+      <li>국제 통화·항공편·해외 친구에게 메시지를 보낼 시각을 실생활에 적용할 수 있다.</li>
+    </ul>
+  </div>
+  <div class="cover-info" style="border-color:#ffb300; background:#fffde7;">
+    <h3 style="color:#e65100;">💡 알아 두기 · 세계 도시 시차 표 (서울 기준, 표준시)</h3>
+    <table class="tz-table">
+      <tr>
+        <th>도시</th><th>🇯🇵 도쿄</th><th>🇦🇺 시드니</th><th>🇨🇳 베이징</th><th>🇬🇧 런던</th><th>🇫🇷 파리</th><th>🇺🇸 뉴욕</th><th>🇺🇸 LA</th>
+      </tr>
+      <tr>
+        <td class="city">시차</td>
+        <td class="diff">+0</td>
+        <td class="diff">+1</td>
+        <td class="diff">−1</td>
+        <td class="diff">−9</td>
+        <td class="diff">−8</td>
+        <td class="diff">−14</td>
+        <td class="diff">−17</td>
+      </tr>
+    </table>
+    <div style="font-size:0.86em; color:#6d4c41; margin-top:4px;">※ <b>+</b>는 서울보다 <b>빠른(먼저) 시각</b>, <b>−</b>는 서울보다 <b>늦은(나중) 시각</b>이에요. 서머타임은 생각하지 않아요.</div>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">학년·반</span></div>
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+  <div class="page-foot">시계 시리즈 · L19 · 표지</div>
+</section>
+
+<!-- 1쪽 -->
+<section class="page">
+  <div class="page-head">
+    <h2>🌏 세계 도시 시각 읽기</h2>
+    <span class="step">1쪽 · 시차 계산 기본</span>
+  </div>
+  <div class="intro">
+    <b>시차(時差)</b>는 두 지역의 시각이 얼마나 차이 나는지를 말해요. 지구가 <b>서쪽에서 동쪽으로 자전</b>하기 때문에
+    동쪽 도시일수록 시각이 <b>빨라요</b>. 서울 시각에 <b>시차를 더하거나 빼면</b> 다른 도시의 시각이 돼요.
+  </div>
+  <div class="story">
+    <span class="who">채원</span>채원이는 방학에 <b>미국 뉴욕에 사는 사촌언니</b>에게 영상통화를 하려고 해요.
+    서울이 <b>오후 5시</b>일 때 뉴욕은 <b>−14시간</b>이니까 <b>새벽 3시</b>! 언니가 자고 있어서 다른 시각을 골라야 해요.
+  </div>
+
+  <div class="tip">💡 <b>계산 팁:</b> 도시 시각 = 서울 시각 <b>+</b> 시차. 예) 서울 15:00 → 뉴욕은 15:00 + (−14) = 1:00 새벽.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 서울이 이 시각일 때, 다른 도시는 몇 시일까?</h3><span class="tag">기본 · 6문항</span></div>
+    <table class="calc-table">
+      <tr>
+        <th style="width:7%;">번호</th>
+        <th style="width:23%;">서울 시각</th>
+        <th style="width:20%;">도시</th>
+        <th style="width:12%;">시차</th>
+        <th style="width:38%;">그 도시 시각 (오전/오후 표시)</th>
+      </tr>
+      <tr>
+        <td>①</td>
+        <td><span class="time-chip">오전 9:00</span></td>
+        <td class="city">🇯🇵 도쿄</td>
+        <td>+0</td>
+        <td>( <span class="blank short">&nbsp;</span> ) ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>②</td>
+        <td><span class="time-chip">오후 3:00</span></td>
+        <td class="city">🇨🇳 베이징</td>
+        <td>−1</td>
+        <td>( <span class="blank short">&nbsp;</span> ) ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>③</td>
+        <td><span class="time-chip">오전 8:00</span></td>
+        <td class="city">🇦🇺 시드니</td>
+        <td>+1</td>
+        <td>( <span class="blank short">&nbsp;</span> ) ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>④</td>
+        <td><span class="time-chip">오후 2:00</span></td>
+        <td class="city">🇺🇸 뉴욕</td>
+        <td>−14</td>
+        <td>( <span class="blank short">&nbsp;</span> ) ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>⑤</td>
+        <td><span class="time-chip">밤 9:00</span></td>
+        <td class="city">🇬🇧 런던</td>
+        <td>−9</td>
+        <td>( <span class="blank short">&nbsp;</span> ) ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>⑥</td>
+        <td><span class="time-chip">오전 11:00</span></td>
+        <td class="city">🇫🇷 파리</td>
+        <td>−8</td>
+        <td>( <span class="blank short">&nbsp;</span> ) ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+    </table>
+    <div class="tip">💡 <b>④번 팁:</b> 오후 2:00 = 14:00. 14 − 14 = 0시 → <b>자정(밤 12시)</b>이에요. 뉴욕은 아직 <b>어제</b>예요!</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 그림으로 그려 봐요 — 서울 시각 옆에 도시 시각 시계</h3><span class="tag">그리기 · 3문항</span></div>
+    <p>왼쪽은 서울 시계예요. 오른쪽 빈 시계에 <b>도시 시각</b>의 시침(짧게)과 분침(길게)을 그려 넣으세요.</p>
+
+    <!-- Pair A : Seoul 09:00 → 도쿄 (+0) 9:00 -->
+    <div class="pair-row">
+      <div class="clock-cell" style="min-width:auto;">
+        <div class="label">🇰🇷 서울 오전 9:00</div>
+        <svg viewBox="0 0 200 200" width="120" height="120">
+          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#1a237e" stroke-width="3"/>
+          <g stroke="#1a237e" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+          <g font-size="16" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#1a237e"><text x="100" y="36">12</text><text x="164" y="100">3</text><text x="100" y="164">6</text><text x="36" y="100">9</text></g>
+          <!-- 09:00 시침 (58,100), 분침 (100,38) -->
+          <line x1="100" y1="100" x2="58" y2="100" stroke="#283593" stroke-width="5" stroke-linecap="round"/>
+          <line x1="100" y1="100" x2="100" y2="38" stroke="#ffab00" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="100" cy="100" r="4" fill="#1a237e"/>
+        </svg>
+      </div>
+      <div class="arrow">➡️</div>
+      <div class="clock-cell" style="min-width:auto;">
+        <div class="label">⑦ 🇯🇵 도쿄 (+0) — 그리기</div>
+        <svg viewBox="0 0 200 200" width="120" height="120">
+          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#7986cb" stroke-width="2" stroke-dasharray="4 3"/>
+          <g stroke="#7986cb" stroke-width="1.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+          <g font-size="16" text-anchor="middle" dominant-baseline="middle" font-weight="700" fill="#7986cb"><text x="100" y="36">12</text><text x="164" y="100">3</text><text x="100" y="164">6</text><text x="36" y="100">9</text></g>
+          <circle cx="100" cy="100" r="3" fill="#7986cb"/>
+        </svg>
+        <div class="qbox">답: ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</div>
+      </div>
+    </div>
+
+    <!-- Pair B : Seoul 14:00 → 베이징 (-1) 13:00 -->
+    <div class="pair-row">
+      <div class="clock-cell" style="min-width:auto;">
+        <div class="label">🇰🇷 서울 오후 2:00</div>
+        <svg viewBox="0 0 200 200" width="120" height="120">
+          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#1a237e" stroke-width="3"/>
+          <g stroke="#1a237e" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+          <g font-size="16" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#1a237e"><text x="100" y="36">12</text><text x="164" y="100">3</text><text x="100" y="164">6</text><text x="36" y="100">9</text></g>
+          <!-- 02:00 시침 (136.4, 79.0), 분침 (100, 38) -->
+          <line x1="100" y1="100" x2="136.4" y2="79" stroke="#283593" stroke-width="5" stroke-linecap="round"/>
+          <line x1="100" y1="100" x2="100" y2="38" stroke="#ffab00" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="100" cy="100" r="4" fill="#1a237e"/>
+        </svg>
+      </div>
+      <div class="arrow">➡️</div>
+      <div class="clock-cell" style="min-width:auto;">
+        <div class="label">⑧ 🇨🇳 베이징 (−1) — 그리기</div>
+        <svg viewBox="0 0 200 200" width="120" height="120">
+          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#7986cb" stroke-width="2" stroke-dasharray="4 3"/>
+          <g stroke="#7986cb" stroke-width="1.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+          <g font-size="16" text-anchor="middle" dominant-baseline="middle" font-weight="700" fill="#7986cb"><text x="100" y="36">12</text><text x="164" y="100">3</text><text x="100" y="164">6</text><text x="36" y="100">9</text></g>
+          <circle cx="100" cy="100" r="3" fill="#7986cb"/>
+        </svg>
+        <div class="qbox">답: ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</div>
+      </div>
+    </div>
+
+    <!-- Pair C : Seoul 08:00 → 시드니 (+1) 09:00 -->
+    <div class="pair-row">
+      <div class="clock-cell" style="min-width:auto;">
+        <div class="label">🇰🇷 서울 오전 8:00</div>
+        <svg viewBox="0 0 200 200" width="120" height="120">
+          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#1a237e" stroke-width="3"/>
+          <g stroke="#1a237e" stroke-width="2"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+          <g font-size="16" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#1a237e"><text x="100" y="36">12</text><text x="164" y="100">3</text><text x="100" y="164">6</text><text x="36" y="100">9</text></g>
+          <!-- 08:00 시침 (63.6, 121), 분침 (100, 38) -->
+          <line x1="100" y1="100" x2="63.6" y2="121" stroke="#283593" stroke-width="5" stroke-linecap="round"/>
+          <line x1="100" y1="100" x2="100" y2="38" stroke="#ffab00" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="100" cy="100" r="4" fill="#1a237e"/>
+        </svg>
+      </div>
+      <div class="arrow">➡️</div>
+      <div class="clock-cell" style="min-width:auto;">
+        <div class="label">⑨ 🇦🇺 시드니 (+1) — 그리기</div>
+        <svg viewBox="0 0 200 200" width="120" height="120">
+          <circle cx="100" cy="100" r="88" fill="#fff" stroke="#7986cb" stroke-width="2" stroke-dasharray="4 3"/>
+          <g stroke="#7986cb" stroke-width="1.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+          <g font-size="16" text-anchor="middle" dominant-baseline="middle" font-weight="700" fill="#7986cb"><text x="100" y="36">12</text><text x="164" y="100">3</text><text x="100" y="164">6</text><text x="36" y="100">9</text></g>
+          <circle cx="100" cy="100" r="3" fill="#7986cb"/>
+        </svg>
+        <div class="qbox">답: ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">🌟 <b>동쪽·서쪽 기억법:</b> 지구는 서 → 동으로 돌아요. 그래서 <b>동쪽으로 갈수록 시각이 빨라져요(+)</b>, <b>서쪽으로 갈수록 시각이 늦어져요(−)</b>. 서울보다 동쪽인 도쿄·시드니는 +, 서쪽인 뉴욕·런던·파리는 −!</div>
+
+  <div class="page-foot">시계 시리즈 · L19 · 1쪽 / 2</div>
+</section>
+
+<!-- 2쪽 -->
+<section class="page">
+  <div class="page-head">
+    <h2>✈️ 시차 실전 문제</h2>
+    <span class="step">2쪽 · 통화·항공편·역계산</span>
+  </div>
+  <div class="intro">
+    실생활에서 시차는 <b>국제 통화</b>, <b>화상 회의</b>, <b>비행기 도착 시각</b>, <b>해외 친구에게 메시지</b>를 보낼 때 자주 필요해요.
+    상대방이 <b>낮</b>인지 <b>밤</b>인지 꼭 확인해요!
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 국제 통화·화상회의 시각 맞추기</h3><span class="tag">기본 · 4문항</span></div>
+    <p>서울에서 이 시각에 전화·화상회의를 하면, 상대 도시는 <b>몇 시</b>일까요? 오전/오후를 함께 써요.</p>
+    <table class="calc-table">
+      <tr>
+        <th style="width:6%;">번호</th>
+        <th style="width:34%;">상황</th>
+        <th style="width:20%;">서울 시각</th>
+        <th style="width:12%;">시차</th>
+        <th style="width:28%;">상대 도시 시각</th>
+      </tr>
+      <tr>
+        <td>⑩</td>
+        <td class="left">📞 채원이가 도쿄 친구에게 전화</td>
+        <td><span class="time-chip">오후 6:00</span></td>
+        <td>도쿄 +0</td>
+        <td>( <span class="blank short">&nbsp;</span> ) ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>⑪</td>
+        <td class="left">📱 뉴욕 사촌언니에게 카톡</td>
+        <td><span class="time-chip">오전 10:00</span></td>
+        <td>뉴욕 −14</td>
+        <td>( <span class="blank short">&nbsp;</span> ) ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>⑫</td>
+        <td class="left">💻 런던 화상회의</td>
+        <td><span class="time-chip">오후 5:00</span></td>
+        <td>런던 −9</td>
+        <td>( <span class="blank short">&nbsp;</span> ) ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>⑬</td>
+        <td class="left">📞 시드니 이모에게 전화</td>
+        <td><span class="time-chip">밤 8:00</span></td>
+        <td>시드니 +1</td>
+        <td>( <span class="blank short">&nbsp;</span> ) ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+    </table>
+    <div class="tip">💡 <b>⑪번 팁:</b> 서울 오전 10:00 = 10시. 10 − 14 = −4 → <b>어제 밤 8시(20시)</b>! 뉴욕은 <b>전날 저녁</b>이에요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 이야기 문제 · 채원이의 세계 여행 계획</h3><span class="tag">응용 · 4문항</span></div>
+
+    <p>⑭ <b>✈️ 비행기 도착 시각</b><br>
+    채원이는 <b>서울 오후 3:00</b>에 인천공항에서 뉴욕行 비행기를 탔어요. 비행에 <b>14시간</b> 걸려요.<br>
+    · 서울 시각으로 도착 시각은? ( <span class="blank short">&nbsp;</span> )일 <span class="blank short">&nbsp;</span>시 (다음날 <b>오전 5:00</b> 힌트)<br>
+    · <b>뉴욕 현지 시각</b>으로 도착 시각은? ( <span class="blank short">&nbsp;</span> ) ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</p>
+
+    <p>⑮ <b>📱 파리에 있는 사촌언니에게 메시지</b><br>
+    채원이는 파리에 여행 간 사촌언니가 <b>파리 아침 9:00</b>에 메시지를 받게 하고 싶어요.<br>
+    (파리는 서울보다 <b>−8시간</b>) → 서울에서는 몇 시에 보내야 할까요?<br>
+    ( <span class="blank short">&nbsp;</span> ) ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</p>
+
+    <p>⑯ <b>💻 LA 사는 사촌오빠와 게임 약속</b><br>
+    사촌오빠가 있는 <b>LA는 서울보다 −17시간</b>이에요. 오빠는 <b>LA 저녁 7:00</b>에 게임을 켠대요.<br>
+    채원이는 서울 시각 몇 시에 접속해야 할까요? ( <span class="blank short">&nbsp;</span> ) ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</p>
+
+    <p>⑰ <b>🌏 시드니 이모의 카톡</b><br>
+    시드니에 사는 이모가 <b>시드니 오전 7:00</b>에 카톡을 보냈어요. 채원이가 이 카톡을 받은 <b>서울 시각</b>은?<br>
+    (시드니는 서울보다 <b>+1시간</b>) → ( <span class="blank short">&nbsp;</span> ) ( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 나만의 세계 시각표 · 서울이 오후 3시일 때</h3><span class="tag">정리 · 2문항</span></div>
+    <p>⑱ 서울이 <b>오후 3:00 (15시)</b>일 때, 아래 도시들의 시각을 계산해 표를 완성하세요. (오전/오후 표시)</p>
+    <table class="calc-table">
+      <tr>
+        <th>도시</th>
+        <th>🇯🇵 도쿄 (+0)</th>
+        <th>🇨🇳 베이징 (−1)</th>
+        <th>🇦🇺 시드니 (+1)</th>
+        <th>🇬🇧 런던 (−9)</th>
+        <th>🇫🇷 파리 (−8)</th>
+        <th>🇺🇸 뉴욕 (−14)</th>
+        <th>🇺🇸 LA (−17)</th>
+      </tr>
+      <tr>
+        <td class="city">시각</td>
+        <td>( <span class="blank short">&nbsp;</span> )시</td>
+        <td>( <span class="blank short">&nbsp;</span> )시</td>
+        <td>( <span class="blank short">&nbsp;</span> )시</td>
+        <td>( <span class="blank short">&nbsp;</span> )시</td>
+        <td>( <span class="blank short">&nbsp;</span> )시</td>
+        <td>( <span class="blank short">&nbsp;</span> )시</td>
+        <td>( <span class="blank short">&nbsp;</span> )시</td>
+      </tr>
+      <tr>
+        <td class="city">낮/밤</td>
+        <td>( <span class="blank short">&nbsp;</span> )</td>
+        <td>( <span class="blank short">&nbsp;</span> )</td>
+        <td>( <span class="blank short">&nbsp;</span> )</td>
+        <td>( <span class="blank short">&nbsp;</span> )</td>
+        <td>( <span class="blank short">&nbsp;</span> )</td>
+        <td>( <span class="blank short">&nbsp;</span> )</td>
+        <td>( <span class="blank short">&nbsp;</span> )</td>
+      </tr>
+    </table>
+    <p>⑲ 위 표에서 <b>지금 통화하기 좋은 도시</b>(오전 8시~밤 10시 사이)를 <b>모두</b> 골라 적어 보세요. (2곳 이상)<br>
+    → <span class="blank long">&nbsp;</span>, <span class="blank long">&nbsp;</span></p>
+  </div>
+
+  <div class="note">🌟 <b>실전 팁:</b> 상대 도시가 밤(밤 11시~오전 6시)이면 상대는 <b>자고 있어요</b>. 국제 통화 전에 꼭 <b>낮인지 밤인지 확인!</b> 계산 결과가 24를 넘으면 <b>다음날</b>, 0보다 작으면 <b>어제</b>예요.</div>
+
+  <div class="page-foot">시계 시리즈 · L19 · 2쪽 / 2</div>
+</section>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

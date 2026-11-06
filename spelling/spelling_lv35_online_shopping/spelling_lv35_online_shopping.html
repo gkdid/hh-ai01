@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>L35 CS 문의·리뷰 속 맞춤법 — 채원·미정의 생활 맞춤법</title>
+<style>
+
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #9fa8da 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #1a237e;
+  border-bottom: 2px solid #3949ab; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; color: #3949ab; }
+.cover-main { text-align: center; padding: 8px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #3949ab; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 1.9em; letter-spacing: -1.5px; color: #1a237e; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #1a237e; font-weight: 500; }
+.cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 6px; }
+.cover-info { background: #fff; border: 2px solid #3949ab; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 6px; color: #1a237e; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 3px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 14px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #3949ab; padding-bottom: 3px; }
+.cover-name .label { color: #1a237e; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #3949ab; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #1a237e; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #3949ab; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #e8eaf6; border-left: 4px solid #3949ab; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #1a237e; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 8px 12px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.95em; }
+.tip b { color: #f57f17; }
+.note { background: #fff3e0; border-left: 4px solid #ef6c00; padding: 7px 12px; margin: 8px 0; border-radius: 0 6px 6px 0; font-size: 0.93em; }
+.note b { color: #bf360c; }
+
+.scene { background: #fff; border: 2.2px solid #3949ab; border-radius: 12px; padding: 11px 14px; margin: 9px 0; box-shadow: 0 2px 7px rgba(0,0,0,0.05); }
+.scene .header { background: #3949ab; color: #fff; padding: 6px 13px; border-radius: 8px; margin: -11px -14px 9px; font-weight: 700; font-size: 0.98em; display: flex; justify-content: space-between; align-items: center; }
+.scene .header .who { font-size: 0.85em; background: #fff; color: #1a237e; padding: 1px 9px; border-radius: 10px; font-weight: 700; }
+.scene .body { font-size: 0.96em; line-height: 1.78; }
+.scene .body .h { background: #ffcdd2; padding: 1px 4px; border-radius: 3px; font-weight: 700; color: #b71c1c; }
+
+.activity { background: #fafafa; border: 1.5px dashed #3949ab; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #1a237e; font-size: 1.03em; }
+.activity .tag { background: #e8eaf6; color: #1a237e; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.activity p { margin: 4px 0; font-size: 0.94em; }
+.blank { display: inline-block; min-width: 60px; border-bottom: 2px solid #1a237e; text-align: center; padding: 0 6px; color: #1a237e; font-weight: 700; }
+.blank.sm { min-width: 36px; } .blank.lg { min-width: 120px; } .blank.xl { min-width: 180px; }
+
+.rules { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin: 8px 0; }
+.rule-card { background: #fff; border: 1.3px solid #3949ab; border-radius: 8px; padding: 7px 10px; font-size: 0.9em; }
+.rule-card .num { font-weight: 900; color: #fff; background: #3949ab; padding: 1px 7px; border-radius: 7px; font-size: 0.85em; margin-right: 5px; }
+.rule-card b { color: #b71c1c; }
+
+.page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
+@media print { body { background: #fff; font-size: 9.5pt; line-height: 1.4; } .toolbar, #name-editor { display: none; }
+  .page { box-shadow: none; margin: 0 auto; padding: 10mm 12mm; }
+  .scene, .activity { padding: 8px 12px; margin: 7px 0; } .intro, .tip, .note { padding: 6px 10px; margin: 5px 0; } }
+
+
+.sp-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
+.sp-table th, .sp-table td { border: 1.2px solid #b0bec5; padding: 6px 8px; vertical-align: top; }
+.sp-table th { background: #e8eaf6; color: #1a237e; font-weight: 700; text-align: center; }
+.sp-table td.left { text-align: left; }
+.check-list { list-style: none; padding-left: 4px; margin: 6px 0; }
+.check-list li { padding: 5px 8px; background: #e8eaf6; margin: 4px 0; border-radius: 6px; border-left: 3px solid #b0bec5; }
+.check-list input[type="checkbox"] { margin-right: 6px; transform: scale(1.1); }
+.write-lines { background: #fff; border: 1.5px solid #b0bec5; border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+.write-lines .wl { border-bottom: 1.2px solid #cfd8dc; min-height: 22px; margin: 6px 0; }
+.pair-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 6px 0; }
+.pair-card { border: 1.3px solid #b0bec5; border-radius: 8px; padding: 8px 10px; background: #fff; }
+.pair-card .sent { font-size: 0.95em; margin-bottom: 4px; }
+.pair-card .pick { display: flex; gap: 8px; font-size: 0.9em; }
+.pair-card .pick label { padding: 2px 8px; border: 1px solid #b0bec5; border-radius: 12px; background: #f5f7f9; }
+
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">📝 L35 · CS 문의·리뷰 속 맞춤법</span><span class="muted">맞춤법 테마별 몰아보기 · Level 35</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<!-- 표지 -->
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">국어</span> · 맞춤법 테마별 몰아보기 · <b>L35</b></span>
+    <span>고등학교 특수학급</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">테마 5 · 인터넷 쇼핑·배송</span>
+    <h1>CS 문의·리뷰 속 맞춤법</h1>
+    <p class="lead">온라인 쇼핑몰에서 쓰는 문의글·리뷰 글자 바로잡기</p>
+  </div>
+  <div class="cover-emoji">📦 💻 ⭐</div>
+  <div class="cover-info">
+    <h3>🎯 학습 목표</h3>
+    <ul>
+      <li>CS 문의글의 맞춤법을 정확히 고친다.</li>
+      <li>별점 리뷰 글을 바른 글자로 작성한다.</li>
+      <li>환불·반품 요청을 또박또박 쓴다.</li>
+    </ul>
+  </div>
+  <div class="cover-info" style="border-color:#f9a825;">
+    <h3 style="color:#bf360c;">🌱 오늘의 친구</h3>
+    <ul>
+      <li><b>채원</b> · <b>미정</b>이(가) 겪는 생활 장면 두 가지로 함께 배워요.</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">학년·반</span></div>
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+  <div class="page-foot">맞춤법 테마별 몰아보기 · L35 · 표지</div>
+</section>
+
+<!-- 본문 -->
+<section class="page">
+  <div class="page-head">
+    <h2>📦 생활 장면 속 맞춤법 찾기</h2>
+    <span class="step">1쪽 · 본문</span>
+  </div>
+
+  <div class="intro">
+    <b>빨간색</b>으로 표시된 부분이 자주 틀리는 글자예요. 아래 규칙 상자를 보며 하나씩 고쳐 봐요!
+  </div>
+
+  <div class="rules">
+    <div class="rule-card"><span class="num">L29</span>'몇 일 X / 며칠 O'</div>
+    <div class="rule-card"><span class="num">L22</span>'-할께 X / -할게 O', '-읍니다 X / -습니다 O'</div>
+    <div class="rule-card"><span class="num">L15</span>'반드시(꼭)' / '반듯이(곧게)' 혼동 주의</div>
+    <div class="rule-card"><span class="num">L28</span>'~것 같다' 반복 줄이기</div>
+  </div>
+
+  <div class="scene">
+    <div class="header"><span>📦 채원이의 배송 문의</span><span class="who">채원</span></div>
+    <div class="body">안녕하세요, <span class="h">몇 일</span> 전에 주문한 상품이 아직 안 왔어요. 배송 조회<span class="h">을</span> 해 보니 "배송 준비 중"이라고 떠요. 혹시 재고 품절이면 환불<span class="h">할께요</span>. 빠른 답변 주시면 감사하겠<span class="h">읍니다</span>. 꼭 <span class="h">뵈요</span>.</div>
+  </div>
+
+  <div class="scene">
+    <div class="header"><span>⭐ 미정이의 상품 리뷰</span><span class="who">미정</span></div>
+    <div class="body">배송은 <span class="h">반드시</span> 포장되어 왔고, 품질도 <span class="h">깨끗히</span> 좋아요. 색상이 사진<span class="h">에보다</span> 조금 어두워요. 사이즈는 <span class="h">큰 것 같에요</span>. 다음에도 <span class="h">사는 것 같아요</span>.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 채원이 문의글 고치기</h3><span class="tag">5군데</span></div>
+    <p>① <b>몇 일</b> 전에 → <span class="blank">&nbsp;</span> 전에</p>
+    <p>② 배송 조회<b>을</b> → 배송 조회<span class="blank">&nbsp;</span> (목적격 조사)</p>
+    <p>③ 환불<b>할께요</b> → 환불<span class="blank">&nbsp;</span></p>
+    <p>④ 감사하겠<b>읍니다</b> → 감사하겠<span class="blank">&nbsp;</span></p>
+    <p>⑤ <b>뵈요</b> → <span class="blank">&nbsp;</span></p>
+  </div>
+  <div class="activity">
+    <div class="head"><h3>활동 2. 미정이 리뷰 다듬기</h3><span class="tag">4군데</span></div>
+    <p>① <b>반드시</b> 포장되어 → <span class="blank">&nbsp;</span> 포장되어 (곧게)</p>
+    <p>② <b>깨끗히</b> → <span class="blank">&nbsp;</span></p>
+    <p>③ 사진<b>에보다</b> → 사진<span class="blank">&nbsp;</span> (조사)</p>
+    <p>④ <b>큰 것 같에요</b> · <b>사는 것 같아요</b> → <span class="blank">&nbsp;</span> · <span class="blank lg">&nbsp;</span></p>
+  </div>
+  <div class="activity">
+    <div class="head"><h3>활동 3. 내 리뷰 쓰기</h3><span class="tag">쓰기</span></div>
+    <p>최근 받은 택배 하나를 떠올려 별점 리뷰를 3문장으로 써 보세요.</p>
+    <p>[상품] <span class="blank xl">&nbsp;</span> / [별점] <span class="blank sm">&nbsp;</span> / 5</p>
+    <p><div style="background:#e8eaf6; border:1.5px dashed #3949ab; border-radius:8px; padding:8px; min-height:70px;"><div style="border-bottom:1px solid #ccc; height:22px;"></div><div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div><div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div></div></p>
+  </div>
+
+  <div class="tip">
+    <b>💡 오늘의 꿀팁:</b> 빨간 글자를 눈으로 먼저 훑고 → 규칙 상자를 떠올리고 → 입으로 바르게 소리 내 보면 더 잘 외워져요!
+  </div>
+
+  <div class="page-foot">맞춤법 테마별 몰아보기 · L35 · 1쪽</div>
+</section>
+
+
+<style data-extra="pages23">
+.ox-list { list-style: none; padding: 0; margin: 6px 0; counter-reset: oxc; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 10px; }
+.ox-list li { counter-increment: oxc; font-size: 0.92em; padding: 4px 7px 4px 0; border-bottom: 1px dashed #cfd8dc; display: flex; align-items: center; gap: 6px; }
+.ox-list li::before { content: counter(oxc); background: #3949ab; color: #fff; font-weight: 700; border-radius: 7px; padding: 1px 7px; font-size: 0.78em; margin-right: 2px; }
+.ox-list .ox-pick { display: inline-flex; gap: 2px; margin-left: auto; }
+.ox-list .ox-pick span { display: inline-block; width: 18px; height: 18px; border: 1.5px solid #1a237e; border-radius: 4px; text-align: center; font-weight: 700; color: #1a237e; line-height: 15px; font-size: 0.85em; }
+.choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; margin: 6px 0; }
+.choice-card { background: #fff; border: 1.3px solid #3949ab; border-radius: 8px; padding: 7px 10px; font-size: 0.9em; }
+.choice-card .ctx { display: block; color: #37474f; margin-bottom: 3px; }
+.choice-card .pick { display: flex; gap: 8px; justify-content: center; }
+.choice-card .pick label { flex: 1; text-align: center; background: #e8eaf6; padding: 3px 6px; border-radius: 6px; cursor: pointer; font-weight: 700; }
+.dict-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4px 10px; margin: 6px 0; counter-reset: dc; }
+.dict-grid .dict-item { counter-increment: dc; font-size: 0.9em; padding: 3px 6px; border-bottom: 1px dashed #cfd8dc; display: flex; align-items: center; gap: 6px; }
+.dict-grid .dict-item::before { content: counter(dc); background: #3949ab; color: #fff; font-weight: 700; border-radius: 6px; padding: 1px 6px; font-size: 0.78em; }
+.dict-grid .dict-item .blank2 { flex: 1; border-bottom: 2px solid #1a237e; height: 20px; }
+.dict-grid .dict-item .hint { color: #90a4ae; font-size: 0.82em; }
+.dialog { background: #fff; border: 2px solid #3949ab; border-radius: 12px; padding: 10px 14px; margin: 8px 0; }
+.dialog .d-head { background: #3949ab; color: #fff; padding: 5px 11px; border-radius: 8px; margin: -10px -14px 8px; font-weight: 700; font-size: 0.98em; }
+.dialog .d-line { display: grid; grid-template-columns: 60px 1fr; gap: 8px; padding: 4px 0; border-bottom: 1px dashed #cfd8dc; font-size: 0.95em; align-items: center; }
+.dialog .d-line:last-child { border-bottom: none; }
+.dialog .d-line .who { font-weight: 700; color: #1a237e; background: #e8eaf6; padding: 1px 7px; border-radius: 6px; text-align: center; font-size: 0.9em; }
+.dialog .d-line .say .b { display: inline-block; min-width: 60px; border-bottom: 2px solid #1a237e; margin: 0 3px; color: #1a237e; font-weight: 700; font-size: 0.85em; vertical-align: baseline; padding: 0 4px; }
+.dialog .d-line .say .b::before { content: '빈칸' attr(data-n); font-size: 0.72em; color: #90a4ae; margin-right: 2px; }
+.d-answers { background: #e8eaf6; border-left: 4px solid #3949ab; border-radius: 0 6px 6px 0; padding: 6px 10px; margin: 6px 0; font-size: 0.85em; }
+.d-answers b { color: #1a237e; }
+.write-box { background: #fff; border: 2px dashed #3949ab; border-radius: 10px; padding: 10px 12px; margin: 8px 0; }
+.write-box .topic { font-weight: 700; color: #1a237e; margin-bottom: 6px; font-size: 0.98em; }
+.write-lines { margin-top: 8px; }
+.write-lines .wl { border-bottom: 1px solid #cfd8dc; height: 24px; margin-bottom: 4px; }
+.self-check { background: #e8eaf6; border-radius: 10px; padding: 8px 12px; margin: 8px 0; }
+.self-check h4 { margin: 0 0 4px; color: #1a237e; font-size: 0.98em; }
+.self-check ul { margin: 0; padding-left: 18px; }
+.self-check li { margin: 2px 0; font-size: 0.9em; }
+.self-check li::marker { color: #3949ab; font-weight: 700; }
+</style>
+
+<!-- PAGE 2: 심화 유형 -->
+<section class="page">
+  <div class="page-head">
+    <h2>🧩 유형 바꿔 복습하기</h2>
+    <span class="step">2쪽 · 심화</span>
+  </div>
+  <div class="intro">
+    <b>세 가지 유형</b>으로 L1~L30 핵심 규칙 + 이번 테마 어휘를 한꺼번에 점검해요. 틀린 문제는 1쪽 규칙 상자로 돌아가서 다시 확인!
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. ⭕❌ OX 퀴즈 10문항</h3><span class="tag">맞으면 O · 틀리면 X</span></div>
+    <ol class="ox-list">
+      <li><span class="ox-sent">저는 학생으로서 공부합니다.</span><span class="ox-pick"><span>O</span><span>X</span></span></li><li><span class="ox-sent">용돈으로서 책을 샀어요.</span><span class="ox-pick"><span>O</span><span>X</span></span></li><li><span class="ox-sent">빨리 가려고 서둘렀어요.</span><span class="ox-pick"><span>O</span><span>X</span></span></li><li><span class="ox-sent">빨리 갈려고 서둘렀어요.</span><span class="ox-pick"><span>O</span><span>X</span></span></li><li><span class="ox-sent">오늘은 날씨가 좋은 것 같아요.</span><span class="ox-pick"><span>O</span><span>X</span></span></li><li><span class="ox-sent">오늘은 날씨가 좋은 것 같에요.</span><span class="ox-pick"><span>O</span><span>X</span></span></li><li><span class="ox-sent">이 공책은 내 거예요.</span><span class="ox-pick"><span>O</span><span>X</span></span></li><li><span class="ox-sent">배송 조회을 해 봤어요.</span><span class="ox-pick"><span>O</span><span>X</span></span></li><li><span class="ox-sent">환불 할께요.</span><span class="ox-pick"><span>O</span><span>X</span></span></li><li><span class="ox-sent">몇 일 안에 답변 부탁드립니다.</span><span class="ox-pick"><span>O</span><span>X</span></span></li>
+    </ol>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 올바른 표기 고르기 6문항</h3><span class="tag">둘 중 바른 것에 ○</span></div>
+    <div class="choice-grid">
+      <div class="choice-card"><span class="ctx">나의 ___ 이루어졌다.</span><div class="pick"><label>① 바램이</label><label>② 바람이</label></div></div><div class="choice-card"><span class="ctx">약속은 ___ 지켜야 해.</span><div class="pick"><label>① 반듯이</label><label>② 반드시</label></div></div><div class="choice-card"><span class="ctx">몸을 ___ 하고 서자.</span><div class="pick"><label>① 반듯이</label><label>② 반드시</label></div></div><div class="choice-card"><span class="ctx">이 책은 내 ___.</span><div class="pick"><label>① 거에요</label><label>② 거예요</label></div></div><div class="choice-card"><span class="ctx">상품 ___ 아직 안 왔어요.</span><div class="pick"><label>① 을</label><label>② 이</label></div></div><div class="choice-card"><span class="ctx">배송 조회 ___ 해 봤어요.</span><div class="pick"><label>① 를</label><label>② 을</label></div></div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 6. 받아쓰기 10문항</h3><span class="tag">선생님 말씀 듣고 쓰기</span></div>
+    <div class="dict-grid">
+      <div class="dict-item"><span class="blank2"></span><span class="hint">(5글자)</span></div><div class="dict-item"><span class="blank2"></span><span class="hint">(2글자)</span></div><div class="dict-item"><span class="blank2"></span><span class="hint">(5글자)</span></div><div class="dict-item"><span class="blank2"></span><span class="hint">(3글자)</span></div><div class="dict-item"><span class="blank2"></span><span class="hint">(4글자)</span></div><div class="dict-item"><span class="blank2"></span><span class="hint">(3글자)</span></div><div class="dict-item"><span class="blank2"></span><span class="hint">(3글자)</span></div><div class="dict-item"><span class="blank2"></span><span class="hint">(3글자)</span></div><div class="dict-item"><span class="blank2"></span><span class="hint">(2글자)</span></div><div class="dict-item"><span class="blank2"></span><span class="hint">(2글자)</span></div>
+    </div>
+    <p style="margin-top:6px; font-size:0.85em; color:#607d8b;">※ 선생님이 불러 주시는 말을 듣고 바른 글자로 쓰세요. (글자 수는 참고용)</p>
+  </div>
+
+  <div class="page-foot">맞춤법 테마별 몰아보기 · L35 · 2쪽</div>
+</section>
+
+<!-- PAGE 3: 역할극 + 쓰기 -->
+<section class="page">
+  <div class="page-head">
+    <h2>🎭 역할극 · ✍️ 생활글 쓰기</h2>
+    <span class="step">3쪽 · 쓰기</span>
+  </div>
+  <div class="intro">
+    <b>채원·미정</b>의 대화를 짝과 함께 역할을 나눠 읽어 보세요. 빈칸은 1~2쪽에서 배운 바른말로 채워요.
+  </div>
+
+  <div class="dialog">
+    <div class="d-head">📦 CS 문의 메시지</div>
+    <div class="d-line"><span class="who">채원</span><span class="say">안녕하세요, <span class="b" data-n="1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 전에 주문한 상품이 안 왔어요.</span></div><div class="d-line"><span class="who">상담사</span><span class="say">주문번호 <span class="b" data-n="2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 확인해 드릴게요.</span></div><div class="d-line"><span class="who">채원</span><span class="say">품절이면 <span class="b" data-n="3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.</span></div><div class="d-line"><span class="who">미정</span><span class="say">저는 리뷰 <span class="b" data-n="4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 왔어요.</span></div><div class="d-line"><span class="who">상담사</span><span class="say">친절히 답변 드리겠습니다. 안녕히 <span class="b" data-n="5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.</span></div>
+  </div>
+  <div class="d-answers">
+    <b>정답 보기(확인용):</b> <b>1:</b> 며칠 · <b>2:</b> 를 · <b>3:</b> 환불할게요 · <b>4:</b> 쓰려고 · <b>5:</b> 계세요
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 7. 나의 생활글 쓰기</h3><span class="tag">4~5문장</span></div>
+    <div class="write-box">
+      <div class="topic">📌 주제: 최근 받은 택배 하나에 대한 별점 리뷰 (장점·단점, 4~5문장)</div>
+      <div class="write-lines">
+        <div class="wl"></div><div class="wl"></div><div class="wl"></div>
+        <div class="wl"></div><div class="wl"></div><div class="wl"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="self-check">
+    <h4>✅ 다 쓴 뒤 스스로 점검!</h4>
+    <ul><li>‘며칠(몇 일 X)’ 바르게 썼나요?</li><li>‘봬요(뵈요 X) · -할게요(-할께요 X)’ 바르게 썼나요?</li><li>‘-했습니다(-했읍니다 X)’ 바르게 썼나요?</li><li>‘반드시(꼭) / 반듯이(곧게)’ 뜻 맞게 썼나요?</li><li>‘학생으로서(자격) / 연필로써(수단)’ 구분해서 썼나요?</li><li>‘-하려고(-할려고 X) · -이에요/-예요’ 바르게 썼나요?</li><li>‘깨끗이(깨끗히 X) · 바람(바램 X)’ 바르게 썼나요?</li><li>‘~것 같다 · ~의 경우 · ~을 통해서’ 반복 자제했나요?</li></ul>
+  </div>
+
+  <div class="note">
+    🎉 <b>잘했어요!</b> 1쪽 상황글 → 2쪽 유형 복습 → 3쪽 쓰기까지, 이 테마의 맞춤법을 모두 다뤘어요. 평소 카톡·메모·쓰기에서 이번에 배운 말들을 그대로 써 보세요!
+  </div>
+
+  <div class="page-foot">맞춤법 테마별 몰아보기 · L35 · 3쪽 / 끝</div>
+</section>
+
+
+<section class="page">
+  <div class="page-head">
+    <h2>🔁 복습 · 자기 점검 — 온라인 쇼핑 맞춤법</h2>
+    <span class="step">추가 1쪽 · 복습</span>
+  </div>
+  <div class="intro">오늘 배운 <b>온라인 쇼핑 맞춤법</b> 규칙을 <b>내 말로 다시</b> 써 보고, 평소 내가 자주 틀렸던 부분을 정리해 봐요.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A1. 내 말로 규칙 쓰기</h3><span class="tag">서술형</span></div>
+    <p>오늘 배운 규칙을 <b>친구에게 설명하듯</b> 한두 문장으로 써 봐요.</p>
+    <div class="write-lines"><div class="wl">&nbsp;</div><div class="wl">&nbsp;</div></div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A2. 이 규칙이 필요한 상황 3개</h3><span class="tag">상황 떠올리기</span></div>
+    <p>이 맞춤법이 <b>실제로 쓰일 상황</b>을 떠올려 3개만 적어 봐요. (예: 문자할 때, 자기소개 쓸 때, 공지 쓸 때…)</p>
+    <ol style="margin:6px 0 6px 22px;">
+      <li style="margin:6px 0;">상황 ① <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+      <li style="margin:6px 0;">상황 ② <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+      <li style="margin:6px 0;">상황 ③ <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+    </ol>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A3. 내가 자주 틀리던 표기 → 바른 표기</h3><span class="tag">3행 표</span></div>
+    <p>이번 레슨과 관련해 <b>평소 내가 자주 틀리던 형태</b>와 <b>바른 형태</b>를 비교해 적어 봐요.</p>
+    <table class="sp-table">
+      <tr><th style="width:8%;">번호</th><th style="width:40%;">내가 자주 쓰던 형태 (❌)</th><th style="width:40%;">바른 형태 (⭕)</th><th style="width:12%;">언제?</th></tr>
+      <tr><td>①</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+      <tr><td>②</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+      <tr><td>③</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+    </table>
+    <div class="tip">💡 "언제?" 칸에는 <b>문자·일기·숙제·시험</b> 같이 자주 쓰는 자리를 적어 두면 스스로 체크하기 좋아요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A4. 자기 점검 체크리스트</h3><span class="tag">5개</span></div>
+    <ul class="check-list">
+      <li><label><input type="checkbox" disabled> 오늘 규칙을 <b>세 문장 이상</b> 소리 내어 읽어 봤다.</label></li>
+      <li><label><input type="checkbox" disabled> 어제·오늘 내가 쓴 글에서 이 규칙 자리를 <b>직접 확인</b>해 봤다.</label></li>
+      <li><label><input type="checkbox" disabled> 자주 틀리던 형태를 <b>표에 정리</b>했다.</label></li>
+      <li><label><input type="checkbox" disabled> 다음에 틀렸을 때 <b>스스로 고쳐 쓸 자신</b>이 조금 생겼다.</label></li>
+      <li><label><input type="checkbox" disabled> 다음 레슨을 <b>기대</b>한다.</label></li>
+    </ul>
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · 온라인 쇼핑 맞춤법 · 복습쪽</div>
+</section>
+
+
+<section class="page">
+  <div class="page-head">
+    <h2>✍️ 쓰기 실전 — 온라인 쇼핑 맞춤법</h2>
+    <span class="step">추가 2쪽 · 쓰기</span>
+  </div>
+  <div class="intro">배운 규칙을 <b>실제 문장으로 써 보기</b>로 마무리해요. 짧아도 좋으니 <b>직접</b> 써 보는 게 제일 중요해요.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B1. 오늘의 규칙을 넣은 문장 3개</h3><span class="tag">직접 쓰기</span></div>
+    <p>오늘 배운 <b>온라인 쇼핑 맞춤법</b> 규칙이 꼭 보이는 문장을 세 개 써 봐요.</p>
+    <div class="write-lines">
+      <div class="wl">① &nbsp;</div>
+      <div class="wl">② &nbsp;</div>
+      <div class="wl">③ &nbsp;</div>
+    </div>
+    <div class="tip">💡 완성한 뒤 <b>소리 내어 읽어</b> 어색한 곳이 없는지 확인해요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B2. 상황 메시지 쓰기 — 판매자에게</h3><span class="tag">3~5문장</span></div>
+    <p><b>상황:</b> 반품·교환 요청 메시지</p>
+    <p>이 상황에 맞게 짧은 메시지를 써 봐요. 오늘 배운 <b>온라인 쇼핑 맞춤법</b> 규칙이 들어가면 더 좋아요.</p>
+    <div class="write-lines">
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B3. 내 다짐 한 문장</h3><span class="tag">마무리</span></div>
+    <p>앞으로 <b>온라인 쇼핑 맞춤법</b>이(가) 나오는 자리에서 <b>어떻게 신경 쓸지</b> 한 문장으로 적어 봐요.</p>
+    <div class="write-lines"><div class="wl">앞으로 나는, &nbsp;</div></div>
+  </div>
+
+  <div class="note">🌟 <b>진짜 배움은 쓸 때 일어나요.</b> 오늘 쓴 문장을 <b>하루 뒤 다시</b> 읽어 보면 눈에 보이는 것이 또 달라져요.</div>
+
+  <div class="page-foot">맞춤법 시리즈 · 온라인 쇼핑 맞춤법 · 쓰기쪽</div>
+</section>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+
+</body>
+</html>

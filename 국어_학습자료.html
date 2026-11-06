@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>국어 수업 — 감정 표현하기</title>
+  <style>
+    /* ── 기본 설정 ── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+      background: #f0f4ff;
+      color: #222;
+      font-size: 20px;
+      line-height: 1.8;
+    }
+
+    /* ── 헤더 ── */
+    header {
+      background: linear-gradient(135deg, #4f7df3, #7c5cbf);
+      color: white;
+      text-align: center;
+      padding: 36px 20px 28px;
+    }
+    header h1 { font-size: 2.2rem; margin-bottom: 8px; }
+    header p  { font-size: 1.1rem; opacity: 0.9; }
+
+    /* ── 진행 바 ── */
+    #progress-bar-wrap {
+      background: #d0d8ff;
+      height: 14px;
+      border-radius: 8px;
+      margin: 24px auto;
+      width: 80%;
+      max-width: 700px;
+    }
+    #progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #4f7df3, #7c5cbf);
+      border-radius: 8px;
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+    #progress-label {
+      text-align: center;
+      font-size: 0.95rem;
+      color: #555;
+      margin-top: 6px;
+      margin-bottom: 0;
+    }
+
+    /* ── 메인 컨테이너 ── */
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 20px 16px 60px;
+    }
+
+    /* ── 단계 패널 ── */
+    .step {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+    .step.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── 섹션 제목 ── */
+    .step-title {
+      background: white;
+      border-left: 8px solid #4f7df3;
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    }
+    .step-title .badge {
+      display: inline-block;
+      background: #4f7df3;
+      color: white;
+      font-size: 0.85rem;
+      padding: 2px 12px;
+      border-radius: 20px;
+      margin-bottom: 6px;
+    }
+    .step-title h2 { font-size: 1.5rem; color: #333; }
+
+    /* ── 카드 그리드 ── */
+    .emotion-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    .emotion-card {
+      background: white;
+      border-radius: 16px;
+      padding: 22px 12px;
+      text-align: center;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.09);
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 3px solid transparent;
+    }
+    .emotion-card:hover  { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.13); }
+    .emotion-card.active { border-color: #4f7df3; background: #eef2ff; }
+    .emotion-card .emoji { font-size: 3rem; display: block; margin-bottom: 8px; }
+    .emotion-card .word  { font-size: 1.25rem; font-weight: bold; color: #333; }
+    .emotion-card .desc  { font-size: 0.9rem; color: #666; margin-top: 4px; }
+    .emotion-card .ex    { font-size: 0.85rem; color: #4f7df3; margin-top: 6px; font-style: italic; }
+
+    /* ── 감정 그룹 레이블 ── */
+    .group-label {
+      font-size: 1.05rem;
+      font-weight: bold;
+      color: white;
+      padding: 6px 18px;
+      border-radius: 20px;
+      display: inline-block;
+      margin: 20px 0 12px;
+    }
+    .group-happy   { background: #f5a623; }
+    .group-sad     { background: #5b8def; }
+    .group-angry   { background: #e05454; }
+    .group-scared  { background: #9b59b6; }
+
+    /* ── 빈칸 채우기 ── */
+    .fill-list { list-style: none; margin-bottom: 16px; }
+    .fill-list li {
+      background: white;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .fill-list li .num {
+      background: #4f7df3;
+      color: white;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .fill-input {
+      border: none;
+      border-bottom: 3px solid #4f7df3;
+      font-size: 1.15rem;
+      padding: 4px 8px;
+      width: 140px;
+      background: transparent;
+      outline: none;
+      font-family: inherit;
+      color: #333;
+    }
+    .fill-input:focus { border-bottom-color: #7c5cbf; }
+    .answer-hint {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-left: 4px;
+    }
+
+    /* ── 상황 카드 ── */
+    .situation-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+    .situation-card .situation-num {
+      font-size: 0.9rem;
+      color: #4f7df3;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+    .situation-card .situation-text {
+      background: #f7f9ff;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 16px;
+      font-size: 1.1rem;
+      line-height: 1.9;
+    }
+    .situation-card .choice-label {
+      font-size: 1rem;
+      color: #555;
+      margin-bottom: 10px;
+    }
+    .choice-buttons { display: flex; flex-wrap: wrap; gap: 10px; }
+    .choice-btn {
+      padding: 10px 22px;
+      border-radius: 30px;
+      border: 2px solid #ccc;
+      background: white;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .choice-btn:hover  { border-color: #4f7df3; color: #4f7df3; }
+    .choice-btn.correct { background: #4caf50; border-color: #4caf50; color: white; }
+    .choice-btn.wrong   { background: #f44336; border-color: #f44336; color: white; }
+
+    /* ── 내 감정 쓰기 ── */
+    .write-box {
+      background: white;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      margin-bottom: 24px;
+    }
+    .write-box label {
+      display: block;
+      font-size: 1.1rem;
+      color: #444;
+      margin-bottom: 8px;
+      font-weight: bold;
+    }
+    .write-box .sentence-wrap {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .write-box input[type="text"],
+    .write-box textarea {
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 1.1rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .write-box input[type="text"]:focus,
+    .write-box textarea:focus { border-color: #4f7df3; }
+    .write-box input.inline {
+      width: 180px;
+      border-radius: 0;
+      border: none;
+      border-bottom: 2px solid #4f7df3;
+      padding: 4px 8px;
+    }
+    .write-box textarea {
+      width: 100%;
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    /* ── 대화 연습 ── */
+    .dialogue-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+    }
+    .dialogue-card h3 {
+      font-size: 1rem;
+      color: #888;
+      margin-bottom: 14px;
+    }
+    .bubble-wrap { display: flex; flex-direction: column; gap: 14px; }
+    .bubble {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
+    }
+    .bubble.right { flex-direction: row-reverse; }
+    .bubble .avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .bubble.left  .avatar { background: #e3eaff; }
+    .bubble.right .avatar { background: #fff3cd; }
+    .bubble .text {
+      max-width: 75%;
+      padding: 12px 16px;
+      border-radius: 16px;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .bubble.left  .text { background: #eef2ff; border-bottom-left-radius: 4px; }
+    .bubble.right .text { background: #fff3cd; border-bottom-right-radius: 4px; }
+    .bubble .speaker { font-size: 0.85rem; color: #888; margin-bottom: 4px; }
+    .bubble-inner { display: flex; flex-direction: column; }
+    .bubble.right .bubble-inner { align-items: flex-end; }
+    .highlight { color: #4f7df3; font-weight: bold; }
+
+    /* ── 감정 일기 ── */
+    .diary-box {
+      background: white;
+      border-radius: 16px;
+      padding: 28px 32px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+      border-top: 6px solid #f5a623;
+    }
+    .diary-box h3 { font-size: 1.2rem; color: #f5a623; margin-bottom: 20px; text-align: center; }
+    .diary-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      font-size: 1.1rem;
+      flex-wrap: wrap;
+    }
+    .diary-row label { color: #555; white-space: nowrap; }
+    .diary-row input[type="text"],
+    .diary-row textarea {
+      flex: 1;
+      min-width: 200px;
+      border: none;
+      border-bottom: 2px solid #ddd;
+      padding: 6px 8px;
+      font-size: 1.05rem;
+      font-family: inherit;
+      outline: none;
+      background: transparent;
+    }
+    .diary-row input:focus,
+    .diary-row textarea:focus { border-bottom-color: #f5a623; }
+    .diary-row textarea { resize: vertical; min-height: 60px; }
+    .emoji-picker { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+    .emoji-pick-btn {
+      font-size: 2rem;
+      background: #f7f7f7;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      padding: 4px 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .emoji-pick-btn:hover  { border-color: #f5a623; }
+    .emoji-pick-btn.picked { border-color: #f5a623; background: #fff3cd; }
+
+    /* ── 버튼 ── */
+    .btn-wrap { display: flex; justify-content: space-between; margin-top: 32px; gap: 12px; }
+    .btn {
+      padding: 14px 32px;
+      border-radius: 30px;
+      border: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: inherit;
+      transition: opacity 0.2s, transform 0.1s;
+    }
+    .btn:active { transform: scale(0.97); }
+    .btn-prev { background: #dde3f0; color: #555; }
+    .btn-next { background: linear-gradient(135deg, #4f7df3, #7c5cbf); color: white; margin-left: auto; }
+    .btn:disabled { opacity: 0.4; cursor: default; }
+    .btn-print {
+      background: #4caf50;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 30px;
+      border: none;
+      font-size: 1.05rem;
+      font-weight: bold;
+      cursor: pointer;
+      font-family: inherit;
+      margin-top: 16px;
+    }
+
+    /* ── 완료 화면 ── */
+    #complete-screen {
+      display: none;
+      text-align: center;
+      padding: 40px 20px;
+      animation: fadeIn 0.5s ease;
+    }
+    #complete-screen .trophy { font-size: 5rem; }
+    #complete-screen h2 { font-size: 2rem; margin: 20px 0 10px; color: #4f7df3; }
+    #complete-screen p  { color: #666; font-size: 1.1rem; margin-bottom: 28px; }
+
+    /* ── 정답 확인 버튼 ── */
+    .check-btn {
+      background: #ff9800;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      padding: 8px 20px;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-family: inherit;
+      margin-top: 12px;
+    }
+    .result-msg {
+      margin-top: 10px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      display: none;
+    }
+    .result-msg.ok   { color: #4caf50; }
+    .result-msg.fail { color: #f44336; }
+
+    /* ── 반응형 ── */
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.6rem; }
+      .emotion-grid { grid-template-columns: repeat(2, 1fr); }
+      .btn { padding: 12px 20px; font-size: 1rem; }
+    }
+
+    /* ── 인쇄 ── */
+    @media print {
+      header, #progress-bar-wrap, #progress-label, .btn-wrap, .btn-print { display: none !important; }
+      .step { display: block !important; page-break-after: always; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>😊 감정 표현하기</h1>
+  <p>고등학교 특수학급 국어 수업 | 1~2차시</p>
+</header>
+
+<div id="progress-bar-wrap">
+  <div id="progress-bar"></div>
+</div>
+<p id="progress-label">1 / 6 단계</p>
+
+<main>
+
+  <!-- ══════════════════════════════════════
+       STEP 1 — 학습 목표
+  ══════════════════════════════════════ -->
+  <section class="step active" id="step-1">
+    <div class="step-title">
+      <span class="badge">오늘의 수업</span>
+      <h2>학습 목표를 확인해요</h2>
+    </div>
+
+    <div style="background:white; border-radius:16px; padding:28px; box-shadow:0 3px 10px rgba(0,0,0,0.08); margin-bottom:24px;">
+      <p style="font-size:1.1rem; color:#555; margin-bottom:20px;">오늘 수업이 끝나면 할 수 있어요!</p>
+      <ul style="list-style:none; display:flex; flex-direction:column; gap:14px;">
+        <li style="display:flex; align-items:center; gap:14px; font-size:1.15rem;">
+          <span style="font-size:1.8rem;">📖</span>
+          다양한 <strong>감정 낱말</strong>을 읽고 쓸 수 있다.
+        </li>
+        <li style="display:flex; align-items:center; gap:14px; font-size:1.15rem;">
+          <span style="font-size:1.8rem;">✏️</span>
+          자신의 감정을 <strong>문장</strong>으로 표현할 수 있다.
+        </li>
+        <li style="display:flex; align-items:center; gap:14px; font-size:1.15rem;">
+          <span style="font-size:1.8rem;">💬</span>
+          상황에 맞는 감정 표현을 <strong>말</strong>할 수 있다.
+        </li>
+      </ul>
+    </div>
+
+    <div style="background:#eef2ff; border-radius:12px; padding:16px 20px; font-size:1rem; color:#555;">
+      💡 <strong>선생님 한마디:</strong> 오늘은 내 마음을 말로 표현하는 연습을 해요. 틀려도 괜찮아요!
+    </div>
+
+    <div class="btn-wrap">
+      <button class="btn btn-next" onclick="goStep(2)">시작하기 →</button>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       STEP 2 — 감정 낱말 알기
+  ══════════════════════════════════════ -->
+  <section class="step" id="step-2">
+    <div class="step-title">
+      <span class="badge">1단계</span>
+      <h2>감정 낱말을 알아봐요</h2>
+    </div>
+    <p style="color:#666; margin-bottom:8px;">카드를 눌러보세요! 예문을 확인할 수 있어요.</p>
+
+    <span class="group-label group-happy">😄 기쁜 감정</span>
+    <div class="emotion-grid">
+      <div class="emotion-card" onclick="toggleCard(this)">
+        <span class="emoji">😄</span>
+        <div class="word">기쁘다</div>
+        <div class="desc">마음이 좋고 즐겁다</div>
+        <div class="ex">선물을 받아서 <b>기쁩니다</b>.</div>
+      </div>
+      <div class="emotion-card" onclick="toggleCard(this)">
+        <span class="emoji">😁</span>
+        <div class="word">즐겁다</div>
+        <div class="desc">마음이 흐뭇하고 흥겹다</div>
+        <div class="ex">친구와 놀아서 <b>즐겁습니다</b>.</div>
+      </div>
+      <div class="emotion-card" onclick="toggleCard(this)">
+        <span class="emoji">🥳</span>
+        <div class="word">신나다</div>
+        <div class="desc">기운이 넘치고 흥이 난다</div>
+        <div class="ex">소풍 날이라 <b>신납니다</b>.</div>
+      </div>
+    </div>
+
+    <span class="group-label group-sad">😢 슬픈 감정</span>
+    <div class="emotion-grid">
+      <div class="emotion-card" onclick="toggleCard(this)">
+        <span class="emoji">😢</span>
+        <div class="word">슬프다</div>
+        <div class="desc">마음이 아프고 눈물이 난다</div>
+        <div class="ex">강아지가 아파서 <b>슬픕니다</b>.</div>
+      </div>
+      <div class="emotion-card" onclick="toggleCard(this)">
+        <span class="emoji">😞</span>
+        <div class="word">속상하다</div>
+        <div class="desc">마음이 불편하고 답답하다</div>
+        <div class="ex">실수를 해서 <b>속상합니다</b>.</div>
+      </div>
+      <div class="emotion-card" onclick="toggleCard(this)">
+        <span class="emoji">😔</span>
+        <div class="word">외롭다</div>
+        <div class="desc">혼자인 것 같아 쓸쓸하다</div>
+        <div class="ex">친구가 없어서 <b>외롭습니다</b>.</div>
+      </div>
+    </div>
+
+    <span class="group-label group-angry">😠 화나는 감정</span>
+    <div class="emotion-grid">
+      <div class="emotion-card" onclick="toggleCard(this)">
+        <span class="emoji">😠</span>
+        <div class="word">화나다</div>
+        <div class="desc">불같은 감정이 일어난다</div>
+        <div class="ex">약속을 안 지켜서 <b>화납니다</b>.</div>
+      </div>
+      <div class="emotion-card" onclick="toggleCard(this)">
+        <span class="emoji">😤</span>
+        <div class="word">짜증나다</div>
+        <div class="desc">귀찮고 기분이 나쁘다</div>
+        <div class="ex">숙제가 많아서 <b>짜증납니다</b>.</div>
+      </div>
+    </div>
+
+    <span class="group-label group-scared">😨 무서운 감정</span>
+    <div class="emotion-grid">
+      <div class="emotion-card" onclick="toggleCard(this)">
+        <span class="emoji">😨</span>
+        <div class="word">무섭다</div>
+        <div class="desc">두렵고 겁이 난다</div>
+        <div class="ex">큰 소리가 나서 <b>무섭습니다</b>.</div>
+      </div>
+      <div class="emotion-card" onclick="toggleCard(this)">
+        <span class="emoji">😰</span>
+        <div class="word">불안하다</div>
+        <div class="desc">걱정이 되고 마음이 편하지 않다</div>
+        <div class="ex">시험이 있어서 <b>불안합니다</b>.</div>
+      </div>
+    </div>
+
+    <div class="btn-wrap">
+      <button class="btn btn-prev" onclick="goStep(1)">← 이전</button>
+      <button class="btn btn-next" onclick="goStep(3)">다음 →</button>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       STEP 3 — 빈칸 채우기
+  ══════════════════════════════════════ -->
+  <section class="step" id="step-3">
+    <div class="step-title">
+      <span class="badge">2단계</span>
+      <h2>빈칸을 채워 보세요</h2>
+    </div>
+    <p style="color:#666; margin-bottom:20px;">알맞은 감정 낱말을 써 보세요.</p>
+
+    <ul class="fill-list">
+      <li>
+        <span class="num">1</span>
+        생일 파티를 해 주어서 마음이
+        <input class="fill-input" type="text" id="fill1" placeholder="낱말 쓰기" />
+        합니다.
+        <button class="check-btn" onclick="checkFill('fill1',['기쁩','기쁘','기쁘다','기쁩니다'])">확인</button>
+        <div class="result-msg" id="fill1-msg"></div>
+      </li>
+      <li>
+        <span class="num">2</span>
+        좋아하는 간식을 못 먹어서
+        <input class="fill-input" type="text" id="fill2" placeholder="낱말 쓰기" />
+        합니다.
+        <button class="check-btn" onclick="checkFill('fill2',['속상','속상하','속상합니다','속상하다'])">확인</button>
+        <div class="result-msg" id="fill2-msg"></div>
+      </li>
+      <li>
+        <span class="num">3</span>
+        발표를 잘 해서 기분이
+        <input class="fill-input" type="text" id="fill3" placeholder="낱말 쓰기" />
+        합니다.
+        <button class="check-btn" onclick="checkFill('fill3',['즐겁','즐거','즐겁습니다','즐거워','신나'])">확인</button>
+        <div class="result-msg" id="fill3-msg"></div>
+      </li>
+      <li>
+        <span class="num">4</span>
+        어두운 방에 혼자 있어서
+        <input class="fill-input" type="text" id="fill4" placeholder="낱말 쓰기" />
+        습니다.
+        <button class="check-btn" onclick="checkFill('fill4',['무섭','무서워','무서웠','무섭습니다','무섭다'])">확인</button>
+        <div class="result-msg" id="fill4-msg"></div>
+      </li>
+      <li>
+        <span class="num">5</span>
+        친구가 내 물건을 빼앗아서
+        <input class="fill-input" type="text" id="fill5" placeholder="낱말 쓰기" />
+        납니다.
+        <button class="check-btn" onclick="checkFill('fill5',['화','짜증','화나','화납니다'])">확인</button>
+        <div class="result-msg" id="fill5-msg"></div>
+      </li>
+    </ul>
+
+    <div class="btn-wrap">
+      <button class="btn btn-prev" onclick="goStep(2)">← 이전</button>
+      <button class="btn btn-next" onclick="goStep(4)">다음 →</button>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       STEP 4 — 상황 카드
+  ══════════════════════════════════════ -->
+  <section class="step" id="step-4">
+    <div class="step-title">
+      <span class="badge">3단계</span>
+      <h2>상황에 맞는 감정을 골라요</h2>
+    </div>
+    <p style="color:#666; margin-bottom:20px;">상황을 읽고 알맞은 감정 버튼을 눌러 보세요.</p>
+
+    <div class="situation-card">
+      <div class="situation-num">상황 1</div>
+      <div class="situation-text">
+        오늘 체육 시간에 이어달리기를 했습니다.<br>
+        우리 팀이 <strong>1등</strong>을 했습니다. 🏆
+      </div>
+      <div class="choice-label">나의 감정은?</div>
+      <div class="choice-buttons">
+        <button class="choice-btn" onclick="checkChoice(this, true)">😄 기쁘다</button>
+        <button class="choice-btn" onclick="checkChoice(this, false)">😢 슬프다</button>
+        <button class="choice-btn" onclick="checkChoice(this, false)">😨 무섭다</button>
+      </div>
+    </div>
+
+    <div class="situation-card">
+      <div class="situation-num">상황 2</div>
+      <div class="situation-text">
+        짝꿍이 내 지우개를 허락 없이 가져갔습니다.<br>
+        돌려주지도 않았습니다. 😤
+      </div>
+      <div class="choice-label">나의 감정은?</div>
+      <div class="choice-buttons">
+        <button class="choice-btn" onclick="checkChoice(this, false)">😁 즐겁다</button>
+        <button class="choice-btn" onclick="checkChoice(this, true)">😠 화나다</button>
+        <button class="choice-btn" onclick="checkChoice(this, false)">🥳 신나다</button>
+      </div>
+    </div>
+
+    <div class="situation-card">
+      <div class="situation-num">상황 3</div>
+      <div class="situation-text">
+        발표를 해야 하는데 친구들이 모두 나를 바라보고 있습니다.<br>
+        틀릴까봐 걱정됩니다. 😰
+      </div>
+      <div class="choice-label">나의 감정은?</div>
+      <div class="choice-buttons">
+        <button class="choice-btn" onclick="checkChoice(this, true)">😰 불안하다</button>
+        <button class="choice-btn" onclick="checkChoice(this, false)">😄 기쁘다</button>
+        <button class="choice-btn" onclick="checkChoice(this, false)">😁 즐겁다</button>
+      </div>
+    </div>
+
+    <div class="situation-card">
+      <div class="situation-num">상황 4</div>
+      <div class="situation-text">
+        오늘 급식에 내가 좋아하는 메뉴가 나왔습니다.<br>
+        맛있게 먹었습니다. 🍱
+      </div>
+      <div class="choice-label">나의 감정은?</div>
+      <div class="choice-buttons">
+        <button class="choice-btn" onclick="checkChoice(this, false)">😔 외롭다</button>
+        <button class="choice-btn" onclick="checkChoice(this, false)">😢 슬프다</button>
+        <button class="choice-btn" onclick="checkChoice(this, true)">😄 기쁘다</button>
+      </div>
+    </div>
+
+    <div class="btn-wrap">
+      <button class="btn btn-prev" onclick="goStep(3)">← 이전</button>
+      <button class="btn btn-next" onclick="goStep(5)">다음 →</button>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       STEP 5 — 대화 연습
+  ══════════════════════════════════════ -->
+  <section class="step" id="step-5">
+    <div class="step-title">
+      <span class="badge">4단계</span>
+      <h2>대화를 따라 말해 봐요</h2>
+    </div>
+    <p style="color:#666; margin-bottom:20px;">짝과 함께 소리 내어 읽어 보세요. 🗣️</p>
+
+    <div class="dialogue-card">
+      <h3>대화 1</h3>
+      <div class="bubble-wrap">
+        <div class="bubble left">
+          <div class="avatar">👩‍🏫</div>
+          <div class="bubble-inner">
+            <div class="speaker">선생님</div>
+            <div class="text">오늘 기분이 어때요?</div>
+          </div>
+        </div>
+        <div class="bubble right">
+          <div class="avatar">🧑‍🎓</div>
+          <div class="bubble-inner">
+            <div class="speaker">나</div>
+            <div class="text">오늘은 <span class="highlight">기쁩니다</span>.<br>왜냐하면 좋아하는 수업이 있기 때문입니다.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dialogue-card">
+      <h3>대화 2</h3>
+      <div class="bubble-wrap">
+        <div class="bubble left">
+          <div class="avatar">🧑‍🤝‍🧑</div>
+          <div class="bubble-inner">
+            <div class="speaker">친구</div>
+            <div class="text">왜 그렇게 조용해요?</div>
+          </div>
+        </div>
+        <div class="bubble right">
+          <div class="avatar">🧑‍🎓</div>
+          <div class="bubble-inner">
+            <div class="speaker">나</div>
+            <div class="text">조금 <span class="highlight">속상합니다</span>.<br>실수를 해서요.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dialogue-card">
+      <h3>대화 3</h3>
+      <div class="bubble-wrap">
+        <div class="bubble left">
+          <div class="avatar">👩‍🏫</div>
+          <div class="bubble-inner">
+            <div class="speaker">선생님</div>
+            <div class="text">무슨 일 있어요?</div>
+          </div>
+        </div>
+        <div class="bubble right">
+          <div class="avatar">🧑‍🎓</div>
+          <div class="bubble-inner">
+            <div class="speaker">나</div>
+            <div class="text"><span class="highlight">불안합니다</span>.<br>내일 시험이 있기 때문입니다.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-wrap">
+      <button class="btn btn-prev" onclick="goStep(4)">← 이전</button>
+      <button class="btn btn-next" onclick="goStep(6)">다음 →</button>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       STEP 6 — 감정 일기
+  ══════════════════════════════════════ -->
+  <section class="step" id="step-6">
+    <div class="step-title">
+      <span class="badge">5단계</span>
+      <h2>오늘의 감정 일기를 써요</h2>
+    </div>
+    <p style="color:#666; margin-bottom:20px;">오늘 나의 감정을 일기로 써 보세요. ✏️</p>
+
+    <div class="diary-box">
+      <h3>📔 오늘의 감정 일기</h3>
+
+      <div class="diary-row">
+        <label>날짜</label>
+        <input type="text" id="diary-date" placeholder="예) 2026년 3월 23일 월요일" />
+      </div>
+
+      <div class="diary-row" style="flex-direction:column; align-items:flex-start;">
+        <label style="margin-bottom:10px;">오늘 나의 감정은?</label>
+        <div class="emoji-picker">
+          <button class="emoji-pick-btn" onclick="pickEmoji(this, '😄 기쁨')">😄</button>
+          <button class="emoji-pick-btn" onclick="pickEmoji(this, '😁 즐거움')">😁</button>
+          <button class="emoji-pick-btn" onclick="pickEmoji(this, '🥳 신남')">🥳</button>
+          <button class="emoji-pick-btn" onclick="pickEmoji(this, '😢 슬픔')">😢</button>
+          <button class="emoji-pick-btn" onclick="pickEmoji(this, '😞 속상함')">😞</button>
+          <button class="emoji-pick-btn" onclick="pickEmoji(this, '😔 외로움')">😔</button>
+          <button class="emoji-pick-btn" onclick="pickEmoji(this, '😠 화남')">😠</button>
+          <button class="emoji-pick-btn" onclick="pickEmoji(this, '😤 짜증')">😤</button>
+          <button class="emoji-pick-btn" onclick="pickEmoji(this, '😨 무서움')">😨</button>
+          <button class="emoji-pick-btn" onclick="pickEmoji(this, '😰 불안함')">😰</button>
+        </div>
+        <div id="emoji-result" style="margin-top:10px; font-size:1.05rem; color:#f5a623; font-weight:bold; min-height:28px;"></div>
+      </div>
+
+      <div class="diary-row">
+        <label>오늘 있었던 일</label>
+        <textarea id="diary-event" placeholder="오늘 어떤 일이 있었나요?"></textarea>
+      </div>
+
+      <div class="diary-row">
+        <label>왜 그런 감정이 들었나요?</label>
+        <textarea id="diary-reason" placeholder="이유를 써 보세요."></textarea>
+      </div>
+    </div>
+
+    <button class="btn-print" onclick="window.print()">🖨️ 인쇄하기</button>
+
+    <div class="btn-wrap">
+      <button class="btn btn-prev" onclick="goStep(5)">← 이전</button>
+      <button class="btn btn-next" onclick="complete()">완료 🎉</button>
+    </div>
+  </section>
+
+
+  <!-- ══════════════════════════════════════
+       완료 화면
+  ══════════════════════════════════════ -->
+  <div id="complete-screen">
+    <div class="trophy">🏆</div>
+    <h2>수업을 모두 마쳤어요!</h2>
+    <p>오늘도 정말 잘 했어요. 감정을 표현하는 연습을 훌륭하게 해냈습니다.</p>
+    <div style="font-size:2.5rem; margin-bottom:28px;">😄 👏 🌟</div>
+    <button class="btn btn-next" onclick="restart()">처음으로 돌아가기</button>
+  </div>
+
+</main>
+
+<script>
+  const TOTAL = 6;
+  let current = 1;
+
+  function goStep(n) {
+    document.getElementById('step-' + current).classList.remove('active');
+    current = n;
+    document.getElementById('step-' + current).classList.add('active');
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function updateProgress() {
+    const pct = ((current - 1) / (TOTAL - 1)) * 100;
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('progress-label').textContent = current + ' / ' + TOTAL + ' 단계';
+  }
+
+  function toggleCard(card) {
+    card.classList.toggle('active');
+  }
+
+  /* 빈칸 확인 */
+  function checkFill(id, answers) {
+    const input = document.getElementById(id);
+    const msg   = document.getElementById(id + '-msg');
+    const val   = input.value.trim().replace(/\s/g, '');
+    const ok    = answers.some(a => val.includes(a.replace(/\s/g, '')));
+    msg.style.display = 'block';
+    if (ok) {
+      msg.textContent = '✅ 잘했어요!';
+      msg.className = 'result-msg ok';
+      input.style.borderBottomColor = '#4caf50';
+    } else {
+      msg.textContent = '❌ 다시 한 번 써 보세요.';
+      msg.className = 'result-msg fail';
+      input.style.borderBottomColor = '#f44336';
+    }
+  }
+
+  /* 상황 카드 선택 */
+  function checkChoice(btn, isCorrect) {
+    const siblings = btn.parentElement.querySelectorAll('.choice-btn');
+    siblings.forEach(b => { b.classList.remove('correct', 'wrong'); b.disabled = true; });
+    btn.classList.add(isCorrect ? 'correct' : 'wrong');
+    if (!isCorrect) {
+      siblings.forEach(b => {
+        if (b !== btn) {
+          b.onclick && b.classList.contains('correct');
+        }
+      });
+    }
+  }
+
+  /* 이모지 선택 */
+  function pickEmoji(btn, label) {
+    document.querySelectorAll('.emoji-pick-btn').forEach(b => b.classList.remove('picked'));
+    btn.classList.add('picked');
+    document.getElementById('emoji-result').textContent = '선택한 감정: ' + label;
+  }
+
+  /* 완료 */
+  function complete() {
+    document.getElementById('step-' + current).classList.remove('active');
+    document.getElementById('progress-bar').style.width = '100%';
+    document.getElementById('progress-label').textContent = '완료!';
+    document.getElementById('complete-screen').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* 처음으로 */
+  function restart() {
+    document.getElementById('complete-screen').style.display = 'none';
+    current = 1;
+    document.getElementById('step-1').classList.add('active');
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+</body>
+</html>

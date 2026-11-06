@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>성인 생활 3차시 — 근로계약서와 급여명세서</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #1565c0; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; } .toolbar .muted { color: #bbdefb; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #bbdefb 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #0d47a1;
+  border-bottom: 2px solid #64b5f6; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; }
+.cover-main { text-align: center; padding: 10px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #1565c0; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #0d47a1; font-weight: 900; }
+.cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #1565c0; font-weight: 500; }
+.cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
+.cover-info { background: #fff; border: 2px solid #64b5f6; border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+.cover-info h3 { margin: 0 0 8px; color: #0d47a1; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 4px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 16px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #0d47a1; padding-bottom: 3px; }
+.cover-name .label { color: #0d47a1; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #1565c0; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #0d47a1; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #1565c0; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #e3f2fd; border-left: 4px solid #1976d2; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #0d47a1; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.tip b { color: #f57f17; }
+.note { background: #ffebee; border-left: 4px solid #e53935; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #b71c1c; }
+
+.activity { background: #fff; border: 1.8px solid #64b5f6; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #0d47a1; font-size: 1.05em; }
+.activity .tag { background: #bbdefb; color: #0d47a1; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 60px; border-bottom: 2px solid #0d47a1; text-align: center; padding: 0 6px; color: #0d47a1; font-weight: 700; }
+.blank.short { min-width: 36px; } .blank.long { min-width: 140px; }
+
+table.qa { width: 100%; border-collapse: collapse; margin: 8px 0; }
+table.qa th, table.qa td { border: 1.5px solid #b0bec5; padding: 6px 8px; text-align: center; }
+table.qa th { background: #bbdefb; color: #0d47a1; }
+table.qa td.left { text-align: left; }
+
+.contract { background: #fbfbfd; border: 2px solid #1565c0; border-radius: 8px; padding: 12px 16px; margin: 8px 0; }
+.contract .title { text-align: center; font-weight: 900; font-size: 1.15em; color: #0d47a1; border-bottom: 2px solid #1565c0; padding-bottom: 6px; margin-bottom: 8px; }
+.contract .row { display: grid; grid-template-columns: 130px 1fr; gap: 8px; padding: 4px 0; border-bottom: 1px dotted #b0bec5; font-size: 0.94em; }
+.contract .row .k { font-weight: 700; color: #0d47a1; }
+.contract .sign { display: flex; justify-content: space-between; margin-top: 10px; font-size: 0.92em; }
+.contract .sign .box { border-top: 1.5px solid #0d47a1; padding-top: 4px; text-align: center; min-width: 120px; }
+
+.paycheck { background: #fff; border: 2px solid #0d47a1; border-radius: 10px; padding: 12px 16px; margin: 8px 0; }
+.paycheck .top { display: flex; justify-content: space-between; border-bottom: 2px solid #1565c0; padding-bottom: 6px; margin-bottom: 8px; }
+.paycheck .top .co { font-weight: 900; color: #0d47a1; font-size: 1.05em; }
+.paycheck table { width: 100%; border-collapse: collapse; }
+.paycheck td { padding: 4px 6px; font-size: 0.94em; border-bottom: 1px dotted #b0bec5; }
+.paycheck td.k { font-weight: 700; color: #37474f; width: 40%; }
+.paycheck td.v { text-align: right; }
+.paycheck tr.plus td.v { color: #1b5e20; font-weight: 700; }
+.paycheck tr.minus td.v { color: #b71c1c; font-weight: 700; }
+.paycheck tr.total td { border-top: 2px solid #0d47a1; padding-top: 6px; font-weight: 900; font-size: 1.02em; color: #0d47a1; }
+
+.four-ins { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0; }
+.ins { background: #fff; border: 1.8px solid #64b5f6; border-radius: 10px; padding: 8px; text-align: center; }
+.ins .em { font-size: 1.5em; } .ins .n { font-weight: 700; color: #0d47a1; margin-top: 2px; font-size: 0.92em; }
+.ins .r { font-size: 0.85em; color: #37474f; margin-top: 2px; }
+.ins .u { font-size: 0.82em; color: #546e7a; margin-top: 2px; }
+
+.footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
+  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+@media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">성인 생활 3차시</span><span class="muted">근로계약서·급여명세서 · A4 4쪽</span></div>
+  <button onclick="window.print()">🖨 인쇄하기</button>
+</div>
+
+<!-- 표지 -->
+<div class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">진로·직업</span> · 성인 생활 단원 3/10</div>
+    <div>혜화여자고등학교 특수학급</div>
+  </div>
+  <div class="cover-main">
+    <span class="badge">Lv.3 근로 계약</span>
+    <h1>근로계약서, 꼭 확인해요</h1>
+    <p class="lead">최저시급 · 근로시간 · 4대 보험 · 급여명세서 읽기</p>
+  </div>
+  <div class="cover-emoji">📄 💵 🏦 📊</div>
+  <div class="cover-info">
+    <h3>이번 시간에 배울 것</h3>
+    <ul>
+      <li>근로계약서에 <b>꼭 있어야 할 6가지</b> 항목</li>
+      <li>2026년 <b>최저시급 10,030원</b>과 야근·주휴 수당 기초</li>
+      <li>월급에서 빠지는 <b>4대 보험</b>과 급여명세서 읽는 법</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+    <div class="line"><span class="label">반</span></div>
+  </div>
+</div>
+
+<!-- 1쪽 : 근로계약서 -->
+<div class="page">
+  <div class="page-head"><h2>1. 근로계약서, 어디에 뭐가 적혀 있나?</h2><span class="step">Step 1</span></div>
+  <div class="intro">
+    <b>💡 근로계약서란?</b> "얼마 받고 · 몇 시간 · 어떤 일 · 언제까지 일하는지"를 회사와 나 사이에 <b>글로 남긴 약속</b>이에요.
+    법으로 <b>반드시 서면(종이)</b>으로 작성하고 <b>1부를 근로자(나)에게</b> 줘야 해요.
+  </div>
+
+  <div class="contract">
+    <div class="title">📄 근로계약서 (예시)</div>
+    <div class="row"><div class="k">근무처</div><div>하은 카페 (혜화점) · 사업자등록번호 000-00-00000</div></div>
+    <div class="row"><div class="k">근로자</div><div><span class="sn">하영</span> · 2007-08-22 · 010-1234-5678</div></div>
+    <div class="row"><div class="k">근로 기간</div><div>2026-10-01 ~ 2027-09-30 (1년)</div></div>
+    <div class="row"><div class="k">근무 장소</div><div>서울시 종로구 혜화동 하은 카페 매장</div></div>
+    <div class="row"><div class="k">담당 업무</div><div>음료 제조·서빙·매장 정리</div></div>
+    <div class="row"><div class="k">근무 시간</div><div>월~금 09:00 ~ 18:00 (휴게 12:00~13:00 · 1시간)</div></div>
+    <div class="row"><div class="k">주당 근무일</div><div>주 5일 · 주휴일: 일요일</div></div>
+    <div class="row"><div class="k">임금 (시급)</div><div>시급 <b>10,030원</b> (2026년 최저시급)</div></div>
+    <div class="row"><div class="k">지급일</div><div>매월 <b>25일</b> · 근로자 명의 계좌로 이체</div></div>
+    <div class="row"><div class="k">사회보험</div><div>고용·산재·건강·국민연금 <b>모두 가입</b></div></div>
+    <div class="sign">
+      <div class="box">사업주 (인)</div>
+      <div class="box">근로자 <span class="sn">하영</span> (인)</div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 6가지 필수 항목 확인</h3><span class="tag">확인</span></div>
+    <p>위 계약서에서 <b>꼭 있어야 할 6가지</b> 항목이 다 있는지 확인하세요.</p>
+    <table class="qa">
+      <tr><th>필수 항목</th><th>계약서에 있음?</th></tr>
+      <tr><td class="left">① 근로 기간 (시작·끝)</td><td>O</td></tr>
+      <tr><td class="left">② 근무 장소·업무 내용</td><td><span class="blank short"></span></td></tr>
+      <tr><td class="left">③ 근무 시간·휴게 시간</td><td><span class="blank short"></span></td></tr>
+      <tr><td class="left">④ 주휴일 (일요일 등)</td><td><span class="blank short"></span></td></tr>
+      <tr><td class="left">⑤ 임금(시급/월급) · 지급일 · 지급 방법</td><td><span class="blank short"></span></td></tr>
+      <tr><td class="left">⑥ 사회보험(4대 보험) 가입 여부</td><td><span class="blank short"></span></td></tr>
+    </table>
+    <div class="note"><b>❗ 하나라도 빠지면?</b> 회사에 <b>수정 요청</b>. 서면 미교부·최저시급 미만·과도한 노동은 <b>고용노동부(1350)</b>에 신고 가능.</div>
+  </div>
+
+  <div class="footer-note">성인 생활 3차시 · 1/4쪽 · 근로계약서</div>
+</div>
+
+<!-- 2쪽 : 최저시급 계산 -->
+<div class="page">
+  <div class="page-head"><h2>2. 최저시급과 월급 계산</h2><span class="step">Step 2</span></div>
+  <div class="intro">
+    <b>💡 2026년 최저시급 = 10,030원</b> (학습용 가정치). 어떤 회사도 이보다 <b>낮게</b> 줄 수 없어요.
+    <br><b>일급</b> = 시급 × 하루 근무 시간 · <b>월급</b> = 일급 × 근무 일수 (+ 주휴 수당)
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 주은이의 주급 계산</h3><span class="tag">주급</span></div>
+    <p><b>주은</b>이는 <b>시급 10,030원 · 하루 8시간 · 주 5일</b> 근무해요.</p>
+    <p>일급 = 10,030 × 8 = <span class="blank">80,240</span> 원</p>
+    <p>주 5일 일급 합계 = 80,240 × 5 = <span class="blank"></span> 원</p>
+    <p><b>주휴 수당</b> (주 15시간 이상 근무 시 하루치를 더 받음) = 80,240 원 추가</p>
+    <p>주급 총합 = 401,200 + <span class="blank short"></span> = <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 주현이의 월급 계산 (한 달 4주 근무)</h3><span class="tag">월급</span></div>
+    <p>주현이도 주은이와 조건이 같아요. 4주 근무 시 월급은?</p>
+    <p>월급 = 주급(<span class="blank short">481,440</span>) × 4 = <span class="blank"></span> 원</p>
+    <div class="tip"><b>💡 정확히는</b> 한 달 = 약 4.35주. 실제 사무직 정규 월급은 <b>209시간 × 시급</b>으로 계산해요. (10,030 × 209 ≈ <b>2,096,270원</b>)</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 야근 수당 (연장근로)</h3><span class="tag">야근</span></div>
+    <p>정해진 시간을 넘겨 일하면 <b>시급의 1.5배</b>를 받아요.</p>
+    <p>미정이가 저녁 8시까지 <b>2시간 연장 근무</b>했다면, 그 2시간의 시급은?</p>
+    <p>10,030 × 1.5 = <span class="blank">15,045</span> 원 · 2시간 = <span class="blank"></span> 원</p>
+    <p>야간(오후 10시 ~ 오전 6시) 근무는 <b>추가로 0.5배</b> 더. → 그 시간대 시급은 시급의 <b>2배</b>.</p>
+    <div class="note"><b>❗ 5인 미만 사업장 예외</b> 5인 미만 회사는 야근·주휴 가산이 적용 안 되는 경우가 있어요. 계약서·근로기준법 확인.</div>
+  </div>
+
+  <div class="footer-note">성인 생활 3차시 · 2/4쪽 · 시급·월급·야근</div>
+</div>
+
+<!-- 3쪽 : 4대 보험 -->
+<div class="page">
+  <div class="page-head"><h2>3. 월급에서 빠지는 4대 보험</h2><span class="step">Step 3</span></div>
+  <div class="intro">
+    <b>💡 왜 빠질까?</b> 4대 보험은 <b>미래의 나를 지키는 보험</b>이에요. 회사와 내가 <b>반반씩</b> 부담해요.
+    아프거나 실직하거나 은퇴했을 때 이 보험이 도움을 줍니다.
+  </div>
+
+  <div class="four-ins">
+    <div class="ins"><div class="em">💊</div><div class="n">건강보험</div><div class="r">약 3.55%</div><div class="u">병원비 부담↓</div></div>
+    <div class="ins"><div class="em">👵</div><div class="n">국민연금</div><div class="r">4.5%</div><div class="u">노후 연금</div></div>
+    <div class="ins"><div class="em">💼</div><div class="n">고용보험</div><div class="r">약 0.9%</div><div class="u">실직 시 급여</div></div>
+    <div class="ins"><div class="em">🦺</div><div class="n">산재보험</div><div class="r">회사 부담</div><div class="u">일하다 다치면</div></div>
+  </div>
+  <p style="font-size:0.85em; color:#546e7a;">* 근로자 부담 요율은 매년 조정. 학습용 참고치.</p>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 채원이의 공제 계산</h3><span class="tag">공제</span></div>
+    <p><b>채원</b>이의 <b>월 총 급여 2,000,000원</b>. 4대 보험 근로자 부담 합계는?</p>
+    <table class="qa">
+      <tr><th>항목</th><th>요율</th><th>계산</th><th>공제액</th></tr>
+      <tr><td>건강보험</td><td>3.55%</td><td>2,000,000 × 0.0355</td><td><span class="blank short">71,000</span></td></tr>
+      <tr><td>국민연금</td><td>4.5%</td><td>2,000,000 × 0.045</td><td><span class="blank short">90,000</span></td></tr>
+      <tr><td>고용보험</td><td>0.9%</td><td>2,000,000 × 0.009</td><td><span class="blank short">18,000</span></td></tr>
+      <tr><td>산재보험</td><td>0% (회사부담)</td><td>-</td><td>0</td></tr>
+      <tr><td>소득세·주민세(대략)</td><td>약 1%</td><td>2,000,000 × 0.01</td><td>20,000</td></tr>
+      <tr><th colspan="3">총 공제액 (약)</th><th><span class="blank"></span></th></tr>
+    </table>
+    <p><b>실수령액</b> = 2,000,000 − <span class="blank short"></span> = <span class="blank"></span> 원</p>
+    <div class="tip"><b>💡 실수령률</b> 대략 <b>90%</b> 정도가 통장에 들어와요. "세전 200만원 = 세후 약 180만원" 감으로 기억!</div>
+  </div>
+
+  <div class="footer-note">성인 생활 3차시 · 3/4쪽 · 4대 보험 공제</div>
+</div>
+
+<!-- 4쪽 : 급여명세서 종합 -->
+<div class="page">
+  <div class="page-head"><h2>4. 급여명세서 읽고 종합하기</h2><span class="step">Step 4</span></div>
+  <div class="intro">
+    <b>💡 급여명세서</b>는 매달 <b>급여일에 받는 문서</b>. 총 급여, 공제, 실수령을 한 번에 볼 수 있어요.
+    법상 <b>반드시 서면(또는 전자 문서)</b>로 받아야 해요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 6. 예은이의 급여명세서 완성</h3><span class="tag">종합</span></div>
+    <div class="paycheck">
+      <div class="top">
+        <div class="co">🏢 하은 카페 · 급여명세서</div>
+        <div>2026-10 · <b><span class="sn">예은</span></b> 님</div>
+      </div>
+      <table>
+        <tr class="plus"><td class="k">기본급 (209시간 × 10,030)</td><td class="v">2,096,270</td></tr>
+        <tr class="plus"><td class="k">연장근로 수당 (10시간 × 15,045)</td><td class="v"><span class="blank short">150,450</span></td></tr>
+        <tr class="plus"><td class="k">식대 (비과세)</td><td class="v">100,000</td></tr>
+        <tr class="plus total"><td class="k">총 지급액 A</td><td class="v"><span class="blank short"></span></td></tr>
+        <tr class="minus"><td class="k">건강보험 (3.55%)</td><td class="v">-<span class="blank short"></span></td></tr>
+        <tr class="minus"><td class="k">국민연금 (4.5%)</td><td class="v">-<span class="blank short"></span></td></tr>
+        <tr class="minus"><td class="k">고용보험 (0.9%)</td><td class="v">-<span class="blank short"></span></td></tr>
+        <tr class="minus"><td class="k">소득세 + 주민세 (약 1.5%)</td><td class="v">-<span class="blank short"></span></td></tr>
+        <tr class="minus total"><td class="k">총 공제액 B</td><td class="v"><span class="blank short"></span></td></tr>
+        <tr class="total"><td class="k">실수령액 (A − B)</td><td class="v"><span class="blank short"></span></td></tr>
+      </table>
+    </div>
+    <p style="font-size:0.9em; color:#546e7a;">
+      * 공제율은 총 지급액이 아닌 <b>과세 급여</b>(식대 비과세 제외) 기준이 원칙이지만, 학습용으로 총 지급액에 대해 대략 계산해요.
+    </p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 7. 스스로 확인</h3><span class="tag">자기점검</span></div>
+    <table class="qa">
+      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+      <tr><td class="left">근로계약서에 꼭 있어야 할 6가지를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">시급으로 일급·주급·월급 계산 가능</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">4대 보험의 이름과 목적을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">급여명세서에서 총지급·공제·실수령 구분</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    </table>
+  </div>
+
+  <div class="tip"><b>🎯 다음 시간 예고</b> 4차시 — 이 월급을 <b>어떻게 나눠서 관리</b>할지 배웁니다. 통장 쪼개기!</div>
+
+  <div class="footer-note">성인 생활 3차시 · 4/4쪽 · 급여명세서 완성</div>
+</div>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

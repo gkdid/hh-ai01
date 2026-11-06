@@ -1,0 +1,1183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🛵 배달 연습 앱 - 수학 수업용</title>
+<style>
+:root {
+  --orange: #FF6B35;
+  --orange-light: #FFF0EB;
+  --orange-dark: #E55A25;
+  --green: #27AE60;
+  --green-light: #EAF7EE;
+  --blue: #2980B9;
+  --blue-light: #EBF5FB;
+  --dark: #2C3E50;
+  --gray: #7F8C8D;
+  --light: #F5F6FA;
+  --white: #FFFFFF;
+  --red: #E74C3C;
+  --yellow: #F39C12;
+  --border: #E8EAED;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Malgun Gothic', '맑은 고딕', -apple-system, sans-serif;
+  background: #ECEEF1;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.app {
+  width: 100%;
+  max-width: 500px;
+  background: var(--white);
+  min-height: 100vh;
+  position: relative;
+  box-shadow: 0 0 30px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── HEADER ── */
+.hdr {
+  background: var(--orange);
+  color: #fff;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  box-shadow: 0 2px 8px rgba(255,107,53,.4);
+}
+.hdr-back {
+  background: rgba(255,255,255,.25);
+  border: none;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+.hdr-back:hover { background: rgba(255,255,255,.4); }
+.hdr-back.hidden { visibility: hidden; }
+.hdr-title { font-size: 18px; font-weight: 700; flex:1; }
+
+/* ── STEP BAR ── */
+.stepbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 18px 6px;
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  gap: 4px;
+}
+.step-item {
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.step-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #E0E0E0;
+  color: #aaa;
+  font-size: 13px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .3s;
+}
+.step-item.active .step-dot { background: var(--orange); color:#fff; }
+.step-item.done .step-dot { background: var(--green); color:#fff; }
+.step-line {
+  flex:1;
+  height: 3px;
+  background: #E0E0E0;
+  border-radius: 2px;
+  margin-bottom: 12px;
+  transition: background .3s;
+}
+.step-line.done { background: var(--green); }
+.step-label {
+  font-size: 10px;
+  color: #bbb;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.step-item.active .step-label { color: var(--orange); }
+.step-item.done .step-label { color: var(--green); }
+
+/* ── SCREENS ── */
+.screen { display:none; padding: 20px 18px 120px; flex:1; }
+.screen.active { display:block; }
+
+/* ── HOME ── */
+.hero {
+  background: linear-gradient(135deg, var(--orange), #FF9A5C);
+  border-radius: 18px;
+  padding: 22px 20px;
+  color:#fff;
+  margin-bottom: 22px;
+  text-align: center;
+}
+.hero h2 { font-size: 22px; margin-bottom: 6px; }
+.hero p { font-size: 14px; opacity: .9; }
+.section-label {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.rest-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+.rest-card {
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 16px 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .2s;
+  background: #fff;
+}
+.rest-card:hover, .rest-card:active {
+  border-color: var(--orange);
+  background: var(--orange-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255,107,53,.2);
+}
+.rest-card .ico { font-size: 36px; margin-bottom: 8px; display:block; }
+.rest-card .rname { font-size: 13px; font-weight: 700; color: var(--dark); }
+.rest-card .rfee { font-size: 11px; color: var(--gray); margin-top: 4px; }
+
+/* ── MENU ── */
+.rest-hdr-box {
+  background: var(--orange-light);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.rest-hdr-ico { font-size: 42px; }
+.rest-hdr-info h2 { font-size: 18px; font-weight:700; color:var(--dark); }
+.rest-hdr-info p { font-size: 13px; color: var(--gray); margin-top:3px; }
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+.menu-info { flex:1; }
+.menu-name { font-size: 15px; font-weight:700; color: var(--dark); }
+.menu-price { font-size: 15px; color: var(--orange); margin-top:3px; font-weight:600; }
+.qty-wrap { display:flex; align-items:center; gap:8px; }
+.qbtn {
+  width:34px; height:34px;
+  border:2px solid var(--orange);
+  border-radius:50%;
+  background:#fff;
+  color:var(--orange);
+  font-size:20px;
+  font-weight:700;
+  cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition: all .18s;
+  line-height:1;
+}
+.qbtn:hover { background:var(--orange); color:#fff; }
+.qdisplay {
+  font-size:17px;
+  font-weight:700;
+  min-width:26px;
+  text-align:center;
+  color:var(--dark);
+}
+
+/* ── FLOATING CART ── */
+.float-cart {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
+  background: var(--orange);
+  color: #fff;
+  padding: 14px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  z-index: 100;
+  box-shadow: 0 -4px 16px rgba(255,107,53,.35);
+  transition: transform .3s;
+}
+.float-cart.hidden { display:none; }
+.float-cart-left { display:flex; align-items:center; gap:10px; }
+.float-badge {
+  background: rgba(255,255,255,.25);
+  border-radius:20px;
+  padding: 4px 10px;
+  font-size:14px;
+  font-weight:700;
+}
+.float-cart-right { font-size:15px; font-weight:700; }
+
+/* ── CART ── */
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 10px;
+}
+.cart-item-info { flex:1; }
+.cart-item-name { font-size:15px; font-weight:700; color:var(--dark); }
+.cart-item-sub { font-size:13px; color:var(--gray); margin-top:3px; }
+.cart-item-price { font-size:16px; font-weight:700; color:var(--orange); }
+.empty-cart {
+  text-align:center;
+  padding:40px 0;
+  color:var(--gray);
+  font-size:15px;
+}
+.total-box {
+  background:var(--light);
+  border-radius:14px;
+  padding:16px;
+  margin-top:18px;
+}
+.total-row {
+  display:flex;
+  justify-content:space-between;
+  padding:7px 0;
+  font-size:15px;
+  border-bottom:1px dashed #ddd;
+}
+.total-row:last-child { border-bottom:none; }
+.total-row .lbl { color:var(--gray); }
+.total-row .val { font-weight:700; color:var(--dark); }
+.total-row.final {
+  margin-top:6px;
+  padding-top:12px;
+  font-size:18px;
+  font-weight:700;
+  border-top:2px solid #ccc;
+  border-bottom:none;
+}
+.total-row.final .val { color:var(--orange); }
+
+/* ── ADDRESS ── */
+.form-group { margin-bottom:18px; }
+.form-lbl {
+  font-size:14px;
+  font-weight:700;
+  color:var(--dark);
+  margin-bottom:8px;
+  display:block;
+}
+.form-inp {
+  width:100%;
+  padding:13px 15px;
+  border:2px solid var(--border);
+  border-radius:12px;
+  font-size:15px;
+  outline:none;
+  font-family:inherit;
+  transition:border-color .2s;
+  color:var(--dark);
+}
+.form-inp:focus { border-color:var(--orange); }
+textarea.form-inp { resize:vertical; min-height:70px; }
+
+/* ── PAYMENT ── */
+.section-hdr {
+  font-size:15px;
+  font-weight:700;
+  color:var(--dark);
+  margin-bottom:12px;
+  padding-bottom:8px;
+  border-bottom:2px solid var(--border);
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.coupon-opt {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:13px 15px;
+  border:2px solid var(--border);
+  border-radius:12px;
+  margin-bottom:9px;
+  cursor:pointer;
+  transition:all .2s;
+}
+.coupon-opt.selected { border-color:var(--orange); background:var(--orange-light); }
+.coupon-radio {
+  width:22px; height:22px;
+  border:2px solid #ccc;
+  border-radius:50%;
+  flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  transition:all .2s;
+}
+.coupon-opt.selected .coupon-radio { border-color:var(--orange); background:var(--orange); }
+.coupon-opt.selected .coupon-radio::after {
+  content:'';
+  width:9px; height:9px;
+  background:#fff;
+  border-radius:50%;
+  display:block;
+}
+.coupon-name { font-size:14px; font-weight:700; color:var(--dark); }
+.coupon-desc { font-size:12px; color:var(--gray); margin-top:2px; }
+.coupon-save { font-size:13px; color:var(--green); font-weight:700; }
+
+.pay-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:16px; }
+.pay-opt {
+  padding:18px 14px;
+  border:2px solid var(--border);
+  border-radius:14px;
+  text-align:center;
+  cursor:pointer;
+  transition:all .2s;
+}
+.pay-opt:hover { border-color:var(--orange); background:var(--orange-light); }
+.pay-opt.selected { border-color:var(--orange); background:var(--orange-light); }
+.pay-ico { font-size:32px; margin-bottom:8px; }
+.pay-name { font-size:15px; font-weight:700; color:var(--dark); }
+.pay-desc { font-size:12px; color:var(--gray); margin-top:4px; }
+
+.cash-section { display:none; background:var(--blue-light); border-radius:12px; padding:16px; margin-bottom:18px; }
+.cash-section.visible { display:block; }
+.preset-wrap { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.preset-btn {
+  padding:8px 14px;
+  border:2px solid var(--blue);
+  background:#fff;
+  color:var(--blue);
+  border-radius:20px;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  transition:all .2s;
+  font-family:inherit;
+}
+.preset-btn:hover { background:var(--blue); color:#fff; }
+
+/* ── CALC BOX ── */
+.calc-box {
+  background:#FFFBF5;
+  border:2px solid #FFE0C8;
+  border-radius:14px;
+  padding:18px;
+  margin-top:18px;
+}
+.calc-title {
+  font-size:15px;
+  font-weight:700;
+  color:var(--dark);
+  margin-bottom:14px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.calc-row {
+  display:flex;
+  justify-content:space-between;
+  padding:8px 0;
+  font-size:14px;
+  border-bottom:1px dashed #eee;
+}
+.calc-row:last-child { border-bottom:none; }
+.calc-lbl { color:var(--gray); }
+.calc-val { font-weight:700; color:var(--dark); }
+.calc-row.big { font-size:17px; }
+.calc-row.big .calc-val { color:var(--orange); }
+.calc-row.discount .calc-val { color:var(--green); }
+
+.change-box {
+  background:var(--green-light);
+  border:2px solid #A8E6CF;
+  border-radius:14px;
+  padding:18px;
+  margin-top:14px;
+}
+.change-row {
+  display:flex;
+  justify-content:space-between;
+  padding:8px 0;
+  font-size:14px;
+  border-bottom:1px dashed #c3e6cb;
+}
+.change-row:last-child { border-bottom:none; }
+.change-lbl { color:#5D8A6B; }
+.change-val { font-weight:700; color:var(--dark); }
+.change-final .change-val { color:var(--green); font-size:18px; }
+.change-warn .change-val { color:var(--red); }
+
+/* ── BUTTONS ── */
+.btn {
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:700;
+  cursor:pointer;
+  font-family:inherit;
+  margin-top:18px;
+  transition:all .2s;
+}
+.btn-orange { background:var(--orange); color:#fff; }
+.btn-orange:hover { background:var(--orange-dark); transform:translateY(-1px); box-shadow:0 4px 12px rgba(255,107,53,.4); }
+.btn-green { background:var(--green); color:#fff; }
+.btn-green:hover { background:#219A52; transform:translateY(-1px); }
+
+/* ── SUCCESS ── */
+.success-wrap { text-align:center; padding:20px 0; }
+.success-ani { font-size:80px; animation:bounce .6s ease; }
+@keyframes bounce {
+  0%,100% { transform:scale(1); }
+  50% { transform:scale(1.2); }
+}
+.success-title { font-size:26px; font-weight:700; color:var(--green); margin:14px 0 6px; }
+.success-sub { font-size:15px; color:var(--gray); margin-bottom:22px; }
+.summary-box {
+  background:var(--light);
+  border-radius:14px;
+  padding:18px;
+  text-align:left;
+  margin-bottom:14px;
+}
+.summary-box h3 { font-size:15px; font-weight:700; margin-bottom:14px; color:var(--dark); }
+.summary-item {
+  display:flex;
+  justify-content:space-between;
+  padding:7px 0;
+  font-size:14px;
+  border-bottom:1px solid var(--border);
+}
+.summary-item:last-child { border-bottom:none; }
+.summary-item .iname { color:var(--dark); }
+.summary-item .iprice { font-weight:700; color:var(--orange); }
+.summary-divider { border-top:2px solid #ddd; margin:12px 0 8px; padding-top:12px; }
+.summary-final { display:flex; justify-content:space-between; font-size:17px; font-weight:700; }
+.summary-final .fval { color:var(--orange); }
+.addr-text { font-size:14px; color:var(--dark); line-height:1.8; }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- HEADER -->
+  <div class="hdr" id="hdr">
+    <button class="hdr-back hidden" id="backBtn" onclick="goBack()">&#8592;</button>
+    <span class="hdr-title" id="hdrTitle">🛵 배달 연습 앱</span>
+  </div>
+
+  <!-- STEP BAR -->
+  <div class="stepbar" id="stepBar">
+    <div class="step-item" id="si1">
+      <div class="step-dot">1</div>
+      <div class="step-label">가게선택</div>
+    </div>
+    <div class="step-line" id="sl1"></div>
+    <div class="step-item" id="si2">
+      <div class="step-dot">2</div>
+      <div class="step-label">메뉴선택</div>
+    </div>
+    <div class="step-line" id="sl2"></div>
+    <div class="step-item" id="si3">
+      <div class="step-dot">3</div>
+      <div class="step-label">장바구니</div>
+    </div>
+    <div class="step-line" id="sl3"></div>
+    <div class="step-item" id="si4">
+      <div class="step-dot">4</div>
+      <div class="step-label">주소입력</div>
+    </div>
+    <div class="step-line" id="sl4"></div>
+    <div class="step-item" id="si5">
+      <div class="step-dot">5</div>
+      <div class="step-label">결제하기</div>
+    </div>
+  </div>
+
+  <!-- SCREEN 1: 가게 선택 -->
+  <div class="screen active" id="s1">
+    <div class="hero">
+      <h2>🍽️ 어떤 음식이 먹고 싶으세요?</h2>
+      <p>가게를 선택하면 주문이 시작돼요!</p>
+    </div>
+    <div class="section-label">📍 주변 가게</div>
+    <div class="rest-grid" id="restGrid"></div>
+  </div>
+
+  <!-- SCREEN 2: 메뉴 선택 -->
+  <div class="screen" id="s2">
+    <div class="rest-hdr-box" id="restHdrBox"></div>
+    <div id="menuList"></div>
+  </div>
+
+  <!-- SCREEN 3: 장바구니 -->
+  <div class="screen" id="s3">
+    <div class="section-label">🛒 내가 담은 메뉴</div>
+    <div id="cartItems"></div>
+    <div class="total-box" id="cartTotalBox"></div>
+    <button class="btn btn-orange" onclick="go(4)">📍 주소 입력하기 →</button>
+  </div>
+
+  <!-- SCREEN 4: 주소 입력 -->
+  <div class="screen" id="s4">
+    <div class="section-label">📍 배달 주소 입력</div>
+    <div class="form-group">
+      <label class="form-lbl">받는 사람 이름 *</label>
+      <input class="form-inp" id="fName" type="text" placeholder="예: 홍길동">
+    </div>
+    <div class="form-group">
+      <label class="form-lbl">전화번호 *</label>
+      <input class="form-inp" id="fPhone" type="tel" placeholder="예: 010-1234-5678">
+    </div>
+    <div class="form-group">
+      <label class="form-lbl">도로명 주소 *</label>
+      <input class="form-inp" id="fAddr" type="text" placeholder="예: 서울특별시 강남구 테헤란로 123">
+    </div>
+    <div class="form-group">
+      <label class="form-lbl">상세 주소</label>
+      <input class="form-inp" id="fAddrD" type="text" placeholder="예: 101동 202호, 3층">
+    </div>
+    <div class="form-group">
+      <label class="form-lbl">배달 요청 사항 (선택)</label>
+      <textarea class="form-inp" id="fReq" placeholder="예: 문 앞에 놓아주세요 / 초인종 눌러주세요"></textarea>
+    </div>
+    <button class="btn btn-orange" onclick="toPayment()">💳 결제 방법 선택하기 →</button>
+  </div>
+
+  <!-- SCREEN 5: 결제 -->
+  <div class="screen" id="s5">
+
+    <!-- 쿠폰 -->
+    <div class="section-hdr">🎫 쿠폰 선택</div>
+    <div id="couponList"></div>
+
+    <!-- 결제 방법 -->
+    <div class="section-hdr" style="margin-top:22px;">💰 결제 방법 선택</div>
+    <div class="pay-grid">
+      <div class="pay-opt" id="pCard" onclick="selPay('card')">
+        <div class="pay-ico">💳</div>
+        <div class="pay-name">카드 결제</div>
+        <div class="pay-desc">신용카드 · 체크카드</div>
+      </div>
+      <div class="pay-opt" id="pCash" onclick="selPay('cash')">
+        <div class="pay-ico">💵</div>
+        <div class="pay-name">현금 결제</div>
+        <div class="pay-desc">거스름돈 계산 연습</div>
+      </div>
+    </div>
+
+    <!-- 현금 입력 -->
+    <div class="cash-section" id="cashSec">
+      <div class="form-lbl" style="margin-bottom:10px;">💵 낼 금액을 입력하세요</div>
+      <input class="form-inp" id="cashAmt" type="number" min="0" placeholder="금액 입력 (원)" oninput="calcChange()">
+      <div class="preset-wrap" id="presets"></div>
+    </div>
+
+    <!-- 계산 내역 -->
+    <div class="calc-box">
+      <div class="calc-title">🧮 계산 내역</div>
+      <div class="calc-row">
+        <span class="calc-lbl">음식 금액</span>
+        <span class="calc-val" id="cSub">-</span>
+      </div>
+      <div class="calc-row">
+        <span class="calc-lbl">배달비</span>
+        <span class="calc-val" id="cDel">3,000원</span>
+      </div>
+      <div class="calc-row discount" id="cDiscRow" style="display:none">
+        <span class="calc-lbl">쿠폰 할인</span>
+        <span class="calc-val" id="cDisc">-0원</span>
+      </div>
+      <div class="calc-row big" style="margin-top:8px; padding-top:10px; border-top:2px solid #ddd;">
+        <span class="calc-lbl" style="color:var(--dark);font-weight:700;">최종 결제 금액</span>
+        <span class="calc-val" id="cTotal">-</span>
+      </div>
+    </div>
+
+    <!-- 거스름돈 -->
+    <div class="change-box" id="changeBox" style="display:none">
+      <div class="calc-title">💵 거스름돈 계산</div>
+      <div class="change-row">
+        <span class="change-lbl">결제 금액</span>
+        <span class="change-val" id="chNeed">-</span>
+      </div>
+      <div class="change-row">
+        <span class="change-lbl">낸 금액</span>
+        <span class="change-val" id="chPaid">-</span>
+      </div>
+      <div class="change-row change-final" id="chRow">
+        <span class="change-lbl">거스름돈</span>
+        <span class="change-val" id="chAmt">-</span>
+      </div>
+    </div>
+
+    <button class="btn btn-orange" id="orderBtn" onclick="placeOrder()">🛵 주문하기!</button>
+  </div>
+
+  <!-- SCREEN 6: 완료 -->
+  <div class="screen" id="s6">
+    <div class="success-wrap">
+      <div class="success-ani">🎉</div>
+      <div class="success-title">주문 완료!</div>
+      <div class="success-sub">잘 하셨어요! 음식이 곧 도착할 거예요 🚴</div>
+
+      <div class="summary-box">
+        <h3>📋 주문 내역</h3>
+        <div id="finalItems"></div>
+        <div class="summary-divider"></div>
+        <div class="summary-final">
+          <span>최종 결제 금액</span>
+          <span class="fval" id="finalTotal"></span>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:14px;color:var(--gray);">
+          <span>결제 방법</span>
+          <span id="finalPay"></span>
+        </div>
+        <div id="changeResultRow" style="display:none;margin-top:6px;">
+          <div style="display:flex;justify-content:space-between;font-size:14px;color:var(--gray);">
+            <span>낸 금액</span>
+            <span id="finalPaid"></span>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:15px;font-weight:700;color:var(--green);margin-top:4px;">
+            <span>거스름돈</span>
+            <span id="finalChange"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="summary-box">
+        <h3>📍 배달 주소</h3>
+        <p class="addr-text" id="finalAddr"></p>
+      </div>
+
+      <button class="btn btn-green" onclick="reset()">🔄 처음부터 다시 주문하기</button>
+    </div>
+  </div>
+
+  <!-- 플로팅 장바구니 -->
+  <div class="float-cart hidden" id="floatCart" onclick="go(3)">
+    <div class="float-cart-left">
+      <span class="float-badge" id="fBadge">0개</span>
+      <span id="fRestName"></span>
+    </div>
+    <div class="float-cart-right">
+      <span id="fTotal">0원</span> · 장바구니 보기 →
+    </div>
+  </div>
+
+</div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────
+const DELIVERY_FEE = 3000;
+
+const RESTAURANTS = [
+  { id:'chicken',  name:'치킨',      emoji:'🍗', desc:'바삭하고 맛있는 치킨' },
+  { id:'chinese',  name:'중국집',    emoji:'🥟', desc:'짜장면·짬뽕·탕수육' },
+  { id:'pizza',    name:'피자',      emoji:'🍕', desc:'든든한 피자' },
+  { id:'maratang', name:'마라탕',    emoji:'🌶️', desc:'얼얼하고 매운 마라탕' },
+  { id:'bossam',   name:'보쌈 족발', emoji:'🥩', desc:'신선한 보쌈과 족발' },
+  { id:'tteok',    name:'떡볶이',    emoji:'🍢', desc:'매콤달콤 떡볶이' },
+  { id:'burger',   name:'햄버거',    emoji:'🍔', desc:'든든한 햄버거' },
+  { id:'dakbal',   name:'닭발',      emoji:'🦵', desc:'매콤한 닭발' },
+  { id:'odol',     name:'오돌뼈',    emoji:'🦴', desc:'쫄깃한 오돌뼈' },
+];
+
+const MENUS = {
+  chicken: [
+    { name:'후라이드 치킨', price:15000 },
+    { name:'양념 치킨',     price:16000 },
+    { name:'반반 치킨',     price:16000 },
+    { name:'간장 치킨',     price:17000 },
+    { name:'치킨 무',       price:1000  },
+    { name:'콜라 (1.5L)',   price:2000  },
+  ],
+  chinese: [
+    { name:'짜장면',     price:7000  },
+    { name:'짬뽕',       price:8000  },
+    { name:'탕수육 (소)',price:18000 },
+    { name:'볶음밥',     price:8000  },
+    { name:'군만두',     price:6000  },
+    { name:'짜장밥',     price:7500  },
+  ],
+  pizza: [
+    { name:'페퍼로니 피자',   price:20000 },
+    { name:'불고기 피자',     price:22000 },
+    { name:'치즈 피자',       price:18000 },
+    { name:'콤비네이션 피자', price:24000 },
+    { name:'갈릭 소스',       price:500   },
+    { name:'콜라 (1.5L)',     price:2000  },
+  ],
+  maratang: [
+    { name:'마라탕 (1인)',  price:10000 },
+    { name:'마라탕 (2인)',  price:18000 },
+    { name:'마라샹궈',      price:15000 },
+    { name:'탕후루',        price:5000  },
+    { name:'군만두',        price:4000  },
+  ],
+  bossam: [
+    { name:'보쌈 (소)',        price:25000 },
+    { name:'족발 (소)',        price:28000 },
+    { name:'보쌈+족발 세트',  price:38000 },
+    { name:'막국수',           price:5000  },
+    { name:'새우젓',           price:1000  },
+  ],
+  tteok: [
+    { name:'떡볶이 (1인)', price:5000  },
+    { name:'떡볶이 (2인)', price:9000  },
+    { name:'튀김세트',     price:6000  },
+    { name:'순대',         price:5000  },
+    { name:'라면 사리',    price:1500  },
+    { name:'계란',         price:1000  },
+  ],
+  burger: [
+    { name:'치즈버거',   price:5500 },
+    { name:'불고기버거', price:5000 },
+    { name:'더블버거',   price:7500 },
+    { name:'치킨버거',   price:6000 },
+    { name:'감자튀김',   price:2500 },
+    { name:'콜라',       price:1500 },
+  ],
+  dakbal: [
+    { name:'순한맛 닭발', price:12000 },
+    { name:'보통맛 닭발', price:12000 },
+    { name:'매운맛 닭발', price:12000 },
+    { name:'불닭발',      price:14000 },
+    { name:'공깃밥',      price:1000  },
+    { name:'음료수',      price:1500  },
+  ],
+  odol: [
+    { name:'오돌뼈 (소)',  price:15000 },
+    { name:'오돌뼈 (중)',  price:22000 },
+    { name:'매운 오돌뼈', price:18000 },
+    { name:'공깃밥',      price:1000  },
+    { name:'콜라',        price:1500  },
+  ],
+};
+
+const COUPONS = [
+  { id:'none',  name:'쿠폰 없음',        desc:'할인 없음',               type:'none',     val:0    },
+  { id:'c1000', name:'1,000원 할인쿠폰', desc:'음식 금액에서 1,000원 ↓', type:'fixed',    val:1000 },
+  { id:'c2000', name:'2,000원 할인쿠폰', desc:'음식 금액에서 2,000원 ↓', type:'fixed',    val:2000 },
+  { id:'c10p',  name:'10% 할인쿠폰',     desc:'음식 금액의 10% 할인',    type:'percent',  val:10   },
+  { id:'cfree', name:'배달비 무료 쿠폰', desc:'배달비 3,000원 무료!',     type:'delivery', val:3000 },
+];
+
+// ── STATE ──────────────────────────────────────────────
+let curScreen = 1;
+let rest      = null;   // selected restaurant object
+let cart      = {};     // key: restId_menuIdx → qty
+let coupon    = 'none';
+let payMethod = null;
+
+// ── INIT ──────────────────────────────────────────────
+(function init() {
+  renderRestaurants();
+  renderCoupons();
+  setStep(1);
+})();
+
+// ── RENDER RESTAURANTS ────────────────────────────────
+function renderRestaurants() {
+  document.getElementById('restGrid').innerHTML =
+    RESTAURANTS.map(r => `
+      <div class="rest-card" onclick="selectRest('${r.id}')">
+        <span class="ico">${r.emoji}</span>
+        <div class="rname">${r.name}</div>
+        <div class="rfee">배달비 ${fmt(DELIVERY_FEE)}</div>
+      </div>
+    `).join('');
+}
+
+// ── SELECT RESTAURANT ─────────────────────────────────
+function selectRest(id) {
+  rest = RESTAURANTS.find(r => r.id === id);
+  cart = {};
+  renderMenu();
+  go(2);
+}
+
+// ── RENDER MENU ───────────────────────────────────────
+function renderMenu() {
+  document.getElementById('restHdrBox').innerHTML = `
+    <div class="rest-hdr-ico">${rest.emoji}</div>
+    <div class="rest-hdr-info">
+      <h2>${rest.name}</h2>
+      <p>${rest.desc}</p>
+    </div>
+  `;
+  document.getElementById('menuList').innerHTML =
+    MENUS[rest.id].map((m, i) => `
+      <div class="menu-item">
+        <div class="menu-info">
+          <div class="menu-name">${m.name}</div>
+          <div class="menu-price">${fmt(m.price)}</div>
+        </div>
+        <div class="qty-wrap">
+          <button class="qbtn" onclick="chgQty(${i},-1)">−</button>
+          <span class="qdisplay" id="qd${i}">0</span>
+          <button class="qbtn" onclick="chgQty(${i},1)">+</button>
+        </div>
+      </div>
+    `).join('');
+}
+
+// ── QUANTITY ──────────────────────────────────────────
+function chgQty(idx, delta) {
+  const k = rest.id + '_' + idx;
+  const q = Math.max(0, (cart[k] || 0) + delta);
+  if (q === 0) delete cart[k]; else cart[k] = q;
+  const el = document.getElementById('qd' + idx);
+  if (el) el.textContent = q;
+  updateFloatCart();
+}
+
+function updateFloatCart() {
+  const fc   = document.getElementById('floatCart');
+  const items = totalItems();
+  if (items > 0 && curScreen === 2) {
+    fc.classList.remove('hidden');
+    document.getElementById('fBadge').textContent = items + '개';
+    document.getElementById('fRestName').textContent = rest.name;
+    document.getElementById('fTotal').textContent = fmt(subtotal() + DELIVERY_FEE);
+  } else {
+    fc.classList.add('hidden');
+  }
+}
+
+// ── CART ──────────────────────────────────────────────
+function renderCart() {
+  const items = cartItems();
+  const ci = document.getElementById('cartItems');
+
+  if (items.length === 0) {
+    ci.innerHTML = '<div class="empty-cart">🛒 담긴 메뉴가 없어요<br><small>메뉴를 먼저 선택해 주세요</small></div>';
+  } else {
+    ci.innerHTML = items.map(it => `
+      <div class="cart-item">
+        <div class="cart-item-info">
+          <div class="cart-item-name">${it.name}</div>
+          <div class="cart-item-sub">${fmt(it.price)} × ${it.qty}개</div>
+        </div>
+        <div class="cart-item-price">${fmt(it.price * it.qty)}</div>
+      </div>
+    `).join('');
+  }
+
+  const sub = subtotal();
+  document.getElementById('cartTotalBox').innerHTML = `
+    <div class="total-row"><span class="lbl">음식 금액</span><span class="val">${fmt(sub)}</span></div>
+    <div class="total-row"><span class="lbl">배달비</span><span class="val">${fmt(DELIVERY_FEE)}</span></div>
+    <div class="total-row final"><span>합계</span><span class="val">${fmt(sub + DELIVERY_FEE)}</span></div>
+  `;
+}
+
+// ── COUPONS ───────────────────────────────────────────
+function renderCoupons() {
+  const sub = subtotal();
+  document.getElementById('couponList').innerHTML =
+    COUPONS.map(c => {
+      const disc = discountOf(c, sub);
+      const saveStr = disc > 0 ? `<div class="coupon-save">→ ${fmt(disc)} 절약!</div>` : '';
+      return `
+        <div class="coupon-opt ${coupon === c.id ? 'selected' : ''}" onclick="selCoupon('${c.id}')">
+          <div class="coupon-radio"></div>
+          <div>
+            <div class="coupon-name">${c.name}</div>
+            <div class="coupon-desc">${c.desc}</div>
+            ${saveStr}
+          </div>
+        </div>
+      `;
+    }).join('');
+}
+
+function selCoupon(id) {
+  coupon = id;
+  renderCoupons();
+  updateCalc();
+}
+
+function discountOf(c, sub) {
+  if (c.type === 'none')     return 0;
+  if (c.type === 'fixed')    return Math.min(c.val, sub);
+  if (c.type === 'percent')  return Math.floor(sub * c.val / 100);
+  if (c.type === 'delivery') return DELIVERY_FEE;
+  return 0;
+}
+
+// ── PAYMENT ───────────────────────────────────────────
+function selPay(type) {
+  payMethod = type;
+  document.getElementById('pCard').classList.toggle('selected', type === 'card');
+  document.getElementById('pCash').classList.toggle('selected', type === 'cash');
+  const cs = document.getElementById('cashSec');
+  if (type === 'cash') {
+    cs.classList.add('visible');
+    buildPresets();
+  } else {
+    cs.classList.remove('visible');
+    document.getElementById('changeBox').style.display = 'none';
+  }
+}
+
+function buildPresets() {
+  const total = finalTotal();
+  const bills = [1000, 5000, 10000, 50000, 100000];
+  const presets = new Set();
+  for (const b of bills) {
+    const rounded = Math.ceil(total / b) * b;
+    if (rounded >= total) presets.add(rounded);
+    if (presets.size >= 5) break;
+  }
+  document.getElementById('presets').innerHTML =
+    [...presets].map(p => `<button class="preset-btn" onclick="setPay(${p})">${fmt(p)}</button>`).join('');
+}
+
+function setPay(amt) {
+  document.getElementById('cashAmt').value = amt;
+  calcChange();
+}
+
+function calcChange() {
+  const paid  = parseInt(document.getElementById('cashAmt').value) || 0;
+  const total = finalTotal();
+  const box   = document.getElementById('changeBox');
+  const chRow = document.getElementById('chRow');
+
+  if (paid <= 0) { box.style.display = 'none'; return; }
+  box.style.display = 'block';
+  document.getElementById('chNeed').textContent = fmt(total);
+  document.getElementById('chPaid').textContent = fmt(paid);
+
+  const change = paid - total;
+  const chAmtEl = document.getElementById('chAmt');
+  if (change >= 0) {
+    chAmtEl.textContent = fmt(change);
+    chAmtEl.style.color = 'var(--green)';
+    chRow.className = 'change-row change-final';
+  } else {
+    chAmtEl.textContent = fmt(Math.abs(change)) + ' 부족!';
+    chAmtEl.style.color = 'var(--red)';
+    chRow.className = 'change-row change-warn';
+  }
+}
+
+// ── CALCULATION ───────────────────────────────────────
+function updateCalc() {
+  const sub  = subtotal();
+  const c    = COUPONS.find(x => x.id === coupon);
+  const disc = discountOf(c, sub);
+  const delFree = c && c.type === 'delivery';
+  const total = finalTotal();
+
+  document.getElementById('cSub').textContent = fmt(sub);
+
+  if (delFree) {
+    document.getElementById('cDel').innerHTML =
+      `<del style="color:#ccc">${fmt(DELIVERY_FEE)}</del> → 0원`;
+  } else {
+    document.getElementById('cDel').textContent = fmt(DELIVERY_FEE);
+  }
+
+  if (disc > 0 && !delFree) {
+    document.getElementById('cDiscRow').style.display = 'flex';
+    document.getElementById('cDisc').textContent = '− ' + fmt(disc);
+  } else if (delFree) {
+    document.getElementById('cDiscRow').style.display = 'flex';
+    document.getElementById('cDisc').textContent = '− ' + fmt(DELIVERY_FEE) + ' (배달비 무료)';
+  } else {
+    document.getElementById('cDiscRow').style.display = 'none';
+  }
+
+  document.getElementById('cTotal').textContent = fmt(total);
+
+  if (payMethod === 'cash') calcChange();
+}
+
+// ── NAVIGATION ────────────────────────────────────────
+function go(n) {
+  for (let i = 1; i <= 6; i++) {
+    document.getElementById('s' + i).classList.remove('active');
+  }
+  document.getElementById('s' + n).classList.add('active');
+  curScreen = n;
+
+  // Back button
+  const back = document.getElementById('backBtn');
+  back.classList.toggle('hidden', n === 1 || n === 6);
+
+  // Header title
+  const titles = {1:'🛵 배달 연습 앱', 2:'메뉴 선택', 3:'장바구니', 4:'배달 주소 입력', 5:'결제하기', 6:'주문 완료!'};
+  document.getElementById('hdrTitle').textContent = titles[n] || '';
+
+  // Step bar
+  const stepBar = document.getElementById('stepBar');
+  stepBar.style.display = n === 6 ? 'none' : 'flex';
+
+  setStep(Math.min(n, 5));
+
+  // Floating cart
+  updateFloatCart();
+
+  // Per-screen actions
+  if (n === 3) renderCart();
+  if (n === 5) { renderCoupons(); updateCalc(); }
+
+  window.scrollTo(0, 0);
+}
+
+function goBack() {
+  if (curScreen > 1 && curScreen < 6) go(curScreen - 1);
+}
+
+function setStep(active) {
+  for (let i = 1; i <= 5; i++) {
+    const si = document.getElementById('si' + i);
+    si.classList.remove('active', 'done');
+    if (i < active) si.classList.add('done');
+    else if (i === active) si.classList.add('active');
+  }
+  for (let i = 1; i <= 4; i++) {
+    const sl = document.getElementById('sl' + i);
+    sl.classList.toggle('done', i < active);
+  }
+}
+
+// ── VALIDATION ────────────────────────────────────────
+function toPayment() {
+  const name = document.getElementById('fName').value.trim();
+  const addr = document.getElementById('fAddr').value.trim();
+  if (!name) { alert('이름을 입력해주세요!'); document.getElementById('fName').focus(); return; }
+  if (!addr) { alert('도로명 주소를 입력해주세요!'); document.getElementById('fAddr').focus(); return; }
+  go(5);
+}
+
+function placeOrder() {
+  if (!payMethod) { alert('결제 방법을 선택해주세요!'); return; }
+  if (payMethod === 'cash') {
+    const paid  = parseInt(document.getElementById('cashAmt').value) || 0;
+    const total = finalTotal();
+    if (paid < total) { alert('낸 금액이 부족해요! 금액을 다시 확인해주세요. 😊'); return; }
+  }
+
+  // Fill success screen
+  const items = cartItems();
+  document.getElementById('finalItems').innerHTML =
+    items.map(it => `
+      <div class="summary-item">
+        <span class="iname">${it.name} × ${it.qty}</span>
+        <span class="iprice">${fmt(it.price * it.qty)}</span>
+      </div>
+    `).join('');
+
+  const total = finalTotal();
+  document.getElementById('finalTotal').textContent = fmt(total);
+  document.getElementById('finalPay').textContent = payMethod === 'card' ? '💳 카드 결제' : '💵 현금 결제';
+
+  if (payMethod === 'cash') {
+    const paid = parseInt(document.getElementById('cashAmt').value) || 0;
+    const change = paid - total;
+    document.getElementById('changeResultRow').style.display = 'block';
+    document.getElementById('finalPaid').textContent = fmt(paid);
+    document.getElementById('finalChange').textContent = fmt(change);
+  } else {
+    document.getElementById('changeResultRow').style.display = 'none';
+  }
+
+  const name   = document.getElementById('fName').value;
+  const phone  = document.getElementById('fPhone').value;
+  const addr   = document.getElementById('fAddr').value;
+  const addrD  = document.getElementById('fAddrD').value;
+  const req    = document.getElementById('fReq').value;
+  let addrTxt  = `${name}`;
+  if (phone) addrTxt += ` (${phone})`;
+  addrTxt += `\n${addr}`;
+  if (addrD) addrTxt += ` ${addrD}`;
+  if (req)   addrTxt += `\n요청사항: ${req}`;
+  document.getElementById('finalAddr').textContent = addrTxt;
+
+  go(6);
+}
+
+// ── RESET ─────────────────────────────────────────────
+function reset() {
+  cart = {}; rest = null; coupon = 'none'; payMethod = null;
+  ['fName','fPhone','fAddr','fAddrD','fReq','cashAmt'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  document.getElementById('pCard').classList.remove('selected');
+  document.getElementById('pCash').classList.remove('selected');
+  document.getElementById('cashSec').classList.remove('visible');
+  document.getElementById('changeBox').style.display = 'none';
+  go(1);
+}
+
+// ── HELPERS ───────────────────────────────────────────
+function fmt(n) { return n.toLocaleString('ko-KR') + '원'; }
+
+function subtotal() {
+  if (!rest) return 0;
+  return Object.entries(cart).reduce((sum, [k, q]) => {
+    const idx = parseInt(k.split('_')[1]);
+    return sum + MENUS[rest.id][idx].price * q;
+  }, 0);
+}
+
+function totalItems() {
+  return Object.values(cart).reduce((a, b) => a + b, 0);
+}
+
+function cartItems() {
+  if (!rest) return [];
+  return Object.entries(cart)
+    .filter(([,q]) => q > 0)
+    .map(([k, q]) => {
+      const idx = parseInt(k.split('_')[1]);
+      const m   = MENUS[rest.id][idx];
+      return { name: m.name, price: m.price, qty: q };
+    });
+}
+
+function finalTotal() {
+  const sub  = subtotal();
+  const c    = COUPONS.find(x => x.id === coupon);
+  const disc = discountOf(c, sub);
+  return Math.max(0, sub + DELIVERY_FEE - disc);
+}
+</script>
+</body>
+</html>

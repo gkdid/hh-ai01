@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>L10 종합 맞춤법 — 예은·채원·주현의 자기소개서</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #bbdefb 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #0d47a1;
+  border-bottom: 2px solid #64b5f6; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; color: #1565c0; }
+.cover-main { text-align: center; padding: 8px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #1565c0; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 1.9em; letter-spacing: -1.5px; color: #0d47a1; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #0d47a1; font-weight: 500; }
+.cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 6px; }
+.cover-info { background: #fff; border: 2px solid #64b5f6; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 6px; color: #0d47a1; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 3px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 14px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #1565c0; padding-bottom: 3px; }
+.cover-name .label { color: #0d47a1; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #1565c0; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #0d47a1; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #1565c0; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #e3f2fd; border-left: 4px solid #1976d2; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #0d47a1; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 8px 12px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.95em; }
+.tip b { color: #f57f17; }
+.note { background: #fff3e0; border-left: 4px solid #ef6c00; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #bf360c; }
+
+.activity { background: #fff; border: 1.8px solid #64b5f6; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #0d47a1; font-size: 1.05em; }
+.activity .tag { background: #bbdefb; color: #0d47a1; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 44px; border-bottom: 2px solid #0d47a1; text-align: center; padding: 0 6px; color: #0d47a1; font-weight: 700; }
+.blank.short { min-width: 30px; }
+
+.review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0; }
+.review-card { background: #fff; border: 1.5px solid; border-radius: 10px; padding: 8px 10px; font-size: 0.9em; }
+.review-card .num { font-weight: 900; padding: 2px 8px; border-radius: 8px; display: inline-block; margin-bottom: 4px; color: #fff; }
+.review-card.c1 { border-color: #0277bd; } .review-card.c1 .num { background: #0277bd; }
+.review-card.c2 { border-color: #6a1b9a; } .review-card.c2 .num { background: #6a1b9a; }
+.review-card.c3 { border-color: #2e7d32; } .review-card.c3 .num { background: #2e7d32; }
+.review-card.c4 { border-color: #5d4037; } .review-card.c4 .num { background: #5d4037; }
+.review-card.c5 { border-color: #ad1457; } .review-card.c5 .num { background: #ad1457; }
+.review-card.c6 { border-color: #e65100; } .review-card.c6 .num { background: #e65100; }
+.review-card.c7 { border-color: #c2185b; } .review-card.c7 .num { background: #c2185b; }
+.review-card.c8 { border-color: #3949ab; } .review-card.c8 .num { background: #3949ab; }
+.review-card.c9 { border-color: #00695c; } .review-card.c9 .num { background: #00695c; }
+.review-card .rule { font-size: 0.88em; margin-top: 3px; }
+.review-card .rule b { color: #b71c1c; }
+
+.self-intro { background: #fff; border: 3px solid #1565c0; border-radius: 14px; padding: 16px 18px; margin: 8px 0; box-shadow: 0 4px 12px rgba(21,101,192,0.1); }
+.self-intro .header { background: #1565c0; color: #fff; padding: 8px 14px; border-radius: 8px; margin: -16px -18px 12px; font-weight: 700; text-align: center; font-size: 1.05em; }
+.self-intro .info-row { display: grid; grid-template-columns: 100px 1fr; gap: 8px; padding: 4px 0; border-bottom: 1px dashed #bbdefb; font-size: 0.92em; }
+.self-intro .info-row .label { color: #0d47a1; font-weight: 700; }
+.self-intro .body { font-size: 0.95em; line-height: 1.85; margin-top: 10px; }
+.self-intro .body .h { background: #ffcdd2; padding: 1px 4px; border-radius: 4px; font-weight: 700; color: #b71c1c; }
+
+.page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
+@media print { body { background: #fff; } .toolbar { display: none; } .page { box-shadow: none; margin: 0 auto; } }
+
+.sp-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
+.sp-table th, .sp-table td { border: 1.2px solid #64b5f6; padding: 6px 8px; vertical-align: top; }
+.sp-table th { background: #e3f2fd; color: #0d47a1; font-weight: 700; text-align: center; }
+.sp-table td.left { text-align: left; }
+.check-list { list-style: none; padding-left: 4px; margin: 6px 0; }
+.check-list li { padding: 5px 8px; background: #e3f2fd; margin: 4px 0; border-radius: 6px; border-left: 3px solid #64b5f6; }
+.check-list input[type="checkbox"] { margin-right: 6px; transform: scale(1.1); }
+.write-lines { background: #fff; border: 1.5px solid #64b5f6; border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+.write-lines .wl { border-bottom: 1.2px solid #cfd8dc; min-height: 22px; margin: 6px 0; }
+.pair-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 6px 0; }
+.pair-card { border: 1.3px solid #64b5f6; border-radius: 8px; padding: 8px 10px; background: #fff; }
+.pair-card .sent { font-size: 0.95em; margin-bottom: 4px; }
+.pair-card .pick { display: flex; gap: 8px; font-size: 0.9em; }
+.pair-card .pick label { padding: 2px 8px; border: 1px solid #b0bec5; border-radius: 12px; background: #f5f7f9; }
+
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">📄 L10 종합 맞춤법</span><span class="muted">맞춤법 · Level 10 · 마지막</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<!-- 표지 -->
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">국어</span> · 맞춤법 시리즈 · <b style="color:#0d47a1;">L10 · 마지막 단계</b></span>
+    <span>고등학교 특수학급</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">종합 · 자기소개서</span>
+    <h1>예은·채원·주현의 자기소개서</h1>
+    <p class="lead">L1~L9 총정리! 자기소개서에서 오탈자 찾기</p>
+  </div>
+  <div class="cover-emoji">📄 ✏️ 🎓</div>
+  <div class="cover-info">
+    <h3>🎯 학습 목표</h3>
+    <ul>
+      <li>지금까지 배운 <b>9가지 맞춤법</b>을 한꺼번에 <b>점검</b>한다.</li>
+      <li>자기소개서·이력서 같은 <b>공식적인 글</b>에서 오탈자를 잡는다.</li>
+      <li>내 자기소개 한 단락을 <b>바른 맞춤법</b>으로 써 본다.</li>
+    </ul>
+  </div>
+  <div class="cover-info" style="border-color:#a5d6a7;">
+    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+    <ul>
+      <li><b>예은·채원·주현</b>이 <b>진학·아르바이트</b>를 위해 자기소개서를 썼어요. 함께 <b>맞춤법 첨삭</b>을 해요!</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">학년·반</span></div>
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+  <div class="page-foot">맞춤법 시리즈 · L10 · 표지</div>
+</section>
+
+<!-- 1쪽: 총복습 + 예은 자소서 -->
+<section class="page">
+  <div class="page-head">
+    <h2>📚 지금까지 배운 것 한눈에</h2>
+    <span class="step">1쪽 · 총복습</span>
+  </div>
+  <div class="intro">
+    L1~L9에서 배운 <b>9가지 맞춤법</b>이에요. 자기소개서에서 이 모두를 <b>한꺼번에</b> 점검해요.
+  </div>
+
+  <div class="review-grid">
+    <div class="review-card c1">
+      <span class="num">L1</span> 되 · 돼
+      <div class="rule"><b>돼 = 되어의 준말</b>. "되어" 넣어 자연스러우면 돼</div>
+    </div>
+    <div class="review-card c2">
+      <span class="num">L2</span> 안 · 않
+      <div class="rule">"-지" 있으면 <b>않</b>, 없으면 <b>안</b></div>
+    </div>
+    <div class="review-card c3">
+      <span class="num">L3</span> -이 · -히
+      <div class="rule">"-하다" 붙으면 <b>-히</b>, 안 붙으면 <b>-이</b></div>
+    </div>
+    <div class="review-card c4">
+      <span class="num">L4</span> 왠 · 웬
+      <div class="rule">"왠지"만 <b>왠</b>, 나머지는 <b>웬</b></div>
+    </div>
+    <div class="review-card c5">
+      <span class="num">L5</span> 낫 · 났 · 낳
+      <div class="rule"><b>낫다</b>(회복), <b>났다</b>(생김), <b>낳다</b>(출산)</div>
+    </div>
+    <div class="review-card c6">
+      <span class="num">L6</span> 붙 · 부
+      <div class="rule">접착은 <b>붙이다</b>, 우편·힘은 <b>부치다</b></div>
+    </div>
+    <div class="review-card c7">
+      <span class="num">L7</span> 며칠 · 어떡해
+      <div class="rule">"몇 일" ❌ → <b>며칠</b>. 감탄은 <b>어떡해</b></div>
+    </div>
+    <div class="review-card c8">
+      <span class="num">L8</span> 띄어쓰기
+      <div class="rule">조사 붙임, 의존명사(것·수·때) 띄움</div>
+    </div>
+    <div class="review-card c9">
+      <span class="num">L9</span> 사이시옷 · 두음
+      <div class="rule">바닷가·나뭇잎(사이시옷) / 여자·노인(두음)</div>
+    </div>
+  </div>
+
+  <div class="self-intro">
+    <div class="header">📄 자기소개서 · 예은 (문화예술 관련 진학 희망)</div>
+    <div class="info-row"><span class="label">이름</span><span>김예은</span></div>
+    <div class="info-row"><span class="label">희망 분야</span><span>문화예술경영학과</span></div>
+    <div class="info-row"><span class="label">주제</span><span>지원 동기와 자기 성장</span></div>
+    <div class="body">
+      저는 어렸을 때부터 그림을 <span class="h">부치는</span> 것을 좋아했습니다. 도화지에 색색의 스티커를 <span class="h">부치고</span>, 정리해서 벽에 걸어 놓는 것이 취미였습니다.<br>
+      <br>
+      고등학교에 입학해서는 학교 미술 동아리에서 <span class="h">몇 일간</span> 열리는 전시회에 <span class="h">부지런이</span> 참여했습니다. 처음에는 서툴러서 잘 <span class="h">않</span> 되었지만, 선생님의 도움으로 점점 <span class="h">낳아</span>졌습니다.<br>
+      <br>
+      <span class="h">왠</span>지 무대에 서면 떨렸지만, 관객이 좋아해 주시면 <span class="h">왠</span>일인지 힘이 <span class="h">낫</span>습니다. 그래서 이 분야를 계속하고 싶다는 확신이 <span class="h">낳</span>았습니다.<br>
+      <br>
+      대학에 가서도 <span class="h">열심이</span> 공부해서, <span class="h">할수있는만큼</span> 실력을 키우겠습니다. 저를 뽑아 주시면 절대 후회하지 <span class="h">안</span>도록 노력하겠습니다.
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 예은이의 자소서 첨삭</h3><span class="tag">첫 번째 검토</span></div>
+    <p><b>빨간 표시 13군데</b>를 확인하고 <b>바른 표기</b>로 고쳐 봐요.</p>
+    <p>① 그림을 <b>부치는</b> 것 → <span class="blank" style="min-width:100px;">&nbsp;</span> (L6)</p>
+    <p>② 스티커를 <b>부치고</b> → <span class="blank" style="min-width:100px;">&nbsp;</span> (L6)</p>
+    <p>③ <b>몇 일간</b> → <span class="blank" style="min-width:80px;">&nbsp;</span> (L7)</p>
+    <p>④ <b>부지런이</b> → <span class="blank" style="min-width:80px;">&nbsp;</span> (L3)</p>
+    <p>⑤ 잘 <b>않</b> 되었지만 → 잘 <span class="blank" style="min-width:60px;">&nbsp;</span> 되었지만 (L2)</p>
+    <p>⑥ 점점 <b>낳아</b>졌습니다 → 점점 <span class="blank" style="min-width:80px;">&nbsp;</span> 졌습니다 (L5)</p>
+    <p>⑦ <b>왠</b>지 무대에 → <span class="blank" style="min-width:60px;">&nbsp;</span> 무대에 (L4) — 이대로 O?</p>
+    <p>⑧ <b>왠</b>일인지 → <span class="blank" style="min-width:80px;">&nbsp;</span> 일인지 (L4)</p>
+    <p>⑨ 힘이 <b>낫</b>습니다 (생김) → 힘이 <span class="blank" style="min-width:60px;">&nbsp;</span> 습니다 (L5)</p>
+    <p>⑩ <b>낳</b>았습니다 (생김) → <span class="blank" style="min-width:80px;">&nbsp;</span> 습니다 (L5)</p>
+    <p>⑪ <b>열심이</b> → <span class="blank" style="min-width:60px;">&nbsp;</span> (L3)</p>
+    <p>⑫ <b>할수있는만큼</b> → <span class="blank" style="min-width:140px;">&nbsp;</span> (L8)</p>
+    <p>⑬ 후회하지 <b>안</b>도록 → 후회하지 <span class="blank" style="min-width:60px;">&nbsp;</span> 도록 (L2)</p>
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · L10 · 1쪽 / 2</div>
+</section>
+
+<!-- 2쪽: 채원·주현 자소서 + 내 자소서 -->
+<section class="page">
+  <div class="page-head">
+    <h2>📄 채원·주현 자소서와 나의 소개</h2>
+    <span class="step">2쪽 · 총점검</span>
+  </div>
+
+  <div class="self-intro">
+    <div class="header">📄 자기소개서 · 채원 (도서관 사서 알바 지원)</div>
+    <div class="body">
+      안녕하세요, 저는 이채원입니다. 도서관을 좋아해서 매주 주말마다 도서관을 <span class="h">일일히</span> 방문합니다.
+      책을 정리하고 대출해 주는 일이 저에게는 <span class="h">잘돼</span>는 일이라고 생각합니다.<br>
+      <br>
+      제가 알바를 지원하게 된 <span class="h">이유는</span> 도서관에서 일하면서 좋아하는 책도 볼 수 <span class="h">있고요</span>, 다른 사람에게 도움도 줄 수 있기 때문입니다. <span class="h">할수있는일</span>은 무엇이든 <span class="h">열심이</span> 하겠습니다.<br>
+      <br>
+      또, <span class="h">몇 일</span> 전에 도서관에서 <span class="h">촛불</span>을 켜고 낭독회를 하는 프로그램을 봤는데, 저도 <span class="h">그런것을</span> 함께 준비하고 싶다는 마음이 <span class="h">낳</span>았습니다.<br>
+      <br>
+      뽑아 주시면 후회하지 <span class="h">않</span>도록 성실히 일하겠습니다.
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 채원이의 자소서 첨삭</h3><span class="tag">11군데</span></div>
+    <p>① <b>일일히</b> 방문 → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>② <b>잘돼</b>는 일 → <span class="blank" style="min-width:120px;">&nbsp;</span> 일</p>
+    <p>③ <b>이유는</b> (조사 붙임) → 이대로 O? ( <span class="blank short">&nbsp;</span> )</p>
+    <p>④ <b>있고요</b> (있고+요=있고요, 어미) → 이대로 O? ( <span class="blank short">&nbsp;</span> )</p>
+    <p>⑤ <b>할수있는일</b> → <span class="blank" style="min-width:160px;">&nbsp;</span></p>
+    <p>⑥ <b>열심이</b> → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+    <p>⑦ <b>몇 일</b> 전 → <span class="blank" style="min-width:60px;">&nbsp;</span> 전</p>
+    <p>⑧ <b>촛불</b> (초+불) → 이대로 O? ( <span class="blank short">&nbsp;</span> )</p>
+    <p>⑨ <b>그런것을</b> → <span class="blank" style="min-width:100px;">&nbsp;</span></p>
+    <p>⑩ 마음이 <b>낳</b>았습니다 → 마음이 <span class="blank" style="min-width:60px;">&nbsp;</span> 습니다</p>
+    <p>⑪ 후회하지 <b>않</b>도록 → 이대로 O? ( <span class="blank short">&nbsp;</span> )</p>
+  </div>
+
+  <div class="self-intro">
+    <div class="header">📄 자기소개서 · 주현 (편의점 알바 지원)</div>
+    <div class="body">
+      저는 지하철·버스로 <span class="h">등교길</span>이 왕복 2시간이지만 항상 정시에 등교하는 학생입니다. 그만큼 <span class="h">부지런한</span> 성격이라고 자부합니다.
+      편의점에서 근무하며 손님께 <span class="h">친절이</span> 응대하고, 물건 정리를 <span class="h">깨끗히</span> 하겠습니다.<br>
+      <br>
+      제가 <span class="h">몇 년</span>간 준비해 온 자격증도 있고, 손님 응대에 <span class="h">필요한것들</span>을 잘 알고 있습니다. 저를 뽑아 주신다면 <span class="h">웬만하면</span> 성실히 일하겠습니다.
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 주현이의 자소서 첨삭</h3><span class="tag">7군데</span></div>
+    <p>① <b>등교길</b> (등교+길) → <span class="blank" style="min-width:80px;">&nbsp;</span> (L9)</p>
+    <p>② <b>부지런한</b> → 이대로 O? ( <span class="blank short">&nbsp;</span> )</p>
+    <p>③ <b>친절이</b> → <span class="blank" style="min-width:60px;">&nbsp;</span> (L3)</p>
+    <p>④ <b>깨끗히</b> → <span class="blank" style="min-width:60px;">&nbsp;</span> (L3)</p>
+    <p>⑤ <b>몇 년</b>간 (년은 단위 명사, 몇은 관형사) → 이대로 O? ( <span class="blank short">&nbsp;</span> )</p>
+    <p>⑥ <b>필요한것들</b> → <span class="blank" style="min-width:120px;">&nbsp;</span> (L8)</p>
+    <p>⑦ <b>웬만하면</b> → 이대로 O? ( <span class="blank short">&nbsp;</span> )</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 나의 자기소개 한 단락 쓰기</h3><span class="tag">쓰기</span></div>
+    <p>내가 지원하고 싶은 곳(진학·아르바이트·동아리)을 정해서 자기소개서 <b>한 단락(3~4문장)</b>을 써 봐요. 오늘 배운 <b>맞춤법 3가지 이상</b>을 신경 써서 써 보세요.</p>
+    <p>[지원 분야] <span class="blank" style="min-width:200px;">&nbsp;</span></p>
+    <div style="background:#e3f2fd; border:2px dashed #64b5f6; border-radius:10px; padding:10px; min-height:120px;">
+      <div style="border-bottom:1px solid #ccc; height:22px;"></div>
+      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+    </div>
+  </div>
+
+  <div class="note">
+    🎉 <b>축하해요!</b> 맞춤법 시리즈 <b>L1~L10</b>을 모두 마쳤어요.<br>
+    앞으로 카톡·SNS·자소서 어디서든 자신 있게 <b>바른 한국어</b>를 쓸 수 있어요!
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · L10 · 2쪽 / 2</div>
+</section>
+
+
+<section class="page">
+  <div class="page-head">
+    <h2>🔁 복습 · 자기 점검 — 종합 복습</h2>
+    <span class="step">추가 1쪽 · 복습</span>
+  </div>
+  <div class="intro">오늘 배운 <b>종합 복습</b> 규칙을 <b>내 말로 다시</b> 써 보고, 평소 내가 자주 틀렸던 부분을 정리해 봐요.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A1. 내 말로 규칙 쓰기</h3><span class="tag">서술형</span></div>
+    <p>오늘 배운 규칙을 <b>친구에게 설명하듯</b> 한두 문장으로 써 봐요.</p>
+    <div class="write-lines"><div class="wl">&nbsp;</div><div class="wl">&nbsp;</div></div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A2. 이 규칙이 필요한 상황 3개</h3><span class="tag">상황 떠올리기</span></div>
+    <p>이 맞춤법이 <b>실제로 쓰일 상황</b>을 떠올려 3개만 적어 봐요. (예: 문자할 때, 자기소개 쓸 때, 공지 쓸 때…)</p>
+    <ol style="margin:6px 0 6px 22px;">
+      <li style="margin:6px 0;">상황 ① <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+      <li style="margin:6px 0;">상황 ② <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+      <li style="margin:6px 0;">상황 ③ <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+    </ol>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A3. 내가 자주 틀리던 표기 → 바른 표기</h3><span class="tag">3행 표</span></div>
+    <p>이번 레슨과 관련해 <b>평소 내가 자주 틀리던 형태</b>와 <b>바른 형태</b>를 비교해 적어 봐요.</p>
+    <table class="sp-table">
+      <tr><th style="width:8%;">번호</th><th style="width:40%;">내가 자주 쓰던 형태 (❌)</th><th style="width:40%;">바른 형태 (⭕)</th><th style="width:12%;">언제?</th></tr>
+      <tr><td>①</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+      <tr><td>②</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+      <tr><td>③</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+    </table>
+    <div class="tip">💡 "언제?" 칸에는 <b>문자·일기·숙제·시험</b> 같이 자주 쓰는 자리를 적어 두면 스스로 체크하기 좋아요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A4. 자기 점검 체크리스트</h3><span class="tag">5개</span></div>
+    <ul class="check-list">
+      <li><label><input type="checkbox" disabled> 오늘 규칙을 <b>세 문장 이상</b> 소리 내어 읽어 봤다.</label></li>
+      <li><label><input type="checkbox" disabled> 어제·오늘 내가 쓴 글에서 이 규칙 자리를 <b>직접 확인</b>해 봤다.</label></li>
+      <li><label><input type="checkbox" disabled> 자주 틀리던 형태를 <b>표에 정리</b>했다.</label></li>
+      <li><label><input type="checkbox" disabled> 다음에 틀렸을 때 <b>스스로 고쳐 쓸 자신</b>이 조금 생겼다.</label></li>
+      <li><label><input type="checkbox" disabled> 다음 레슨을 <b>기대</b>한다.</label></li>
+    </ul>
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · 종합 복습 · 복습쪽</div>
+</section>
+
+
+<section class="page">
+  <div class="page-head">
+    <h2>✍️ 쓰기 실전 — 종합 복습</h2>
+    <span class="step">추가 2쪽 · 쓰기</span>
+  </div>
+  <div class="intro">배운 규칙을 <b>실제 문장으로 써 보기</b>로 마무리해요. 짧아도 좋으니 <b>직접</b> 써 보는 게 제일 중요해요.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B1. 오늘의 규칙을 넣은 문장 3개</h3><span class="tag">직접 쓰기</span></div>
+    <p>오늘 배운 <b>종합 복습</b> 규칙이 꼭 보이는 문장을 세 개 써 봐요.</p>
+    <div class="write-lines">
+      <div class="wl">① &nbsp;</div>
+      <div class="wl">② &nbsp;</div>
+      <div class="wl">③ &nbsp;</div>
+    </div>
+    <div class="tip">💡 완성한 뒤 <b>소리 내어 읽어</b> 어색한 곳이 없는지 확인해요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B2. 상황 메시지 쓰기 — 선생님에게</h3><span class="tag">3~5문장</span></div>
+    <p><b>상황:</b> 지금까지 배운 맞춤법 중 가장 자신 있는 규칙 소개</p>
+    <p>이 상황에 맞게 짧은 메시지를 써 봐요. 오늘 배운 <b>종합 복습</b> 규칙이 들어가면 더 좋아요.</p>
+    <div class="write-lines">
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B3. 내 다짐 한 문장</h3><span class="tag">마무리</span></div>
+    <p>앞으로 <b>종합 복습</b>이(가) 나오는 자리에서 <b>어떻게 신경 쓸지</b> 한 문장으로 적어 봐요.</p>
+    <div class="write-lines"><div class="wl">앞으로 나는, &nbsp;</div></div>
+  </div>
+
+  <div class="note">🌟 <b>진짜 배움은 쓸 때 일어나요.</b> 오늘 쓴 문장을 <b>하루 뒤 다시</b> 읽어 보면 눈에 보이는 것이 또 달라져요.</div>
+
+  <div class="page-foot">맞춤법 시리즈 · 종합 복습 · 쓰기쪽</div>
+</section>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

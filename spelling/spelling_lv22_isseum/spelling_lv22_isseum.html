@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>L22 있음·없음 vs 있슴·없슴 — 주은·미정의 안내문</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #b2dfdb 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #004d40;
+  border-bottom: 2px solid #26a69a; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; color: #00695c; }
+.cover-main { text-align: center; padding: 8px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #00695c; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 1.9em; letter-spacing: -1.5px; color: #004d40; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #004d40; font-weight: 500; }
+.cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 6px; }
+.cover-info { background: #fff; border: 2px solid #26a69a; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 6px; color: #004d40; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 3px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 14px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #00695c; padding-bottom: 3px; }
+.cover-name .label { color: #004d40; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #00695c; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #004d40; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #00695c; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #e0f2f1; border-left: 4px solid #00897b; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #004d40; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 8px 12px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.95em; }
+.tip b { color: #f57f17; }
+.note { background: #fff3e0; border-left: 4px solid #ef6c00; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #bf360c; }
+
+.activity { background: #fff; border: 1.8px solid #26a69a; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #004d40; font-size: 1.05em; }
+.activity .tag { background: #b2dfdb; color: #004d40; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 44px; border-bottom: 2px solid #004d40; text-align: center; padding: 0 6px; color: #004d40; font-weight: 700; }
+.blank.short { min-width: 30px; }
+
+.rule-box { background: #e0f2f1; border: 2px solid #00695c; border-radius: 12px; padding: 12px 16px; margin: 8px 0; }
+.rule-box h4 { margin: 0 0 6px; color: #004d40; font-size: 1.05em; }
+.rule-box .formula { background: #fff; border: 1.5px dashed #00897b; padding: 8px 12px; border-radius: 8px; text-align: center; font-size: 1.1em; margin: 6px 0; color: #004d40; font-weight: 700; }
+.rule-box .formula b { color: #b71c1c; background: #ffcdd2; padding: 1px 6px; border-radius: 4px; }
+
+.compare-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
+.compare-table th, .compare-table td { border: 1.3px solid #26a69a; padding: 6px 10px; text-align: left; vertical-align: middle; }
+.compare-table th { background: #e0f2f1; color: #004d40; font-weight: 700; text-align: center; }
+.compare-table .wrong { background: #ffebee; color: #b71c1c; text-decoration: line-through; }
+.compare-table .right { background: #e8f5e9; color: #1b5e20; font-weight: 700; }
+
+.notice { background: #fffde7; border: 2px solid #f9a825; border-radius: 10px; padding: 12px 14px; margin: 8px 0; font-family: 'Malgun Gothic', sans-serif; }
+.notice .title { text-align: center; font-weight: 900; color: #bf360c; font-size: 1.1em; margin-bottom: 6px; border-bottom: 2px dashed #f9a825; padding-bottom: 4px; }
+.notice .body { font-size: 0.95em; line-height: 1.9; }
+.notice .body .h { background: #ffcdd2; padding: 0 3px; border-radius: 3px; color: #b71c1c; font-weight: 700; }
+
+.page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
+@media print { body { background: #fff; font-size: 9.5pt; line-height: 1.35; } .toolbar, #name-editor { display: none; } .page { box-shadow: none; margin: 0 auto; padding: 10mm 12mm; } .activity { padding: 8px 11px; margin: 7px 0; } .intro, .tip, .note { padding: 6px 10px; margin: 5px 0; } }
+
+.sp-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
+.sp-table th, .sp-table td { border: 1.2px solid #26a69a; padding: 6px 8px; vertical-align: top; }
+.sp-table th { background: #e0f2f1; color: #004d40; font-weight: 700; text-align: center; }
+.sp-table td.left { text-align: left; }
+.check-list { list-style: none; padding-left: 4px; margin: 6px 0; }
+.check-list li { padding: 5px 8px; background: #e0f2f1; margin: 4px 0; border-radius: 6px; border-left: 3px solid #26a69a; }
+.check-list input[type="checkbox"] { margin-right: 6px; transform: scale(1.1); }
+.write-lines { background: #fff; border: 1.5px solid #26a69a; border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+.write-lines .wl { border-bottom: 1.2px solid #cfd8dc; min-height: 22px; margin: 6px 0; }
+.pair-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 6px 0; }
+.pair-card { border: 1.3px solid #26a69a; border-radius: 8px; padding: 8px 10px; background: #fff; }
+.pair-card .sent { font-size: 0.95em; margin-bottom: 4px; }
+.pair-card .pick { display: flex; gap: 8px; font-size: 0.9em; }
+.pair-card .pick label { padding: 2px 8px; border: 1px solid #b0bec5; border-radius: 12px; background: #f5f7f9; }
+
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">📢 L22 있음·없음 vs 있슴·없슴</span><span class="muted">맞춤법 · Level 22</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<!-- 표지 -->
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">국어</span> · 맞춤법 시리즈 · <b style="color:#004d40;">L22</b></span>
+    <span>고등학교 특수학급</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">명사형 어미 -음</span>
+    <h1>주은·미정의 안내문 만들기</h1>
+    <p class="lead">"있슴/없슴"은 왜 틀린 표기일까?</p>
+  </div>
+  <div class="cover-emoji">📢 📝 ✅</div>
+  <div class="cover-info">
+    <h3>🎯 학습 목표</h3>
+    <ul>
+      <li>명사형 어미는 <b>-음</b>임을 알고, <b>-슴</b>은 잘못된 표기임을 이해한다.</li>
+      <li>안내문·게시글·메모에서 <b>있음/없음/좋음/찾음</b>을 바르게 쓴다.</li>
+      <li>내가 만드는 안내문에 <b>-음</b> 형태를 적용해 쓸 수 있다.</li>
+    </ul>
+  </div>
+  <div class="cover-info" style="border-color:#a5d6a7;">
+    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+    <ul>
+      <li><b>주은</b>: 학교 게시판에 "카페 오픈" 안내문을 붙이는 상황</li>
+      <li><b>미정</b>: 알바 매장에 "재고 부족" 메모를 남기는 상황</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">학년·반</span></div>
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+  <div class="page-foot">맞춤법 시리즈 · L22 · 표지</div>
+</section>
+
+<!-- 1쪽: 원리 -->
+<section class="page">
+  <div class="page-head">
+    <h2>📚 명사형 어미 -음의 원리</h2>
+    <span class="step">1쪽 · 원리</span>
+  </div>
+  <div class="intro">
+    안내문·메모에서 자주 보는 <b>"있음/없음/좋음/많음"</b>. 이건 동사·형용사를 <b>명사처럼</b> 쓰기 위한 <b>-음</b>이에요.
+    <b>"있슴/없슴"</b>은 표준어에 없는 잘못된 표기예요. 왜 그럴까요?
+  </div>
+
+  <div class="rule-box">
+    <h4>💡 핵심 규칙 — 명사형 어미는 언제나 "-음"</h4>
+    <div class="formula">동사·형용사 어간 + <b>-(으)ㅁ</b> = 명사형</div>
+    <p style="margin:4px 0 0; font-size:0.93em;">
+      · <b>있다</b> → 있 + 음 = <b>있음</b> (있슴 ✗)<br>
+      · <b>없다</b> → 없 + 음 = <b>없음</b> (없슴 ✗)<br>
+      · <b>좋다</b> → 좋 + 음 = <b>좋음</b> (좋슴 ✗)<br>
+      · <b>많다</b> → 많 + 음 = <b>많음</b> (많슴 ✗)
+    </p>
+  </div>
+
+  <div class="tip">
+    <b>왜 "-슴"으로 착각할까?</b><br>
+    "먹었<b>습</b>니다 · 갔<b>습</b>니다"처럼 <b>-습-</b>이 익숙해서예요. 하지만 "-습니다"의 -습-과, 명사형 어미 -음은 <b>완전히 다른 것</b>이에요.<br>
+    · "이 카페는 조용<b>합니다</b>" (문장 종결) → 습니다 O<br>
+    · "특이 사항: 조용<b>함</b>" (명사형, 표에 적는 말) → 함(=하 + ㅁ) O
+  </div>
+
+  <table class="compare-table">
+    <tr>
+      <th style="width:34%;">기본형</th>
+      <th style="width:33%;">❌ 잘못된 표기</th>
+      <th style="width:33%;">✅ 바른 표기</th>
+    </tr>
+    <tr><td>있다 (재고가 있다)</td><td class="wrong">있슴</td><td class="right">있음</td></tr>
+    <tr><td>없다 (재고가 없다)</td><td class="wrong">없슴</td><td class="right">없음</td></tr>
+    <tr><td>좋다 (컨디션 좋다)</td><td class="wrong">좋슴</td><td class="right">좋음</td></tr>
+    <tr><td>많다 (인원 많다)</td><td class="wrong">많슴</td><td class="right">많음</td></tr>
+    <tr><td>찾다 (물건 찾다)</td><td class="wrong">찾슴</td><td class="right">찾음</td></tr>
+    <tr><td>먹다 (다 먹다)</td><td class="wrong">먹슴</td><td class="right">먹음</td></tr>
+    <tr><td>하다 (필요 있다)</td><td class="wrong">하슴</td><td class="right">함</td></tr>
+  </table>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. -음 명사형 만들기</h3><span class="tag">5문항</span></div>
+    <p>기본형을 <b>명사형(-음/-ㅁ)</b>으로 바꿔 써요.</p>
+    <p>① 있다 → <span class="blank">&nbsp;</span></p>
+    <p>② 없다 → <span class="blank">&nbsp;</span></p>
+    <p>③ 크다 → <span class="blank">&nbsp;</span> <span style="color:#00695c;">(힌트: 크 + ㅁ)</span></p>
+    <p>④ 알다 → <span class="blank">&nbsp;</span> <span style="color:#00695c;">(알 + ㅁ = "앎")</span></p>
+    <p>⑤ 필요하다 → <span class="blank">&nbsp;</span></p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. O / X 판별</h3><span class="tag">5문항</span></div>
+    <p>바른 표기면 O, 틀린 표기면 X를 쓰고 <b>바르게 고쳐요</b>.</p>
+    <p>① 재고 있슴 ( <span class="blank short">&nbsp;</span> ) → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>② 이용 가능함 ( <span class="blank short">&nbsp;</span> ) → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>③ 문제 없슴 ( <span class="blank short">&nbsp;</span> ) → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>④ 열쇠 찾슴 ( <span class="blank short">&nbsp;</span> ) → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>⑤ 물이 깊슴 ( <span class="blank short">&nbsp;</span> ) → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · L22 · 1쪽 / 2</div>
+</section>
+
+<!-- 2쪽: 안내문 첨삭 + 쓰기 -->
+<section class="page">
+  <div class="page-head">
+    <h2>📢 안내문·메모 첨삭</h2>
+    <span class="step">2쪽 · 실전</span>
+  </div>
+  <div class="intro">
+    안내문과 메모는 문장을 짧게 마쳐야 해서 <b>명사형(-음)</b>이 많이 쓰여요.
+    주은·미정이의 안내문·메모를 첨삭해 봐요.
+  </div>
+
+  <div class="notice">
+    <div class="title">📢 학교 카페 재오픈 안내 · 작성자: 주은</div>
+    <div class="body">
+      ○ 운영 시작: 3월 4일 (월)<br>
+      ○ 운영 시간: 점심시간 · 하교 시간<br>
+      ○ 판매 품목: 아메리카노 <span class="h">있슴</span>, 라떼 <span class="h">있슴</span>, 스무디는 <span class="h">없슴</span><br>
+      ○ 결제: 카드만 <span class="h">가능함슴</span> (현금 <span class="h">받지 않슴</span>)<br>
+      ○ 좌석: 자유석, 자리 부족 시 대기석 <span class="h">있슴</span><br>
+      ○ 특이 사항: 시험 기간에는 <span class="h">운영 안 함슴</span>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 주은이 안내문 첨삭</h3><span class="tag">5군데</span></div>
+    <p>① 아메리카노 <b>있슴</b> → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>② 스무디는 <b>없슴</b> → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>③ 카드만 <b>가능함슴</b> → <span class="blank" style="min-width:100px;">&nbsp;</span> <span style="color:#00695c;">힌트: "가능하다"의 명사형</span></p>
+    <p>④ 현금 <b>받지 않슴</b> → 현금 <span class="blank" style="min-width:100px;">&nbsp;</span></p>
+    <p>⑤ <b>운영 안 함슴</b> → <span class="blank" style="min-width:100px;">&nbsp;</span> <span style="color:#00695c;">힌트: "않음/안 함"</span></p>
+  </div>
+
+  <div class="notice" style="border-color:#26a69a; background:#e0f2f1;">
+    <div class="title" style="color:#004d40; border-color:#26a69a;">📝 매장 재고 메모 · 작성자: 미정</div>
+    <div class="body">
+      · 우유: 재고 <span class="h">있슴</span> (내일까지 충분)<br>
+      · 시럽 (바닐라): <span class="h">부족함슴</span> — 사장님께 주문 <span class="h">부탁 드림</span><br>
+      · 컵 (테이크아웃): <span class="h">없슴</span> — 오늘 오후 <span class="h">사와야 함슴</span><br>
+      · 계산기 <span class="h">작동 안 함슴</span> — 수리 문의 <span class="h">필요함</span>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 미정이 메모 첨삭</h3><span class="tag">5군데</span></div>
+    <p>① 재고 <b>있슴</b> → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>② <b>부족함슴</b> → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>③ 컵 <b>없슴</b> → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>④ <b>사와야 함슴</b> → <span class="blank" style="min-width:100px;">&nbsp;</span></p>
+    <p>⑤ 계산기 <b>작동 안 함슴</b> → 작동 <span class="blank" style="min-width:100px;">&nbsp;</span></p>
+  </div>
+
+  <div class="tip">
+    <b>3초 자가 검사</b><br>
+    "-슴"이라고 썼다면 반드시 <b>-음</b>으로 고쳐 확인하기.<br>
+    "먹었<b>습</b>니다"의 -습-과 명사형 -음은 다른 규칙이에요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 내가 만드는 안내문 3줄</h3><span class="tag">쓰기</span></div>
+    <p>학교·집·동아리 등에서 붙일 수 있는 <b>3줄 안내문</b>을 써 봐요. <b>-음</b> 형태를 최소 <b>3번 이상</b> 사용하기.</p>
+    <p>[안내문 제목] <span class="blank" style="min-width:200px;">&nbsp;</span></p>
+    <div style="background:#e0f2f1; border:2px dashed #26a69a; border-radius:10px; padding:10px; min-height:100px;">
+      <div style="border-bottom:1px solid #ccc; height:22px;"></div>
+      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+    </div>
+  </div>
+
+  <div class="note">
+    🎯 <b>기억!</b> 안내문·메모의 짧은 종결은 <b>-음/-ㅁ</b>이에요. <b>-슴은 절대 없음</b>!
+    "습니다"의 -습-과 헷갈리지 말고, 명사형은 언제나 <b>-음</b>이라고 외워요.
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · L22 · 2쪽 / 2</div>
+</section>
+
+
+<section class="page">
+  <div class="page-head">
+    <h2>🔁 복습 · 자기 점검 — -있음 · -있슴</h2>
+    <span class="step">추가 1쪽 · 복습</span>
+  </div>
+  <div class="intro">오늘 배운 <b>-있음 · -있슴</b> 규칙을 <b>내 말로 다시</b> 써 보고, 평소 내가 자주 틀렸던 부분을 정리해 봐요.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A1. 내 말로 규칙 쓰기</h3><span class="tag">서술형</span></div>
+    <p>오늘 배운 규칙을 <b>친구에게 설명하듯</b> 한두 문장으로 써 봐요.</p>
+    <div class="write-lines"><div class="wl">&nbsp;</div><div class="wl">&nbsp;</div></div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A2. 이 규칙이 필요한 상황 3개</h3><span class="tag">상황 떠올리기</span></div>
+    <p>이 맞춤법이 <b>실제로 쓰일 상황</b>을 떠올려 3개만 적어 봐요. (예: 문자할 때, 자기소개 쓸 때, 공지 쓸 때…)</p>
+    <ol style="margin:6px 0 6px 22px;">
+      <li style="margin:6px 0;">상황 ① <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+      <li style="margin:6px 0;">상황 ② <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+      <li style="margin:6px 0;">상황 ③ <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+    </ol>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A3. 내가 자주 틀리던 표기 → 바른 표기</h3><span class="tag">3행 표</span></div>
+    <p>이번 레슨과 관련해 <b>평소 내가 자주 틀리던 형태</b>와 <b>바른 형태</b>를 비교해 적어 봐요.</p>
+    <table class="sp-table">
+      <tr><th style="width:8%;">번호</th><th style="width:40%;">내가 자주 쓰던 형태 (❌)</th><th style="width:40%;">바른 형태 (⭕)</th><th style="width:12%;">언제?</th></tr>
+      <tr><td>①</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+      <tr><td>②</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+      <tr><td>③</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+    </table>
+    <div class="tip">💡 "언제?" 칸에는 <b>문자·일기·숙제·시험</b> 같이 자주 쓰는 자리를 적어 두면 스스로 체크하기 좋아요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A4. 자기 점검 체크리스트</h3><span class="tag">5개</span></div>
+    <ul class="check-list">
+      <li><label><input type="checkbox" disabled> 오늘 규칙을 <b>세 문장 이상</b> 소리 내어 읽어 봤다.</label></li>
+      <li><label><input type="checkbox" disabled> 어제·오늘 내가 쓴 글에서 이 규칙 자리를 <b>직접 확인</b>해 봤다.</label></li>
+      <li><label><input type="checkbox" disabled> 자주 틀리던 형태를 <b>표에 정리</b>했다.</label></li>
+      <li><label><input type="checkbox" disabled> 다음에 틀렸을 때 <b>스스로 고쳐 쓸 자신</b>이 조금 생겼다.</label></li>
+      <li><label><input type="checkbox" disabled> 다음 레슨을 <b>기대</b>한다.</label></li>
+    </ul>
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · -있음 · -있슴 · 복습쪽</div>
+</section>
+
+
+<section class="page">
+  <div class="page-head">
+    <h2>✍️ 쓰기 실전 — -있음 · -있슴</h2>
+    <span class="step">추가 2쪽 · 쓰기</span>
+  </div>
+  <div class="intro">배운 규칙을 <b>실제 문장으로 써 보기</b>로 마무리해요. 짧아도 좋으니 <b>직접</b> 써 보는 게 제일 중요해요.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B1. 오늘의 규칙을 넣은 문장 3개</h3><span class="tag">직접 쓰기</span></div>
+    <p>오늘 배운 <b>-있음 · -있슴</b> 규칙이 꼭 보이는 문장을 세 개 써 봐요.</p>
+    <div class="write-lines">
+      <div class="wl">① &nbsp;</div>
+      <div class="wl">② &nbsp;</div>
+      <div class="wl">③ &nbsp;</div>
+    </div>
+    <div class="tip">💡 완성한 뒤 <b>소리 내어 읽어</b> 어색한 곳이 없는지 확인해요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B2. 상황 메시지 쓰기 — 주은에게</h3><span class="tag">3~5문장</span></div>
+    <p><b>상황:</b> 오늘 학교에 있음을 알리는 짧은 글</p>
+    <p>이 상황에 맞게 짧은 메시지를 써 봐요. 오늘 배운 <b>-있음 · -있슴</b> 규칙이 들어가면 더 좋아요.</p>
+    <div class="write-lines">
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B3. 내 다짐 한 문장</h3><span class="tag">마무리</span></div>
+    <p>앞으로 <b>-있음 · -있슴</b>이(가) 나오는 자리에서 <b>어떻게 신경 쓸지</b> 한 문장으로 적어 봐요.</p>
+    <div class="write-lines"><div class="wl">앞으로 나는, &nbsp;</div></div>
+  </div>
+
+  <div class="note">🌟 <b>진짜 배움은 쓸 때 일어나요.</b> 오늘 쓴 문장을 <b>하루 뒤 다시</b> 읽어 보면 눈에 보이는 것이 또 달라져요.</div>
+
+  <div class="page-foot">맞춤법 시리즈 · -있음 · -있슴 · 쓰기쪽</div>
+</section>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

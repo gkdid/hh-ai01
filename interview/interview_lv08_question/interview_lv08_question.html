@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>취업 면접 8차시 — 역질문·마지막 인사</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d; font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; padding: 10px 18px; background: #01579b; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; } .toolbar .muted { color: #b3e5fc; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm; background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #b3e5fc 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #01579b; border-bottom: 2px solid #4fc3f7; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; }
+.cover-main { text-align: center; padding: 10px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px; background: #01579b; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #01579b; font-weight: 900; }
+.cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #01579b; font-weight: 500; }
+.cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
+.cover-info { background: #fff; border: 2px solid #4fc3f7; border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+.cover-info h3 { margin: 0 0 8px; color: #01579b; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 4px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 16px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #01579b; padding-bottom: 3px; }
+.cover-name .label { color: #01579b; font-weight: 700; margin-right: 6px; }
+.page-head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5px solid #01579b; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #01579b; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #01579b; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+.intro { background: #e1f5fe; border-left: 4px solid #039be5; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #01579b; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.tip b { color: #f57f17; }
+.note { background: #ffebee; border-left: 4px solid #e53935; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #b71c1c; }
+.activity { background: #fff; border: 1.8px solid #4fc3f7; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #01579b; font-size: 1.05em; }
+.activity .tag { background: #b3e5fc; color: #01579b; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 60px; border-bottom: 2px solid #01579b; text-align: center; padding: 0 6px; color: #01579b; font-weight: 700; }
+.blank.short { min-width: 36px; } .blank.long { min-width: 140px; }
+table.qa { width: 100%; border-collapse: collapse; margin: 8px 0; }
+table.qa th, table.qa td { border: 1.5px solid #b0bec5; padding: 6px 8px; text-align: center; }
+table.qa th { background: #b3e5fc; color: #01579b; }
+table.qa td.left { text-align: left; }
+.footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center; color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+@media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">취업 면접 8차시</span><span class="muted">역질문·마지막 · A4 4쪽</span></div>
+  <button onclick="window.print()">🖨 인쇄하기</button>
+</div>
+
+<div class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">역질문</span> · 면접 단원 8/10</div>
+    <div>혜화여자고등학교 특수학급</div>
+  </div>
+  <div class="cover-main">
+    <span class="badge">Lv.8 마지막</span>
+    <h1>궁금한 점 있나요?</h1>
+    <p class="lead">역질문 · 마지막 한 마디 · 마무리 인사</p>
+  </div>
+  <div class="cover-emoji">❓ 🎤 💭 🙇</div>
+  <div class="cover-info">
+    <h3>이번 시간에 배울 것</h3>
+    <ul>
+      <li>"궁금한 점?"에 <b>좋은 역질문</b> 준비</li>
+      <li>마지막 한 마디로 <b>인상 남기기</b></li>
+      <li>정중한 <b>마무리 인사</b></li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+    <div class="line"><span class="label">반</span></div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>1. 역질문 (내가 묻는 질문)</h2><span class="step">Step 1</span></div>
+  <div class="intro">
+    <b>💡 면접 끝에 "궁금한 점 있어요?"</b> — <b>있어야 합니다</b>! 없으면 관심 없어 보임. 미리 <b>2~3개</b> 준비!
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 하은이의 좋은 역질문</h3><span class="tag">좋은 질문</span></div>
+    <ul>
+      <li>☐ "입사하면 <b>처음 몇 개월</b> 어떤 업무를 하게 되나요?"</li>
+      <li>☐ "제가 <b>미리 준비하면 좋을 것</b>이 있을까요?"</li>
+      <li>☐ "이 자리에서 <b>가장 힘든 점</b>은 무엇인가요?"</li>
+      <li>☐ "회사의 <b>교육·성장 기회</b>는 어떻게 되나요?"</li>
+      <li>☐ "이 자리에 <b>필요한 자격증·능력</b>이 있나요?"</li>
+      <li>☐ "매니저·선배님과의 <b>회의·소통 방식</b>은?"</li>
+    </ul>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 하영이의 나쁜 역질문</h3><span class="tag">나쁜 질문</span></div>
+    <ul>
+      <li>❌ "월급은 얼마인가요?" (이력서·공고에 있음)</li>
+      <li>❌ "야근·주말 근무 있나요?" (계약서 확인)</li>
+      <li>❌ "휴가 얼마나 되나요?" (관심 없어 보임)</li>
+      <li>❌ "그냥 없습니다" (관심 없어 보임)</li>
+      <li>❌ "회사가 언제까지 유지될까요?" (부정적)</li>
+    </ul>
+    <div class="note"><b>❗ 급여·복지 질문</b>은 <b>최종 합격 후</b> 하는 게 예의. 면접에선 <b>업무·성장</b>에 집중!</div>
+  </div>
+
+  <div class="footer-note">취업 면접 8차시 · 1/4쪽 · 역질문</div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>2. 나만의 역질문 만들기</h2><span class="step">Step 2</span></div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 주은이의 역질문 3개</h3><span class="tag">작성</span></div>
+    <p>목표 회사에 맞춘 <b>역질문 3개</b> 준비하기:</p>
+    <p>1) <span class="blank long"></span></p>
+    <p>2) <span class="blank long"></span></p>
+    <p>3) <span class="blank long"></span></p>
+    <div class="tip"><b>💡 팁</b> 면접 중 답변 들으며 <b>새 질문</b>이 생길 수도. 미리 준비 3개 + 즉석 1개면 충분.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 주현이의 응용 역질문</h3><span class="tag">응용</span></div>
+    <table class="qa">
+      <tr><th>업종</th><th>추천 역질문</th></tr>
+      <tr><td>카페</td><td class="left">"신메뉴 개발이나 이벤트에도 참여 기회가 있나요?"</td></tr>
+      <tr><td>청소</td><td class="left">"안전 교육이나 보호구 지원은 어떻게 되나요?"</td></tr>
+      <tr><td>펫샵</td><td class="left">"동물 응급 상황 시 대응 매뉴얼이 있나요?"</td></tr>
+      <tr><td>사무 보조</td><td class="left">"입사 후 컴퓨터·프로그램 교육이 있나요?"</td></tr>
+    </table>
+  </div>
+
+  <div class="footer-note">취업 면접 8차시 · 2/4쪽 · 만들기</div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>3. 마지막 한 마디</h2><span class="step">Step 3</span></div>
+  <div class="intro">
+    <b>💡 "마지막으로 하고 싶은 말?"</b> — 자신을 강조할 마지막 기회! <b>준비하지 않으면</b> 대답 못 함.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 미정이의 마지막 한 마디 3원칙</h3><span class="tag">원칙</span></div>
+    <ol style="padding-left: 22px;">
+      <li><b>감사 인사</b> ("긴 시간 이야기 들어주셔서 감사합니다")</li>
+      <li><b>강한 다짐</b> ("입사한다면 성실히…")</li>
+      <li><b>구체적 약속</b> ("첫 3개월은 특히 열심히 배우겠습니다")</li>
+    </ol>
+    <div class="tip"><b>💡 30초 이내</b>로 짧게. 길면 지루함.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 6. 채원이의 마지막 한 마디 예시</h3><span class="tag">예시</span></div>
+    <p style="background:#e1f5fe; padding:8px; border-radius:6px;">
+      "긴 시간 저의 이야기를 들어 주셔서 <b>감사합니다</b>.
+      혹시 부족한 답변이 있었더라도 <b>배우겠다는 마음</b>은 진심입니다.
+      입사한다면 <b>첫 3개월은 특히 성실히 배우고</b>, <b>1년 뒤에는 팀에 도움이 되는</b> 사람이 되겠습니다. 감사합니다."
+    </p>
+    <p>나만의 마지막 한 마디 작성:</p>
+    <p><span class="blank long"></span></p>
+    <p><span class="blank long"></span></p>
+  </div>
+
+  <div class="footer-note">취업 면접 8차시 · 3/4쪽 · 마지막</div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>4. 자기점검</h2><span class="step">Step 4</span></div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 7. 예은이의 종합 시나리오</h3><span class="tag">시나리오</span></div>
+    <p>면접 마지막 3분 시나리오:</p>
+    <ol style="padding-left: 22px;">
+      <li>면접관: "궁금한 점 있어요?"</li>
+      <li>나: 준비한 역질문 <b>1~2개</b> 하기</li>
+      <li>답변 듣고 "감사합니다"</li>
+      <li>면접관: "마지막으로 하고 싶은 말?"</li>
+      <li>나: 준비한 <b>마지막 한 마디</b> (30초)</li>
+      <li>면접관: "수고하셨어요"</li>
+      <li>나: 일어서서 정중히 인사·의자 정리·문 앞 한 번 더 인사</li>
+    </ol>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 8. 스스로 확인</h3><span class="tag">자기점검</span></div>
+    <table class="qa">
+      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+      <tr><td class="left">역질문 3개 준비</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">마지막 한 마디 준비</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">마무리 인사 자연스러움</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    </table>
+  </div>
+
+  <div class="footer-note">취업 면접 8차시 · 4/4쪽 · 마무리 완성</div>
+</div>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

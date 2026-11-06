@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>혜화여자고등학교 특수학급 · 학습지 모음</title>
+<style>
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #f4f6f8; color: #1f2d3d;
+  font-family: 'Malgun Gothic', '맑은 고딕', AppleGothic, sans-serif;
+  font-size: 14pt; line-height: 1.6; }
+
+header {
+  background: linear-gradient(135deg, #283593 0%, #5e35b1 100%);
+  color: #fff; padding: 40px 28px 34px; text-align: center;
+}
+header h1 { margin: 0 0 8px; font-size: 1.9em; font-weight: 900; letter-spacing: -1px; }
+header p { margin: 0; opacity: 0.92; font-size: 1em; }
+header .meta { margin-top: 12px; font-size: 0.85em; opacity: 0.8; }
+
+main { max-width: 1240px; margin: 0 auto; padding: 24px 18px 60px; }
+
+section { margin-top: 36px; }
+section h2 {
+  margin: 0 0 16px; font-size: 1.32em; color: #263238;
+  border-bottom: 3px solid #cfd8dc; padding-bottom: 8px;
+}
+section h2 .count {
+  display: inline-block; padding: 2px 10px; border-radius: 12px; margin-left: 8px;
+  background: #eceff1; color: #455a64; font-size: 0.7em; font-weight: 500;
+  vertical-align: middle;
+}
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+
+.card {
+  display: block; text-decoration: none; color: inherit;
+  background: #fff; border: 1.5px solid #e0e6ec; border-radius: 14px;
+  padding: 14px 16px 12px 20px; position: relative; overflow: hidden;
+  min-height: 108px;
+}
+.card:hover {
+  border-color: #b0bec5;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+}
+.card .stripe {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: #90a4ae;
+}
+.card .badge {
+  display: inline-block; padding: 3px 10px; border-radius: 12px;
+  background: #eceff1; color: #455a64; font-size: 0.78em; font-weight: 700;
+  margin-bottom: 6px;
+}
+.card h3 { margin: 4px 0 4px; font-size: 1.02em; color: #1a237e; font-weight: 700; line-height: 1.35; }
+.card p { margin: 0; font-size: 0.9em; color: #546e7a; line-height: 1.45; }
+
+.c-green   .stripe { background: #2e7d32; } .c-green   .badge { background: #c8e6c9; color: #1b5e20; } .c-green   h3 { color: #1b5e20; }
+.c-purple  .stripe { background: #6a1b9a; } .c-purple  .badge { background: #e1bee7; color: #4a148c; } .c-purple  h3 { color: #4a148c; }
+.c-amber   .stripe { background: #e65100; } .c-amber   .badge { background: #ffe0b2; color: #bf360c; } .c-amber   h3 { color: #bf360c; }
+.c-indigo  .stripe { background: #3949ab; } .c-indigo  .badge { background: #c5cae9; color: #1a237e; } .c-indigo  h3 { color: #1a237e; }
+.c-cyan    .stripe { background: #0277bd; } .c-cyan    .badge { background: #b3e5fc; color: #01579b; } .c-cyan    h3 { color: #01579b; }
+.c-magenta .stripe { background: #ad1457; } .c-magenta .badge { background: #f8bbd0; color: #880e4f; } .c-magenta h3 { color: #880e4f; }
+.c-red     .stripe { background: #c62828; } .c-red     .badge { background: #ffcdd2; color: #b71c1c; } .c-red     h3 { color: #b71c1c; }
+.c-teal    .stripe { background: #00695c; } .c-teal    .badge { background: #b2dfdb; color: #004d40; } .c-teal    h3 { color: #004d40; }
+.c-maroon  .stripe { background: #b71c1c; } .c-maroon  .badge { background: #ffcdd2; color: #7f0000; } .c-maroon  h3 { color: #7f0000; }
+.c-lime    .stripe { background: #689f38; } .c-lime    .badge { background: #dcedc8; color: #33691e; } .c-lime    h3 { color: #33691e; }
+.c-blue    .stripe { background: #1565c0; } .c-blue    .badge { background: #bbdefb; color: #0d47a1; } .c-blue    h3 { color: #0d47a1; }
+.c-rose    .stripe { background: #d81b60; } .c-rose    .badge { background: #f8bbd0; color: #880e4f; } .c-rose    h3 { color: #880e4f; }
+.c-orange  .stripe { background: #f57c00; } .c-orange  .badge { background: #ffe0b2; color: #e65100; } .c-orange  h3 { color: #e65100; }
+.c-pink    .stripe { background: #c2185b; } .c-pink    .badge { background: #f8bbd0; color: #880e4f; } .c-pink    h3 { color: #880e4f; }
+.c-brown   .stripe { background: #5d4037; } .c-brown   .badge { background: #d7ccc8; color: #3e2723; } .c-brown   h3 { color: #3e2723; }
+
+.extra-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; }
+.extra-list a {
+  display: block; padding: 10px 14px; background: #fff; border: 1px solid #e0e6ec;
+  border-radius: 10px; color: #37474f; text-decoration: none; font-size: 0.92em;
+}
+.extra-list a:hover { border-color: #90a4ae; background: #fafbfc; }
+.extra-list .ext { font-size: 0.78em; color: #78909c; margin-left: 6px; }
+
+footer { text-align: center; color: #90a4ae; font-size: 0.85em; padding: 24px 0 10px; }
+
+@media print { header, footer { display: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🌱 혜화여자고등학교 특수학급 학습지</h1>
+  <p>특수교육대상학생을 위한 맞춤형 학습 자료</p>
+  <div class="meta">HTML 학습지 215종 · 10개 주제 영역</div>
+</header>
+
+<main>
+<section>
+  <h2>🕐 시계 읽기 <span class="count">50종</span></h2>
+  <div class="grid">
+<a class="card c-indigo" href="clock/clock_lv01_morning/clock_lv01_morning.html">
+  <span class="stripe"></span>
+  <span class="badge">L1</span>
+  <h3>하은이의 아침</h3>
+  <p>몇 시 정각 읽기</p>
+</a>
+<a class="card c-cyan" href="clock/clock_lv02_schedule/clock_lv02_schedule.html">
+  <span class="stripe"></span>
+  <span class="badge">L2</span>
+  <h3>하영이의 학교 시간표</h3>
+  <p>10분 단위 시각</p>
+</a>
+<a class="card c-teal" href="clock/clock_lv03_academy/clock_lv03_academy.html">
+  <span class="stripe"></span>
+  <span class="badge">L3</span>
+  <h3>주은이의 학원 시간</h3>
+  <p>15분·45분</p>
+</a>
+<a class="card c-blue" href="clock/clock_lv04_cafe/clock_lv04_cafe.html">
+  <span class="stripe"></span>
+  <span class="badge">L4</span>
+  <h3>미정이의 카페 아르바이트</h3>
+  <p>5분 단위</p>
+</a>
+<a class="card c-purple" href="clock/clock_lv05_transit/clock_lv05_transit.html">
+  <span class="stripe"></span>
+  <span class="badge">L5</span>
+  <h3>주현이의 지하철 시간표</h3>
+  <p>1분 단위</p>
+</a>
+<a class="card c-green" href="clock/clock_lv06_digital/clock_lv06_digital.html">
+  <span class="stripe"></span>
+  <span class="badge">L6</span>
+  <h3>예은이의 스마트폰</h3>
+  <p>아날로그와 디지털</p>
+</a>
+<a class="card c-indigo" href="clock/clock_lv07_library/clock_lv07_library.html">
+  <span class="stripe"></span>
+  <span class="badge">L7</span>
+  <h3>채원이의 도서관</h3>
+  <p>몇 시간 지났을까</p>
+</a>
+<a class="card c-cyan" href="clock/clock_lv08_cooking/clock_lv08_cooking.html">
+  <span class="stripe"></span>
+  <span class="badge">L8</span>
+  <h3>하은·주현이의 요리 시간</h3>
+  <p>몇 분 지났을까</p>
+</a>
+<a class="card c-teal" href="clock/clock_lv09_hospital/clock_lv09_hospital.html">
+  <span class="stripe"></span>
+  <span class="badge">L9</span>
+  <h3>하영·미정이의 병원 예약</h3>
+  <p>오전·오후·24시간제</p>
+</a>
+<a class="card c-blue" href="clock/clock_lv10_weekend/clock_lv10_weekend.html">
+  <span class="stripe"></span>
+  <span class="badge">L10</span>
+  <h3>예은·채원·주은이의 주말 나들이</h3>
+  <p>종합</p>
+</a>
+<a class="card c-purple" href="clock/clock_lv11_elapsed/clock_lv11_elapsed.html">
+  <span class="stripe"></span>
+  <span class="badge">L11</span>
+  <h3>하은이의 시간 계산</h3>
+  <p>경과 시간</p>
+</a>
+<a class="card c-green" href="clock/clock_lv12_appointment/clock_lv12_appointment.html">
+  <span class="stripe"></span>
+  <span class="badge">L12</span>
+  <h3>주은이의 예약 시간</h3>
+  <p>대기 시간</p>
+</a>
+<a class="card c-indigo" href="clock/clock_lv13_parttime/clock_lv13_parttime.html">
+  <span class="stripe"></span>
+  <span class="badge">L13</span>
+  <h3>주현이의 아르바이트</h3>
+  <p>근무 시간 계산</p>
+</a>
+<a class="card c-cyan" href="clock/clock_lv14_transport/clock_lv14_transport.html">
+  <span class="stripe"></span>
+  <span class="badge">L14</span>
+  <h3>미정이의 시외버스·열차</h3>
+  <p>출발과 도착</p>
+</a>
+<a class="card c-teal" href="clock/clock_lv15_movie/clock_lv15_movie.html">
+  <span class="stripe"></span>
+  <span class="badge">L15</span>
+  <h3>채원이의 영화관</h3>
+  <p>상영 시간과 회차</p>
+</a>
+<a class="card c-blue" href="clock/clock_lv16_travel/clock_lv16_travel.html">
+  <span class="stripe"></span>
+  <span class="badge">L16</span>
+  <h3>예은이의 여행 계획</h3>
+  <p>KTX와 여행 일정표</p>
+</a>
+<a class="card c-purple" href="clock/clock_lv17_deadline/clock_lv17_deadline.html">
+  <span class="stripe"></span>
+  <span class="badge">L17</span>
+  <h3>하영이의 마감 관리</h3>
+  <p>데드라인까지 몇 시간?</p>
+</a>
+<a class="card c-green" href="clock/clock_lv18_24hour/clock_lv18_24hour.html">
+  <span class="stripe"></span>
+  <span class="badge">L18</span>
+  <h3>주현이의 24시간제 심화</h3>
+  <p>방송 편성표와 국제 시각</p>
+</a>
+<a class="card c-indigo" href="clock/clock_lv19_timezone/clock_lv19_timezone.html">
+  <span class="stripe"></span>
+  <span class="badge">L19</span>
+  <h3>채원이의 세계 시각</h3>
+  <p>나라별 시차 계산</p>
+</a>
+<a class="card c-cyan" href="clock/clock_lv20_myday/clock_lv20_myday.html">
+  <span class="stripe"></span>
+  <span class="badge">L20</span>
+  <h3>나의 하루 만들기</h3>
+  <p>시계 시리즈 마무리</p>
+</a>
+<a class="card c-teal" href="clock/clock_lv21_alarm/clock_lv21_alarm.html">
+  <span class="stripe"></span>
+  <span class="badge">L21</span>
+  <h3>아침 알람 설정하기</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-blue" href="clock/clock_lv22_sleep/clock_lv22_sleep.html">
+  <span class="stripe"></span>
+  <span class="badge">L22</span>
+  <h3>잠자는 시간은 몇 시간?</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-purple" href="clock/clock_lv23_exercise/clock_lv23_exercise.html">
+  <span class="stripe"></span>
+  <span class="badge">L23</span>
+  <h3>운동 루틴 짜기</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-green" href="clock/clock_lv24_meal/clock_lv24_meal.html">
+  <span class="stripe"></span>
+  <span class="badge">L24</span>
+  <h3>식사 시간 지키기</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-indigo" href="clock/clock_lv25_family_call/clock_lv25_family_call.html">
+  <span class="stripe"></span>
+  <span class="badge">L25</span>
+  <h3>가족과 통화</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-cyan" href="clock/clock_lv26_birthday/clock_lv26_birthday.html">
+  <span class="stripe"></span>
+  <span class="badge">L26</span>
+  <h3>친구 생일 파티</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-teal" href="clock/clock_lv27_reading/clock_lv27_reading.html">
+  <span class="stripe"></span>
+  <span class="badge">L27</span>
+  <h3>독서 시간 쌓기</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-blue" href="clock/clock_lv28_music/clock_lv28_music.html">
+  <span class="stripe"></span>
+  <span class="badge">L28</span>
+  <h3>음악 듣기 시간</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-purple" href="clock/clock_lv29_videocall/clock_lv29_videocall.html">
+  <span class="stripe"></span>
+  <span class="badge">L29</span>
+  <h3>영상통화 시간</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-green" href="clock/clock_lv30_gaming/clock_lv30_gaming.html">
+  <span class="stripe"></span>
+  <span class="badge">L30</span>
+  <h3>게임 시간 관리</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-indigo" href="clock/clock_lv31_subway/clock_lv31_subway.html">
+  <span class="stripe"></span>
+  <span class="badge">L31</span>
+  <h3>지하철 시간표</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-cyan" href="clock/clock_lv32_taxi/clock_lv32_taxi.html">
+  <span class="stripe"></span>
+  <span class="badge">L32</span>
+  <h3>택시 예약 시각</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-teal" href="clock/clock_lv33_flight/clock_lv33_flight.html">
+  <span class="stripe"></span>
+  <span class="badge">L33</span>
+  <h3>비행기 탑승 시각</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-blue" href="clock/clock_lv34_hotel/clock_lv34_hotel.html">
+  <span class="stripe"></span>
+  <span class="badge">L34</span>
+  <h3>호텔 체크인·아웃</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-purple" href="clock/clock_lv35_delivery/clock_lv35_delivery.html">
+  <span class="stripe"></span>
+  <span class="badge">L35</span>
+  <h3>택배 도착 예정</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-green" href="clock/clock_lv36_food_delivery/clock_lv36_food_delivery.html">
+  <span class="stripe"></span>
+  <span class="badge">L36</span>
+  <h3>배달 음식 도착</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-indigo" href="clock/clock_lv37_dentist/clock_lv37_dentist.html">
+  <span class="stripe"></span>
+  <span class="badge">L37</span>
+  <h3>치과 예약 시각</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-cyan" href="clock/clock_lv38_hairsalon/clock_lv38_hairsalon.html">
+  <span class="stripe"></span>
+  <span class="badge">L38</span>
+  <h3>미용실 머물기</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-teal" href="clock/clock_lv39_pcbang/clock_lv39_pcbang.html">
+  <span class="stripe"></span>
+  <span class="badge">L39</span>
+  <h3>PC방 이용권 시간</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-blue" href="clock/clock_lv40_karaoke/clock_lv40_karaoke.html">
+  <span class="stripe"></span>
+  <span class="badge">L40</span>
+  <h3>노래방 시간</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-purple" href="clock/clock_lv41_cinema/clock_lv41_cinema.html">
+  <span class="stripe"></span>
+  <span class="badge">L41</span>
+  <h3>영화 상영 시간</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-green" href="clock/clock_lv42_concert/clock_lv42_concert.html">
+  <span class="stripe"></span>
+  <span class="badge">L42</span>
+  <h3>콘서트 입장 시각</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-indigo" href="clock/clock_lv43_exhibition/clock_lv43_exhibition.html">
+  <span class="stripe"></span>
+  <span class="badge">L43</span>
+  <h3>전시회 관람</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-cyan" href="clock/clock_lv44_museum/clock_lv44_museum.html">
+  <span class="stripe"></span>
+  <span class="badge">L44</span>
+  <h3>박물관 시간표</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-teal" href="clock/clock_lv45_camping/clock_lv45_camping.html">
+  <span class="stripe"></span>
+  <span class="badge">L45</span>
+  <h3>캠핑 일정 짜기</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-blue" href="clock/clock_lv46_overseas/clock_lv46_overseas.html">
+  <span class="stripe"></span>
+  <span class="badge">L46</span>
+  <h3>해외여행 일정표</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-purple" href="clock/clock_lv47_dining_out/clock_lv47_dining_out.html">
+  <span class="stripe"></span>
+  <span class="badge">L47</span>
+  <h3>가족 외식</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-green" href="clock/clock_lv48_holiday/clock_lv48_holiday.html">
+  <span class="stripe"></span>
+  <span class="badge">L48</span>
+  <h3>명절 친척 방문</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-indigo" href="clock/clock_lv49_exam/clock_lv49_exam.html">
+  <span class="stripe"></span>
+  <span class="badge">L49</span>
+  <h3>시험 시간 배분</h3>
+  <p>시계 시리즈</p>
+</a>
+<a class="card c-cyan" href="clock/clock_lv50_year_plan/clock_lv50_year_plan.html">
+  <span class="stripe"></span>
+  <span class="badge">L50</span>
+  <h3>1년 시간 계획</h3>
+  <p>시계 시리즈</p>
+</a>
+  </div>
+</section>
+<section>
+  <h2>✏️ 맞춤법 <span class="count">50종</span></h2>
+  <div class="grid">
+<a class="card c-rose" href="spelling/spelling_lv01_dwae/spelling_lv01_dwae.html">
+  <span class="stripe"></span>
+  <span class="badge">L1</span>
+  <h3>되 · 돼</h3>
+  <p>하은이의 문자 메시지</p>
+</a>
+<a class="card c-pink" href="spelling/spelling_lv02_anh/spelling_lv02_anh.html">
+  <span class="stripe"></span>
+  <span class="badge">L2</span>
+  <h3>안 · 않</h3>
+  <p>하영이의 SNS 게시글</p>
+</a>
+<a class="card c-magenta" href="spelling/spelling_lv03_ihi/spelling_lv03_ihi.html">
+  <span class="stripe"></span>
+  <span class="badge">L3</span>
+  <h3>-이 · -히</h3>
+  <p>주은이의 하루 일기</p>
+</a>
+<a class="card c-maroon" href="spelling/spelling_lv04_wen/spelling_lv04_wen.html">
+  <span class="stripe"></span>
+  <span class="badge">L4</span>
+  <h3>왠 · 웬</h3>
+  <p>미정이의 카페 알바</p>
+</a>
+<a class="card c-orange" href="spelling/spelling_lv05_natda/spelling_lv05_natda.html">
+  <span class="stripe"></span>
+  <span class="badge">L5</span>
+  <h3>낫다·났다·낳다</h3>
+  <p>주현이의 병문안 카드</p>
+</a>
+<a class="card c-amber" href="spelling/spelling_lv06_butchida/spelling_lv06_butchida.html">
+  <span class="stripe"></span>
+  <span class="badge">L6</span>
+  <h3>붙이다·부치다</h3>
+  <p>예은이의 편지 부치기</p>
+</a>
+<a class="card c-rose" href="spelling/spelling_lv07_myeochil/spelling_lv07_myeochil.html">
+  <span class="stripe"></span>
+  <span class="badge">L7</span>
+  <h3>며칠·어떻게/어떡해</h3>
+  <p>채원이의 약속 톡</p>
+</a>
+<a class="card c-pink" href="spelling/spelling_lv08_spacing/spelling_lv08_spacing.html">
+  <span class="stripe"></span>
+  <span class="badge">L8</span>
+  <h3>띄어쓰기 기초</h3>
+  <p>하은·하영의 학급 게시글</p>
+</a>
+<a class="card c-magenta" href="spelling/spelling_lv09_saisiot/spelling_lv09_saisiot.html">
+  <span class="stripe"></span>
+  <span class="badge">L9</span>
+  <h3>사이시옷·두음법칙</h3>
+  <p>주은·미정의 여행지 소개</p>
+</a>
+<a class="card c-maroon" href="spelling/spelling_lv10_final/spelling_lv10_final.html">
+  <span class="stripe"></span>
+  <span class="badge">L10</span>
+  <h3>종합 맞춤법</h3>
+  <p>예은·채원·주현의 자기소개서</p>
+</a>
+<a class="card c-orange" href="spelling/spelling_lv11_roseo/spelling_lv11_roseo.html">
+  <span class="stripe"></span>
+  <span class="badge">L11</span>
+  <h3>로서·로써</h3>
+  <p>하은·주현의 봉사 신청서</p>
+</a>
+<a class="card c-amber" href="spelling/spelling_lv12_deunji/spelling_lv12_deunji.html">
+  <span class="stripe"></span>
+  <span class="badge">L12</span>
+  <h3>든지·던지</h3>
+  <p>미정·채원의 카페 메뉴 선택</p>
+</a>
+<a class="card c-rose" href="spelling/spelling_lv13_eyo/spelling_lv13_eyo.html">
+  <span class="stripe"></span>
+  <span class="badge">L13</span>
+  <h3>-에요·-예요</h3>
+  <p>예은·하영의 SNS 자기소개</p>
+</a>
+<a class="card c-pink" href="spelling/spelling_lv14_dedae/spelling_lv14_dedae.html">
+  <span class="stripe"></span>
+  <span class="badge">L14</span>
+  <h3>-데·-대</h3>
+  <p>주은·채원의 급식 후기</p>
+</a>
+<a class="card c-magenta" href="spelling/spelling_lv15_bandeushi/spelling_lv15_bandeushi.html">
+  <span class="stripe"></span>
+  <span class="badge">L15</span>
+  <h3>반드시·반듯이</h3>
+  <p>하은·미정의 등교 규칙</p>
+</a>
+<a class="card c-maroon" href="spelling/spelling_lv16_itda/spelling_lv16_itda.html">
+  <span class="stripe"></span>
+  <span class="badge">L16</span>
+  <h3>잊다·잃다</h3>
+  <p>미정·주은의 분실물 이야기</p>
+</a>
+<a class="card c-orange" href="spelling/spelling_lv17_dareuda/spelling_lv17_dareuda.html">
+  <span class="stripe"></span>
+  <span class="badge">L17</span>
+  <h3>다르다·틀리다</h3>
+  <p>하영·예은의 정답 확인</p>
+</a>
+<a class="card c-amber" href="spelling/spelling_lv18_matchida/spelling_lv18_matchida.html">
+  <span class="stripe"></span>
+  <span class="badge">L18</span>
+  <h3>맞히다·맞추다</h3>
+  <p>채원·주현의 퀴즈 대결</p>
+</a>
+<a class="card c-rose" href="spelling/spelling_lv19_neulrida/spelling_lv19_neulrida.html">
+  <span class="stripe"></span>
+  <span class="badge">L19</span>
+  <h3>늘리다·늘이다</h3>
+  <p>하은·미정의 저축과 스트레칭</p>
+</a>
+<a class="card c-pink" href="spelling/spelling_lv20_galgeyo/spelling_lv20_galgeyo.html">
+  <span class="stripe"></span>
+  <span class="badge">L20</span>
+  <h3>갈게요·할게요</h3>
+  <p>예은·주은의 약속 카톡</p>
+</a>
+<a class="card c-magenta" href="spelling/spelling_lv21_bwaeyo/spelling_lv21_bwaeyo.html">
+  <span class="stripe"></span>
+  <span class="badge">L21</span>
+  <h3>봬요·뵈요</h3>
+  <p>하은·주현의 인사말</p>
+</a>
+<a class="card c-maroon" href="spelling/spelling_lv22_isseum/spelling_lv22_isseum.html">
+  <span class="stripe"></span>
+  <span class="badge">L22</span>
+  <h3>있음·없음 vs 있슴·없슴</h3>
+  <p>주은·미정의 안내문</p>
+</a>
+<a class="card c-orange" href="spelling/spelling_lv23_joro/spelling_lv23_joro.html">
+  <span class="stripe"></span>
+  <span class="badge">L23</span>
+  <h3>조사 -로·-으로·-에게</h3>
+  <p>채원·예은의 편지</p>
+</a>
+<a class="card c-amber" href="spelling/spelling_lv24_oerae1/spelling_lv24_oerae1.html">
+  <span class="stripe"></span>
+  <span class="badge">L24</span>
+  <h3>외래어 표기 1 (음식·음료)</h3>
+  <p>하은·미정의 카페 메뉴판</p>
+</a>
+<a class="card c-rose" href="spelling/spelling_lv25_oerae2/spelling_lv25_oerae2.html">
+  <span class="stripe"></span>
+  <span class="badge">L25</span>
+  <h3>외래어 표기 2 (일상·기술)</h3>
+  <p>주현·주은의 SNS 소개글</p>
+</a>
+<a class="card c-pink" href="spelling/spelling_lv26_gyeongeum/spelling_lv26_gyeongeum.html">
+  <span class="stripe"></span>
+  <span class="badge">L26</span>
+  <h3>사잇소리·경음화</h3>
+  <p>하영·미정의 시장 나들이</p>
+</a>
+<a class="card c-magenta" href="spelling/spelling_lv27_igaeun/spelling_lv27_igaeun.html">
+  <span class="stripe"></span>
+  <span class="badge">L27</span>
+  <h3>조사 이·가 vs 은·는</h3>
+  <p>예은·하영의 일기</p>
+</a>
+<a class="card c-maroon" href="spelling/spelling_lv28_gwanyong/spelling_lv28_gwanyong.html">
+  <span class="stripe"></span>
+  <span class="badge">L28</span>
+  <h3>자주 잘못 쓰는 관용 표현</h3>
+  <p>채원·미정의 발표문</p>
+</a>
+<a class="card c-orange" href="spelling/spelling_lv29_ss_ohryu/spelling_lv29_ss_ohryu.html">
+  <span class="stripe"></span>
+  <span class="badge">L29</span>
+  <h3>카톡·SNS 맞춤법 오류 TOP 10</h3>
+  <p>하은·주은의 단톡방</p>
+</a>
+<a class="card c-amber" href="spelling/spelling_lv30_final_resume/spelling_lv30_final_resume.html">
+  <span class="stripe"></span>
+  <span class="badge">L30</span>
+  <h3>종합 이력서·자기소개서 첨삭</h3>
+  <p>미정·채원의 지원서</p>
+</a>
+<a class="card c-rose" href="spelling/spelling_lv31_cafe_menu/spelling_lv31_cafe_menu.html">
+  <span class="stripe"></span>
+  <span class="badge">L31</span>
+  <h3>메뉴판·리뷰 속 맞춤법</h3>
+  <p>미정·채원의 생활 맞춤법</p>
+</a>
+<a class="card c-pink" href="spelling/spelling_lv32_hospital/spelling_lv32_hospital.html">
+  <span class="stripe"></span>
+  <span class="badge">L32</span>
+  <h3>접수증·처방전 속 맞춤법</h3>
+  <p>하은·주현의 생활 맞춤법</p>
+</a>
+<a class="card c-magenta" href="spelling/spelling_lv33_traffic/spelling_lv33_traffic.html">
+  <span class="stripe"></span>
+  <span class="badge">L33</span>
+  <h3>지하철·버스·택시 속 맞춤법</h3>
+  <p>하영·예은의 생활 맞춤법</p>
+</a>
+<a class="card c-maroon" href="spelling/spelling_lv34_shopping_store/spelling_lv34_shopping_store.html">
+  <span class="stripe"></span>
+  <span class="badge">L34</span>
+  <h3>교환·환불 요청 속 맞춤법</h3>
+  <p>주은·하은의 생활 맞춤법</p>
+</a>
+<a class="card c-orange" href="spelling/spelling_lv35_online_shopping/spelling_lv35_online_shopping.html">
+  <span class="stripe"></span>
+  <span class="badge">L35</span>
+  <h3>CS 문의·리뷰 속 맞춤법</h3>
+  <p>채원·미정의 생활 맞춤법</p>
+</a>
+<a class="card c-amber" href="spelling/spelling_lv36_albait/spelling_lv36_albait.html">
+  <span class="stripe"></span>
+  <span class="badge">L36</span>
+  <h3>지원서·면접 메시지 속 맞춤법</h3>
+  <p>하영·주은의 생활 맞춤법</p>
+</a>
+<a class="card c-rose" href="spelling/spelling_lv37_sns_msg/spelling_lv37_sns_msg.html">
+  <span class="stripe"></span>
+  <span class="badge">L37</span>
+  <h3>카톡·인스타 속 맞춤법</h3>
+  <p>예은·하영의 생활 맞춤법</p>
+</a>
+<a class="card c-pink" href="spelling/spelling_lv38_phone_call/spelling_lv38_phone_call.html">
+  <span class="stripe"></span>
+  <span class="badge">L38</span>
+  <h3>전화 통화·예약 메모 속 맞춤법</h3>
+  <p>주현·채원의 생활 맞춤법</p>
+</a>
+<a class="card c-magenta" href="spelling/spelling_lv39_public_office/spelling_lv39_public_office.html">
+  <span class="stripe"></span>
+  <span class="badge">L39</span>
+  <h3>주민센터·민원 서류 속 맞춤법</h3>
+  <p>하은·미정의 생활 맞춤법</p>
+</a>
+<a class="card c-maroon" href="spelling/spelling_lv40_bank/spelling_lv40_bank.html">
+  <span class="stripe"></span>
+  <span class="badge">L40</span>
+  <h3>통장·송금 문의 속 맞춤법</h3>
+  <p>주은·예은의 생활 맞춤법</p>
+</a>
+<a class="card c-orange" href="spelling/spelling_lv41_school_notice/spelling_lv41_school_notice.html">
+  <span class="stripe"></span>
+  <span class="badge">L41</span>
+  <h3>공지·과제 메모 속 맞춤법</h3>
+  <p>하영·주현의 생활 맞춤법</p>
+</a>
+<a class="card c-amber" href="spelling/spelling_lv42_club_meeting/spelling_lv42_club_meeting.html">
+  <span class="stripe"></span>
+  <span class="badge">L42</span>
+  <h3>모임 공지·회비 안내 속 맞춤법</h3>
+  <p>채원·하은의 생활 맞춤법</p>
+</a>
+<a class="card c-rose" href="spelling/spelling_lv43_travel/spelling_lv43_travel.html">
+  <span class="stripe"></span>
+  <span class="badge">L43</span>
+  <h3>숙소 예약·여행 후기 속 맞춤법</h3>
+  <p>주은·미정의 생활 맞춤법</p>
+</a>
+<a class="card c-pink" href="spelling/spelling_lv44_movie_show/spelling_lv44_movie_show.html">
+  <span class="stripe"></span>
+  <span class="badge">L44</span>
+  <h3>영화관·공연장 속 맞춤법</h3>
+  <p>하은·하영의 생활 맞춤법</p>
+</a>
+<a class="card c-magenta" href="spelling/spelling_lv45_letter/spelling_lv45_letter.html">
+  <span class="stripe"></span>
+  <span class="badge">L45</span>
+  <h3>손편지·안부 메시지 속 맞춤법</h3>
+  <p>예은·주현의 생활 맞춤법</p>
+</a>
+<a class="card c-maroon" href="spelling/spelling_lv46_moving_house/spelling_lv46_moving_house.html">
+  <span class="stripe"></span>
+  <span class="badge">L46</span>
+  <h3>이사 메시지·계약서 속 맞춤법</h3>
+  <p>미정·채원의 생활 맞춤법</p>
+</a>
+<a class="card c-orange" href="spelling/spelling_lv47_pet_vet/spelling_lv47_pet_vet.html">
+  <span class="stripe"></span>
+  <span class="badge">L47</span>
+  <h3>진료 메모·분양 글 속 맞춤법</h3>
+  <p>하영·주은의 생활 맞춤법</p>
+</a>
+<a class="card c-amber" href="spelling/spelling_lv48_health_exercise/spelling_lv48_health_exercise.html">
+  <span class="stripe"></span>
+  <span class="badge">L48</span>
+  <h3>헬스장·운동 일지 속 맞춤법</h3>
+  <p>하은·예은의 생활 맞춤법</p>
+</a>
+<a class="card c-rose" href="spelling/spelling_lv49_volunteer/spelling_lv49_volunteer.html">
+  <span class="stripe"></span>
+  <span class="badge">L49</span>
+  <h3>봉사 신청·소감문 속 맞춤법</h3>
+  <p>채원·주현의 생활 맞춤법</p>
+</a>
+<a class="card c-pink" href="spelling/spelling_lv50_my_day_10/spelling_lv50_my_day_10.html">
+  <span class="stripe"></span>
+  <span class="badge">L50</span>
+  <h3>내 하루 10장면 맞춤법 챌린지</h3>
+  <p>하영·미정의 생활 맞춤법</p>
+</a>
+  </div>
+</section>
+<section>
+  <h2>🤝 사회성과 관계 <span class="count">30종</span></h2>
+  <div class="grid">
+<a class="card c-green" href="social/social_lv01_intro/social_lv01_intro.html">
+  <span class="stripe"></span>
+  
+  <h3>S1 하은이의 자기소개</h3>
+  <p>새 학년 첫 만남</p>
+</a>
+<a class="card c-teal" href="social/social_lv02_request/social_lv02_request.html">
+  <span class="stripe"></span>
+  
+  <h3>S2 부탁하기와 부드러운 거절</h3>
+  <p>하영이와 주은이</p>
+</a>
+<a class="card c-lime" href="social/social_lv03_emotion/social_lv03_emotion.html">
+  <span class="stripe"></span>
+  
+  <h3>S3 예은이의 감정 표현</h3>
+  <p>알아차리고 말하기</p>
+</a>
+<a class="card c-cyan" href="social/social_lv04_thanks/social_lv04_thanks.html">
+  <span class="stripe"></span>
+  
+  <h3>S4 채원이의 칭찬과 감사</h3>
+  <p>마음을 담아 말해요</p>
+</a>
+<a class="card c-blue" href="social/social_lv05_conflict/social_lv05_conflict.html">
+  <span class="stripe"></span>
+  
+  <h3>S5 미정·주현이의 오해 풀기</h3>
+  <p>갈등 해결 4단계</p>
+</a>
+<a class="card c-purple" href="social/social_lv06_promise/social_lv06_promise.html">
+  <span class="stripe"></span>
+  
+  <h3>S6 약속 지키기와 사과</h3>
+  <p>주은·미정</p>
+</a>
+<a class="card c-green" href="social/social_lv07_refuse/social_lv07_refuse.html">
+  <span class="stripe"></span>
+  
+  <h3>S7 주현이의 단호한 거절</h3>
+  <p>나를 지키는 NO</p>
+</a>
+<a class="card c-teal" href="social/social_lv08_sns/social_lv08_sns.html">
+  <span class="stripe"></span>
+  
+  <h3>S8 SNS·단체 채팅방 예절</h3>
+  <p>하은·하영</p>
+</a>
+<a class="card c-lime" href="social/social_lv09_teamwork/social_lv09_teamwork.html">
+  <span class="stripe"></span>
+  
+  <h3>S9 예은·채원·주은의 모둠 활동</h3>
+  <p>협동</p>
+</a>
+<a class="card c-cyan" href="social/social_lv10_adults/social_lv10_adults.html">
+  <span class="stripe"></span>
+  
+  <h3>S10 어른께 예의 있게 말하기</h3>
+  <p>하영·미정</p>
+</a>
+<a class="card c-blue" href="social/social_lv11_praise/social_lv11_praise.html">
+  <span class="stripe"></span>
+  
+  <h3>S11 칭찬 주고받기</h3>
+  <p>하영·주은·채원</p>
+</a>
+<a class="card c-purple" href="social/social_lv12_comfort/social_lv12_comfort.html">
+  <span class="stripe"></span>
+  
+  <h3>S12 위로하기</h3>
+  <p>미정·예은·하은</p>
+</a>
+<a class="card c-green" href="social/social_lv13_gossip/social_lv13_gossip.html">
+  <span class="stripe"></span>
+  
+  <h3>S13 험담·뒷담화 대처</h3>
+  <p>하영·주현·채원</p>
+</a>
+<a class="card c-teal" href="social/social_lv14_parents/social_lv14_parents.html">
+  <span class="stripe"></span>
+  
+  <h3>S14 부모님과 대화</h3>
+  <p>주은·주현·하은</p>
+</a>
+<a class="card c-lime" href="social/social_lv15_sibling/social_lv15_sibling.html">
+  <span class="stripe"></span>
+  
+  <h3>S15 형제자매 관계</h3>
+  <p>채원·주은·하영</p>
+</a>
+<a class="card c-cyan" href="social/social_lv16_friend_op/social_lv16_friend_op.html">
+  <span class="stripe"></span>
+  
+  <h3>S16 이성 친구와 우정</h3>
+  <p>하영·주현·미정</p>
+</a>
+<a class="card c-blue" href="social/social_lv17_dating/social_lv17_dating.html">
+  <span class="stripe"></span>
+  
+  <h3>S17 연애 시작</h3>
+  <p>채원·주현·예은</p>
+</a>
+<a class="card c-purple" href="social/social_lv18_breakup/social_lv18_breakup.html">
+  <span class="stripe"></span>
+  
+  <h3>S18 이별 대처</h3>
+  <p>하은·미정·주현</p>
+</a>
+<a class="card c-green" href="social/social_lv19_school_violence/social_lv19_school_violence.html">
+  <span class="stripe"></span>
+  
+  <h3>S19 학교폭력 대처</h3>
+  <p>채원·주은·하영</p>
+</a>
+<a class="card c-teal" href="social/social_lv20_bullying/social_lv20_bullying.html">
+  <span class="stripe"></span>
+  
+  <h3>S20 왕따·따돌림 인식과 대처</h3>
+  <p>예은·주현·미정</p>
+</a>
+<a class="card c-lime" href="social/social_lv21_harassment/social_lv21_harassment.html">
+  <span class="stripe"></span>
+  
+  <h3>S21 싫어요, 내 몸은 소중해요</h3>
+  <p>하은·채원</p>
+</a>
+<a class="card c-cyan" href="social/social_lv22_grooming/social_lv22_grooming.html">
+  <span class="stripe"></span>
+  
+  <h3>S22 낯선 어른의 접근 · 온라인 안전</h3>
+  <p>주은·예은</p>
+</a>
+<a class="card c-blue" href="social/social_lv23_boss/social_lv23_boss.html">
+  <span class="stripe"></span>
+  
+  <h3>S23 사장님·상사와 대화하기</h3>
+  <p>미정·주현</p>
+</a>
+<a class="card c-purple" href="social/social_lv24_coworker/social_lv24_coworker.html">
+  <span class="stripe"></span>
+  
+  <h3>S24 동료와 함께 일하기</h3>
+  <p>채원·주은·하영</p>
+</a>
+<a class="card c-green" href="social/social_lv25_customer/social_lv25_customer.html">
+  <span class="stripe"></span>
+  
+  <h3>S25 어려운 손님 응대하기</h3>
+  <p>미정·주현</p>
+</a>
+<a class="card c-teal" href="social/social_lv26_neighbor/social_lv26_neighbor.html">
+  <span class="stripe"></span>
+  
+  <h3>S26 이웃과 부딪히지 않기</h3>
+  <p>하은·주현</p>
+</a>
+<a class="card c-lime" href="social/social_lv27_publicplace/social_lv27_publicplace.html">
+  <span class="stripe"></span>
+  
+  <h3>S27 공공장소 예의</h3>
+  <p>채원·주은·예은</p>
+</a>
+<a class="card c-cyan" href="social/social_lv28_community/social_lv28_community.html">
+  <span class="stripe"></span>
+  
+  <h3>S28 지역사회에 발 딛기</h3>
+  <p>하영·미정·주은</p>
+</a>
+<a class="card c-blue" href="social/social_lv29_mentor/social_lv29_mentor.html">
+  <span class="stripe"></span>
+  
+  <h3>S29 나를 도와줄 어른 찾기</h3>
+  <p>예은·하은</p>
+</a>
+<a class="card c-purple" href="social/social_lv30_final_adult/social_lv30_final_adult.html">
+  <span class="stripe"></span>
+  
+  <h3>S30 종합 · 어른의 대인관계</h3>
+  <p>하은·하영·주은·주현·미정·채원·예은</p>
+</a>
+  </div>
+</section>
+<section>
+  <h2>🏠 성인 생활 <span class="count">10종</span></h2>
+  <div class="grid">
+<a class="card c-amber" href="adult/adult_lv01_becoming/adult_lv01_becoming.html">
+  <span class="stripe"></span>
+  <span class="badge">성인 생활 1차시</span>
+  <h3>— 성인이 된다는 것</h3>
+  
+</a>
+<a class="card c-orange" href="adult/adult_lv02_firstday/adult_lv02_firstday.html">
+  <span class="stripe"></span>
+  <span class="badge">성인 생활 2차시</span>
+  <h3>— 첫 출근·직장 예절</h3>
+  
+</a>
+<a class="card c-brown" href="adult/adult_lv03_contract/adult_lv03_contract.html">
+  <span class="stripe"></span>
+  <span class="badge">성인 생활 3차시</span>
+  <h3>— 근로계약서와 급여명세서</h3>
+  
+</a>
+<a class="card c-maroon" href="adult/adult_lv04_wallet/adult_lv04_wallet.html">
+  <span class="stripe"></span>
+  <span class="badge">성인 생활 4차시</span>
+  <h3>— 월급 관리와 통장 쪼개기</h3>
+  
+</a>
+<a class="card c-rose" href="adult/adult_lv05_bank/adult_lv05_bank.html">
+  <span class="stripe"></span>
+  <span class="badge">성인 생활 5차시</span>
+  <h3>— 은행 이용하기</h3>
+  
+</a>
+<a class="card c-pink" href="adult/adult_lv06_bills/adult_lv06_bills.html">
+  <span class="stripe"></span>
+  <span class="badge">성인 생활 6차시</span>
+  <h3>— 공과금과 자동이체</h3>
+  
+</a>
+<a class="card c-amber" href="adult/adult_lv07_tax/adult_lv07_tax.html">
+  <span class="stripe"></span>
+  <span class="badge">성인 생활 7차시</span>
+  <h3>— 세금과 연말정산</h3>
+  
+</a>
+<a class="card c-orange" href="adult/adult_lv08_card/adult_lv08_card.html">
+  <span class="stripe"></span>
+  <span class="badge">성인 생활 8차시</span>
+  <h3>— 신용카드와 체크카드</h3>
+  
+</a>
+<a class="card c-brown" href="adult/adult_lv09_housing/adult_lv09_housing.html">
+  <span class="stripe"></span>
+  <span class="badge">성인 생활 9차시</span>
+  <h3>— 자립 주거와 월세</h3>
+  
+</a>
+<a class="card c-maroon" href="adult/adult_lv10_health/adult_lv10_health.html">
+  <span class="stripe"></span>
+  <span class="badge">성인 생활 10차시</span>
+  <h3>— 병원·건강보험·응급</h3>
+  
+</a>
+  </div>
+</section>
+<section>
+  <h2>👔 직업 탐색·면접 <span class="count">20종</span></h2>
+  <div class="grid">
+<a class="card c-indigo" href="career/career_lv01_cleaning/career_lv01_cleaning.html">
+  <span class="stripe"></span>
+  <span class="badge">L1</span>
+  <h3>청소하기</h3>
+  <p>하은이의 주말 청소 (쉬운 버전)</p>
+</a>
+<a class="card c-blue" href="career/career_lv02_laundry/career_lv02_laundry.html">
+  <span class="stripe"></span>
+  <span class="badge">L2</span>
+  <h3>세탁하기</h3>
+  <p>하영이의 첫 세탁 (쉬운 버전)</p>
+</a>
+<a class="card c-cyan" href="career/career_lv03_cooking/career_lv03_cooking.html">
+  <span class="stripe"></span>
+  <span class="badge">L3</span>
+  <h3>간단한 요리</h3>
+  <p>미정이의 첫 요리 (쉬운 버전)</p>
+</a>
+<a class="card c-teal" href="career/career_lv04_organizing/career_lv04_organizing.html">
+  <span class="stripe"></span>
+  <span class="badge">L4</span>
+  <h3>정리정돈</h3>
+  <p>주은이의 방 정리 (쉬운 버전)</p>
+</a>
+<a class="card c-purple" href="career/career_lv05_recycling/career_lv05_recycling.html">
+  <span class="stripe"></span>
+  <span class="badge">L5</span>
+  <h3>분리수거</h3>
+  <p>채원이의 재활용 (쉬운 버전)</p>
+</a>
+<a class="card c-magenta" href="career/career_lv06_worktime/career_lv06_worktime.html">
+  <span class="stripe"></span>
+  <span class="badge">L6</span>
+  <h3>일하는 시간·출근</h3>
+  <p>주현이의 첫 출근</p>
+</a>
+<a class="card c-indigo" href="career/career_lv07_greeting/career_lv07_greeting.html">
+  <span class="stripe"></span>
+  <span class="badge">L7</span>
+  <h3>반갑게 인사하기 · 존댓말</h3>
+  <p>미정이의 알바 첫날</p>
+</a>
+<a class="card c-blue" href="career/career_lv08_instruction/career_lv08_instruction.html">
+  <span class="stripe"></span>
+  <span class="badge">L8</span>
+  <h3>시키는 일 잘 알아듣기</h3>
+  <p>예은이의 사무 보조</p>
+</a>
+<a class="card c-cyan" href="career/career_lv09_mistake/career_lv09_mistake.html">
+  <span class="stripe"></span>
+  <span class="badge">L9</span>
+  <h3>실수해도 괜찮아요</h3>
+  <p>채원이의 회복</p>
+</a>
+<a class="card c-teal" href="career/career_lv10_salary/career_lv10_salary.html">
+  <span class="stripe"></span>
+  <span class="badge">L10</span>
+  <h3>월급과 근로계약서</h3>
+  <p>주현·예은·주은의 첫 월급</p>
+</a>
+<a class="card c-purple" href="interview/interview_lv01_intro/interview_lv01_intro.html">
+  <span class="stripe"></span>
+  
+  <h3>취업 면접 1차시</h3>
+  <p>면접이란?</p>
+</a>
+<a class="card c-magenta" href="interview/interview_lv02_dress/interview_lv02_dress.html">
+  <span class="stripe"></span>
+  
+  <h3>취업 면접 2차시</h3>
+  <p>면접 복장</p>
+</a>
+<a class="card c-indigo" href="interview/interview_lv03_attitude/interview_lv03_attitude.html">
+  <span class="stripe"></span>
+  
+  <h3>취업 면접 3차시</h3>
+  <p>태도와 매너</p>
+</a>
+<a class="card c-blue" href="interview/interview_lv04_intro/interview_lv04_intro.html">
+  <span class="stripe"></span>
+  
+  <h3>취업 면접 4차시</h3>
+  <p>자기소개</p>
+</a>
+<a class="card c-cyan" href="interview/interview_lv05_motivation/interview_lv05_motivation.html">
+  <span class="stripe"></span>
+  
+  <h3>취업 면접 5차시</h3>
+  <p>지원 동기</p>
+</a>
+<a class="card c-teal" href="interview/interview_lv06_strength/interview_lv06_strength.html">
+  <span class="stripe"></span>
+  
+  <h3>취업 면접 6차시</h3>
+  <p>강점·약점</p>
+</a>
+<a class="card c-purple" href="interview/interview_lv07_tough/interview_lv07_tough.html">
+  <span class="stripe"></span>
+  
+  <h3>취업 면접 7차시</h3>
+  <p>곤란한 질문 대처</p>
+</a>
+<a class="card c-magenta" href="interview/interview_lv08_question/interview_lv08_question.html">
+  <span class="stripe"></span>
+  
+  <h3>취업 면접 8차시</h3>
+  <p>역질문·마지막 인사</p>
+</a>
+<a class="card c-indigo" href="interview/interview_lv09_mock/interview_lv09_mock.html">
+  <span class="stripe"></span>
+  
+  <h3>취업 면접 9차시</h3>
+  <p>모의 면접</p>
+</a>
+<a class="card c-blue" href="interview/interview_lv10_after/interview_lv10_after.html">
+  <span class="stripe"></span>
+  
+  <h3>취업 면접 10차시</h3>
+  <p>면접 후·합격 준비</p>
+</a>
+  </div>
+</section>
+<section>
+  <h2>☕ 직업 체험 (바리스타·청소) <span class="count">20종</span></h2>
+  <div class="grid">
+<a class="card c-brown" href="barista/barista_lv01_intro/barista_lv01_intro.html">
+  <span class="stripe"></span>
+  <span class="badge">바리스타 1차시</span>
+  <h3>— 바리스타라는 직업</h3>
+  
+</a>
+<a class="card c-orange" href="barista/barista_lv02_history/barista_lv02_history.html">
+  <span class="stripe"></span>
+  <span class="badge">바리스타 2차시</span>
+  <h3>— 커피의 역사와 종류</h3>
+  
+</a>
+<a class="card c-amber" href="barista/barista_lv03_roasting/barista_lv03_roasting.html">
+  <span class="stripe"></span>
+  <span class="badge">바리스타 3차시</span>
+  <h3>— 로스팅과 향미</h3>
+  
+</a>
+<a class="card c-lime" href="barista/barista_lv04_grinding/barista_lv04_grinding.html">
+  <span class="stripe"></span>
+  <span class="badge">바리스타 4차시</span>
+  <h3>— 원두 그라인딩과 보관</h3>
+  
+</a>
+<a class="card c-green" href="barista/barista_lv05_espresso/barista_lv05_espresso.html">
+  <span class="stripe"></span>
+  <span class="badge">바리스타 5차시</span>
+  <h3>— 에스프레소 추출</h3>
+  
+</a>
+<a class="card c-teal" href="barista/barista_lv06_milk/barista_lv06_milk.html">
+  <span class="stripe"></span>
+  <span class="badge">바리스타 6차시</span>
+  <h3>— 우유 스티밍</h3>
+  
+</a>
+<a class="card c-brown" href="barista/barista_lv07_menu/barista_lv07_menu.html">
+  <span class="stripe"></span>
+  <span class="badge">바리스타 7차시</span>
+  <h3>— 카푸치노·라떼 메뉴</h3>
+  
+</a>
+<a class="card c-orange" href="barista/barista_lv08_equipment/barista_lv08_equipment.html">
+  <span class="stripe"></span>
+  <span class="badge">바리스타 8차시</span>
+  <h3>— 커피 머신과 도구</h3>
+  
+</a>
+<a class="card c-amber" href="barista/barista_lv09_hygiene/barista_lv09_hygiene.html">
+  <span class="stripe"></span>
+  <span class="badge">바리스타 9차시</span>
+  <h3>— 카페 위생과 안전</h3>
+  
+</a>
+<a class="card c-lime" href="barista/barista_lv10_service/barista_lv10_service.html">
+  <span class="stripe"></span>
+  <span class="badge">바리스타 10차시</span>
+  <h3>— 서비스와 KCA 실기</h3>
+  
+</a>
+<a class="card c-green" href="cleaning/cleaning_lv01_intro/cleaning_lv01_intro.html">
+  <span class="stripe"></span>
+  <span class="badge">청소 1차시</span>
+  <h3>— 청소하는 일 알아보기</h3>
+  
+</a>
+<a class="card c-teal" href="cleaning/cleaning_lv02_tools/cleaning_lv02_tools.html">
+  <span class="stripe"></span>
+  <span class="badge">청소 2차시</span>
+  <h3>— 청소 도구와 세제 알아보기</h3>
+  
+</a>
+<a class="card c-brown" href="cleaning/cleaning_lv03_office/cleaning_lv03_office.html">
+  <span class="stripe"></span>
+  <span class="badge">청소 3차시</span>
+  <h3>— 사무실 청소하기</h3>
+  
+</a>
+<a class="card c-orange" href="cleaning/cleaning_lv04_toilet/cleaning_lv04_toilet.html">
+  <span class="stripe"></span>
+  <span class="badge">청소 4차시</span>
+  <h3>— 화장실 청소하기</h3>
+  
+</a>
+<a class="card c-amber" href="cleaning/cleaning_lv05_kitchen/cleaning_lv05_kitchen.html">
+  <span class="stripe"></span>
+  <span class="badge">청소 5차시</span>
+  <h3>— 주방 청소하기</h3>
+  
+</a>
+<a class="card c-lime" href="cleaning/cleaning_lv06_window/cleaning_lv06_window.html">
+  <span class="stripe"></span>
+  <span class="badge">청소 6차시</span>
+  <h3>— 유리·창문 청소</h3>
+  
+</a>
+<a class="card c-green" href="cleaning/cleaning_lv07_floor/cleaning_lv07_floor.html">
+  <span class="stripe"></span>
+  <span class="badge">청소 7차시</span>
+  <h3>— 바닥 청소</h3>
+  
+</a>
+<a class="card c-teal" href="cleaning/cleaning_lv08_disinfect/cleaning_lv08_disinfect.html">
+  <span class="stripe"></span>
+  <span class="badge">청소 8차시</span>
+  <h3>— 세균 없애기 (소독)</h3>
+  
+</a>
+<a class="card c-brown" href="cleaning/cleaning_lv09_safety/cleaning_lv09_safety.html">
+  <span class="stripe"></span>
+  <span class="badge">청소 9차시</span>
+  <h3>— 안전하게 청소해요</h3>
+  
+</a>
+<a class="card c-orange" href="cleaning/cleaning_lv10_career/cleaning_lv10_career.html">
+  <span class="stripe"></span>
+  <span class="badge">청소 10차시</span>
+  <h3>— 취업 준비</h3>
+  
+</a>
+  </div>
+</section>
+<section>
+  <h2>💰 돈 관리 <span class="count">10종</span></h2>
+  <div class="grid">
+<a class="card c-lime" href="money/money_lv01_currency/money_lv01_currency.html">
+  <span class="stripe"></span>
+  
+  <h3>화폐 수학 1차시</h3>
+  <p>우리나라 돈 알아보기</p>
+</a>
+<a class="card c-green" href="money/money_lv02_counting/money_lv02_counting.html">
+  <span class="stripe"></span>
+  
+  <h3>화폐 수학 2차시</h3>
+  <p>화폐 조합으로 금액 만들기</p>
+</a>
+<a class="card c-teal" href="money/money_lv03_convenience/money_lv03_convenience.html">
+  <span class="stripe"></span>
+  
+  <h3>화폐 수학 3차시</h3>
+  <p>편의점에서 물건 사기</p>
+</a>
+<a class="card c-amber" href="money/money_lv04_cafe/money_lv04_cafe.html">
+  <span class="stripe"></span>
+  
+  <h3>화폐 수학 4차시</h3>
+  <p>카페에서 주문하기</p>
+</a>
+<a class="card c-orange" href="money/money_lv05_dutchpay/money_lv05_dutchpay.html">
+  <span class="stripe"></span>
+  
+  <h3>화폐 수학 5차시</h3>
+  <p>분식집·더치페이</p>
+</a>
+<a class="card c-cyan" href="money/money_lv06_mart/money_lv06_mart.html">
+  <span class="stripe"></span>
+  
+  <h3>화폐 수학 6차시</h3>
+  <p>마트 장보기와 할인</p>
+</a>
+<a class="card c-lime" href="money/money_lv07_stationery/money_lv07_stationery.html">
+  <span class="stripe"></span>
+  
+  <h3>화폐 수학 7차시</h3>
+  <p>문구점에서 예산 안에 사기</p>
+</a>
+<a class="card c-green" href="money/money_lv08_allowance/money_lv08_allowance.html">
+  <span class="stripe"></span>
+  
+  <h3>화폐 수학 8차시</h3>
+  <p>용돈 관리와 저축</p>
+</a>
+<a class="card c-teal" href="money/money_lv09_transit/money_lv09_transit.html">
+  <span class="stripe"></span>
+  
+  <h3>화폐 수학 9차시</h3>
+  <p>교통비와 카드 잔액</p>
+</a>
+<a class="card c-amber" href="money/money_lv10_parttime/money_lv10_parttime.html">
+  <span class="stripe"></span>
+  
+  <h3>화폐 수학 10차시</h3>
+  <p>아르바이트 월급과 소비 계획</p>
+</a>
+  </div>
+</section>
+<section>
+  <h2>🐕 반려동물·동물 관리 <span class="count">10종</span></h2>
+  <div class="grid">
+<a class="card c-teal" href="pet/pet_lv01_intro/pet_lv01_intro.html">
+  <span class="stripe"></span>
+  <span class="badge">반려동물관리사 1차시</span>
+  <h3>— 직업 이해</h3>
+  
+</a>
+<a class="card c-green" href="pet/pet_lv02_species/pet_lv02_species.html">
+  <span class="stripe"></span>
+  <span class="badge">반려동물관리사 2차시</span>
+  <h3>— 반려동물의 종류</h3>
+  
+</a>
+<a class="card c-cyan" href="pet/pet_lv03_dogcare/pet_lv03_dogcare.html">
+  <span class="stripe"></span>
+  <span class="badge">반려동물관리사 3차시</span>
+  <h3>— 강아지 기본 관리</h3>
+  
+</a>
+<a class="card c-blue" href="pet/pet_lv04_catcare/pet_lv04_catcare.html">
+  <span class="stripe"></span>
+  <span class="badge">반려동물관리사 4차시</span>
+  <h3>— 고양이 기본 관리</h3>
+  
+</a>
+<a class="card c-purple" href="pet/pet_lv05_grooming/pet_lv05_grooming.html">
+  <span class="stripe"></span>
+  <span class="badge">반려동물관리사 5차시</span>
+  <h3>— 미용과 목욕</h3>
+  
+</a>
+<a class="card c-rose" href="pet/pet_lv06_health/pet_lv06_health.html">
+  <span class="stripe"></span>
+  <span class="badge">반려동물관리사 6차시</span>
+  <h3>— 건강과 예방접종</h3>
+  
+</a>
+<a class="card c-teal" href="pet/pet_lv07_emergency/pet_lv07_emergency.html">
+  <span class="stripe"></span>
+  <span class="badge">반려동물관리사 7차시</span>
+  <h3>— 응급 상황과 병원</h3>
+  
+</a>
+<a class="card c-green" href="pet/pet_lv08_training/pet_lv08_training.html">
+  <span class="stripe"></span>
+  <span class="badge">반려동물관리사 8차시</span>
+  <h3>— 훈련 기초</h3>
+  
+</a>
+<a class="card c-cyan" href="pet/pet_lv09_business/pet_lv09_business.html">
+  <span class="stripe"></span>
+  <span class="badge">반려동물관리사 9차시</span>
+  <h3>— 펫샵·호텔·미용실 업무</h3>
+  
+</a>
+<a class="card c-blue" href="pet/pet_lv10_career/pet_lv10_career.html">
+  <span class="stripe"></span>
+  <span class="badge">반려동물관리사 10차시</span>
+  <h3>— 자격증·취업 준비</h3>
+  
+</a>
+  </div>
+</section>
+<section>
+  <h2>🔢 수학 <span class="count">4종</span></h2>
+  <div class="grid">
+<a class="card c-indigo" href="math/math_basic_shapes/math_basic_shapes.html">
+  <span class="stripe"></span>
+  
+  <h3>기본 도형</h3>
+  <p>삼각형·사각형·원 학습지</p>
+</a>
+<a class="card c-blue" href="math/math_clock_reading/math_clock_reading.html">
+  <span class="stripe"></span>
+  
+  <h3>시계 보기 학습지</h3>
+  <p>몇 시·몇 시 30분</p>
+</a>
+<a class="card c-purple" href="math/math_ruler_measure/math_ruler_measure.html">
+  <span class="stripe"></span>
+  
+  <h3>자로 길이 재기</h3>
+  <p>mm·cm·m 학습지</p>
+</a>
+<a class="card c-cyan" href="math/math_solid_shapes/math_solid_shapes.html">
+  <span class="stripe"></span>
+  
+  <h3>입체도형</h3>
+  <p>직육면체·각기둥·원기둥·구 학습지</p>
+</a>
+  </div>
+</section>
+<section>
+  <h2>🔤 낱말 찾기 <span class="count">11종</span></h2>
+  <div class="grid">
+<a class="card c-magenta" href="word_search/word_search_animal/word_search_animal.html">
+  <span class="stripe"></span>
+  
+  <h3>Animal Word Search · 동물 영어 단어찾기 30×30</h3>
+  
+</a>
+<a class="card c-purple" href="word_search/word_search_cafe/word_search_cafe.html">
+  <span class="stripe"></span>
+  
+  <h3>Cafe Word Search · 카페 영어 단어찾기 30×30</h3>
+  
+</a>
+<a class="card c-rose" href="word_search/word_search_clothes/word_search_clothes.html">
+  <span class="stripe"></span>
+  
+  <h3>Clothes Word Search · 옷 영어 단어찾기 30×30</h3>
+  
+</a>
+<a class="card c-pink" href="word_search/word_search_country/word_search_country.html">
+  <span class="stripe"></span>
+  
+  <h3>Country Word Search · 나라 영어 단어찾기 30×30</h3>
+  
+</a>
+<a class="card c-indigo" href="word_search/word_search_family/word_search_family.html">
+  <span class="stripe"></span>
+  
+  <h3>Family Word Search · 가족 영어 단어찾기 30×30</h3>
+  
+</a>
+<a class="card c-blue" href="word_search/word_search_food/word_search_food.html">
+  <span class="stripe"></span>
+  
+  <h3>Food Word Search · 음식 영어 단어찾기 30×30</h3>
+  
+</a>
+<a class="card c-magenta" href="word_search/word_search_home/word_search_home.html">
+  <span class="stripe"></span>
+  
+  <h3>Home Word Search · 집 영어 단어찾기 30×30</h3>
+  
+</a>
+<a class="card c-purple" href="word_search/word_search_plant/word_search_plant.html">
+  <span class="stripe"></span>
+  
+  <h3>Plant Word Search · 식물 영어 단어찾기 30×30</h3>
+  
+</a>
+<a class="card c-rose" href="word_search/word_search_scenery/word_search_scenery.html">
+  <span class="stripe"></span>
+  
+  <h3>Scenery Word Search · 풍경 영어 단어찾기 30×30</h3>
+  
+</a>
+<a class="card c-pink" href="word_search/word_search_school/word_search_school.html">
+  <span class="stripe"></span>
+  
+  <h3>School Word Search · 학교 영어 단어찾기 30×30</h3>
+  
+</a>
+<a class="card c-indigo" href="word_search/word_search_thing/word_search_thing.html">
+  <span class="stripe"></span>
+  
+  <h3>Things Word Search · 사물 영어 단어찾기 30×30</h3>
+  
+</a>
+  </div>
+</section>
+<section>
+  <h2>📚 기타 자료 <span class="count">18종</span></h2>
+  <div class="extra-list">
+<a href="praise_stickers/praise_stickers.html"><strong>📁 praise_stickers</strong> — 칭찬 스티커 — 혜화여자고등학교 특수학급</a>
+<a href="profile/profile.html"><strong>📁 profile</strong> — sm · 자기소개</a>
+<a href="sm/index.html"><strong>📁 sm</strong> — 고등학교 특수학급</a>
+<a href="03/PRD.md"><strong>📁 03</strong> — 03 자료 (1개)</a>
+<a href="spelling_game_visual.html">spelling_game_visual.html<span class="ext">.html</span></a>
+<a href="worksheet_1차시.html">worksheet_1차시.html<span class="ext">.html</span></a>
+<a href="worksheet_2차시.html">worksheet_2차시.html<span class="ext">.html</span></a>
+<a href="worksheet_3차시.html">worksheet_3차시.html<span class="ext">.html</span></a>
+<a href="worksheet_감정단어카드.html">worksheet_감정단어카드.html<span class="ext">.html</span></a>
+<a href="worksheet_상황카드.html">worksheet_상황카드.html<span class="ext">.html</span></a>
+<a href="국어_학습자료.html">국어_학습자료.html<span class="ext">.html</span></a>
+<a href="국어_학습자료.md">국어_학습자료.md<span class="ext">.md</span></a>
+<a href="링크자료.hwpx">링크자료.hwpx<span class="ext">.hwpx</span></a>
+<a href="맞춤밥.pdf">맞춤밥.pdf<span class="ext">.pdf</span></a>
+<a href="맞춤법 게임 학습지 (중학교 수준).pdf">맞춤법 게임 학습지 (중학교 수준).pdf<span class="ext">.pdf</span></a>
+<a href="시간을 배워요 – 학습지.pdf">시간을 배워요 – 학습지.pdf<span class="ext">.pdf</span></a>
+<a href="한글쓰기_학습자료.md">한글쓰기_학습자료.md<span class="ext">.md</span></a>
+<a href="한글쓰기_학습지.html">한글쓰기_학습지.html<span class="ext">.html</span></a>
+  </div>
+</section>
+</main>
+
+<footer>
+  © 혜화여자고등학교 특수학급
+</footer>
+
+</body>
+</html>

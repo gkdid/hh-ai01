@@ -1,0 +1,466 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.app{max-width:420px;margin:0 auto;background:var(--color-background-tertiary);min-height:100vh}
+.header{background:#FF5A00;color:white;padding:14px 16px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:100}
+.header h1{font-size:18px;font-weight:500;flex:1}
+.hdr-btns{display:flex;gap:6px}
+.cart-btn{background:rgba(255,255,255,0.2);border:none;color:white;padding:6px 10px;border-radius:20px;font-size:13px;cursor:pointer}
+.cart-badge{background:white;color:#FF5A00;border-radius:50%;width:18px;height:18px;font-size:11px;font-weight:500;display:inline-flex;align-items:center;justify-content:center;margin-left:3px}
+.location-bar{background:white;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #eee;font-size:13px;color:#555}
+.loc-dot{width:10px;height:10px;background:#FF5A00;border-radius:50%;flex-shrink:0}
+.section-title{padding:16px 16px 8px;font-size:15px;font-weight:500;color:var(--color-text-primary)}
+.categories{display:flex;gap:8px;padding:0 16px 12px;overflow-x:auto;scrollbar-width:none}
+.cat-chip{background:white;border:1px solid #eee;padding:6px 14px;border-radius:20px;font-size:13px;cursor:pointer;white-space:nowrap;color:#555}
+.cat-chip.active{background:#FF5A00;color:white;border-color:#FF5A00}
+.store-list{padding:0 16px;display:flex;flex-direction:column;gap:12px}
+.store-card{background:white;border-radius:12px;overflow:hidden;cursor:pointer;border:1px solid #eee}
+.store-img{height:110px;display:flex;align-items:center;justify-content:center;font-size:46px;background:#FFF8F5}
+.store-info{padding:12px}
+.store-name{font-size:15px;font-weight:500;color:var(--color-text-primary)}
+.store-meta{font-size:12px;color:#888;margin-top:4px}
+.store-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.tag{background:#FFF0E8;color:#FF5A00;font-size:11px;padding:3px 8px;border-radius:10px}
+.screen{display:none}.screen.active{display:block}
+.back-btn{background:none;border:none;color:white;font-size:20px;cursor:pointer;padding:0}
+.menu-list{padding:16px;display:flex;flex-direction:column;gap:10px}
+.menu-item{background:white;border-radius:10px;padding:14px;display:flex;justify-content:space-between;align-items:center;border:1px solid #eee}
+.menu-name{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.menu-desc{font-size:12px;color:#999;margin-top:3px}
+.menu-price{font-size:14px;font-weight:500;color:#FF5A00;margin-top:6px}
+.qty-ctrl{display:flex;align-items:center;gap:8px}
+.qty-btn{width:28px;height:28px;border-radius:50%;border:1.5px solid #FF5A00;background:white;color:#FF5A00;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:500}
+.qty-num{font-size:14px;font-weight:500;min-width:20px;text-align:center;color:var(--color-text-primary)}
+.order-bar{position:sticky;bottom:0;background:#FF5A00;color:white;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.order-bar span{font-size:14px;font-weight:500}
+.block{background:white;border-radius:10px;padding:14px;border:1px solid #eee}
+.block-title{font-size:14px;font-weight:500;margin-bottom:10px;color:var(--color-text-primary)}
+.addr-input{width:100%;border:1px solid #eee;border-radius:8px;padding:10px;font-size:14px;margin-bottom:8px;background:var(--color-background-primary);color:var(--color-text-primary)}
+.dong-select{width:100%;border:1px solid #eee;border-radius:8px;padding:10px;font-size:14px;margin-bottom:8px;background:var(--color-background-primary);color:var(--color-text-primary)}
+.pay-methods{display:flex;gap:10px}
+.pay-method{flex:1;border:1.5px solid #eee;border-radius:10px;padding:14px 8px;text-align:center;cursor:pointer;background:white}
+.pay-method.selected{border-color:#FF5A00;background:#FFF8F5}
+.pay-method-icon{font-size:22px;margin-bottom:5px}
+.pay-method-label{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.pay-method-sub{font-size:11px;color:#aaa;margin-top:2px}
+.card-detail,.cash-detail{margin-top:12px;display:none}
+.card-info-box{background:#EEF3FE;border-radius:10px;padding:14px 16px;border:1px solid #C5D4F8;display:flex;align-items:center;gap:14px}
+.card-types{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.card-type-btn{border:1.5px solid #eee;border-radius:8px;padding:8px 14px;font-size:13px;cursor:pointer;background:white;color:var(--color-text-primary)}
+.card-type-btn.selected{border-color:#FF5A00;background:#FFF8F5;color:#FF5A00;font-weight:500}
+.cash-info{background:#F0FAF5;border-radius:8px;padding:12px;font-size:13px;color:#2a7a50;line-height:1.6;border:1px solid #c5e8d8}
+.change-row{display:flex;align-items:center;gap:8px;margin-top:10px}
+.change-select{flex:1;border:1px solid #eee;border-radius:8px;padding:8px;font-size:14px;background:var(--color-background-primary);color:var(--color-text-primary)}
+.change-result{font-size:13px;font-weight:500;margin-top:8px;min-height:20px}
+.pay-btn{width:100%;background:#FF5A00;color:white;border:none;padding:16px;border-radius:10px;font-size:16px;font-weight:500;cursor:pointer;margin-top:4px}
+.notice{background:#FFF8F5;border-left:3px solid #FF5A00;padding:10px 14px;border-radius:0 8px 8px 0;margin:16px;font-size:13px;color:#666}
+.store-header{background:#FF5A00;padding:26px 16px 18px;color:white}
+.store-big-emoji{font-size:46px;margin-bottom:6px}
+.divider{height:1px;background:#eee;margin:10px 0}
+.price-row{display:flex;justify-content:space-between;font-size:14px;color:#555;padding:3px 0}
+.price-row.total{font-weight:500;font-size:16px;color:var(--color-text-primary)}
+.price-row.discount{color:#1a7a40;font-weight:500}
+.highlight{color:#FF5A00;font-weight:500}
+.empty-cart{text-align:center;padding:40px;color:#aaa;font-size:14px}
+.remove-btn{background:none;border:none;color:#ccc;font-size:16px;cursor:pointer}
+.success-screen{text-align:center;padding:50px 20px}
+.success-icon{font-size:56px;margin-bottom:16px}
+.success-title{font-size:22px;font-weight:500;color:var(--color-text-primary);margin-bottom:8px}
+.success-msg{font-size:14px;color:#888;line-height:1.7}
+.success-detail{background:white;border-radius:12px;padding:20px;margin:20px 0;text-align:left;border:1px solid #eee}
+.home-btn{background:#FF5A00;color:white;border:none;padding:14px 40px;border-radius:10px;font-size:15px;cursor:pointer;margin-top:16px}
+.pay-badge{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:500}
+.pay-badge.card{background:#E8F0FE;color:#1a5cd4}
+.pay-badge.cash{background:#E8F8EE;color:#1a7a40}
+.coupon-wallet{padding:16px;display:flex;flex-direction:column;gap:12px}
+.coupon-card{border-radius:12px;overflow:hidden;border:1.5px solid #eee;background:white;display:flex;position:relative}
+.coupon-card.used{opacity:0.45;filter:grayscale(0.5)}
+.coupon-left{width:70px;background:#FF5A00;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px 8px;flex-shrink:0}
+.coupon-emoji{font-size:26px}
+.coupon-left-label{font-size:10px;color:rgba(255,255,255,0.85);margin-top:4px;text-align:center}
+.coupon-right{flex:1;padding:14px 14px 14px 16px}
+.coupon-name{font-size:14px;font-weight:500;color:var(--color-text-primary)}
+.coupon-disc{font-size:20px;font-weight:500;color:#FF5A00;margin:4px 0}
+.coupon-cond{font-size:12px;color:#999}
+.coupon-exp{font-size:11px;color:#bbb;margin-top:6px}
+.coupon-notch-left{width:18px;height:18px;border-radius:50%;background:var(--color-background-tertiary);position:absolute;left:61px;top:50%;transform:translateY(-50%);border:1px solid #eee}
+.coupon-use-btn{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:#FF5A00;color:white;border:none;padding:7px 14px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer}
+.coupon-used-stamp{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:#eee;color:#aaa;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:500}
+.coupon-option{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1.5px solid #eee;border-radius:10px;cursor:pointer;background:white;margin-bottom:8px}
+.coupon-option.selected{border-color:#FF5A00;background:#FFF8F5}
+.coupon-none-option{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1.5px solid #eee;border-radius:10px;cursor:pointer;background:white;margin-bottom:8px}
+.coupon-none-option.selected{border-color:#888;background:var(--color-background-secondary)}
+.check-circle{width:20px;height:20px;border-radius:50%;border:2px solid #eee;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+.check-circle.on{border-color:#FF5A00;background:#FF5A00}
+.check-mark{color:white;font-size:12px;font-weight:500}
+.coupon-wallet-btn{display:flex;align-items:center;gap:6px;background:none;border:1.5px dashed #FF5A00;color:#FF5A00;padding:10px 14px;border-radius:10px;font-size:13px;cursor:pointer;width:100%;justify-content:center;margin-top:4px}
+</style>
+
+<div class="app">
+
+<!-- 홈 -->
+<div id="homeScreen" class="screen active">
+  <div class="header">
+    <span style="font-size:20px">🛵</span>
+    <h1>강북배달</h1>
+    <div class="hdr-btns">
+      <button class="cart-btn" onclick="goScreen('couponScreen')">🎟️ 쿠폰</button>
+      <button class="cart-btn" onclick="goScreen('cartScreen')">장바구니 <span class="cart-badge" id="cartBadge">0</span></button>
+    </div>
+  </div>
+  <div class="location-bar"><span class="loc-dot"></span><span>서울시 강북구 수유1동</span></div>
+  <div class="section-title">어떤 음식이 드시고 싶으세요?</div>
+  <div class="categories">
+    <div class="cat-chip active" onclick="filterCat(this,'all')">전체</div>
+    <div class="cat-chip" onclick="filterCat(this,'분식')">분식</div>
+    <div class="cat-chip" onclick="filterCat(this,'치킨')">치킨</div>
+    <div class="cat-chip" onclick="filterCat(this,'고기')">고기구이</div>
+    <div class="cat-chip" onclick="filterCat(this,'햄버거')">햄버거</div>
+    <div class="cat-chip" onclick="filterCat(this,'피자')">피자</div>
+  </div>
+  <div class="store-list" id="storeList"></div>
+  <div style="height:20px"></div>
+</div>
+
+<!-- 쿠폰 지갑 -->
+<div id="couponScreen" class="screen">
+  <div class="header">
+    <button class="back-btn" onclick="goScreen('homeScreen')">←</button>
+    <h1>내 쿠폰 지갑 🎟️</h1>
+  </div>
+  <div style="background:#FFF8F5;padding:12px 16px;font-size:13px;color:#FF5A00;border-bottom:1px solid #FFE0CC">
+    사용 가능한 쿠폰 <strong id="availCouponCount">0</strong>장이 있어요!
+  </div>
+  <div class="coupon-wallet" id="couponWalletList"></div>
+</div>
+
+<!-- 메뉴 -->
+<div id="menuScreen" class="screen">
+  <div class="header">
+    <button class="back-btn" onclick="goScreen('homeScreen')">←</button>
+    <h1 id="menuStoreName"></h1>
+    <div class="hdr-btns">
+      <button class="cart-btn" onclick="goScreen('couponScreen')">🎟️</button>
+      <button class="cart-btn" onclick="goScreen('cartScreen')">장바구니 <span class="cart-badge" id="cartBadge2">0</span></button>
+    </div>
+  </div>
+  <div id="storeHeaderDiv"></div>
+  <div class="notice" id="storeNotice"></div>
+  <div class="menu-list" id="menuList"></div>
+  <div style="height:80px"></div>
+  <div class="order-bar" onclick="goScreen('cartScreen')"><span>장바구니 보기</span><span id="menuTotal">0원</span></div>
+</div>
+
+<!-- 장바구니/결제 -->
+<div id="cartScreen" class="screen">
+  <div class="header">
+    <button class="back-btn" onclick="goBack()">←</button>
+    <h1>장바구니 / 결제</h1>
+  </div>
+  <div style="padding:16px;display:flex;flex-direction:column;gap:12px">
+
+    <div class="block">
+      <div class="block-title">📍 배달 주소</div>
+      <select class="dong-select" id="dongSelect">
+        <option value="">동 선택</option>
+        <option>미아동</option><option>번동</option><option>수유동</option>
+        <option>우이동</option><option>인수동</option><option>삼양동</option>
+        <option>송중동</option><option>송천동</option><option>삼각산동</option>
+      </select>
+      <input class="addr-input" id="streetInput" placeholder="도로명 주소 (예: 솔매로 49길 60)"/>
+      <input class="addr-input" id="detailInput" placeholder="상세 주소 (예: 3동 405호)"/>
+    </div>
+
+    <div id="cartItems"></div>
+
+    <div class="block">
+      <div class="block-title" style="display:flex;align-items:center;justify-content:space-between">
+        <span>🎟️ 쿠폰 사용</span>
+        <button class="coupon-wallet-btn" style="width:auto;padding:4px 12px;font-size:12px" onclick="goScreen('couponScreen')">쿠폰 보러가기</button>
+      </div>
+      <div id="couponSelectArea"></div>
+    </div>
+
+    <div class="block" id="priceBreakdown"></div>
+
+    <div class="block">
+      <div class="block-title">💳 결제 수단</div>
+      <div class="pay-methods">
+        <div class="pay-method" id="pm-card" onclick="selectPayment('card')">
+          <div class="pay-method-icon">💳</div>
+          <div class="pay-method-label">카드 결제</div>
+          <div class="pay-method-sub">신용·체크카드</div>
+        </div>
+        <div class="pay-method" id="pm-cash" onclick="selectPayment('cash')">
+          <div class="pay-method-icon">💵</div>
+          <div class="pay-method-label">현금 결제</div>
+          <div class="pay-method-sub">배달 시 현금</div>
+        </div>
+      </div>
+
+      <!-- 카드: 카드 종류만 선택 -->
+      <div class="card-detail" id="cardDetail">
+        <div style="font-size:13px;color:#555;margin-bottom:8px;font-weight:500">카드 종류를 선택하세요</div>
+        <div class="card-types">
+          <button class="card-type-btn" onclick="selectCardType(this,'신용카드')">신용카드</button>
+          <button class="card-type-btn" onclick="selectCardType(this,'체크카드')">체크카드</button>
+        </div>
+        <div style="margin-top:10px">
+          <div class="card-info-box">
+            <span style="font-size:28px">💳</span>
+            <div>
+              <div style="font-size:13px;font-weight:500;color:#1a5cd4" id="cardTypeLabel">카드를 선택해 주세요</div>
+              <div style="font-size:12px;color:#6b8dd4;margin-top:3px">배달 완료 후 자동 결제돼요</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 현금 -->
+      <div class="cash-detail" id="cashDetail">
+        <div class="cash-info">배달원이 도착했을 때 현금으로 결제해요.<br>거스름돈이 필요하면 아래에서 준비할 금액을 선택하세요.</div>
+        <div class="change-row">
+          <span style="font-size:13px;color:#555;white-space:nowrap">준비할 금액</span>
+          <select class="change-select" id="changeSelect" onchange="calcChange()">
+            <option value="">선택하세요</option>
+            <option value="10000">10,000원</option>
+            <option value="20000">20,000원</option>
+            <option value="30000">30,000원</option>
+            <option value="50000">50,000원</option>
+            <option value="100000">100,000원</option>
+          </select>
+        </div>
+        <div class="change-result" id="changeResult"></div>
+      </div>
+    </div>
+
+    <button class="pay-btn" onclick="placeOrder()">주문하기</button>
+    <div style="height:10px"></div>
+  </div>
+</div>
+
+<!-- 완료 -->
+<div id="successScreen" class="screen">
+  <div class="header"><h1>주문 완료</h1></div>
+  <div class="success-screen">
+    <div class="success-icon">🛵</div>
+    <div class="success-title">주문이 완료됐어요!</div>
+    <div class="success-msg">음식을 열심히 준비하고 있어요.<br>조금만 기다려 주세요 :)</div>
+    <div class="success-detail" id="orderSummary"></div>
+    <button class="home-btn" onclick="resetApp()">처음으로</button>
+  </div>
+</div>
+
+</div>
+
+<script>
+const stores=[
+  {id:0,name:"마라탕하우스",emoji:"🫕",category:"분식",rating:"4.8",time:"25~35분",minOrder:"15,000원",notice:"마라 강도를 선택할 수 있어요 (1~5단계)",tags:["마라탕","마라향"],menus:[{name:"마라탕 (1인분)",desc:"직접 고른 재료",price:12000},{name:"마라탕 (2인분)",desc:"풍성한 2인 세트",price:22000},{name:"마라샹궈",desc:"볶음 스타일",price:14000},{name:"공기밥",desc:"",price:1000},{name:"음료수",desc:"콜라/사이다",price:2000}]},
+  {id:1,name:"엽기떡볶이 강북점",emoji:"🌶️",category:"분식",rating:"4.7",time:"20~30분",minOrder:"10,000원",notice:"엽기 오리지날 소스! 맵기 조절 가능",tags:["떡볶이","엽기"],menus:[{name:"엽기떡볶이 소",desc:"1~2인분",price:10000},{name:"엽기떡볶이 대",desc:"3~4인분",price:18000},{name:"로제떡볶이 소",desc:"크리미한 로제",price:11000},{name:"순대",desc:"국산 당면 순대",price:5000},{name:"튀김 세트",desc:"오징어/야채/새우",price:7000},{name:"음료수",desc:"콜라/사이다",price:2000}]},
+  {id:2,name:"황금올리브치킨",emoji:"🍗",category:"치킨",rating:"4.9",time:"30~40분",minOrder:"18,000원",notice:"주문 후 바로 튀겨드려요! 항상 바삭",tags:["치킨","황금올리브"],menus:[{name:"황금올리브 치킨",desc:"올리브오일 바삭",price:21000},{name:"양념치킨",desc:"달콤 매콤",price:21000},{name:"반반치킨",desc:"후라이드+양념",price:22000},{name:"간장치킨",desc:"달콤 짭조름",price:22000},{name:"치킨무",desc:"",price:1000},{name:"콜라 1.25L",desc:"",price:3000}]},
+  {id:3,name:"오돌뼈마을",emoji:"🦴",category:"고기",rating:"4.6",time:"35~45분",minOrder:"20,000원",notice:"신선한 재료만 사용해요",tags:["오돌뼈","포장마차"],menus:[{name:"매운 오돌뼈",desc:"매콤하게 볶은",price:14000},{name:"순한 오돌뼈",desc:"간장 베이스",price:14000},{name:"오돌뼈+볶음밥",desc:"세트",price:18000},{name:"공기밥",desc:"",price:1000},{name:"소주",desc:"참이슬/처음처럼",price:5000}]},
+  {id:4,name:"불맛닭발집",emoji:"🔥",category:"고기",rating:"4.5",time:"30~40분",minOrder:"15,000원",notice:"불 맛 가득! 맵기 조절 가능",tags:["닭발","매운맛"],menus:[{name:"뼈 있는 닭발",desc:"쫀득한",price:13000},{name:"뼈 없는 닭발",desc:"먹기 편한",price:15000},{name:"닭발+볶음밥 세트",desc:"",price:18000},{name:"소주",desc:"",price:5000},{name:"음료수",desc:"콜라/사이다",price:2000}]},
+  {id:5,name:"맘스터치 강북점",emoji:"🍔",category:"햄버거",rating:"4.7",time:"15~25분",minOrder:"8,000원",notice:"싸이버거 유명! 100% 국내산 닭고기",tags:["햄버거","싸이버거"],menus:[{name:"싸이버거",desc:"대표 메뉴",price:5300},{name:"더블싸이버거",desc:"패티 두 장",price:7100},{name:"불싸이버거",desc:"매콤한 불 소스",price:5800},{name:"싸이세트",desc:"버거+감자+콜라",price:8300},{name:"후라이드 2조각",desc:"",price:5500},{name:"감자튀김",desc:"바삭",price:2500}]},
+  {id:6,name:"도미노피자 강북점",emoji:"🍕",category:"피자",rating:"4.6",time:"25~40분",minOrder:"16,000원",notice:"오늘의 할인: 포테이토 피자 2,000원 할인!",tags:["피자","도미노"],menus:[{name:"포테이토 피자 M",desc:"감자·베이컨·치즈",price:19000},{name:"포테이토 피자 L",desc:"라지 사이즈",price:25000},{name:"불고기 피자 M",desc:"불고기와 채소",price:20000},{name:"슈퍼시드 치즈 M",desc:"4가지 치즈",price:21000},{name:"콜라 1.25L",desc:"",price:3000},{name:"갈릭 소스",desc:"마늘 디핑",price:500}]},
+];
+
+const allCoupons=[
+  {id:'C001',emoji:'🎉',name:'신규 가입 축하 쿠폰',type:'amount',value:3000,minOrder:15000,condition:'15,000원 이상 주문 시',expires:'2026-06-30',used:false},
+  {id:'C002',emoji:'🍗',name:'치킨 10% 할인',type:'percent',value:10,minOrder:18000,condition:'치킨 18,000원 이상',expires:'2026-05-31',used:false},
+  {id:'C003',emoji:'🛵',name:'배달비 무료 쿠폰',type:'delivery',value:3000,minOrder:10000,condition:'10,000원 이상 주문 시',expires:'2026-05-15',used:false},
+  {id:'C004',emoji:'🌶️',name:'분식 2,000원 할인',type:'amount',value:2000,minOrder:10000,condition:'분식 10,000원 이상',expires:'2026-04-30',used:false},
+  {id:'C005',emoji:'🍕',name:'피자 15% 할인',type:'percent',value:15,minOrder:20000,condition:'피자 20,000원 이상',expires:'2026-07-31',used:false},
+];
+
+let cart={},currentStore=null,prevScreen='homeScreen',payMethod='',selectedCouponId=null,selectedCardType='';
+let coupons=allCoupons.map(c=>({...c}));
+
+function renderStores(filter='all'){
+  const list=document.getElementById('storeList');list.innerHTML='';
+  stores.filter(s=>filter==='all'||s.category===filter).forEach(s=>{
+    list.innerHTML+=`<div class="store-card" onclick="openStore(${s.id})"><div class="store-img">${s.emoji}</div><div class="store-info"><div class="store-name">${s.name}</div><div class="store-meta">⭐ ${s.rating} &nbsp;·&nbsp; 🕐 ${s.time} &nbsp;·&nbsp; 최소주문 ${s.minOrder}</div><div class="store-tags">${s.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div></div></div>`;
+  });
+}
+
+function filterCat(el,cat){document.querySelectorAll('.cat-chip').forEach(c=>c.classList.remove('active'));el.classList.add('active');renderStores(cat);}
+
+function openStore(id){
+  currentStore=stores[id];prevScreen='homeScreen';
+  document.getElementById('menuStoreName').textContent=currentStore.name;
+  document.getElementById('storeHeaderDiv').innerHTML=`<div class="store-header"><div class="store-big-emoji">${currentStore.emoji}</div><h2>${currentStore.name}</h2><p>⭐ ${currentStore.rating} &nbsp;·&nbsp; 🕐 ${currentStore.time} &nbsp;·&nbsp; 최소주문 ${currentStore.minOrder}</p></div>`;
+  document.getElementById('storeNotice').textContent='📢 '+currentStore.notice;
+  renderMenu();goScreen('menuScreen');
+}
+
+function renderMenu(){
+  const ml=document.getElementById('menuList');ml.innerHTML='';
+  currentStore.menus.forEach((m,i)=>{
+    const qty=(cart[currentStore.id]&&cart[currentStore.id][i])||0;
+    ml.innerHTML+=`<div class="menu-item"><div style="flex:1"><div class="menu-name">${m.name}</div><div class="menu-desc">${m.desc}</div><div class="menu-price">${m.price.toLocaleString()}원</div></div><div class="qty-ctrl"><button class="qty-btn" onclick="changeQty(${i},-1)">−</button><span class="qty-num" id="qty_${i}">${qty}</span><button class="qty-btn" onclick="changeQty(${i},1)">+</button></div></div>`;
+  });
+  updateMenuTotal();
+}
+
+function changeQty(idx,delta){
+  if(!cart[currentStore.id])cart[currentStore.id]={};
+  cart[currentStore.id][idx]=Math.max(0,(cart[currentStore.id][idx]||0)+delta);
+  document.getElementById('qty_'+idx).textContent=cart[currentStore.id][idx];
+  updateMenuTotal();updateBadge();
+}
+
+function updateMenuTotal(){let t=0;if(cart[currentStore.id])currentStore.menus.forEach((m,i)=>{t+=m.price*(cart[currentStore.id][i]||0);});document.getElementById('menuTotal').textContent=t.toLocaleString()+'원';}
+
+function updateBadge(){let n=0;Object.keys(cart).forEach(sid=>{stores[parseInt(sid)].menus.forEach((_,i)=>n+=(cart[sid][i]||0));});['cartBadge','cartBadge2'].forEach(id=>document.getElementById(id).textContent=n);}
+
+function renderCouponWallet(){
+  document.getElementById('availCouponCount').textContent=coupons.filter(c=>!c.used).length;
+  const list=document.getElementById('couponWalletList');list.innerHTML='';
+  coupons.forEach(c=>{
+    const dl=c.type==='amount'?`${c.value.toLocaleString()}원 할인`:c.type==='percent'?`${c.value}% 할인`:'배달비 무료';
+    list.innerHTML+=`<div class="coupon-card ${c.used?'used':''}"><div class="coupon-left"><div class="coupon-emoji">${c.emoji}</div><div class="coupon-left-label">${c.type==='delivery'?'배달비':'할인'}</div></div><div class="coupon-notch-left"></div><div class="coupon-right"><div class="coupon-name">${c.name}</div><div class="coupon-disc">${dl}</div><div class="coupon-cond">${c.condition}</div><div class="coupon-exp">유효기간: ~${c.expires}</div></div>${c.used?'<div class="coupon-used-stamp">사용완료</div>':`<button class="coupon-use-btn" onclick="useCouponFromWallet('${c.id}')">사용하기</button>`}</div>`;
+  });
+}
+
+function useCouponFromWallet(id){selectedCouponId=id;goScreen('cartScreen');}
+
+function renderCouponSelect(subtotal){
+  const area=document.getElementById('couponSelectArea');
+  if(subtotal===0){area.innerHTML='<div style="font-size:13px;color:#aaa;padding:8px 0">장바구니에 메뉴를 담으면 쿠폰을 사용할 수 있어요</div>';return;}
+  const avail=coupons.filter(c=>!c.used&&subtotal>=c.minOrder);
+  let html=`<div class="coupon-none-option ${selectedCouponId===null?'selected':''}" onclick="selectCoupon(null)"><div class="check-circle ${selectedCouponId===null?'on':''}"><span class="check-mark">${selectedCouponId===null?'✓':''}</span></div><span style="font-size:13px;color:var(--color-text-secondary)">쿠폰 사용 안 함</span></div>`;
+  if(!avail.length){html+='<div style="font-size:13px;color:#aaa;padding:4px 0">현재 주문 금액에 맞는 쿠폰이 없어요</div>';}
+  else avail.forEach(c=>{
+    const isSel=selectedCouponId===c.id;
+    const dl=c.type==='amount'?`${c.value.toLocaleString()}원 할인`:c.type==='percent'?`${c.value}% 할인`:'배달비 무료';
+    html+=`<div class="coupon-option ${isSel?'selected':''}" onclick="selectCoupon('${c.id}')"><div class="check-circle ${isSel?'on':''}"><span class="check-mark">${isSel?'✓':''}</span></div><div style="font-size:18px;width:24px;text-align:center">${c.emoji}</div><div style="flex:1"><div style="font-size:13px;font-weight:500;color:var(--color-text-primary)">${c.name}</div><div style="font-size:12px;color:#FF5A00">${dl}</div><div style="font-size:11px;color:#aaa">${c.condition}</div></div></div>`;
+  });
+  area.innerHTML=html;
+}
+
+function selectCoupon(id){selectedCouponId=id;renderCart();}
+
+function calcDiscountAmt(subtotal){
+  if(!selectedCouponId)return{disc:0,deliveryFree:false};
+  const c=coupons.find(x=>x.id===selectedCouponId);
+  if(!c||c.used||subtotal<c.minOrder){selectedCouponId=null;return{disc:0,deliveryFree:false};}
+  if(c.type==='amount')return{disc:c.value,deliveryFree:false};
+  if(c.type==='percent')return{disc:Math.round(subtotal*c.value/100),deliveryFree:false};
+  if(c.type==='delivery')return{disc:0,deliveryFree:true};
+  return{disc:0,deliveryFree:false};
+}
+
+function renderCart(){
+  const container=document.getElementById('cartItems');
+  const priceDiv=document.getElementById('priceBreakdown');
+  let hasItems=false,html='',subtotal=0;
+  Object.keys(cart).forEach(sid=>{
+    const store=stores[parseInt(sid)];
+    store.menus.forEach((m,i)=>{
+      const qty=cart[sid][i]||0;
+      if(qty>0){hasItems=true;const sub=m.price*qty;subtotal+=sub;
+        html+=`<div class="block" style="padding:12px 14px"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div style="font-size:12px;color:#999;margin-bottom:3px">${store.emoji} ${store.name}</div><div style="font-size:14px;font-weight:500;color:var(--color-text-primary)">${m.name}</div><div style="font-size:13px;color:#888;margin-top:4px">${qty}개 × ${m.price.toLocaleString()}원</div></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:6px"><button class="remove-btn" onclick="removeItem(${sid},${i})">✕</button><div style="font-size:14px;font-weight:500;color:#FF5A00">${sub.toLocaleString()}원</div></div></div></div>`;
+      }
+    });
+  });
+  if(!hasItems){container.innerHTML='<div class="block"><div class="empty-cart">장바구니가 비어있어요<br><br>가게를 선택해 메뉴를 담아보세요!</div></div>';priceDiv.innerHTML='';renderCouponSelect(0);return;}
+  container.innerHTML=html;
+  renderCouponSelect(subtotal);
+  const{disc,deliveryFree}=calcDiscountAmt(subtotal);
+  const delivery=deliveryFree?0:3000;
+  const total=Math.max(0,subtotal-disc)+delivery;
+  let discRow='';
+  if(disc>0)discRow+=`<div class="price-row discount"><span>🎟️ 쿠폰 할인</span><span>−${disc.toLocaleString()}원</span></div>`;
+  if(deliveryFree)discRow+=`<div class="price-row discount"><span>🎟️ 배달비 무료 쿠폰</span><span>−3,000원</span></div>`;
+  priceDiv.innerHTML=`<div style="font-size:14px;font-weight:500;margin-bottom:10px;color:var(--color-text-primary)">💰 결제 금액</div><div class="price-row"><span>음식 금액</span><span>${subtotal.toLocaleString()}원</span></div>${discRow}<div class="price-row"><span>배달비</span><span>${deliveryFree?'<span style="text-decoration:line-through;color:#bbb;font-size:12px">3,000원</span> <span style="color:#1a7a40;font-weight:500">무료</span>':delivery.toLocaleString()+'원'}</span></div><div class="divider"></div><div class="price-row total"><span>최종 결제 금액</span><span class="highlight">${total.toLocaleString()}원</span></div>`;
+  calcChange();
+}
+
+function removeItem(sid,idx){cart[sid][idx]=0;updateBadge();renderCart();}
+
+function selectPayment(method){
+  payMethod=method;selectedCardType='';
+  document.getElementById('pm-card').classList.toggle('selected',method==='card');
+  document.getElementById('pm-cash').classList.toggle('selected',method==='cash');
+  document.getElementById('cardDetail').style.display=method==='card'?'block':'none';
+  document.getElementById('cashDetail').style.display=method==='cash'?'block':'none';
+  document.getElementById('changeResult').textContent='';
+  document.getElementById('changeSelect').value='';
+  if(method==='card'){document.getElementById('cardTypeLabel').textContent='카드를 선택해 주세요';document.querySelectorAll('.card-type-btn').forEach(b=>b.classList.remove('selected'));}
+}
+
+function selectCardType(el,type){
+  selectedCardType=type;
+  document.querySelectorAll('.card-type-btn').forEach(b=>b.classList.remove('selected'));
+  el.classList.add('selected');
+  document.getElementById('cardTypeLabel').textContent=type+' 결제가 선택됐어요';
+}
+
+function calcChange(){
+  const sel=parseInt(document.getElementById('changeSelect').value)||0;
+  const priceDiv=document.getElementById('priceBreakdown');
+  const totalEl=priceDiv.querySelector('.price-row.total span:last-child');
+  if(!totalEl||!sel){document.getElementById('changeResult').textContent='';return;}
+  const total=parseInt(totalEl.textContent.replace(/[^0-9]/g,''));
+  const change=sel-total;
+  const res=document.getElementById('changeResult');
+  if(change<0){res.style.color='#e24b4a';res.textContent=`준비 금액이 부족해요. ${Math.abs(change).toLocaleString()}원 더 필요해요.`;}
+  else{res.style.color='#1a7a40';res.textContent=`거스름돈: ${change.toLocaleString()}원`;}
+}
+
+function placeOrder(){
+  const dong=document.getElementById('dongSelect').value;
+  const street=document.getElementById('streetInput').value.trim();
+  if(!dong){alert('동을 선택해 주세요!');return;}
+  if(!street){alert('도로명 주소를 입력해 주세요!');return;}
+  if(!payMethod){alert('결제 수단을 선택해 주세요!');return;}
+  if(payMethod==='card'&&!selectedCardType){alert('카드 종류를 선택해 주세요!');return;}
+
+  let hasItems=false,itemsHtml='',subtotal=0;
+  Object.keys(cart).forEach(sid=>{
+    const store=stores[parseInt(sid)];
+    store.menus.forEach((m,i)=>{const qty=cart[sid][i]||0;if(qty>0){hasItems=true;subtotal+=m.price*qty;itemsHtml+=`<div class="price-row"><span>${m.name} ×${qty}</span><span>${(m.price*qty).toLocaleString()}원</span></div>`;}});
+  });
+  if(!hasItems){alert('장바구니에 메뉴를 담아주세요!');return;}
+
+  const{disc,deliveryFree}=calcDiscountAmt(subtotal);
+  const delivery=deliveryFree?0:3000;
+  const total=Math.max(0,subtotal-disc)+delivery;
+  const addr=`서울시 강북구 ${dong} ${street} ${document.getElementById('detailInput').value}`;
+  const payLabel=payMethod==='card'?`💳 ${selectedCardType}`:'💵 현금 결제';
+  const payBadgeClass=payMethod==='card'?'card':'cash';
+
+  let discHtml='';
+  if(disc>0)discHtml+=`<div class="price-row discount"><span>🎟️ 쿠폰 할인</span><span>−${disc.toLocaleString()}원</span></div>`;
+  if(deliveryFree)discHtml+=`<div class="price-row discount"><span>🎟️ 배달비 무료</span><span>−3,000원</span></div>`;
+
+  let changeHtml='';
+  if(payMethod==='cash'){const sel=parseInt(document.getElementById('changeSelect').value)||0;if(sel>0){const ch=sel-total;changeHtml=`<div style="font-size:13px;color:#1a7a40;margin-top:4px">준비금액: ${sel.toLocaleString()}원 → 거스름돈: ${Math.max(0,ch).toLocaleString()}원</div>`;}}
+
+  if(selectedCouponId){const ci=coupons.findIndex(c=>c.id===selectedCouponId);if(ci>=0)coupons[ci].used=true;}
+
+  document.getElementById('orderSummary').innerHTML=`<div style="font-size:13px;color:#888;margin-bottom:10px">주문 내역</div>${itemsHtml}<div class="divider"></div>${discHtml}<div class="price-row"><span>배달비</span><span>${deliveryFree?'무료':'3,000원'}</span></div><div class="price-row total"><span>최종 결제 금액</span><span class="highlight">${total.toLocaleString()}원</span></div><div class="divider"></div><div style="display:flex;align-items:center;gap:8px;margin-top:4px"><span style="font-size:13px;color:#666">결제 수단</span><span class="pay-badge ${payBadgeClass}">${payLabel}</span></div>${changeHtml}<div style="font-size:13px;color:#666;margin-top:8px">📍 ${addr}</div><div style="font-size:13px;color:#FF5A00;margin-top:6px">🕐 예상 도착: 30~40분</div>`;
+
+  goScreen('successScreen');
+}
+
+function resetApp(){
+  cart={};payMethod='';selectedCouponId=null;selectedCardType='';
+  updateBadge();
+  ['dongSelect','changeSelect'].forEach(id=>document.getElementById(id).value='');
+  ['streetInput','detailInput'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('changeResult').textContent='';
+  selectPayment('');
+  goScreen('homeScreen');
+}
+
+function goScreen(id){
+  if(id==='cartScreen')prevScreen=document.querySelector('.screen.active').id;
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(id==='cartScreen')renderCart();
+  if(id==='couponScreen')renderCouponWallet();
+}
+
+function goBack(){goScreen(prevScreen||'homeScreen');}
+renderStores();
+</script>

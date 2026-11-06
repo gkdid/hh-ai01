@@ -1,0 +1,189 @@
+
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.sheet { padding: 1.5rem 1rem; max-width: 720px; margin: 0 auto; }
+.header { text-align: center; border: 2px solid var(--color-border-primary); border-radius: var(--border-radius-lg); padding: 1rem 1.5rem; margin-bottom: 1.5rem; }
+.header h1 { font-size: 20px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 0.5rem; }
+.header .meta { display: flex; gap: 2rem; justify-content: center; font-size: 13px; color: var(--color-text-secondary); }
+.meta span { display: flex; gap: 6px; align-items: center; }
+.meta .line { border-bottom: 1px solid var(--color-border-primary); display: inline-block; width: 80px; }
+.section { margin-bottom: 1.5rem; }
+.section-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); background: var(--color-background-secondary); border-left: 3px solid #7F77DD; padding: 6px 10px; margin-bottom: 0.75rem; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; }
+.q-list { display: flex; flex-direction: column; gap: 10px; }
+.q { font-size: 14px; color: var(--color-text-primary); line-height: 1.8; }
+.q .num { font-weight: 500; color: #7F77DD; margin-right: 6px; }
+.blank { display: inline-block; border-bottom: 1.5px solid var(--color-border-primary); min-width: 60px; text-align: center; }
+.choice-row { display: flex; gap: 1rem; margin-top: 4px; margin-left: 1.5rem; flex-wrap: wrap; }
+.choice { font-size: 13px; color: var(--color-text-secondary); }
+.choice input[type=radio] { margin-right: 4px; }
+.ox-row { display: flex; gap: 1.5rem; margin-top: 4px; margin-left: 1.5rem; }
+.ox label { font-size: 13px; color: var(--color-text-secondary); }
+.short-ans { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 8px 12px; font-size: 13px; color: var(--color-text-secondary); margin-top: 4px; margin-left: 1.5rem; min-height: 32px; }
+.writing-box { border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); padding: 10px 14px; font-size: 13px; color: var(--color-text-secondary); margin-top: 4px; margin-left: 1.5rem; min-height: 48px; }
+.tip { background: var(--color-background-info); border: 0.5px solid var(--color-border-info); border-radius: var(--border-radius-md); padding: 10px 14px; font-size: 13px; color: var(--color-text-info); margin-bottom: 1rem; }
+.score-box { border: 1px solid var(--color-border-secondary); border-radius: var(--border-radius-lg); padding: 0.75rem 1rem; display: flex; justify-content: space-between; align-items: center; font-size: 13px; color: var(--color-text-secondary); }
+.score-box .score-val { font-size: 20px; font-weight: 500; color: var(--color-text-primary); }
+.divider { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 1.25rem 0; }
+.answer-btn { display: block; margin: 0 auto; font-size: 13px; padding: 6px 16px; cursor: pointer; }
+.ans-section { display: none; background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 1rem 1.25rem; font-size: 13px; color: var(--color-text-secondary); line-height: 2; }
+.ans-section.show { display: block; }
+.ans strong { color: #1D9E75; font-weight: 500; }
+</style>
+
+<div class="sheet">
+  <div class="header">
+    <h1>국어 맞춤법 학습지</h1>
+    <div class="meta">
+      <span>이름 <span class="line"></span></span>
+      <span>날짜 <span class="line"></span></span>
+      <span>점수 <span class="line"></span> / 20점</span>
+    </div>
+  </div>
+
+  <div class="tip">
+    헷갈리는 낱말도 괜찮아요! 천천히 생각하면서 풀어 보세요.
+  </div>
+
+  <!-- 1번 섹션 -->
+  <div class="section">
+    <div class="section-title">1. 맞는 표기를 골라 ○표 하세요 (각 1점)</div>
+    <div class="q-list">
+      <div class="q"><span class="num">①</span> 학교에 <b>일찍</b> 도착했어요.
+        <div class="ox-row">
+          <label><input type="radio" name="q1" value="a"> 일찍</label>
+          <label><input type="radio" name="q1" value="b"> 일찍이</label>
+          <label><input type="radio" name="q1" value="c"> 일찍히</label>
+        </div>
+      </div>
+      <div class="q"><span class="num">②</span> 방이 너무 <span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>서 청소를 했어요.
+        <div class="ox-row">
+          <label><input type="radio" name="q2" value="a"> 더러워</label>
+          <label><input type="radio" name="q2" value="b"> 더러와</label>
+          <label><input type="radio" name="q2" value="c"> 더러봐</label>
+        </div>
+      </div>
+      <div class="q"><span class="num">③</span> 친구한테 편지를 <span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.
+        <div class="ox-row">
+          <label><input type="radio" name="q3" value="a"> 부쳤어요</label>
+          <label><input type="radio" name="q3" value="b"> 붙쳤어요</label>
+          <label><input type="radio" name="q3" value="c"> 부텼어요</label>
+        </div>
+      </div>
+      <div class="q"><span class="num">④</span> 밥을 <span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 후에 산책했어요.
+        <div class="ox-row">
+          <label><input type="radio" name="q4" value="a"> 먹은</label>
+          <label><input type="radio" name="q4" value="b"> 먹는</label>
+          <label><input type="radio" name="q4" value="c"> 먹을</label>
+        </div>
+      </div>
+      <div class="q"><span class="num">⑤</span> 어머니께 선물을 <span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.
+        <div class="ox-row">
+          <label><input type="radio" name="q5" value="a"> 드렸어요</label>
+          <label><input type="radio" name="q5" value="b"> 들렸어요</label>
+          <label><input type="radio" name="q5" value="c"> 드렸요</label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 2번 섹션 -->
+  <div class="section">
+    <div class="section-title">2. 빈칸에 알맞은 낱말을 보기에서 골라 쓰세요 (각 1점)</div>
+    <div class="tip" style="font-size:13px;">
+      보기: &nbsp; <b>왠지 &nbsp; 웬지 &nbsp; 됐어 &nbsp; 됬어 &nbsp; 낫다 &nbsp; 낳다 &nbsp; 넣다 &nbsp; 맞히다 &nbsp; 맞추다</b>
+    </div>
+    <div class="q-list">
+      <div class="q"><span class="num">⑥</span> 오늘은 <span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> 기분이 좋다.
+        <div class="short-ans">(왠지 / 웬지 중 선택)</div>
+      </div>
+      <div class="q"><span class="num">⑦</span> 숙제 다 했어. 이제 <span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>!
+        <div class="short-ans">(됐어 / 됬어 중 선택)</div>
+      </div>
+      <div class="q"><span class="num">⑧</span> 감기는 쉬면 금방 <span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.
+        <div class="short-ans">(낫다 / 낳다 중 선택)</div>
+      </div>
+      <div class="q"><span class="num">⑨</span> 시험 문제를 모두 <span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.
+        <div class="short-ans">(맞혔어 / 맞췄어 중 선택 — '정답을 맞히다')</div>
+      </div>
+      <div class="q"><span class="num">⑩</span> 가방 안에 책을 <span class="blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.
+        <div class="short-ans">(넣었어 / 너었어 중 선택)</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 3번 섹션 -->
+  <div class="section">
+    <div class="section-title">3. 밑줄 친 낱말이 맞으면 O, 틀리면 X를 쓰세요 (각 1점)</div>
+    <div class="q-list">
+      <div class="q"><span class="num">⑪</span> 오늘 <u>어떻해</u>? 기분이 좋아? &nbsp;&nbsp; ( &nbsp;&nbsp;&nbsp; )
+        <div class="short-ans">힌트: '어떻게'가 맞는 표기예요</div>
+      </div>
+      <div class="q"><span class="num">⑫</span> 친구를 <u>기다렸어요</u>. &nbsp;&nbsp; ( &nbsp;&nbsp;&nbsp; )
+        <div class="short-ans">힌트: 기다리다 → 기다렸어요</div>
+      </div>
+      <div class="q"><span class="num">⑬</span> 밥을 <u>먹었다음에</u> 이를 닦아요. &nbsp;&nbsp; ( &nbsp;&nbsp;&nbsp; )
+        <div class="short-ans">힌트: '먹은 다음에'로 띄어 써요</div>
+      </div>
+      <div class="q"><span class="num">⑭</span> 선생님 <u>말씀</u>을 잘 들었어요. &nbsp;&nbsp; ( &nbsp;&nbsp;&nbsp; )
+        <div class="short-ans">힌트: '말씀'은 맞는 표기예요</div>
+      </div>
+      <div class="q"><span class="num">⑮</span> 공원에서 <u>뛰었다가</u> 넘어졌어요. &nbsp;&nbsp; ( &nbsp;&nbsp;&nbsp; )
+        <div class="short-ans">힌트: 뛰다 → 뛰었다가 (맞는 표기)</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 4번 섹션 -->
+  <div class="section">
+    <div class="section-title">4. 틀린 낱말을 찾아 바르게 고쳐 쓰세요 (각 1점)</div>
+    <div class="q-list">
+      <div class="q"><span class="num">⑯</span> 어제 영화를 봤는데 <u>재밌었다</u>. → <div class="short-ans">올바른 표기:</div></div>
+      <div class="q"><span class="num">⑰</span> 저는 <u>않아</u>도 돼요, 괜찮아요. → <div class="short-ans">올바른 표기:</div></div>
+      <div class="q"><span class="num">⑱</span> 물을 <u>마셨더니</u> 목이 시원해졌어요. → <div class="short-ans">올바른 표기:</div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- 5번 섹션 -->
+  <div class="section">
+    <div class="section-title">5. 알맞은 낱말로 짧은 문장 만들기 (각 1점)</div>
+    <div class="q-list">
+      <div class="q"><span class="num">⑲</span> '반드시'를 사용하여 문장을 만드세요.
+        <div class="writing-box">문장: </div>
+      </div>
+      <div class="q"><span class="num">⑳</span> '설레다'를 사용하여 문장을 만드세요.
+        <div class="writing-box">문장: </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <button class="answer-btn" onclick="toggleAns()">정답 확인 (교사용)</button>
+
+  <div class="ans-section" id="answerKey">
+    <b>정답표</b><br>
+    ① <strong>일찍</strong> &nbsp; ② <strong>더러워</strong> &nbsp; ③ <strong>부쳤어요</strong> &nbsp; ④ <strong>먹은</strong> &nbsp; ⑤ <strong>드렸어요</strong><br>
+    ⑥ <strong>왠지</strong> &nbsp; ⑦ <strong>됐어</strong> &nbsp; ⑧ <strong>낫다</strong> &nbsp; ⑨ <strong>맞혔어</strong> &nbsp; ⑩ <strong>넣었어</strong><br>
+    ⑪ <strong>X</strong> (어떻게) &nbsp; ⑫ <strong>O</strong> &nbsp; ⑬ <strong>X</strong> (먹은 다음에) &nbsp; ⑭ <strong>O</strong> &nbsp; ⑮ <strong>O</strong><br>
+    ⑯ 재밌었다 → <strong>재미있었다</strong> &nbsp; ⑰ 않아도 → <strong>안 해도</strong> &nbsp; ⑱ 마셨더니 → <strong>마셨더니 (이미 맞음 — 교사 확인)</strong><br>
+    ⑲⑳ 자유 문장 — 교사 채점
+  </div>
+</div>
+
+<script>
+function toggleAns() {
+  const el = document.getElementById('answerKey');
+  el.classList.toggle('show');
+  const btn = document.querySelector('.answer-btn');
+  btn.textContent = el.classList.contains('show') ? '정답 닫기' : '정답 확인 (교사용)';
+}
+</script>

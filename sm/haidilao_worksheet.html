@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @media print {
+    body { margin: 0; background: white; }
+    .page { page-break-after: always; margin: 0; padding: 18mm 18mm 14mm; box-shadow: none; }
+    .page:last-child { page-break-after: avoid; }
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; background: #eee; margin: 0; padding: 20px; }
+
+  .page {
+    background: white; width: 210mm; min-height: 297mm;
+    margin: 0 auto 30px; padding: 15mm 18mm 13mm;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  .sheet-header {
+    border: 2px solid #b22222; border-radius: 6px;
+    padding: 10px 16px; margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .sheet-title { font-size: 19px; font-weight: bold; color: #000; }
+  .sheet-sub { font-size: 12px; color: #555; margin-top: 2px; }
+  .logo-badge {
+    background: #b22222; color: white; font-size: 12px; font-weight: bold;
+    padding: 5px 13px; border-radius: 20px; white-space: nowrap;
+  }
+
+  .info-row { display: flex; gap: 18px; margin-bottom: 11px; }
+  .info-box {
+    border-bottom: 1.5px solid #333; flex: 1; padding-bottom: 3px;
+    display: flex; align-items: center; gap: 5px; font-size: 13px;
+  }
+  .info-label { font-weight: bold; white-space: nowrap; color: #333; }
+
+  .section-title {
+    background: #b22222; color: white; font-size: 13px; font-weight: bold;
+    padding: 5px 13px; border-radius: 4px; margin: 13px 0 8px;
+  }
+  .section-title-dark {
+    background: #333; color: white; font-size: 13px; font-weight: bold;
+    padding: 5px 13px; border-radius: 4px; margin: 13px 0 8px;
+  }
+
+  .tip-box {
+    background: #fff5f5; border-left: 4px solid #b22222;
+    border-radius: 0 6px 6px 0; padding: 7px 11px;
+    font-size: 12px; color: #444; margin-bottom: 10px; line-height: 1.75;
+  }
+
+  /* 메뉴 그리드 */
+  .menu-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+    margin: 6px 0 8px;
+  }
+  .menu-card {
+    border: 1.5px solid #f0b8b8; border-radius: 6px;
+    padding: 6px 8px; text-align: center; font-size: 11.5px; background: #fff8f8;
+  }
+  .menu-icon { font-size: 17px; display: block; margin-bottom: 3px; }
+  .menu-name { font-weight: bold; display: block; margin-bottom: 2px; font-size: 12px; }
+  .menu-price { font-weight: bold; font-size: 11.5px; color: #b22222; }
+
+  .menu-grid-side {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px;
+    margin: 6px 0 8px;
+  }
+
+  /* 문제 박스 */
+  .q-box {
+    border: 1.5px solid #ddd; border-radius: 6px;
+    padding: 11px 13px; margin-bottom: 10px; background: #fff;
+  }
+  .q-head { display: flex; align-items: flex-start; margin-bottom: 7px; }
+  .q-num {
+    display: inline-block; background: #b22222; color: white;
+    font-size: 12px; font-weight: bold; border-radius: 50%;
+    width: 23px; height: 23px; line-height: 23px; text-align: center;
+    margin-right: 7px; flex-shrink: 0; margin-top: 1px;
+  }
+  .q-text { font-size: 13.5px; line-height: 1.9; flex: 1; }
+
+  /* 빈칸·답란 */
+  .answer-line {
+    border: none; border-bottom: 1.5px solid #888;
+    width: 100%; margin-top: 4px; height: 25px; background: transparent; display: block;
+  }
+  .answer-label { font-size: 11.5px; color: #444; font-weight: bold; }
+  .answer-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 5px; }
+  .answer-grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 5px; }
+
+  .blank    { border-bottom: 1.5px solid #333; min-width: 60px;  display: inline-block; }
+  .blank-sm { border-bottom: 1.5px solid #333; min-width: 40px;  display: inline-block; }
+  .blank-lg { border-bottom: 1.5px solid #333; min-width: 110px; display: inline-block; }
+
+  .calc-step { font-size: 13px; color: #333; margin-bottom: 5px; line-height: 2.1; }
+
+  /* 주문서 */
+  .order-grid { border: 1.5px solid #ddd; border-radius: 6px; overflow: hidden; margin: 6px 0 7px; font-size: 12.5px; }
+  .order-grid-head {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr;
+    background: #b22222; color: white; font-weight: bold; padding: 6px 9px; font-size: 12px;
+  }
+  .order-grid-row {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr;
+    padding: 5px 9px; border-bottom: 1px dashed #eee;
+  }
+  .order-grid-row:last-child { border-bottom: none; }
+  .order-grid-total {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.4fr;
+    padding: 6px 9px; background: #fff0f0; font-weight: bold; border-top: 1.5px solid #ccc;
+  }
+
+  /* 영수증 */
+  .receipt {
+    border: 1.5px dashed #aaa; border-radius: 6px;
+    padding: 10px 16px; font-size: 13px; background: white; margin: 6px 0 7px;
+    max-width: 260px; margin-left: auto; margin-right: auto;
+  }
+  .receipt-title { text-align: center; font-weight: bold; font-size: 14px; margin-bottom: 6px; letter-spacing: 1px; border-bottom: 1px solid #999; padding-bottom: 5px; }
+  .receipt-row { display: flex; justify-content: space-between; padding: 3px 0; }
+  .receipt-divider { border: none; border-top: 1px dashed #bbb; margin: 3px 0; }
+  .receipt-total {
+    border-top: 2px solid #333; margin-top: 4px; padding-top: 5px;
+    font-weight: bold; display: flex; justify-content: space-between; font-size: 14px;
+  }
+  .receipt-paid { display: flex; justify-content: space-between; padding: 3px 0; color: #555; font-size: 12.5px; }
+  .receipt-change { display: flex; justify-content: space-between; padding: 3px 0; color: #b22222; font-weight: bold; }
+
+  /* 체크박스 */
+  .check-row { display: flex; gap: 14px; margin-top: 7px; flex-wrap: wrap; }
+  .check-col  { display: flex; flex-direction: column; gap: 7px; margin-top: 7px; }
+  .check-item { display: flex; align-items: center; gap: 6px; font-size: 13px; }
+  .check-box  { width: 16px; height: 16px; border: 1.5px solid #555; border-radius: 3px; display: inline-block; flex-shrink: 0; }
+
+  /* 트레이 */
+  .tray-box {
+    border: 1.5px solid #ddd; border-radius: 6px;
+    padding: 9px 13px; margin: 6px 0 8px; font-size: 12.5px; background: #fafafa;
+  }
+  .tray-row { display: flex; align-items: center; gap: 6px; padding: 4px 0; border-bottom: 1px dashed #eee; }
+  .tray-row:last-child { border-bottom: none; }
+  .tray-name  { flex: 1.5; }
+  .tray-qty   { min-width: 45px; color: #555; text-align: center; }
+  .tray-price { min-width: 75px; font-weight: bold; text-align: right; color: #b22222; }
+
+  /* 정답표 */
+  table { border-collapse: collapse; width: 100%; }
+  th { background: #b22222; color: white; padding: 6px 7px; border: 1px solid #900; font-size: 12px; }
+  td { padding: 6px 7px; border: 1px solid #ddd; font-size: 12px; }
+  tr:nth-child(even) td { background: #fff8f8; }
+
+  /* 주문 계획표 (셀프) */
+  .plan-grid { border: 1.5px solid #ddd; border-radius: 6px; overflow: hidden; margin: 6px 0 7px; font-size: 12.5px; }
+  .plan-grid-head {
+    display: grid; grid-template-columns: 2.5fr 1fr 1.4fr;
+    background: #555; color: white; font-weight: bold; padding: 6px 9px; font-size: 12px;
+  }
+  .plan-grid-row {
+    display: grid; grid-template-columns: 2.5fr 1fr 1.4fr;
+    padding: 5px 9px; border-bottom: 1px dashed #eee; min-height: 28px;
+  }
+  .plan-grid-total {
+    display: grid; grid-template-columns: 2.5fr 1fr 1.4fr;
+    padding: 6px 9px; background: #f5f5f5; font-weight: bold; border-top: 1.5px solid #ccc;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========================================
+     PAGE 1 : 하이디라오 소개 + 메뉴 알기 + Q1~Q3
+     ======================================== -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🍲 하이디라오 이용하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 1쪽 — 메뉴 알기 &amp; 기본 계산</div>
+    </div>
+    <div class="logo-badge">하이디라오 수학</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+    <div class="info-box"><span class="info-label">점수</span></div>
+  </div>
+
+  <div class="tip-box">
+    <b>하이디라오</b>는 중국에서 시작한 훠궈(샤브샤브) 음식점이에요. 테이블에 냄비가 있고,
+    끓는 육수에 원하는 재료를 직접 넣어 익혀 먹어요. 아이스크림 서비스로도 유명해요! 🍦
+  </div>
+
+  <div class="section-title">📋 하이디라오 메뉴판 — 재료 (1인분 기준)</div>
+  <div class="menu-grid">
+    <div class="menu-card"><span class="menu-icon">🥩</span><span class="menu-name">소고기</span><span class="menu-price">18,000원</span></div>
+    <div class="menu-card"><span class="menu-icon">🐑</span><span class="menu-name">양고기</span><span class="menu-price">15,000원</span></div>
+    <div class="menu-card"><span class="menu-icon">🥓</span><span class="menu-name">돼지고기</span><span class="menu-price">12,000원</span></div>
+    <div class="menu-card"><span class="menu-icon">🍤</span><span class="menu-name">새우</span><span class="menu-price">14,000원</span></div>
+    <div class="menu-card"><span class="menu-icon">🦑</span><span class="menu-name">오징어</span><span class="menu-price">10,000원</span></div>
+    <div class="menu-card"><span class="menu-icon">🍄</span><span class="menu-name">버섯모둠</span><span class="menu-price">8,000원</span></div>
+    <div class="menu-card"><span class="menu-icon">🥬</span><span class="menu-name">야채모둠</span><span class="menu-price">7,000원</span></div>
+    <div class="menu-card"><span class="menu-icon">🧈</span><span class="menu-name">두부</span><span class="menu-price">5,000원</span></div>
+    <div class="menu-card"><span class="menu-icon">🍡</span><span class="menu-name">떡</span><span class="menu-price">4,000원</span></div>
+    <div class="menu-card"><span class="menu-icon">🍜</span><span class="menu-name">당면</span><span class="menu-price">4,000원</span></div>
+    <div class="menu-card"><span class="menu-icon">🍚</span><span class="menu-name">볶음밥</span><span class="menu-price">6,000원</span></div>
+    <div class="menu-card"><span class="menu-icon">🥤</span><span class="menu-name">음료수</span><span class="menu-price">3,000원</span></div>
+  </div>
+  <div style="font-size:11px; color:#888; text-align:right; margin-top:-5px; margin-bottom:8px;">※ 아이스크림은 무료 서비스</div>
+
+  <div class="section-title">문제 풀기 (1~3번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">1</span>
+      <span class="q-text"><b>주현</b>이는 소고기와 야채모둠을 주문했어요.
+        얼마를 내야 할까요?</span>
+    </div>
+    <div class="calc-step">
+      소고기 <span class="blank-sm"></span>원 + 야채모둠 <span class="blank-sm"></span>원 = <span class="blank"></span>원
+    </div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">2</span>
+      <span class="q-text"><b>주은</b>이는 돼지고기, 버섯모둠, 음료수를 주문했어요.
+        모두 얼마인가요?</span>
+    </div>
+    <div class="calc-step">
+      돼지고기 <span class="blank-sm"></span>원 + 버섯모둠 <span class="blank-sm"></span>원 + 음료수 <span class="blank-sm"></span>원 = <span class="blank"></span>원
+    </div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">3</span>
+      <span class="q-text"><b>하은</b>이는 새우를 <b>2인분</b> 주문했어요. 얼마인가요?</span>
+    </div>
+    <div class="calc-step">새우 1인분 <span class="blank-sm"></span>원 × 2 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================
+     PAGE 2 : 주문서 작성 + 거스름돈 계산 Q4~Q7
+     ======================================== -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🍲 하이디라오 이용하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 2쪽 — 주문서 작성 &amp; 거스름돈</div>
+    </div>
+    <div class="logo-badge">하이디라오 수학</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <div class="tip-box">
+    <b>거스름돈</b> = 낸 돈 − 주문 금액 &nbsp;|&nbsp; 먼저 주문 금액을 구하고, 낸 돈에서 빼면 돼요!
+  </div>
+
+  <div class="section-title">문제 풀기 (4~7번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">4</span>
+      <span class="q-text"><b>하영</b>이의 주문 내역을 보고 주문서를 완성해 보세요.</span>
+    </div>
+    <div class="order-grid">
+      <div class="order-grid-head"><span>메뉴</span><span>수량</span><span>단가</span><span>금액</span></div>
+      <div class="order-grid-row">
+        <span>양고기</span><span>1인분</span><span>15,000원</span><span>15,000원</span>
+      </div>
+      <div class="order-grid-row">
+        <span>야채모둠</span><span>1</span><span>7,000원</span><span><span class="blank-sm"></span>원</span>
+      </div>
+      <div class="order-grid-row">
+        <span>음료수</span><span>2</span><span>3,000원</span><span><span class="blank-sm"></span>원</span>
+      </div>
+      <div class="order-grid-total">
+        <span>합계</span><span></span><span></span><span><span class="blank-sm"></span>원</span>
+      </div>
+    </div>
+    <div class="calc-step" style="font-size:12px; color:#666;">
+      음료수 2잔: 3,000 × <span class="blank-sm"></span> = <span class="blank-sm"></span>원 &nbsp;/&nbsp;
+      합계: 15,000 + <span class="blank-sm"></span> + <span class="blank-sm"></span> = <span class="blank-sm"></span>원
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">5</span>
+      <span class="q-text"><b>채원</b>이는 오징어와 두부를 주문하고 <b>20,000원</b>을 냈어요.
+        거스름돈은 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 주문 금액: 오징어 <span class="blank-sm"></span>원 + 두부 <span class="blank-sm"></span>원 = <span class="blank"></span>원</div>
+    <div class="calc-step">② 거스름돈: 20,000 − <span class="blank"></span> = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">6</span>
+      <span class="q-text"><b>예은</b>이는 20,000원을 가지고 있어요.
+        아래 주문 중에서 20,000원으로 주문할 수 있는 것에 ✔ 표시해 보세요.</span>
+    </div>
+    <div class="check-col">
+      <div class="check-item"><span class="check-box"></span>
+        소고기(18,000원) + 음료수(3,000원) → 합계 <span class="blank-sm"></span>원 → 주문 가능 / 불가능</div>
+      <div class="check-item"><span class="check-box"></span>
+        소고기(18,000원) 단독 → 합계 <span class="blank-sm"></span>원 → 주문 가능 / 불가능</div>
+      <div class="check-item"><span class="check-box"></span>
+        양고기(15,000원) + 두부(5,000원) → 합계 <span class="blank-sm"></span>원 → 주문 가능 / 불가능</div>
+      <div class="check-item"><span class="check-box"></span>
+        새우(14,000원) + 버섯모둠(8,000원) → 합계 <span class="blank-sm"></span>원 → 주문 가능 / 불가능</div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">7</span>
+      <span class="q-text"><b>주현</b>이는 소고기, 버섯모둠, 음료수를 주문하고
+        <b>50,000원</b>을 냈어요. 거스름돈은 얼마인가요?</span>
+    </div>
+    <div class="calc-step">
+      ① 주문 금액: <span class="blank-sm"></span> + <span class="blank-sm"></span> + <span class="blank-sm"></span> = <span class="blank"></span>원
+    </div>
+    <div class="calc-step">
+      ② 거스름돈: 50,000 − <span class="blank"></span> = <span class="blank"></span>원
+    </div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================
+     PAGE 3 : 여러 명 함께 주문하기 Q8~Q11
+     ======================================== -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🍲 하이디라오 이용하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 3쪽 — 여러 명이 함께 주문하기</div>
+    </div>
+    <div class="logo-badge">하이디라오 수학</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <div class="section-title">문제 풀기 (8~11번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">8</span>
+      <span class="q-text"><b>주은, 하은, 하영</b>이가 각자 다른 것을 주문했어요.
+        각자 내야 할 금액을 구해 보세요.</span>
+    </div>
+    <div class="tray-box">
+      <div class="tray-row">
+        <span class="tray-name" style="font-weight:bold;">주은</span>
+        <span class="tray-qty">소고기 + 음료수</span>
+        <span class="tray-price"><span class="blank-sm"></span>원</span>
+      </div>
+      <div class="tray-row">
+        <span class="tray-name" style="font-weight:bold;">하은</span>
+        <span class="tray-qty">양고기 + 야채모둠</span>
+        <span class="tray-price"><span class="blank-sm"></span>원</span>
+      </div>
+      <div class="tray-row">
+        <span class="tray-name" style="font-weight:bold;">하영</span>
+        <span class="tray-qty">돼지고기 + 버섯모둠 + 떡</span>
+        <span class="tray-price"><span class="blank-sm"></span>원</span>
+      </div>
+    </div>
+    <div class="calc-step" style="font-size:12.5px;">
+      주은: 18,000 + 3,000 = <span class="blank-sm"></span>원 &nbsp;|&nbsp;
+      하은: 15,000 + 7,000 = <span class="blank-sm"></span>원 &nbsp;|&nbsp;
+      하영: 12,000 + 8,000 + 4,000 = <span class="blank-sm"></span>원
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">9</span>
+      <span class="q-text"><b>채원</b>이와 <b>예은</b>이가 함께 식사했어요.
+        총 금액이 <b>46,000원</b>이었어요.
+        둘이 똑같이 나눠 낸다면 각자 얼마씩 내야 하나요?</span>
+    </div>
+    <div class="calc-step">46,000 ÷ 2 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답 (1인당)</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">10</span>
+      <span class="q-text"><b>주현</b>이의 영수증을 보고 빈칸을 완성해 보세요.</span>
+    </div>
+    <div class="receipt">
+      <div class="receipt-title">🍲 하이디라오</div>
+      <div class="receipt-row"><span>소고기 × 1</span><span>18,000원</span></div>
+      <div class="receipt-row"><span>야채모둠 × 1</span><span>7,000원</span></div>
+      <div class="receipt-row"><span>음료수 × 2</span><span><span class="blank-sm"></span>원</span></div>
+      <hr class="receipt-divider">
+      <div class="receipt-total"><span>합계</span><span><span class="blank-sm"></span>원</span></div>
+      <div class="receipt-paid"><span>받은 금액</span><span>50,000원</span></div>
+      <div class="receipt-change"><span>거스름돈</span><span><span class="blank-sm"></span>원</span></div>
+    </div>
+    <div class="calc-step" style="font-size:12.5px;">
+      음료수 2잔: 3,000 × 2 = <span class="blank-sm"></span>원 &nbsp;/&nbsp;
+      합계: 18,000 + 7,000 + <span class="blank-sm"></span> = <span class="blank-sm"></span>원 &nbsp;/&nbsp;
+      거스름돈: 50,000 − <span class="blank-sm"></span> = <span class="blank-sm"></span>원
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">11</span>
+      <span class="q-text"><b>주은, 하은, 하영</b> 3명이 각각 15,000원씩 냈어요.
+        모두 얼마를 낸 것인가요?</span>
+    </div>
+    <div class="calc-step">15,000 × 3 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================
+     PAGE 4 : 예산 계획 + 나만의 주문 Q12~Q14
+     ======================================== -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🍲 하이디라오 이용하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 4쪽 — 예산 계획 &amp; 나만의 주문</div>
+    </div>
+    <div class="logo-badge">하이디라오 수학</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <div class="section-title">문제 풀기 (12~13번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">12</span>
+      <span class="q-text"><b>하은</b>이는 35,000원을 가지고 있어요.
+        새우, 야채모둠, 볶음밥, 음료수를 주문하면 얼마가 남을까요?</span>
+    </div>
+    <div class="calc-step">
+      ① 주문 금액: 새우 <span class="blank-sm"></span>원 + 야채모둠 <span class="blank-sm"></span>원 + 볶음밥 <span class="blank-sm"></span>원 + 음료수 <span class="blank-sm"></span>원 = <span class="blank"></span>원
+    </div>
+    <div class="calc-step">
+      ② 남은 돈: 35,000 − <span class="blank"></span> = <span class="blank"></span>원
+    </div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">13</span>
+      <span class="q-text"><b>채원</b>이는 친구 <b>하영</b>이와 함께 하이디라오에 갔어요.
+        아래 표를 보고 두 사람의 총 금액과 1인당 금액을 구해 보세요.</span>
+    </div>
+    <div class="order-grid">
+      <div class="order-grid-head"><span>이름</span><span>주문</span><span>수량</span><span>금액</span></div>
+      <div class="order-grid-row">
+        <span>채원</span><span>소고기</span><span>1인분</span><span>18,000원</span>
+      </div>
+      <div class="order-grid-row">
+        <span>채원</span><span>버섯모둠</span><span>1</span><span><span class="blank-sm"></span>원</span>
+      </div>
+      <div class="order-grid-row">
+        <span>하영</span><span>양고기</span><span>1인분</span><span>15,000원</span>
+      </div>
+      <div class="order-grid-row">
+        <span>하영</span><span>야채모둠</span><span>1</span><span><span class="blank-sm"></span>원</span>
+      </div>
+      <div class="order-grid-row">
+        <span>공통</span><span>음료수</span><span>2잔</span><span><span class="blank-sm"></span>원</span>
+      </div>
+      <div class="order-grid-total">
+        <span>전체 합계</span><span></span><span></span><span><span class="blank-sm"></span>원</span>
+      </div>
+    </div>
+    <div class="calc-step" style="font-size:12.5px;">
+      채원이 소계: 18,000 + <span class="blank-sm"></span> = <span class="blank-sm"></span>원 &nbsp;/&nbsp;
+      하영이 소계: 15,000 + <span class="blank-sm"></span> = <span class="blank-sm"></span>원 &nbsp;/&nbsp;
+      음료수: 3,000 × 2 = <span class="blank-sm"></span>원
+    </div>
+    <div class="answer-grid3" style="margin-top:6px;">
+      <div><div class="answer-label">전체 합계 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">전체 합계</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">1인당 (÷2)</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="section-title-dark">⭐ 나만의 주문 계획 세우기 (14번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">14</span>
+      <span class="q-text">내가 하이디라오에 간다면 어떤 것을 주문하고 싶은지 써 보고,
+        총 금액을 계산해 보세요. 1쪽 메뉴판을 참고하세요.</span>
+    </div>
+    <div class="plan-grid">
+      <div class="plan-grid-head"><span>메뉴</span><span>수량</span><span>금액</span></div>
+      <div class="plan-grid-row"><span></span><span></span><span></span></div>
+      <div class="plan-grid-row"><span></span><span></span><span></span></div>
+      <div class="plan-grid-row"><span></span><span></span><span></span></div>
+      <div class="plan-grid-row"><span></span><span></span><span></span></div>
+      <div class="plan-grid-total"><span>합계</span><span></span><span></span></div>
+    </div>
+    <div style="font-size:13.5px; margin-top:5px;">
+      용돈 <b>30,000원</b>으로 내 주문을 할 수 있나요?
+    </div>
+    <div class="check-row" style="margin-top:5px;">
+      <div class="check-item"><span class="check-box"></span> 할 수 있어요</div>
+      <div class="check-item"><span class="check-box"></span> 할 수 없어요</div>
+    </div>
+    <div style="font-size:12px; color:#555; margin-top:7px;">이유 (계산 과정 포함):</div>
+    <div class="answer-line" style="margin-top:5px;"></div>
+    <div class="answer-line" style="margin-top:10px;"></div>
+  </div>
+</div>
+
+<!-- ========================================
+     PAGE 5 : 정답지 (선생님용)
+     ======================================== -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🍲 하이디라오 이용하기 — 정답지</div>
+      <div class="sheet-sub">선생님용 · 5쪽</div>
+    </div>
+    <div class="logo-badge">정답지</div>
+  </div>
+
+  <div class="tip-box">
+    <b>지도 팁</b>: 문제를 풀기 전 메뉴판을 함께 읽으며 가격을 익히게 해주세요.
+    거스름돈 문제는 "내야 할 돈 → 낸 돈 → 빼기" 순서를 손으로 짚으며 확인하면 효과적이에요.
+    14번(나만의 주문)은 자유 작성이므로 학생이 선택한 메뉴를 기준으로 함께 계산하며 확인해 주세요.
+  </div>
+
+  <div class="section-title">정답 모음</div>
+
+  <table>
+    <colgroup>
+      <col style="width:7%"><col style="width:20%"><col style="width:43%"><col style="width:30%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th style="text-align:center;">번호</th>
+        <th style="text-align:center;">핵심 포인트</th>
+        <th style="text-align:center;">풀이</th>
+        <th style="text-align:center;">답</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">1</td>
+        <td>덧셈</td>
+        <td>18,000 + 7,000</td>
+        <td style="font-weight:bold; color:#b22222;">25,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">2</td>
+        <td>세 수 덧셈</td>
+        <td>12,000 + 8,000 + 3,000</td>
+        <td style="font-weight:bold; color:#b22222;">23,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">3</td>
+        <td>곱셈(2인분)</td>
+        <td>14,000 × 2</td>
+        <td style="font-weight:bold; color:#b22222;">28,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">4</td>
+        <td>주문서 작성</td>
+        <td>야채모둠 7,000 / 음료수 3,000×2=6,000 / 합계 15,000+7,000+6,000</td>
+        <td style="font-weight:bold; color:#b22222;">합계 28,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">5</td>
+        <td>거스름돈</td>
+        <td>10,000+5,000=15,000 → 20,000−15,000</td>
+        <td style="font-weight:bold; color:#b22222;">5,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">6</td>
+        <td>예산 판단</td>
+        <td>①21,000원(불가) ②18,000원(가능✔) ③20,000원(가능✔) ④22,000원(불가)</td>
+        <td style="font-weight:bold; color:#b22222;">②③ 가능</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">7</td>
+        <td>거스름돈</td>
+        <td>18,000+8,000+3,000=29,000 → 50,000−29,000</td>
+        <td style="font-weight:bold; color:#b22222;">21,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">8</td>
+        <td>각자 계산</td>
+        <td>주은: 18,000+3,000=21,000 / 하은: 15,000+7,000=22,000 / 하영: 12,000+8,000+4,000=24,000</td>
+        <td style="font-weight:bold; color:#b22222;">주은21,000 / 하은22,000 / 하영24,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">9</td>
+        <td>나눗셈(1/n)</td>
+        <td>46,000 ÷ 2</td>
+        <td style="font-weight:bold; color:#b22222;">각 23,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">10</td>
+        <td>영수증</td>
+        <td>음료수 3,000×2=6,000 / 합계 18,000+7,000+6,000=31,000 / 거스름돈 50,000−31,000</td>
+        <td style="font-weight:bold; color:#b22222;">합계 31,000원 / 거스름돈 19,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">11</td>
+        <td>곱셈</td>
+        <td>15,000 × 3</td>
+        <td style="font-weight:bold; color:#b22222;">45,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">12</td>
+        <td>예산·잔액</td>
+        <td>14,000+7,000+6,000+3,000=30,000 → 35,000−30,000</td>
+        <td style="font-weight:bold; color:#b22222;">남은 돈 5,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">13</td>
+        <td>소계·합산·나눗셈</td>
+        <td>채원(18,000+8,000=26,000) + 하영(15,000+7,000=22,000) + 음료수(6,000) = 54,000 / 54,000÷2</td>
+        <td style="font-weight:bold; color:#b22222;">합계 54,000원 / 1인당 27,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">14</td>
+        <td>자유 작성</td>
+        <td colspan="2">학생이 선택한 메뉴 기준으로 함께 계산하여 확인 (30,000원 이내 여부 판단)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box" style="margin-top:14px;">
+    <b>수업 활용 아이디어</b><br>
+    · 실제 하이디라오 메뉴판 사진을 보여주며 배경 지식 쌓기<br>
+    · 역할극: 손님(주문)과 직원(계산)으로 나눠 실전 상황 연습<br>
+    · 메뉴 카드를 잘라 직접 골라 보는 활동으로 확장<br>
+    · 6번 예산 판단 문제: 잔액을 계산한 뒤 0 이상이면 가능, 0 미만이면 불가 개념으로 연결<br>
+    · 14번 나만의 주문 → 발표 후 "누가 가장 알뜰하게 골랐을까?" 토의로 연결
+  </div>
+</div>
+
+</body>
+</html>

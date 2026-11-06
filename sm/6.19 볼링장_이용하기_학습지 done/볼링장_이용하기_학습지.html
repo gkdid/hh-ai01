@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>볼링장 이용하기 — 학습지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4 portrait; margin: 12mm 14mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  font-size: 11.5pt; line-height: 1.45;
+}
+
+.toolbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #1565c0; color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.toolbar .muted { color: #bbdefb; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button {
+  background: #ffd54f; color: #0d47a1; border: none; font: inherit; font-weight: 700;
+  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+}
+.toolbar button:hover { background: #ffe082; }
+
+.page {
+  width: 210mm; min-height: 297mm;
+  margin: 12mm auto; padding: 14mm 16mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  position: relative; page-break-after: always;
+}
+.page:last-of-type { page-break-after: auto; }
+
+/* ===== 표지 ===== */
+.page.cover {
+  padding: 18mm 18mm;
+  background: linear-gradient(135deg, #fff 0%, #e3f2fd 100%);
+}
+.cover-top {
+  display: flex; justify-content: space-between;
+  font-size: 0.9em; color: #455a64;
+  border-bottom: 2px solid #bbdefb; padding-bottom: 10px; margin-bottom: 20px;
+}
+.cover-top .subject { font-weight: 700; color: #1565c0; }
+.cover-main { text-align: center; padding: 14px 0 8px; }
+.cover-main .badge {
+  display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #1565c0; color: #fff; font-weight: 700; font-size: 0.95em;
+  margin-bottom: 12px; letter-spacing: 0.5px;
+}
+.cover-main h1 {
+  margin: 0; font-size: 2.2em; letter-spacing: -1.5px;
+  color: #0d47a1; font-weight: 900;
+}
+.cover-main .lead {
+  margin: 6px 0 0; font-size: 1em; color: #37474f; font-weight: 500;
+}
+.name-box {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin: 16px 0 8px;
+}
+.name-cell { border: 1.5px solid #90caf9; border-radius: 8px; padding: 8px 10px; }
+.name-cell span { display: block; font-size: 0.78em; color: #1565c0; font-weight: 500; }
+.name-cell em { display: block; min-height: 22px; font-style: normal; }
+
+.cast, .toc, .info {
+  border: 2px solid #bbdefb; border-radius: 10px;
+  padding: 10px 14px; margin-top: 10px; background: #e3f2fd;
+}
+.cast h2, .toc h2, .info h2 {
+  margin: 0 0 6px; font-size: 1.05em; color: #0d47a1;
+  border-bottom: 1px dashed #64b5f6; padding-bottom: 4px;
+}
+.info p { margin: 0; font-size: 0.95em; color: #263238; }
+
+.cast-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.person {
+  display: flex; align-items: center; gap: 6px;
+  padding: 6px 8px; background: #fff;
+  border: 1px solid #eee; border-radius: 8px;
+  font-weight: 700; color: #37474f; font-size: 0.92em;
+}
+.dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.d1 { background: #FF6B6B; }
+.d2 { background: #4ECDC4; }
+.d3 { background: #FFD166; }
+.d4 { background: #A78BFA; }
+.d5 { background: #6FCF97; }
+.d6 { background: #F48FB1; }
+
+.toc ol { margin: 4px 0 0; padding-left: 22px; }
+.toc li { padding: 2px 0; }
+
+.ph {
+  display: flex; align-items: center; gap: 14px;
+  border-bottom: 3px solid #1565c0; padding-bottom: 10px; margin-bottom: 14px;
+}
+.ph-num {
+  flex-shrink: 0; width: 52px; height: 52px;
+  background: #1565c0; color: #ffd54f;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.5em; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; border-radius: 10px;
+}
+.ph-title h2 { margin: 0; font-size: 1.35em; color: #0d47a1; }
+.ph-title p { margin: 2px 0 0; color: #546e7a; font-size: 0.9em; }
+
+.scene {
+  background: #fff8e1; border-left: 5px solid #ffb300;
+  border-radius: 6px; padding: 10px 14px; margin-bottom: 10px;
+}
+.scene p { margin: 0; }
+
+.tip {
+  background: #e8f5e9; border-left: 5px solid #43a047;
+  border-radius: 6px; padding: 8px 12px; margin: 8px 0;
+}
+.tip .tip-title { display: block; font-weight: 700; color: #1b5e20; margin-bottom: 3px; }
+
+.practice h3 {
+  display: inline-block; background: #ffd54f; color: #0d47a1;
+  padding: 3px 12px; border-radius: 16px; font-size: 0.98em; margin: 6px 0 10px;
+}
+.q {
+  position: relative;
+  padding-left: 38px;
+  margin-bottom: 10px; padding-bottom: 8px;
+  border-bottom: 1px dashed #cfd8dc;
+}
+.q:last-child { border-bottom: none; }
+.q .no {
+  position: absolute; left: 0; top: 0;
+  width: 28px; height: 28px;
+  background: #1565c0; color: #fff;
+  border-radius: 50%; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; font-size: 0.9em;
+}
+.q p { margin: 0 0 4px; }
+.q .sub-q { margin-top: 4px; font-weight: 500; color: #455a64; }
+
+.lines {
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0, transparent 28px, #b0bec5 28px, #b0bec5 29px
+  );
+  height: 30px; margin: 4px 0;
+}
+.lines.two { height: 60px; }
+.lines.three { height: 90px; }
+
+.blank {
+  display: inline-block; border-bottom: 1.5px solid #263238;
+  min-width: 70px; height: 20px; vertical-align: baseline;
+}
+
+.box {
+  display: inline-block; min-width: 70px; height: 26px;
+  border: 2px solid #1565c0; background: #fff;
+  border-radius: 4px; vertical-align: middle; margin: 0 3px;
+}
+.box.wide { min-width: 110px; }
+.box.xwide { min-width: 160px; }
+
+.formula {
+  background: #fffde7; border: 1.5px dashed #fbc02d;
+  border-radius: 8px; padding: 8px 14px;
+  text-align: center; font-size: 1.05em; margin: 6px 0; font-weight: 500;
+}
+
+table { width: 100%; border-collapse: collapse; margin: 5px 0; }
+th, td {
+  border: 1.5px solid #64b5f6;
+  padding: 5px 8px; text-align: center; vertical-align: middle;
+  font-size: 0.95em;
+}
+th { background: #e3f2fd; font-weight: 700; color: #0d47a1; }
+td.left, th.left { text-align: left; }
+.price-table .hi { background: #fff3e0; font-weight: 700; }
+
+.check { display: inline-block; width: 14px; height: 14px;
+  border: 1.5px solid #1565c0; border-radius: 3px;
+  vertical-align: middle; margin-right: 4px;
+}
+
+/* 점수표 (볼링) */
+.score-table { font-size: 0.9em; }
+.score-table th, .score-table td { padding: 4px 2px; min-width: 28px; }
+.score-table .frame { background: #e3f2fd; font-weight: 700; }
+.score-table .pin { height: 26px; }
+.score-table .total { background: #fff3e0; font-weight: 700; }
+
+/* 픽토그램 */
+.equipment {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 6px 0;
+}
+.eq-card {
+  border: 2px solid #90caf9; border-radius: 8px; padding: 8px;
+  background: #fff; text-align: center;
+}
+.eq-card .ic { font-size: 1.8em; line-height: 1.2; }
+.eq-card h4 { margin: 4px 0 2px; color: #0d47a1; font-size: 0.95em; }
+.eq-card p { margin: 0; font-size: 0.82em; color: #455a64; }
+
+/* 말풍선 */
+.choice-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 6px 0;
+}
+.bubble {
+  background: #fff; border: 1.5px solid #cfd8dc; border-radius: 12px;
+  padding: 8px 12px; font-size: 0.92em;
+}
+.bubble.good { border-color: #43a047; background: #e8f5e9; }
+.bubble.bad { border-color: #e53935; background: #ffebee; }
+
+/* 마무리 */
+.wrap-up {
+  border: 3px double #1565c0; border-radius: 10px;
+  padding: 14px 18px; background: #e3f2fd; margin-top: 10px;
+}
+.wrap-up h3 { margin: 0 0 8px; color: #0d47a1; font-size: 1.15em; text-align: center; }
+
+@media print {
+  body { background: #fff; }
+  .toolbar { display: none; }
+  .page { margin: 0 auto; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div>🎳 볼링장 이용하기 — 학습지 <span class="muted">수학 융합 + 사회성</span></div>
+  <button onclick="window.print()">🖨️ 인쇄하기</button>
+</div>
+
+<!-- ════════════ 표지 ════════════ -->
+<section class="page cover">
+  <div class="cover-top">
+    <div class="subject">사회성 · 수학 · 진로와 자립</div>
+    <div>고등학교 특수학급</div>
+  </div>
+
+  <div class="cover-main">
+    <span class="badge">여가 · 체험 학습지</span>
+    <h1>🎳 친구들과 볼링 한 게임!</h1>
+    <p class="lead">요금 계산부터 <b>점수 계산</b>, 차례 지키기와 응원까지. 함께 즐기는 볼링!</p>
+  </div>
+
+  <div class="name-box">
+    <div class="name-cell"><span>학년 · 반</span><em></em></div>
+    <div class="name-cell"><span>번호</span><em></em></div>
+    <div class="name-cell"><span>이름</span><em></em></div>
+  </div>
+
+  <div class="info">
+    <h2>📌 이번 학습지에서 무엇을 할까요?</h2>
+    <p>볼링장은 친구들과 함께 가서 <b>한 게임씩 차례로</b> 즐기는 곳이에요.
+       <b>게임 요금과 신발·양말 대여비를 계산</b>하고, <b>점수표 읽는 방법</b>도 익혀요.
+       함께할 때 필요한 <b>매너와 응원</b>도 함께 배워요.</p>
+  </div>
+
+  <div class="cast">
+    <h2>👫 함께 가는 친구들 (6명)</h2>
+    <div class="cast-grid">
+      <div class="person"><span class="dot d1"></span>채원(나)</div>
+      <div class="person"><span class="dot d6"></span>하영</div>
+      <div class="person"><span class="dot d2"></span>하은</div>
+      <div class="person"><span class="dot d4"></span>주은</div>
+      <div class="person"><span class="dot d3"></span>예은</div>
+      <div class="person"><span class="dot d5"></span>주현</div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h2>📚 차례</h2>
+    <ol>
+      <li>볼링장 알기 — 시설 · 장비 · 규칙</li>
+      <li>요금 계산과 예약 — 게임당 얼마?</li>
+      <li>점수 계산 — 스트라이크와 스페어</li>
+      <li>매너와 갈등 해결 — 차례 · 응원 · 거절</li>
+      <li>마무리 — 더치페이와 다짐</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ════════════ 1쪽: 볼링장 알기 ════════════ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">1</div>
+    <div class="ph-title">
+      <h2>볼링장 알기</h2>
+      <p>시설 · 장비 · 기본 규칙을 익혀요</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>💬 <b>하영</b>: "볼링장은 처음 가 봐. 신발은 따로 빌리는 거 맞지?"<br>
+    💬 <b>채원</b>: "응. 양말도 꼭 챙겨야 해. 안 신으면 신발 빌려도 안 들어가."</p>
+  </div>
+
+  <div class="practice">
+    <h3>🔧 활동 1 — 볼링 장비 이름</h3>
+    <div class="equipment">
+      <div class="eq-card">
+        <div class="ic">🎳</div>
+        <h4>볼링공</h4>
+        <p>무게 7~16파운드. 손에 맞는 공을 골라요.</p>
+      </div>
+      <div class="eq-card">
+        <div class="ic">👟</div>
+        <h4>볼링화</h4>
+        <p>레인을 미끄러질 수 있게 만든 신발. 꼭 빌려요.</p>
+      </div>
+      <div class="eq-card">
+        <div class="ic">🧦</div>
+        <h4>양말</h4>
+        <p>위생을 위해 꼭 신고 빌려요.</p>
+      </div>
+      <div class="eq-card">
+        <div class="ic">🎯</div>
+        <h4>핀 10개</h4>
+        <p>레인 끝에 세워진 흰색 핀. 모두 쓰러뜨리면 스트라이크!</p>
+      </div>
+    </div>
+
+    <div class="q" style="margin-top:6px;">
+      <span class="no">1</span>
+      <p>볼링장에 가기 전 <b>꼭 챙겨야 할 것</b> 한 가지를 적어 보세요. <span class="box wide"></span></p>
+    </div>
+  </div>
+
+  <div class="practice">
+    <h3>📜 활동 2 — 기본 규칙 5가지</h3>
+    <table>
+      <tr><th class="left">규칙</th><th class="left">설명</th></tr>
+      <tr><td class="left">① 한 프레임 2번</td><td class="left">한 사람 차례에 <b>최대 2번</b> 공을 던져요. (단, 마지막 10프레임 예외)</td></tr>
+      <tr><td class="left">② 10프레임</td><td class="left">한 게임은 <b>총 10프레임</b>이에요.</td></tr>
+      <tr><td class="left">③ 차례 지키기</td><td class="left">옆 레인에서 공을 들면 <b>기다렸다가</b> 던져요.</td></tr>
+      <tr><td class="left">④ 라인 넘지 않기</td><td class="left">파울 라인을 넘으면 <b>0점</b>이에요.</td></tr>
+      <tr><td class="left">⑤ 음식 금지</td><td class="left">레인 안쪽으로 <b>음식·음료</b> 들고 가지 않아요.</td></tr>
+    </table>
+
+    <div class="q" style="margin-top:8px;">
+      <span class="no">2</span>
+      <p>한 게임은 모두 <b>몇 프레임</b>인가요? <span class="box"></span> 프레임</p>
+    </div>
+
+    <div class="q">
+      <span class="no">3</span>
+      <p>친구가 옆 레인에서 공을 들었어요. 나는 어떻게 해야 할까요?<br>
+        <span class="check"></span> 먼저 던진다 <span class="check"></span> 기다린다 <span class="check"></span> 큰 소리로 부른다</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <span class="tip-title">🛡️ 안전 수칙</span>
+    공은 무거워서 <b>발등에 떨어지면 다칠 수 있어요</b>. 공을 들 때는 <b>두 손</b>으로 들고,
+    레인 위에서는 <b>천천히 걸어요</b>. 다른 친구의 공도 함부로 만지지 않아요.
+  </div>
+</section>
+
+<!-- ════════════ 2쪽: 요금·예약 ════════════ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">2</div>
+    <div class="ph-title">
+      <h2>요금 계산과 예약</h2>
+      <p>한 게임은 얼마? 6명이서 2게임은?</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>💬 <b>주은</b>: "한 게임이 한 사람이 10프레임 다 던지는 거지? 한 게임에 얼마?"<br>
+    💬 <b>주현</b>: "주중이랑 주말이 다르고, 신발 대여도 따로야. 미리 계산해 가자."</p>
+  </div>
+
+  <div class="practice">
+    <h3>💰 활동 3 — 요금표 읽기</h3>
+    <table class="price-table">
+      <tr><th>구분</th><th>1인 1게임 (주중)</th><th>1인 1게임 (주말)</th></tr>
+      <tr><td>일반</td><td>4,500원</td><td>5,500원</td></tr>
+      <tr class="hi"><td>학생</td><td>3,500원</td><td>4,500원</td></tr>
+      <tr><td colspan="3" class="left">+ 신발 대여: 1,500원 / 양말 구매: 1,000원 / 라커: 500원</td></tr>
+    </table>
+
+    <div class="q" style="margin-top:8px;">
+      <span class="no">4</span>
+      <p><b>학생 주중 1게임 = 3,500원</b>일 때, 6명 1게임 요금은? <br>
+        3,500 × 6 = <span class="box wide"></span> 원</p>
+    </div>
+
+    <div class="q">
+      <span class="no">5</span>
+      <p>6명이 <b>주중에 2게임씩</b> 친다면 게임 요금은? <br>
+        3,500 × 6 × 2 = <span class="box wide"></span> 원</p>
+    </div>
+
+    <div class="q">
+      <span class="no">6</span>
+      <p>6명 모두 <b>신발 대여(1,500원)</b>를 한다면 신발 대여 합계는? <br>
+        1,500 × 6 = <span class="box wide"></span> 원</p>
+    </div>
+
+    <div class="q">
+      <span class="no">7</span>
+      <p>친구 중 한 명이 <b>양말이 없어서 구매(1,000원)</b>했어요. 다른 친구들은 양말이 있어요.<br>
+        양말 구매 비용은 누가 부담하는 게 좋을까요?<br>
+        <span class="check"></span> 산 친구 혼자 <span class="check"></span> 6명이 나누어 <span class="check"></span> 다음에 다른 친구에게 도움 받기로 약속</p>
+      <p class="sub-q">그 이유: </p>
+      <div class="lines"></div>
+    </div>
+
+    <div class="q">
+      <span class="no">8</span>
+      <p>6명, 주중, 2게임 + 신발 대여 6명 = <b>전체 합계</b>는?<br>
+        (5번 답) + (6번 답) = <span class="box wide"></span> 원</p>
+    </div>
+  </div>
+
+  <div class="practice">
+    <h3>📞 활동 4 — 예약하기</h3>
+    <div class="choice-row">
+      <div class="bubble good">"안녕하세요. <b>오늘 오후 4시</b>에 <b>6명, 2게임</b> 자리 가능한가요?"</div>
+      <div class="bubble bad">"6명인데 그냥 가도 자리 있어요?"</div>
+    </div>
+
+    <div class="q" style="margin-top:6px;">
+      <span class="no">9</span>
+      <p>예약 후 친구들에게 알려요. "<b>○○ 볼링장 ○시 ○명 ○게임</b> 예약 완료!"처럼 적어 보세요.</p>
+      <div class="lines two"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ 3쪽: 점수 계산 ════════════ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">3</div>
+    <div class="ph-title">
+      <h2>점수 계산 — 스트라이크와 스페어</h2>
+      <p>전광판이 알려주지만, 직접 더해 보면 더 재미있어요</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>💬 <b>예은</b>: "스트라이크는 X, 스페어는 / 표시 맞지?"<br>
+    💬 <b>채원</b>: "맞아. 전부 쓰러뜨리면 10점인데, 보너스 점수가 있어서 더 높아져."</p>
+  </div>
+
+  <div class="practice">
+    <h3>📖 활동 5 — 기본 점수 규칙</h3>
+    <table>
+      <tr><th class="left">상황</th><th class="left">표시</th><th>점수</th></tr>
+      <tr><td class="left">1구에 10개 다 쓰러짐</td><td class="left">스트라이크 <b>X</b></td><td>10 + (다음 2구 점수)</td></tr>
+      <tr><td class="left">1구 + 2구 합쳐 10개</td><td class="left">스페어 <b>/</b></td><td>10 + (다음 1구 점수)</td></tr>
+      <tr><td class="left">10개 못 쓰러뜨림</td><td class="left">숫자(예: 6, 2)</td><td>쓰러진 핀 수만큼</td></tr>
+      <tr><td class="left">공이 도랑(거터)로</td><td class="left"><b>−</b> 또는 0</td><td>0점</td></tr>
+    </table>
+
+    <div class="q" style="margin-top:8px;">
+      <span class="no">10</span>
+      <p>1구에 <b>7개</b>, 2구에 <b>1개</b> 쓰러뜨렸어요. 이 프레임 점수는? <span class="box"></span> 점</p>
+    </div>
+
+    <div class="q">
+      <span class="no">11</span>
+      <p>1구에 <b>8개</b>, 2구에 <b>2개</b>(스페어 /)예요. 다음 1구에 <b>5개</b>를 쓰러뜨리면, 이 프레임 점수는?<br>
+        10 + 5 = <span class="box"></span> 점</p>
+    </div>
+
+    <div class="q">
+      <span class="no">12</span>
+      <p>1프레임에 <b>스트라이크(X)</b>! 다음 1구는 <b>4개</b>, 다음 2구는 <b>3개</b>. 1프레임 점수는?<br>
+        10 + 4 + 3 = <span class="box"></span> 점</p>
+    </div>
+  </div>
+
+  <div class="practice">
+    <h3>🧮 활동 6 — 채원이의 첫 5프레임 점수 계산</h3>
+    <table class="score-table">
+      <tr><th class="frame">프레임</th>
+        <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+      <tr><td class="left frame">기록</td>
+        <td>7 / 1</td><td>X</td><td>8 / 2 (스페어)</td><td>6 / 3</td><td>9 / 0</td></tr>
+      <tr><td class="left frame">프레임 점수</td>
+        <td><span class="box"></span></td>
+        <td><span class="box"></span></td>
+        <td><span class="box"></span></td>
+        <td><span class="box"></span></td>
+        <td><span class="box"></span></td></tr>
+      <tr><td class="left frame total">누적</td>
+        <td class="total"><span class="box"></span></td>
+        <td class="total"><span class="box"></span></td>
+        <td class="total"><span class="box"></span></td>
+        <td class="total"><span class="box"></span></td>
+        <td class="total"><span class="box"></span></td></tr>
+    </table>
+    <p style="font-size:0.88em; color:#455a64; margin:4px 0 0;">
+      ※ 힌트 — 1프레임: 7+1=<b>8</b> / 2프레임: 스트라이크 = 10+(다음 2구 = 8+2) = <b>20</b> / 3프레임: 스페어 = 10+(다음 1구 6) = <b>16</b> / …
+    </p>
+
+    <div class="q" style="margin-top:8px;">
+      <span class="no">13</span>
+      <p><b>5프레임까지 누적 점수</b>는 모두 몇 점인가요? <span class="box"></span> 점</p>
+    </div>
+  </div>
+
+  <div class="tip">
+    <span class="tip-title">📊 점수 계산이 어렵다면</span>
+    전광판이 자동으로 알려줘요. 학습지에서는 <b>"왜 스트라이크가 보너스를 받는지"</b>만 이해해도 충분해요.
+    헷갈리면 <b>"이거 왜 이렇게 나왔어?"</b>라고 친구나 직원에게 물어요.
+  </div>
+</section>
+
+<!-- ════════════ 4쪽: 매너·갈등 ════════════ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">4</div>
+    <div class="ph-title">
+      <h2>매너와 갈등 해결</h2>
+      <p>차례 지키기 · 응원하기 · 잘 안 될 때 마음 다스리기</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>💬 <b>하영</b>: "거터(도랑)로 자꾸 빠져서 짜증나…"<br>
+    💬 <b>예은</b>: "괜찮아, 처음에는 다 그래! 자세 한 번 같이 봐 줄게."</p>
+  </div>
+
+  <div class="practice">
+    <h3>📝 활동 7 — 좋은 매너 vs 아쉬운 매너</h3>
+
+    <div class="choice-row">
+      <div class="bubble good">옆 레인 친구가 공을 들 때<br>"먼저 던져. 나 좀 기다릴게."</div>
+      <div class="bubble bad">동시에 던져 부딪힐 뻔하기</div>
+    </div>
+    <div class="choice-row">
+      <div class="bubble good">친구가 스트라이크!<br>"우와, 멋지다! 자세 진짜 좋았어!"</div>
+      <div class="bubble bad">"그건 운이지." (시큰둥)</div>
+    </div>
+    <div class="choice-row">
+      <div class="bubble good">내가 거터로 빠졌을 때<br>"아, 아쉽다. 다음에 자세 바꿔 봐야겠다."</div>
+      <div class="bubble bad">공 들고 화내기 · 발로 차기</div>
+    </div>
+    <div class="choice-row">
+      <div class="bubble good">직원에게 도움 요청<br>"공이 손에 안 맞는 것 같아요. 한 번 더 골라 봐도 될까요?"</div>
+      <div class="bubble bad">"이거 왜 이래요. 너무 무거워!" (반말 · 짜증)</div>
+    </div>
+
+    <div class="q" style="margin-top:8px;">
+      <span class="no">14</span>
+      <p>가장 어려운 매너는 무엇인가요? 그 이유는?</p>
+      <div class="lines two"></div>
+    </div>
+  </div>
+
+  <div class="practice">
+    <h3>🛠️ 활동 8 — 갈등 상황 풀기</h3>
+
+    <div class="q">
+      <span class="no">15</span>
+      <p>친구가 자꾸 <b>"네가 너무 오래 걸려"</b>라고 재촉해요. <b>나-메시지</b>로 답해 보세요.<br>
+         (예: "나는 ~해서 ~게 느껴져")</p>
+      <div class="lines two"></div>
+    </div>
+
+    <div class="q">
+      <span class="no">16</span>
+      <p>친구가 한 게임 더 치자고 해요. 나는 피곤해서 그만 두고 싶어요. <b>예의 있게 거절</b>해 보세요.</p>
+      <div class="lines two"></div>
+    </div>
+
+    <div class="q">
+      <span class="no">17</span>
+      <p>점수가 가장 낮은 친구가 풀이 죽어 있어요. <b>응원의 말</b>을 한 문장으로 적어 보세요.</p>
+      <div class="lines"></div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <span class="tip-title">💡 잘 안 될 때 마음 정리</span>
+    "<b>괜찮아, 한 게임 더 하면 늘 거야</b>" / "<b>나도 처음엔 거터만 갔었어</b>"<br>
+    이런 말을 스스로에게 해 주면, 게임이 끝까지 즐거워요.
+  </div>
+</section>
+
+<!-- ════════════ 5쪽: 마무리 ════════════ -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">5</div>
+    <div class="ph-title">
+      <h2>마무리 — 더치페이와 다짐</h2>
+      <p>오늘의 비용 정리와 다음에 또 가고 싶은 마음</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>💬 <b>채원</b>: "오늘 다 더해 보자. 게임비, 신발, 양말, 음료까지."<br>
+    💬 <b>하영</b>: "양말은 산 친구 혼자 부담하기로 했지? 그건 빼고 나누자."</p>
+  </div>
+
+  <div class="formula">
+    💸 <b>1인 부담금 = (게임비 + 신발 + 공동 비용) ÷ 6명</b>
+  </div>
+
+  <div class="practice">
+    <h3>🧮 활동 9 — 오늘 비용 정리</h3>
+    <table class="price-table">
+      <tr><th class="left">항목</th><th>금액 (6명 합계)</th></tr>
+      <tr><td class="left">① 게임 요금 (6명 × 2게임)</td><td><span class="box wide"></span> 원</td></tr>
+      <tr><td class="left">② 신발 대여 (6명)</td><td><span class="box wide"></span> 원</td></tr>
+      <tr><td class="left">③ 음료 (공동)</td><td><span class="box wide"></span> 원</td></tr>
+      <tr><td class="left">④ 라커 사용 (1개, 500원)</td><td>500 원</td></tr>
+      <tr class="hi"><td class="left"><b>공동 비용 합계</b></td><td><b><span class="box wide"></span> 원</b></td></tr>
+      <tr><td class="left">⑤ 양말 구매 (개인 부담)</td><td>1,000 원 (산 친구만)</td></tr>
+    </table>
+
+    <div class="q" style="margin-top:8px;">
+      <span class="no">18</span>
+      <p>공동 비용 합계를 <b>6명</b>으로 나눈 1인 부담금은? <br>
+        (합계) ÷ 6 = <span class="box wide"></span> 원</p>
+    </div>
+
+    <div class="q">
+      <span class="no">19</span>
+      <p>오늘 가장 잘했던 점수의 친구는? <span class="box wide"></span> / 점수: <span class="box"></span> 점</p>
+    </div>
+
+    <div class="q">
+      <span class="no">20</span>
+      <p>친구에게 보낼 응원·고마움의 메시지를 한 문장으로 적어 보세요.</p>
+      <div class="lines two"></div>
+    </div>
+  </div>
+
+  <div class="wrap-up">
+    <h3>🌟 오늘 나의 다짐</h3>
+    <p style="text-align:center; margin:0 0 6px; color:#455a64;">볼링장처럼 차례를 지켜야 하는 곳에서, 내가 꼭 지키고 싶은 약속을 적어 보세요.</p>
+    <div class="lines three"></div>
+  </div>
+</section>
+
+</body>
+</html>

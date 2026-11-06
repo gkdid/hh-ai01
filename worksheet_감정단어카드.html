@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>1차시 감정단어 카드</title>
+<style>
+  @page { size: 210mm 297mm; margin: 12mm; }
+  * { box-sizing: border-box; }
+  html, body { width: 210mm; }
+  body {
+    font-family: 'Malgun Gothic', '맑은 고딕', 'Nanum Gothic', sans-serif;
+    color: #222;
+    margin: 0 auto;
+    padding: 12mm;
+    width: 210mm;
+    min-height: 297mm;
+  }
+  @media print {
+    html, body { width: 210mm; margin: 0; padding: 0; }
+    body { padding: 0; }
+  }
+  h1 {
+    text-align: center;
+    font-size: 18pt;
+    margin: 0 0 4px 0;
+  }
+  .subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 12px;
+    font-size: 11pt;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4mm;
+  }
+  .card {
+    border: 2.5px solid;
+    border-radius: 12px;
+    padding: 10px 12px;
+    page-break-inside: avoid;
+    min-height: 55mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .card .emoji { font-size: 36pt; margin-bottom: 4px; }
+  .card .word { font-size: 26pt; font-weight: bold; margin-bottom: 8px; }
+  .card .ex {
+    font-size: 11pt;
+    color: #444;
+    border-top: 1px dashed #aaa;
+    padding-top: 8px;
+    width: 100%;
+    line-height: 1.5;
+  }
+  .positive { border-color: #e0a93a; background: #fff8e6; }
+  .positive .word { color: #a06a10; }
+  .negative { border-color: #6a8ec4; background: #eef3fa; }
+  .negative .word { color: #385882; }
+  .neutral { border-color: #7fa672; background: #eff6eb; }
+  .neutral .word { color: #3f6834; }
+  .page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<h1>🟢 감정단어 카드</h1>
+<p class="subtitle">출력 후 테두리를 따라 자르세요. 코팅하면 여러 번 사용할 수 있어요.</p>
+
+<div class="grid">
+
+  <div class="card positive">
+    <div class="emoji">😊</div>
+    <div class="word">기쁨</div>
+    <div class="ex">오랜만에 만난 친구가<br>반갑게 웃어줄 때</div>
+  </div>
+
+  <div class="card negative">
+    <div class="emoji">😢</div>
+    <div class="word">슬픔</div>
+    <div class="ex">키우던 강아지가<br>아플 때</div>
+  </div>
+
+  <div class="card negative">
+    <div class="emoji">😠</div>
+    <div class="word">화남</div>
+    <div class="ex">누군가 내 물건을<br>허락 없이 가져갔을 때</div>
+  </div>
+
+  <div class="card neutral">
+    <div class="emoji">😳</div>
+    <div class="word">부끄러움</div>
+    <div class="ex">많은 사람 앞에서<br>발표할 때</div>
+  </div>
+
+  <div class="card positive">
+    <div class="emoji">💛</div>
+    <div class="word">고마움</div>
+    <div class="ex">친구가 지우개를<br>빌려줬을 때</div>
+  </div>
+
+  <div class="card negative">
+    <div class="emoji">💔</div>
+    <div class="word">서운함</div>
+    <div class="ex">친한 친구가 나만 빼고<br>약속을 잡았을 때</div>
+  </div>
+
+  <div class="card positive">
+    <div class="emoji">🌟</div>
+    <div class="word">뿌듯함</div>
+    <div class="ex">혼자 힘으로<br>과제를 끝냈을 때</div>
+  </div>
+
+  <div class="card negative">
+    <div class="emoji">🌧</div>
+    <div class="word">외로움</div>
+    <div class="ex">쉬는 시간에 아무도<br>말을 걸지 않을 때</div>
+  </div>
+
+</div>
+
+<div class="page-break"></div>
+<h1>🟢 감정단어 카드 (심화)</h1>
+<p class="subtitle">필요에 따라 선택해서 사용하세요.</p>
+
+<div class="grid">
+
+  <div class="card negative">
+    <div class="emoji">😰</div>
+    <div class="word">걱정</div>
+    <div class="ex">내일 시험이 있을 때</div>
+  </div>
+
+  <div class="card positive">
+    <div class="emoji">😌</div>
+    <div class="word">편안함</div>
+    <div class="ex">따뜻한 이불 속에<br>있을 때</div>
+  </div>
+
+  <div class="card neutral">
+    <div class="emoji">🙏</div>
+    <div class="word">미안함</div>
+    <div class="ex">친구와의 약속을<br>못 지켰을 때</div>
+  </div>
+
+  <div class="card positive">
+    <div class="emoji">🎉</div>
+    <div class="word">설렘</div>
+    <div class="ex">수학여행<br>전날 밤</div>
+  </div>
+
+  <div class="card neutral">
+    <div class="emoji">😶</div>
+    <div class="word">당황</div>
+    <div class="ex">갑자기 이름이 불렸는데<br>못 들었을 때</div>
+  </div>
+
+  <div class="card negative">
+    <div class="emoji">🥺</div>
+    <div class="word">속상함</div>
+    <div class="ex">열심히 만든 것을<br>누가 망가뜨렸을 때</div>
+  </div>
+
+</div>
+
+</body>
+</html>

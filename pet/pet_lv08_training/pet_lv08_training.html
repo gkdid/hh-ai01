@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>반려동물관리사 8차시 — 훈련 기초</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d; font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; padding: 10px 18px; background: #1565c0; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; } .toolbar .muted { color: #bbdefb; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm; background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #bbdefb 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #0d47a1; border-bottom: 2px solid #64b5f6; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; }
+.cover-main { text-align: center; padding: 10px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px; background: #1565c0; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #0d47a1; font-weight: 900; }
+.cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #1565c0; font-weight: 500; }
+.cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
+.cover-info { background: #fff; border: 2px solid #64b5f6; border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+.cover-info h3 { margin: 0 0 8px; color: #0d47a1; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 4px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 16px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #0d47a1; padding-bottom: 3px; }
+.cover-name .label { color: #0d47a1; font-weight: 700; margin-right: 6px; }
+.page-head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5px solid #1565c0; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #0d47a1; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #1565c0; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+.intro { background: #e3f2fd; border-left: 4px solid #1976d2; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #0d47a1; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.tip b { color: #f57f17; }
+.note { background: #ffebee; border-left: 4px solid #e53935; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #b71c1c; }
+.activity { background: #fff; border: 1.8px solid #64b5f6; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #0d47a1; font-size: 1.05em; }
+.activity .tag { background: #bbdefb; color: #0d47a1; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 60px; border-bottom: 2px solid #0d47a1; text-align: center; padding: 0 6px; color: #0d47a1; font-weight: 700; }
+.blank.short { min-width: 36px; } .blank.long { min-width: 140px; }
+table.qa { width: 100%; border-collapse: collapse; margin: 8px 0; }
+table.qa th, table.qa td { border: 1.5px solid #b0bec5; padding: 6px 8px; text-align: center; }
+table.qa th { background: #bbdefb; color: #0d47a1; }
+table.qa td.left { text-align: left; }
+.footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center; color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+@media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">반려동물관리사 8차시</span><span class="muted">훈련 기초 · A4 4쪽</span></div>
+  <button onclick="window.print()">🖨 인쇄하기</button>
+</div>
+
+<div class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">훈련</span> · 반려동물 단원 8/10</div>
+    <div>혜화여자고등학교 특수학급</div>
+  </div>
+  <div class="cover-main">
+    <span class="badge">Lv.8 훈련</span>
+    <h1>강아지에게 규칙을 가르쳐요</h1>
+    <p class="lead">긍정 강화 · 기본 명령 · 사회화</p>
+  </div>
+  <div class="cover-emoji">🐕 🎾 🍖 🎓</div>
+  <div class="cover-info">
+    <h3>이번 시간에 배울 것</h3>
+    <ul>
+      <li>훈련의 기본 원리: <b>긍정 강화</b></li>
+      <li>기본 명령 5가지 (앉아·엎드려·기다려·이리와·안 돼)</li>
+      <li>배변 훈련·사회화의 중요성</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+    <div class="line"><span class="label">반</span></div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>1. 훈련의 기본 원리</h2><span class="step">Step 1</span></div>
+  <div class="intro">
+    <b>💡 긍정 강화(Positive Reinforcement)</b> — 잘한 행동에 <b>보상(간식·칭찬)</b>을 주어 반복하게 하는 방법. 벌·때림은 <b>절대 X</b>!
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 하은이의 훈련 3원칙</h3><span class="tag">원칙</span></div>
+    <table class="qa">
+      <tr><th>원칙</th><th>내용</th></tr>
+      <tr><td>1. 즉시 보상</td><td class="left">잘한 <b>3초 안에</b> 간식 · 늦으면 이유 못 알아</td></tr>
+      <tr><td>2. 짧고 자주</td><td class="left">1회 <b>5~10분</b> · 하루 <b>2~3회</b>가 이상적</td></tr>
+      <tr><td>3. 일관성</td><td class="left">가족 모두 <b>같은 신호·규칙</b>. 사람마다 다르면 혼란</td></tr>
+    </table>
+    <div class="note"><b>❗ 벌 훈련 금지</b> 때리기·소리치기·전기목걸이 → 신뢰 파괴·공격성 증가·트라우마. 21세기엔 <b>긍정 강화</b>가 표준!</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 하영이의 클리커·마커</h3><span class="tag">도구</span></div>
+    <p><b>클리커</b> = 딸깍 소리 나는 훈련 도구. "이 순간 잘했어!"를 정확히 알려줌.</p>
+    <p>순서: <b>클리커(딸깍) → 즉시 간식</b>. 강아지는 딸깍 소리 = 좋은 일 = 잘한 행동으로 학습.</p>
+    <p>대안: <b>말로 "옳지!" "굿보이"</b>도 가능 (일관되면).</p>
+  </div>
+
+  <div class="footer-note">반려동물관리사 8차시 · 1/4쪽 · 원리</div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>2. 기본 명령 5가지</h2><span class="step">Step 2</span></div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 주은이의 "앉아" 훈련</h3><span class="tag">앉아</span></div>
+    <ol style="padding-left: 22px;">
+      <li>간식을 강아지 <b>코 앞</b>에 든다</li>
+      <li>간식을 <b>천천히 위로</b> 올린다 → 자연히 엉덩이 <b>내려앉음</b></li>
+      <li>앉는 순간 <b>"앉아"</b> 말하고 <b>즉시 간식</b></li>
+      <li>10회 반복 → 다음 세션은 간식 없이 손짓만</li>
+      <li>성공률 80% 되면 <b>말로만</b> "앉아" 시도</li>
+    </ol>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 나머지 4가지 명령</h3><span class="tag">명령</span></div>
+    <table class="qa">
+      <tr><th>명령</th><th>방법</th></tr>
+      <tr><td>엎드려</td><td class="left">앉은 상태에서 간식을 <b>바닥으로 유도</b> → 엎드리면 보상</td></tr>
+      <tr><td>기다려</td><td class="left">앉은 상태에서 "기다려" → 1초 후 보상 → 점점 시간↑</td></tr>
+      <tr><td>이리와</td><td class="left">거리 두고 "이리와" + 밝은 목소리 → 오면 크게 칭찬 (제재 X)</td></tr>
+      <tr><td>안 돼 (No)</td><td class="left">단호한 목소리 · 잘못된 행동 <b>즉시</b> · 대체 행동 유도</td></tr>
+    </table>
+    <div class="tip"><b>💡 "이리와" 함정</b> 왔더니 <b>혼내면</b> 다음부턴 안 옴. 항상 <b>칭찬·간식</b>으로 맞이!</div>
+  </div>
+
+  <div class="footer-note">반려동물관리사 8차시 · 2/4쪽 · 5명령</div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>3. 배변 훈련·사회화</h2><span class="step">Step 3</span></div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 주현이의 배변 훈련</h3><span class="tag">배변</span></div>
+    <ol style="padding-left: 22px;">
+      <li>배변 패드를 <b>고정된 자리</b>에 (자주 이동 X)</li>
+      <li>배변 유도 시간: <b>기상 후·식사 후·놀이 후·잠 전</b> 5회</li>
+      <li>패드로 안내 → 배변 성공 → <b>즉시 칭찬·간식</b></li>
+      <li>실수는 <b>혼내지 않고</b> 조용히 청소 (냄새 흔적 제거 중요)</li>
+      <li>2~4주면 대부분 익힘 (개체차)</li>
+    </ol>
+    <div class="note"><b>❗ 실수 시</b> "얘는 왜 이래" 소리치면 <b>몰래 숨어서</b> 배변. 훈련 실패의 주범!</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 6. 미정이의 사회화</h3><span class="tag">사회화</span></div>
+    <p><b>사회화의 황금기</b> = <b>생후 3~16주</b>. 이 시기 다양한 사람·소리·환경 경험이 <b>평생 성격</b>을 결정.</p>
+    <table class="qa">
+      <tr><th>노출 대상</th><th>방법</th></tr>
+      <tr><td class="left">사람 (남녀·어린이·노인·모자·안경)</td><td class="left">간식 주며 인사 · 다양한 사람 만나기</td></tr>
+      <tr><td class="left">다른 개·고양이</td><td class="left">접종 완료 후 · 짧은 놀이</td></tr>
+      <tr><td class="left">소리 (진공청소기·초인종·차)</td><td class="left">작은 볼륨부터 점차 익숙해지기</td></tr>
+      <tr><td class="left">장소 (도로·엘리베이터·병원)</td><td class="left">긍정 경험 만들기</td></tr>
+      <tr><td class="left">다양한 표면 (풀·모래·타일)</td><td class="left">다양한 산책로</td></tr>
+    </table>
+    <div class="tip"><b>💡 사회화 부족</b> = 성견 되어 <b>겁쟁이·공격성·짖음</b>. 강아지 유치원·산책 클럽 활용!</div>
+  </div>
+
+  <div class="footer-note">반려동물관리사 8차시 · 3/4쪽 · 배변·사회화</div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>4. 문제 행동 · 자기점검</h2><span class="step">Step 4</span></div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 7. 채원이의 문제 행동 대응</h3><span class="tag">교정</span></div>
+    <table class="qa">
+      <tr><th>행동</th><th>원인</th><th>교정</th></tr>
+      <tr><td class="left">과도한 짖음</td><td class="left">경보·요구·불안·심심</td><td class="left">이유 파악·조용해질 때 보상</td></tr>
+      <tr><td class="left">물건 씹기 · 파괴</td><td class="left">치아 발달·심심</td><td class="left">씹는 장난감 · 운동↑</td></tr>
+      <tr><td class="left">사료·간식 지키기(공격성)</td><td class="left">자원 지키기 본능</td><td class="left">전문가 상담 · 훈련 필요</td></tr>
+      <tr><td class="left">분리불안 (혼자 있을 때 짖음)</td><td class="left">주인 의존↑</td><td class="left">점진적 부재 훈련 · 장난감</td></tr>
+      <tr><td class="left">사람에게 뛰어오르기</td><td class="left">인사 습관</td><td class="left">4발 다 붙어야 인사 (무시 후 앉으면 인사)</td></tr>
+    </table>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 8. 예은이의 훈련 일지</h3><span class="tag">일지</span></div>
+    <table class="qa">
+      <tr><th>날짜</th><th>훈련 명령</th><th>성공률</th><th>비고</th></tr>
+      <tr><td>1일</td><td>앉아</td><td>50%</td><td>간식 있을 때만</td></tr>
+      <tr><td>3일</td><td>앉아</td><td>80%</td><td>손짓으로도</td></tr>
+      <tr><td>7일</td><td><span class="blank short"></span></td><td><span class="blank short"></span></td><td><span class="blank"></span></td></tr>
+    </table>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 9. 스스로 확인</h3><span class="tag">자기점검</span></div>
+    <table class="qa">
+      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+      <tr><td class="left">긍정 강화 원리를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">기본 명령 5가지를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">배변 훈련·사회화 방법을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    </table>
+  </div>
+
+  <div class="footer-note">반려동물관리사 8차시 · 4/4쪽 · 훈련 마무리</div>
+</div>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

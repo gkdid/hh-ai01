@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>바리스타 7차시 — 카푸치노·라떼 메뉴</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #6d4c41; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; } .toolbar .muted { color: #d7ccc8; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #d7ccc8 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #3e2723;
+  border-bottom: 2px solid #8d6e63; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; }
+.cover-main { text-align: center; padding: 10px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #6d4c41; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #3e2723; font-weight: 900; }
+.cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #5d4037; font-weight: 500; }
+.cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
+.cover-info { background: #fff; border: 2px solid #8d6e63; border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+.cover-info h3 { margin: 0 0 8px; color: #3e2723; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 4px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 16px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #3e2723; padding-bottom: 3px; }
+.cover-name .label { color: #3e2723; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #6d4c41; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #3e2723; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #6d4c41; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #efebe9; border-left: 4px solid #6d4c41; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #3e2723; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.tip b { color: #f57f17; }
+
+.activity { background: #fff; border: 1.8px solid #a1887f; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #3e2723; font-size: 1.05em; }
+.activity .tag { background: #d7ccc8; color: #3e2723; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 60px; border-bottom: 2px solid #3e2723; text-align: center; padding: 0 6px; color: #3e2723; font-weight: 700; }
+.blank.short { min-width: 36px; } .blank.long { min-width: 140px; }
+
+table.qa { width: 100%; border-collapse: collapse; margin: 8px 0; }
+table.qa th, table.qa td { border: 1.5px solid #b0bec5; padding: 6px 8px; text-align: center; }
+table.qa th { background: #d7ccc8; color: #3e2723; }
+table.qa td.left { text-align: left; }
+
+.drink-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 10px 0; }
+.drink { background: #fff; border: 1.8px solid #8d6e63; border-radius: 12px; padding: 10px; text-align: center; }
+.drink .cup { display: inline-block; width: 60px; height: 80px; border: 3px solid #4e342e; border-radius: 4px 4px 20px 20px; margin: 0 auto 6px; position: relative; overflow: hidden; }
+.drink .cup .foam { background: #fff; height: 0; position: absolute; top: 0; left: 0; right: 0; }
+.drink .cup .milk { background: #f5e6c9; height: 0; position: absolute; left: 0; right: 0; }
+.drink .cup .espresso { background: #3e2723; position: absolute; bottom: 0; left: 0; right: 0; }
+.drink .cup.esp .espresso { top: 15%; height: 85%; }
+.drink .cup.esp .foam { top: 0; height: 15%; background: #a1887f; }
+.drink .cup.macch .espresso { top: 30%; height: 70%; }
+.drink .cup.macch .foam { top: 0; height: 30%; background: #fff; }
+.drink .cup.cappu .espresso { top: 66%; height: 34%; }
+.drink .cup.cappu .milk { top: 33%; height: 33%; }
+.drink .cup.cappu .foam { top: 0; height: 33%; }
+.drink .cup.latte .espresso { top: 80%; height: 20%; }
+.drink .cup.latte .milk { top: 15%; height: 65%; }
+.drink .cup.latte .foam { top: 0; height: 15%; }
+.drink .cup.mocha .espresso { top: 75%; height: 25%; background: #3e1a15; }
+.drink .cup.mocha .milk { top: 20%; height: 55%; background: #a67556; }
+.drink .cup.mocha .foam { top: 0; height: 20%; background: #d7ccc8; }
+.drink .cup.ame .espresso { top: 30%; height: 70%; background: #4e2a1a; }
+.drink .cup.ame .foam { top: 15%; height: 15%; background: #6d4c41; }
+.drink .n { font-weight: 900; color: #3e2723; margin-top: 4px; font-size: 1em; }
+.drink .r { font-size: 0.8em; color: #5d4037; margin-top: 3px; }
+
+.footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
+  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+@media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">바리스타 7차시</span><span class="muted">에스프레소 메뉴 · A4 4쪽</span></div>
+  <button onclick="window.print()">🖨 인쇄하기</button>
+</div>
+
+<div class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">메뉴 · 레시피</span> · 바리스타 단원 7/10</div>
+    <div>혜화여자고등학교 특수학급</div>
+  </div>
+  <div class="cover-main">
+    <span class="badge">Lv.7 메뉴 완성</span>
+    <h1>에스프레소로 다양한 커피!</h1>
+    <p class="lead">아메리카노 · 카푸치노 · 라떼 · 마키아토 · 모카</p>
+  </div>
+  <div class="cover-emoji">☕ 🥛 🍫 🎨</div>
+  <div class="cover-info">
+    <h3>이번 시간에 배울 것</h3>
+    <ul>
+      <li>에스프레소 기반 <b>6가지 대표 메뉴</b> 구조와 레시피</li>
+      <li>메뉴별 <b>잔·비율·순서</b></li>
+      <li>주문 받아 <b>순서대로 만드는 실전</b> 흐름</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+    <div class="line"><span class="label">반</span></div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>1. 에스프레소 6가지 형제</h2><span class="step">Step 1</span></div>
+
+  <div class="drink-grid">
+    <div class="drink"><div class="cup esp"></div><div class="n">에스프레소</div><div class="r">에스프레소 1샷 · 데미타세잔 60ml</div></div>
+    <div class="drink"><div class="cup ame"></div><div class="n">아메리카노</div><div class="r">에스프레소 + 뜨거운 물 200ml</div></div>
+    <div class="drink"><div class="cup macch"></div><div class="n">마키아토</div><div class="r">에스프레소 + 우유 폼 소량</div></div>
+    <div class="drink"><div class="cup cappu"></div><div class="n">카푸치노</div><div class="r">1/3 에스프레소 + 1/3 우유 + 1/3 폼</div></div>
+    <div class="drink"><div class="cup latte"></div><div class="n">카페라떼</div><div class="r">1/6 에스프레소 + 우유 많이 + 얇은 폼</div></div>
+    <div class="drink"><div class="cup mocha"></div><div class="n">카페모카</div><div class="r">에스프레소 + 초코시럽 + 우유 + 휘핑</div></div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 하은이의 메뉴 특징 매칭</h3><span class="tag">매칭</span></div>
+    <table class="qa">
+      <tr><th>메뉴</th><th>주 특징</th></tr>
+      <tr><td>에스프레소</td><td class="left"><span class="blank long">가장 진함 · 30ml · 크레마</span></td></tr>
+      <tr><td>아메리카노</td><td class="left"><span class="blank long">에스프레소를 물로 희석 · 원두 향 유지</span></td></tr>
+      <tr><td>카푸치노</td><td class="left"><span class="blank long">폼이 두꺼움 · 초콜릿 파우더 얹기도</span></td></tr>
+      <tr><td>카페라떼</td><td class="left"><span class="blank long">우유가 많고 부드러움 · 라떼아트</span></td></tr>
+      <tr><td>카페모카</td><td class="left"><span class="blank long">초코시럽 + 휘핑크림 · 달콤</span></td></tr>
+    </table>
+  </div>
+
+  <div class="footer-note">바리스타 7차시 · 1/4쪽 · 6가지 메뉴</div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>2. 대표 메뉴 상세 레시피</h2><span class="step">Step 2</span></div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 아메리카노 레시피 (하영)</h3><span class="tag">레시피</span></div>
+    <table class="qa">
+      <tr><th>순서</th><th>내용</th></tr>
+      <tr><td>1</td><td class="left">뜨거운 잔(240ml) 예열 · 뜨거운 물 <b>150~180ml</b> 담기</td></tr>
+      <tr><td>2</td><td class="left">에스프레소 <b>더블 샷(60ml)</b> 추출</td></tr>
+      <tr><td>3</td><td class="left">에스프레소를 <b>물 위에 부어서</b> 크레마 유지 (물 → 에스프레소 순)</td></tr>
+    </table>
+    <div class="tip"><b>💡 순서 팁</b> 물 먼저 → 에스프레소 나중이면 <b>크레마가 위</b>. 반대면 크레마가 깨짐.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 카푸치노 레시피 (주은)</h3><span class="tag">레시피</span></div>
+    <table class="qa">
+      <tr><th>순서</th><th>내용</th></tr>
+      <tr><td>1</td><td class="left">카푸치노 잔(180ml) 예열</td></tr>
+      <tr><td>2</td><td class="left">에스프레소 <b>싱글 or 더블 샷</b> 잔에 추출</td></tr>
+      <tr><td>3</td><td class="left">우유 <b>150ml</b> 스티밍 → 마이크로폼 (거품층 1cm 이상)</td></tr>
+      <tr><td>4</td><td class="left">에스프레소 위에 <b>부드럽게 부어서</b> 폼 얹기</td></tr>
+      <tr><td>5</td><td class="left">(선택) 초콜릿·시나몬 파우더 뿌리기</td></tr>
+    </table>
+    <p>비율 확인: 에스프레소 <b>1/3</b> · 우유 <b>1/3</b> · 폼 <b>1/3</b>. KCA 실기 <b>표준</b>이에요!</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 카페라떼 레시피 (주현)</h3><span class="tag">레시피</span></div>
+    <table class="qa">
+      <tr><th>순서</th><th>내용</th></tr>
+      <tr><td>1</td><td class="left">라떼 잔(300ml) 예열</td></tr>
+      <tr><td>2</td><td class="left">에스프레소 <b>더블 샷</b> 잔에 추출</td></tr>
+      <tr><td>3</td><td class="left">우유 <b>250ml</b> 스티밍 → 마이크로폼 (얇게, 5mm 이하)</td></tr>
+      <tr><td>4</td><td class="left">에스프레소 위에 <b>중앙에 부어서</b> 우유 채우고 마지막에 폼 얹기</td></tr>
+      <tr><td>5</td><td class="left">라떼아트 도전 (하트·로제타·튤립)</td></tr>
+    </table>
+    <div class="tip"><b>💡 카푸치노 vs 라떼</b> 카푸치노는 <b>폼이 두껍고</b>, 라떼는 <b>우유가 많고 폼은 얇음</b>. 잔 크기도 달라요.</div>
+  </div>
+
+  <div class="footer-note">바리스타 7차시 · 2/4쪽 · 상세 레시피</div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>3. 응용 메뉴</h2><span class="step">Step 3</span></div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 미정이의 카페모카 (변형)</h3><span class="tag">응용</span></div>
+    <table class="qa">
+      <tr><th>순서</th><th>내용</th></tr>
+      <tr><td>1</td><td class="left">잔에 <b>초코시럽 15ml</b> 넣기</td></tr>
+      <tr><td>2</td><td class="left">에스프레소 <b>더블 샷</b> 추출 후 잔에</td></tr>
+      <tr><td>3</td><td class="left">시럽·에스프레소 잘 섞기 (스푼)</td></tr>
+      <tr><td>4</td><td class="left">스티밍한 우유 <b>200ml</b> 붓기</td></tr>
+      <tr><td>5</td><td class="left">위에 <b>휘핑크림</b> · 초코파우더 · 초코소스 드리즐</td></tr>
+    </table>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 6. 아이스 메뉴 만들기</h3><span class="tag">아이스</span></div>
+    <table class="qa">
+      <tr><th>메뉴</th><th>순서</th></tr>
+      <tr><td>아이스 아메리카노</td><td class="left">1) 잔에 얼음 · 2) <b>차가운 물 150ml</b> · 3) <b>에스프레소 더블</b>을 물 위에</td></tr>
+      <tr><td>아이스 카페라떼</td><td class="left">1) 잔에 얼음 · 2) <b>차가운 우유 200ml</b> · 3) <b>에스프레소 더블</b>을 우유 위에</td></tr>
+      <tr><td>아이스 카페모카</td><td class="left">1) 잔 밑에 <b>초코시럽</b> · 2) 얼음 · 3) 우유 · 4) 에스프레소 · 5) 휘핑</td></tr>
+    </table>
+    <div class="tip"><b>💡 아이스 규칙</b> 에스프레소는 <b>항상 마지막에</b>. 그래야 크레마가 예쁘게 흘러 층이 생겨요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 7. 채원이의 스페셜 메뉴 개발</h3><span class="tag">창의</span></div>
+    <p>내 이름을 걸고 <b>새 메뉴</b>를 개발한다면?</p>
+    <p>메뉴 이름: <span class="blank">채원이의 시그니처</span></p>
+    <p>구성: <span class="blank long"></span></p>
+    <p>포인트: <span class="blank long"></span></p>
+    <p>가격: <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="footer-note">바리스타 7차시 · 3/4쪽 · 응용</div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>4. 종합 · 주문 실전</h2><span class="step">Step 4</span></div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 8. 예은이의 주문 처리 순서</h3><span class="tag">실전</span></div>
+    <p>손님이 <b>아메리카노 2잔 + 카푸치노 1잔 + 카페라떼 1잔</b>을 주문했어요. 효율적인 제조 순서는?</p>
+    <ol style="padding-left: 22px;">
+      <li>총 <b>에스프레소 4샷(더블 4잔)</b> 필요. 그라인더 도징 시작</li>
+      <li>물 끓이기 · 아메리카노 잔 2개에 <b>물 먼저</b> 채우기</li>
+      <li>우유 <b>총 400ml</b>(카푸치노 150+라떼 250) 계량 → 스티밍 준비</li>
+      <li>에스프레소 4잔 순차 추출 (한 번에 더블 2잔 × 2회)</li>
+      <li>아메리카노 잔 2개에 에스프레소 붓기 → 완성 → 서빙 대기</li>
+      <li>우유 스티밍 (카푸치노용·라떼용 분리 or 한 번에)</li>
+      <li>카푸치노 → 라떼 순으로 우유 붓기 → 서빙</li>
+    </ol>
+    <div class="tip"><b>💡 시간</b> 4잔 총 5~7분. 실기 시험 6잔 <b>10분</b>보다 여유 있어야 실전에서 통해요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 9. 하은이의 메뉴 완성도 자기평가</h3><span class="tag">평가</span></div>
+    <table class="qa">
+      <tr><th style="width:40%">항목</th><th>10점</th><th>7점</th><th>4점</th></tr>
+      <tr><td class="left">비율 (에스프레소·우유·폼)</td><td>정확</td><td>비슷</td><td>어긋남</td></tr>
+      <tr><td class="left">온도</td><td>60~65°C</td><td>±5°C</td><td>차이 큼</td></tr>
+      <tr><td class="left">외관 (색·거품 상태)</td><td>깨끗</td><td>보통</td><td>불균일</td></tr>
+      <tr><td class="left">라떼아트</td><td>완성 O</td><td>모양 유사</td><td>실패</td></tr>
+    </table>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 10. 스스로 확인</h3><span class="tag">자기점검</span></div>
+    <table class="qa">
+      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+      <tr><td class="left">6가지 메뉴 구성을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">각 메뉴 순서를 알고 만든다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">아이스 메뉴 규칙을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    </table>
+  </div>
+
+  <div class="footer-note">바리스타 7차시 · 4/4쪽 · 메뉴 완성</div>
+</div>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

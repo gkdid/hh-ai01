@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @media print {
+    body { margin: 0; }
+    .page { page-break-after: always; margin: 0; padding: 20mm 18mm; box-shadow: none; }
+    .page:last-child { page-break-after: avoid; }
+    .print-btn { display: none; }
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; background: #f5f5f5; margin: 0; padding: 20px; }
+  .print-btn {
+    display: block; margin: 0 auto 20px; padding: 10px 32px;
+    background: #333; color: white; border: none; border-radius: 8px;
+    font-size: 16px; cursor: pointer; font-family: inherit;
+  }
+  .page {
+    background: white; width: 210mm; min-height: 297mm;
+    margin: 0 auto 30px; padding: 18mm 18mm 14mm;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  .sheet-header {
+    border: 2px solid #333; border-radius: 6px;
+    padding: 12px 18px; margin-bottom: 18px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .sheet-title { font-size: 20px; font-weight: bold; color: #000; }
+  .sheet-sub { font-size: 13px; color: #555; }
+  .logo-badge {
+    background: #333; color: white; font-size: 13px; font-weight: bold;
+    padding: 6px 14px; border-radius: 20px;
+  }
+
+  .info-row { display: flex; gap: 24px; margin-bottom: 16px; font-size: 14px; }
+  .info-box {
+    border-bottom: 1.5px solid #333; flex: 1; padding-bottom: 4px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  .info-label { font-weight: bold; white-space: nowrap; color: #333; }
+
+  .section-title {
+    background: #333; color: white; font-size: 15px; font-weight: bold;
+    padding: 6px 14px; border-radius: 4px; margin: 20px 0 10px;
+  }
+
+  .q-box {
+    border: 1.5px solid #aaa; border-radius: 6px;
+    padding: 14px 16px; margin-bottom: 14px;
+    background: #fff;
+  }
+  .q-num {
+    display: inline-block; background: #333; color: white;
+    font-size: 13px; font-weight: bold; border-radius: 50%;
+    width: 26px; height: 26px; line-height: 26px; text-align: center;
+    margin-right: 8px; flex-shrink: 0;
+  }
+  .q-head { display: flex; align-items: flex-start; margin-bottom: 10px; }
+  .q-text { font-size: 15px; line-height: 1.8; flex: 1; }
+
+  .menu-img {
+    border: 1.5px solid #aaa; border-radius: 6px;
+    padding: 10px 14px; margin: 8px 0 10px;
+    font-size: 14px; line-height: 2; background: #fff;
+  }
+  .menu-row { display: flex; justify-content: space-between; }
+  .menu-name { color: #333; }
+  .menu-price { font-weight: bold; color: #000; }
+  .menu-divider { border: none; border-top: 1px dashed #bbb; margin: 4px 0; }
+
+  .answer-area { margin-top: 10px; }
+  .answer-line {
+    border: none; border-bottom: 1.5px solid #888;
+    width: 100%; margin-top: 6px; height: 28px; background: transparent;
+    display: block;
+  }
+  .answer-label { font-size: 13px; color: #444; font-weight: bold; }
+  .answer-box-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 6px; }
+
+  .check-row { display: flex; gap: 18px; margin-top: 8px; flex-wrap: wrap; }
+  .check-item { display: flex; align-items: center; gap: 6px; font-size: 14px; }
+  .check-box {
+    width: 18px; height: 18px; border: 1.5px solid #555; border-radius: 3px;
+    display: inline-block; flex-shrink: 0;
+  }
+
+  .tip-box {
+    background: #f5f5f5; border-left: 4px solid #666;
+    border-radius: 0 6px 6px 0; padding: 8px 12px;
+    font-size: 13px; color: #444; margin-bottom: 14px; line-height: 1.7;
+  }
+
+  .receipt {
+    border: 1.5px solid #aaa; border-radius: 6px;
+    padding: 12px 16px; font-size: 14px;
+    background: white; margin: 8px 0 10px;
+  }
+  .receipt-title { text-align: center; font-weight: bold; font-size: 15px; margin-bottom: 6px; color: #000; }
+  .receipt-row { display: flex; justify-content: space-between; padding: 3px 0; }
+  .receipt-total {
+    border-top: 1.5px solid #333; margin-top: 6px; padding-top: 6px;
+    font-weight: bold; display: flex; justify-content: space-between;
+  }
+  .receipt-blank { border-bottom: 1.5px solid #333; min-width: 60px; display: inline-block; }
+
+  table { border-collapse: collapse; }
+  thead tr { background: #333 !important; color: white; }
+  tbody tr:nth-child(odd) { background: #f9f9f9; }
+</style>
+</head>
+<body>
+
+<button class="print-btn" onclick="window.print()">🖨️ 인쇄하기</button>
+
+<!-- ===== PAGE 1 ===== -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">맘스터치 이용하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 1쪽</div>
+    </div>
+    <div class="logo-badge">MOM'S TOUCH</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+    <div class="info-box"><span class="info-label">점수</span></div>
+  </div>
+
+  <div class="tip-box">
+    알아두기: 맘스터치는 햄버거, 치킨, 음료 등을 파는 패스트푸드 가게예요.
+    주문할 때는 먹고 싶은 메뉴를 고르고, 가격을 계산해서 돈을 내요.
+  </div>
+
+  <div class="section-title">맘스터치 메뉴판</div>
+  <div class="menu-img">
+    <div class="menu-row"><span class="menu-name">싸이버거</span><span class="menu-price">5,900원</span></div>
+    <hr class="menu-divider">
+    <div class="menu-row"><span class="menu-name">순살싸이버거</span><span class="menu-price">6,500원</span></div>
+    <hr class="menu-divider">
+    <div class="menu-row"><span class="menu-name">감자튀김 (M)</span><span class="menu-price">2,500원</span></div>
+    <hr class="menu-divider">
+    <div class="menu-row"><span class="menu-name">콜라 (M)</span><span class="menu-price">1,800원</span></div>
+    <hr class="menu-divider">
+    <div class="menu-row"><span class="menu-name">사이다 (M)</span><span class="menu-price">1,800원</span></div>
+    <hr class="menu-divider">
+    <div class="menu-row"><span class="menu-name">소프트아이스크림</span><span class="menu-price">1,000원</span></div>
+  </div>
+
+  <div class="section-title">문제 풀기 (1~3번)</div>
+
+  <div class="q-box">
+    <div class="q-head">
+      <span class="q-num">1</span>
+      <span class="q-text">하영이는 맘스터치에서 <b>싸이버거 1개</b>와 <b>콜라 1잔</b>을 주문했어요.
+        하영이가 내야 할 돈은 모두 얼마인가요?</span>
+    </div>
+    <div class="answer-box-grid">
+      <div><div class="answer-label">식 쓰기</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head">
+      <span class="q-num">2</span>
+      <span class="q-text">하은이는 <b>10,000원</b>을 가지고 맘스터치에 갔어요.
+        <b>순살싸이버거 1개</b>를 샀다면, 거스름돈은 얼마인가요?</span>
+    </div>
+    <div class="answer-box-grid">
+      <div><div class="answer-label">식 쓰기</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head">
+      <span class="q-num">3</span>
+      <span class="q-text">주은이와 언니가 함께 맘스터치에 갔어요.
+        주은이는 <b>싸이버거</b>를, 언니는 <b>순살싸이버거</b>를 주문했어요.
+        두 사람이 낼 돈을 합치면 모두 얼마인가요?</span>
+    </div>
+    <div class="answer-box-grid">
+      <div><div class="answer-label">식 쓰기</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 2 ===== -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">맘스터치 이용하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 2쪽</div>
+    </div>
+    <div class="logo-badge">MOM'S TOUCH</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <div class="section-title">문제 풀기 (4~6번)</div>
+
+  <div class="q-box">
+    <div class="q-head">
+      <span class="q-num">4</span>
+      <span class="q-text">채원이네 가족 3명이 맘스터치에서 <b>싸이버거를 1인당 1개씩</b> 먹으려고 해요.
+        싸이버거 3개를 사면 모두 얼마인가요?</span>
+    </div>
+    <div class="answer-box-grid">
+      <div><div class="answer-label">식 쓰기</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head">
+      <span class="q-num">5</span>
+      <span class="q-text">아래 영수증을 완성해 보세요.
+        예은이는 <b>순살싸이버거 1개, 감자튀김 1개, 사이다 1잔</b>을 주문했어요.</span>
+    </div>
+    <div class="receipt">
+      <div class="receipt-title">영수증</div>
+      <div class="receipt-row"><span>순살싸이버거 × 1</span><span>6,500원</span></div>
+      <div class="receipt-row"><span>감자튀김 × 1</span><span>2,500원</span></div>
+      <div class="receipt-row"><span>사이다 × 1</span><span>1,800원</span></div>
+      <div class="receipt-total">
+        <span>합계</span>
+        <span><span class="receipt-blank"></span> 원</span>
+      </div>
+    </div>
+    <div class="answer-label">합계를 계산하는 식</div>
+    <div class="answer-line"></div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head">
+      <span class="q-num">6</span>
+      <span class="q-text">주현이는 용돈 <b>20,000원</b> 중에서 맘스터치에서 <b>싸이버거 2개</b>와 <b>콜라 2잔</b>을 샀어요.
+        남은 용돈은 얼마인가요?</span>
+    </div>
+    <div class="answer-area">
+      <div class="answer-label">먼저 음식값 합계를 구해요</div>
+      <div class="answer-line"></div>
+      <div style="margin-top:10px;" class="answer-label">남은 용돈을 구하는 식</div>
+      <div class="answer-line"></div>
+      <div style="margin-top:10px;" class="answer-box-grid">
+        <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 3 ===== -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">맘스터치 이용하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 3쪽</div>
+    </div>
+    <div class="logo-badge">MOM'S TOUCH</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <div class="section-title">스스로 주문해 보기 (7~8번)</div>
+
+  <div class="q-box">
+    <div class="q-head">
+      <span class="q-num">7</span>
+      <span class="q-text">내가 먹고 싶은 것을 골라 아래 주문서를 직접 써 보세요.
+        (메뉴판을 보고 2~3가지를 골라 가격도 함께 써요.)</span>
+    </div>
+    <div class="receipt">
+      <div class="receipt-title">나의 주문서</div>
+      <div class="receipt-row">
+        <span><span class="receipt-blank" style="min-width:120px;"></span> × 1</span>
+        <span><span class="receipt-blank" style="min-width:70px;"></span> 원</span>
+      </div>
+      <hr class="menu-divider">
+      <div class="receipt-row">
+        <span><span class="receipt-blank" style="min-width:120px;"></span> × 1</span>
+        <span><span class="receipt-blank" style="min-width:70px;"></span> 원</span>
+      </div>
+      <hr class="menu-divider">
+      <div class="receipt-row">
+        <span><span class="receipt-blank" style="min-width:120px;"></span> × 1</span>
+        <span><span class="receipt-blank" style="min-width:70px;"></span> 원</span>
+      </div>
+      <div class="receipt-total">
+        <span>합계</span>
+        <span><span class="receipt-blank" style="min-width:80px;"></span> 원</span>
+      </div>
+    </div>
+    <div class="answer-label">합계를 계산한 식</div>
+    <div class="answer-line"></div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head">
+      <span class="q-num">8</span>
+      <span class="q-text">7번에서 내가 주문한 금액을 보고, 아래 질문에 답해 보세요.</span>
+    </div>
+    <div style="font-size:14px; line-height:2; margin-bottom:8px;">
+      (1) 지갑에 <b>10,000원</b>이 있다면, 내가 주문한 것을 살 수 있나요?
+    </div>
+    <div class="check-row">
+      <div class="check-item"><span class="check-box"></span> 살 수 있어요</div>
+      <div class="check-item"><span class="check-box"></span> 살 수 없어요</div>
+    </div>
+    <div style="font-size:13px; color:#555; margin: 8px 0 4px;">왜 그렇게 생각했나요?</div>
+    <div class="answer-line"></div>
+    <div style="font-size:14px; line-height:2; margin: 12px 0 8px;">
+      (2) 살 수 있다면, 거스름돈은 얼마인가요? (살 수 없다면 이 칸은 비워도 돼요.)
+    </div>
+    <div class="answer-box-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">거스름돈</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="section-title">실생활 연습 (9번)</div>
+
+  <div class="q-box">
+    <div class="q-head">
+      <span class="q-num">9</span>
+      <span class="q-text">정선이는 <b>5,000원</b>을 가지고 있어요. 살 수 있는 것에 ✔ 표시해 보세요.</span>
+    </div>
+    <div class="check-row" style="flex-direction: column; gap: 10px; margin-top:6px;">
+      <div class="check-item"><span class="check-box"></span> 싸이버거 1개 (5,900원)</div>
+      <div class="check-item"><span class="check-box"></span> 감자튀김 1개 + 콜라 1잔 (2,500 + 1,800원)</div>
+      <div class="check-item"><span class="check-box"></span> 소프트아이스크림 2개 (1,000 × 2원)</div>
+      <div class="check-item"><span class="check-box"></span> 콜라 1잔 + 사이다 1잔 (1,800 + 1,800원)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 4 — 정답지 ===== -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">맘스터치 이용하기 — 정답지</div>
+      <div class="sheet-sub">선생님용 · 4쪽</div>
+    </div>
+    <div class="logo-badge">정답지</div>
+  </div>
+
+  <div class="tip-box">
+    지도 tip: 계산식보다 "왜 그렇게 썼는지" 이야기 나누는 것을 권장합니다. 덧셈·뺄셈이 어려운 학생은 계산기나 동전 모형을 함께 활용하세요.
+  </div>
+
+  <div class="section-title">정답 모음</div>
+
+  <table style="width:100%; font-size:14px;">
+    <colgroup>
+      <col style="width:12%">
+      <col style="width:42%">
+      <col style="width:28%">
+      <col style="width:18%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th style="padding:8px; text-align:center; border:1px solid #888;">번호</th>
+        <th style="padding:8px; text-align:center; border:1px solid #888;">식</th>
+        <th style="padding:8px; text-align:center; border:1px solid #888;">답</th>
+        <th style="padding:8px; text-align:center; border:1px solid #888;">비고</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:8px; text-align:center; border:1px solid #ccc; font-weight:bold;">1</td>
+        <td style="padding:8px; border:1px solid #ccc;">5,900 + 1,800 =</td>
+        <td style="padding:8px; border:1px solid #ccc; font-weight:bold;">7,700원</td>
+        <td style="padding:8px; border:1px solid #ccc; font-size:12px; color:#555;">덧셈</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; text-align:center; border:1px solid #ccc; font-weight:bold;">2</td>
+        <td style="padding:8px; border:1px solid #ccc;">10,000 - 6,500 =</td>
+        <td style="padding:8px; border:1px solid #ccc; font-weight:bold;">3,500원</td>
+        <td style="padding:8px; border:1px solid #ccc; font-size:12px; color:#555;">뺄셈</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; text-align:center; border:1px solid #ccc; font-weight:bold;">3</td>
+        <td style="padding:8px; border:1px solid #ccc;">5,900 + 6,500 =</td>
+        <td style="padding:8px; border:1px solid #ccc; font-weight:bold;">12,400원</td>
+        <td style="padding:8px; border:1px solid #ccc; font-size:12px; color:#555;">덧셈</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; text-align:center; border:1px solid #ccc; font-weight:bold;">4</td>
+        <td style="padding:8px; border:1px solid #ccc;">5,900 × 3 =</td>
+        <td style="padding:8px; border:1px solid #ccc; font-weight:bold;">17,700원</td>
+        <td style="padding:8px; border:1px solid #ccc; font-size:12px; color:#555;">곱셈</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; text-align:center; border:1px solid #ccc; font-weight:bold;">5</td>
+        <td style="padding:8px; border:1px solid #ccc;">6,500 + 2,500 + 1,800 =</td>
+        <td style="padding:8px; border:1px solid #ccc; font-weight:bold;">10,800원</td>
+        <td style="padding:8px; border:1px solid #ccc; font-size:12px; color:#555;">영수증</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; text-align:center; border:1px solid #ccc; font-weight:bold;">6</td>
+        <td style="padding:8px; border:1px solid #ccc;">5,900×2 + 1,800×2 = 15,400<br>20,000 - 15,400 =</td>
+        <td style="padding:8px; border:1px solid #ccc; font-weight:bold;">4,600원</td>
+        <td style="padding:8px; border:1px solid #ccc; font-size:12px; color:#555;">혼합</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; text-align:center; border:1px solid #ccc; font-weight:bold;">7~8</td>
+        <td style="padding:8px; border:1px solid #ccc;" colspan="3">자유 작성 — 학생의 선택에 따라 채점</td>
+      </tr>
+      <tr>
+        <td style="padding:8px; text-align:center; border:1px solid #ccc; font-weight:bold;">9</td>
+        <td style="padding:8px; border:1px solid #ccc;" colspan="2">✔ 감자튀김+콜라 (4,300원) &nbsp; ✔ 소프트아이스크림 2개 (2,000원)</td>
+        <td style="padding:8px; border:1px solid #ccc; font-size:12px; color:#555;">비교</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box" style="margin-top:20px;">
+    수업 활용 아이디어<br>
+    · 역할극: 한 명은 손님, 한 명은 점원 역할로 실제 주문 연습<br>
+    · 동전/지폐 모형을 사용해 직접 돈 계산 체험<br>
+    · 7번 문제는 개별 목표에 따라 메뉴 수를 1~3개로 조절
+  </div>
+</div>
+
+</body>
+</html>

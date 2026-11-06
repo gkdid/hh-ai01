@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>2차시 상황카드 (교사용)</title>
+<style>
+  @page { size: 210mm 297mm; margin: 15mm; }
+  * { box-sizing: border-box; }
+  html, body { width: 210mm; }
+  body {
+    font-family: 'Malgun Gothic', '맑은 고딕', 'Nanum Gothic', sans-serif;
+    font-size: 13pt;
+    line-height: 1.6;
+    color: #222;
+    margin: 0 auto;
+    padding: 15mm;
+    width: 210mm;
+    min-height: 297mm;
+  }
+  @media print {
+    html, body { width: 210mm; margin: 0; padding: 0; }
+    body { padding: 0; }
+  }
+  h1 {
+    text-align: center;
+    font-size: 20pt;
+    margin: 0 0 6px 0;
+  }
+  .subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 12pt;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10mm;
+  }
+  .card {
+    border: 2.5px solid #333;
+    border-radius: 10px;
+    padding: 14px 16px;
+    page-break-inside: avoid;
+    background: #fffdf5;
+    min-height: 75mm;
+  }
+  .card .label {
+    display: inline-block;
+    background: #d4a84b;
+    color: white;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 11pt;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  .card .title {
+    font-size: 15pt;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #7a5a1a;
+  }
+  .card .story {
+    font-size: 12.5pt;
+    line-height: 1.75;
+  }
+  .card .answer {
+    margin-top: 10px;
+    padding-top: 8px;
+    border-top: 1px dashed #999;
+    font-size: 11pt;
+    color: #555;
+  }
+  .card .answer b { color: #b33; }
+  .tip-box {
+    margin-top: 20px;
+    padding: 14px;
+    background: #eef5fb;
+    border-left: 5px solid #4a7eb8;
+    border-radius: 4px;
+    page-break-inside: avoid;
+  }
+  .tip-box h3 { margin: 0 0 8px 0; font-size: 14pt; }
+  .tip-box ul { margin: 4px 0; padding-left: 20px; }
+</style>
+</head>
+<body>
+
+<h1>🟡 2차시 상황카드 (교사용)</h1>
+<p class="subtitle">교사가 소리 내어 읽어주거나, 카드를 잘라서 학생이 뽑게 하세요.</p>
+
+<div class="card-grid">
+
+  <div class="card">
+    <span class="label">이야기 ①</span>
+    <div class="title">친구가 나만 빼고...</div>
+    <div class="story">하은이는 단짝 친구 주은이와 쉬는 시간마다 함께 다녔어요. 그런데 오늘 주은이가 다른 반 친구랑만 이야기하고, 하은이에게는 한 번도 말을 걸지 않았어요. 하은이는 혼자 자리에 앉아 있었어요.</div>
+    <div class="answer">주인공의 마음: <b>서운함 / 외로움</b></div>
+  </div>
+
+  <div class="card">
+    <span class="label">이야기 ②</span>
+    <div class="title">한 달 동안 노력했어!</div>
+    <div class="story">하영이는 한 달 동안 열심히 공부해서 국어 쪽지시험을 봤어요. 시험지를 받아보니 처음으로 90점을 넘겼어요. 선생님도 "하영이 정말 많이 늘었다"라고 칭찬해 주셨어요.</div>
+    <div class="answer">주인공의 마음: <b>뿌듯함 / 기쁨</b></div>
+  </div>
+
+  <div class="card">
+    <span class="label">이야기 ③</span>
+    <div class="title">약속을 못 지켰어</div>
+    <div class="story">주현이는 친구 채원이와 토요일에 같이 영화를 보기로 약속했어요. 그런데 당일 아침에 몸이 아파서 약속을 지키지 못했어요. 채원이는 "괜찮아"라고 했지만, 주현이는 마음이 무거웠어요.</div>
+    <div class="answer">주인공의 마음: <b>미안함 / 걱정</b></div>
+  </div>
+
+  <div class="card">
+    <span class="label">이야기 ④</span>
+    <div class="title">같이 보자!</div>
+    <div class="story">예은이는 수업 시간에 교과서를 집에 두고 왔어요. 당황해서 어쩔 줄 모르고 있는데, 옆자리 친구가 슬쩍 자기 책을 가운데로 놓고 같이 보자고 했어요.</div>
+    <div class="answer">주인공의 마음: <b>고마움</b></div>
+  </div>
+
+  <div class="card">
+    <span class="label">이야기 ⑤</span>
+    <div class="title">비밀이었는데...</div>
+    <div class="story">하은이는 친구에게만 비밀로 한 이야기를 했어요. 그런데 다음 날, 반 친구들 모두가 그 이야기를 알고 있었어요. 하은이는 점심도 먹기 싫었어요.</div>
+    <div class="answer">주인공의 마음: <b>속상함 / 화남 / 서운함</b></div>
+  </div>
+
+  <div class="card">
+    <span class="label">이야기 ⑥</span>
+    <div class="title">축제 무대!</div>
+    <div class="story">하영이는 학교 축제에서 친구들과 노래 공연을 하기로 했어요. 일주일 동안 매일 방과 후에 모여 연습했어요. 드디어 무대에 올라가는 날이 왔어요.</div>
+    <div class="answer">주인공의 마음: <b>신남 / 설렘 / 기쁨 (걱정도 가능)</b></div>
+  </div>
+
+  <div class="card">
+    <span class="label">이야기 ⑦</span>
+    <div class="title">엄마가 아프셔</div>
+    <div class="story">주은이 엄마가 며칠째 병원에 입원해 있어요. 주은이는 학교에 있어도 엄마 생각이 자꾸 나요. 친구가 말을 걸어도 잘 들리지 않았어요.</div>
+    <div class="answer">주인공의 마음: <b>걱정 / 슬픔</b></div>
+  </div>
+
+  <div class="card">
+    <span class="label">이야기 ⑧</span>
+    <div class="title">목소리가 떨렸어</div>
+    <div class="story">예은이는 국어 시간에 발표를 하다가 목소리가 떨려서 말을 더듬었어요. 얼굴이 빨개지고, 빨리 자리에 앉고 싶었어요.</div>
+    <div class="answer">주인공의 마음: <b>부끄러움 / 당황</b></div>
+  </div>
+
+</div>
+
+<div class="tip-box">
+  <h3>💡 수업 진행 팁</h3>
+  <ul>
+    <li>한 번에 3개 정도만 제시하고 나머지는 보충·심화용으로 활용</li>
+    <li>주인공 이름을 학생들이 아는 이름으로 바꿔 읽어주면 몰입도↑</li>
+    <li>"너라면 주인공에게 뭐라고 말해주고 싶어?"로 공감 연습 연결</li>
+  </ul>
+</div>
+
+</body>
+</html>

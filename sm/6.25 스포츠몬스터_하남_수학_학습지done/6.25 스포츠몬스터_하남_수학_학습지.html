@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>스포츠 몬스터 하남 — 수학 학습지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4 portrait; margin: 14mm 15mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  font-size: 12pt; line-height: 1.65;
+}
+
+.toolbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #1b1f3a; color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button {
+  background: #ffd54f; color: #1b1f3a; border: none; font: inherit; font-weight: 700;
+  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+}
+.toolbar button:hover { background: #ffe082; }
+
+.page {
+  width: 210mm; min-height: 297mm;
+  margin: 14mm auto; padding: 16mm 18mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  position: relative; page-break-after: always;
+}
+.page:last-of-type { page-break-after: auto; }
+
+/* ===== 표지 ===== */
+.page.cover {
+  padding: 22mm 20mm;
+  background: linear-gradient(135deg, #fff 0%, #fff8e1 100%);
+}
+.cover-top {
+  display: flex; justify-content: space-between;
+  font-size: 0.9em; color: #607d8b;
+  border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 26px;
+}
+.cover-top .subject { font-weight: 700; color: #f57c00; }
+.cover-main { text-align: center; padding: 20px 0 14px; }
+.cover-main .badge {
+  display: inline-block; padding: 6px 18px; border-radius: 20px;
+  background: #f57c00; color: #fff; font-weight: 700; font-size: 0.95em;
+  margin-bottom: 14px; letter-spacing: 0.5px;
+}
+.cover-main h1 {
+  margin: 0; font-size: 2.4em; letter-spacing: -1.5px;
+  color: #e65100; font-weight: 900;
+}
+.cover-main .lead {
+  margin: 8px 0 0; font-size: 1.05em; color: #546e7a; font-weight: 500;
+}
+.name-box {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin: 20px 0;
+}
+.name-cell { border: 1.5px solid #90a4ae; border-radius: 8px; padding: 10px 12px; }
+.name-cell span { display: block; font-size: 0.78em; color: #546e7a; font-weight: 500; }
+.name-cell em { display: block; min-height: 24px; font-style: normal; }
+
+.goal, .cast, .toc, .info {
+  border: 2px solid #ffe0b2; border-radius: 10px;
+  padding: 14px 18px; margin-top: 12px; background: #fff8e1;
+}
+.goal h2, .cast h2, .toc h2, .info h2 {
+  margin: 0 0 8px; font-size: 1.1em; color: #e65100;
+  border-bottom: 1px dashed #ffb74d; padding-bottom: 6px;
+}
+.goal ul { margin: 4px 0 0; padding-left: 20px; }
+.goal li { padding: 2px 0; }
+.info p { margin: 0; font-size: 0.95em; color: #4e342e; }
+
+.cast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.person {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 10px; background: #fff;
+  border: 1px solid #eee; border-radius: 8px;
+  font-weight: 700; color: #37474f;
+}
+.dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+.d1 { background: #FF6B6B; }
+.d2 { background: #4ECDC4; }
+.d3 { background: #FFD166; }
+.d4 { background: #A78BFA; }
+.d5 { background: #6FCF97; }
+.d6 { background: #F48FB1; }
+
+.toc ol { margin: 4px 0 0; padding-left: 24px; }
+.toc li { padding: 3px 0; }
+
+/* ===== 쪽 머리 ===== */
+.ph {
+  display: flex; align-items: center; gap: 16px;
+  border-bottom: 3px solid #1b1f3a; padding-bottom: 12px; margin-bottom: 18px;
+}
+.ph-num {
+  flex-shrink: 0; width: 60px; height: 60px;
+  background: #1b1f3a; color: #ffd54f;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.7em; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; border-radius: 10px;
+}
+.ph-title h2 { margin: 0; font-size: 1.5em; color: #1b1f3a; }
+.ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.95em; }
+
+/* ===== 이야기 / 도움말 ===== */
+.scene {
+  background: #fff8e1; border-left: 6px solid #ffb300;
+  border-radius: 6px; padding: 12px 16px; margin-bottom: 14px;
+}
+.scene p { margin: 0; }
+
+.tip {
+  background: #e3f2fd; border-left: 5px solid #1e88e5;
+  border-radius: 6px; padding: 10px 14px; margin: 10px 0;
+}
+.tip .tip-title { display: block; font-weight: 700; color: #0d47a1; margin-bottom: 4px; }
+
+/* ===== 문제 ===== */
+.practice h3 {
+  display: inline-block; background: #ffd54f; color: #1b1f3a;
+  padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
+}
+.q {
+  position: relative;
+  padding-left: 42px;
+  margin-bottom: 14px; padding-bottom: 12px;
+  border-bottom: 1px dashed #cfd8dc;
+}
+.q:last-child { border-bottom: none; }
+.q .no {
+  position: absolute; left: 0; top: 0;
+  width: 30px; height: 30px;
+  background: #1b1f3a; color: #fff;
+  border-radius: 50%; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; font-size: 0.92em;
+}
+.q p { margin: 0 0 6px; }
+.q .sub-q { margin-top: 6px; font-weight: 500; color: #455a64; }
+
+/* ===== 빈칸·박스 ===== */
+.lines {
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px
+  );
+  height: 34px; margin: 4px 0;
+}
+.lines.two { height: 68px; }
+.lines.three { height: 102px; }
+
+.blank {
+  display: inline-block; border-bottom: 1.5px solid #263238;
+  min-width: 70px; height: 22px; vertical-align: baseline;
+}
+
+.box {
+  display: inline-block; min-width: 70px; height: 28px;
+  border: 2px solid #1b1f3a; background: #fff;
+  border-radius: 4px; vertical-align: middle; margin: 0 3px;
+}
+.box.wide { min-width: 110px; }
+.box.xwide { min-width: 160px; }
+
+.formula {
+  background: #fffde7; border: 1.5px dashed #fbc02d;
+  border-radius: 8px; padding: 10px 16px;
+  text-align: center; font-size: 1.1em; margin: 8px 0; font-weight: 500;
+}
+
+/* ===== 표 ===== */
+table { width: 100%; border-collapse: collapse; margin: 6px 0; }
+th, td {
+  border: 1.5px solid #90a4ae;
+  padding: 7px 10px; text-align: center; vertical-align: middle;
+}
+th { background: #eceff1; font-weight: 700; color: #1b1f3a; }
+td.left, th.left { text-align: left; }
+.price-table .hi { background: #fff3e0; font-weight: 700; }
+
+/* 메뉴판 */
+.menu-board {
+  border: 3px double #e65100;
+  border-radius: 12px; padding: 12px 16px; margin: 10px 0;
+  background: #fff8f2;
+}
+.menu-board h4 {
+  text-align: center; margin: 0 0 8px;
+  color: #e65100; font-size: 1.2em;
+}
+.menu-board table { margin: 0; }
+
+/* 활동 카드 */
+.act-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  margin: 8px 0;
+}
+.act {
+  background: #f3e5f5; border: 1.5px solid #ce93d8;
+  border-radius: 8px; padding: 8px 10px;
+  text-align: center; font-weight: 500; font-size: 0.95em;
+}
+.act strong { display: block; color: #6a1b9a; }
+.act small { color: #455a64; }
+
+/* 자기 점검 */
+.self-check {
+  background: #f1f8e9; border: 1.5px solid #aed581;
+  border-radius: 8px; padding: 12px 16px; margin-top: 14px;
+}
+.self-check h4 { margin: 0 0 6px; color: #33691e; font-size: 1em; }
+.self-check label { display: block; padding: 2px 0; }
+.self-check input[type=checkbox] {
+  margin-right: 8px; width: 16px; height: 16px;
+  accent-color: #7cb342; vertical-align: middle;
+}
+
+.page-no {
+  position: absolute; bottom: 8mm; right: 18mm;
+  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
+}
+
+/* ===== 인쇄 ===== */
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  html, body {
+    background: #fff !important; margin: 0; padding: 0;
+    font-size: 10pt; line-height: 1.38;
+  }
+  .toolbar, .no-print { display: none !important; }
+  .page {
+    width: 210mm; min-height: 297mm;
+    margin: 0 !important; padding: 10mm 13mm;
+    box-shadow: none; border: none;
+    page-break-after: always; break-after: page;
+  }
+  .page:last-of-type { page-break-after: auto; }
+  .q, .scene, .tip, .formula, .self-check, .menu-board,
+  .name-box, .goal, .cast, .toc, .info, .ph, tr, .act-grid {
+    page-break-inside: avoid !important; break-inside: avoid !important;
+  }
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  h1 { font-size: 1.9em; margin: 0; }
+  h2 { font-size: 1.3em; margin: 0 0 4px; }
+  h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
+  p { margin: 0 0 4px; }
+  ul, ol { margin: 4px 0; }
+  .page.cover { padding: 16mm 16mm; }
+  .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
+  .ph-num { width: 46px; height: 46px; font-size: 1.4em; border-radius: 8px; }
+  .ph-title h2 { font-size: 1.25em; }
+  .scene, .tip { padding: 8px 12px; margin-bottom: 8px; }
+  .menu-board { padding: 8px 12px; margin: 6px 0; }
+  .menu-board h4 { font-size: 1.05em; }
+  .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
+  .q .no { width: 26px; height: 26px; font-size: 0.88em; }
+  .formula { padding: 6px 10px; margin: 4px 0; font-size: 1em; }
+  .box { min-width: 56px; height: 22px; }
+  th, td { padding: 4px 6px; }
+  .lines { height: 26px;
+    background-image: repeating-linear-gradient(
+      to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
+  .lines.two { height: 52px; }
+  .lines.three { height: 78px; }
+  .self-check { padding: 8px 12px; margin-top: 10px; }
+  .page-no { bottom: 6mm; right: 14mm; }
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <div><strong>스포츠 몬스터 하남 — 수학 학습지</strong>
+    <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
+  </div>
+  <button onclick="window.print()">🖨️ 인쇄하기</button>
+</div>
+
+<!-- =================================================== -->
+<!-- 표지 -->
+<!-- =================================================== -->
+<section class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">수학</span> &nbsp;|&nbsp; 고등학교 특수학급 현장체험학습</div>
+    <div>2026학년도 1학기</div>
+  </div>
+
+  <div class="cover-main">
+    <span class="badge">현장체험학습 수학 프로젝트</span>
+    <h1>스포츠 몬스터 하남</h1>
+    <p class="lead">입장권부터 점심, 하루 정리까지 — 똑똑하게 계산해요</p>
+  </div>
+
+  <div class="name-box">
+    <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
+    <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
+    <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
+  </div>
+
+  <div class="info">
+    <h2>🏟️ 스포츠 몬스터(Sports Monster)는?</h2>
+    <p>스타필드 하남 안에 있는 <strong>실내 스포츠 테마파크</strong>예요. 클라이밍, 트램펄린, 카트, 양궁, 농구 챌린지 등
+       <strong>여러 가지 스포츠 활동</strong>을 한 곳에서 체험할 수 있어요. 입장권은 <strong>이용 시간</strong>에 따라
+       (2시간권 · 4시간권 · 1일권) 가격이 달라요.</p>
+  </div>
+
+  <div class="cast">
+    <h2>👫 함께 가는 친구들</h2>
+    <div class="cast-grid">
+      <div class="person"><span class="dot d6"></span>하영</div>
+      <div class="person"><span class="dot d2"></span>하은</div>
+      <div class="person"><span class="dot d1"></span>채원</div>
+      <div class="person"><span class="dot d5"></span>예은</div>
+      <div class="person"><span class="dot d4"></span>주은</div>
+      <div class="person"><span class="dot d3"></span>주현</div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h2>📚 차례</h2>
+    <ol>
+      <li><strong>1차시</strong> 입장권 사기 — 시간권 가격 비교, 복지카드 50% 할인</li>
+      <li><strong>2차시</strong> 활동 시간 계획 — 4시간 안에 어떤 활동을 할까?</li>
+      <li><strong>3차시</strong> 점심 식사 — 스타필드 푸드코트에서 메뉴 고르기</li>
+      <li><strong>4차시</strong> 하루 정리 — 총비용 계산 · 더치페이</li>
+    </ol>
+  </div>
+
+  <div class="page-no">— 1 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 1차시: 입장권 사기 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">1</div>
+    <div class="ph-title">
+      <h2>입장권 사기</h2>
+      <p>시간권 가격을 비교하고, 복지카드 할인을 계산해 봅시다.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>다음 주 토요일, 친구 6명과 선생님이 <strong>스타필드 하남</strong>의 <strong>스포츠 몬스터</strong>로 현장체험학습을 갑니다.
+       오전 11시에 입장해서 <strong>4시간권</strong>을 끊기로 했어요. 학생 6명은 모두 <strong>복지카드</strong>로 50% 할인을 받아요.</p>
+  </div>
+
+  <table class="price-table">
+    <tr><th>이용권</th><th>청소년 정가</th><th>성인 정가</th><th>복지카드(학생)</th></tr>
+    <tr><td>2시간권</td><td>25,000원</td><td>30,000원</td><td>12,500원</td></tr>
+    <tr class="hi"><td>4시간권 ⭐</td><td>35,000원</td><td>40,000원</td><td>?</td></tr>
+    <tr><td>1일권</td><td>45,000원</td><td>50,000원</td><td>22,500원</td></tr>
+  </table>
+  <div class="tip"><span class="tip-title">💡 50% 할인이란?</span>
+    원래 가격의 <strong>반값</strong>이에요. 정가를 <strong>2로 나누면</strong> 할인된 금액이 나옵니다.</div>
+
+  <div class="practice">
+    <h3>🎟️ 입장권 계산</h3>
+
+    <div class="q"><div class="no">1</div><div>
+      <p>학생용 <strong>4시간권</strong>의 복지카드 할인가는 얼마인가요?</p>
+      <div class="formula">35,000 &divide; 2 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">2</div><div>
+      <p>학생 <strong>6명</strong>이 모두 4시간권을 산다면 학생 합계는 얼마인가요?</p>
+      <div class="formula">17,500 &times; 6 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">3</div><div>
+      <p>선생님은 성인 4시간권을 사고, 할인은 받지 않아요. 선생님 1명의 가격은?</p>
+      <p class="sub-q">👉 선생님 입장권은 <span class="blank"></span> 원입니다.</p>
+    </div></div>
+
+    <div class="q"><div class="no">4</div><div>
+      <p>학생 6명 + 선생님 1명, <strong>총 입장권 비용</strong>은 얼마인가요?</p>
+      <div class="formula">(학생 합계) + 40,000 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">5</div><div>
+      <p>만약 복지카드 할인을 <strong>받지 않았다면</strong> 학생 6명의 가격은 얼마였을까요?
+         그리고 할인으로 <strong>얼마를 절약</strong>했을까요?</p>
+      <div class="formula">35,000 &times; 6 = <span class="box wide"></span> 원 &nbsp;(정가 합계)</div>
+      <div class="formula">(정가 합계) &minus; (할인가 합계) = <span class="box wide"></span> 원 절약</div>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 2 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 2차시: 활동 시간 계획 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">2</div>
+    <div class="ph-title">
+      <h2>활동 시간 계획</h2>
+      <p>4시간(=240분) 동안 어떤 활동을 할지 시간을 더하고 빼서 계획해 봅시다.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>스포츠 몬스터에는 정말 다양한 활동이 있어요. 아래 활동들 중 하고 싶은 것을 골라
+       <strong>4시간(240분) 안</strong>에 들어가도록 시간 계획을 세워 봅시다.</p>
+  </div>
+
+  <div class="act-grid">
+    <div class="act"><strong>클라이밍</strong><small>1회 30분</small></div>
+    <div class="act"><strong>트램펄린</strong><small>1회 20분</small></div>
+    <div class="act"><strong>카트 1바퀴</strong><small>1회 10분</small></div>
+    <div class="act"><strong>양궁</strong><small>1회 15분</small></div>
+    <div class="act"><strong>농구 챌린지</strong><small>1회 10분</small></div>
+    <div class="act"><strong>짚라인</strong><small>1회 15분</small></div>
+  </div>
+
+  <div class="practice">
+    <h3>⏱️ 시간 계산</h3>
+
+    <div class="q"><div class="no">6</div><div>
+      <p>하영이는 <strong>클라이밍 + 트램펄린 + 카트 + 양궁</strong>을 한 번씩 하기로 했어요. 모두 합하면 몇 분인가요?</p>
+      <div class="formula">30 + 20 + 10 + 15 = <span class="box"></span> 분</div>
+      <p class="sub-q">👉 분을 시간·분으로 바꾸면 <span class="box"></span> 시간 <span class="box"></span> 분입니다.</p>
+    </div></div>
+
+    <div class="q"><div class="no">7</div><div>
+      <p>4시간권은 모두 <strong>240분</strong>이에요. 하영이가 활동 후 쉬거나 다른 활동을 할 수 있는
+         <strong>남는 시간</strong>은 몇 분인가요?</p>
+      <div class="formula">240 &minus; <span class="box"></span> = <span class="box"></span> 분</div>
+    </div></div>
+
+    <div class="q"><div class="no">8</div><div>
+      <p>주현이는 <strong>오전 11시</strong>에 입장해서 <strong>오후 3시</strong>에 나오기로 했어요. 머문 시간은 모두 몇 시간인가요?</p>
+      <div class="formula">오후 3시 &minus; 오전 11시 = <span class="box"></span> 시간 = <span class="box"></span> 분</div>
+    </div></div>
+
+    <div class="q"><div class="no">9</div><div>
+      <p>채원이는 좋아하는 활동을 여러 번 하기로 했어요. <strong>트램펄린 3회 + 농구 챌린지 2회</strong>를 한다면 모두 몇 분인가요?</p>
+      <div class="formula">(20 &times; 3) + (10 &times; 2) = <span class="box"></span> 분</div>
+    </div></div>
+
+    <div class="q"><div class="no">10</div><div>
+      <p>예은이의 활동 계획표를 빈칸을 채워 완성해 봅시다.
+         <em>(11:00 입장 — 시작 시각에 활동 시간을 더하면 끝나는 시각이 나옵니다.)</em></p>
+      <table>
+        <tr><th>순서</th><th>활동</th><th>시간(분)</th><th>시작</th><th>끝</th></tr>
+        <tr><td>1</td><td>클라이밍</td><td>30</td><td>11:00</td><td>11:30</td></tr>
+        <tr><td>2</td><td>트램펄린</td><td>20</td><td>11:30</td><td><span class="box"></span></td></tr>
+        <tr><td>3</td><td>휴식</td><td>10</td><td><span class="box"></span></td><td>12:10</td></tr>
+        <tr><td>4</td><td>양궁</td><td>15</td><td>12:10</td><td><span class="box"></span></td></tr>
+      </table>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 3 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 3차시: 점심 식사 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">3</div>
+    <div class="ph-title">
+      <h2>점심 식사</h2>
+      <p>스타필드 푸드코트에서 메뉴를 고르고 가격을 계산해 봅시다.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>오후 3시, 활동을 마친 친구들은 배가 고파요. <strong>스타필드 푸드코트</strong>에서 점심을 먹기로 했습니다.
+       <strong>1인 점심 예산은 9,000원</strong>이에요. 예산을 넘기지 않도록 메뉴를 골라 봅시다.</p>
+  </div>
+
+  <div class="menu-board">
+    <h4>🍽️ 푸드코트 메뉴판</h4>
+    <table>
+      <tr><th class="left">메뉴</th><th>가격</th><th class="left">메뉴</th><th>가격</th></tr>
+      <tr><td class="left">김치찌개 정식</td><td>9,000원</td><td class="left">돈가스</td><td>8,500원</td></tr>
+      <tr><td class="left">비빔밥</td><td>8,000원</td><td class="left">라멘</td><td>9,500원</td></tr>
+      <tr><td class="left">떡볶이 1인분</td><td>6,000원</td><td class="left">샌드위치</td><td>7,000원</td></tr>
+      <tr><td class="left">아메리카노</td><td>4,000원</td><td class="left">콜라</td><td>2,500원</td></tr>
+    </table>
+  </div>
+
+  <div class="practice">
+    <h3>🍱 메뉴 고르기 · 합계 내기</h3>
+
+    <div class="q"><div class="no">11</div><div>
+      <p>채원이는 <strong>김치찌개 정식 + 콜라</strong>를 시켰어요. 합계는 얼마인가요?
+         예산 9,000원 안에 들어갈까요?</p>
+      <div class="formula">9,000 + 2,500 = <span class="box wide"></span> 원</div>
+      <p class="sub-q">👉 예산 안에 ▢ 들어간다 &nbsp;&nbsp; ▢ 들어가지 않는다</p>
+    </div></div>
+
+    <div class="q"><div class="no">12</div><div>
+      <p>하은이는 <strong>라멘 + 아메리카노</strong>를 시키려고 해요. 합계와, 9,000원에서 얼마가 모자라거나 남는지 계산해 봅시다.</p>
+      <div class="formula">9,500 + 4,000 = <span class="box wide"></span> 원</div>
+      <div class="formula">9,000 &minus; (합계) = <span class="box"></span> 원
+        <span style="margin-left:10px;">▢ 남는다 &nbsp; ▢ 모자라다</span></div>
+    </div></div>
+
+    <div class="q"><div class="no">13</div><div>
+      <p>친구 6명이 각자 메뉴를 골랐어요. 각자 합계와 6명 <strong>전체 합계</strong>를 구해 봅시다.</p>
+      <table>
+        <tr><th>이름</th><th class="left">시킨 메뉴</th><th>합계(원)</th></tr>
+        <tr><td>하영</td><td class="left">비빔밥(8,000) + 콜라(2,500)</td><td><span class="box"></span></td></tr>
+        <tr><td>하은</td><td class="left">라멘(9,500)</td><td><span class="box"></span></td></tr>
+        <tr><td>채원</td><td class="left">김치찌개(9,000) + 콜라(2,500)</td><td><span class="box"></span></td></tr>
+        <tr><td>예은</td><td class="left">샌드위치(7,000) + 아메리카노(4,000)</td><td><span class="box"></span></td></tr>
+        <tr><td>주은</td><td class="left">돈가스(8,500) + 콜라(2,500)</td><td><span class="box"></span></td></tr>
+        <tr><td>주현</td><td class="left">떡볶이(6,000) + 콜라(2,500)</td><td><span class="box"></span></td></tr>
+        <tr><th colspan="2" class="left">6명 전체 합계</th><th><span class="box wide"></span></th></tr>
+      </table>
+    </div></div>
+
+    <div class="q"><div class="no">14</div><div>
+      <p>예산 9,000원으로 <strong>‘가장 비싼 메뉴 + 음료수’ 한 세트</strong>를 시킬 수 있을까요?
+         가장 비싼 메뉴를 찾아 직접 계산해 봅시다.</p>
+      <div class="formula"><span class="box xwide"></span>(메뉴) + <span class="box"></span>(음료) = <span class="box"></span> 원</div>
+      <p class="sub-q">👉 예산 안에 들어가는지 ○/× 표시: <span class="blank"></span></p>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 4 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 4차시: 하루 정리 + 더치페이 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">4</div>
+    <div class="ph-title">
+      <h2>하루 정리하기</h2>
+      <p>오늘 쓴 돈을 항목별로 정리하고, 1인 부담금을 계산해 봅시다.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>현장체험학습이 끝났어요. 친구들이 오늘 쓴 돈을 모두 모아 정리해 봅시다.
+       선생님은 자기 비용을 따로 내고, <strong>학생 6명</strong>의 비용은 <strong>더치페이</strong>로 똑같이 나누어 내기로 했어요.</p>
+  </div>
+
+  <div class="practice">
+    <h3>💰 항목별 비용 정리</h3>
+
+    <div class="q"><div class="no">15</div><div>
+      <p>학생 6명이 오늘 쓴 돈을 항목별로 정리해 봅시다. 빈칸을 채우고 <strong>총합계</strong>를 구해 봅시다.</p>
+      <table>
+        <tr><th class="left">항목</th><th>금액(원)</th><th class="left">계산 방법</th></tr>
+        <tr><td class="left">입장권 (학생 6명, 4시간권)</td><td><span class="box"></span></td><td class="left">17,500 × 6</td></tr>
+        <tr><td class="left">점심 (3차시 6명 합계 가져오기)</td><td><span class="box"></span></td><td class="left">3차시 13번 결과</td></tr>
+        <tr><td class="left">전철 왕복 교통비</td><td>16,800</td><td class="left">2,800 × 6 (1인 왕복 2,800원)</td></tr>
+        <tr><th class="left">총합계</th><th><span class="box wide"></span></th><th class="left">위 세 항목의 합</th></tr>
+      </table>
+    </div></div>
+
+    <div class="q"><div class="no">16</div><div>
+      <p><strong>더치페이</strong>로 학생 6명이 똑같이 나누어 낸다면, 한 사람이 얼마씩 내야 하나요?</p>
+      <div class="tip"><span class="tip-title">💡 더치페이</span>
+        함께 쓴 돈을 인원 수로 <strong>나누어</strong> 각자 자기 몫을 내는 것이에요.
+        한 사람에게 부담이 가지 않아 친구 사이에서 자주 쓰는 방법입니다.</div>
+      <div class="formula">(총합계) &divide; 6 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">17</div><div>
+      <p>주은이는 집에서 <strong>30,000원</strong>을 가지고 출발했어요. 자기 몫을 내고 나면 얼마가 남을까요?
+         (위에서 구한 1인 부담금을 가져오세요.)</p>
+      <div class="formula">30,000 &minus; <span class="box"></span> = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">18</div><div>
+      <p>만약 복지카드 할인이 <strong>없었다면</strong> 입장권만으로도 학생 6명이 <strong>210,000원</strong>을 냈을 거예요.
+         실제로는 105,000원만 냈으니, 학생 1인당 <strong>얼마를 절약</strong>한 셈일까요?</p>
+      <div class="formula">(210,000 &minus; 105,000) &divide; 6 = <span class="box wide"></span> 원 절약</div>
+    </div></div>
+  </div>
+
+
+  <div class="page-no">— 5 —</div>
+</section>
+
+</body>
+</html>

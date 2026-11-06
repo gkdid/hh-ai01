@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>용돈과 하루 — 수학·국어 융합 학습지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4 portrait; margin: 14mm 15mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  font-size: 12pt; line-height: 1.65;
+}
+
+.toolbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #263238; color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button {
+  background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700;
+  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+}
+.toolbar button:hover { background: #ffd54f; }
+
+.page {
+  width: 210mm; min-height: 297mm;
+  margin: 14mm auto; padding: 16mm 18mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  position: relative; page-break-after: always;
+}
+.page:last-of-type { page-break-after: auto; }
+
+/* ===== 표지 ===== */
+.page.cover {
+  padding: 22mm 20mm;
+  background: linear-gradient(135deg, #fff 0%, #f3f9ff 100%);
+}
+.cover-top {
+  display: flex; justify-content: space-between;
+  font-size: 0.9em; color: #607d8b;
+  border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 26px;
+}
+.cover-top .subject { font-weight: 700; color: #1565c0; }
+.cover-main { text-align: center; padding: 26px 0 18px; }
+.cover-main .badge {
+  display: inline-block; padding: 6px 18px; border-radius: 20px;
+  background: #1565c0; color: #fff; font-weight: 700; font-size: 0.95em;
+  margin-bottom: 16px; letter-spacing: 0.5px;
+}
+.cover-main h1 {
+  margin: 0; font-size: 2.4em; letter-spacing: -1.5px;
+  color: #0d47a1; font-weight: 900;
+}
+.cover-main .lead {
+  margin: 10px 0 0; font-size: 1.05em; color: #546e7a; font-weight: 500;
+}
+.name-box {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin: 22px 0;
+}
+.name-cell { border: 1.5px solid #90a4ae; border-radius: 8px; padding: 10px 12px; }
+.name-cell span { display: block; font-size: 0.78em; color: #546e7a; font-weight: 500; }
+.name-cell em { display: block; min-height: 24px; font-style: normal; }
+
+.goal, .cast, .toc {
+  border: 2px solid #bbdefb; border-radius: 10px;
+  padding: 14px 18px; margin-top: 14px; background: #f3f9ff;
+}
+.goal h2, .cast h2, .toc h2 {
+  margin: 0 0 8px; font-size: 1.1em; color: #0d47a1;
+  border-bottom: 1px dashed #90caf9; padding-bottom: 6px;
+}
+.goal ul { margin: 4px 0 0; padding-left: 20px; }
+.goal li { padding: 2px 0; }
+
+.cast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.person {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 10px; background: #fff;
+  border: 1px solid #eee; border-radius: 8px;
+  font-weight: 700; color: #37474f;
+}
+.dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+.d1 { background: #FF6B6B; }  /* 채원 */
+.d2 { background: #4ECDC4; }  /* 하은 */
+.d3 { background: #FFD166; }  /* 주현 */
+.d4 { background: #A78BFA; }  /* 주은 */
+.d5 { background: #6FCF97; }  /* 예은 */
+.d6 { background: #F48FB1; }  /* 하영 */
+
+.toc ol { margin: 4px 0 0; padding-left: 24px; }
+.toc li { padding: 3px 0; }
+
+/* ===== 쪽 머리 ===== */
+.ph {
+  display: flex; align-items: center; gap: 16px;
+  border-bottom: 3px solid #263238; padding-bottom: 12px; margin-bottom: 18px;
+}
+.ph-num {
+  flex-shrink: 0; width: 60px; height: 60px;
+  background: #1565c0; color: #ffd54f;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.7em; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; border-radius: 10px;
+}
+.ph-title h2 { margin: 0; font-size: 1.5em; color: #263238; }
+.ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.95em; }
+
+/* 과목 라벨 */
+.subj-label {
+  display: inline-block; padding: 3px 12px; border-radius: 14px;
+  font-size: 0.85em; font-weight: 700; margin-right: 6px;
+}
+.subj-kor { background: #fff3e0; color: #e65100; border: 1.5px solid #ffb74d; }
+.subj-math { background: #e3f2fd; color: #0d47a1; border: 1.5px solid #64b5f6; }
+.subj-mix { background: #f3e5f5; color: #6a1b9a; border: 1.5px solid #ba68c8; }
+
+/* ===== 이야기 / 대화 ===== */
+.scene {
+  background: #fff8e1; border-left: 6px solid #ffb300;
+  border-radius: 6px; padding: 12px 16px; margin-bottom: 14px;
+}
+.scene p { margin: 0; }
+
+.dialogue { background: #f5f5f5; border-radius: 12px; padding: 12px; margin: 8px 0 14px; }
+.turn { display: flex; align-items: flex-start; gap: 10px; margin: 6px 0; }
+.turn.right { flex-direction: row-reverse; }
+.tag {
+  flex-shrink: 0; min-width: 54px; padding: 5px 10px;
+  background: #cfd8dc; color: #263238;
+  border-radius: 18px; font-weight: 700; font-size: 0.9em; text-align: center;
+}
+.tag.d1 { background: #FFCDD2; }
+.tag.d2 { background: #B2EBF2; }
+.tag.d3 { background: #FFF9C4; }
+.tag.d4 { background: #E1BEE7; }
+.tag.d5 { background: #C8E6C9; }
+.tag.d6 { background: #F8BBD0; }
+.bubble {
+  background: #fff; padding: 8px 12px;
+  border: 1.5px solid #cfd8dc; border-radius: 14px;
+  max-width: 80%; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+.turn.right .bubble { background: #e3f2fd; border-color: #bbdefb; }
+
+/* ===== 본문 글 ===== */
+.story {
+  background: #fff; border: 2px solid #cfd8dc; border-radius: 8px;
+  padding: 14px 18px; margin: 8px 0 14px; line-height: 1.85;
+}
+.story p { margin: 0 0 6px; }
+
+/* ===== 문제 ===== */
+.practice h3 {
+  display: inline-block; background: #ffca28; color: #263238;
+  padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
+}
+.q {
+  position: relative;
+  padding-left: 42px;
+  margin-bottom: 14px; padding-bottom: 12px;
+  border-bottom: 1px dashed #cfd8dc;
+}
+.q:last-child { border-bottom: none; }
+.q .no {
+  position: absolute; left: 0; top: 0;
+  width: 30px; height: 30px;
+  background: #263238; color: #fff;
+  border-radius: 50%; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; font-size: 0.92em;
+}
+.q p { margin: 0 0 6px; }
+.q .sub-q { margin-top: 6px; font-weight: 500; color: #455a64; }
+
+/* ===== 쓰기 줄 / 빈칸 ===== */
+.lines {
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px
+  );
+  height: 34px; margin: 4px 0;
+}
+.lines.two { height: 68px; }
+.lines.three { height: 102px; }
+.lines.four { height: 136px; }
+
+.blank {
+  display: inline-block; border-bottom: 1.5px solid #263238;
+  min-width: 70px; height: 22px; vertical-align: baseline;
+}
+.blank.long { min-width: 220px; }
+
+.box {
+  display: inline-block; min-width: 70px; height: 28px;
+  border: 2px solid #263238; background: #fff;
+  border-radius: 4px; vertical-align: middle; margin: 0 3px;
+}
+.box.wide { min-width: 110px; }
+
+.formula {
+  background: #fffde7; border: 1.5px dashed #fbc02d;
+  border-radius: 8px; padding: 10px 16px;
+  text-align: center; font-size: 1.1em; margin: 8px 0; font-weight: 500;
+}
+
+/* 영수증 / 표 */
+table { width: 100%; border-collapse: collapse; margin: 6px 0; }
+th, td {
+  border: 1.5px solid #90a4ae;
+  padding: 7px 10px; text-align: center; vertical-align: middle;
+}
+th { background: #eceff1; font-weight: 700; color: #263238; }
+td.left, th.left { text-align: left; }
+
+.receipt {
+  max-width: 380px; margin: 8px auto;
+  border: 2px dashed #607d8b; border-radius: 8px;
+  padding: 12px 16px; background: #fafafa;
+  font-family: 'Noto Sans KR', monospace;
+}
+.receipt h4 { margin: 0 0 6px; text-align: center; color: #455a64; }
+.receipt-row { display: flex; justify-content: space-between; padding: 3px 0; }
+.receipt-row.total { border-top: 1.5px solid #607d8b; margin-top: 6px; padding-top: 6px; font-weight: 700; }
+
+/* 보기 박스 */
+.choice-box {
+  background: #f1f8e9; border: 1.5px solid #aed581;
+  border-radius: 8px; padding: 8px 14px; margin: 8px 0;
+  font-weight: 500;
+}
+.choice-box::before { content: "<보기> "; font-weight: 700; color: #33691e; }
+
+/* 시간표 */
+.timetable td { height: 30px; }
+.timetable .time-col { background: #e3f2fd; font-weight: 700; width: 28%; }
+
+/* 자기 점검 */
+.self-check {
+  background: #f1f8e9; border: 1.5px solid #aed581;
+  border-radius: 8px; padding: 12px 16px; margin-top: 14px;
+}
+.self-check h4 { margin: 0 0 6px; color: #33691e; font-size: 1em; }
+.self-check label { display: block; padding: 2px 0; }
+.self-check input[type=checkbox] {
+  margin-right: 8px; width: 16px; height: 16px;
+  accent-color: #7cb342; vertical-align: middle;
+}
+
+.tip {
+  background: #e3f2fd; border-left: 5px solid #1e88e5;
+  border-radius: 6px; padding: 10px 14px; margin: 10px 0;
+}
+.tip .tip-title { display: block; font-weight: 700; color: #0d47a1; margin-bottom: 4px; }
+
+.page-no {
+  position: absolute; bottom: 8mm; right: 18mm;
+  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
+}
+
+/* ===== 인쇄 ===== */
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  html, body {
+    background: #fff !important; margin: 0; padding: 0;
+    font-size: 10.5pt; line-height: 1.45;
+  }
+  .toolbar, .no-print { display: none !important; }
+  .page {
+    width: 210mm; min-height: 297mm;
+    margin: 0 !important; padding: 12mm 14mm;
+    box-shadow: none; border: none;
+    page-break-after: always; break-after: page;
+  }
+  .page:last-of-type { page-break-after: auto; }
+  .q, .scene, .tip, .formula, .dialogue, .turn, .self-check,
+  .name-box, .goal, .cast, .toc, .ph, .story, .receipt, tr {
+    page-break-inside: avoid !important; break-inside: avoid !important;
+  }
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  h1 { font-size: 1.9em; margin: 0; }
+  h2 { font-size: 1.3em; margin: 0 0 4px; }
+  h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
+  p { margin: 0 0 4px; }
+  ul, ol { margin: 4px 0; }
+  .page.cover { padding: 16mm 16mm; }
+  .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
+  .ph-num { width: 46px; height: 46px; font-size: 1.4em; border-radius: 8px; }
+  .ph-title h2 { font-size: 1.25em; }
+  .scene, .tip, .story { padding: 8px 12px; margin-bottom: 8px; }
+  .dialogue { padding: 8px; margin: 4px 0 8px; }
+  .turn { margin: 3px 0; gap: 6px; }
+  .tag { min-width: 44px; padding: 3px 7px; font-size: 0.82em; }
+  .bubble { padding: 6px 10px; font-size: 0.95em; }
+  .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
+  .q .no { width: 26px; height: 26px; font-size: 0.88em; }
+  .formula { padding: 6px 10px; margin: 4px 0; font-size: 1em; }
+  .box { min-width: 56px; height: 22px; }
+  th, td { padding: 4px 6px; }
+  .lines { height: 26px;
+    background-image: repeating-linear-gradient(
+      to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
+  .lines.two { height: 52px; }
+  .lines.three { height: 78px; }
+  .lines.four { height: 104px; }
+  .self-check { padding: 8px 12px; margin-top: 10px; }
+  .page-no { bottom: 6mm; right: 14mm; }
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <div><strong>용돈과 하루 — 수학·국어 융합 학습지</strong>
+    <span class="muted">A4 · 7쪽 · 인쇄해서 사용하세요</span>
+  </div>
+  <button onclick="window.print()">🖨️ 인쇄하기</button>
+</div>
+
+<!-- =================================================== -->
+<!-- 표지 -->
+<!-- =================================================== -->
+<section class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">수학 · 국어 융합</span> &nbsp;|&nbsp; 고등학교 특수학급</div>
+    <div>2026학년도 1학기</div>
+  </div>
+
+  <div class="cover-main">
+    <span class="badge">수학 + 국어 융합 프로젝트</span>
+    <h1>용돈과 하루</h1>
+    <p class="lead">우리들의 똑똑한 생활 — 계산하고, 읽고, 계획해요</p>
+  </div>
+
+  <div class="name-box">
+    <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
+    <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
+    <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
+  </div>
+
+  <div class="goal">
+    <h2>🎯 이 학습지에서 우리는…</h2>
+    <ul>
+      <li>친구들의 이야기를 <strong>읽고 내용을 이해</strong>해요. <span class="subj-label subj-kor">국어</span></li>
+      <li>용돈을 <strong>더하고 빼고 나누어</strong> 계산해요. <span class="subj-label subj-math">수학</span></li>
+      <li>친구들과 <strong>더치페이</strong>로 음식 값을 공평하게 나누어 내요. <span class="subj-label subj-mix">융합</span></li>
+      <li>하루 일과의 <strong>시간을 계산</strong>해요. <span class="subj-label subj-math">수학</span></li>
+      <li>나의 용돈 사용과 하루를 <strong>글로 정리</strong>해요. <span class="subj-label subj-mix">융합</span></li>
+    </ul>
+  </div>
+
+  <div class="cast">
+    <h2>👫 함께하는 친구들</h2>
+    <div class="cast-grid">
+      <div class="person"><span class="dot d6"></span>하영</div>
+      <div class="person"><span class="dot d2"></span>하은</div>
+      <div class="person"><span class="dot d1"></span>채원</div>
+      <div class="person"><span class="dot d5"></span>예은</div>
+      <div class="person"><span class="dot d4"></span>주은</div>
+      <div class="person"><span class="dot d3"></span>주현</div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h2>📚 학습지 차례</h2>
+    <ol>
+      <li><strong>1차시</strong> 용돈 사용과 계획 — 친구들의 용돈 이야기 · 영수증 계산 · 일주일 용돈 계획 · <strong>더치페이</strong>로 나누어 내기</li>
+      <li><strong>2차시</strong> 일과 정리 — 주현이의 하루 · 시간 계산 · 나의 하루 일기</li>
+      <li><strong>3차시</strong> 우리 생활 속 돈 — 편의점 · 교통카드 · 영화관 · 친구 생일 선물</li>
+    </ol>
+  </div>
+
+  <div class="page-no">— 1 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 1차시 ① 친구들의 용돈 이야기 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">1-①</div>
+    <div class="ph-title">
+      <h2>친구들의 용돈 이야기</h2>
+      <p>이야기를 읽고 친구들이 어떻게 용돈을 쓰려는지 살펴봅시다.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>토요일 아침, 친구들이 카페에 모였습니다. 이번 주에 받은 <strong>용돈</strong>을 어떻게 쓸지 이야기하고 있어요.</p>
+  </div>
+
+  <div class="dialogue">
+    <div class="turn"><span class="tag d6">하영</span>
+      <div class="bubble">나는 일주일 용돈으로 <strong>8,000원</strong>을 받았어. 친구들이랑 떡볶이 먹으러 갈 거야!</div></div>
+    <div class="turn right"><span class="tag d1">채원</span>
+      <div class="bubble">나는 <strong>5,000원</strong>이야. 절반은 저금통에 넣어 <strong>저축</strong>할래.</div></div>
+    <div class="turn"><span class="tag d4">주은</span>
+      <div class="bubble">나는 <strong>한 달에 30,000원</strong>씩 받아. 한 주에 얼마씩 쓸지 미리 <strong>계획</strong>을 세워야겠어.</div></div>
+    <div class="turn right"><span class="tag d5">예은</span>
+      <div class="bubble">계획을 세우면 돈이 어디로 갔는지도 알 수 있어서 좋아.</div></div>
+  </div>
+
+  <div class="practice">
+    <h3>📖 읽고 풀어요</h3>
+
+    <div class="q"><div class="no">1</div><div>
+      <p><span class="subj-label subj-kor">국어</span> 하영이는 받은 용돈으로 무엇을 하고 싶어 하나요?</p>
+      <div class="lines"></div>
+    </div></div>
+
+    <div class="q"><div class="no">2</div><div>
+      <p><span class="subj-label subj-kor">국어</span> 채원이가 말한 <strong>‘저축한다’</strong>는 어떤 뜻일까요? 한 문장으로 써 봅시다.</p>
+      <div class="lines"></div>
+    </div></div>
+
+    <div class="q"><div class="no">3</div><div>
+      <p><span class="subj-label subj-math">수학</span> 채원이는 5,000원의 <strong>절반</strong>을 저축해요. 저축하는 금액은 얼마일까요?</p>
+      <div class="formula">5,000 &divide; 2 = <span class="box wide"></span> 원</div>
+      <p class="sub-q">👉 채원이가 저축할 돈은 <span class="blank"></span> 원이고, 쓸 수 있는 돈은 <span class="blank"></span> 원입니다.</p>
+    </div></div>
+
+    <div class="q"><div class="no">4</div><div>
+      <p><span class="subj-label subj-math">수학</span> 주은이는 한 달(4주)에 30,000원을 받아요. 한 주에 똑같이 나누어 쓰면 얼마씩 쓸 수 있나요?</p>
+      <div class="formula">30,000 &divide; 4 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">5</div><div>
+      <p><span class="subj-label subj-mix">융합</span> 주은이처럼 <strong>미리 계획을 세우면</strong> 어떤 점이 좋을지 한 가지 써 봅시다.</p>
+      <div class="lines two"></div>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 2 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 1차시 ② 영수증 보고 계산하기 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">1-②</div>
+    <div class="ph-title">
+      <h2>영수증을 보고 계산해요</h2>
+      <p>하은이가 분식집에서 받은 영수증을 살펴봅시다.</p>
+    </div>
+  </div>
+
+  <div class="receipt">
+    <h4>🧾 행복분식 영수증</h4>
+    <div class="receipt-row"><span>떡볶이 1인분</span><span>4,000 원</span></div>
+    <div class="receipt-row"><span>어묵 2개</span><span>2,000 원</span></div>
+    <div class="receipt-row"><span>음료수 1개</span><span>1,500 원</span></div>
+    <div class="receipt-row total"><span>합계</span><span>?</span></div>
+    <div class="receipt-row"><span>받은 돈</span><span>10,000 원</span></div>
+    <div class="receipt-row"><span>거스름돈</span><span>?</span></div>
+  </div>
+
+  <div class="practice">
+    <h3>🧮 영수증 계산</h3>
+
+    <div class="q"><div class="no">6</div><div>
+      <p><span class="subj-label subj-math">수학</span> 하은이가 산 물건의 <strong>합계</strong>는 얼마인가요?</p>
+      <div class="formula">4,000 + 2,000 + 1,500 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">7</div><div>
+      <p><span class="subj-label subj-math">수학</span> 하은이가 10,000원을 냈어요. <strong>거스름돈</strong>은 얼마인가요?</p>
+      <div class="formula">10,000 &minus; <span class="box"></span> = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">8</div><div>
+      <p><span class="subj-label subj-kor">국어</span> 다음 빈칸에 알맞은 낱말을 보기에서 골라 써 봅시다.</p>
+      <div class="choice-box">영수증, 거스름돈, 예산, 합계, 저축</div>
+      <p class="sub-q">① 물건을 사고 가게에서 받는 종이는 ( <span class="blank"></span> )입니다.</p>
+      <p class="sub-q">② 미리 정해 놓은 돈의 양을 ( <span class="blank"></span> )이라고 합니다.</p>
+      <p class="sub-q">③ 낸 돈에서 물건 값을 빼고 남은 돈은 ( <span class="blank"></span> )입니다.</p>
+      <p class="sub-q">④ 쓰지 않고 모아 두는 것을 ( <span class="blank"></span> )(이)라고 합니다.</p>
+    </div></div>
+
+    <div class="q"><div class="no">9</div><div>
+      <p><span class="subj-label subj-mix">융합</span> 예은이의 <strong>일주일 용돈 계획표</strong>입니다. 빈칸을 채워 봅시다. (용돈은 모두 10,000원)</p>
+      <table>
+        <tr><th>항목</th><th>간식</th><th>학용품</th><th>저축</th><th>예비비</th><th>합계</th></tr>
+        <tr><td>금액(원)</td><td>4,000</td><td>2,500</td><td>2,000</td><td><span class="box"></span></td><td>10,000</td></tr>
+      </table>
+      <div class="formula">10,000 &minus; (4,000 + 2,500 + 2,000) = <span class="box"></span> 원</div>
+      <p class="sub-q">👉 예은이가 <strong>예비비</strong>로 남길 돈은 <span class="blank"></span> 원입니다.</p>
+    </div></div>
+
+    <div class="q"><div class="no">10</div><div>
+      <p><span class="subj-label subj-kor">국어</span> 예은이의 계획을 보고 <strong>잘한 점</strong>을 한 가지 찾아 써 봅시다.</p>
+      <div class="lines two"></div>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 3 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 1차시 ③ 함께 먹고, 더치페이로 나누어 내요 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">1-③</div>
+    <div class="ph-title">
+      <h2>함께 먹고, 더치페이로 나누어 내요</h2>
+      <p>여럿이 함께 먹은 음식 값을 공평하게 나누는 방법을 알아봅시다.</p>
+    </div>
+  </div>
+
+  <div class="tip"><span class="tip-title">💡 더치페이(Dutch pay)란?</span>
+    여러 사람이 함께 먹거나 산 물건의 값을 <strong>각자 자기 몫만큼 따로 내는 것</strong>을 ‘더치페이’라고 해요.
+    한 사람에게 부담이 가지 않고 친구 사이에 <strong>공평하게</strong> 나눌 수 있어 좋아요.
+    똑같이 나누는 방법, 시킨 만큼 따로 내는 방법 두 가지가 있습니다.</div>
+
+  <div class="scene">
+    <p>토요일 오후, 친구 6명이 분식집에서 함께 점심을 먹었어요. 음식을 다 먹고 계산할 시간이 되었습니다.</p>
+  </div>
+
+  <div class="dialogue">
+    <div class="turn"><span class="tag d1">채원</span>
+      <div class="bubble">우리 다 합쳐서 <strong>24,000원</strong>이래. 어떻게 낼까?</div></div>
+    <div class="turn right"><span class="tag d3">주현</span>
+      <div class="bubble">같이 시켜서 같이 먹었으니까 <strong>똑같이 나누어</strong> 내자. 그게 <strong>더치페이</strong>야!</div></div>
+    <div class="turn"><span class="tag d2">하은</span>
+      <div class="bubble">좋아. 6명이니까 한 사람에게 부담이 가지 않아서 좋다.</div></div>
+  </div>
+
+  <div class="receipt">
+    <h4>🧾 분식집 합계 영수증</h4>
+    <div class="receipt-row"><span>떡볶이 2인분</span><span>8,000 원</span></div>
+    <div class="receipt-row"><span>어묵 6개</span><span>6,000 원</span></div>
+    <div class="receipt-row"><span>음료수 4개</span><span>6,000 원</span></div>
+    <div class="receipt-row"><span>김밥 1줄</span><span>4,000 원</span></div>
+    <div class="receipt-row total"><span>합계</span><span>24,000 원</span></div>
+  </div>
+
+  <div class="practice">
+    <h3>🤝 똑똑하게 나누어 내요</h3>
+
+    <div class="q"><div class="no">11</div><div>
+      <p><span class="subj-label subj-kor">국어</span> 글에서 <strong>‘더치페이’</strong>의 뜻을 찾아 한 문장으로 써 봅시다.</p>
+      <div class="lines two"></div>
+    </div></div>
+
+    <div class="q"><div class="no">12</div><div>
+      <p><span class="subj-label subj-math">수학</span> 24,000원을 <strong>6명이 똑같이</strong> 나누어 낸다면, 한 사람이 얼마씩 내야 하나요?</p>
+      <div class="formula">24,000 &divide; 6 = <span class="box wide"></span> 원</div>
+      <p class="sub-q">👉 한 사람이 <span class="blank"></span> 원씩 내면 됩니다.</p>
+    </div></div>
+
+    <div class="q"><div class="no">13</div><div>
+      <p><span class="subj-label subj-math">수학</span> 만약 주은이가 사정이 생겨서 <strong>5명이 똑같이</strong> 나누어 낸다면 한 사람이 얼마씩 내야 할까요?</p>
+      <div class="formula">24,000 &divide; 5 = <span class="box wide"></span> 원</div>
+      <p class="sub-q">👉 사람이 줄어들면 한 사람이 내는 돈은
+        <span style="margin-left:6px;">▢ 더 많아진다 &nbsp; ▢ 더 적어진다</span></p>
+    </div></div>
+
+    <div class="q"><div class="no">14</div><div>
+      <p><span class="subj-label subj-math">수학</span> 친구들이 ‘<strong>각자 시킨 만큼만</strong>’ 내기로 했어요. 다음 표를 보고 각자 낼 돈을 계산해 봅시다.</p>
+      <table>
+        <tr><th>이름</th><th class="left">시킨 음식</th><th>금액(원)</th></tr>
+        <tr><td>하영</td><td class="left">떡볶이 1인분(4,000) + 음료수 1개(1,500)</td><td><span class="box"></span></td></tr>
+        <tr><td>채원</td><td class="left">어묵 2개(2,000) + 음료수 1개(1,500)</td><td><span class="box"></span></td></tr>
+        <tr><td>예은</td><td class="left">김밥 1줄(4,000)</td><td><span class="box"></span></td></tr>
+      </table>
+      <p class="sub-q">👉 시킨 음식이 가장 비싼 친구는 <span class="blank"></span> 입니다.</p>
+    </div></div>
+
+    <div class="q"><div class="no">15</div><div>
+      <p><span class="subj-label subj-mix">융합</span> 친구와 함께 음식을 먹은 뒤, <strong>더치페이를 제안하는 말</strong>을 한 문장으로 써 봅시다.
+        <span style="font-size:0.9em; color:#607d8b;">(예: “부담 없이 나눠 내자.”)</span></p>
+      <div class="lines two"></div>
+      <p class="sub-q">👉 더치페이의 <strong>좋은 점</strong>을 한 가지 더 적어 봅시다.</p>
+      <div class="lines"></div>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 4 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 2차시 ① 주현이의 하루 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">2-①</div>
+    <div class="ph-title">
+      <h2>주현이의 하루</h2>
+      <p>글을 읽고 주현이의 하루를 정리해 봅시다.</p>
+    </div>
+  </div>
+
+  <div class="story">
+    <p>주현이의 하루는 짜임새 있게 흘러간다. 아침 <strong>7시 30분</strong>에 일어나 세수를 하고 가족과 함께 아침을 먹는다. <strong>8시 10분</strong>이 되면 가방을 메고 학교로 출발한다.</p>
+    <p>학교에서는 5교시 수업을 듣고, <strong>오후 3시</strong>에 수업이 끝난다. 끝나자마자 주현이는 친구 하영이와 함께 학교 도서관으로 향한다. 도서관에서 함께 숙제를 하고 책을 정리한 뒤, <strong>오후 4시 40분</strong>에 집으로 돌아온다.</p>
+    <p>저녁 <strong>7시</strong>에는 가족과 저녁을 먹고, <strong>9시부터 10시까지</strong>는 좋아하는 책을 읽는다. 그리고 <strong>밤 11시</strong>에 잠자리에 든다. 주현이는 매일 같은 시간에 자고 일어나려고 노력한다.</p>
+  </div>
+
+  <div class="practice">
+    <h3>📖 읽고 풀어요</h3>
+
+    <div class="q"><div class="no">1</div><div>
+      <p><span class="subj-label subj-kor">국어</span> 주현이는 학교 수업이 끝나면 어디로 가나요? 누구와 함께 가나요?</p>
+      <div class="lines"></div>
+    </div></div>
+
+    <div class="q"><div class="no">2</div><div>
+      <p><span class="subj-label subj-kor">국어</span> 다음 일들을 <strong>일어난 순서</strong>대로 번호(1~4)를 써 봅시다.</p>
+      <p class="sub-q">( ) 가족과 저녁을 먹는다. &nbsp;&nbsp; ( ) 도서관에서 숙제를 한다.</p>
+      <p class="sub-q">( ) 잠자리에 든다. &nbsp;&nbsp; ( ) 학교로 출발한다.</p>
+    </div></div>
+
+    <div class="q"><div class="no">3</div><div>
+      <p><span class="subj-label subj-math">수학</span> 주현이가 도서관에 머문 시간은 얼마인가요? <em>(오후 3시 → 오후 4시 40분)</em></p>
+      <div class="formula">4시 40분 &minus; 3시 = <span class="box"></span> 시간 <span class="box"></span> 분</div>
+      <p class="sub-q">👉 모두 합하면 <span class="blank"></span> 분 동안 도서관에 있었습니다.</p>
+    </div></div>
+
+    <div class="q"><div class="no">4</div><div>
+      <p><span class="subj-label subj-math">수학</span> 주현이가 책을 읽는 시간은 얼마인가요? <em>(저녁 9시 → 밤 10시)</em></p>
+      <div class="formula">10시 &minus; 9시 = <span class="box"></span> 시간 = <span class="box"></span> 분</div>
+    </div></div>
+
+    <div class="q"><div class="no">5</div><div>
+      <p><span class="subj-label subj-math">수학</span> 주현이가 잠자는 시간은 몇 시간 몇 분인가요? <em>(밤 11시 → 다음 날 아침 7시 30분)</em></p>
+      <div class="tip"><span class="tip-title">💡 도움말</span>
+        밤 11시부터 다음 날 0시(자정)까지는 <strong>1시간</strong>, 자정부터 아침 7시 30분까지는 <strong>7시간 30분</strong>이에요. 두 시간을 더해 봐요.</div>
+      <div class="formula">1시간 + 7시간 30분 = <span class="box"></span> 시간 <span class="box"></span> 분</div>
+    </div></div>
+
+    <div class="q"><div class="no">6</div><div>
+      <p><span class="subj-label subj-kor">국어</span> 글에서 알 수 있는 <strong>주현이의 좋은 습관</strong>을 한 가지 찾아 써 봅시다.</p>
+      <div class="lines two"></div>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 5 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 2차시 ② 나의 하루 정리 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">2-②</div>
+    <div class="ph-title">
+      <h2>나의 하루 정리하기</h2>
+      <p>나의 어제 하루를 시간으로 적어 보고, 짧은 일기로 정리해 봅시다.</p>
+    </div>
+  </div>
+
+  <div class="practice">
+    <h3>🕘 어제의 나의 하루</h3>
+
+    <div class="q"><div class="no">7</div><div>
+      <p><span class="subj-label subj-mix">융합</span> 어제 있었던 일을 <strong>시간표</strong>로 정리해 봅시다.</p>
+      <table class="timetable">
+        <tr><th class="time-col">시각</th><th>한 일</th></tr>
+        <tr><td><span class="blank"></span> 시 <span class="blank"></span> 분</td><td class="left">아침에 일어났다.</td></tr>
+        <tr><td><span class="blank"></span> 시 <span class="blank"></span> 분</td><td class="left">학교에 도착했다.</td></tr>
+        <tr><td><span class="blank"></span> 시 <span class="blank"></span> 분</td><td class="left">학교 수업이 끝났다.</td></tr>
+        <tr><td><span class="blank"></span> 시 <span class="blank"></span> 분</td><td class="left">저녁을 먹었다.</td></tr>
+        <tr><td><span class="blank"></span> 시 <span class="blank"></span> 분</td><td class="left">잠자리에 들었다.</td></tr>
+      </table>
+    </div></div>
+
+    <div class="q"><div class="no">8</div><div>
+      <p><span class="subj-label subj-math">수학</span> 위 시간표를 보고 <strong>학교에서 보낸 시간</strong>을 계산해 봅시다.</p>
+      <div class="formula">하교 시각 &minus; 등교 시각 = <span class="box"></span> 시간 <span class="box"></span> 분</div>
+    </div></div>
+
+    <div class="q"><div class="no">9</div><div>
+      <p><span class="subj-label subj-math">수학</span> 어제 <strong>잠을 잔 시간</strong>은 모두 몇 시간일까요?</p>
+      <div class="formula">잠자리에 든 시각 ~ 일어난 시각 = <span class="box"></span> 시간 <span class="box"></span> 분</div>
+      <p class="sub-q">👉 권장 수면 시간은 8시간 정도예요. 나는 더 잤나요, 덜 잤나요?
+        <span style="margin-left:8px;">▢ 더 잤다 &nbsp; ▢ 비슷하다 &nbsp; ▢ 덜 잤다</span></p>
+    </div></div>
+
+    <div class="q"><div class="no">10</div><div>
+      <p><span class="subj-label subj-mix">융합</span> 위에서 정리한 내용을 바탕으로 <strong>어제 하루 일기</strong>를 4~5줄로 써 봅시다.</p>
+      <p class="sub-q" style="font-size:0.92em;">▶ <em>예시 시작:</em> “어제는 ○시 ○분에 일어나서 ___을 했다. 학교에서 ___, 집에 와서는 ___.”</p>
+      <div class="lines four"></div>
+    </div></div>
+  </div>
+
+
+  <div class="page-no">— 6 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 3차시 — 우리 생활 속 돈 (다양한 생활 예시) -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">3</div>
+    <div class="ph-title">
+      <h2>우리 생활 속 돈</h2>
+      <p>편의점·교통카드·영화관·생일 선물… 다양한 생활 속에서 돈을 계산해 봅시다.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>학교 밖에서도 친구들은 여러 가지 일로 돈을 써요. 편의점에서 간식을 사고, 교통카드를 <strong>충전</strong>하고,
+       영화관에 가고, 친구 생일을 함께 챙기기도 해요. 각 상황에서 어떻게 계산하면 좋을지 살펴봅시다.</p>
+  </div>
+
+  <div class="practice">
+    <h3>🛍️ 다양한 생활 상황</h3>
+
+    <div class="q"><div class="no">11</div><div>
+      <p><span class="subj-label subj-math">수학</span> <strong>① 편의점 — 하은이의 영수증</strong></p>
+      <div class="receipt">
+        <h4>🧾 우리동네 편의점</h4>
+        <div class="receipt-row"><span>우유 1개</span><span>1,200 원</span></div>
+        <div class="receipt-row"><span>빵 1개</span><span>1,800 원</span></div>
+        <div class="receipt-row"><span>이온음료 1개</span><span>1,500 원</span></div>
+        <div class="receipt-row total"><span>합계</span><span>?</span></div>
+        <div class="receipt-row"><span>받은 돈</span><span>5,000 원</span></div>
+        <div class="receipt-row"><span>거스름돈</span><span>?</span></div>
+      </div>
+      <div class="formula">1,200 + 1,800 + 1,500 = <span class="box wide"></span> 원</div>
+      <div class="formula">5,000 &minus; (합계) = <span class="box"></span> 원 (거스름돈)</div>
+    </div></div>
+
+    <div class="q"><div class="no">12</div><div>
+      <p><span class="subj-label subj-math">수학</span> <strong>② 교통카드 — 주현이의 학원 가는 길</strong></p>
+      <p class="sub-q">주현이는 학원에 일주일에 <strong>4번</strong> 다녀요. 한 번 갈 때 <strong>왕복 교통비 2,800원</strong>이 들어요.
+        일주일 교통비는 모두 얼마일까요?</p>
+      <div class="formula">2,800 &times; 4 = <span class="box wide"></span> 원</div>
+      <p class="sub-q">👉 교통카드에 돈을 미리 넣어 두는 것을 <strong>‘충전’</strong>이라고 해요.
+         일주일치 교통비를 충전하려면 적어도 <span class="blank"></span> 원이 필요합니다.</p>
+    </div></div>
+
+    <div class="q"><div class="no">13</div><div>
+      <p><span class="subj-label subj-kor">국어</span> <strong>③ 생활 낱말</strong> — 보기에서 알맞은 낱말을 골라 빈칸에 써 봅시다.</p>
+      <div class="choice-box">충전, 거스름돈, 예산, 적립, 영수증</div>
+      <p class="sub-q">① 교통카드에 돈을 미리 넣어 두는 것을 ( <span class="blank"></span> )이라고 한다.</p>
+      <p class="sub-q">② 한 달 동안 쓸 돈을 미리 정해 둔 것을 ( <span class="blank"></span> )이라고 한다.</p>
+      <p class="sub-q">③ 카드를 쓰면 일정 금액이 모이는 것을 ( <span class="blank"></span> )이라고 한다.</p>
+    </div></div>
+
+    <div class="q"><div class="no">14</div><div>
+      <p><span class="subj-label subj-mix">융합</span> <strong>④ 영화관 — 친구들과 더치페이</strong></p>
+      <p class="sub-q">채원, 하영, 예은, 주은이 4명이 함께 영화를 보러 갔어요. 학생 영화표는 1장에 <strong>9,000원</strong>,
+         네 명이 함께 먹을 팝콘 세트는 <strong>12,000원</strong>이에요.</p>
+      <div class="formula">(9,000 &times; 4) + 12,000 = <span class="box wide"></span> 원 (전체 합계)</div>
+      <div class="formula">(전체 합계) &divide; 4 = <span class="box wide"></span> 원 (1인당 부담금)</div>
+      <p class="sub-q">👉 더치페이로 나누어 내면 친구들 사이에 어떤 점이 좋을까요?</p>
+      <div class="lines"></div>
+    </div></div>
+
+    <div class="q"><div class="no">15</div><div>
+      <p><span class="subj-label subj-mix">융합</span> <strong>⑤ 친구 생일 선물 — 함께 사기</strong></p>
+      <p class="sub-q">하은이의 생일이 다가왔어요. 친구 6명(하영·채원·예은·주은·주현·민수)이 모여
+         <strong>18,000원짜리 선물</strong>을 함께 사기로 했어요.</p>
+      <div class="formula">18,000 &divide; 6 = <span class="box wide"></span> 원 (1인당)</div>
+      <p class="sub-q">👉 친구의 생일을 <strong>함께 축하</strong>하면 좋은 점을 한 가지 써 봅시다.</p>
+      <div class="lines two"></div>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 7 —</div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>화폐 수학 5차시 — 분식집·더치페이</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #e65100; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; } .toolbar .muted { color: #ffe0b2; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffe0b2 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #bf360c;
+  border-bottom: 2px solid #ffb74d; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; }
+.cover-main { text-align: center; padding: 10px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #e65100; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #bf360c; font-weight: 900; }
+.cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #6d4c41; font-weight: 500; }
+.cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
+.cover-info { background: #fff; border: 2px solid #ffb74d; border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+.cover-info h3 { margin: 0 0 8px; color: #bf360c; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 4px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 16px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #bf360c; padding-bottom: 3px; }
+.cover-name .label { color: #bf360c; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #e65100; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #bf360c; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #e65100; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #fff3e0; border-left: 4px solid #ef6c00; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #bf360c; }
+.tip { background: #fffde7; border-left: 4px solid #f9a825; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.tip b { color: #f57f17; }
+.note { background: #e0f2f1; border-left: 4px solid #00897b; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #004d40; }
+
+.activity { background: #fff; border: 1.8px solid #ffb74d; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #bf360c; font-size: 1.05em; }
+.activity .tag { background: #ffe0b2; color: #bf360c; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 60px; border-bottom: 2px solid #bf360c; text-align: center; padding: 0 6px; color: #bf360c; font-weight: 700; }
+.blank.short { min-width: 36px; } .blank.long { min-width: 140px; }
+
+.menu { border: 2px solid #ef6c00; border-radius: 12px; padding: 12px 16px; margin: 10px 0; background: #fff8e7; }
+.menu h4 { margin: 0 0 6px; color: #bf360c; border-bottom: 1.5px dashed #ffb74d; padding-bottom: 4px; }
+.menu-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 6px; }
+.menu-item { display: flex; justify-content: space-between; padding: 4px 8px; border-bottom: 1px dotted #ffb74d; font-size: 0.96em; }
+.menu-item .name { color: #4e342e; } .menu-item .price { font-weight: 700; color: #bf360c; }
+
+table.qa { width: 100%; border-collapse: collapse; margin: 8px 0; }
+table.qa th, table.qa td { border: 1.5px solid #b0bec5; padding: 6px 8px; text-align: center; }
+table.qa th { background: #ffe0b2; color: #bf360c; }
+table.qa td.left { text-align: left; }
+
+.people-row { display: flex; gap: 8px; margin: 8px 0; flex-wrap: wrap; }
+.person { background: #fff; border: 1.5px solid #ffb74d; border-radius: 20px; padding: 4px 12px; font-weight: 700; color: #bf360c; }
+
+.footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
+  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+@media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">화폐 수학 5차시</span><span class="muted">분식집·더치페이(N빵) · A4 4쪽</span></div>
+  <button onclick="window.print()">🖨 인쇄하기</button>
+</div>
+
+<!-- 표지 -->
+<div class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">수학 · 실생활 활용</span> · 화폐 단원 5/10</div>
+    <div>혜화여자고등학교 특수학급</div>
+  </div>
+  <div class="cover-main">
+    <span class="badge">Lv.5 나눠 내기</span>
+    <h1>분식집에서 친구랑 나눠 내기</h1>
+    <p class="lead">더치페이(N빵) · 나눗셈으로 1인당 계산 · 나머지 처리</p>
+  </div>
+  <div class="cover-emoji">🍜 🍢 🍥 🤝</div>
+  <div class="cover-info">
+    <h3>이번 시간에 배울 것</h3>
+    <ul>
+      <li>총액을 사람 수로 <b>나누어</b> 1인당 낼 돈 구하기</li>
+      <li>정확히 나누어떨어지지 않을 때 <b>나머지</b> 처리 방법</li>
+      <li>각자 시킨 것만 계산하는 <b>개별 계산법</b>과의 차이 알기</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+    <div class="line"><span class="label">반</span></div>
+  </div>
+</div>
+
+<!-- 1쪽 : 메뉴판 + 균등 더치페이 -->
+<div class="page">
+  <div class="page-head"><h2>1. 분식집 메뉴 & 균등 나누기</h2><span class="step">Step 1</span></div>
+
+  <div class="menu">
+    <h4>🍜 '하영이네 분식' 메뉴판</h4>
+    <div class="menu-row">
+      <div class="menu-item"><span class="name">떡볶이(2인분)</span><span class="price">6,000 원</span></div>
+      <div class="menu-item"><span class="name">순대(1접시)</span><span class="price">4,000 원</span></div>
+      <div class="menu-item"><span class="name">튀김 모둠</span><span class="price">5,000 원</span></div>
+      <div class="menu-item"><span class="name">김밥</span><span class="price">3,500 원</span></div>
+      <div class="menu-item"><span class="name">라면</span><span class="price">4,500 원</span></div>
+      <div class="menu-item"><span class="name">우동</span><span class="price">5,500 원</span></div>
+      <div class="menu-item"><span class="name">쫄면</span><span class="price">5,000 원</span></div>
+      <div class="menu-item"><span class="name">돈까스</span><span class="price">7,500 원</span></div>
+      <div class="menu-item"><span class="name">음료수</span><span class="price">1,500 원</span></div>
+    </div>
+  </div>
+
+  <div class="intro">
+    <b>💡 더치페이(N빵)이란?</b> 여러 사람이 같이 먹고 총액을 <b>사람 수</b>로 <b>똑같이 나눠 내는</b> 방법이에요.
+    공식: <b>1인당 낼 돈 = 총액 ÷ 사람 수</b>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 4명이 함께 (딱 나눠떨어짐)</h3><span class="tag">기본</span></div>
+    <p><b>하은, 하영, 주은, 주현</b> 4명이 <b>떡볶이 1인분 6,000원 + 튀김 5,000원 + 김밥 1줄 3,500원 + 라면 1개 4,500원 + 음료수 1,000원</b>을 먹었어요.</p>
+    <p>총액 = 6,000 + 5,000 + 3,500 + 4,500 + 1,000 = <span class="blank">20,000</span> 원</p>
+    <p>1인당 = 20,000 ÷ <span class="blank short">4</span> = <span class="blank">5,000</span> 원</p>
+    <p>각자 얼마씩 내야 할까요?</p>
+    <div class="people-row">
+      <div class="person">하은 <span class="blank short"></span>원</div>
+      <div class="person">하영 <span class="blank short"></span>원</div>
+      <div class="person">주은 <span class="blank short"></span>원</div>
+      <div class="person">주현 <span class="blank short"></span>원</div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 5명이 함께 (딱 나눠떨어짐)</h3><span class="tag">기본</span></div>
+    <p><b>하은, 하영, 주은, 미정, 채원</b> 5명이 <b>총 25,000원</b>어치 시켰어요. 1인당 얼마?</p>
+    <p>25,000 ÷ <span class="blank short">5</span> = <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="footer-note">화폐 수학 5차시 · 1/4쪽 · 균등 더치페이 기본</div>
+</div>
+
+<!-- 2쪽 : 나머지 있을 때 -->
+<div class="page">
+  <div class="page-head"><h2>2. 딱 나눠떨어지지 않을 때</h2><span class="step">Step 2</span></div>
+  <div class="intro">
+    <b>💡 상황</b> 총액이 <b>17,000원</b>인데 3명이서 나눠 내면 17,000 ÷ 3 = 5,666.66... 이 돼요. 이럴 땐 어떻게 할까요?
+    <br>실전에서는 <b>①한 명이 조금 더 내기 (예: 6,000·6,000·5,000)</b> 또는 <b>②100원 단위로 반올림</b>해서 나눠요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 3명이서 17,000원</h3><span class="tag">나머지</span></div>
+    <p><b>하영, 주은, 예은</b> 3명이 총 <b>17,000원</b>어치 먹었어요.</p>
+    <p>17,000 ÷ 3 = <span class="blank">5,666</span> ... 나머지 <span class="blank short">2</span></p>
+    <p>실전 나누기 (100원 단위 조정): <b>하영 6,000원 · 주은 6,000원 · 예은 <span class="blank short"></span> 원</b> → 총 <span class="blank"></span> 원 (17,000 이상이면 잔돈 반환)</p>
+    <div class="tip"><b>💡 실전 팁</b> "많이 먹은 사람이 더 내기" 또는 "가위바위보 진 사람이 100원씩 더 내기"처럼 조정해요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 미정이가 대신 냈어요 (나중 정산)</h3><span class="tag">정산</span></div>
+    <p><b>미정</b>이가 먼저 <b>24,000원</b> 전부 냈어요. <b>미정, 채원, 예은, 주현</b> 4명이었어요.</p>
+    <p>1인당 = 24,000 ÷ 4 = <span class="blank">6,000</span> 원</p>
+    <p>따라서 <b>채원, 예은, 주현</b>이 각자 미정이에게 <span class="blank"></span> 원씩 보내야 해요.</p>
+    <p>미정이가 받을 총액 = 6,000 × <span class="blank short">3</span> = <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 500원 단위로 반올림</h3><span class="tag">반올림</span></div>
+    <p><b>하은, 채원, 예은</b> 3명이 <b>19,700원</b>어치 먹었어요. 1인당 얼마씩 낼지 <b>500원 단위</b>로 나눠 봅시다.</p>
+    <p>19,700 ÷ 3 = <span class="blank">6,566</span>... → 500원 단위로 <b>6,500원씩</b>이면 총 <span class="blank"></span> 원, 여전히 <span class="blank short"></span> 원 부족</p>
+    <p>해결: 한 명이 <b>700원 더 내기</b>. → 두 명 6,500원 + 한 명 <span class="blank short"></span> 원 = <span class="blank"></span> 원 (딱 맞음!)</p>
+  </div>
+
+  <div class="footer-note">화폐 수학 5차시 · 2/4쪽 · 나머지 있을 때</div>
+</div>
+
+<!-- 3쪽 : 각자 시킨 것 개별 계산 -->
+<div class="page">
+  <div class="page-head"><h2>3. 각자 시킨 만큼만 내기</h2><span class="step">Step 3</span></div>
+  <div class="intro">
+    <b>💡 개별 계산</b> 나눠 먹지 않고 <b>각자 시킨 것만 자기가 낸다</b>고 하면? 각 사람의 소계를 따로 구해요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 6. 주현이네 4명 개별 계산</h3><span class="tag">개별 계산</span></div>
+    <p>메뉴판을 다시 확인하며 각자 얼마씩 냈는지 계산하세요.</p>
+    <table class="qa">
+      <tr><th>이름</th><th>주문</th><th>계산식</th><th>소계</th></tr>
+      <tr><td>주현</td><td class="left">돈까스 + 음료수</td><td>7,500 + 1,500</td><td><span class="blank short">9,000</span></td></tr>
+      <tr><td>미정</td><td class="left">우동 + 음료수</td><td>5,500 + 1,500</td><td><span class="blank short"></span></td></tr>
+      <tr><td>채원</td><td class="left">쫄면 + 음료수</td><td>5,000 + 1,500</td><td><span class="blank short"></span></td></tr>
+      <tr><td>예은</td><td class="left">라면 + 김밥 + 음료수</td><td>4,500 + 3,500 + 1,500</td><td><span class="blank short"></span></td></tr>
+      <tr><th colspan="3">총액</th><th><span class="blank"></span></th></tr>
+    </table>
+    <div class="note"><b>❓ 생각해봐요</b> 만약 이 총액을 4명이서 균등 더치페이하면 1인당 얼마?
+      → <span class="blank"></span> 원. 예은이는 개별로 내는 게 유리할까요, 더치페이가 유리할까요? <span class="blank short"></span></div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 7. 함께 먹은 것 + 각자 것</h3><span class="tag">복합</span></div>
+    <p><b>하은, 하영, 주은</b> 3명이 <b>떡볶이(6,000)와 튀김(5,000)</b>을 나눠 먹고, <b>음료수(1,500)</b>는 각자 시켰어요.</p>
+    <p>① 나눠 먹은 것: 6,000 + 5,000 = <span class="blank short"></span> · 3명이 나누면 1인당 <span class="blank short"></span> 원 <span style="font-size:0.9em;">(나머지 조정 필요)</span></p>
+    <p>② 각자 음료수 1,500 → 각자 자기가 부담</p>
+    <p>③ 결국 <b>1인당 = ① + 1,500</b> ≈ 3,600 + 1,500 = <span class="blank"></span> 원</p>
+    <p>총액 확인: 11,000 + 1,500 × 3 = <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="footer-note">화폐 수학 5차시 · 3/4쪽 · 개별 계산·복합</div>
+</div>
+
+<!-- 4쪽 : 종합 -->
+<div class="page">
+  <div class="page-head"><h2>4. 종합 — 오늘 누가 얼마?</h2><span class="step">Step 4</span></div>
+  <div class="intro">
+    <b>💡 상황</b> 시험 끝나고 <b>7명 전원</b>이 분식집에 갔어요. 배운 걸 모두 사용해서 정산해요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 8. 7명의 큰 주문</h3><span class="tag">7명 정산</span></div>
+    <p>주문: 떡볶이 2인분(6,000×2), 순대 2접시(4,000×2), 튀김 2개(5,000×2), 김밥 3줄(3,500×3), 라면 2개(4,500×2), 음료수 7개(1,500×7)</p>
+    <p>계산:</p>
+    <table class="qa">
+      <tr><th>항목</th><th>계산</th><th>소계</th></tr>
+      <tr><td>떡볶이</td><td>6,000 × 2</td><td><span class="blank short">12,000</span></td></tr>
+      <tr><td>순대</td><td>4,000 × 2</td><td><span class="blank short"></span></td></tr>
+      <tr><td>튀김</td><td>5,000 × 2</td><td><span class="blank short"></span></td></tr>
+      <tr><td>김밥</td><td>3,500 × 3</td><td><span class="blank short"></span></td></tr>
+      <tr><td>라면</td><td>4,500 × 2</td><td><span class="blank short"></span></td></tr>
+      <tr><td>음료수</td><td>1,500 × 7</td><td><span class="blank short"></span></td></tr>
+      <tr><th colspan="2">총액</th><th><span class="blank"></span></th></tr>
+    </table>
+    <p>1인당(더치페이) = 총액 ÷ 7 = <span class="blank"></span> 원 <span style="font-size:0.85em;">(나머지가 있으면 500원 단위로 조정)</span></p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 9. 계좌이체로 정산</h3><span class="tag">이체 정산</span></div>
+    <p><b>하은</b>이가 대표로 총액 전부를 카드로 계산했어요. 다른 6명이 각자 하은이에게 이체해야 해요.</p>
+    <p>하은이가 받아야 할 총액 = 1인당 금액 × <span class="blank short">6</span> = <span class="blank"></span> 원</p>
+    <p>이체 완료 후 하은이의 실제 부담 = 자기 1인분만큼 → <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 10. 스스로 확인</h3><span class="tag">자기점검</span></div>
+    <table class="qa">
+      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+      <tr><td class="left">총액 ÷ 사람 수로 1인당 금액을 구한다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">나눠떨어지지 않을 때 조정 방법을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">개별 계산과 더치페이의 차이를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    </table>
+  </div>
+
+  <div class="footer-note">화폐 수학 5차시 · 4/4쪽 · 다음은 마트 장보기·할인!</div>
+</div>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

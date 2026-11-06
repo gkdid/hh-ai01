@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @media print {
+    body { margin: 0; background: white; }
+    .page { page-break-after: always; margin: 0; padding: 18mm 18mm 14mm; box-shadow: none; }
+    .page:last-child { page-break-after: avoid; }
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; background: #e8eef5; margin: 0; padding: 20px; }
+
+  .page {
+    background: white; width: 210mm; min-height: 297mm;
+    margin: 0 auto 30px; padding: 15mm 18mm 13mm;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  /* ── 헤더 ── */
+  .sheet-header {
+    border: 2px solid #1565c0; border-radius: 6px;
+    padding: 10px 16px; margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .sheet-title { font-size: 19px; font-weight: bold; color: #000; }
+  .sheet-sub   { font-size: 12px; color: #555; margin-top: 2px; }
+  .logo-badge  {
+    background: #1565c0; color: white; font-size: 12px; font-weight: bold;
+    padding: 5px 13px; border-radius: 20px; white-space: nowrap;
+  }
+
+  /* ── 이름·날짜 ── */
+  .info-row { display: flex; gap: 18px; margin-bottom: 11px; }
+  .info-box {
+    border-bottom: 1.5px solid #333; flex: 1; padding-bottom: 3px;
+    display: flex; align-items: center; gap: 5px; font-size: 13px;
+  }
+  .info-label { font-weight: bold; white-space: nowrap; color: #333; }
+
+  /* ── 소제목 ── */
+  .section-title {
+    background: #1565c0; color: white; font-size: 13px; font-weight: bold;
+    padding: 5px 13px; border-radius: 4px; margin: 13px 0 8px;
+  }
+  .section-title-gray {
+    background: #444; color: white; font-size: 13px; font-weight: bold;
+    padding: 5px 13px; border-radius: 4px; margin: 13px 0 8px;
+  }
+
+  /* ── 안내 박스 ── */
+  .tip-box {
+    background: #f0f4ff; border-left: 4px solid #1565c0;
+    border-radius: 0 6px 6px 0; padding: 7px 11px;
+    font-size: 12px; color: #333; margin-bottom: 10px; line-height: 1.8;
+  }
+
+  /* ── 가격표 (카드형) ── */
+  .price-grid {
+    display: grid; gap: 6px; margin: 6px 0 10px;
+  }
+  .price-grid-2 { grid-template-columns: repeat(2, 1fr); }
+  .price-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .price-grid-5 { grid-template-columns: repeat(5, 1fr); }
+
+  .price-card {
+    border: 1.5px solid #b3c8e8; border-radius: 6px;
+    padding: 7px 9px; background: #f5f8ff; font-size: 12px;
+  }
+  .price-card-icon  { font-size: 18px; display: block; margin-bottom: 3px; }
+  .price-card-name  { font-weight: bold; display: block; margin-bottom: 2px; font-size: 12px; }
+  .price-card-desc  { font-size: 11px; color: #666; display: block; margin-bottom: 2px; }
+  .price-card-price { font-weight: bold; color: #1565c0; font-size: 12px; }
+
+  /* ── 일반 가격표 (테이블형) ── */
+  .ptable { border-collapse: collapse; width: 100%; margin: 6px 0 10px; font-size: 12.5px; }
+  .ptable th { background: #1565c0; color: white; padding: 5px 8px; border: 1px solid #0d47a1; text-align: center; }
+  .ptable td { padding: 5px 8px; border: 1px solid #ccd9ee; text-align: center; }
+  .ptable tr:nth-child(even) td { background: #f5f8ff; }
+  .ptable .bold { font-weight: bold; color: #1565c0; }
+
+  /* ── 문제 박스 ── */
+  .q-box {
+    border: 1.5px solid #ccd9ee; border-radius: 6px;
+    padding: 11px 13px; margin-bottom: 10px; background: #fff;
+  }
+  .q-head { display: flex; align-items: flex-start; margin-bottom: 7px; }
+  .q-num  {
+    display: inline-block; background: #1565c0; color: white;
+    font-size: 12px; font-weight: bold; border-radius: 50%;
+    width: 23px; height: 23px; line-height: 23px; text-align: center;
+    margin-right: 7px; flex-shrink: 0; margin-top: 1px;
+  }
+  .q-text { font-size: 13.5px; line-height: 1.9; flex: 1; }
+
+  /* ── 답란 ── */
+  .answer-line  { border: none; border-bottom: 1.5px solid #888; width: 100%; margin-top: 4px; height: 25px; display: block; }
+  .answer-label { font-size: 11.5px; color: #444; font-weight: bold; }
+  .answer-grid  { display: grid; grid-template-columns: 1fr 1fr;     gap: 10px; margin-top: 5px; }
+  .answer-grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;  margin-top: 5px; }
+
+  .blank    { border-bottom: 1.5px solid #333; min-width: 65px;  display: inline-block; vertical-align: bottom; }
+  .blank-sm { border-bottom: 1.5px solid #333; min-width: 45px;  display: inline-block; vertical-align: bottom; }
+  .blank-lg { border-bottom: 1.5px solid #333; min-width: 115px; display: inline-block; vertical-align: bottom; }
+
+  .calc-step { font-size: 13px; color: #333; margin-bottom: 5px; line-height: 2.1; }
+
+  /* ── 체크박스 ── */
+  .check-row { display: flex; gap: 14px; margin-top: 7px; flex-wrap: wrap; }
+  .check-col { display: flex; flex-direction: column; gap: 7px; margin-top: 7px; }
+  .check-item { display: flex; align-items: flex-start; gap: 6px; font-size: 13px; line-height: 1.6; }
+  .check-box  { width: 16px; height: 16px; border: 1.5px solid #555; border-radius: 3px; display: inline-block; flex-shrink: 0; margin-top: 2px; }
+
+  /* ── 영수증 ── */
+  .receipt {
+    border: 1.5px dashed #aaa; border-radius: 6px;
+    padding: 11px 16px; font-size: 13px; background: #fafafa; margin: 6px 0;
+    max-width: 280px; margin-left: auto; margin-right: auto;
+  }
+  .receipt-title   { text-align: center; font-weight: bold; font-size: 14px; margin-bottom: 7px; padding-bottom: 5px; border-bottom: 1px solid #bbb; letter-spacing: 1px; }
+  .receipt-row     { display: flex; justify-content: space-between; padding: 3px 0; font-size: 12.5px; }
+  .receipt-divider { border: none; border-top: 1px dashed #bbb; margin: 3px 0; }
+  .receipt-total   { font-weight: bold; display: flex; justify-content: space-between; padding-top: 6px; margin-top: 3px; border-top: 2px solid #333; font-size: 14px; }
+  .receipt-paid    { display: flex; justify-content: space-between; padding: 3px 0; color: #555; font-size: 12px; }
+  .receipt-change  { display: flex; justify-content: space-between; padding: 3px 0; color: #1565c0; font-weight: bold; font-size: 13px; }
+
+  /* ── 예산 주문서 ── */
+  .budget-grid { border: 1.5px solid #ccd9ee; border-radius: 6px; overflow: hidden; margin: 6px 0 7px; font-size: 12.5px; }
+  .budget-head {
+    display: grid; background: #1565c0; color: white; font-weight: bold; padding: 6px 10px; font-size: 12px;
+  }
+  .budget-row  {
+    display: grid; padding: 5px 10px; border-bottom: 1px dashed #dde6f5;
+  }
+  .budget-row:last-child { border-bottom: none; }
+  .budget-total {
+    display: grid; padding: 6px 10px; background: #e8f0fe; font-weight: bold; border-top: 1.5px solid #b3c8e8;
+  }
+  .cols-3 { grid-template-columns: 2fr 1.5fr 1.5fr; }
+  .cols-4 { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
+
+  /* ── 자유 계획표 ── */
+  .plan-grid { border: 1.5px solid #ccd9ee; border-radius: 6px; overflow: hidden; margin: 6px 0 8px; font-size: 12.5px; }
+  .plan-head  { display: grid; grid-template-columns: 2fr 1.5fr 1.5fr; background: #444; color: white; font-weight: bold; padding: 6px 10px; font-size: 12px; }
+  .plan-row   { display: grid; grid-template-columns: 2fr 1.5fr 1.5fr; padding: 5px 10px; border-bottom: 1px dashed #ddd; min-height: 28px; }
+  .plan-total { display: grid; grid-template-columns: 2fr 1.5fr 1.5fr; padding: 6px 10px; background: #f5f5f5; font-weight: bold; border-top: 1.5px solid #ccc; }
+
+  /* ── 정답표 ── */
+  .ans-table { border-collapse: collapse; width: 100%; }
+  .ans-table th { background: #1565c0; color: white; padding: 6px 7px; border: 1px solid #0d47a1; font-size: 12px; }
+  .ans-table td { padding: 6px 7px; border: 1px solid #ccd9ee; font-size: 12px; }
+  .ans-table tr:nth-child(even) td { background: #f5f8ff; }
+  .ans-table .ans { font-weight: bold; color: #1565c0; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PAGE 1 : 여행 계획 소개 + 비행기 예매 Q1~Q3
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">✈️ 제주도 여행 예산 계산하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 1쪽 — 여행 계획 &amp; 비행기 예매</div>
+    </div>
+    <div class="logo-badge">제주도 여행 수학</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+    <div class="info-box"><span class="info-label">점수</span></div>
+  </div>
+
+  <div class="tip-box">
+    제주도는 비행기를 타야 갈 수 있어요. 여행을 가기 전에 <b>비행기표·숙소·교통·관광·식사</b> 비용을 미리 계산하면 용돈 계획을 잘 세울 수 있어요. 이 학습지에서 다양한 여행 상황을 수학으로 풀어 봐요! 🌊🍊
+  </div>
+
+  <!-- 비행기 가격표 -->
+  <div class="section-title">✈️ 비행기표 가격표 (편도 1인, 김포 ↔ 제주)</div>
+  <table class="ptable">
+    <thead>
+      <tr>
+        <th>항공사</th>
+        <th>출발 시간</th>
+        <th>편도 가격 (1인)</th>
+        <th>왕복 가격 (1인)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>에어서울</td><td>06:55</td><td class="bold">55,000원</td><td>55,000 × 2 = ?</td></tr>
+      <tr><td>티웨이항공</td><td>09:30</td><td class="bold">65,000원</td><td>65,000 × 2 = ?</td></tr>
+      <tr><td>제주항공</td><td>13:00</td><td class="bold">75,000원</td><td>75,000 × 2 = ?</td></tr>
+      <tr><td>대한항공</td><td>18:30</td><td class="bold">110,000원</td><td>110,000 × 2 = ?</td></tr>
+    </tbody>
+  </table>
+  <div style="font-size:11px; color:#888; margin-top:-7px; margin-bottom:9px;">※ 갈 때와 올 때 같은 항공사 이용 기준 · 왕복 = 편도 × 2</div>
+
+  <div class="section-title">문제 풀기 (1~3번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">1</span>
+      <span class="q-text"><b>주현</b>이는 제주항공(편도 75,000원)으로 왕복 비행기표를 샀어요.
+        비행기표 값은 모두 얼마인가요?</span>
+    </div>
+    <div class="calc-step">왕복 = 편도 × 2 &nbsp;→&nbsp; 75,000 × 2 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">2</span>
+      <span class="q-text"><b>주은</b>이와 <b>하은</b>이는 에어서울(편도 55,000원)로 함께 제주도에 갔어요.
+        두 사람의 편도 비행기표 값은 모두 얼마인가요?</span>
+    </div>
+    <div class="calc-step">55,000 × 2(명) = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">3</span>
+      <span class="q-text"><b>하영</b>이는 에어서울과 제주항공 중 하나로 <b>왕복</b> 비행기표를 사려고 해요.
+        각각 왕복 가격을 구하고, 두 항공사의 가격 차이를 알아보세요.</span>
+    </div>
+    <div class="calc-step">① 에어서울 왕복: 55,000 × 2 = <span class="blank"></span>원</div>
+    <div class="calc-step">② 제주항공 왕복: 75,000 × 2 = <span class="blank"></span>원</div>
+    <div class="calc-step">③ 가격 차이: <span class="blank-sm"></span> − <span class="blank-sm"></span> = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">가격 차이 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 2 : 숙소 예약 + 교통비 Q4~Q7
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">✈️ 제주도 여행 예산 계산하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 2쪽 — 숙소 예약 &amp; 교통비</div>
+    </div>
+    <div class="logo-badge">제주도 여행 수학</div>
+  </div>
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <!-- 숙소 가격표 -->
+  <div class="section-title">🏨 숙소 가격표 (1박 기준)</div>
+  <div class="price-grid price-grid-4">
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🏠</span>
+      <span class="price-card-name">게스트하우스</span>
+      <span class="price-card-desc">1인 도미토리</span>
+      <span class="price-card-price">40,000원/인</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🏡</span>
+      <span class="price-card-name">펜션</span>
+      <span class="price-card-desc">2~4인실</span>
+      <span class="price-card-price">90,000원/실</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🏩</span>
+      <span class="price-card-name">비즈니스호텔</span>
+      <span class="price-card-desc">1~2인실</span>
+      <span class="price-card-price">120,000원/실</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🏨</span>
+      <span class="price-card-name">특급호텔</span>
+      <span class="price-card-desc">1~2인실</span>
+      <span class="price-card-price">200,000원/실</span>
+    </div>
+  </div>
+
+  <!-- 교통 가격표 -->
+  <div class="section-title">🚌 교통 가격표</div>
+  <div class="price-grid price-grid-4">
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🚌</span>
+      <span class="price-card-name">버스</span>
+      <span class="price-card-desc">1회 탑승</span>
+      <span class="price-card-price">1,500원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🚕</span>
+      <span class="price-card-name">택시</span>
+      <span class="price-card-desc">기본요금</span>
+      <span class="price-card-price">4,800원~</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🚗</span>
+      <span class="price-card-name">렌터카 (소형)</span>
+      <span class="price-card-desc">1일 기준</span>
+      <span class="price-card-price">60,000원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🚙</span>
+      <span class="price-card-name">렌터카 (중형)</span>
+      <span class="price-card-desc">1일 기준</span>
+      <span class="price-card-price">80,000원</span>
+    </div>
+  </div>
+
+  <div class="section-title">문제 풀기 (4~7번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">4</span>
+      <span class="q-text"><b>채원</b>이는 펜션(1박 90,000원)에서 <b>2박</b>을 묵을 예정이에요.
+        숙박비는 모두 얼마인가요?</span>
+    </div>
+    <div class="calc-step">90,000 × 2(박) = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">5</span>
+      <span class="q-text"><b>예은</b>이네 4명은 게스트하우스(1인 1박 40,000원)에서 <b>2박</b>을 했어요.
+        4명의 전체 숙박비는 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 1인 2박: 40,000 × 2 = <span class="blank"></span>원</div>
+    <div class="calc-step">② 4명 전체: <span class="blank-sm"></span> × 4 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">6</span>
+      <span class="q-text"><b>주현</b>이네 가족은 소형 렌터카(1일 60,000원)를 <b>3일</b> 동안 빌렸어요.
+        렌터카 요금은 모두 얼마인가요?</span>
+    </div>
+    <div class="calc-step">60,000 × 3(일) = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">7</span>
+      <span class="q-text"><b>하은</b>이는 버스(1회 1,500원)를 타고 제주도를 여행했어요.
+        하루에 버스를 <b>6번</b> 탔다면 하루 버스 요금은 얼마인가요?
+        <b>2일</b> 동안의 버스 요금은 모두 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 하루 버스 요금: 1,500 × 6 = <span class="blank"></span>원</div>
+    <div class="calc-step">② 2일 전체: <span class="blank-sm"></span> × 2 = <span class="blank"></span>원</div>
+    <div class="answer-grid3">
+      <div><div class="answer-label">① 하루 버스 요금</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">② 2일 버스 요금 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 3 : 관광지 입장료 + 식사비 Q8~Q11
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">✈️ 제주도 여행 예산 계산하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 3쪽 — 관광지 입장료 &amp; 식사비</div>
+    </div>
+    <div class="logo-badge">제주도 여행 수학</div>
+  </div>
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <!-- 관광지 가격표 -->
+  <div class="section-title">🏔️ 관광지 입장료 (1인 기준)</div>
+  <div class="price-grid price-grid-5">
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🌅</span>
+      <span class="price-card-name">성산일출봉</span>
+      <span class="price-card-price">5,000원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">⛵</span>
+      <span class="price-card-name">우도 배편</span>
+      <span class="price-card-desc">왕복</span>
+      <span class="price-card-price">10,000원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🌿</span>
+      <span class="price-card-name">한림공원</span>
+      <span class="price-card-price">12,000원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🐠</span>
+      <span class="price-card-name">아쿠아리움</span>
+      <span class="price-card-price">30,000원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🎡</span>
+      <span class="price-card-name">테마파크</span>
+      <span class="price-card-price">25,000원</span>
+    </div>
+  </div>
+
+  <!-- 식사 가격표 -->
+  <div class="section-title">🍽️ 제주도 맛집 메뉴 (1인 기준)</div>
+  <div class="price-grid price-grid-5">
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🥩</span>
+      <span class="price-card-name">흑돼지 구이</span>
+      <span class="price-card-price">18,000원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🐟</span>
+      <span class="price-card-name">갈치조림</span>
+      <span class="price-card-price">15,000원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🍜</span>
+      <span class="price-card-name">고기국수</span>
+      <span class="price-card-price">9,000원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🍧</span>
+      <span class="price-card-name">한라봉 빙수</span>
+      <span class="price-card-price">8,000원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-card-icon">🍊</span>
+      <span class="price-card-name">귤 한 봉지</span>
+      <span class="price-card-desc">기념품</span>
+      <span class="price-card-price">5,000원</span>
+    </div>
+  </div>
+
+  <div class="section-title">문제 풀기 (8~11번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">8</span>
+      <span class="q-text"><b>주은</b>이는 성산일출봉(5,000원)과 한림공원(12,000원)을 방문했어요.
+        두 곳의 입장료 합계는 얼마인가요?</span>
+    </div>
+    <div class="calc-step">5,000 + 12,000 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">9</span>
+      <span class="q-text"><b>하영</b>이네 3명이 제주 아쿠아리움(1인 30,000원)에 갔어요.
+        3명의 입장료는 모두 얼마인가요?</span>
+    </div>
+    <div class="calc-step">30,000 × 3 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">10</span>
+      <span class="q-text"><b>채원</b>이는 하루 세 끼를 흑돼지 구이(18,000원), 고기국수(9,000원),
+        한라봉 빙수(8,000원)로 먹었어요.
+        하루 식사비는 얼마인가요? <b>3일</b> 동안 같은 식사를 한다면 전체 식사비는 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 하루 식사비: 18,000 + 9,000 + 8,000 = <span class="blank"></span>원</div>
+    <div class="calc-step">② 3일 식사비: <span class="blank-sm"></span> × 3 = <span class="blank"></span>원</div>
+    <div class="answer-grid3">
+      <div><div class="answer-label">① 하루 식사비</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">② 3일 식사비 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">11</span>
+      <span class="q-text"><b>예은</b>이의 하루 지출 영수증을 보고 빈칸을 완성해 보세요.</span>
+    </div>
+    <div class="receipt">
+      <div class="receipt-title">🌊 예은이의 하루 지출</div>
+      <div class="receipt-row"><span>성산일출봉 입장료</span><span>5,000원</span></div>
+      <div class="receipt-row"><span>우도 배편(왕복)</span><span>10,000원</span></div>
+      <div class="receipt-row"><span>갈치조림 (점심)</span><span>15,000원</span></div>
+      <div class="receipt-row"><span>한라봉 빙수 (간식)</span><span>8,000원</span></div>
+      <div class="receipt-row"><span>버스 요금 × 4회</span><span><span class="blank-sm"></span>원</span></div>
+      <hr class="receipt-divider">
+      <div class="receipt-total"><span>합계</span><span><span class="blank-sm"></span>원</span></div>
+      <div class="receipt-paid"><span>받은 금액</span><span>50,000원</span></div>
+      <div class="receipt-change"><span>거스름돈</span><span><span class="blank-sm"></span>원</span></div>
+    </div>
+    <div class="calc-step" style="font-size:12.5px; margin-top:5px;">
+      버스 4회: 1,500 × 4 = <span class="blank-sm"></span>원 &nbsp;/&nbsp;
+      합계: 5,000+10,000+15,000+8,000+<span class="blank-sm"></span> = <span class="blank-sm"></span>원 &nbsp;/&nbsp;
+      거스름돈: 50,000−<span class="blank-sm"></span> = <span class="blank-sm"></span>원
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 4 : 전체 예산 정리 + 나만의 여행 계획 Q12~Q14
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">✈️ 제주도 여행 예산 계산하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 4쪽 — 전체 예산 정리 &amp; 나만의 여행 계획</div>
+    </div>
+    <div class="logo-badge">제주도 여행 수학</div>
+  </div>
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <div class="section-title">문제 풀기 (12~13번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">12</span>
+      <span class="q-text"><b>주현</b>이의 2박 3일 제주도 여행 예산표를 완성하고 전체 여행 비용을 구해 보세요.</span>
+    </div>
+    <div class="budget-grid">
+      <div class="budget-head cols-4"><span>항목</span><span>단가</span><span>수량</span><span>금액</span></div>
+      <div class="budget-row cols-4">
+        <span>✈️ 비행기 (제주항공, 왕복)</span>
+        <span>75,000원</span><span>× 2</span><span>150,000원</span>
+      </div>
+      <div class="budget-row cols-4">
+        <span>🏡 펜션 숙박</span>
+        <span>90,000원</span><span>× 2박</span><span><span class="blank-sm"></span>원</span>
+      </div>
+      <div class="budget-row cols-4">
+        <span>🚗 렌터카 (소형)</span>
+        <span>60,000원</span><span>× 3일</span><span><span class="blank-sm"></span>원</span>
+      </div>
+      <div class="budget-row cols-4">
+        <span>🏔️ 관광지 (일출봉+한림공원)</span>
+        <span>—</span><span>—</span><span>17,000원</span>
+      </div>
+      <div class="budget-row cols-4">
+        <span>🍽️ 식사 (1일 35,000원)</span>
+        <span>35,000원</span><span>× 3일</span><span><span class="blank-sm"></span>원</span>
+      </div>
+      <div class="budget-total cols-4">
+        <span>전체 합계</span><span></span><span></span><span><span class="blank-sm"></span>원</span>
+      </div>
+    </div>
+    <div class="calc-step" style="font-size:12.5px;">
+      펜션: 90,000×2=<span class="blank-sm"></span>원 &nbsp;/&nbsp;
+      렌터카: 60,000×3=<span class="blank-sm"></span>원 &nbsp;/&nbsp;
+      식사: 35,000×3=<span class="blank-sm"></span>원
+    </div>
+    <div class="answer-grid">
+      <div><div class="answer-label">전체 합계 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">13</span>
+      <span class="q-text"><b>하은</b>이네 친구 4명이 함께 제주도를 여행했어요.
+        렌터카와 숙박은 4명이 공동으로 사용했어요.
+        아래 공동 비용을 4명이 똑같이 나눈다면 1인당 얼마를 내야 하나요?</span>
+    </div>
+    <div class="budget-grid" style="max-width:320px;">
+      <div class="budget-head cols-3"><span>공동 항목</span><span>기간</span><span>금액</span></div>
+      <div class="budget-row cols-3"><span>🏡 펜션 숙박</span><span>2박</span><span>180,000원</span></div>
+      <div class="budget-row cols-3"><span>🚙 렌터카 (중형)</span><span>3일</span><span>240,000원</span></div>
+      <div class="budget-total cols-3"><span>공동 비용 합계</span><span></span><span><span class="blank-sm"></span>원</span></div>
+    </div>
+    <div class="calc-step">① 공동 비용 합계: 180,000 + 240,000 = <span class="blank"></span>원</div>
+    <div class="calc-step">② 1인당 금액: <span class="blank"></span> ÷ 4 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">1인당 공동 비용</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="section-title-gray">⭐ 나만의 여행 계획 세우기 (14번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">14</span>
+      <span class="q-text">내가 제주도에 간다면 어떻게 여행할지 계획을 세우고 예산을 계산해 보세요.
+        앞 페이지의 가격표를 참고하세요.</span>
+    </div>
+    <div class="plan-grid">
+      <div class="plan-head"><span>항목</span><span>내용 / 수량</span><span>금액</span></div>
+      <div class="plan-row"><span>✈️ 비행기 (왕복)</span><span></span><span></span></div>
+      <div class="plan-row"><span>🏨 숙소 ( 박)</span><span></span><span></span></div>
+      <div class="plan-row"><span>🚗 교통</span><span></span><span></span></div>
+      <div class="plan-row"><span>🏔️ 관광지</span><span></span><span></span></div>
+      <div class="plan-row"><span>🍽️ 식사</span><span></span><span></span></div>
+      <div class="plan-row"><span>🛍️ 기타(기념품 등)</span><span></span><span></span></div>
+      <div class="plan-total"><span>전체 합계</span><span></span><span></span></div>
+    </div>
+    <div style="font-size:13.5px; margin-top:4px;">예산 <b>300,000원</b>으로 내 여행 계획을 실행할 수 있나요?</div>
+    <div class="check-row" style="margin-top:5px;">
+      <div class="check-item"><span class="check-box"></span> 할 수 있어요</div>
+      <div class="check-item"><span class="check-box"></span> 할 수 없어요</div>
+    </div>
+    <div style="font-size:12px; color:#555; margin-top:7px;">이유 (계산 과정 포함):</div>
+    <div class="answer-line" style="margin-top:4px;"></div>
+    <div class="answer-line" style="margin-top:10px;"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 5 : 정답지 (선생님용)
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">✈️ 제주도 여행 예산 계산하기 — 정답지</div>
+      <div class="sheet-sub">선생님용 · 5쪽</div>
+    </div>
+    <div class="logo-badge">정답지</div>
+  </div>
+
+  <div class="tip-box">
+    <b>지도 팁</b>: 실생활과 연결된 맥락 문제이므로, 풀기 전 "여행 가 본 적 있어요?" 등 배경 대화로 관심을 높여 주세요.
+    단계가 많은 문제(10번·12번)는 계산 단계별로 칸을 채우며 함께 풀어 주세요.
+    14번 나만의 계획은 발표 활동으로 확장할 수 있어요.
+  </div>
+
+  <div class="section-title">정답 모음</div>
+
+  <table class="ans-table">
+    <colgroup>
+      <col style="width:7%"><col style="width:18%"><col style="width:47%"><col style="width:28%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th style="text-align:center;">번호</th>
+        <th style="text-align:center;">핵심 포인트</th>
+        <th style="text-align:center;">풀이</th>
+        <th style="text-align:center;">답</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">1</td>
+        <td>왕복 곱셈</td>
+        <td>75,000 × 2</td>
+        <td class="ans">150,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">2</td>
+        <td>2인 편도</td>
+        <td>55,000 × 2</td>
+        <td class="ans">110,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">3</td>
+        <td>왕복 비교</td>
+        <td>에어서울 55,000×2=110,000 / 제주항공 75,000×2=150,000 / 차이 150,000−110,000</td>
+        <td class="ans">차이 40,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">4</td>
+        <td>숙박 곱셈</td>
+        <td>90,000 × 2</td>
+        <td class="ans">180,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">5</td>
+        <td>인원×박수</td>
+        <td>40,000×2=80,000(1인2박) → 80,000×4</td>
+        <td class="ans">320,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">6</td>
+        <td>렌터카 곱셈</td>
+        <td>60,000 × 3</td>
+        <td class="ans">180,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">7</td>
+        <td>단계 계산</td>
+        <td>1,500×6=9,000(하루) → 9,000×2</td>
+        <td class="ans">하루 9,000원 / 2일 18,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">8</td>
+        <td>덧셈</td>
+        <td>5,000 + 12,000</td>
+        <td class="ans">17,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">9</td>
+        <td>입장료 곱셈</td>
+        <td>30,000 × 3</td>
+        <td class="ans">90,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">10</td>
+        <td>식사비 단계</td>
+        <td>18,000+9,000+8,000=35,000(하루) → 35,000×3</td>
+        <td class="ans">하루 35,000원 / 3일 105,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">11</td>
+        <td>영수증</td>
+        <td>버스 1,500×4=6,000 / 합계 5,000+10,000+15,000+8,000+6,000=44,000 / 거스름돈 50,000−44,000</td>
+        <td class="ans">합계 44,000원 / 거스름돈 6,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">12</td>
+        <td>예산표 완성</td>
+        <td>펜션 90,000×2=180,000 / 렌터카 60,000×3=180,000 / 식사 35,000×3=105,000 / 전체 150,000+180,000+180,000+17,000+105,000</td>
+        <td class="ans">전체 632,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">13</td>
+        <td>합산·나눗셈</td>
+        <td>180,000+240,000=420,000 / 420,000÷4</td>
+        <td class="ans">공동비용 420,000원 / 1인당 105,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">14</td>
+        <td>자유 계획</td>
+        <td colspan="2">학생이 선택한 항목 기준으로 함께 합산 확인 (300,000원 이내 여부 판단)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box" style="margin-top:14px;">
+    <b>수업 활용 아이디어</b><br>
+    · 실제 항공사·숙박 앱(화면 캡처)을 보여주며 실생활 연결하기<br>
+    · 역할극: 여행사 직원과 고객으로 나눠 견적 상담 상황 연습<br>
+    · 3번 비교 문제 → "저렴한 항공사를 타면 아낀 돈으로 무엇을 할 수 있을까?" 토의 활동<br>
+    · 13번 공동 비용 나누기 → 더치페이 개념·송금 앱 사용법으로 확장<br>
+    · 14번 나만의 계획 → 발표 후 "누가 가장 알뜰한 여행을 계획했을까?" 투표 활동<br>
+    · 복잡한 문제(12번)는 계산기 사용을 허용하여 과정에 집중하도록 안내
+  </div>
+</div>
+
+</body>
+</html>

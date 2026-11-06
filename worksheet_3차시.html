@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>3차시 학습지 - 따뜻한 말로 관계 가꾸기</title>
+<style>
+  @page { size: 210mm 297mm; margin: 18mm; }
+  * { box-sizing: border-box; }
+  html, body { width: 210mm; }
+  body {
+    font-family: 'Malgun Gothic', '맑은 고딕', 'Nanum Gothic', sans-serif;
+    font-size: 13pt; line-height: 1.7; color: #222;
+    margin: 0 auto; padding: 18mm; width: 210mm;
+  }
+  @media print {
+    html, body { width: 210mm; margin: 0; padding: 0; }
+    body { padding: 0; }
+    .sheet { padding: 18mm; }
+  }
+  .sheet { width: 210mm; min-height: 297mm; padding: 0; page-break-after: always; }
+  .sheet:last-child { page-break-after: auto; }
+  h1 {
+    font-size: 19pt; text-align: center;
+    border-top: 3px solid #c76b89; border-bottom: 3px solid #c76b89;
+    padding: 10px 0; margin: 0 0 8px 0; color: #8c3a55;
+  }
+  .subtitle { text-align: center; color: #666; font-size: 11pt; margin-bottom: 16px; }
+  .info { display: flex; justify-content: space-between; font-size: 11pt; margin-bottom: 16px; padding: 0 6px; }
+  .info span { border-bottom: 1px solid #333; min-width: 90px; padding: 0 6px; }
+  h2 {
+    font-size: 15pt; background: #fce4ec;
+    padding: 6px 12px; border-left: 6px solid #c76b89;
+    margin: 18px 0 10px 0;
+  }
+  h3 { font-size: 13pt; margin: 12px 0 6px 0; color: #444; }
+  p { margin: 6px 0; }
+  .write-line { border-bottom: 1.2px solid #666; height: 28px; margin-bottom: 3px; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+  table.vocab td, table.vocab th {
+    border: 1.2px solid #888; padding: 6px 8px;
+    font-size: 12pt; vertical-align: top;
+  }
+  table.vocab th { background: #fce4ec; font-weight: bold; }
+  .note {
+    background: #fff4f8; border-left: 4px solid #c76b89;
+    padding: 8px 12px; font-size: 11.5pt; margin: 8px 0;
+  }
+  .box { border: 2px dashed #888; padding: 12px; margin: 10px 0; background: #fafaf2; }
+  .formula {
+    background: #fff; border: 2px solid #c76b89;
+    border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+    font-size: 13pt;
+  }
+  .formula .step {
+    display: inline-block; background: #c76b89; color: white;
+    padding: 3px 10px; border-radius: 4px; font-weight: bold;
+    margin-right: 6px; font-size: 11pt;
+  }
+  .compare {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin: 10px 0;
+  }
+  .compare .good, .compare .bad {
+    border-radius: 6px; padding: 10px 14px;
+  }
+  .compare .good { background: #fff4f8; border: 2px solid #c76b89; }
+  .compare .bad { background: #f0f0f0; border: 2px solid #999; }
+  .compare .good .tag { background: #c76b89; color: white; padding: 2px 8px; border-radius: 3px; font-size: 10.5pt; }
+  .compare .bad .tag { background: #888; color: white; padding: 2px 8px; border-radius: 3px; font-size: 10.5pt; }
+  .letter {
+    background: #fff9fb; border: 3px double #c76b89;
+    padding: 18px 22px; margin: 10px 0; border-radius: 6px;
+    line-height: 2.3; font-size: 13pt;
+  }
+  .blank {
+    display: inline-block; border-bottom: 1.3px solid #8c3a55;
+    min-width: 110px; padding: 0 4px;
+  }
+  .blank-long { min-width: 240px; }
+  .page-num { text-align: right; font-size: 10pt; color: #888; margin-top: 14px; }
+  .signature { text-align: right; padding-right: 30px; }
+  .plan-card {
+    border: 2px solid #c76b89; border-radius: 8px;
+    padding: 12px 16px; margin: 8px 0; background: #fff;
+  }
+  .plan-card .num {
+    display: inline-block; width: 28px; height: 28px;
+    background: #c76b89; color: white; border-radius: 50%;
+    text-align: center; line-height: 28px; font-weight: bold;
+    margin-right: 6px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ 3-1 ============ -->
+<div class="sheet">
+  <h1>🌸 3차시 · 따뜻한 말로 관계 가꾸기 (1/5)</h1>
+  <div class="subtitle">'나-전달법'으로 내 마음 건강하게 말하기</div>
+  <div class="info">
+    <div>이름: <span>&nbsp;</span></div><div>반: <span>&nbsp;</span></div><div>날짜: <span>&nbsp;</span></div>
+  </div>
+
+  <h2>📖 알아보기. 너-전달법 vs 나-전달법</h2>
+  <div class="note">
+    같은 불만이라도 어떻게 표현하느냐에 따라 상대의 반응이 달라집니다.<br>
+    <b>"너-전달법"</b>은 상대를 비난하는 말투, <b>"나-전달법"</b>은 내 감정을 알리는 말투입니다.
+  </div>
+
+  <div class="compare">
+    <div class="bad">
+      <span class="tag">너-전달법 ✕</span>
+      <p>"너 왜 맨날 약속 안 지켜?"</p>
+      <p style="font-size:11pt; color:#555;">→ 상대는 <b>공격받는 느낌</b>을 받고 방어적이 됩니다.</p>
+    </div>
+    <div class="good">
+      <span class="tag">나-전달법 ○</span>
+      <p>"네가 약속 시간에 못 왔을 때, 나는 서운하고 걱정됐어. 앞으로는 미리 말해 주면 좋겠어."</p>
+      <p style="font-size:11pt; color:#555;">→ 상대가 <b>귀를 열고</b> 들을 수 있습니다.</p>
+    </div>
+  </div>
+
+  <h2>🧩 '나-전달법' 3단계 공식</h2>
+  <div class="formula">
+    <p><span class="step">① 상황</span> "네가 ~했을 때,"</p>
+    <p><span class="step">② 감정</span> "나는 ~한 감정이 들었어."</p>
+    <p><span class="step">③ 바람</span> "앞으로는 ~해 주면 좋겠어."</p>
+  </div>
+
+  <h2>✍ 활동. 바꿔 쓰기 연습</h2>
+  <table class="vocab">
+    <tr><th style="width:45%;">너-전달법</th><th>나-전달법으로 바꾸기</th></tr>
+    <tr>
+      <td>"너는 왜 내 말을 듣지도 않아?"</td>
+      <td style="height:55px;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>"너 때문에 내 물건이 망가졌잖아!"</td>
+      <td style="height:55px;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>"넌 왜 항상 자기 얘기만 해?"</td>
+      <td style="height:55px;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>"엄마는 왜 내 말을 안 믿어 줘?"</td>
+      <td style="height:55px;">&nbsp;</td>
+    </tr>
+  </table>
+
+  <h2>✏ 내 상황에 적용하기</h2>
+  <p>최근 누군가에게 서운하거나 화났던 일을, 나-전달법 3단계로 써 봅시다.</p>
+  <div class="box" style="min-height:110px;">
+    <p><b>① 상황:</b></p><div class="write-line"></div>
+    <p><b>② 감정:</b></p><div class="write-line"></div>
+    <p><b>③ 바람:</b></p><div class="write-line"></div>
+  </div>
+
+  <div class="page-num">1 / 5</div>
+</div>
+
+<!-- ============ 3-2 ============ -->
+<div class="sheet">
+  <h1>🌸 3차시 · 따뜻한 말로 관계 가꾸기 (2/5)</h1>
+  <div class="subtitle">칭찬과 감사 — 진심을 담아 구체적으로 말하기</div>
+
+  <h2>📖 알아보기. 막연한 칭찬 vs 구체적 칭찬</h2>
+  <div class="compare">
+    <div class="bad">
+      <span class="tag">막연함 △</span>
+      <p>"너 착해."<br>"잘했어."<br>"좋아."</p>
+      <p style="font-size:11pt; color:#555;">→ 무엇이 왜 좋은지 알 수 없어 <b>마음에 잘 닿지 않습니다.</b></p>
+    </div>
+    <div class="good">
+      <span class="tag">구체적 ○</span>
+      <p>"네가 오늘 급식실에서 내 자리 맡아 준 거, 정말 고마웠어. 덕분에 마음이 편했어."</p>
+      <p style="font-size:11pt; color:#555;">→ <b>행동 + 영향 + 감정</b>이 담겨 진심이 느껴집니다.</p>
+    </div>
+  </div>
+
+  <h2>🧩 구체적 칭찬·감사 공식</h2>
+  <div class="formula">
+    <p><span class="step">① 행동</span> "네가 ~해 줬을 때,"</p>
+    <p><span class="step">② 영향</span> "나는 ~할 수 있었어."</p>
+    <p><span class="step">③ 감정</span> "그래서 정말 ~한 마음이었어."</p>
+  </div>
+
+  <h2>✍ 활동 1. 대상별 감사 표현 만들기</h2>
+  <p>아래 사람들에게 전하고 싶은 감사의 말을 공식에 맞춰 써 봅시다.</p>
+
+  <table class="vocab">
+    <tr><th style="width:100px;">대상</th><th>행동</th><th>영향</th><th>감정</th></tr>
+    <tr>
+      <td><b>친구</b></td>
+      <td style="height:40px;">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><b>가족</b></td>
+      <td style="height:40px;">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><b>선생님</b></td>
+      <td style="height:40px;">&nbsp;</td>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+
+  <h2>✍ 활동 2. 칭찬 샤워 — 나를 칭찬해 보기</h2>
+  <p>남을 칭찬하는 것만큼 자신을 칭찬하는 것도 중요합니다. 최근 내가 한 일 중에서 칭찬하고 싶은 것 3가지를 찾아 봅시다.</p>
+
+  <div class="box">
+    <p><b>1.</b> 나는 ______________________________________ 한 점이 뿌듯하다.</p>
+    <p><b>2.</b> 나는 ______________________________________ 한 점이 기특하다.</p>
+    <p><b>3.</b> 나는 ______________________________________ 한 점이 자랑스럽다.</p>
+  </div>
+
+  <h2>💭 생각해 보기</h2>
+  <p>감사의 말을 직접 전했을 때와 마음속으로만 간직했을 때, 어떤 차이가 있을까요?</p>
+  <div class="write-line"></div>
+  <div class="write-line"></div>
+
+  <div class="page-num">2 / 5</div>
+</div>
+
+<!-- ============ 3-3 ============ -->
+<div class="sheet">
+  <h1>🌸 3차시 · 따뜻한 말로 관계 가꾸기 (3/5)</h1>
+  <div class="subtitle">건강한 거절과 정중한 요청 — 관계를 지키는 말하기</div>
+
+  <h2>📖 알아보기. 거절해도 관계는 깨지지 않는다</h2>
+  <div class="note">
+    모든 부탁을 다 들어주다 보면 나 자신이 힘들어집니다. <br>
+    <b>상대를 존중하면서도 내 의사를 분명히 전달하는 것</b>이 건강한 거절입니다.
+  </div>
+
+  <h2>🧩 거절의 3단계 공식</h2>
+  <div class="formula">
+    <p><span class="step">① 공감</span> "네 부탁 이해해."</p>
+    <p><span class="step">② 이유</span> "그런데 나는 ~한 상황이라 어려워."</p>
+    <p><span class="step">③ 대안·마무리</span> "대신에 ~는 도와줄 수 있어." / "미안해, 다음에 꼭 도와줄게."</p>
+  </div>
+
+  <h2>✍ 활동 1. 거절 연습</h2>
+  <table class="vocab">
+    <tr><th style="width:45%;">부탁 상황</th><th>건강한 거절 쓰기</th></tr>
+    <tr>
+      <td>친구가 "오늘 숙제 좀 보여줘"라고 부탁한다.</td>
+      <td style="height:70px;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>친구가 "내 편들어줘, 쟤랑 싸웠어"라고 요청한다.</td>
+      <td style="height:70px;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>선배가 "같이 노래방 가자"고 한다 (가고 싶지 않음).</td>
+      <td style="height:70px;">&nbsp;</td>
+    </tr>
+  </table>
+
+  <h2>🧩 요청의 3단계 공식</h2>
+  <div class="formula">
+    <p><span class="step">① 상황</span> "내가 지금 ~한 상황이야."</p>
+    <p><span class="step">② 요청</span> "혹시 ~해 줄 수 있어?"</p>
+    <p><span class="step">③ 배려</span> "어려우면 말해 줘, 괜찮아."</p>
+  </div>
+
+  <h2>✍ 활동 2. 요청 연습</h2>
+  <table class="vocab">
+    <tr><th style="width:45%;">내가 필요한 상황</th><th>정중한 요청 쓰기</th></tr>
+    <tr>
+      <td>친구에게 지우개를 빌리고 싶다.</td>
+      <td style="height:55px;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>선생님께 시험 문제를 다시 설명해 달라고 부탁하고 싶다.</td>
+      <td style="height:70px;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td>엄마에게 친구 집에 자고 와도 되는지 허락받고 싶다.</td>
+      <td style="height:70px;">&nbsp;</td>
+    </tr>
+  </table>
+
+  <div class="page-num">3 / 5</div>
+</div>
+
+<!-- ============ 3-4 ============ -->
+<div class="sheet">
+  <h1>🌸 3차시 · 따뜻한 말로 관계 가꾸기 (4/5)</h1>
+  <div class="subtitle">진심을 담은 편지 쓰기 — 글로 전하는 마음</div>
+
+  <h2>📖 좋은 편지의 4가지 요소</h2>
+  <div class="formula">
+    <p><span class="step">① 첫인사</span> 받는 사람을 부르고 안부를 묻기</p>
+    <p><span class="step">② 기억</span> 구체적인 장면·일화 떠올리기</p>
+    <p><span class="step">③ 마음</span> 그때 내가 느꼈던 감정과 고마움 전하기</p>
+    <p><span class="step">④ 바람</span> 앞으로 함께하고 싶은 것, 하고 싶은 말로 마무리</p>
+  </div>
+
+  <h2>✏ 편지 쓰기 전 구상하기</h2>
+  <table class="vocab">
+    <tr><th style="width:110px;">받는 사람</th><td style="height:30px;">&nbsp;</td></tr>
+    <tr><th>떠오르는 장면</th><td style="height:50px;">언제, 어디서, 어떤 일이 있었는지</td></tr>
+    <tr><th>내가 느낀 감정</th><td style="height:50px;">(1차시 감정 어휘 활용)</td></tr>
+    <tr><th>전하고 싶은 말</th><td style="height:50px;">&nbsp;</td></tr>
+  </table>
+
+  <h2>💌 편지 쓰기</h2>
+  <div class="letter">
+    <p><span class="blank blank-long">&nbsp;</span>에게</p>
+    <p>&nbsp;</p>
+    <p>안녕. 잘 지내고 있지? 나는 오늘 너에게 하고 싶은 말이 있어서 이 편지를 써.</p>
+    <p>&nbsp;</p>
+    <p>작년 <span class="blank">&nbsp;</span>월, <span class="blank blank-long">&nbsp;</span>했던 일을 기억해?</p>
+    <p>그때 네가 <span class="blank blank-long">&nbsp;</span>해 줬던 것이 나는 오래도록 마음에 남아 있어.</p>
+    <p>&nbsp;</p>
+    <p>그 순간 내 마음은 <span class="blank blank-long">&nbsp;</span> 같았어.</p>
+    <p>혼자서는 표현할 수 없었던 감정이었는데, 이제야 그 고마움을 전할 수 있게 되었네.</p>
+    <p>&nbsp;</p>
+    <p>앞으로도 우리가 <span class="blank blank-long">&nbsp;</span>할 수 있었으면 좋겠어.</p>
+    <p>내가 먼저 <span class="blank blank-long">&nbsp;</span>할게.</p>
+    <p>&nbsp;</p>
+    <p>건강하고, 행복해. 고마워.</p>
+    <p>&nbsp;</p>
+    <p class="signature"><span class="blank">&nbsp;</span>년 <span class="blank" style="min-width:40px">&nbsp;</span>월 <span class="blank" style="min-width:40px">&nbsp;</span>일</p>
+    <p class="signature"><span class="blank">&nbsp;</span> 드림</p>
+  </div>
+
+  <div class="page-num">4 / 5</div>
+</div>
+
+<!-- ============ 3-5 ============ -->
+<div class="sheet">
+  <h1>🌸 3차시 · 따뜻한 말로 관계 가꾸기 (5/5)</h1>
+  <div class="subtitle">관계 실천 다짐서 & 프로젝트 소감문</div>
+
+  <h2>📖 SMART 목표로 실천 계획 세우기</h2>
+  <div class="note">
+    막연한 다짐은 실천하기 어렵습니다. <b>구체적(Specific)</b>이고, <b>측정할 수 있고(Measurable)</b>, <b>실현 가능(Achievable)</b>하며, <b>시간(Time-bound)</b>이 정해진 목표를 세워 봅시다.
+  </div>
+
+  <h3>📌 예시</h3>
+  <div class="box">
+    ✕ 나쁜 예: "친구한테 잘해야지"<br>
+    ○ 좋은 예: "<b>이번 주 안에</b>, 단짝 친구에게 <b>구체적인 감사의 말 한 번</b> 직접 건네기"
+  </div>
+
+  <h2>✏ 나의 실천 다짐 3가지</h2>
+
+  <div class="plan-card">
+    <span class="num">1</span><b>실천 내용:</b>
+    <div class="write-line"></div>
+    <b>언제 / 어디서 / 누구에게?</b>
+    <div class="write-line"></div>
+    <b>실천했는지 확인하는 방법:</b>
+    <div class="write-line"></div>
+  </div>
+
+  <div class="plan-card">
+    <span class="num">2</span><b>실천 내용:</b>
+    <div class="write-line"></div>
+    <b>언제 / 어디서 / 누구에게?</b>
+    <div class="write-line"></div>
+    <b>실천했는지 확인하는 방법:</b>
+    <div class="write-line"></div>
+  </div>
+
+  <div class="plan-card">
+    <span class="num">3</span><b>실천 내용:</b>
+    <div class="write-line"></div>
+    <b>언제 / 어디서 / 누구에게?</b>
+    <div class="write-line"></div>
+    <b>실천했는지 확인하는 방법:</b>
+    <div class="write-line"></div>
+  </div>
+
+  <h2>📝 3차시 프로젝트 소감문</h2>
+  <p>지난 3차시 동안 배운 내용을 돌아보며, 아래 항목에 맞춰 소감문을 써 봅시다. (150~200자)</p>
+
+  <div class="structure" style="background:#fff4f8;">
+    <p><b>① 가장 기억에 남는 활동</b>과 이유</p>
+    <p><b>② 새롭게 알게 된 점</b> 또는 <b>내 안의 변화</b></p>
+    <p><b>③ 앞으로 내가 달라지고 싶은 모습</b></p>
+  </div>
+
+  <div class="box" style="min-height:180px;">
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+  </div>
+
+  <p style="text-align:center; font-size:12pt; color:#8c3a55; margin-top:14px;">
+    🌸 <b>수고했습니다. 따뜻한 말은 멀리, 오래 전해집니다.</b> 🌸
+  </p>
+
+  <div class="page-num">5 / 5</div>
+</div>
+
+</body>
+</html>

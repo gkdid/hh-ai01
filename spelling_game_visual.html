@@ -1,0 +1,336 @@
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-sans, sans-serif); background: transparent; color: var(--color-text-primary); }
+
+  .sheet { max-width: 720px; margin: 0 auto; padding: 24px 20px 40px; }
+
+  .header { text-align: center; padding: 24px 20px 20px; border: 2px solid var(--color-border-primary); border-radius: 16px; margin-bottom: 24px; position: relative; overflow: hidden; }
+  .header-deco { position: absolute; top: -20px; right: -20px; opacity: 0.07; font-size: 120px; pointer-events: none; }
+  .header h1 { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 6px; }
+  .header p { font-size: 13px; color: var(--color-text-secondary); }
+  .info-row { display: flex; gap: 20px; margin-top: 14px; justify-content: center; }
+  .info-box { border: 1.5px solid var(--color-border-secondary); border-radius: 8px; padding: 6px 20px; font-size: 13px; color: var(--color-text-secondary); }
+  .info-box span { color: var(--color-text-primary); font-weight: 500; }
+
+  .guide-box { display: flex; gap: 10px; align-items: flex-start; background: var(--color-background-info); border: 1px solid var(--color-border-info); border-radius: 10px; padding: 12px 16px; margin-bottom: 24px; }
+  .guide-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .guide-text { font-size: 13px; color: var(--color-text-info); line-height: 1.6; }
+
+  .section { margin-bottom: 32px; }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .section-badge { background: #534AB7; color: #EEEDFE; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+  .section-title { font-size: 16px; font-weight: 500; color: var(--color-text-primary); }
+  .section-sub { font-size: 12px; color: var(--color-text-secondary); margin-left: auto; }
+
+  /* 일러스트 SVG 영역 */
+  .illust-row { display: flex; gap: 10px; justify-content: center; margin-bottom: 16px; flex-wrap: wrap; }
+
+  /* Step 1 - OX */
+  .ox-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .ox-card { border: 1.5px solid var(--color-border-secondary); border-radius: 10px; padding: 12px 14px; display: flex; align-items: center; justify-content: space-between; }
+  .ox-num { font-size: 12px; color: var(--color-text-secondary); margin-right: 8px; }
+  .ox-word { font-size: 15px; font-weight: 500; }
+  .ox-ans { display: flex; gap: 8px; }
+  .ox-btn { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--color-border-secondary); background: transparent; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--color-text-secondary); transition: all .15s; }
+  .ox-btn:hover { border-color: #534AB7; color: #534AB7; }
+  .ox-btn.selected-o { background: #E1F5EE; border-color: #0F6E56; color: #0F6E56; }
+  .ox-btn.selected-x { background: #FCEBEB; border-color: #A32D2D; color: #A32D2D; }
+
+  /* Step 2 - 빈칸 */
+  .blank-list { display: flex; flex-direction: column; gap: 10px; }
+  .blank-item { display: flex; align-items: center; gap: 10px; border: 1.5px solid var(--color-border-secondary); border-radius: 10px; padding: 12px 14px; }
+  .blank-num { font-size: 12px; color: var(--color-text-secondary); font-weight: 500; width: 20px; flex-shrink: 0; }
+  .blank-text { font-size: 14px; flex: 1; line-height: 1.8; }
+  .blank-input { border: none; border-bottom: 2px solid #534AB7; background: transparent; font-size: 15px; font-weight: 500; width: 48px; text-align: center; outline: none; color: var(--color-text-primary); }
+  .word-bank { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .word-chip { background: #EEEDFE; color: #3C3489; border-radius: 20px; padding: 3px 12px; font-size: 13px; font-weight: 500; border: 1px solid #AFA9EC; cursor: pointer; transition: opacity .15s; }
+  .word-chip:hover { opacity: 0.7; }
+
+  /* Step 3 - 틀린 글자 찾기 */
+  .find-list { display: flex; flex-direction: column; gap: 10px; }
+  .find-item { border: 1.5px solid var(--color-border-secondary); border-radius: 10px; padding: 12px 14px; }
+  .find-sentence { font-size: 14px; margin-bottom: 8px; line-height: 1.7; }
+  .find-answer-row { display: flex; gap: 10px; align-items: center; }
+  .find-label { font-size: 12px; color: var(--color-text-secondary); white-space: nowrap; }
+  .find-input { border: none; border-bottom: 2px solid var(--color-border-secondary); background: transparent; font-size: 14px; width: 90px; outline: none; color: var(--color-text-primary); padding: 2px 4px; }
+  .find-arrow { color: var(--color-text-secondary); font-size: 16px; }
+
+  /* Step 4 - 고르기 */
+  .choose-list { display: flex; flex-direction: column; gap: 10px; }
+  .choose-item { border: 1.5px solid var(--color-border-secondary); border-radius: 10px; padding: 12px 14px; }
+  .choose-sentence { font-size: 14px; margin-bottom: 10px; line-height: 1.7; }
+  .choose-options { display: flex; gap: 8px; flex-wrap: wrap; }
+  .choose-btn { border: 1.5px solid var(--color-border-secondary); border-radius: 8px; padding: 5px 14px; font-size: 13px; cursor: pointer; background: transparent; color: var(--color-text-primary); transition: all .15s; }
+  .choose-btn:hover { border-color: #534AB7; color: #534AB7; }
+  .choose-btn.chosen { background: #EEEDFE; border-color: #534AB7; color: #3C3489; font-weight: 500; }
+
+  /* Step 5 - 문장 만들기 */
+  .make-list { display: flex; flex-direction: column; gap: 12px; }
+  .make-item { border: 1.5px solid var(--color-border-secondary); border-radius: 10px; padding: 12px 14px; }
+  .make-keyword { display: inline-block; background: #FAC775; color: #412402; border-radius: 6px; padding: 1px 10px; font-size: 13px; font-weight: 500; margin-bottom: 8px; }
+  .make-input { width: 100%; border: none; border-bottom: 2px solid var(--color-border-secondary); background: transparent; font-size: 14px; outline: none; color: var(--color-text-primary); padding: 4px 0; line-height: 2; }
+  .make-input:focus { border-bottom-color: #534AB7; }
+
+  /* Illust characters */
+  .char-illust { display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 11px; color: var(--color-text-secondary); }
+
+  .divider { border: none; border-top: 1px dashed var(--color-border-secondary); margin: 8px 0 16px; }
+</style>
+
+<div class="sheet">
+
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="header-deco">✏️</div>
+    <h1>맞춤법 게임 학습지</h1>
+    <p>받침 있는 단어와 일상 어휘 중심 | 중학교 수준</p>
+    <div class="info-row">
+      <div class="info-box">이름 <span>____________________</span></div>
+      <div class="info-box">날짜 <span>____________________</span></div>
+    </div>
+  </div>
+
+  <!-- 학습 안내 -->
+  <div class="guide-box">
+    <div class="guide-icon">💡</div>
+    <div class="guide-text">문제를 천천히 읽고 생각해요. 모르는 문제는 넘어갔다가 나중에 다시 풀어요. 다 풀고 나서 선생님과 함께 확인해요!</div>
+  </div>
+
+  <!-- 캐릭터 삽화 -->
+  <div class="illust-row">
+    <svg width="80" height="80" viewBox="0 0 80 80">
+      <circle cx="40" cy="32" r="20" fill="#FAEEDA" stroke="#EF9F27" stroke-width="1.5"/>
+      <circle cx="33" cy="30" r="3" fill="#412402"/>
+      <circle cx="47" cy="30" r="3" fill="#412402"/>
+      <path d="M34 40 Q40 46 46 40" fill="none" stroke="#412402" stroke-width="1.5" stroke-linecap="round"/>
+      <rect x="22" y="52" width="36" height="22" rx="10" fill="#EEEDFE" stroke="#534AB7" stroke-width="1.5"/>
+      <text x="40" y="67" text-anchor="middle" font-size="10" fill="#3C3489">📖</text>
+      <path d="M30 51 Q20 38 18 30" fill="none" stroke="#FAEEDA" stroke-width="4" stroke-linecap="round"/>
+      <path d="M50 51 Q60 38 62 30" fill="none" stroke="#FAEEDA" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+    <svg width="80" height="80" viewBox="0 0 80 80">
+      <circle cx="40" cy="32" r="20" fill="#E1F5EE" stroke="#1D9E75" stroke-width="1.5"/>
+      <circle cx="33" cy="30" r="3" fill="#04342C"/>
+      <circle cx="47" cy="30" r="3" fill="#04342C"/>
+      <path d="M33 42 Q40 47 47 42" fill="none" stroke="#04342C" stroke-width="1.5" stroke-linecap="round"/>
+      <rect x="22" y="52" width="36" height="22" rx="10" fill="#9FE1CB" stroke="#0F6E56" stroke-width="1.5"/>
+      <text x="40" y="67" text-anchor="middle" font-size="10" fill="#04342C">✏️</text>
+      <path d="M30 51 Q20 38 18 30" fill="none" stroke="#E1F5EE" stroke-width="4" stroke-linecap="round"/>
+      <path d="M50 51 Q60 38 62 30" fill="none" stroke="#E1F5EE" stroke-width="4" stroke-linecap="round"/>
+    </svg>
+    <svg width="80" height="80" viewBox="0 0 80 80">
+      <circle cx="40" cy="32" r="20" fill="#FAECE7" stroke="#D85A30" stroke-width="1.5"/>
+      <circle cx="33" cy="30" r="3" fill="#4A1B0C"/>
+      <circle cx="47" cy="30" r="3" fill="#4A1B0C"/>
+      <path d="M34 43 Q40 38 46 43" fill="none" stroke="#4A1B0C" stroke-width="1.5" stroke-linecap="round"/>
+      <rect x="22" y="52" width="36" height="22" rx="10" fill="#F5C4B3" stroke="#993C1D" stroke-width="1.5"/>
+      <text x="40" y="67" text-anchor="middle" font-size="10" fill="#4A1B0C">🤔</text>
+      <path d="M30 51 Q20 38 18 30" fill="none" stroke="#FAECE7" stroke-width="4" stroke-linecap="round"/>
+      <path d="M50 51 Q60 38 62 30" fill="none" stroke="#FAECE7" stroke-width="4" stroke-linecap="round"/>
+      <!-- 물음표 말풍선 -->
+      <circle cx="62" cy="14" r="10" fill="white" stroke="#D85A30" stroke-width="1"/>
+      <text x="62" y="18" text-anchor="middle" font-size="13" fill="#D85A30">?</text>
+    </svg>
+  </div>
+
+  <!-- 1단계 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-badge">1단계 ⭐</div>
+      <div class="section-title">맞는 단어를 골라요</div>
+      <div class="section-sub">맞으면 O, 틀리면 X</div>
+    </div>
+    <div class="ox-grid" id="ox-grid"></div>
+  </div>
+
+  <!-- 2단계 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-badge">2단계 ⭐⭐</div>
+      <div class="section-title">빈칸을 채워요</div>
+    </div>
+    <div class="word-bank" id="word-bank"></div>
+    <div class="blank-list" id="blank-list"></div>
+  </div>
+
+  <!-- 3단계 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-badge">3단계 ⭐⭐⭐</div>
+      <div class="section-title">틀린 글자를 찾아요</div>
+      <div class="section-sub">틀린 단어 → 바르게 고치기</div>
+    </div>
+    <!-- 삽화 -->
+    <svg width="100%" viewBox="0 0 500 54" style="margin-bottom:10px">
+      <rect x="0" y="10" width="500" height="34" rx="8" fill="#EEEDFE" opacity="0.5"/>
+      <text x="20" y="32" font-size="13" fill="#534AB7">🔍 문장을 꼼꼼하게 읽고 틀린 단어를 찾아보세요!</text>
+    </svg>
+    <div class="find-list" id="find-list"></div>
+  </div>
+
+  <!-- 4단계 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-badge">4단계 ⭐⭐⭐⭐</div>
+      <div class="section-title">알맞은 말을 골라요</div>
+    </div>
+    <div class="choose-list" id="choose-list"></div>
+  </div>
+
+  <!-- 5단계 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-badge">5단계 ⭐⭐⭐⭐⭐</div>
+      <div class="section-title">도전! 문장 만들기</div>
+    </div>
+    <!-- 삽화 -->
+    <svg width="100%" viewBox="0 0 500 60" style="margin-bottom:12px">
+      <rect x="0" y="6" width="500" height="48" rx="12" fill="#E1F5EE" opacity="0.6"/>
+      <circle cx="30" cy="30" r="16" fill="#9FE1CB" stroke="#1D9E75" stroke-width="1"/>
+      <text x="30" y="35" text-anchor="middle" font-size="16" fill="#04342C">✍️</text>
+      <text x="58" y="26" font-size="13" fill="#0F6E56">단어를 사용해서 짧은 문장을 써 보세요.</text>
+      <text x="58" y="44" font-size="12" fill="#1D9E75">자유롭게 써도 괜찮아요!</text>
+    </svg>
+    <div class="make-list" id="make-list"></div>
+  </div>
+
+  <!-- 칭찬 도장 -->
+  <div style="border: 2px dashed var(--color-border-secondary); border-radius: 14px; padding: 16px; text-align: center; margin-top: 8px;">
+    <div style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 12px;">선생님 확인 및 칭찬 도장</div>
+    <svg width="280" height="70" viewBox="0 0 280 70">
+      <rect x="5" y="5" width="82" height="60" rx="10" fill="none" stroke="var(--color-border-secondary)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="46" y="38" text-anchor="middle" font-size="11" fill="var(--color-text-secondary)">도장</text>
+      <rect x="99" y="5" width="82" height="60" rx="10" fill="none" stroke="var(--color-border-secondary)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="140" y="38" text-anchor="middle" font-size="11" fill="var(--color-text-secondary)">도장</text>
+      <rect x="193" y="5" width="82" height="60" rx="10" fill="none" stroke="var(--color-border-secondary)" stroke-width="1.5" stroke-dasharray="4 3"/>
+      <text x="234" y="38" text-anchor="middle" font-size="11" fill="var(--color-text-secondary)">도장</text>
+    </svg>
+    <div style="font-size: 12px; color: var(--color-text-secondary); margin-top: 6px;">선생님 한마디: ___________________________________________</div>
+  </div>
+</div>
+
+<script>
+const oxData = [
+  { word: "깨끗이", correct: true },
+  { word: "않돼", correct: false },
+  { word: "닭볶음탕", correct: true },
+  { word: "이쁘다", correct: false },
+  { word: "넓다", correct: true },
+  { word: "읽다", correct: true },
+  { word: "밥먹다", correct: false },
+  { word: "재밌다", correct: true },
+];
+
+const blankData = [
+  { sentence: ["오늘 저녁 반찬은 ", "볶음탕이에요."], answer: "닭" },
+  { sentence: ["할머니께서 계란을 ", "아 주셨어요."], answer: "삶" },
+  { sentence: ["나는 책을 ", "는 것을 좋아해요."], answer: "읽" },
+  { sentence: ["운동장이 정말 ", "어요."], answer: "넓" },
+];
+const bankWords = ["닭", "닥", "삶", "삼", "읽", "익", "넓", "넙"];
+
+const findData = [
+  { sentence: "오늘 날씨가 말가서 밖에서 뛰어 놀았다.", wrong: "말가서", right: "맑아서" },
+  { sentence: "도서관에서는 조용이 해야 해요.", wrong: "조용이", right: "조용히" },
+  { sentence: "숙제를 어제 다했어요.", wrong: "다했어요", right: "다 했어요" },
+  { sentence: "나는 오늘 학교에 일쩍 왔어요.", wrong: "일쩍", right: "일찍" },
+  { sentence: "친구랑 사이좋게 지냈어요.", wrong: "없음 (정답)", right: "올바른 문장" },
+];
+
+const chooseData = [
+  { sentence: "숙제를 _____ 선생님.", options: ["다 했어요", "다했어요", "다 했서요"] },
+  { sentence: "동생이 _____.", options: ["울었어요", "울었서요", "울었오"] },
+  { sentence: "내 가방이 _____.", options: ["무거워요", "무거와요", "무거웠오"] },
+  { sentence: "오늘은 학교에 _____ 왔어요.", options: ["일찍", "일쩍", "일찌"] },
+  { sentence: "친구랑 _____ 지냈어요.", options: ["사이좋게", "사이 좋게", "사이좋개"] },
+];
+
+const makeData = ["맑다", "읽다", "깨끗하다"];
+
+// OX
+const oxGrid = document.getElementById('ox-grid');
+oxData.forEach((d, i) => {
+  const card = document.createElement('div');
+  card.className = 'ox-card';
+  card.innerHTML = `
+    <span><span class="ox-num">${i+1}</span><span class="ox-word">${d.word}</span></span>
+    <div class="ox-ans">
+      <button class="ox-btn" data-idx="${i}" data-val="O" onclick="oxClick(this)">O</button>
+      <button class="ox-btn" data-idx="${i}" data-val="X" onclick="oxClick(this)">X</button>
+    </div>`;
+  oxGrid.appendChild(card);
+});
+
+function oxClick(btn) {
+  const idx = btn.dataset.idx;
+  document.querySelectorAll(`.ox-btn[data-idx="${idx}"]`).forEach(b => {
+    b.classList.remove('selected-o', 'selected-x');
+  });
+  btn.classList.add(btn.dataset.val === 'O' ? 'selected-o' : 'selected-x');
+}
+
+// 보기
+const wb = document.getElementById('word-bank');
+bankWords.forEach(w => {
+  const chip = document.createElement('div');
+  chip.className = 'word-chip';
+  chip.textContent = w;
+  wb.appendChild(chip);
+});
+
+// 빈칸
+const bl = document.getElementById('blank-list');
+blankData.forEach((d, i) => {
+  const item = document.createElement('div');
+  item.className = 'blank-item';
+  item.innerHTML = `
+    <span class="blank-num">${i+1}</span>
+    <span class="blank-text">${d.sentence[0]}<input class="blank-input" type="text" maxlength="3" placeholder="  ">${d.sentence[1]}</span>`;
+  bl.appendChild(item);
+});
+
+// 찾기
+const fl = document.getElementById('find-list');
+findData.forEach((d, i) => {
+  const item = document.createElement('div');
+  item.className = 'find-item';
+  item.innerHTML = `
+    <div class="find-sentence"><strong>${i+1}.</strong> ${d.sentence}</div>
+    <div class="find-answer-row">
+      <span class="find-label">틀린 단어</span>
+      <input class="find-input" type="text" placeholder="          ">
+      <span class="find-arrow">→</span>
+      <span class="find-label">바른 표현</span>
+      <input class="find-input" type="text" placeholder="          ">
+    </div>`;
+  fl.appendChild(item);
+});
+
+// 고르기
+const cl = document.getElementById('choose-list');
+chooseData.forEach((d, i) => {
+  const item = document.createElement('div');
+  item.className = 'choose-item';
+  const opts = d.options.map((o, j) =>
+    `<button class="choose-btn" data-group="${i}" onclick="chooseClick(this)">${o}</button>`
+  ).join('');
+  item.innerHTML = `<div class="choose-sentence"><strong>${i+1}.</strong> ${d.sentence}</div><div class="choose-options">${opts}</div>`;
+  cl.appendChild(item);
+});
+
+function chooseClick(btn) {
+  document.querySelectorAll(`.choose-btn[data-group="${btn.dataset.group}"]`).forEach(b => b.classList.remove('chosen'));
+  btn.classList.add('chosen');
+}
+
+// 문장 만들기
+const ml = document.getElementById('make-list');
+makeData.forEach((w, i) => {
+  const item = document.createElement('div');
+  item.className = 'make-item';
+  item.innerHTML = `
+    <div class="make-keyword">${w}</div>
+    <input class="make-input" type="text" placeholder="이 단어를 사용해서 문장을 써 보세요.">`;
+  ml.appendChild(item);
+});
+</script>

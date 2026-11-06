@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>L11 로서·로써 — 하은·주현의 봉사 신청서</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #b2ebf2 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #006064;
+  border-bottom: 2px solid #4dd0e1; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; color: #00838f; }
+.cover-main { text-align: center; padding: 8px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #00838f; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 1.9em; letter-spacing: -1.5px; color: #006064; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #006064; font-weight: 500; }
+.cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 6px; }
+.cover-info { background: #fff; border: 2px solid #4dd0e1; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 6px; color: #006064; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 3px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 14px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #00838f; padding-bottom: 3px; }
+.cover-name .label { color: #006064; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #00838f; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #006064; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #00838f; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #e0f7fa; border-left: 4px solid #00acc1; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #006064; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 8px 12px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.95em; }
+.tip b { color: #f57f17; }
+.note { background: #fff3e0; border-left: 4px solid #ef6c00; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #bf360c; }
+
+.activity { background: #fff; border: 1.8px solid #4dd0e1; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #006064; font-size: 1.05em; }
+.activity .tag { background: #b2ebf2; color: #006064; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 44px; border-bottom: 2px solid #006064; text-align: center; padding: 0 6px; color: #006064; font-weight: 700; }
+.blank.short { min-width: 30px; }
+
+.rule-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.94em; }
+.rule-table th, .rule-table td { border: 1.3px solid #4dd0e1; padding: 7px 10px; vertical-align: middle; }
+.rule-table th { background: #e0f7fa; color: #006064; font-weight: 700; text-align: center; }
+.rule-table .left { background: #fffde7; color: #6d4c41; }
+.rule-table .right { background: #e8f5e9; color: #1b5e20; font-weight: 700; }
+
+.example-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; margin: 8px 0; }
+.ex-card { border-radius: 10px; padding: 9px 12px; font-size: 0.95em; }
+.ex-card.roseo { background: #fffde7; border: 1.5px solid #fbc02d; color: #f57f17; }
+.ex-card.roseo b { color: #bf360c; }
+.ex-card.rosseo { background: #e8f5e9; border: 1.5px solid #66bb6a; color: #1b5e20; }
+.ex-card.rosseo b { color: #2e7d32; }
+.ex-card .label { font-weight: 700; margin-bottom: 4px; font-size: 0.9em; }
+
+.form-box { background: #fff; border: 3px solid #00838f; border-radius: 14px; padding: 16px 18px; margin: 8px 0; box-shadow: 0 4px 12px rgba(0,131,143,0.1); }
+.form-box .header { background: #00838f; color: #fff; padding: 8px 14px; border-radius: 8px; margin: -16px -18px 12px; font-weight: 700; text-align: center; font-size: 1.05em; }
+.form-box .info-row { display: grid; grid-template-columns: 100px 1fr; gap: 8px; padding: 4px 0; border-bottom: 1px dashed #b2ebf2; font-size: 0.92em; }
+.form-box .info-row .label { color: #006064; font-weight: 700; }
+.form-box .body { font-size: 0.95em; line-height: 1.85; margin-top: 10px; }
+.form-box .body .h { background: #ffcdd2; padding: 1px 4px; border-radius: 4px; font-weight: 700; color: #b71c1c; }
+
+.page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
+@media print {
+  body { background: #fff; font-size: 9.5pt; line-height: 1.35; }
+  .toolbar { display: none; }
+  .page { box-shadow: none; margin: 0 auto; padding: 10mm 12mm; }
+  .activity { padding: 8px 11px; margin: 7px 0; }
+  .intro, .tip, .note { padding: 6px 10px; margin: 5px 0; }
+}
+
+.sp-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
+.sp-table th, .sp-table td { border: 1.2px solid #4dd0e1; padding: 6px 8px; vertical-align: top; }
+.sp-table th { background: #e0f7fa; color: #006064; font-weight: 700; text-align: center; }
+.sp-table td.left { text-align: left; }
+.check-list { list-style: none; padding-left: 4px; margin: 6px 0; }
+.check-list li { padding: 5px 8px; background: #e0f7fa; margin: 4px 0; border-radius: 6px; border-left: 3px solid #4dd0e1; }
+.check-list input[type="checkbox"] { margin-right: 6px; transform: scale(1.1); }
+.write-lines { background: #fff; border: 1.5px solid #4dd0e1; border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+.write-lines .wl { border-bottom: 1.2px solid #cfd8dc; min-height: 22px; margin: 6px 0; }
+.pair-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 6px 0; }
+.pair-card { border: 1.3px solid #4dd0e1; border-radius: 8px; padding: 8px 10px; background: #fff; }
+.pair-card .sent { font-size: 0.95em; margin-bottom: 4px; }
+.pair-card .pick { display: flex; gap: 8px; font-size: 0.9em; }
+.pair-card .pick label { padding: 2px 8px; border: 1px solid #b0bec5; border-radius: 12px; background: #f5f7f9; }
+
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">📝 L11 로서·로써</span><span class="muted">맞춤법 · Level 11</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<!-- 표지 -->
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">국어</span> · 맞춤법 시리즈 · <b style="color:#006064;">L11 · 자격과 수단</b></span>
+    <span>고등학교 특수학급</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">조사 · 로서 vs 로써</span>
+    <h1>하은·주현의 봉사 신청서</h1>
+    <p class="lead">"~로서"는 자격, "~로써"는 수단! 확실히 구별해요</p>
+  </div>
+  <div class="cover-emoji">🎓 🛠️ 💼</div>
+  <div class="cover-info">
+    <h3>🎯 학습 목표</h3>
+    <ul>
+      <li><b>로서</b>는 <b>자격·신분·지위</b>를 나타냄을 안다.</li>
+      <li><b>로써</b>는 <b>수단·도구·재료·시간의 기준</b>을 나타냄을 안다.</li>
+      <li>봉사 신청서·자소서 같은 <b>공적인 글</b>에서 바르게 쓴다.</li>
+    </ul>
+  </div>
+  <div class="cover-info" style="border-color:#a5d6a7;">
+    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+    <ul>
+      <li><b>하은</b>이는 지역 <b>도서관 봉사</b>를 지원해요.</li>
+      <li><b>주현</b>이는 <b>학생회 부회장</b>으로 학교 행사를 준비해요.</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">학년·반</span></div>
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+  <div class="page-foot">맞춤법 시리즈 · L11 · 표지</div>
+</section>
+
+<!-- 1쪽 -->
+<section class="page">
+  <div class="page-head">
+    <h2>📚 "로서"와 "로써"의 차이</h2>
+    <span class="step">1쪽 · 규칙</span>
+  </div>
+  <div class="intro">
+    <b>"로서"</b>와 <b>"로써"</b>는 발음이 비슷해서 자주 헷갈려요.
+    하지만 <b>뜻은 완전히 달라요</b>. "로서 = 자격", "로써 = 수단"으로 기억해요!
+  </div>
+
+  <table class="rule-table">
+    <tr>
+      <th style="width:20%;">구분</th>
+      <th style="width:40%;">로서 (자격·신분)</th>
+      <th style="width:40%;">로써 (수단·도구·기준)</th>
+    </tr>
+    <tr>
+      <td><b>뜻</b></td>
+      <td class="left">어떤 <b>신분·자격</b>을 가진 사람으로서</td>
+      <td class="right">어떤 <b>도구·재료·방법</b>을 써서</td>
+    </tr>
+    <tr>
+      <td><b>바꿔 넣기</b></td>
+      <td class="left">"~의 자격으로", "~라는 신분으로"</td>
+      <td class="right">"~을 써서", "~로 (도구)"</td>
+    </tr>
+    <tr>
+      <td><b>예 1</b></td>
+      <td class="left">학생<b>으로서</b> 공부에 최선을 다한다</td>
+      <td class="right">말<b>로써</b> 상대를 설득한다</td>
+    </tr>
+    <tr>
+      <td><b>예 2</b></td>
+      <td class="left">부회장<b>으로서</b> 책임감이 필요하다</td>
+      <td class="right">이 도구<b>로써</b> 요리를 완성했다</td>
+    </tr>
+    <tr>
+      <td><b>예 3</b></td>
+      <td class="left">친구<b>로서</b> 조언을 하고 싶다</td>
+      <td class="right">오늘<b>로써</b> 10일째다 (시간 기준)</td>
+    </tr>
+  </table>
+
+  <div class="tip">
+    💡 <b>암기 팁</b>: "로<b>서</b>"는 <b>신</b>분 → "서"와 "신" 모두 ㅅ! · "로<b>써</b>"는 <b>써</b>서·<b>씌</b>워서(수단) → "써"에 이미 "쓰다"가 들어 있어요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 예문 색깔 구분</h3><span class="tag">10문항</span></div>
+    <p>다음 문장에서 밑줄 친 부분이 <b>자격</b>이면 "로서", <b>수단·도구·기준</b>이면 "로써"에 O 하세요.</p>
+    <div class="example-grid">
+      <div class="ex-card roseo"><div class="label">① 학생 (   )</div>공부에 집중해야 한다 → 로서 / 로써</div>
+      <div class="ex-card rosseo"><div class="label">② 인터넷 (   )</div>과제를 검색했다 → 로서 / 로써</div>
+      <div class="ex-card roseo"><div class="label">③ 부모님 (   )</div>자녀 걱정이 앞선다 → 로서 / 로써</div>
+      <div class="ex-card rosseo"><div class="label">④ 대화 (   )</div>오해를 풀 수 있다 → 로서 / 로써</div>
+      <div class="ex-card roseo"><div class="label">⑤ 부회장 (   )</div>학생회를 이끈다 → 로서 / 로써</div>
+      <div class="ex-card rosseo"><div class="label">⑥ 종이컵 (   )</div>물을 마셨다 → 로서 / 로써</div>
+      <div class="ex-card roseo"><div class="label">⑦ 사서 (   )</div>책을 정리한다 → 로서 / 로써</div>
+      <div class="ex-card rosseo"><div class="label">⑧ 오늘 (   )</div>수업이 끝났다 → 로서 / 로써</div>
+      <div class="ex-card roseo"><div class="label">⑨ 친구 (   )</div>진심으로 위로했다 → 로서 / 로써</div>
+      <div class="ex-card rosseo"><div class="label">⑩ 우유 (   )</div>카페라테를 만든다 → 로서 / 로써</div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 문장 완성 (로서/로써 골라 쓰기)</h3><span class="tag">6문항</span></div>
+    <p>① 하은이는 도서관 <b>봉사자</b> <span class="blank" style="min-width:70px;">&nbsp;</span> 성실히 일했다.</p>
+    <p>② 주현이는 <b>말</b> <span class="blank" style="min-width:70px;">&nbsp;</span> 친구를 설득했다.</p>
+    <p>③ <b>학생</b> <span class="blank" style="min-width:70px;">&nbsp;</span> 지켜야 할 규칙이 있다.</p>
+    <p>④ 그는 <b>펜</b> <span class="blank" style="min-width:70px;">&nbsp;</span> 답을 적었다.</p>
+    <p>⑤ 이번 <b>주말</b> <span class="blank" style="min-width:70px;">&nbsp;</span> 시험이 모두 끝난다.</p>
+    <p>⑥ 미정이는 <b>동아리 회장</b> <span class="blank" style="min-width:70px;">&nbsp;</span> 발표를 이끌었다.</p>
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · L11 · 1쪽 / 2</div>
+</section>
+
+<!-- 2쪽 -->
+<section class="page">
+  <div class="page-head">
+    <h2>📝 봉사 신청서 첨삭과 내 문장 쓰기</h2>
+    <span class="step">2쪽 · 실전</span>
+  </div>
+  <div class="intro">
+    하은이와 주현이의 신청서에서 <b>"로서" · "로써"</b>가 어색하게 쓰인 부분을 찾아 고쳐 봐요.
+  </div>
+
+  <div class="form-box">
+    <div class="header">📄 봉사 신청서 · 하은 (도서관 봉사)</div>
+    <div class="info-row"><span class="label">이름</span><span>하은</span></div>
+    <div class="info-row"><span class="label">지원 분야</span><span>도서관 책 정리 봉사</span></div>
+    <div class="body">
+      저는 고등학생 <span class="h">으로써</span> 지역 사회에 도움을 주고 싶습니다.
+      평소 <b>책</b> <span class="h">으로서</span> 마음의 양식을 얻는 편이라, 도서관에서 일하는 것이 큰 보람이 될 것 같습니다.<br>
+      <br>
+      제가 특히 잘하는 것은 정리·분류인데, 이것을 <b>봉사</b> <span class="h">으로서</span> 실천하고 싶습니다.
+      또한 <b>대화</b> <span class="h">으로서</span> 이용자들에게 친절히 안내할 수 있다고 자신합니다.<br>
+      <br>
+      뽑아 주신다면 <b>봉사자</b> <span class="h">으로써</span> 책임감을 가지고 일하겠습니다. 오늘 <span class="h">으로서</span> 3번째 지원입니다.
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 하은이 신청서 첨삭</h3><span class="tag">6군데</span></div>
+    <p>① 고등학생 <b>으로써</b> → 고등학생 <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>② 책 <b>으로서</b> (마음의 양식) → 책 <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>③ 봉사 <b>으로서</b> 실천 (수단) → 봉사 <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>④ 대화 <b>으로서</b> 안내 (수단) → 대화 <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>⑤ 봉사자 <b>으로써</b> (자격) → 봉사자 <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>⑥ 오늘 <b>으로서</b> (시간 기준) → 오늘 <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+  </div>
+
+  <div class="form-box">
+    <div class="header">📄 학생회 인사말 · 주현 (부회장)</div>
+    <div class="body">
+      안녕하세요. 저는 <b>부회장</b> <span class="h">으로써</span> 인사드립니다. 여러분의 지지 덕분에 이 자리에 설 수 있었습니다.<br>
+      <br>
+      저는 <b>대화와 소통</b> <span class="h">으로서</span> 학생회를 이끌겠습니다. <b>친구</b> <span class="h">으로써</span>는 편안하게 다가가고,
+      <b>대표</b> <span class="h">으로써</span>는 책임감 있게 결정하겠습니다.<br>
+      <br>
+      앞으로 <b>1년</b> <span class="h">으로서</span> 여러분의 목소리를 듣겠습니다.
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 주현이 인사말 첨삭</h3><span class="tag">5군데</span></div>
+    <p>① 부회장 <b>으로써</b> → 부회장 <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>② 대화와 소통 <b>으로서</b> (수단) → <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>③ 친구 <b>으로써</b> → 친구 <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>④ 대표 <b>으로써</b> → 대표 <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>⑤ 1년 <b>으로서</b> (기간 기준) → 1년 <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+  </div>
+
+  <div class="note">
+    ✨ <b>정리</b>: "로<b>서</b>"는 <b>신</b>분·자격(사람 명찰), "로<b>써</b>"는 <b>수</b>단·도구(연장·재료·시간의 마침). 헷갈릴 때는 "~의 자격으로"를 넣어 보세요. 자연스러우면 <b>로서</b>!
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · L11 · 2쪽 / 2</div>
+</section>
+
+
+<section class="page">
+  <div class="page-head">
+    <h2>🔁 복습 · 자기 점검 — -로서 · -로써</h2>
+    <span class="step">추가 1쪽 · 복습</span>
+  </div>
+  <div class="intro">오늘 배운 <b>-로서 · -로써</b> 규칙을 <b>내 말로 다시</b> 써 보고, 평소 내가 자주 틀렸던 부분을 정리해 봐요.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A1. 내 말로 규칙 쓰기</h3><span class="tag">서술형</span></div>
+    <p>오늘 배운 규칙을 <b>친구에게 설명하듯</b> 한두 문장으로 써 봐요.</p>
+    <div class="write-lines"><div class="wl">&nbsp;</div><div class="wl">&nbsp;</div></div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A2. 이 규칙이 필요한 상황 3개</h3><span class="tag">상황 떠올리기</span></div>
+    <p>이 맞춤법이 <b>실제로 쓰일 상황</b>을 떠올려 3개만 적어 봐요. (예: 문자할 때, 자기소개 쓸 때, 공지 쓸 때…)</p>
+    <ol style="margin:6px 0 6px 22px;">
+      <li style="margin:6px 0;">상황 ① <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+      <li style="margin:6px 0;">상황 ② <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+      <li style="margin:6px 0;">상황 ③ <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+    </ol>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A3. 내가 자주 틀리던 표기 → 바른 표기</h3><span class="tag">3행 표</span></div>
+    <p>이번 레슨과 관련해 <b>평소 내가 자주 틀리던 형태</b>와 <b>바른 형태</b>를 비교해 적어 봐요.</p>
+    <table class="sp-table">
+      <tr><th style="width:8%;">번호</th><th style="width:40%;">내가 자주 쓰던 형태 (❌)</th><th style="width:40%;">바른 형태 (⭕)</th><th style="width:12%;">언제?</th></tr>
+      <tr><td>①</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+      <tr><td>②</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+      <tr><td>③</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+    </table>
+    <div class="tip">💡 "언제?" 칸에는 <b>문자·일기·숙제·시험</b> 같이 자주 쓰는 자리를 적어 두면 스스로 체크하기 좋아요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A4. 자기 점검 체크리스트</h3><span class="tag">5개</span></div>
+    <ul class="check-list">
+      <li><label><input type="checkbox" disabled> 오늘 규칙을 <b>세 문장 이상</b> 소리 내어 읽어 봤다.</label></li>
+      <li><label><input type="checkbox" disabled> 어제·오늘 내가 쓴 글에서 이 규칙 자리를 <b>직접 확인</b>해 봤다.</label></li>
+      <li><label><input type="checkbox" disabled> 자주 틀리던 형태를 <b>표에 정리</b>했다.</label></li>
+      <li><label><input type="checkbox" disabled> 다음에 틀렸을 때 <b>스스로 고쳐 쓸 자신</b>이 조금 생겼다.</label></li>
+      <li><label><input type="checkbox" disabled> 다음 레슨을 <b>기대</b>한다.</label></li>
+    </ul>
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · -로서 · -로써 · 복습쪽</div>
+</section>
+
+
+<section class="page">
+  <div class="page-head">
+    <h2>✍️ 쓰기 실전 — -로서 · -로써</h2>
+    <span class="step">추가 2쪽 · 쓰기</span>
+  </div>
+  <div class="intro">배운 규칙을 <b>실제 문장으로 써 보기</b>로 마무리해요. 짧아도 좋으니 <b>직접</b> 써 보는 게 제일 중요해요.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B1. 오늘의 규칙을 넣은 문장 3개</h3><span class="tag">직접 쓰기</span></div>
+    <p>오늘 배운 <b>-로서 · -로써</b> 규칙이 꼭 보이는 문장을 세 개 써 봐요.</p>
+    <div class="write-lines">
+      <div class="wl">① &nbsp;</div>
+      <div class="wl">② &nbsp;</div>
+      <div class="wl">③ &nbsp;</div>
+    </div>
+    <div class="tip">💡 완성한 뒤 <b>소리 내어 읽어</b> 어색한 곳이 없는지 확인해요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B2. 상황 메시지 쓰기 — 하은에게</h3><span class="tag">3~5문장</span></div>
+    <p><b>상황:</b> 학생으로서 자랑스러웠던 경험</p>
+    <p>이 상황에 맞게 짧은 메시지를 써 봐요. 오늘 배운 <b>-로서 · -로써</b> 규칙이 들어가면 더 좋아요.</p>
+    <div class="write-lines">
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B3. 내 다짐 한 문장</h3><span class="tag">마무리</span></div>
+    <p>앞으로 <b>-로서 · -로써</b>이(가) 나오는 자리에서 <b>어떻게 신경 쓸지</b> 한 문장으로 적어 봐요.</p>
+    <div class="write-lines"><div class="wl">앞으로 나는, &nbsp;</div></div>
+  </div>
+
+  <div class="note">🌟 <b>진짜 배움은 쓸 때 일어나요.</b> 오늘 쓴 문장을 <b>하루 뒤 다시</b> 읽어 보면 눈에 보이는 것이 또 달라져요.</div>
+
+  <div class="page-foot">맞춤법 시리즈 · -로서 · -로써 · 쓰기쪽</div>
+</section>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

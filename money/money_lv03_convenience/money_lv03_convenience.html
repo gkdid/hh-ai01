@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>화폐 수학 3차시 — 편의점에서 물건 사기</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #b71c1c; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; } .toolbar .muted { color: #ffcdd2; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffcdd2 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #b71c1c;
+  border-bottom: 2px solid #e57373; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; }
+.cover-main { text-align: center; padding: 10px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #b71c1c; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #b71c1c; font-weight: 900; }
+.cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #7f0000; font-weight: 500; }
+.cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
+.cover-info { background: #fff; border: 2px solid #e57373; border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+.cover-info h3 { margin: 0 0 8px; color: #b71c1c; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 4px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 16px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #b71c1c; padding-bottom: 3px; }
+.cover-name .label { color: #b71c1c; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #b71c1c; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #b71c1c; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #b71c1c; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #ffebee; border-left: 4px solid #e53935; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #b71c1c; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.tip b { color: #f57f17; }
+.note { background: #ede7f6; border-left: 4px solid #5e35b1; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #311b92; }
+
+.activity { background: #fff; border: 1.8px solid #ef9a9a; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #b71c1c; font-size: 1.05em; }
+.activity .tag { background: #ffcdd2; color: #b71c1c; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 60px; border-bottom: 2px solid #b71c1c; text-align: center; padding: 0 6px; color: #b71c1c; font-weight: 700; }
+.blank.short { min-width: 36px; } .blank.long { min-width: 140px; }
+
+.receipt { background: #fffde7; border: 2px dashed #f9a825; border-radius: 6px; padding: 12px 16px; margin: 8px 0; font-family: 'Consolas','Malgun Gothic',monospace; }
+.receipt .top { text-align: center; border-bottom: 1px dashed #a1887f; padding-bottom: 4px; margin-bottom: 6px; }
+.receipt .top .store { font-weight: 900; font-size: 1.1em; color: #6d4c41; }
+.receipt table { width: 100%; border-collapse: collapse; }
+.receipt td { padding: 3px 4px; font-size: 0.95em; }
+.receipt td.name { text-align: left; } .receipt td.qty { text-align: center; width: 40px; } .receipt td.price { text-align: right; width: 90px; }
+.receipt .sub { border-top: 1px dashed #a1887f; padding-top: 4px; margin-top: 4px; }
+.receipt .total { font-weight: 900; font-size: 1.1em; color: #b71c1c; }
+
+table.qa { width: 100%; border-collapse: collapse; margin: 8px 0; }
+table.qa th, table.qa td { border: 1.5px solid #b0bec5; padding: 6px 8px; text-align: center; }
+table.qa th { background: #ffcdd2; color: #b71c1c; }
+table.qa td.left { text-align: left; }
+
+.menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0; }
+.item { background: #fff; border: 1.5px solid #ef9a9a; border-radius: 10px; padding: 8px; text-align: center; }
+.item .em { font-size: 1.8em; } .item .n { font-weight: 700; color: #b71c1c; margin-top: 2px; font-size: 0.95em; }
+.item .p { font-weight: 900; color: #37474f; font-size: 0.95em; margin-top: 2px; }
+
+.footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
+  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+@media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">화폐 수학 3차시</span><span class="muted">편의점 · 거스름돈 · A4 4쪽</span></div>
+  <button onclick="window.print()">🖨 인쇄하기</button>
+</div>
+
+<!-- 표지 -->
+<div class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">수학 · 실생활 활용</span> · 화폐 단원 3/10</div>
+    <div>혜화여자고등학교 특수학급</div>
+  </div>
+  <div class="cover-main">
+    <span class="badge">Lv.3 편의점 실전</span>
+    <h1>편의점에서 물건 사기</h1>
+    <p class="lead">가격표 읽기 · 총액 구하기 · 거스름돈 계산하기</p>
+  </div>
+  <div class="cover-emoji">🏪 🍙 🥤 🧾</div>
+  <div class="cover-info">
+    <h3>이번 시간에 배울 것</h3>
+    <ul>
+      <li>가격표를 보고 <b>여러 물건의 총액</b>을 계산해요</li>
+      <li>낸 돈에서 총액을 빼서 <b>거스름돈</b>을 구해요</li>
+      <li>내야 할 금액을 <b>가장 편한 화폐 조합</b>으로 준비해요</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+    <div class="line"><span class="label">반</span></div>
+  </div>
+</div>
+
+<!-- 1쪽 : 가격표 → 총액 -->
+<div class="page">
+  <div class="page-head"><h2>1. 편의점 가격표 읽기</h2><span class="step">Step 1</span></div>
+  <div class="intro">
+    <b>💡 오늘의 상황</b> 학교 앞 <b>GS·CU 편의점</b>에서 친구들이 간식을 사요. 가격표를 보고 총액과 거스름돈을 계산해봐요.
+  </div>
+
+  <div class="menu-grid">
+    <div class="item"><div class="em">🍙</div><div class="n">삼각김밥</div><div class="p">1,500 원</div></div>
+    <div class="item"><div class="em">🥪</div><div class="n">샌드위치</div><div class="p">3,200 원</div></div>
+    <div class="item"><div class="em">🍜</div><div class="n">컵라면</div><div class="p">1,800 원</div></div>
+    <div class="item"><div class="em">🥤</div><div class="n">우유(200mL)</div><div class="p">1,200 원</div></div>
+    <div class="item"><div class="em">🧃</div><div class="n">주스</div><div class="p">2,000 원</div></div>
+    <div class="item"><div class="em">🍫</div><div class="n">초콜릿</div><div class="p">1,500 원</div></div>
+    <div class="item"><div class="em">🍪</div><div class="n">과자</div><div class="p">2,500 원</div></div>
+    <div class="item"><div class="em">🍦</div><div class="n">아이스크림</div><div class="p">2,800 원</div></div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 하은이의 장바구니</h3><span class="tag">총액</span></div>
+    <p><b>하은</b>이가 <b>삼각김밥 1개, 컵라면 1개, 우유 1개</b>를 골랐어요.</p>
+    <p>1,500 + 1,800 + 1,200 = <span class="blank">4,500</span> 원</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 하영이의 장바구니</h3><span class="tag">총액</span></div>
+    <p><b>하영</b>이가 <b>샌드위치 1개, 주스 1개, 초콜릿 2개</b>를 골랐어요.</p>
+    <p>3,200 + 2,000 + (1,500 × <span class="blank short"></span>) = <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 주은이가 세 개 골랐어요</h3><span class="tag">총액</span></div>
+    <p><b>주은</b>이가 <b>과자 2개와 아이스크림 1개</b>를 골랐어요. 총액을 계산하세요.</p>
+    <p>(2,500 × <span class="blank short"></span>) + 2,800 = <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="tip"><b>💡 총액 공식</b> (물건 가격 × 개수) 를 각각 계산하고 모두 더해요.</div>
+
+  <div class="footer-note">화폐 수학 3차시 · 1/4쪽 · 가격표 읽고 총액</div>
+</div>
+
+<!-- 2쪽 : 거스름돈 -->
+<div class="page">
+  <div class="page-head"><h2>2. 거스름돈 계산하기</h2><span class="step">Step 2</span></div>
+  <div class="intro">
+    <b>💡 거스름돈 공식</b><br>
+    <b>거스름돈 = 낸 돈 − 총액</b> · 예) 총 4,500원인데 5,000원을 냈다면 거스름돈은 500원.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 주현이의 계산</h3><span class="tag">거스름돈</span></div>
+    <p><b>주현</b>이가 총 <b>3,700원</b>어치 물건을 사고 <b>5,000원</b>을 냈어요.</p>
+    <p>거스름돈 = 5,000 − 3,700 = <span class="blank">1,300</span> 원</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 미정이가 만원을 냈어요</h3><span class="tag">거스름돈</span></div>
+    <p><b>미정</b>이가 <b>샌드위치 1개(3,200) + 컵라면 1개(1,800) + 우유 1개(1,200)</b>를 사고 <b>10,000원</b>을 냈어요.</p>
+    <p>총액 = 3,200 + 1,800 + 1,200 = <span class="blank">6,200</span> 원</p>
+    <p>거스름돈 = 10,000 − <span class="blank short"></span> = <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 6. 채원이의 잔돈 세기</h3><span class="tag">거스름돈 확인</span></div>
+    <p><b>채원</b>이가 받은 거스름돈이 <b>3,800원</b>이라고 해요. 아래처럼 받았다면 맞을까요?</p>
+    <div class="receipt" style="max-width:280px;">
+      <div class="top">받은 잔돈</div>
+      1,000원 × 3 = <span class="blank short"></span><br>
+      500원 × 1 = <span class="blank short"></span><br>
+      100원 × 3 = <span class="blank short"></span><br>
+      <div class="sub">합계 = <span class="blank"></span> 원</div>
+    </div>
+    <p>계산한 잔돈 총액이 <b>3,800원과 같은가요?</b> 답: <span class="blank short"></span>
+      (같으면 O, 다르면 X · 다르면 얼마 차이인지: <span class="blank short"></span> 원)</p>
+    <div class="note"><b>❗ 받은 거스름돈은 꼭 확인!</b> 계산이 잘못돼도 그 자리에서 얘기하면 바로잡을 수 있어요.</div>
+  </div>
+
+  <div class="footer-note">화폐 수학 3차시 · 2/4쪽 · 거스름돈 계산·확인</div>
+</div>
+
+<!-- 3쪽 : 영수증 읽기 -->
+<div class="page">
+  <div class="page-head"><h2>3. 영수증 읽기</h2><span class="step">Step 3</span></div>
+  <div class="intro">
+    <b>💡 영수증 구성</b> ① 물건 이름 ② 개수 ③ 개당 가격 ④ 소계(개당가격×개수) ⑤ 합계 ⑥ 받은돈 ⑦ 거스름돈. 순서대로 읽으면 쉬워요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 7. 예은이의 영수증</h3><span class="tag">읽기·계산</span></div>
+    <div class="receipt">
+      <div class="top"><div class="store">GS25 혜화점</div>2026-09-18 · 계산원 하은</div>
+      <table>
+        <tr><td class="name">삼각김밥</td><td class="qty">2</td><td class="price">3,000</td></tr>
+        <tr><td class="name">우유(200mL)</td><td class="qty">1</td><td class="price">1,200</td></tr>
+        <tr><td class="name">초콜릿</td><td class="qty">2</td><td class="price">3,000</td></tr>
+        <tr class="sub"><td class="name">합계</td><td class="qty"></td><td class="price total">7,200</td></tr>
+        <tr><td class="name">받은 돈</td><td class="qty"></td><td class="price">10,000</td></tr>
+        <tr><td class="name">거스름돈</td><td class="qty"></td><td class="price total">?</td></tr>
+      </table>
+    </div>
+    <p>거스름돈 = 10,000 − 7,200 = <span class="blank"></span> 원</p>
+    <p>삼각김밥 <b>개당</b> 가격 = 3,000 ÷ 2 = <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 8. 하영이의 영수증 완성하기</h3><span class="tag">빈칸 채우기</span></div>
+    <div class="receipt">
+      <div class="top"><div class="store">CU 혜화여고점</div>2026-09-18 · 계산원 주은</div>
+      <table>
+        <tr><td class="name">샌드위치</td><td class="qty">1</td><td class="price">3,200</td></tr>
+        <tr><td class="name">컵라면</td><td class="qty">2</td><td class="price"><span class="blank short">3,600</span></td></tr>
+        <tr><td class="name">주스</td><td class="qty">1</td><td class="price"><span class="blank short">2,000</span></td></tr>
+        <tr class="sub"><td class="name">합계</td><td class="qty"></td><td class="price total"><span class="blank short"></span></td></tr>
+        <tr><td class="name">받은 돈</td><td class="qty"></td><td class="price">10,000</td></tr>
+        <tr><td class="name">거스름돈</td><td class="qty"></td><td class="price total"><span class="blank short"></span></td></tr>
+      </table>
+    </div>
+    <div class="tip"><b>💡 확인</b> 각 줄의 소계 = 개당가격 × 개수. 합계 = 세 소계 합. 거스름돈 = 10,000 − 합계.</div>
+  </div>
+
+  <div class="footer-note">화폐 수학 3차시 · 3/4쪽 · 영수증 읽고 채우기</div>
+</div>
+
+<!-- 4쪽 : 상황 종합 -->
+<div class="page">
+  <div class="page-head"><h2>4. 상황 종합 — 내가 손님이라면</h2><span class="step">Step 4</span></div>
+  <div class="intro">
+    <b>💡 종합 문제</b> 지금까지 배운 <b>총액·거스름돈·영수증</b>을 모두 사용해요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 9. 채원이의 편의점 나들이</h3><span class="tag">종합</span></div>
+    <p>가진 돈: <b>10,000원짜리 1장 + 1,000원짜리 3장</b> (총 <span class="blank short"></span> 원)</p>
+    <p>고른 물건: 아이스크림 1개(2,800), 삼각김밥 2개(1,500×2), 우유 1개(1,200)</p>
+    <p>① 총액 = 2,800 + <span class="blank short"></span> + 1,200 = <span class="blank"></span> 원</p>
+    <p>② 낼 수 있나요? (예/아니요): <span class="blank short"></span></p>
+    <p>③ 10,000원 지폐 1장을 냈다면 거스름돈 = <span class="blank"></span> 원</p>
+    <p>④ 거스름돈을 <b>가장 적은 개수</b>로 받으려면? 1,000원 <span class="blank short"></span> 장 + 500원 <span class="blank short"></span> 개</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 10. 예은이의 돈이 부족해요</h3><span class="tag">판단</span></div>
+    <p><b>예은</b>이는 지갑에 <b>5,000원</b>만 있어요. 다음 물건 중 두 가지를 골라야 한다면, 어떤 조합이 가능할까요? (총액 ≤ 5,000)</p>
+    <p>선택지: 샌드위치(3,200) · 컵라면(1,800) · 우유(1,200) · 초콜릿(1,500) · 삼각김밥(1,500)</p>
+    <table class="qa">
+      <tr><th>조합</th><th>총액</th><th>가능 여부</th></tr>
+      <tr><td>샌드위치 + 컵라면</td><td>5,000 원</td><td>가능</td></tr>
+      <tr><td>샌드위치 + 우유</td><td><span class="blank short"></span> 원</td><td><span class="blank short"></span></td></tr>
+      <tr><td>컵라면 + 삼각김밥 + 우유</td><td><span class="blank short"></span> 원</td><td><span class="blank short"></span></td></tr>
+      <tr><td>초콜릿 + 삼각김밥 + 우유</td><td><span class="blank short"></span> 원</td><td><span class="blank short"></span></td></tr>
+    </table>
+    <div class="tip"><b>💡 판단 기준</b> 총액이 가진 돈 <b>이하</b>면 가능(=), 넘으면 불가능. 가진 돈과 같아도 살 수 있어요.</div>
+  </div>
+
+  <div class="footer-note">화폐 수학 3차시 · 4/4쪽 · 다음은 카페로!</div>
+</div>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

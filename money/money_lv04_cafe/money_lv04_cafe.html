@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>화폐 수학 4차시 — 카페에서 주문하기</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #4e342e; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; } .toolbar .muted { color: #d7ccc8; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #d7ccc8 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #4e342e;
+  border-bottom: 2px solid #a1887f; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; }
+.cover-main { text-align: center; padding: 10px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #4e342e; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #3e2723; font-weight: 900; }
+.cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #5d4037; font-weight: 500; }
+.cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
+.cover-info { background: #fff; border: 2px solid #a1887f; border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+.cover-info h3 { margin: 0 0 8px; color: #4e342e; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 4px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 16px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #4e342e; padding-bottom: 3px; }
+.cover-name .label { color: #4e342e; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #4e342e; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #4e342e; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #4e342e; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #efebe9; border-left: 4px solid #6d4c41; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #4e342e; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.tip b { color: #f57f17; }
+.note { background: #e8f5e9; border-left: 4px solid #43a047; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #1b5e20; }
+
+.activity { background: #fff; border: 1.8px solid #a1887f; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #4e342e; font-size: 1.05em; }
+.activity .tag { background: #d7ccc8; color: #4e342e; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 60px; border-bottom: 2px solid #4e342e; text-align: center; padding: 0 6px; color: #4e342e; font-weight: 700; }
+.blank.short { min-width: 36px; } .blank.long { min-width: 140px; }
+
+.menu { border: 2px solid #6d4c41; border-radius: 12px; padding: 12px 16px; margin: 10px 0; background: #fbf8f4; }
+.menu h4 { margin: 0 0 6px; color: #4e342e; border-bottom: 1.5px dashed #8d6e63; padding-bottom: 4px; }
+.menu-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 8px; }
+.menu-item { display: flex; justify-content: space-between; padding: 4px 8px; border-bottom: 1px dotted #a1887f; font-size: 0.96em; }
+.menu-item .name { color: #3e2723; } .menu-item .price { font-weight: 700; color: #6d4c41; }
+
+.speech { display: flex; gap: 10px; margin: 8px 0; align-items: flex-start; }
+.speech.right { justify-content: flex-end; }
+.speech .avatar { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #d7ccc8; color: #4e342e; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.95em; }
+.speech .avatar.staff { background: #ffe0b2; color: #bf360c; }
+.speech .bubble { max-width: 78%; background: #fff; border: 1.5px solid #a1887f; border-radius: 14px; padding: 7px 12px; font-size: 0.96em; }
+.speech.right .bubble { background: #fff3e0; border-color: #ffb74d; }
+.speech .bubble .who { font-weight: 700; color: #4e342e; font-size: 0.85em; margin-bottom: 2px; }
+.speech.right .bubble .who { color: #bf360c; }
+
+table.qa { width: 100%; border-collapse: collapse; margin: 8px 0; }
+table.qa th, table.qa td { border: 1.5px solid #b0bec5; padding: 6px 8px; text-align: center; }
+table.qa th { background: #d7ccc8; color: #4e342e; }
+table.qa td.left { text-align: left; }
+
+.footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
+  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+@media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">화폐 수학 4차시</span><span class="muted">카페 주문·계산 · A4 4쪽</span></div>
+  <button onclick="window.print()">🖨 인쇄하기</button>
+</div>
+
+<!-- 표지 -->
+<div class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">수학 · 실생활 활용</span> · 화폐 단원 4/10</div>
+    <div>혜화여자고등학교 특수학급</div>
+  </div>
+  <div class="cover-main">
+    <span class="badge">Lv.4 카페 실전</span>
+    <h1>카페에서 주문하기</h1>
+    <p class="lead">메뉴판 읽기 · 사이즈·추가옵션 계산 · 카드/현금 결제</p>
+  </div>
+  <div class="cover-emoji">☕ 🥐 🧋 💳</div>
+  <div class="cover-info">
+    <h3>이번 시간에 배울 것</h3>
+    <ul>
+      <li>카페 <b>메뉴판</b>에서 원하는 것을 찾아 가격 읽기</li>
+      <li>사이즈 업(+500), 샷 추가(+500), 시럽(무료) 같은 <b>옵션 가격</b> 이해</li>
+      <li>여러 잔 주문할 때 <b>총액</b>과 <b>거스름돈</b> 계산</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+    <div class="line"><span class="label">반</span></div>
+  </div>
+</div>
+
+<!-- 1쪽 : 메뉴판 -->
+<div class="page">
+  <div class="page-head"><h2>1. 카페 '하은스 카페' 메뉴판</h2><span class="step">Step 1</span></div>
+  <div class="intro">
+    <b>💡 오늘의 상황</b> 학교 앞 <b>하은스 카페</b>에서 친구들과 음료·간식을 시켜요. 메뉴판을 읽고 총액을 계산해봐요.
+  </div>
+
+  <div class="menu">
+    <h4>☕ COFFEE (Tall 355mL 기준)</h4>
+    <div class="menu-row">
+      <div class="menu-item"><span class="name">아메리카노</span><span class="price">3,500 원</span></div>
+      <div class="menu-item"><span class="name">카페라떼</span><span class="price">4,500 원</span></div>
+      <div class="menu-item"><span class="name">바닐라라떼</span><span class="price">5,000 원</span></div>
+      <div class="menu-item"><span class="name">카푸치노</span><span class="price">4,500 원</span></div>
+      <div class="menu-item"><span class="name">카페모카</span><span class="price">5,500 원</span></div>
+      <div class="menu-item"><span class="name">에스프레소</span><span class="price">3,000 원</span></div>
+    </div>
+  </div>
+
+  <div class="menu">
+    <h4>🧋 NON-COFFEE / TEA</h4>
+    <div class="menu-row">
+      <div class="menu-item"><span class="name">초코라떼</span><span class="price">5,000 원</span></div>
+      <div class="menu-item"><span class="name">유자차</span><span class="price">4,500 원</span></div>
+      <div class="menu-item"><span class="name">캐모마일</span><span class="price">4,000 원</span></div>
+      <div class="menu-item"><span class="name">복숭아 아이스티</span><span class="price">4,500 원</span></div>
+      <div class="menu-item"><span class="name">딸기 스무디</span><span class="price">6,000 원</span></div>
+      <div class="menu-item"><span class="name">망고 스무디</span><span class="price">6,000 원</span></div>
+    </div>
+  </div>
+
+  <div class="menu">
+    <h4>🥐 BAKERY</h4>
+    <div class="menu-row">
+      <div class="menu-item"><span class="name">크로와상</span><span class="price">3,500 원</span></div>
+      <div class="menu-item"><span class="name">치즈케이크</span><span class="price">6,500 원</span></div>
+      <div class="menu-item"><span class="name">브라우니</span><span class="price">4,000 원</span></div>
+      <div class="menu-item"><span class="name">머핀</span><span class="price">3,000 원</span></div>
+      <div class="menu-item"><span class="name">쿠키(1개)</span><span class="price">2,500 원</span></div>
+      <div class="menu-item"><span class="name">티라미수</span><span class="price">7,000 원</span></div>
+    </div>
+  </div>
+
+  <div class="tip">
+    <b>💡 옵션 가격</b> 사이즈 업(Tall→Grande): <b>+500원</b> · 샷 추가: <b>+500원</b> · 시럽·휘핑: <b>무료</b>
+  </div>
+
+  <div class="footer-note">화폐 수학 4차시 · 1/4쪽 · 메뉴판 읽기</div>
+</div>
+
+<!-- 2쪽 : 기본 주문 -->
+<div class="page">
+  <div class="page-head"><h2>2. 주문하고 계산하기</h2><span class="step">Step 2</span></div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 하은이가 혼자 주문</h3><span class="tag">1인 주문</span></div>
+    <p><b>하은</b>이는 <b>바닐라라떼 1잔 + 크로와상 1개</b>를 시켰어요.</p>
+    <p>총액 = 5,000 + 3,500 = <span class="blank">8,500</span> 원</p>
+    <p>10,000원을 냈다면 거스름돈 = <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 하영이의 옵션 주문</h3><span class="tag">옵션</span></div>
+    <p><b>하영</b>이는 <b>아메리카노</b>를 시키면서 <b>사이즈 업(+500)</b>과 <b>샷 추가(+500)</b>를 골랐어요.</p>
+    <p>3,500 + <span class="blank short">500</span> + <span class="blank short"></span> = <span class="blank"></span> 원</p>
+    <div class="tip"><b>💡 팁</b> 옵션은 기본 가격에 <b>더해서</b> 계산해요. 시럽·휘핑은 무료라서 안 더해도 돼요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 주은이의 주문 대사</h3><span class="tag">역할극</span></div>
+    <div class="speech right">
+      <div class="bubble"><div class="who">주은</div>바닐라라떼 한 잔이랑 브라우니 하나 주세요.</div>
+      <div class="avatar">주</div>
+    </div>
+    <div class="speech">
+      <div class="avatar staff">직원</div>
+      <div class="bubble"><div class="who">직원</div>바닐라라떼 5,000원, 브라우니 4,000원, <b>총 <span class="blank short"></span> 원</b>입니다.</div>
+    </div>
+    <div class="speech right">
+      <div class="bubble"><div class="who">주은</div>여기 10,000원이요.</div>
+      <div class="avatar">주</div>
+    </div>
+    <div class="speech">
+      <div class="avatar staff">직원</div>
+      <div class="bubble"><div class="who">직원</div>거스름돈 <b><span class="blank short"></span> 원</b> 드릴게요. 감사합니다!</div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 주현이의 여러 잔 주문</h3><span class="tag">여러 잔</span></div>
+    <p><b>주현</b>이가 친구들과 <b>아메리카노 3잔</b>을 시켰어요.</p>
+    <p>3,500 × <span class="blank short">3</span> = <span class="blank"></span> 원</p>
+    <p>20,000원을 냈다면 거스름돈 = <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="footer-note">화폐 수학 4차시 · 2/4쪽 · 기본 주문</div>
+</div>
+
+<!-- 3쪽 : 세트·여러 사람 -->
+<div class="page">
+  <div class="page-head"><h2>3. 여러 사람의 주문</h2><span class="step">Step 3</span></div>
+  <div class="intro">
+    <b>💡 세팅</b> 친구들과 같이 카페에 가면 각자 다른 걸 주문해요. 총액을 정확히 계산하려면 <b>주문표</b>를 만들어요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 미정이 조의 주문표</h3><span class="tag">주문표</span></div>
+    <p><b>미정, 채원, 예은</b>이 카페에 갔어요. 아래 표를 완성해 주세요.</p>
+    <table class="qa">
+      <tr><th>이름</th><th>메뉴</th><th>옵션</th><th>기본가</th><th>옵션가</th><th>소계</th></tr>
+      <tr><td>미정</td><td class="left">카페라떼</td><td>사이즈 업</td><td>4,500</td><td>500</td><td><span class="blank short">5,000</span></td></tr>
+      <tr><td>채원</td><td class="left">복숭아 아이스티</td><td>없음</td><td>4,500</td><td>0</td><td><span class="blank short"></span></td></tr>
+      <tr><td>예은</td><td class="left">카페모카</td><td>샷 추가</td><td>5,500</td><td>500</td><td><span class="blank short"></span></td></tr>
+      <tr><th colspan="5">총액</th><th><span class="blank"></span></th></tr>
+    </table>
+    <p>미정이가 대표로 <b>20,000원</b>을 냈어요. 거스름돈 = <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 6. 채원이의 예산 안에서 주문하기</h3><span class="tag">예산</span></div>
+    <p><b>채원</b>이는 지갑에 <b>15,000원</b>이 있어요. <b>음료 1잔 + 디저트 1개</b>를 시키고 싶어요. 아래 조합 중 예산 안에서 살 수 있는 조합에 O 표시해요.</p>
+    <table class="qa">
+      <tr><th>음료</th><th>디저트</th><th>총액</th><th>가능</th></tr>
+      <tr><td>바닐라라떼(5,000)</td><td>티라미수(7,000)</td><td>12,000</td><td>O</td></tr>
+      <tr><td>딸기 스무디(6,000)</td><td>치즈케이크(6,500)</td><td><span class="blank short"></span></td><td><span class="blank short"></span></td></tr>
+      <tr><td>카페모카(5,500)</td><td>브라우니(4,000)</td><td><span class="blank short"></span></td><td><span class="blank short"></span></td></tr>
+      <tr><td>망고 스무디(6,000)</td><td>티라미수(7,000)</td><td><span class="blank short"></span></td><td><span class="blank short"></span></td></tr>
+      <tr><td>아메리카노(3,500)</td><td>쿠키 2개(5,000)</td><td><span class="blank short"></span></td><td><span class="blank short"></span></td></tr>
+    </table>
+  </div>
+
+  <div class="footer-note">화폐 수학 4차시 · 3/4쪽 · 여러 사람 주문·예산</div>
+</div>
+
+<!-- 4쪽 : 종합 -->
+<div class="page">
+  <div class="page-head"><h2>4. 종합 — 하은스 카페 알바 체험</h2><span class="step">Step 4</span></div>
+  <div class="intro">
+    <b>💡 역할</b> 오늘은 여러분이 하은스 카페의 <b>알바 직원</b>이 됐다고 생각해봐요. 손님이 주문하면 총액과 거스름돈을 알려줘야 해요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 7. 손님 A — 하영</h3><span class="tag">알바 계산</span></div>
+    <p>주문: 카페라떼 1잔(사이즈업), 크로와상 2개</p>
+    <p>총액 = (4,500 + 500) + (3,500 × 2) = <span class="blank"></span> 원</p>
+    <p>손님이 <b>15,000원</b>을 냈어요. 거스름돈 = <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 8. 손님 B — 예은</h3><span class="tag">알바 계산</span></div>
+    <p>주문: 아메리카노 2잔(각 샷 추가), 머핀 1개</p>
+    <p>총액 = (3,500 + 500) × 2 + 3,000 = <span class="blank"></span> 원</p>
+    <p>손님이 <b>10,000원 + 1,000원 3장</b>을 냈어요. 총 낸 돈 = <span class="blank"></span> 원 · 거스름돈 = <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 9. 손님 C — 미정 (여러 잔)</h3><span class="tag">알바 계산</span></div>
+    <p>주문: 딸기 스무디 2잔, 치즈케이크 1조각, 쿠키 3개</p>
+    <p>총액 = (6,000 × <span class="blank short"></span>) + 6,500 + (2,500 × <span class="blank short"></span>) = <span class="blank"></span> 원</p>
+    <p>손님이 <b>3만원</b>을 냈어요. 거스름돈 = <span class="blank"></span> 원</p>
+    <p>거스름돈을 <b>가장 적은 개수</b>로 준다면? 1,000원 <span class="blank short"></span> 장 + 500원 <span class="blank short"></span> 개</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 10. 스스로 확인</h3><span class="tag">자기점검</span></div>
+    <table class="qa">
+      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+      <tr><td class="left">메뉴판을 보고 가격을 정확히 읽는다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">옵션 가격을 기본가에 더할 수 있다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">여러 잔 주문의 총액과 거스름돈을 구한다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    </table>
+  </div>
+
+  <div class="footer-note">화폐 수학 4차시 · 4/4쪽 · 다음은 분식집·더치페이!</div>
+</div>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

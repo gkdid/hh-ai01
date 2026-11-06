@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>나의 가족, 나의 책임 — 애완동물 보호와 관리 학습지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4 portrait; margin: 14mm 15mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 12pt; line-height: 1.65; }
+
+.toolbar { position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #2e7d32; color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .muted { color: #c8e6c9; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffd54f; color: #1b5e20; border: none; font: inherit; font-weight: 700;
+  padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+
+.page { width: 210mm; min-height: 297mm; margin: 14mm auto; padding: 16mm 18mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 22mm 20mm; background: linear-gradient(135deg, #fff 0%, #e8f5e9 100%); }
+.cover-top { display: flex; justify-content: space-between;
+  font-size: 0.9em; color: #607d8b;
+  border-bottom: 2px solid #c8e6c9; padding-bottom: 10px; margin-bottom: 22px; }
+.cover-top .subject { font-weight: 700; color: #2e7d32; }
+.cover-main { text-align: center; padding: 14px 0 12px; }
+.cover-main .badge { display: inline-block; padding: 6px 18px; border-radius: 20px;
+  background: #2e7d32; color: #fff; font-weight: 700; font-size: 0.95em;
+  margin-bottom: 12px; letter-spacing: 0.5px; }
+.cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #1b5e20; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1.05em; color: #455a64; font-weight: 500; }
+
+.name-box { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 16px 0; }
+.name-cell { border: 1.5px solid #a5d6a7; border-radius: 8px; padding: 10px 12px; }
+.name-cell span { display: block; font-size: 0.78em; color: #2e7d32; font-weight: 500; }
+.name-cell em { display: block; min-height: 24px; font-style: normal; }
+
+.goal, .info, .toc, .cast { border: 2px solid #a5d6a7; border-radius: 10px;
+  padding: 12px 16px; margin-top: 10px; background: #e8f5e9; }
+.goal h2, .info h2, .toc h2, .cast h2 { margin: 0 0 6px; font-size: 1.05em; color: #1b5e20;
+  border-bottom: 1px dashed #66bb6a; padding-bottom: 5px; }
+.goal ul { margin: 4px 0 0; padding-left: 20px; } .goal li { padding: 2px 0; }
+.info p { margin: 0 0 4px; font-size: 0.95em; color: #1b5e20; }
+.toc ol { margin: 4px 0 0; padding-left: 24px; } .toc li { padding: 2px 0; }
+
+.cast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.person { display: flex; align-items: center; gap: 8px; padding: 7px 10px; background: #fff;
+  border: 1px solid #cfd8dc; border-radius: 8px; font-weight: 500; color: #37474f; font-size: 0.92em; }
+.person strong { color: #1b5e20; font-weight: 700; }
+.dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.d1 { background: #FF6B6B; } .d2 { background: #4ECDC4; } .d3 { background: #FFD166; }
+.d4 { background: #A78BFA; } .d5 { background: #6FCF97; } .d6 { background: #F48FB1; }
+
+.ph { display: flex; align-items: center; gap: 16px;
+  border-bottom: 3px solid #2e7d32; padding-bottom: 12px; margin-bottom: 18px; }
+.ph-num { flex-shrink: 0; width: 60px; height: 60px;
+  background: #2e7d32; color: #ffd54f; font-family: 'Noto Serif KR', serif;
+  font-size: 1.5em; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; border-radius: 10px; }
+.ph-title h2 { margin: 0; font-size: 1.4em; color: #1b5e20; }
+.ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.95em; }
+
+.story { background: #fff; border: 2px solid #c8e6c9; border-radius: 8px;
+  padding: 12px 16px; margin: 8px 0 12px; line-height: 1.85; }
+.story p { margin: 0 0 6px; }
+
+.tip { background: #e8f5e9; border-left: 5px solid #2e7d32;
+  border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
+.tip .tip-title { display: block; font-weight: 700; color: #1b5e20; margin-bottom: 4px; }
+
+.warning { background: #ffebee; border-left: 6px solid #c62828;
+  border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
+.warning .tip-title { display: block; font-weight: 700; color: #b71c1c; margin-bottom: 4px; }
+
+.warm { background: #fff3e0; border-left: 5px solid #ef6c00;
+  border-radius: 6px; padding: 10px 14px; margin: 10px 0; }
+.warm .tip-title { display: block; font-weight: 700; color: #bf360c; margin-bottom: 4px; }
+
+/* 친구들의 반려동물 카드 */
+.pet-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0 12px; }
+.pet-card {
+  background: #fff; border: 2px solid #a5d6a7; border-radius: 12px;
+  padding: 10px 12px; position: relative;
+}
+.pet-card .pet-emoji { font-size: 1.8em; line-height: 1; text-align: center; }
+.pet-card .pet-owner {
+  display: flex; align-items: center; gap: 6px; margin-top: 4px;
+  font-weight: 700; color: #1b5e20; font-size: 0.95em;
+}
+.pet-card .pet-info { font-size: 0.85em; color: #455a64; margin-top: 2px; line-height: 1.5; }
+.pet-card .pet-info strong { color: #1b5e20; }
+
+/* 5대 자유 */
+.freedom-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin: 8px 0; }
+.freedom {
+  background: #e8f5e9; border: 2px solid #a5d6a7; border-radius: 10px;
+  padding: 8px 6px; text-align: center;
+}
+.freedom .icon { font-size: 1.4em; line-height: 1; }
+.freedom strong { display: block; color: #1b5e20; font-size: 0.85em; margin-top: 2px; }
+.freedom small { display: block; color: #455a64; font-size: 0.78em; margin-top: 2px; line-height: 1.3; }
+
+/* 학대 vs 보호 카드 */
+.compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 8px 0; }
+.abuse, .protect {
+  border-radius: 10px; padding: 10px 12px; border: 2px solid;
+}
+.abuse { background: #ffebee; border-color: #ef9a9a; }
+.protect { background: #e8f5e9; border-color: #a5d6a7; }
+.abuse h4 { margin: 0 0 4px; color: #b71c1c; font-size: 1em; }
+.protect h4 { margin: 0 0 4px; color: #1b5e20; font-size: 1em; }
+.abuse ul, .protect ul { margin: 4px 0 0; padding-left: 18px; font-size: 0.92em; }
+.abuse li, .protect li { padding: 1px 0; }
+
+/* 종별 관리 표 */
+.care-table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.88em; }
+.care-table th, .care-table td {
+  border: 1.5px solid #a5d6a7; padding: 6px 8px; vertical-align: top; text-align: left;
+}
+.care-table th {
+  background: #c8e6c9; color: #1b5e20; font-weight: 700;
+}
+.care-table th.row-h { background: #e8f5e9; font-size: 0.92em; width: 18%; }
+.care-table .pet-h { text-align: center; font-size: 1.05em; }
+
+/* 메신저 */
+.chat { background: #c8e6c9; border-radius: 12px; padding: 12px; margin: 8px 0 12px; }
+.chat .bg-label {
+  display: inline-block; background: #fff; padding: 3px 10px; border-radius: 10px;
+  font-size: 0.85em; color: #455a64; margin-bottom: 6px; font-weight: 700;
+}
+.msg { display: flex; align-items: flex-start; gap: 8px; margin: 4px 0; }
+.msg.right { flex-direction: row-reverse; }
+.msg .mtag {
+  flex-shrink: 0; min-width: 50px; padding: 4px 8px;
+  border-radius: 14px; font-weight: 700; font-size: 0.85em; text-align: center;
+  background: #cfd8dc; color: #263238;
+}
+.msg .mtag.d1 { background: #FFCDD2; }
+.msg .mtag.d2 { background: #B2EBF2; }
+.msg .mtag.d3 { background: #FFF9C4; }
+.msg .mtag.d4 { background: #E1BEE7; }
+.msg .mtag.d5 { background: #C8E6C9; }
+.msg .mtag.d6 { background: #F8BBD0; }
+.mbubble { background: #fff; padding: 6px 11px;
+  border-radius: 14px; max-width: 78%; font-size: 0.95em;
+  border: 1.5px solid #cfd8dc; }
+.msg.right .mbubble { background: #fff59d; border-color: #ffe082; }
+
+/* 신고 번호 카드 */
+.call-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0; }
+.call {
+  background: #fff; border: 2px solid #2e7d32; border-radius: 10px;
+  padding: 9px; text-align: center;
+}
+.call .num {
+  display: inline-block; padding: 3px 10px; border-radius: 14px;
+  background: #2e7d32; color: #fff; font-weight: 900; font-size: 1em; margin-bottom: 4px;
+}
+.call h4 { margin: 0 0 2px; color: #1b5e20; font-size: 0.95em; }
+.call small { display: block; color: #455a64; font-size: 0.83em; }
+
+.practice h3 {
+  display: inline-block; background: #ffd54f; color: #1b5e20;
+  padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
+}
+.q { position: relative; padding-left: 42px;
+  margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed #cfd8dc; }
+.q:last-child { border-bottom: none; }
+.q .no { position: absolute; left: 0; top: 0; width: 30px; height: 30px;
+  background: #2e7d32; color: #fff; border-radius: 50%; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; font-size: 0.92em; }
+.q p { margin: 0 0 6px; }
+.q .sub-q { margin-top: 5px; font-weight: 500; color: #455a64; }
+.q .calc { background: #fffde7; border: 1.5px dashed #fbc02d; border-radius: 6px;
+  padding: 6px 10px; margin: 4px 0; font-size: 0.95em; color: #455a64; }
+
+.choice-box { background: #fffde7; border: 1.5px solid #fdd835;
+  border-radius: 8px; padding: 7px 14px; margin: 6px 0; font-weight: 500; }
+.choice-box::before { content: "<보기> "; font-weight: 700; color: #f57f17; }
+
+.blank { display: inline-block; border-bottom: 1.5px solid #263238;
+  min-width: 70px; height: 22px; vertical-align: baseline; }
+.blank.long { min-width: 220px; }
+
+.lines { background-image: repeating-linear-gradient(
+    to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px);
+  height: 34px; margin: 4px 0; }
+.lines.two { height: 68px; } .lines.three { height: 102px; }
+
+.pledge { background: #fff8e1; border: 2px dashed #f57c00;
+  border-radius: 8px; padding: 12px 16px; margin: 10px 0; }
+.pledge h4 { margin: 0 0 6px; color: #e65100; font-size: 1.05em; }
+
+.self-check { background: #f1f8e9; border: 1.5px solid #aed581;
+  border-radius: 8px; padding: 12px 16px; margin-top: 14px; }
+.self-check h4 { margin: 0 0 6px; color: #33691e; font-size: 1em; }
+.self-check label { display: block; padding: 2px 0; }
+.self-check input[type=checkbox] { margin-right: 8px; width: 16px; height: 16px;
+  accent-color: #7cb342; vertical-align: middle; }
+
+.page-no { position: absolute; bottom: 8mm; right: 18mm;
+  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px; }
+
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  html, body { background: #fff !important; margin: 0; padding: 0;
+    font-size: 10pt; line-height: 1.38; }
+  .toolbar, .no-print { display: none !important; }
+  .page { width: 210mm; min-height: 297mm;
+    margin: 0 !important; padding: 10mm 13mm;
+    box-shadow: none; border: none;
+    page-break-after: always; break-after: page; }
+  .page:last-of-type { page-break-after: auto; }
+  .q, .tip, .warning, .warm, .story, .chat, .pet-grid, .freedom-grid,
+  .compare-grid, .care-table, .call-grid, .self-check, .pledge,
+  .name-box, .goal, .info, .toc, .cast, .ph, tr {
+    page-break-inside: avoid !important; break-inside: avoid !important; }
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  h1 { font-size: 1.8em; margin: 0; }
+  h2 { font-size: 1.18em; margin: 0 0 4px; }
+  h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
+  p { margin: 0 0 3px; } ul, ol { margin: 3px 0; }
+  .page.cover { padding: 16mm 16mm; }
+  .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
+  .ph-num { width: 46px; height: 46px; font-size: 1.2em; border-radius: 8px; }
+  .ph-title h2 { font-size: 1.18em; }
+  .tip, .warning, .warm, .story { padding: 7px 12px; margin: 4px 0 8px; }
+  .chat { padding: 7px; margin: 4px 0 8px; }
+  .msg { margin: 3px 0; gap: 6px; }
+  .mtag { min-width: 44px; padding: 3px 6px; font-size: 0.82em; }
+  .mbubble { padding: 4px 8px; font-size: 0.9em; }
+  .pet-grid, .freedom-grid, .compare-grid, .call-grid { gap: 5px; }
+  .pet-card, .freedom, .abuse, .protect, .call { padding: 6px 9px; }
+  .pet-card .pet-emoji { font-size: 1.4em; }
+  .freedom .icon { font-size: 1.1em; }
+  .care-table th, .care-table td { padding: 4px 6px; font-size: 0.84em; }
+  .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
+  .q .no { width: 26px; height: 26px; font-size: 0.88em; }
+  .lines { height: 26px;
+    background-image: repeating-linear-gradient(
+      to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
+  .lines.two { height: 52px; } .lines.three { height: 78px; }
+  .self-check { padding: 7px 12px; margin-top: 8px; }
+  .pledge { padding: 8px 12px; margin: 6px 0; }
+  .page-no { bottom: 6mm; right: 14mm; }
+}
+
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <div><strong>나의 가족, 나의 책임 — 애완동물 보호와 관리</strong>
+    <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
+  </div>
+  <button onclick="window.print()">🖨️ 인쇄하기</button>
+</div>
+
+<!-- 표지 -->
+<section class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">국어 · 사회 · 도덕 · 수학</span> &nbsp;|&nbsp; 고등학교 특수학급</div>
+    <div>2026학년도 1학기</div>
+  </div>
+  <div class="cover-main">
+    <span class="badge">🐾 반려동물 학습지</span>
+    <h1>나의 가족, 나의 책임</h1>
+    <p class="lead">생명을 키우는 일은 ‘평생 약속’이에요.</p>
+  </div>
+  <div class="name-box">
+    <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
+    <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
+    <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
+  </div>
+  <div class="info">
+    <h2>🐶 ‘애완’이 아니라 ‘반려(伴侶)’예요</h2>
+    <p>옛날에는 ‘애완동물(귀여워하는 동물)’이라고 했지만, 이제는 <strong>반려동물(伴侶動物)</strong>
+       — 즉 <strong>인생을 함께하는 친구</strong>라고 불러요. 동물도 <strong>마음과 감정</strong>을 가진 생명이고,
+       기르기로 결정한 순간부터 우리는 <strong>그 생명의 평생을 책임지는 보호자</strong>가 돼요.</p>
+  </div>
+  <div class="cast">
+    <h2>🐾 우리 친구들과 반려동물</h2>
+    <div class="cast-grid">
+      <div class="person"><span class="dot d2"></span><strong>하은</strong> · 🐶 강아지</div>
+      <div class="person"><span class="dot d4"></span><strong>주은</strong> · 🐶 강아지</div>
+      <div class="person"><span class="dot d3"></span><strong>주현</strong> · 🐱 고양이</div>
+      <div class="person"><span class="dot d5"></span><strong>예은</strong> · 🐱 고양이</div>
+      <div class="person"><span class="dot d6"></span><strong>하영</strong> · 🦎 도마뱀</div>
+      <div class="person"><span class="dot d1"></span><strong>채원</strong> · 🐔 닭</div>
+    </div>
+  </div>
+  <div class="toc">
+    <h2>📚 차례</h2>
+    <ol>
+      <li>친구들의 반려동물 — 5대 자유</li>
+      <li>학대와 보호 — 사랑한다면 이렇게</li>
+      <li>일상 관리 — 종마다 다르게</li>
+      <li>비용 수학과 다짐 — 평생 약속</li>
+    </ol>
+  </div>
+  <div class="page-no">— 1 —</div>
+</section>
+
+<!-- 1. 친구들의 반려동물 + 5대 자유 -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">1</div>
+    <div class="ph-title">
+      <h2>친구들의 반려동물 — 동물복지 5대 자유</h2>
+      <p>동물도 ‘마음’이 있어요.</p>
+    </div>
+  </div>
+
+  <div class="pet-grid">
+    <div class="pet-card">
+      <div class="pet-emoji">🐶</div>
+      <div class="pet-owner"><span class="dot d2"></span>하은이의 ‘하루’</div>
+      <div class="pet-info"><strong>강아지</strong> · 푸들 · 4살<br>매일 산책이 필요해요.</div>
+    </div>
+    <div class="pet-card">
+      <div class="pet-emoji">🐶</div>
+      <div class="pet-owner"><span class="dot d4"></span>주은이의 ‘보리’</div>
+      <div class="pet-info"><strong>강아지</strong> · 시바견 · 2살<br>활동량이 많아요.</div>
+    </div>
+    <div class="pet-card">
+      <div class="pet-emoji">🐱</div>
+      <div class="pet-owner"><span class="dot d3"></span>주현이의 ‘미미’</div>
+      <div class="pet-info"><strong>고양이</strong> · 코숏 · 3살<br>혼자 있는 시간을 좋아해요.</div>
+    </div>
+    <div class="pet-card">
+      <div class="pet-emoji">🐱</div>
+      <div class="pet-owner"><span class="dot d5"></span>예은이의 ‘엘리자벳’</div>
+      <div class="pet-info"><strong>고양이</strong> · 페르시안 · 5살<br>매일 빗질이 필요해요.</div>
+    </div>
+    <div class="pet-card">
+      <div class="pet-emoji">🦎</div>
+      <div class="pet-owner"><span class="dot d6"></span>하영이의 ‘도리’</div>
+      <div class="pet-info"><strong>도마뱀</strong> · 크레스티드 게코 · 1살<br>온도·습도 관리가 핵심이에요.</div>
+    </div>
+    <div class="pet-card">
+      <div class="pet-emoji">🐔</div>
+      <div class="pet-owner"><span class="dot d1"></span>채원이의 ‘꼬꼬’</div>
+      <div class="pet-info"><strong>닭</strong> · 백봉오골계 · 2살<br>넓은 마당과 햇빛이 필요해요.</div>
+    </div>
+  </div>
+
+  <div class="story">
+    <p>전 세계 동물복지의 기본은 ‘<strong>5대 자유(Five Freedoms)</strong>’예요. 영국에서 시작되어 우리나라
+       <strong>동물보호법</strong>도 이 정신을 따르고 있어요. 어떤 동물을 키우든, 보호자는 이 다섯 가지를
+       지켜 줄 책임이 있어요.</p>
+  </div>
+
+  <div class="freedom-grid">
+    <div class="freedom"><div class="icon">🍚</div><strong>① 배고픔·갈증</strong><small>알맞은 먹이와 물</small></div>
+    <div class="freedom"><div class="icon">🏠</div><strong>② 불편함</strong><small>적절한 환경·잠자리</small></div>
+    <div class="freedom"><div class="icon">🩺</div><strong>③ 고통·질병</strong><small>병원·예방 접종</small></div>
+    <div class="freedom"><div class="icon">😌</div><strong>④ 공포·스트레스</strong><small>안정·따뜻함</small></div>
+    <div class="freedom"><div class="icon">🐾</div><strong>⑤ 정상 행동</strong><small>뛰기·숨기·놀기</small></div>
+  </div>
+
+  <div class="tip">
+    <span class="tip-title">💡 ‘동물도 마음이 있어요’</span>
+    강아지·고양이는 물론, 도마뱀이나 닭도 <strong>아프면 아프고, 무서우면 떨어요</strong>.
+    표현하는 방법이 다를 뿐이에요. 강아지는 꼬리로, 고양이는 귀와 수염으로, 닭은 깃털로,
+    도마뱀은 색 변화와 자세로 말해요.
+  </div>
+
+  <div class="practice">
+    <h3>📝 연습 문제</h3>
+
+    <div class="q"><div class="no">1</div>
+      <p>동물복지 5대 자유 중 빈칸에 알맞은 말을 (보기)에서 골라 쓰세요.</p>
+      <div class="choice-box">먹이 / 환경 / 병원 / 공포 / 행동</div>
+      <p class="sub-q">① 배고픔으로부터의 자유 — 알맞은 <span class="blank"></span>와 물</p>
+      <p class="sub-q">② 불편함으로부터의 자유 — 적절한 <span class="blank"></span></p>
+      <p class="sub-q">③ 고통·질병으로부터의 자유 — 정기 <span class="blank"></span> 방문</p>
+      <p class="sub-q">④ <span class="blank"></span>·스트레스로부터의 자유 — 안정·따뜻함</p>
+      <p class="sub-q">⑤ 정상 <span class="blank"></span>을 표현할 자유 — 뛰기·숨기·놀기</p>
+    </div>
+
+    <div class="q"><div class="no">2</div>
+      <p>위 6 친구의 반려동물 카드를 보고 답하세요.</p>
+      <p class="sub-q">① 매일 산책이 꼭 필요한 동물을 키우는 친구는?
+        <span class="blank"></span>, <span class="blank"></span></p>
+      <p class="sub-q">② 온도·습도 관리가 가장 중요한 동물은?
+        ‘<span class="blank"></span>’를 키우는 <span class="blank"></span>이</p>
+    </div>
+  </div>
+
+  <div class="page-no">— 2 —</div>
+</section>
+
+<!-- 2. 학대와 보호 -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">2</div>
+    <div class="ph-title">
+      <h2>학대와 보호 — 사랑한다면 이렇게</h2>
+      <p>‘귀찮음’도 학대가 될 수 있어요.</p>
+    </div>
+  </div>
+
+  <div class="story">
+    <p>‘<strong>동물 학대</strong>’는 때리고 다치게 하는 것만이 아니에요. <strong>먹이·물·청결을 챙기지 않는 것</strong>,
+       오랜 시간 <strong>혼자 가둬 두는 것</strong>, 키우다가 힘들다고 <strong>버리는 것</strong>도
+       모두 학대예요. 우리나라 <strong>동물보호법</strong>은 학대한 사람에게 <strong>벌금 또는 징역</strong>으로
+       처벌해요.</p>
+  </div>
+
+  <div class="compare-grid">
+    <div class="abuse">
+      <h4>❌ 이런 행동은 학대예요</h4>
+      <ul>
+        <li><strong>방치</strong> — 먹이·물·산책·청결을 챙기지 않음</li>
+        <li><strong>신체 학대</strong> — 때리기·차기·던지기</li>
+        <li><strong>유기</strong> — 길에 버리거나 두고 떠나기</li>
+        <li><strong>정서 학대</strong> — 좁은 곳에 오래 가두기, 위협</li>
+        <li><strong>장난감 취급</strong> — 옷에 욱여넣기, 무리한 사진 강요</li>
+      </ul>
+    </div>
+    <div class="protect">
+      <h4>⭕ 좋은 보호자는 이렇게</h4>
+      <ul>
+        <li><strong>매일 챙기기</strong> — 먹이·물·청결을 거르지 않음</li>
+        <li><strong>관찰하기</strong> — 컨디션·식욕·배변 살피기</li>
+        <li><strong>아프면 병원</strong> — 미루지 않기</li>
+        <li><strong>존중하기</strong> — 싫어하는 행동은 멈춤</li>
+        <li><strong>평생 함께</strong> — 끝까지 책임지기</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="chat">
+    <div class="bg-label">📱 단톡방 — 친구들이 이상한 일을 봤어요</div>
+    <div class="msg"><span class="mtag d6">하영</span>
+      <div class="mbubble">옆집 강아지가 <strong>며칠째 베란다에 묶여 있어</strong>. 짖는 소리도 너무 약해 졌고…</div></div>
+    <div class="msg"><span class="mtag d2">하은</span>
+      <div class="mbubble">물그릇이 비어 있는 거 본 적도 있어. 어떡하지?</div></div>
+    <div class="msg"><span class="mtag d3">주현</span>
+      <div class="mbubble">이건 <strong>방치 학대</strong>일 수 있어. 어른께 알리고 <strong>120</strong>이나 동물보호상담센터에 신고하자.</div></div>
+    <div class="msg right"><span class="mtag d1">채원</span>
+      <div class="mbubble">사진은 정문이나 우리 쪽 창에서 멀리만 찍자. <strong>몰래 들어가지 말고!</strong></div></div>
+  </div>
+
+  <div class="call-grid">
+    <div class="call"><span class="num">120</span><h4>다산콜·시청</h4><small>동물 학대·민원 상담</small></div>
+    <div class="call"><span class="num">112</span><h4>경찰</h4><small>긴급한 학대 현장</small></div>
+    <div class="call"><span class="num">1577-0954</span><h4>동물보호상담</h4><small>유기·학대 신고</small></div>
+  </div>
+
+  <div class="warning">
+    <span class="tip-title">⚠️ 신고할 때 ‘직접 들어가지 마세요’</span>
+    위험할 수 있어요. <strong>어른께 먼저 알리고</strong>, 사진은 <strong>내가 있는 자리</strong>에서만 찍어요.
+    동물의 <strong>위치·시간·상태</strong>를 메모해 두면 신고할 때 큰 도움이 돼요.
+  </div>
+
+  <div class="practice">
+    <h3>📝 연습 문제</h3>
+
+    <div class="q"><div class="no">3</div>
+      <p>다음 중 <strong>동물 학대</strong>에 해당하는 것을 모두 고르세요. (   )</p>
+      <p class="sub-q">① 먹이를 며칠씩 안 줌 &nbsp; ② 동물병원에 데려감 &nbsp; ③ 오랫동안 베란다에 묶어 둠</p>
+      <p class="sub-q">④ 키우다 힘들다고 길에 버림 &nbsp; ⑤ 매일 산책시켜 줌 &nbsp; ⑥ 좁은 옷에 억지로 넣고 사진 찍기</p>
+    </div>
+
+    <div class="q"><div class="no">4</div>
+      <p>학대받는 동물을 발견했을 때 가장 알맞은 행동은? (   )</p>
+      <p class="sub-q">① 직접 집에 들어가서 데려온다.</p>
+      <p class="sub-q">② 어른께 알리고 120이나 동물보호상담센터에 신고한다.</p>
+      <p class="sub-q">③ 그냥 모른 척한다.</p>
+      <p class="sub-q">④ 친구들과 사진을 SNS에 올려 화제를 만든다.</p>
+    </div>
+  </div>
+
+  <div class="page-no">— 3 —</div>
+</section>
+
+<!-- 3. 일상 관리 -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">3</div>
+    <div class="ph-title">
+      <h2>일상 관리 — 종마다 다르게</h2>
+      <p>강아지·고양이·도마뱀·닭은 사는 방식이 달라요.</p>
+    </div>
+  </div>
+
+  <table class="care-table">
+    <thead>
+      <tr>
+        <th class="row-h">구분</th>
+        <th class="pet-h">🐶 강아지<br><small>하은·주은</small></th>
+        <th class="pet-h">🐱 고양이<br><small>주현·예은</small></th>
+        <th class="pet-h">🦎 도마뱀<br><small>하영</small></th>
+        <th class="pet-h">🐔 닭<br><small>채원</small></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th class="row-h">먹이</th>
+        <td>강아지 사료·물. 사람 음식(파·초콜릿·포도)은 ❌</td>
+        <td>고양이 사료·물. 우유·생선뼈는 ❌</td>
+        <td>귀뚜라미·전용 분말 사료. 종에 맞춰 다름</td>
+        <td>곡물·푸성귀·물. 부리로 쪼아 먹어요</td>
+      </tr>
+      <tr>
+        <th class="row-h">환경</th>
+        <td>실내·산책 공간. 시원한 잠자리</td>
+        <td>높은 곳·숨을 곳·스크래처가 필요</td>
+        <td><strong>온도 22~28℃, 습도 60~80%</strong> 유지</td>
+        <td>햇빛 드는 마당·횃대·모래 목욕 공간</td>
+      </tr>
+      <tr>
+        <th class="row-h">운동·놀이</th>
+        <td><strong>매일 산책 30분 이상</strong></td>
+        <td>장난감으로 사냥놀이 15분 이상</td>
+        <td>나뭇가지 오르기·조용한 관찰</td>
+        <td>모래 목욕·풀밭 활보</td>
+      </tr>
+      <tr>
+        <th class="row-h">청결</th>
+        <td>발 닦기·목욕(2주 1회)·이빨</td>
+        <td>화장실 매일 청소·빗질</td>
+        <td>사육장 청소·물그릇 매일</td>
+        <td>둥지 청소·깔개 교체</td>
+      </tr>
+      <tr>
+        <th class="row-h">건강</th>
+        <td>예방 접종·중성화·정기 검진</td>
+        <td>예방 접종·치아·정기 검진</td>
+        <td>탈피 확인·식욕 관찰</td>
+        <td>닭진드기·계란 관찰</td>
+      </tr>
+      <tr>
+        <th class="row-h">평균 수명</th>
+        <td>10~15년</td>
+        <td>13~18년</td>
+        <td>10~20년 (종에 따라)</td>
+        <td>5~10년</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warm">
+    <span class="tip-title">🧡 모든 동물에게 공통 — ‘말 없는 신호’ 살피기</span>
+    먹이를 안 먹어요 / 평소보다 잠을 많이 자요 / 구석에 숨어 있어요 / 깃털·털이 빠져요 …
+    이런 변화는 <strong>아프다는 신호</strong>예요. 이상하면 <strong>병원에 빨리 가요</strong>.
+  </div>
+
+  <div class="practice">
+    <h3>📝 연습 문제</h3>
+
+    <div class="q"><div class="no">5</div>
+      <p>위 표를 보고 답하세요.</p>
+      <p class="sub-q">① 매일 30분 이상 산책이 꼭 필요한 동물은? <span class="blank"></span></p>
+      <p class="sub-q">② 온도·습도 관리가 가장 중요한 동물은? <span class="blank"></span></p>
+      <p class="sub-q">③ 햇빛 드는 마당이 필요한 동물은? <span class="blank"></span></p>
+      <p class="sub-q">④ 평균 수명이 가장 긴 동물은? <span class="blank"></span></p>
+    </div>
+
+    <div class="q"><div class="no">6</div>
+      <p>강아지에게 <strong>주면 안 되는</strong> 음식을 모두 고르세요. (   )</p>
+      <p class="sub-q">① 강아지 사료 &nbsp; ② 초콜릿 &nbsp; ③ 포도·건포도 &nbsp; ④ 사과(씨 빼고) &nbsp; ⑤ 파(양파·대파)</p>
+    </div>
+
+    <div class="q"><div class="no">7</div>
+      <p>‘엘리자벳(예은이의 페르시안 고양이)’가 평소와 달리 <strong>밥을 안 먹고 구석에 숨어 있어요</strong>.
+        예은이는 어떻게 해야 할까요? <strong>두 문장</strong>으로 써 보세요.</p>
+      <div class="lines two"></div>
+    </div>
+  </div>
+
+  <div class="page-no">— 4 —</div>
+</section>
+
+<!-- 4. 비용 수학 + 다짐 -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">4</div>
+    <div class="ph-title">
+      <h2>비용 수학과 다짐 — 평생 약속</h2>
+      <p>키우기 전에 ‘평생 비용’을 계산해 봐요.</p>
+    </div>
+  </div>
+
+  <div class="story">
+    <p>반려동물을 ‘<strong>입양</strong>’한다는 건 <strong>10~20년</strong>을 함께 살겠다는 약속이에요.
+       매달 들어가는 사료·간식·용품 비용은 물론, <strong>병원비</strong>는 갑자기 크게 나오기도 해요.
+       귀여운 마음만으로 데려오면 안 돼요. <strong>가족과 충분히 상의하고, 비용을 계산</strong>해 봐요.</p>
+  </div>
+
+  <div class="tip">
+    <span class="tip-title">💰 한 달 비용 (학습용 예시)</span>
+    <ul style="margin: 4px 0 0; padding-left: 20px; font-size: 0.95em;">
+      <li>🐶 강아지: 사료 50,000 + 간식·용품 30,000 + 병원·예방접종 적립 20,000 = <strong>약 100,000원</strong></li>
+      <li>🐱 고양이: 사료 40,000 + 모래·간식 30,000 + 병원 적립 20,000 = <strong>약 90,000원</strong></li>
+      <li>🦎 도마뱀: 먹이(귀뚜라미·분말) 20,000 + 전기(보온등) 15,000 = <strong>약 35,000원</strong></li>
+      <li>🐔 닭: 사료 15,000 + 깔개·횃대 5,000 = <strong>약 20,000원</strong></li>
+    </ul>
+  </div>
+
+  <div class="practice">
+    <h3>📝 수학으로 따져보기</h3>
+
+    <div class="q"><div class="no">8</div>
+      <p>하은이의 강아지 ‘하루’의 한 달 비용이 <strong>100,000원</strong>이면 <strong>1년</strong>은 얼마인가요?</p>
+      <div class="calc">계산: 100,000 × 12 = <span class="blank"></span> 원</div>
+    </div>
+
+    <div class="q"><div class="no">9</div>
+      <p>주현이의 고양이 ‘미미’ 한 달 비용이 <strong>90,000원</strong>이고, 강아지보다 매달 <strong>얼마</strong>
+        적게 들어가나요? 또 <strong>1년</strong>이면 차이가 얼마일까요?</p>
+      <div class="calc">월 차이: 100,000 - 90,000 = <span class="blank"></span> 원</div>
+      <div class="calc">연 차이: <span class="blank"></span> × 12 = <span class="blank"></span> 원</div>
+    </div>
+
+    <div class="q"><div class="no">10</div>
+      <p>채원이의 닭 ‘꼬꼬’ 사료가 <strong>한 달에 5kg</strong> 필요하고, 사료 1kg에 <strong>3,000원</strong>이에요.
+        한 달과 1년 사료비는 얼마인가요?</p>
+      <div class="calc">한 달: 5 × 3,000 = <span class="blank"></span> 원 &nbsp;&nbsp;
+        1년: <span class="blank"></span> × 12 = <span class="blank"></span> 원</div>
+    </div>
+
+    <div class="q"><div class="no">11</div>
+      <p>주은이가 강아지를 입양하려고 해요. 강아지 평균 수명이 <strong>13년</strong>이고
+        매달 비용이 <strong>100,000원</strong>이라면 <strong>평생 비용</strong>은 얼마일까요?
+        (병원비는 따로 들 수 있어요!)</p>
+      <div class="calc">계산: 100,000 × 12 × 13 = <span class="blank"></span> 원</div>
+    </div>
+
+    <div class="q"><div class="no">12</div>
+      <p>하영이의 도마뱀 ‘도리’가 갑자기 아파서 동물병원 진료비 <strong>180,000원</strong>이 나왔어요.
+        하영이가 매달 <strong>15,000원</strong>씩 비상금을 모아 두었다면, 몇 달치를 모아야 진료비를 낼 수 있을까요?</p>
+      <div class="calc">계산: 180,000 ÷ 15,000 = <span class="blank"></span> 달</div>
+    </div>
+
+    <div class="q"><div class="no">13</div>
+      <p>‘귀여워서 키우고 싶다’는 친구에게, 입양 전에 꼭 생각해야 할 것을
+        <strong>두 가지</strong> 써 보세요.</p>
+      <div class="lines two"></div>
+    </div>
+  </div>
+
+
+
+  <div class="page-no">— 5 —</div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>1차시 학습지 - 내 마음 깊이 들여다보기</title>
+<style>
+  @page { size: 210mm 297mm; margin: 18mm; }
+  * { box-sizing: border-box; }
+  html, body { width: 210mm; }
+  body {
+    font-family: 'Malgun Gothic', '맑은 고딕', 'Nanum Gothic', sans-serif;
+    font-size: 13pt;
+    line-height: 1.7;
+    color: #222;
+    margin: 0 auto;
+    padding: 18mm;
+    width: 210mm;
+  }
+  @media print {
+    html, body { width: 210mm; margin: 0; padding: 0; }
+    body { padding: 0; }
+    .sheet { padding: 18mm; }
+  }
+  .sheet {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 0;
+    page-break-after: always;
+  }
+  .sheet:last-child { page-break-after: auto; }
+  h1 {
+    font-size: 19pt;
+    text-align: center;
+    border-top: 3px solid #c89b5a;
+    border-bottom: 3px solid #c89b5a;
+    padding: 10px 0;
+    margin: 0 0 8px 0;
+    color: #7a5a1a;
+  }
+  .subtitle { text-align: center; color: #666; font-size: 11pt; margin-bottom: 16px; }
+  .info { display: flex; justify-content: space-between; font-size: 11pt; margin-bottom: 16px; padding: 0 6px; }
+  .info span { border-bottom: 1px solid #333; min-width: 90px; padding: 0 6px; }
+  h2 {
+    font-size: 15pt;
+    background: #f0e6d2;
+    padding: 6px 12px;
+    border-left: 6px solid #c89b5a;
+    margin: 18px 0 10px 0;
+  }
+  h3 { font-size: 13pt; margin: 12px 0 6px 0; color: #444; }
+  p { margin: 6px 0; }
+  .write-line { border-bottom: 1.2px solid #666; height: 28px; margin-bottom: 3px; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+  table.vocab td, table.vocab th {
+    border: 1.2px solid #888;
+    padding: 6px 8px;
+    font-size: 12pt;
+    vertical-align: top;
+  }
+  table.vocab th { background: #f5ecd8; font-weight: bold; }
+  .note {
+    background: #fff8e6;
+    border-left: 4px solid #e0a93a;
+    padding: 8px 12px;
+    font-size: 11.5pt;
+    margin: 8px 0;
+  }
+  .passage {
+    background: #fafaf2;
+    border: 1.5px solid #c5b88a;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 10px 0;
+    font-size: 12.5pt;
+    line-height: 1.9;
+  }
+  .passage .title { font-weight: bold; font-size: 13pt; margin-bottom: 8px; color: #7a5a1a; }
+  .box { border: 2px dashed #888; padding: 12px; margin: 10px 0; background: #fafaf2; }
+  .spectrum {
+    display: grid;
+    grid-template-columns: 110px repeat(5, 1fr);
+    gap: 3px;
+    margin: 8px 0;
+    font-size: 11.5pt;
+  }
+  .spectrum div {
+    padding: 8px 6px;
+    border: 1px solid #888;
+    text-align: center;
+    background: #fff;
+  }
+  .spectrum .label {
+    background: #c89b5a;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+  .spectrum .header {
+    background: #e8d9b0;
+    font-weight: bold;
+  }
+  .abc-table td {
+    border: 1.5px solid #888;
+    padding: 10px;
+    vertical-align: top;
+  }
+  .abc-table .label {
+    background: #c89b5a;
+    color: white;
+    font-weight: bold;
+    width: 90px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .page-num {
+    text-align: right;
+    font-size: 10pt;
+    color: #888;
+    margin-top: 14px;
+  }
+  .structure {
+    border: 1.5px solid #c89b5a;
+    border-radius: 6px;
+    padding: 10px 14px;
+    background: #fffdf5;
+    margin: 8px 0;
+    font-size: 11.5pt;
+  }
+  .structure b { color: #7a5a1a; }
+</style>
+</head>
+<body>
+
+<!-- ============ 1-1 ============ -->
+<div class="sheet">
+  <h1>🌱 1차시 · 내 마음 깊이 들여다보기 (1/5)</h1>
+  <div class="subtitle">감정 어휘 사전 만들기</div>
+  <div class="info">
+    <div>이름: <span>&nbsp;</span></div><div>반: <span>&nbsp;</span></div><div>날짜: <span>&nbsp;</span></div>
+  </div>
+
+  <h2>📖 활동 1. 감정을 나타내는 말 풍부하게 알기</h2>
+  <p>우리가 자주 쓰는 감정 단어 외에도 비슷한 뜻을 가진 다양한 어휘가 있습니다. 아래 표의 빈칸을 채우며 감정 어휘를 확장해 봅시다.</p>
+
+  <table class="vocab">
+    <tr>
+      <th style="width:80px;">기본 감정</th>
+      <th>비슷한 감정 단어 (유의어)</th>
+      <th style="width:150px;">반대 감정 단어</th>
+    </tr>
+    <tr>
+      <td><b>기쁘다</b></td>
+      <td>즐겁다, 뿌듯하다, 설레다, 흐뭇하다, __________, __________</td>
+      <td>슬프다, __________</td>
+    </tr>
+    <tr>
+      <td><b>슬프다</b></td>
+      <td>서럽다, 허전하다, 쓸쓸하다, 애달프다, __________, __________</td>
+      <td>기쁘다, __________</td>
+    </tr>
+    <tr>
+      <td><b>화나다</b></td>
+      <td>짜증나다, 답답하다, 억울하다, 분노하다, __________, __________</td>
+      <td>__________, __________</td>
+    </tr>
+    <tr>
+      <td><b>두렵다</b></td>
+      <td>무섭다, 불안하다, 초조하다, 긴장되다, __________, __________</td>
+      <td>__________, __________</td>
+    </tr>
+    <tr>
+      <td><b>부끄럽다</b></td>
+      <td>창피하다, 민망하다, 어색하다, 당황스럽다, __________, __________</td>
+      <td>__________, __________</td>
+    </tr>
+  </table>
+
+  <div class="note">💡 <b>감정 어휘 창고</b>: 통쾌하다 · 후련하다 · 상쾌하다 · 서글프다 · 비참하다 · 안타깝다 · 원망스럽다 · 못마땅하다 · 겁나다 · 아찔하다 · 뻘쭘하다 · 머쓱하다 · 느긋하다 · 평온하다</div>
+
+  <h2>✍ 활동 2. 오늘 내 감정, 세 단어로 표현하기</h2>
+  <p>지금 내가 느끼는 감정을 위 어휘 중에서 3개 골라 적고, 그 이유를 써 봅시다.</p>
+  <table class="vocab">
+    <tr><th style="width:25%;">감정 단어</th><th>그렇게 느낀 이유</th></tr>
+    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+  </table>
+
+  <div class="page-num">1 / 5</div>
+</div>
+
+<!-- ============ 1-2 ============ -->
+<div class="sheet">
+  <h1>🌱 1차시 · 내 마음 깊이 들여다보기 (2/5)</h1>
+  <div class="subtitle">감정의 강도 - 감정에도 세기가 있다</div>
+
+  <h2>📖 활동 1. 감정 강도 스펙트럼</h2>
+  <p>같은 계열의 감정이라도 강도가 다릅니다. 가장 약한 감정부터 가장 강한 감정까지 순서대로 정리해 봅시다.</p>
+
+  <div class="spectrum">
+    <div class="header">감정 계열</div>
+    <div class="header">① 아주 약함</div>
+    <div class="header">② 약함</div>
+    <div class="header">③ 중간</div>
+    <div class="header">④ 강함</div>
+    <div class="header">⑤ 아주 강함</div>
+
+    <div class="label">기쁨</div>
+    <div>기분 좋다</div><div>즐겁다</div><div>기쁘다</div><div>행복하다</div><div>감격스럽다</div>
+
+    <div class="label">슬픔</div>
+    <div>아쉽다</div><div>서운하다</div><div>슬프다</div><div>비통하다</div><div>절망적이다</div>
+
+    <div class="label">화</div>
+    <div>불쾌하다</div><div>짜증나다</div><div>화나다</div><div>분노하다</div><div>격노하다</div>
+
+    <div class="label">두려움</div>
+    <div>불안하다</div><div>걱정되다</div><div>두렵다</div><div>겁에 질리다</div><div>공포에 떨다</div>
+  </div>
+
+  <h2>✍ 활동 2. 내 경험의 감정 강도 표시하기</h2>
+  <p>최근 있었던 일 3가지를 떠올리고, 그때 느낀 감정과 강도(1~5)를 적어 봅시다.</p>
+
+  <table class="vocab">
+    <tr><th style="width:45%;">있었던 일</th><th style="width:30%;">감정 단어</th><th style="width:25%;">강도 (1~5)</th></tr>
+    <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+  </table>
+
+  <h2>💭 생각해 보기</h2>
+  <p>같은 사건이라도 사람마다 감정 강도가 다를 수 있습니다. 왜 그럴까요?</p>
+  <div class="write-line"></div>
+  <div class="write-line"></div>
+  <div class="write-line"></div>
+
+  <div class="page-num">2 / 5</div>
+</div>
+
+<!-- ============ 1-3 ============ -->
+<div class="sheet">
+  <h1>🌱 1차시 · 내 마음 깊이 들여다보기 (3/5)</h1>
+  <div class="subtitle">ABC 감정 분석 - 사건이 아니라 '생각'이 감정을 만든다</div>
+
+  <h2>📖 알아보기. ABC 기법</h2>
+  <div class="note">
+    같은 사건이라도 어떻게 <b>생각</b>하느냐에 따라 느끼는 감정이 달라집니다.<br>
+    <b>A</b>ctivating event (사건) → <b>B</b>elief (생각) → <b>C</b>onsequence (감정·행동)
+  </div>
+
+  <h3>✔ 예시</h3>
+  <table class="abc-table vocab">
+    <tr>
+      <td class="label">A (사건)</td>
+      <td>친구에게 보낸 메시지에 하루 종일 답이 없다.</td>
+    </tr>
+    <tr>
+      <td class="label">B (생각)</td>
+      <td>"나를 싫어하나 봐. 나랑 더 이상 친해지고 싶지 않은 거야."</td>
+    </tr>
+    <tr>
+      <td class="label">C (감정·행동)</td>
+      <td>서운함·외로움 → 친구에게 먼저 말 걸지 않음</td>
+    </tr>
+  </table>
+
+  <h3>🔄 생각을 바꿔 보면?</h3>
+  <table class="abc-table vocab">
+    <tr><td class="label">B (다른 생각)</td>
+      <td>"바빴나 보다. 학원 갔을 수도 있지."</td></tr>
+    <tr><td class="label">C (감정·행동)</td>
+      <td>이해·덤덤함 → 나중에 편하게 다시 물어봄</td></tr>
+  </table>
+
+  <h2>✍ 활동. 내 경험을 ABC로 분석하기</h2>
+  <p>최근 속상하거나 서운했던 일 하나를 떠올려 아래 표를 채워 봅시다.</p>
+
+  <table class="abc-table vocab">
+    <tr><td class="label">A (사건)</td><td style="height:48px;">&nbsp;</td></tr>
+    <tr><td class="label">B (그때 생각)</td><td style="height:48px;">&nbsp;</td></tr>
+    <tr><td class="label">C (감정·행동)</td><td style="height:48px;">&nbsp;</td></tr>
+  </table>
+
+  <h3>🔄 생각 바꿔 보기</h3>
+  <table class="abc-table vocab">
+    <tr><td class="label">B' (다르게 생각)</td><td style="height:48px;">&nbsp;</td></tr>
+    <tr><td class="label">C' (달라진 감정)</td><td style="height:48px;">&nbsp;</td></tr>
+  </table>
+
+  <div class="write-line"></div>
+  <p style="font-size:11.5pt; color:#666;">▶ 생각을 바꿔 보니 어떤 점이 달라졌나요?</p>
+  <div class="write-line"></div>
+  <div class="write-line"></div>
+
+  <div class="page-num">3 / 5</div>
+</div>
+
+<!-- ============ 1-4 ============ -->
+<div class="sheet">
+  <h1>🌱 1차시 · 내 마음 깊이 들여다보기 (4/5)</h1>
+  <div class="subtitle">수필 읽고 내 마음과 비교하기</div>
+
+  <h2>📖 읽기. 짧은 수필 — "고요한 쓸쓸함"</h2>
+  <div class="passage">
+    <div class="title">고요한 쓸쓸함</div>
+    어느 봄날의 오후, 창가에 앉아 나는 아무 이유 없이 마음이 무거웠다. 친구도 있었고 가족도 있었지만, 어딘가 허전한 기분이 드는 것이었다.
+    <br><br>
+    '왜 이럴까?' 하고 스스로에게 물었다. 답은 쉽게 떠오르지 않았다. 그래서 나는 그 감정에 <b>'고요한 쓸쓸함'</b>이라는 이름을 붙여 보았다. 이름을 붙이고 나니, 신기하게도 그 감정이 조금 덜 무서웠다.
+    <br><br>
+    내 마음을 알아차린다는 것은, 어쩌면 내 안의 낯선 손님을 맞이하는 일 같다. 손님에게 이름을 불러 주고, 차 한 잔을 권하듯이.
+  </div>
+
+  <h2>💭 읽고 생각해 보기</h2>
+
+  <p><b>1.</b> 글쓴이가 느낀 감정은 어떤 감정인가요? 본문 속 표현을 찾아 써 봅시다.</p>
+  <div class="write-line"></div>
+
+  <p><b>2.</b> 글쓴이는 그 감정을 대하기 위해 어떤 방법을 썼나요?</p>
+  <div class="write-line"></div>
+  <div class="write-line"></div>
+
+  <p><b>3.</b> "내 안의 낯선 손님을 맞이하는 일"이라는 표현은 무엇을 비유한 것일까요?</p>
+  <div class="write-line"></div>
+  <div class="write-line"></div>
+
+  <p><b>4.</b> 나도 이유 없이 마음이 무거웠던 적이 있나요? 그때 나는 어떻게 했나요?</p>
+  <div class="write-line"></div>
+  <div class="write-line"></div>
+  <div class="write-line"></div>
+
+  <p><b>5.</b> 만약 그 감정에 이름을 붙인다면, 어떤 이름을 붙이고 싶나요?</p>
+  <div class="box" style="min-height:50px;">
+    <b>내가 붙인 이름:</b> ____________________________<br><br>
+    <b>그 이름을 붙인 이유:</b>
+  </div>
+
+  <div class="page-num">4 / 5</div>
+</div>
+
+<!-- ============ 1-5 ============ -->
+<div class="sheet">
+  <h1>🌱 1차시 · 내 마음 깊이 들여다보기 (5/5)</h1>
+  <div class="subtitle">나의 '감정 자화상' 글쓰기</div>
+
+  <h2>📝 쓰기 전 구상하기</h2>
+  <p>내가 요즘 자주 느끼는 감정 한 가지를 골라, 짧은 수필(150~200자)을 써 봅시다.</p>
+
+  <div class="structure">
+    <p><b>① 도입</b> — 내가 요즘 자주 느끼는 감정을 소개하기 (1~2문장)</p>
+    <p><b>② 전개</b> — 그 감정을 느끼게 된 구체적인 경험 / 언제, 어디서, 왜 (3~4문장)</p>
+    <p><b>③ 마무리</b> — 그 감정을 어떻게 바라보고 싶은지, 앞으로의 나의 태도 (1~2문장)</p>
+  </div>
+
+  <h2>✏ 개요 짜기</h2>
+  <table class="vocab">
+    <tr><th style="width:100px;">도입</th><td style="height:40px;">요즘 내가 자주 느끼는 감정: &nbsp;</td></tr>
+    <tr><th>전개</th><td style="height:60px;">그 감정을 느낀 구체적인 상황: &nbsp;</td></tr>
+    <tr><th>마무리</th><td style="height:40px;">나는 이 감정을 ~하게 받아들이고 싶다: &nbsp;</td></tr>
+  </table>
+
+  <h2>📄 '감정 자화상' 수필 쓰기</h2>
+  <p style="font-size:11pt; color:#666;">※ 제목도 직접 붙여 보세요.</p>
+  <p><b>제목:</b> ______________________________________________</p>
+
+  <div class="box" style="min-height:200px;">
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+  </div>
+
+  <h2>🌼 자기 평가</h2>
+  <table class="vocab">
+    <tr><th>평가 항목</th><th style="width:60px;">잘함</th><th style="width:60px;">보통</th><th style="width:60px;">노력</th></tr>
+    <tr><td>내 감정을 솔직하게 표현했다</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>구체적인 경험을 담았다</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+    <tr><td>글의 구조(도입-전개-마무리)가 잘 드러난다</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+  </table>
+
+  <div class="page-num">5 / 5</div>
+</div>
+
+</body>
+</html>

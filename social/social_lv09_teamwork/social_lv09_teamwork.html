@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>S9 예은·채원·주은의 모둠 활동 — 협동</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #b2dfdb 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #004d40;
+  border-bottom: 2px solid #4db6ac; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; color: #00695c; }
+.cover-main { text-align: center; padding: 8px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #00695c; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #004d40; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #004d40; font-weight: 500; }
+.cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 10px; }
+.cover-info { background: #fff; border: 2px solid #4db6ac; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 6px; color: #004d40; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 3px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 14px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #00695c; padding-bottom: 3px; }
+.cover-name .label { color: #004d40; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #00695c; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #004d40; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #00695c; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #e0f2f1; border-left: 4px solid #00897b; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #004d40; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.tip b { color: #f57f17; }
+.note { background: #fff3e0; border-left: 4px solid #ef6c00; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #bf360c; }
+
+.activity { background: #fff; border: 1.8px solid #4db6ac; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #004d40; font-size: 1.05em; }
+.activity .tag { background: #b2dfdb; color: #004d40; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 60px; border-bottom: 2px solid #004d40; text-align: center; padding: 0 6px; color: #004d40; font-weight: 700; }
+.blank.long { min-width: 160px; }
+
+.member-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 8px 0; }
+.member-card { background: #fff; border: 2px solid #4db6ac; border-radius: 12px; padding: 10px; text-align: center; }
+.member-card .avatar { width: 50px; height: 50px; margin: 0 auto 4px; border-radius: 50%; background: #00695c; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 1.2em; }
+.member-card .name { font-weight: 900; color: #004d40; font-size: 1.05em; }
+.member-card .strength { background: #b2dfdb; color: #004d40; padding: 2px 8px; border-radius: 10px; font-size: 0.82em; margin: 4px 0; display: inline-block; font-weight: 700; }
+.member-card .role { font-size: 0.9em; color: #37474f; margin-top: 3px; }
+
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0; }
+.step-card { background: #fff; border: 1.8px solid #4db6ac; border-radius: 10px; padding: 8px; text-align: center; }
+.step-card .num { background: #00695c; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: inline-block; line-height: 24px; font-weight: 900; margin-bottom: 3px; font-size: 0.9em; }
+.step-card .name { font-weight: 700; color: #004d40; font-size: 0.95em; }
+.step-card .desc { font-size: 0.85em; color: #37474f; margin-top: 3px; }
+
+.dialogue { background: #e0f2f1; border: 1.5px solid #4db6ac; border-radius: 12px; padding: 12px 14px; margin: 8px 0; }
+.dialogue .title { font-weight: 700; color: #004d40; margin-bottom: 6px; }
+.speech { display: flex; gap: 10px; margin: 8px 0; align-items: flex-start; }
+.speech .avatar { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9em; color: #fff; }
+.speech .avatar.a { background: #ad1457; }
+.speech .avatar.b { background: #1565c0; }
+.speech .avatar.c { background: #6a1b9a; }
+.speech .bubble { max-width: 76%; background: #fff; border: 1.5px solid #4db6ac; border-radius: 14px; padding: 8px 12px; font-size: 0.95em; }
+.speech .bubble .who { font-weight: 700; font-size: 0.85em; margin-bottom: 2px; }
+
+.plan-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
+.plan-table th, .plan-table td { border: 1.3px solid #4db6ac; padding: 6px 8px; text-align: center; }
+.plan-table th { background: #b2dfdb; color: #004d40; font-weight: 700; }
+.plan-table td.left { text-align: left; }
+.plan-table td.write { min-height: 26px; background: #fafafa; }
+
+.page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
+@media print { body { background: #fff; } .toolbar { display: none; } .page { box-shadow: none; margin: 0 auto; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">🌊 S9 모둠 활동 협동</span><span class="muted">사회성 · Level 9</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<!-- 표지 -->
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#004d40;">S9</b></span>
+    <span>고등학교 특수학급</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">모둠 · 협동</span>
+    <h1>예은·채원·주은의 모둠 활동</h1>
+    <p class="lead">각자 잘하는 걸 살려서 함께 완성해요</p>
+  </div>
+  <div class="cover-emoji">👥 🎨 📊</div>
+  <div class="cover-info">
+    <h3>🎯 오늘의 목표</h3>
+    <ul>
+      <li>모둠 활동의 <b>4단계</b>(주제·역할·실행·발표)를 안다.</li>
+      <li>각자의 <b>잘하는 점</b>을 살려 역할을 나눈다.</li>
+      <li>의견이 다를 때 <b>양보와 조율</b>로 결정한다.</li>
+    </ul>
+  </div>
+  <div class="cover-info" style="border-color:#a5d6a7;">
+    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+    <ul>
+      <li>3인 모둠 <b>예은·채원·주은</b>이 "우리 반 청소 문제 해결" 프로젝트를 시작했어요!</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">학년·반</span></div>
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+  <div class="page-foot">사회성 시리즈 · S9 · 표지</div>
+</section>
+
+<!-- 1쪽: 협동 4단계 + 역할 -->
+<section class="page">
+  <div class="page-head">
+    <h2>🤝 모둠 활동 4단계</h2>
+    <span class="step">1쪽 · 협동</span>
+  </div>
+  <div class="intro">
+    모둠 활동은 <b>혼자 하는 것보다 어려워요.</b> 왜냐하면 <b>여러 사람의 의견</b>이 모여야 하니까요. 그래서 <b>순서</b>와 <b>역할 분담</b>이 중요해요.
+  </div>
+
+  <div class="steps">
+    <div class="step-card">
+      <div class="num">1</div>
+      <div class="name">주제 정하기</div>
+      <div class="desc">모두 관심 있는 걸 골라요</div>
+    </div>
+    <div class="step-card">
+      <div class="num">2</div>
+      <div class="name">역할 나누기</div>
+      <div class="ex">각자 잘하는 일 맡기</div>
+    </div>
+    <div class="step-card">
+      <div class="num">3</div>
+      <div class="name">약속 지키기</div>
+      <div class="ex">마감·진행 상황 공유</div>
+    </div>
+    <div class="step-card">
+      <div class="num">4</div>
+      <div class="name">함께 마무리</div>
+      <div class="ex">서로 칭찬·감사</div>
+    </div>
+  </div>
+
+  <div class="member-grid">
+    <div class="member-card">
+      <div class="avatar" style="background:#ad1457;">예은</div>
+      <div class="name">예은이</div>
+      <div class="strength">🎨 꼼꼼함 · 정리</div>
+      <div class="role">→ <b>발표 자료 만들기</b><br>PPT, 자료 정리 담당</div>
+    </div>
+    <div class="member-card">
+      <div class="avatar" style="background:#1565c0;">채원</div>
+      <div class="name">채원이</div>
+      <div class="strength">📚 조사·정보</div>
+      <div class="role">→ <b>자료 조사</b><br>도서관·인터넷 자료 담당</div>
+    </div>
+    <div class="member-card">
+      <div class="avatar" style="background:#6a1b9a;">주은</div>
+      <div class="name">주은이</div>
+      <div class="strength">🎤 말하기·설명</div>
+      <div class="role">→ <b>발표</b><br>모둠원 대표로 앞에서 발표</div>
+    </div>
+  </div>
+
+  <div class="dialogue">
+    <div class="title">📖 모둠 회의 (좋은 예)</div>
+    <div class="speech">
+      <div class="avatar a">예은</div>
+      <div class="bubble">
+        <div class="who" style="color:#ad1457;">예은</div>
+        얘들아, 우리 이번 프로젝트 주제 뭘로 할까? 나는 <b>"우리 반 청소가 잘 안 되는 문제"</b>가 어때?
+      </div>
+    </div>
+    <div class="speech">
+      <div class="avatar b">채원</div>
+      <div class="bubble">
+        <div class="who" style="color:#1565c0;">채원</div>
+        오, 좋은데? 나도 그거 궁금했어. <b>동의</b>! 그럼 <b>역할은 어떻게 나눌까?</b>
+      </div>
+    </div>
+    <div class="speech">
+      <div class="avatar c">주은</div>
+      <div class="bubble">
+        <div class="who" style="color:#6a1b9a;">주은</div>
+        나는 <b>발표</b>는 자신 있어. 대신 자료 정리는 좀 약해서... <b>예은이가 자료 잘 만들면</b>, 내가 발표할게. 채원이가 자료 조사해 주면 어때?
+      </div>
+    </div>
+    <div class="speech">
+      <div class="avatar b">채원</div>
+      <div class="bubble">
+        <div class="who" style="color:#1565c0;">채원</div>
+        좋아! <b>서로 잘하는 걸 살리는</b> 방향으로 하자. 우린 <b>토요일까지 각자 준비</b>하고 일요일에 모여서 합치자!
+      </div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 역할 나누기 원리</h3><span class="tag">O·X</span></div>
+    <p>좋은 역할 분담 방법이면 <b>O</b>, 아니면 <b>X</b>를 써요.</p>
+    <p>① 가위바위보로 무조건 정한다. → ( <span class="blank" style="min-width:30px;">&nbsp;</span> )</p>
+    <p>② 각자 <b>잘하는 것</b>과 <b>하고 싶은 것</b>을 얘기하고 나눈다. → ( <span class="blank" style="min-width:30px;">&nbsp;</span> )</p>
+    <p>③ 가장 목소리 큰 사람이 편한 걸 다 가진다. → ( <span class="blank" style="min-width:30px;">&nbsp;</span> )</p>
+    <p>④ 한 명한테 어려운 일을 몰아 준다. → ( <span class="blank" style="min-width:30px;">&nbsp;</span> )</p>
+    <p>⑤ 어려운 부분은 <b>둘이 함께</b> 맡기로 한다. → ( <span class="blank" style="min-width:30px;">&nbsp;</span> )</p>
+  </div>
+
+  <div class="page-foot">사회성 시리즈 · S9 · 1쪽 / 2</div>
+</section>
+
+<!-- 2쪽: 문제 상황·계획서 -->
+<section class="page">
+  <div class="page-head">
+    <h2>🌊 의견이 다를 때, 계획 세우기</h2>
+    <span class="step">2쪽 · 조율·계획</span>
+  </div>
+  <div class="intro">
+    모둠에서 <b>의견이 다를 때</b>가 가장 어려워요. 이때 <b>양보·투표·시간 나누기</b> 같은 방법으로 해결할 수 있어요.
+  </div>
+
+  <div class="tip">
+    💡 <b>의견 조율 3가지 방법</b><br>
+    ① <b>다수결(투표)</b>: 각자 손을 들거나 종이에 써서 선택 &nbsp;
+    ② <b>순서로 나누기</b>: "이번엔 A안, 다음엔 B안" &nbsp;
+    ③ <b>양보 + 보완</b>: "네 의견을 따르되, 여기 하나만 추가할게"
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 갈등 상황 해결</h3><span class="tag">3문항</span></div>
+
+    <p><b>① 상황:</b> 모둠에서 <b>주제</b>를 정할 때, 예은이는 <b>"청소"</b>, 채원이는 <b>"급식 잔반"</b>을 하고 싶어 해요.<br>
+    → 어떻게 조율할까?<br>
+    <span class="blank long">&nbsp;</span></p>
+
+    <p><b>② 상황:</b> 한 명이 자기 <b>역할을 안 하고</b> 있어요. 마감이 코앞이에요.<br>
+    → 어떻게 말할까?<br>
+    <span class="blank long">&nbsp;</span></p>
+
+    <p><b>③ 상황:</b> 모둠에서 조용한 친구가 <b>말을 잘 안 해요.</b> 어떻게 참여시킬까?<br>
+    <span class="blank long">&nbsp;</span></p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 우리 모둠 계획서 만들기</h3><span class="tag">계획</span></div>
+    <p>모둠 프로젝트를 <b>직접 계획</b>해 봐요. 아래 표를 채워 완성해요.</p>
+    <table class="plan-table">
+      <tr>
+        <th style="width:30%;">항목</th>
+        <th>내용</th>
+      </tr>
+      <tr>
+        <td>📌 모둠 이름 / 주제</td>
+        <td class="write left">&nbsp;</td>
+      </tr>
+      <tr>
+        <td>👥 모둠원 (이름)</td>
+        <td class="write left">&nbsp;</td>
+      </tr>
+      <tr>
+        <td>📅 마감일</td>
+        <td class="write left">&nbsp;</td>
+      </tr>
+      <tr>
+        <td>🎨 역할 1 (누가·무엇)</td>
+        <td class="write left">&nbsp;</td>
+      </tr>
+      <tr>
+        <td>📚 역할 2 (누가·무엇)</td>
+        <td class="write left">&nbsp;</td>
+      </tr>
+      <tr>
+        <td>🎤 역할 3 (누가·무엇)</td>
+        <td class="write left">&nbsp;</td>
+      </tr>
+      <tr>
+        <td>🚀 모두 다짐 한마디</td>
+        <td class="write left">&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 마무리 인사</h3><span class="tag">서로 감사</span></div>
+    <p>프로젝트가 끝난 뒤 <b>서로에게 감사·칭찬</b>의 한마디를 써 봐요. (S4에서 배운 감사·칭찬 활용!)</p>
+    <p>· 예은이에게: "<span class="blank long">&nbsp;</span>"</p>
+    <p>· 채원이에게: "<span class="blank long">&nbsp;</span>"</p>
+    <p>· 주은이에게: "<span class="blank long">&nbsp;</span>"</p>
+  </div>
+
+  <div class="note">🌟 <b>실천:</b> 다음 모둠 활동에서 <b>내가 잘하는 일</b>을 먼저 손들고 맡아 봐요. 그리고 조용한 친구에게 "너는 어떻게 생각해?"라고 <b>먼저 물어봐 줘요.</b></div>
+
+  <div class="page-foot">사회성 시리즈 · S9 · 2쪽 / 2</div>
+</section>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

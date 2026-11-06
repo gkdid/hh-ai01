@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>L30 종합 이력서·자기소개서 첨삭 — 미정·채원의 지원서</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #90caf9 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #0d47a1;
+  border-bottom: 2px solid #1976d2; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; color: #1565c0; }
+.cover-main { text-align: center; padding: 8px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #1565c0; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 1.9em; letter-spacing: -1.5px; color: #0d47a1; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #0d47a1; font-weight: 500; }
+.cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 6px; }
+.cover-info { background: #fff; border: 2px solid #1976d2; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 6px; color: #0d47a1; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 3px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 14px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #1565c0; padding-bottom: 3px; }
+.cover-name .label { color: #0d47a1; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #1565c0; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #0d47a1; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #1565c0; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #e3f2fd; border-left: 4px solid #1976d2; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #0d47a1; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 8px 12px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.95em; }
+.tip b { color: #f57f17; }
+.note { background: #fff3e0; border-left: 4px solid #ef6c00; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #bf360c; }
+
+.activity { background: #fff; border: 1.8px solid #1976d2; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #0d47a1; font-size: 1.05em; }
+.activity .tag { background: #bbdefb; color: #0d47a1; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 44px; border-bottom: 2px solid #0d47a1; text-align: center; padding: 0 6px; color: #0d47a1; font-weight: 700; }
+.blank.short { min-width: 30px; }
+
+.review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin: 8px 0; }
+.review-card { background: #fff; border: 1.5px solid; border-radius: 8px; padding: 7px 9px; font-size: 0.88em; }
+.review-card .num { font-weight: 900; padding: 1px 7px; border-radius: 7px; display: inline-block; margin-bottom: 3px; color: #fff; font-size: 0.9em; }
+.review-card.c1 { border-color: #0277bd; } .review-card.c1 .num { background: #0277bd; }
+.review-card.c2 { border-color: #6a1b9a; } .review-card.c2 .num { background: #6a1b9a; }
+.review-card.c3 { border-color: #2e7d32; } .review-card.c3 .num { background: #2e7d32; }
+.review-card.c4 { border-color: #ef6c00; } .review-card.c4 .num { background: #ef6c00; }
+.review-card.c5 { border-color: #ad1457; } .review-card.c5 .num { background: #ad1457; }
+.review-card.c6 { border-color: #00695c; } .review-card.c6 .num { background: #00695c; }
+.review-card.c7 { border-color: #c62828; } .review-card.c7 .num { background: #c62828; }
+.review-card.c8 { border-color: #3949ab; } .review-card.c8 .num { background: #3949ab; }
+.review-card.c9 { border-color: #5d4037; } .review-card.c9 .num { background: #5d4037; }
+.review-card .rule { font-size: 0.85em; margin-top: 2px; }
+.review-card .rule b { color: #b71c1c; }
+
+.resume { background: #fff; border: 2.5px solid #1565c0; border-radius: 12px; padding: 12px 16px; margin: 8px 0; box-shadow: 0 3px 10px rgba(21,101,192,0.1); }
+.resume .header { background: #1565c0; color: #fff; padding: 7px 13px; border-radius: 8px; margin: -12px -16px 10px; font-weight: 700; text-align: center; font-size: 1em; }
+.resume .info-row { display: grid; grid-template-columns: 90px 1fr; gap: 8px; padding: 3px 0; border-bottom: 1px dashed #bbdefb; font-size: 0.9em; }
+.resume .info-row .label { color: #0d47a1; font-weight: 700; }
+.resume .body { font-size: 0.94em; line-height: 1.75; margin-top: 8px; }
+.resume .body .h { background: #ffcdd2; padding: 1px 3px; border-radius: 3px; font-weight: 700; color: #b71c1c; }
+
+.page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
+@media print { body { background: #fff; font-size: 9.5pt; line-height: 1.35; } .toolbar, #name-editor { display: none; } .page { box-shadow: none; margin: 0 auto; padding: 10mm 12mm; } .activity { padding: 8px 11px; margin: 7px 0; } .intro, .tip, .note { padding: 6px 10px; margin: 5px 0; } }
+
+.sp-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
+.sp-table th, .sp-table td { border: 1.2px solid #1976d2; padding: 6px 8px; vertical-align: top; }
+.sp-table th { background: #e3f2fd; color: #0d47a1; font-weight: 700; text-align: center; }
+.sp-table td.left { text-align: left; }
+.check-list { list-style: none; padding-left: 4px; margin: 6px 0; }
+.check-list li { padding: 5px 8px; background: #e3f2fd; margin: 4px 0; border-radius: 6px; border-left: 3px solid #1976d2; }
+.check-list input[type="checkbox"] { margin-right: 6px; transform: scale(1.1); }
+.write-lines { background: #fff; border: 1.5px solid #1976d2; border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+.write-lines .wl { border-bottom: 1.2px solid #cfd8dc; min-height: 22px; margin: 6px 0; }
+.pair-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 6px 0; }
+.pair-card { border: 1.3px solid #1976d2; border-radius: 8px; padding: 8px 10px; background: #fff; }
+.pair-card .sent { font-size: 0.95em; margin-bottom: 4px; }
+.pair-card .pick { display: flex; gap: 8px; font-size: 0.9em; }
+.pair-card .pick label { padding: 2px 8px; border: 1px solid #b0bec5; border-radius: 12px; background: #f5f7f9; }
+
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">📄 L30 종합 · 이력서·자기소개서</span><span class="muted">맞춤법 · Level 30 · 마지막</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<!-- 표지 -->
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">국어</span> · 맞춤법 시리즈 · <b style="color:#0d47a1;">L30 · 마지막</b></span>
+    <span>고등학교 특수학급</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">종합 · 이력서·자기소개서</span>
+    <h1>미정·채원의 지원서 첨삭</h1>
+    <p class="lead">L11~L29 총정리! 실제 이력서·자소서에서 맞춤법 지키기</p>
+  </div>
+  <div class="cover-emoji">📄 ✏️ 🏆</div>
+  <div class="cover-info">
+    <h3>🎯 학습 목표</h3>
+    <ul>
+      <li>L11~L29에서 배운 <b>맞춤법 지식</b>을 종합적으로 활용한다.</li>
+      <li>이력서·자기소개서에서 <b>오탈자를 잡을</b> 수 있다.</li>
+      <li>내 이력서 한 단락을 <b>바른 맞춤법</b>으로 완성한다.</li>
+    </ul>
+  </div>
+  <div class="cover-info" style="border-color:#f9a825;">
+    <h3 style="color:#bf360c;">🌱 오늘의 친구</h3>
+    <ul>
+      <li><b>미정</b>: 카페 정규직 이력서를 쓰는 상황</li>
+      <li><b>채원</b>: 도서관 계약직 자기소개서를 쓰는 상황</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">학년·반</span></div>
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+  <div class="page-foot">맞춤법 시리즈 · L30 · 표지</div>
+</section>
+
+<!-- 1쪽: 총복습 + 미정 이력서 -->
+<section class="page">
+  <div class="page-head">
+    <h2>📚 L11~L29 대표 규칙 9가지</h2>
+    <span class="step">1쪽 · 총복습</span>
+  </div>
+  <div class="intro">
+    L11부터 L29까지 배운 규칙 중 <b>가장 자주 실수하는 9가지</b>를 압축했어요. 이력서·자소서에서 이걸 <b>한꺼번에</b> 점검!
+  </div>
+
+  <div class="review-grid">
+    <div class="review-card c1">
+      <span class="num">L11</span> 로서 · 로써
+      <div class="rule">자격은 <b>로서</b>, 수단은 <b>로써</b></div>
+    </div>
+    <div class="review-card c2">
+      <span class="num">L12</span> 든지 · 던지
+      <div class="rule">선택은 <b>든지</b>, 과거 회상은 <b>던지</b></div>
+    </div>
+    <div class="review-card c3">
+      <span class="num">L13</span> -에요 · -예요
+      <div class="rule">받침 O <b>-이에요</b>, 받침 X <b>-예요</b></div>
+    </div>
+    <div class="review-card c4">
+      <span class="num">L14</span> -데 · -대
+      <div class="rule">내 경험 <b>-데</b>, 남 말 전달 <b>-대</b></div>
+    </div>
+    <div class="review-card c5">
+      <span class="num">L15</span> 반드시 · 반듯이
+      <div class="rule">꼭은 <b>반드시</b>, 곧게는 <b>반듯이</b></div>
+    </div>
+    <div class="review-card c6">
+      <span class="num">L21</span> 봬 · 뵈
+      <div class="rule">"뵈어" 넣어 자연스러우면 <b>봬</b></div>
+    </div>
+    <div class="review-card c7">
+      <span class="num">L22-25</span> 표기 원칙
+      <div class="rule"><b>-음</b>(있슴 X) · 외래어 표기 · 조사 -로/-으로</div>
+    </div>
+    <div class="review-card c8">
+      <span class="num">L27</span> 이/가·은/는
+      <div class="rule">받침+새정보<b>이/가</b> · 주제·대조<b>은/는</b></div>
+    </div>
+    <div class="review-card c9">
+      <span class="num">L28-29</span> 다듬기·SNS
+      <div class="rule">"것 같다·의 경우" 다듬기 + TOP10 잡기</div>
+    </div>
+  </div>
+
+  <div class="resume">
+    <div class="header">📄 이력서 · 미정 (카페 정규직 지원)</div>
+    <div class="info-row"><span class="label">이름</span><span>박미정</span></div>
+    <div class="info-row"><span class="label">지원 분야</span><span>바리스타 · 홀 서비스</span></div>
+    <div class="body">
+      저는 학생 <span class="h">으로써</span> 2년간 카페에서 알바를 하며 실무를 익힌 <span class="h">사람이에요</span>.
+      매출 정산도 <span class="h">깨끗히</span> 처리했고, 손님을 대할 때는 <span class="h">항상 친절이</span> 응대했습니다.
+      앞으로 정규직 <span class="h">으로써</span> 팀에 기여하고 싶으며, 커피 지식을 <span class="h">쌓아 왔던 것 같습니다</span>.
+      뽑아 주시면 후회하지 <span class="h">않</span>도록 최선을 다하겠습니다.
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 미정이 이력서 첨삭</h3><span class="tag">5군데</span></div>
+    <p>① 학생 <b>으로써</b> → <span class="blank" style="min-width:80px;">&nbsp;</span> (L11 자격)</p>
+    <p>② 익힌 <b>사람이에요</b> → 익힌 <span class="blank" style="min-width:100px;">&nbsp;</span> (L13 받침 O)</p>
+    <p>③ <b>깨끗히</b> · <b>친절이</b> → <span class="blank" style="min-width:60px;">&nbsp;</span> · <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+    <p>④ 정규직 <b>으로써</b> → <span class="blank" style="min-width:80px;">&nbsp;</span> (L11 자격)</p>
+    <p>⑤ 지식을 <b>쌓아 왔던 것 같습니다</b> · 후회하지 <b>않</b>도록 → 지식을 <span class="blank" style="min-width:100px;">&nbsp;</span> · 후회하지 <span class="blank" style="min-width:60px;">&nbsp;</span> 도록</p>
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · L30 · 1쪽 / 2</div>
+</section>
+
+<!-- 2쪽: 채원 자소서 + 내 이력서 -->
+<section class="page">
+  <div class="page-head">
+    <h2>📝 채원 자소서 + 내 이력서</h2>
+    <span class="step">2쪽 · 종합</span>
+  </div>
+
+  <div class="resume">
+    <div class="header">📄 자기소개서 · 채원 (도서관 계약직 지원)</div>
+    <div class="body">
+      저 <span class="h">의 경우에는</span> 어릴 때부터 책을 좋아했<span class="h">읍니다</span>. 도서관 봉사활동 <span class="h">을 통해서</span>
+      사서 업무를 배웠<span class="h">읍니다</span>. 저를 뽑아 주신다면 <span class="h">뵈요</span>! 아, 죄송합니다 <span class="h">몇 일</span> 안에 답변 부탁드립니다.
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 채원이 자소서 첨삭</h3><span class="tag">5군데</span></div>
+    <p>① 저 <b>의 경우에는</b> → <span class="blank" style="min-width:60px;">&nbsp;</span> (L28)</p>
+    <p>② 좋아했<b>읍니다</b> · 배웠<b>읍니다</b> → 좋아했<span class="blank" style="min-width:60px;">&nbsp;</span> · 배웠<span class="blank" style="min-width:60px;">&nbsp;</span> (표준: 습니다)</p>
+    <p>③ 봉사활동 <b>을 통해서</b> → 봉사활동 <span class="blank" style="min-width:60px;">&nbsp;</span> (L28)</p>
+    <p>④ <b>뵈요</b> → <span class="blank" style="min-width:60px;">&nbsp;</span> (L21)</p>
+    <p>⑤ <b>몇 일</b> 안에 → <span class="blank" style="min-width:60px;">&nbsp;</span> 안에 (L29 TOP10)</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 나의 이력서 한 단락 쓰기</h3><span class="tag">쓰기</span></div>
+    <p>내가 지원하고 싶은 곳(아르바이트·진학·동아리)을 정해 이력서 한 단락(4~5문장)을 써 봐요.
+      오늘 배운 규칙 중 <b>3가지 이상</b>을 정확히 사용!</p>
+    <p>[지원 분야] <span class="blank" style="min-width:200px;">&nbsp;</span></p>
+    <div style="background:#e3f2fd; border:2px dashed #1976d2; border-radius:10px; padding:10px; min-height:130px;">
+      <div style="border-bottom:1px solid #ccc; height:22px;"></div>
+      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+      <div style="border-bottom:1px solid #ccc; height:22px; margin-top:4px;"></div>
+    </div>
+  </div>
+
+  <div class="note">
+    🎉 <b>축하해요!</b> 맞춤법 시리즈 <b>L1~L30 30차시</b>를 모두 마쳤어요!<br>
+    이제 카톡·SNS·자소서·이력서 어디에서든 자신 있게 <b>바른 한국어</b>를 쓸 수 있어요.
+    <b>습관은 매일의 실천에서 만들어집니다.</b> 오늘 배운 한 가지라도 이번 주 카톡·글쓰기에 적용해 보세요!
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · L30 · 2쪽 / 2</div>
+</section>
+
+
+<section class="page">
+  <div class="page-head">
+    <h2>🔁 복습 · 자기 점검 — 자기소개서 총정리</h2>
+    <span class="step">추가 1쪽 · 복습</span>
+  </div>
+  <div class="intro">오늘 배운 <b>자기소개서 총정리</b> 규칙을 <b>내 말로 다시</b> 써 보고, 평소 내가 자주 틀렸던 부분을 정리해 봐요.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A1. 내 말로 규칙 쓰기</h3><span class="tag">서술형</span></div>
+    <p>오늘 배운 규칙을 <b>친구에게 설명하듯</b> 한두 문장으로 써 봐요.</p>
+    <div class="write-lines"><div class="wl">&nbsp;</div><div class="wl">&nbsp;</div></div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A2. 이 규칙이 필요한 상황 3개</h3><span class="tag">상황 떠올리기</span></div>
+    <p>이 맞춤법이 <b>실제로 쓰일 상황</b>을 떠올려 3개만 적어 봐요. (예: 문자할 때, 자기소개 쓸 때, 공지 쓸 때…)</p>
+    <ol style="margin:6px 0 6px 22px;">
+      <li style="margin:6px 0;">상황 ① <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+      <li style="margin:6px 0;">상황 ② <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+      <li style="margin:6px 0;">상황 ③ <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+    </ol>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A3. 내가 자주 틀리던 표기 → 바른 표기</h3><span class="tag">3행 표</span></div>
+    <p>이번 레슨과 관련해 <b>평소 내가 자주 틀리던 형태</b>와 <b>바른 형태</b>를 비교해 적어 봐요.</p>
+    <table class="sp-table">
+      <tr><th style="width:8%;">번호</th><th style="width:40%;">내가 자주 쓰던 형태 (❌)</th><th style="width:40%;">바른 형태 (⭕)</th><th style="width:12%;">언제?</th></tr>
+      <tr><td>①</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+      <tr><td>②</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+      <tr><td>③</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+    </table>
+    <div class="tip">💡 "언제?" 칸에는 <b>문자·일기·숙제·시험</b> 같이 자주 쓰는 자리를 적어 두면 스스로 체크하기 좋아요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A4. 자기 점검 체크리스트</h3><span class="tag">5개</span></div>
+    <ul class="check-list">
+      <li><label><input type="checkbox" disabled> 오늘 규칙을 <b>세 문장 이상</b> 소리 내어 읽어 봤다.</label></li>
+      <li><label><input type="checkbox" disabled> 어제·오늘 내가 쓴 글에서 이 규칙 자리를 <b>직접 확인</b>해 봤다.</label></li>
+      <li><label><input type="checkbox" disabled> 자주 틀리던 형태를 <b>표에 정리</b>했다.</label></li>
+      <li><label><input type="checkbox" disabled> 다음에 틀렸을 때 <b>스스로 고쳐 쓸 자신</b>이 조금 생겼다.</label></li>
+      <li><label><input type="checkbox" disabled> 다음 레슨을 <b>기대</b>한다.</label></li>
+    </ul>
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · 자기소개서 총정리 · 복습쪽</div>
+</section>
+
+
+<section class="page">
+  <div class="page-head">
+    <h2>✍️ 쓰기 실전 — 자기소개서 총정리</h2>
+    <span class="step">추가 2쪽 · 쓰기</span>
+  </div>
+  <div class="intro">배운 규칙을 <b>실제 문장으로 써 보기</b>로 마무리해요. 짧아도 좋으니 <b>직접</b> 써 보는 게 제일 중요해요.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B1. 오늘의 규칙을 넣은 문장 3개</h3><span class="tag">직접 쓰기</span></div>
+    <p>오늘 배운 <b>자기소개서 총정리</b> 규칙이 꼭 보이는 문장을 세 개 써 봐요.</p>
+    <div class="write-lines">
+      <div class="wl">① &nbsp;</div>
+      <div class="wl">② &nbsp;</div>
+      <div class="wl">③ &nbsp;</div>
+    </div>
+    <div class="tip">💡 완성한 뒤 <b>소리 내어 읽어</b> 어색한 곳이 없는지 확인해요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B2. 상황 메시지 쓰기 — 담임 선생님에게</h3><span class="tag">3~5문장</span></div>
+    <p><b>상황:</b> 나의 장점을 자소서처럼 소개</p>
+    <p>이 상황에 맞게 짧은 메시지를 써 봐요. 오늘 배운 <b>자기소개서 총정리</b> 규칙이 들어가면 더 좋아요.</p>
+    <div class="write-lines">
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B3. 내 다짐 한 문장</h3><span class="tag">마무리</span></div>
+    <p>앞으로 <b>자기소개서 총정리</b>이(가) 나오는 자리에서 <b>어떻게 신경 쓸지</b> 한 문장으로 적어 봐요.</p>
+    <div class="write-lines"><div class="wl">앞으로 나는, &nbsp;</div></div>
+  </div>
+
+  <div class="note">🌟 <b>진짜 배움은 쓸 때 일어나요.</b> 오늘 쓴 문장을 <b>하루 뒤 다시</b> 읽어 보면 눈에 보이는 것이 또 달라져요.</div>
+
+  <div class="page-foot">맞춤법 시리즈 · 자기소개서 총정리 · 쓰기쪽</div>
+</section>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

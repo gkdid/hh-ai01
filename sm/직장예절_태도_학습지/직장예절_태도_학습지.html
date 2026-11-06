@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>함께 일하는 우리 — 직장 예절·태도·규칙 학습지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4 portrait; margin: 14mm 15mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  font-size: 12pt; line-height: 1.65;
+}
+
+.toolbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #00695c; color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.toolbar .muted { color: #b2dfdb; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button {
+  background: #ffd54f; color: #004d40; border: none; font: inherit; font-weight: 700;
+  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+}
+.toolbar button:hover { background: #ffe082; }
+
+.page {
+  width: 210mm; min-height: 297mm;
+  margin: 14mm auto; padding: 16mm 18mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  position: relative; page-break-after: always;
+}
+.page:last-of-type { page-break-after: auto; }
+
+/* ===== 표지 ===== */
+.page.cover {
+  padding: 22mm 20mm;
+  background: linear-gradient(135deg, #fff 0%, #e0f2f1 100%);
+}
+.cover-top {
+  display: flex; justify-content: space-between;
+  font-size: 0.9em; color: #607d8b;
+  border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 22px;
+}
+.cover-top .subject { font-weight: 700; color: #00695c; }
+.cover-main { text-align: center; padding: 14px 0 12px; }
+.cover-main .badge {
+  display: inline-block; padding: 6px 18px; border-radius: 20px;
+  background: #00695c; color: #fff; font-weight: 700; font-size: 0.95em;
+  margin-bottom: 12px; letter-spacing: 0.5px;
+}
+.cover-main h1 {
+  margin: 0; font-size: 2.1em; letter-spacing: -1.5px;
+  color: #004d40; font-weight: 900;
+}
+.cover-main .lead {
+  margin: 8px 0 0; font-size: 1.05em; color: #455a64; font-weight: 500;
+}
+.name-box {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin: 16px 0;
+}
+.name-cell { border: 1.5px solid #80cbc4; border-radius: 8px; padding: 10px 12px; }
+.name-cell span { display: block; font-size: 0.78em; color: #00695c; font-weight: 500; }
+.name-cell em { display: block; min-height: 24px; font-style: normal; }
+
+.goal, .info, .toc, .cast {
+  border: 2px solid #80cbc4; border-radius: 10px;
+  padding: 12px 16px; margin-top: 10px; background: #e0f2f1;
+}
+.goal h2, .info h2, .toc h2, .cast h2 {
+  margin: 0 0 6px; font-size: 1.05em; color: #004d40;
+  border-bottom: 1px dashed #4db6ac; padding-bottom: 5px;
+}
+.goal ul { margin: 4px 0 0; padding-left: 20px; }
+.goal li { padding: 2px 0; }
+.info p { margin: 0 0 4px; font-size: 0.95em; color: #004d40; }
+.toc ol { margin: 4px 0 0; padding-left: 24px; }
+.toc li { padding: 2px 0; }
+
+.cast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.person {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 10px; background: #fff;
+  border: 1px solid #cfd8dc; border-radius: 8px;
+  font-weight: 500; color: #37474f; font-size: 0.92em;
+}
+.person strong { color: #004d40; font-weight: 700; }
+.dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.d1 { background: #FF6B6B; } .d2 { background: #4ECDC4; } .d3 { background: #FFD166; }
+.d4 { background: #A78BFA; } .d5 { background: #6FCF97; } .d6 { background: #F48FB1; }
+
+/* ===== 쪽 머리 ===== */
+.ph {
+  display: flex; align-items: center; gap: 16px;
+  border-bottom: 3px solid #00695c; padding-bottom: 12px; margin-bottom: 18px;
+}
+.ph-num {
+  flex-shrink: 0; width: 60px; height: 60px;
+  background: #00695c; color: #ffd54f;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.5em; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; border-radius: 10px;
+  text-align: center; line-height: 1;
+}
+.ph-title h2 { margin: 0; font-size: 1.4em; color: #004d40; }
+.ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.95em; }
+
+/* ===== 본문 글 / 이야기 ===== */
+.story {
+  background: #fff; border: 2px solid #b2dfdb; border-radius: 8px;
+  padding: 12px 16px; margin: 8px 0 12px; line-height: 1.85;
+}
+.story p { margin: 0 0 6px; }
+
+.scene {
+  background: #fff8e1; border-left: 6px solid #ffb300;
+  border-radius: 6px; padding: 12px 16px; margin-bottom: 14px;
+}
+.scene p { margin: 0; }
+
+.tip {
+  background: #e0f2f1; border-left: 5px solid #00897b;
+  border-radius: 6px; padding: 10px 14px; margin: 10px 0;
+}
+.tip .tip-title { display: block; font-weight: 700; color: #004d40; margin-bottom: 4px; }
+
+.warm {
+  background: #fce4ec; border-left: 6px solid #c2185b;
+  border-radius: 6px; padding: 10px 14px; margin: 10px 0;
+}
+.warm .tip-title { display: block; font-weight: 700; color: #880e4f; margin-bottom: 4px; }
+
+.warning {
+  background: #ffebee; border-left: 6px solid #c62828;
+  border-radius: 6px; padding: 10px 14px; margin: 10px 0;
+}
+.warning .tip-title { display: block; font-weight: 700; color: #b71c1c; margin-bottom: 4px; }
+
+/* ===== 대화 ===== */
+.dialogue { background: #f5f5f5; border-radius: 12px; padding: 12px; margin: 8px 0 12px; }
+.turn { display: flex; align-items: flex-start; gap: 10px; margin: 6px 0; }
+.turn.right { flex-direction: row-reverse; }
+.tag {
+  flex-shrink: 0; min-width: 70px; padding: 5px 10px;
+  background: #cfd8dc; color: #263238;
+  border-radius: 18px; font-weight: 700; font-size: 0.88em; text-align: center;
+}
+.tag.d1 { background: #FFCDD2; }
+.tag.d2 { background: #B2EBF2; }
+.tag.d3 { background: #FFF9C4; }
+.tag.d4 { background: #E1BEE7; }
+.tag.d5 { background: #C8E6C9; }
+.tag.d6 { background: #F8BBD0; }
+.bubble {
+  background: #fff; padding: 7px 12px;
+  border: 1.5px solid #cfd8dc; border-radius: 14px;
+  max-width: 80%;
+}
+.turn.right .bubble { background: #e0f2f1; border-color: #b2dfdb; }
+
+/* ===== 위계 다이어그램 ===== */
+.hierarchy {
+  display: grid; grid-template-columns: 1fr; gap: 8px;
+  margin: 8px 0;
+}
+.h-row {
+  background: #e0f2f1; border: 1.5px solid #80cbc4;
+  border-radius: 10px; padding: 9px 14px;
+  display: flex; align-items: center; gap: 14px;
+}
+.h-row .label {
+  flex-shrink: 0; min-width: 80px;
+  background: #00695c; color: #fff; font-weight: 700;
+  padding: 4px 10px; border-radius: 14px;
+  text-align: center; font-size: 0.92em;
+}
+.h-row .desc { color: #263238; font-size: 0.95em; }
+
+/* ===== 표 ===== */
+table.tbl {
+  width: 100%; border-collapse: collapse;
+  margin: 8px 0;
+}
+.tbl th, .tbl td {
+  border: 1px solid #80cbc4; padding: 6px 10px;
+  text-align: left; font-size: 0.95em;
+}
+.tbl th {
+  background: #00695c; color: #fff;
+  font-weight: 700; text-align: center;
+}
+.tbl tr:nth-child(even) td { background: #f1f8e9; }
+
+/* ===== 규칙 카드 ===== */
+.rule-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;
+  margin: 8px 0;
+}
+.rule {
+  background: #e0f2f1; border: 1.5px solid #4db6ac; border-radius: 10px;
+  padding: 10px; text-align: center;
+}
+.rule .icon { font-size: 1.5em; line-height: 1; }
+.rule strong { display: block; margin-top: 4px; color: #004d40; font-size: 0.95em; }
+.rule small { display: block; color: #455a64; font-size: 0.85em; margin-top: 2px; }
+
+/* ===== 표현 카드 ===== */
+.phrase-card {
+  background: #fffde7; border: 1.5px dashed #fbc02d;
+  border-radius: 8px; padding: 8px 14px; margin: 6px 0;
+}
+.phrase-card strong { color: #f57f17; }
+
+/* ===== 보고/연락/상의 ===== */
+.steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0; }
+.step3 {
+  background: #fff8e1; border: 2px solid #ffd54f; border-radius: 10px;
+  padding: 10px; text-align: center;
+}
+.step3 .lbl {
+  display: inline-block; background: #f9a825; color: #fff;
+  padding: 2px 12px; border-radius: 10px; font-weight: 700;
+  font-size: 0.9em; margin-bottom: 4px;
+}
+.step3 strong { display: block; color: #4e342e; }
+.step3 small { display: block; color: #5d4037; font-size: 0.85em; margin-top: 2px; }
+
+/* ===== 문제 ===== */
+.practice h3 {
+  display: inline-block; background: #ffd54f; color: #004d40;
+  padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
+}
+.q {
+  position: relative;
+  padding-left: 42px;
+  margin-bottom: 12px; padding-bottom: 10px;
+  border-bottom: 1px dashed #cfd8dc;
+}
+.q:last-child { border-bottom: none; }
+.q .no {
+  position: absolute; left: 0; top: 0;
+  width: 30px; height: 30px;
+  background: #00695c; color: #fff;
+  border-radius: 50%; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; font-size: 0.92em;
+}
+.q p { margin: 0 0 6px; }
+.q .sub-q { margin-top: 5px; font-weight: 500; color: #455a64; }
+
+/* 보기 / 빈칸 */
+.choice-box {
+  background: #fffde7; border: 1.5px solid #fdd835;
+  border-radius: 8px; padding: 7px 14px; margin: 6px 0;
+  font-weight: 500;
+}
+.choice-box::before { content: "<보기> "; font-weight: 700; color: #f57f17; }
+
+.blank {
+  display: inline-block; border-bottom: 1.5px solid #263238;
+  min-width: 70px; height: 22px; vertical-align: baseline;
+}
+.blank.long { min-width: 220px; }
+
+.lines {
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px
+  );
+  height: 34px; margin: 4px 0;
+}
+.lines.two { height: 68px; }
+.lines.three { height: 102px; }
+
+/* 다짐문 */
+.pledge {
+  background: #fff8e1; border: 2px dashed #f57c00;
+  border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+}
+.pledge h4 { margin: 0 0 6px; color: #e65100; font-size: 1.05em; }
+
+/* 자기 점검 */
+.self-check {
+  background: #f1f8e9; border: 1.5px solid #aed581;
+  border-radius: 8px; padding: 12px 16px; margin-top: 14px;
+}
+.self-check h4 { margin: 0 0 6px; color: #33691e; font-size: 1em; }
+.self-check label { display: block; padding: 2px 0; }
+.self-check input[type=checkbox] {
+  margin-right: 8px; width: 16px; height: 16px;
+  accent-color: #7cb342; vertical-align: middle;
+}
+
+.page-no {
+  position: absolute; bottom: 8mm; right: 18mm;
+  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
+}
+
+/* ===== 인쇄 ===== */
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  html, body {
+    background: #fff !important; margin: 0; padding: 0;
+    font-size: 10pt; line-height: 1.38;
+  }
+  .toolbar, .no-print { display: none !important; }
+  .page {
+    width: 210mm; min-height: 297mm;
+    margin: 0 !important; padding: 10mm 13mm;
+    box-shadow: none; border: none;
+    page-break-after: always; break-after: page;
+  }
+  .page:last-of-type { page-break-after: auto; }
+  .q, .scene, .tip, .warm, .warning, .story, .dialogue, .rule-grid,
+  .steps3, .hierarchy, .phrase-card, .self-check, .pledge,
+  .name-box, .goal, .info, .toc, .cast, .ph, table.tbl, tr {
+    page-break-inside: avoid !important; break-inside: avoid !important;
+  }
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  h1 { font-size: 1.8em; margin: 0; }
+  h2 { font-size: 1.18em; margin: 0 0 4px; }
+  h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
+  p { margin: 0 0 3px; }
+  ul, ol { margin: 3px 0; }
+  .page.cover { padding: 16mm 16mm; }
+  .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
+  .ph-num { width: 46px; height: 46px; font-size: 1.2em; border-radius: 8px; }
+  .ph-title h2 { font-size: 1.18em; }
+  .scene, .tip, .warm, .warning, .story { padding: 7px 12px; margin: 4px 0 8px; }
+  .dialogue { padding: 7px; margin: 4px 0 8px; }
+  .turn { margin: 3px 0; gap: 6px; }
+  .tag { min-width: 56px; padding: 3px 7px; font-size: 0.82em; }
+  .bubble { padding: 5px 9px; font-size: 0.92em; }
+  .rule-grid, .steps3 { gap: 6px; }
+  .rule, .step3 { padding: 7px; }
+  .rule .icon { font-size: 1.2em; }
+  .h-row { padding: 6px 10px; gap: 10px; }
+  .h-row .label { min-width: 64px; padding: 2px 7px; font-size: 0.85em; }
+  .tbl th, .tbl td { padding: 4px 7px; font-size: 0.9em; }
+  .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
+  .q .no { width: 26px; height: 26px; font-size: 0.88em; }
+  .lines { height: 26px;
+    background-image: repeating-linear-gradient(
+      to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
+  .lines.two { height: 52px; }
+  .lines.three { height: 78px; }
+  .self-check { padding: 7px 12px; margin-top: 8px; }
+  .pledge { padding: 8px 12px; margin: 6px 0; }
+  .page-no { bottom: 6mm; right: 14mm; }
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <div><strong>함께 일하는 우리 — 직장 예절·태도·규칙</strong>
+    <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
+  </div>
+  <button onclick="window.print()">🖨️ 인쇄하기</button>
+</div>
+
+<!-- =================================================== -->
+<!-- 표지 -->
+<!-- =================================================== -->
+<section class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">국어 · 진로</span> &nbsp;|&nbsp; 고등학교 특수학급</div>
+    <div>2026학년도 1학기</div>
+  </div>
+
+  <div class="cover-main">
+    <span class="badge">💼 직장생활 예절 학습지</span>
+    <h1>함께 일하는 우리</h1>
+    <p class="lead">상사·동료를 존중하며 책임 있게 일해요.</p>
+  </div>
+
+  <div class="name-box">
+    <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
+    <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
+    <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
+  </div>
+
+  <div class="info">
+    <h2>💼 직장은 어떤 곳일까요?</h2>
+    <p>직장은 여러 사람이 모여 <strong>같은 목표</strong>를 향해 일하는 곳이에요. 나이도, 맡은 일도,
+       들어온 시기도 서로 달라요. 그래서 <strong>인사·말투·시간 약속·태도</strong> 같은 작은 예절이
+       사람들 사이를 부드럽게 만들어 주지요. 신입 사원이 가장 먼저 익혀야 할 것은
+       바로 이 ‘<strong>함께 일하는 예절</strong>’이에요.</p>
+  </div>
+
+  <div class="cast">
+    <h2>👫 등장인물 — 우리 팀 구성</h2>
+    <div class="cast-grid">
+      <div class="person"><span class="dot d6"></span><strong>하영 팀장</strong>(상사)</div>
+      <div class="person"><span class="dot d2"></span><strong>하은 대리</strong>(선배)</div>
+      <div class="person"><span class="dot d3"></span><strong>주현</strong>(동료)</div>
+      <div class="person"><span class="dot d1"></span><strong>채원</strong>(입사 동기)</div>
+      <div class="person"><span class="dot d5"></span><strong>예은</strong>(후배)</div>
+      <div class="person"><span class="dot d4"></span><strong>주은</strong>(나 / 신입 사원)</div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h2>📚 차례</h2>
+    <ol>
+      <li>직장에서 만나는 사람들 — 인사와 호칭</li>
+      <li>일하는 태도 — 시간·보고·실수 대처</li>
+      <li>동료·상사와의 관계 — 협력·부탁·거절·의견</li>
+      <li>직장 규칙과 다짐 — 안전·복장·휴대폰·비밀</li>
+    </ol>
+  </div>
+
+  <div class="page-no">— 1 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 1. 직장에서 만나는 사람들 — 인사와 호칭 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">1</div>
+    <div class="ph-title">
+      <h2>직장에서 만나는 사람들 — 인사와 호칭</h2>
+      <p>상사·동료·후배에게 어떻게 인사하고 부를까요?</p>
+    </div>
+  </div>
+
+  <div class="story">
+    <p>오늘부터 주은이는 <strong>○○ 회사</strong>의 <strong>신입 사원</strong>이에요. 사무실에 들어서면 먼저 자리에 와 있는
+       선배·동료·팀장님을 만나게 돼요. 직장에서는 <strong>먼저 인사하기</strong>, <strong>존댓말 쓰기</strong>,
+       <strong>알맞은 호칭으로 부르기</strong>가 가장 기본이에요.</p>
+  </div>
+
+  <h3 style="display:inline-block; background:#ffd54f; color:#004d40; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 8px;">🪜 우리 팀의 자리</h3>
+  <div class="hierarchy">
+    <div class="h-row">
+      <span class="label">상사 ↑</span>
+      <span class="desc"><strong>하영 팀장(부장)</strong>, <strong>하은 대리</strong> — 일을 결정하고 가르쳐 주시는 분들</span>
+    </div>
+    <div class="h-row">
+      <span class="label">동료 ↔</span>
+      <span class="desc"><strong>주현 씨</strong>, <strong>채원 씨</strong>(입사 동기) — 옆에서 같이 일하는 분들</span>
+    </div>
+    <div class="h-row">
+      <span class="label">후배 ↓</span>
+      <span class="desc"><strong>예은 씨</strong> — 나중에 들어올 후배 (신입은 아직 없을 수도 있어요)</span>
+    </div>
+  </div>
+
+  <h3 style="display:inline-block; background:#ffd54f; color:#004d40; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">🗣️ 알맞은 호칭과 인사</h3>
+  <table class="tbl">
+    <tr><th>대상</th><th>부르는 말 (호칭)</th><th>인사 / 표현 예</th></tr>
+    <tr><td>상사 (팀장·부장)</td><td>“○○ 팀장님 / 부장님”</td><td>“안녕하세요, 부장님!” / “수고하셨습니다.”</td></tr>
+    <tr><td>선배 (대리·과장)</td><td>“○○ 대리님 / 선배님”</td><td>“안녕하세요, 대리님.” / “여쭤봐도 될까요?”</td></tr>
+    <tr><td>동료</td><td>“○○ 씨 / ○○ 님”</td><td>“안녕하세요, 채원 씨.”</td></tr>
+    <tr><td>후배</td><td>“○○ 씨”</td><td>“예은 씨, 함께 해 봅시다.”</td></tr>
+  </table>
+
+  <div class="tip"><span class="tip-title">💡 직장 존댓말 5표현</span>
+    ① “안녕하세요” &nbsp; ② “감사합니다” &nbsp; ③ “죄송합니다”
+    &nbsp; ④ “네, 알겠습니다” &nbsp; ⑤ “수고하셨습니다”</div>
+
+  <div class="practice">
+    <h3>📝 인사·호칭 연습</h3>
+
+    <div class="q"><div class="no">1</div>
+      <p>다음 상황에 맞는 인사·표현을 보기에서 골라 빈칸에 써 봅시다.</p>
+      <div class="choice-box">안녕하세요, 감사합니다, 죄송합니다, 네 알겠습니다, 수고하셨습니다, 먼저 들어가 보겠습니다</div>
+      <p class="sub-q">① 아침에 출근해서 팀장님을 만났을 때 → “(<span class="blank long"></span>)”</p>
+      <p class="sub-q">② 선배가 자료를 챙겨 주셨을 때 → “(<span class="blank long"></span>)”</p>
+      <p class="sub-q">③ 약속한 시간보다 5분 늦어 자리에 도착했을 때 → “(<span class="blank long"></span>)”</p>
+      <p class="sub-q">④ 퇴근하면서 자리에 남은 동료에게 → “(<span class="blank long"></span>)”</p>
+    </div>
+
+    <div class="q"><div class="no">2</div>
+      <p>호칭이 <strong>알맞으면 ⭕</strong>, <strong>고쳐야 하면 ❌</strong>와 알맞은 말로 바꿔 봅시다.</p>
+      <p class="sub-q">① 팀장님께 “하영아, 이 서류 봤어?” → ( <span class="blank"></span> ) → <span class="blank long"></span></p>
+      <p class="sub-q">② 동료에게 “채원 씨, 같이 점심 드실래요?” → ( <span class="blank"></span> )</p>
+      <p class="sub-q">③ 대리님께 “하은아, 이거 어떻게 해?” → ( <span class="blank"></span> ) → <span class="blank long"></span></p>
+    </div>
+
+    <div class="q"><div class="no">3</div>
+      <p>다음 반말을 직장에서 쓸 수 있는 <strong>존댓말</strong>로 고쳐 써 봅시다.</p>
+      <p class="sub-q">① “나 그거 못 해.” → <span class="blank long"></span></p>
+      <p class="sub-q">② “이거 어떻게 하는 거야?” → <span class="blank long"></span></p>
+      <p class="sub-q">③ “알았어.” → <span class="blank long"></span></p>
+    </div>
+  </div>
+
+  <div class="page-no">— 2 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 2. 일하는 태도 — 시간·보고·실수 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">2</div>
+    <div class="ph-title">
+      <h2>일하는 태도 — 시간·보고·실수</h2>
+      <p>정시 출근, 정확한 보고, 실수했을 때의 마음가짐을 익혀요.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>주은이는 출근 첫 주, 일을 받았는데 잘 모르겠어요. 또 한 번은 자료를 잘못 정리해서 실수가 나기도 했어요.
+       이럴 때 <strong>어떤 태도</strong>로 대처해야 할까요?</p>
+  </div>
+
+  <h3 style="display:inline-block; background:#ffd54f; color:#004d40; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">⏰ 시간 약속 — 정시보다 5~10분 일찍</h3>
+  <div class="tip"><span class="tip-title">💡 ‘출근 시간’의 의미</span>
+    9시 출근이면 <strong>9시에 자리에 앉아 일을 시작할 수 있는 상태</strong>를 말해요.
+    그래서 보통 <strong>10분 전</strong>에 도착해 코트를 벗고 컴퓨터를 켜 두지요.</div>
+
+  <h3 style="display:inline-block; background:#ffd54f; color:#004d40; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">📣 일의 3박자 — 보고·연락·상의</h3>
+  <div class="steps3">
+    <div class="step3"><span class="lbl">보고</span><strong>일이 끝났을 때</strong>
+      <small>“정리 끝났습니다.<br>확인 부탁드립니다.”</small></div>
+    <div class="step3"><span class="lbl">연락</span><strong>진행 중에</strong>
+      <small>“○○까지 했습니다.<br>30분 더 걸릴 것 같아요.”</small></div>
+    <div class="step3"><span class="lbl">상의</span><strong>모르거나 어려울 때</strong>
+      <small>“○○ 부분이 잘 모르겠어요.<br>여쭤봐도 될까요?”</small></div>
+  </div>
+
+  <div class="dialogue">
+    <div class="turn"><span class="tag d6">팀장</span>
+      <div class="bubble">주은 씨, 이 서류 오늘까지 정리해 주세요.</div></div>
+    <div class="turn right"><span class="tag d4">주은</span>
+      <div class="bubble">네, 알겠습니다! <strong>잘 모르는 부분이 있으면 여쭤보겠습니다.</strong></div></div>
+  </div>
+
+  <div class="warning"><span class="tip-title">⚠️ 실수했을 때 4단계</span>
+    ① <strong>인정</strong> — “제가 ○○ 실수했습니다.” &nbsp;
+    ② <strong>사과</strong> — “죄송합니다.” &nbsp;
+    ③ <strong>해결</strong> — “어떻게 고치면 좋을까요?” &nbsp;
+    ④ <strong>다짐</strong> — “다음부터는 ○○ 하겠습니다.”</div>
+
+  <div class="practice">
+    <h3>📝 일하는 태도 연습</h3>
+
+    <div class="q"><div class="no">4</div>
+      <p>출근 시간이 9시인 회사라면 주은이는 <strong>몇 시까지 도착</strong>하는 것이 좋을까요?
+        그리고 그 이유를 짧게 써 봅시다.</p>
+      <p class="sub-q">▶ 도착 시각: 오전 ( <span class="blank"></span> ) 시 ( <span class="blank"></span> ) 분쯤</p>
+      <p class="sub-q">▶ 그 이유: <span class="blank long"></span></p>
+    </div>
+
+    <div class="q"><div class="no">5</div>
+      <p>다음 상황에서 <strong>‘보고·연락·상의’</strong> 중 무엇이 필요한지 골라 써 봅시다.</p>
+      <div class="choice-box">보고, 연락, 상의</div>
+      <p class="sub-q">① 받은 일을 다 끝냈다. → ( <span class="blank"></span> )</p>
+      <p class="sub-q">② 일을 어떻게 시작해야 할지 모르겠다. → ( <span class="blank"></span> )</p>
+      <p class="sub-q">③ 일이 예상보다 30분 더 걸릴 것 같다. → ( <span class="blank"></span> )</p>
+      <p class="sub-q">④ 자료에서 이상한 점을 발견했다. → ( <span class="blank"></span> )</p>
+    </div>
+
+    <div class="q"><div class="no">6</div>
+      <p>주은이가 자료에서 <strong>이름 한 칸을 빼먹는 실수</strong>를 했어요.
+        팀장님께 어떻게 말씀드리면 좋을까요? <strong>실수 4단계</strong>(인정·사과·해결·다짐)를 모두 넣어 한 문단으로 써 봅시다.</p>
+      <div class="lines three"></div>
+    </div>
+
+    <div class="q"><div class="no">7</div>
+      <p>다음 표현 중 <strong>좋은 태도는 ⭕</strong>, <strong>고쳐야 할 태도는 ❌</strong> 표시해 봅시다.</p>
+      <p class="sub-q">① 모르면서 그냥 한다 (혼나기 싫어서). → ( <span class="blank"></span> )</p>
+      <p class="sub-q">② “모르겠습니다. 한 번 더 설명해 주세요.” → ( <span class="blank"></span> )</p>
+      <p class="sub-q">③ 일이 늦어지는데 아무에게도 말하지 않는다. → ( <span class="blank"></span> )</p>
+      <p class="sub-q">④ “죄송합니다, 제가 잘못했습니다. 어떻게 고치면 될까요?” → ( <span class="blank"></span> )</p>
+      <p class="sub-q">⑤ 실수를 숨기고 못 본 척 한다. → ( <span class="blank"></span> )</p>
+    </div>
+  </div>
+
+  <div class="page-no">— 3 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 3. 동료·상사와의 관계 — 협력·부탁·거절·의견 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">3</div>
+    <div class="ph-title">
+      <h2>동료·상사와의 관계 — 협력 · 부탁 · 거절 · 의견</h2>
+      <p>함께 일하면서 마음을 부드럽게 전하는 법을 익혀요.</p>
+    </div>
+  </div>
+
+  <div class="story">
+    <p>혼자 잘하는 것도 중요하지만, 직장은 <strong>여럿이 함께</strong> 일하는 곳이에요.
+       서로 도와주고, 부탁도 하고, 때로는 거절도 해야 하지요. 의견이 다를 땐 정중히 말하면 갈등을 줄일 수 있어요.</p>
+  </div>
+
+  <div class="dialogue">
+    <div class="turn"><span class="tag d3">주현</span>
+      <div class="bubble">주은 씨, 죄송한데 이 자료 복사 좀 부탁드릴 수 있을까요?</div></div>
+    <div class="turn right"><span class="tag d4">주은</span>
+      <div class="bubble">네, 알겠습니다! <strong>지금 하는 일 끝나는 대로</strong> 도와드릴게요.</div></div>
+  </div>
+
+  <div class="dialogue">
+    <div class="turn"><span class="tag d1">채원</span>
+      <div class="bubble">주은 씨, 오늘 점심 같이 가요. 회식 다음 주에도 있고요.</div></div>
+    <div class="turn right"><span class="tag d4">주은</span>
+      <div class="bubble">(가족 일이 있어 회식이 어려운 상황)
+        뭐라고 답하면 친구도 서운하지 않고 예의 있을까?</div></div>
+  </div>
+
+  <div class="warm"><span class="tip-title">💖 정중한 거절 표현 (직장)</span>
+    “죄송합니다 + <strong>이유</strong> + 다음 약속” 3박자.<br>
+    예) “죄송합니다, <strong>그날은 가족 일이 있어서</strong> 어려울 것 같습니다. <strong>다음 회식엔 꼭 함께 하겠습니다.</strong>”
+  </div>
+
+  <div class="tip"><span class="tip-title">💬 의견이 다를 때 — 정중하게</span>
+    <strong>‘무조건 반대’</strong>가 아니라 <strong>‘인정 + 내 의견 + 함께 찾기’</strong> 순서로.<br>
+    예) “네, 좋은 의견이에요. 제 생각엔 <strong>○○도 함께 고려</strong>하면 좋을 것 같습니다. 어떻게 생각하세요?”</div>
+
+  <div class="practice">
+    <h3>📝 협력·부탁·거절 연습</h3>
+
+    <div class="q"><div class="no">8</div>
+      <p>동료의 부탁을 들어주기 어려울 때, <strong>좋은 표현</strong>을 모두 골라 ✔ 표시해 봅시다.</p>
+      <p class="sub-q">▢ ① “싫어요, 바빠요.”</p>
+      <p class="sub-q">▢ ② “죄송합니다, 지금 ○○ 마감이라 어려워요. 30분 뒤에 도와드려도 될까요?”</p>
+      <p class="sub-q">▢ ③ 못 들은 척 한다.</p>
+      <p class="sub-q">▢ ④ “지금은 어려운데, 끝나면 바로 알려 드릴게요.”</p>
+      <p class="sub-q">▢ ⑤ “네…” 하고 억지로 다 떠맡는다.</p>
+    </div>
+
+    <div class="q"><div class="no">9</div>
+      <p>주은이가 회식 권유를 <strong>정중하게 거절</strong>하는 말을 ‘죄송합니다 + 이유 + 다음 약속’ 순서로 만들어 봅시다.</p>
+      <p class="sub-q">죄송: <span class="blank long"></span></p>
+      <p class="sub-q">이유: <span class="blank long"></span></p>
+      <p class="sub-q">다음 약속: <span class="blank long"></span></p>
+      <p class="sub-q">▶ 한 문장으로 자연스럽게 이어 써 보기:</p>
+      <div class="lines two"></div>
+    </div>
+
+    <div class="q"><div class="no">10</div>
+      <p>회의에서 팀장님 의견과 <strong>내 생각이 조금 다를 때</strong>, 정중하게 의견을 내는 말을 만들어 봅시다.
+        ‘인정 + 내 의견 + 함께 찾기’ 틀로.</p>
+      <div class="phrase-card"><strong>틀:</strong> “네, <em>(좋은 점 인정)</em>. 다만 저는 <em>(내 의견)</em> 도 좋을 것 같습니다.
+        <em>(어떻게 생각하세요?)</em>”</div>
+      <div class="lines two"></div>
+    </div>
+
+    <div class="q"><div class="no">11</div>
+      <p>도움을 받았을 때 / 도움을 줬을 때, 어떤 말을 하면 좋을까요?</p>
+      <p class="sub-q">① 선배가 일을 가르쳐 주셨을 때 → “(<span class="blank long"></span>)”</p>
+      <p class="sub-q">② 동료의 일을 도와준 뒤 → “(<span class="blank long"></span>)”</p>
+      <p class="sub-q">③ 후배가 도와줘서 일이 빨리 끝났을 때 → “(<span class="blank long"></span>)”</p>
+    </div>
+  </div>
+
+  <div class="page-no">— 4 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 4. 직장 규칙과 다짐 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">4</div>
+    <div class="ph-title">
+      <h2>직장 규칙과 다짐</h2>
+      <p>직장의 기본 규칙을 알고, 나만의 다짐을 적어요.</p>
+    </div>
+  </div>
+
+  <div class="story">
+    <p>직장에는 모두가 함께 지키기로 약속한 <strong>규칙</strong>이 있어요. 규칙은 누구를 괴롭히기 위한 것이 아니라
+       <strong>서로 안전하고 편하게 일하기 위해</strong> 정한 약속이에요. 작은 규칙을 잘 지키는 사람이
+       동료와 상사에게 <strong>믿음</strong>을 얻어요.</p>
+  </div>
+
+  <h3 style="display:inline-block; background:#ffd54f; color:#004d40; padding:4px 14px; border-radius:16px; font-size:1em; margin: 6px 0 6px;">📋 직장의 기본 규칙 6가지</h3>
+  <div class="rule-grid">
+    <div class="rule"><div class="icon">⏰</div><strong>정시 출근</strong>
+      <small>10분 전 도착</small></div>
+    <div class="rule"><div class="icon">👔</div><strong>단정한 복장</strong>
+      <small>깨끗하고 정리된 옷차림</small></div>
+    <div class="rule"><div class="icon">📵</div><strong>휴대폰 자제</strong>
+      <small>업무 시간엔 잠시 멀리</small></div>
+    <div class="rule"><div class="icon">🧹</div><strong>자리 정돈</strong>
+      <small>책상·서류 깨끗이</small></div>
+    <div class="rule"><div class="icon">🤐</div><strong>비밀 지키기</strong>
+      <small>회사·동료 정보는 밖에서 X</small></div>
+    <div class="rule"><div class="icon">🦺</div><strong>안전 수칙</strong>
+      <small>다치지 않게, 도구는 바르게</small></div>
+  </div>
+
+  <div class="warning"><span class="tip-title">⚠️ 꼭 피해야 할 행동</span>
+    무단 결근·지각, 거짓말, 동료 험담, 회사 물건 함부로 쓰기, 사적인 일에 회사 시간 쓰기,
+    SNS·메신저에 회사 일/사진 올리기 — 이런 행동은 <strong>믿음을 잃게</strong> 해요.</div>
+
+  <div class="practice">
+    <h3>📝 규칙 적용·다짐</h3>
+
+    <div class="q"><div class="no">12</div>
+      <p>다음 행동이 직장 규칙으로 <strong>적절하면 ⭕</strong>, <strong>고쳐야 하면 ❌</strong> 표시해 봅시다.</p>
+      <p class="sub-q">① 9시 출근인데 9시 5분에 자리에 도착한다. → ( <span class="blank"></span> )</p>
+      <p class="sub-q">② 모르는 일이 생기면 선배에게 정중히 여쭤본다. → ( <span class="blank"></span> )</p>
+      <p class="sub-q">③ 업무 시간에 친구와 길게 통화한다. → ( <span class="blank"></span> )</p>
+      <p class="sub-q">④ 회식에서 들은 동료의 사정을 SNS에 올린다. → ( <span class="blank"></span> )</p>
+      <p class="sub-q">⑤ 자리 비울 때 옆 동료에게 “잠시 다녀오겠습니다”라고 말한다. → ( <span class="blank"></span> )</p>
+    </div>
+
+    <div class="q"><div class="no">13</div>
+      <p>다음 상황에서 가장 알맞은 행동을 골라 봅시다.</p>
+      <p class="sub-q"><strong>① 아침에 갑자기 몸이 너무 아파 출근이 어려울 때</strong></p>
+      <p class="sub-q">A. 그냥 안 간다. &nbsp; B. <strong>정해진 시각 전에 팀장님께 전화·문자로 미리 알린다.</strong> &nbsp; C. 다른 사람에게만 말한다.</p>
+      <p class="sub-q">▶ 정답: ( <span class="blank"></span> )</p>
+      <p class="sub-q"><strong>② 옆 동료가 어려운 일을 혼자 끙끙대고 있을 때</strong></p>
+      <p class="sub-q">A. 못 본 척한다. &nbsp; B. <strong>“도와드릴까요?”라고 먼저 묻는다.</strong> &nbsp; C. 팀장님에게 일러바친다.</p>
+      <p class="sub-q">▶ 정답: ( <span class="blank"></span> )</p>
+    </div>
+
+    <div class="q"><div class="no">14</div>
+      <p><strong>나의 직장 다짐</strong> — 내가 일터에서 꼭 지키고 싶은 행동을 구체적으로 세 가지 적어 봅시다.</p>
+    </div>
+  </div>
+
+
+  <div class="page-no">— 5 —</div>
+</section>
+
+</body>
+</html>

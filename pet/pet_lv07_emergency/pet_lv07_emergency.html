@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>반려동물관리사 7차시 — 응급 상황과 병원</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d; font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center; padding: 10px 18px; background: #c62828; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; } .toolbar .muted { color: #ffcdd2; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm; background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffcdd2 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #b71c1c; border-bottom: 2px solid #ef5350; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; }
+.cover-main { text-align: center; padding: 10px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px; background: #c62828; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #b71c1c; font-weight: 900; }
+.cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #7f0000; font-weight: 500; }
+.cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
+.cover-info { background: #fff; border: 2px solid #ef5350; border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+.cover-info h3 { margin: 0 0 8px; color: #b71c1c; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 4px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 16px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #b71c1c; padding-bottom: 3px; }
+.cover-name .label { color: #b71c1c; font-weight: 700; margin-right: 6px; }
+.page-head { display: flex; justify-content: space-between; align-items: flex-end; border-bottom: 2.5px solid #c62828; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #b71c1c; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #c62828; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+.intro { background: #ffebee; border-left: 4px solid #e53935; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #b71c1c; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.tip b { color: #f57f17; }
+.note { background: #e8f5e9; border-left: 4px solid #43a047; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #1b5e20; }
+.activity { background: #fff; border: 1.8px solid #ef9a9a; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #b71c1c; font-size: 1.05em; }
+.activity .tag { background: #ffcdd2; color: #b71c1c; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 60px; border-bottom: 2px solid #b71c1c; text-align: center; padding: 0 6px; color: #b71c1c; font-weight: 700; }
+.blank.short { min-width: 36px; } .blank.long { min-width: 140px; }
+table.qa { width: 100%; border-collapse: collapse; margin: 8px 0; }
+table.qa th, table.qa td { border: 1.5px solid #b0bec5; padding: 6px 8px; text-align: center; }
+table.qa th { background: #ffcdd2; color: #b71c1c; }
+table.qa td.left { text-align: left; }
+.footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center; color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+@media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">반려동물관리사 7차시</span><span class="muted">응급 상황 · A4 4쪽</span></div>
+  <button onclick="window.print()">🖨 인쇄하기</button>
+</div>
+
+<div class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">응급</span> · 반려동물 단원 7/10</div>
+    <div>혜화여자고등학교 특수학급</div>
+  </div>
+  <div class="cover-main">
+    <span class="badge">Lv.7 응급</span>
+    <h1>위험할 때, 침착하게!</h1>
+    <p class="lead">응급 대응 · 중독 · 상처 · 열사병</p>
+  </div>
+  <div class="cover-emoji">🚨 🏥 💊 🌡️</div>
+  <div class="cover-info">
+    <h3>이번 시간에 배울 것</h3>
+    <ul>
+      <li>대표 <b>응급 상황 5가지</b>와 즉시 대응</li>
+      <li>중독을 유발하는 <b>위험 식품·물질</b></li>
+      <li>응급실 방문 시 <b>보호자 통보</b>와 기록</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+    <div class="line"><span class="label">반</span></div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>1. 응급 상황 5가지</h2><span class="step">Step 1</span></div>
+  <div class="intro">
+    <b>💡 시간이 생명</b> — 응급 상황은 5분이 <b>생사</b>를 좌우. 관리사는 <b>침착</b>하게 대응하고 즉시 <b>수의사·보호자</b>에게 알려요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 하은이의 응급 진단</h3><span class="tag">응급</span></div>
+    <table class="qa">
+      <tr><th>상황</th><th>즉시 대응</th></tr>
+      <tr><td class="left">🩸 다쳐서 출혈</td><td class="left">깨끗한 <b>수건 압박 지혈</b> · 병원 이동</td></tr>
+      <tr><td class="left">🌡️ 열사병 (혀 파랑·헐떡임)</td><td class="left"><b>시원한 곳</b>·미지근한 물·병원</td></tr>
+      <tr><td class="left">🍫 중독 (초콜릿·양파 등)</td><td class="left"><b>즉시 병원</b>·먹은 것·양 기록</td></tr>
+      <tr><td class="left">🍖 이물 삼킴 · 목 막힘</td><td class="left"><b>하임리히</b>·병원</td></tr>
+      <tr><td class="left">⚡ 감전·교통사고</td><td class="left">움직이지 말고 <b>이동장에 조심히</b>·병원</td></tr>
+    </table>
+    <div class="note"><b>❗ 절대 X</b> 인터넷 정보로 <b>자가 처치</b>. 잘못된 약·강제 구토 유도는 상태 <b>악화</b>!</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 하영이의 응급 대응 순서</h3><span class="tag">순서</span></div>
+    <p>펫샵에서 강아지가 갑자기 <b>구토·경련</b>. 어떻게?</p>
+    <ol style="padding-left: 22px;">
+      <li>침착하게 <b>주변 위험 요소</b> 치우기</li>
+      <li><b>보호자·매니저</b> 즉시 연락</li>
+      <li><b>24시 동물병원</b>에 전화 → "지금 갑니다"</li>
+      <li>강아지를 <b>담요·이동장</b>으로 안전하게 이동</li>
+      <li>병원 도착 후 <b>상황 상세 설명</b> (시각·증상·먹은 것)</li>
+    </ol>
+  </div>
+
+  <div class="footer-note">반려동물관리사 7차시 · 1/4쪽 · 응급</div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>2. 위험한 음식·물질</h2><span class="step">Step 2</span></div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 주은이의 위험 리스트</h3><span class="tag">중독</span></div>
+    <table class="qa">
+      <tr><th>물질</th><th>위험</th></tr>
+      <tr><td class="left">🍫 초콜릿·카카오</td><td class="left"><b>테오브로민 중독</b> → 경련·사망</td></tr>
+      <tr><td class="left">🧅 양파·마늘·부추</td><td class="left"><b>적혈구 파괴</b> · 빈혈</td></tr>
+      <tr><td class="left">🍇 포도·건포도</td><td class="left"><b>신부전</b></td></tr>
+      <tr><td class="left">🥑 아보카도</td><td class="left"><b>페르신 중독</b></td></tr>
+      <tr><td class="left">🍬 자일리톨 (껌·과자)</td><td class="left"><b>혈당 급락</b> · 간부전</td></tr>
+      <tr><td class="left">☕ 카페인 (커피·차)</td><td class="left">심장 이상</td></tr>
+      <tr><td class="left">🍶 술·알코올</td><td class="left">호흡 곤란</td></tr>
+      <tr><td class="left">🌰 마카다미아·호두</td><td class="left">신경 이상</td></tr>
+      <tr><td class="left">🥛 우유 (성묘)</td><td class="left"><b>유당불내</b> · 설사</td></tr>
+      <tr><td class="left">🌿 백합·튤립 (고양이)</td><td class="left"><b>신부전</b> · 치명적</td></tr>
+    </table>
+    <div class="tip"><b>💡 원칙</b> "사람 음식은 <b>기본적으로</b> X". 반려동물 전용 간식으로!</div>
+  </div>
+
+  <div class="footer-note">반려동물관리사 7차시 · 2/4쪽 · 중독 물질</div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>3. 응급처치 기본</h2><span class="step">Step 3</span></div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 주현이의 상처·출혈 대응</h3><span class="tag">상처</span></div>
+    <ol style="padding-left: 22px;">
+      <li><b>깨끗한 물</b>로 상처 씻기</li>
+      <li>깨끗한 <b>거즈·수건</b>으로 <b>10분 이상 압박</b> 지혈</li>
+      <li>강아지가 상처를 <b>핥지 못하게</b> 넥카라·붕대</li>
+      <li>깊거나 지혈 안 되면 <b>병원</b> 즉시</li>
+    </ol>
+    <div class="note"><b>❗ 절대 X</b> 소독약(과산화수소·알콜) 직접 사용 X → 세포 파괴. 세척은 <b>생리식염수·깨끗한 물</b>만.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 미정이의 열사병 대응</h3><span class="tag">열사병</span></div>
+    <p>여름·차 안에서 자주 발생. 강아지는 땀샘이 <b>발바닥에만</b> 있어 열 방출 어려움.</p>
+    <table class="qa">
+      <tr><th>증상</th><th>대응</th></tr>
+      <tr><td class="left">헐떡임 심함·침 흘림</td><td class="left"><b>시원한 그늘</b>로 이동</td></tr>
+      <tr><td class="left">잇몸 빨강·자주색</td><td class="left"><b>미지근한(찬물 X)</b> 물로 몸 적시기</td></tr>
+      <tr><td class="left">쓰러짐·경련</td><td class="left"><b>즉시 병원</b> · 에어컨 있는 차량</td></tr>
+    </table>
+    <div class="note"><b>❗ 절대 X</b> 얼음물·찬물 → <b>혈관 수축</b>으로 오히려 위험. 여름철 차 안에 <b>5분도</b> 두지 마세요!</div>
+  </div>
+
+  <div class="footer-note">반려동물관리사 7차시 · 3/4쪽 · 응급처치</div>
+</div>
+
+<div class="page">
+  <div class="page-head"><h2>4. 병원 · 자기점검</h2><span class="step">Step 4</span></div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 6. 채원이의 응급 연락처</h3><span class="tag">준비</span></div>
+    <p>펫샵·호텔·미용실에 <b>비치해 둘 정보</b>:</p>
+    <ul>
+      <li>가까운 <b>동물병원</b> 전화번호·주소</li>
+      <li>24시 응급 동물병원 (밤·주말)</li>
+      <li>보호자 <b>비상 연락처</b> (2인 이상)</li>
+      <li>강아지·고양이 <b>기록</b> (품종·나이·질환·약물)</li>
+      <li>이동장·담요 위치</li>
+    </ul>
+    <div class="tip"><b>💡 관리사의 역할</b> 응급 시 <b>침착</b>하고 <b>기록</b> 정확히. 감정에 휘둘리지 말고 <b>순서대로</b>.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 7. 예은이의 상황 판단</h3><span class="tag">판단</span></div>
+    <table class="qa">
+      <tr><th style="width:65%">상황</th><th>대응</th></tr>
+      <tr><td class="left">호텔링 강아지가 <b>초콜릿 조각</b>을 먹었다</td><td class="left"><span class="blank">즉시 병원 · 양·시각 기록</span></td></tr>
+      <tr><td class="left">고양이가 <b>이물</b>을 삼켰다</td><td class="left"><span class="blank"></span></td></tr>
+      <tr><td class="left">산책 중 <b>다른 개에게 물림</b></td><td class="left"><span class="blank"></span></td></tr>
+      <tr><td class="left">여름 산책 후 <b>혀가 파래짐</b></td><td class="left"><span class="blank"></span></td></tr>
+    </table>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 8. 스스로 확인</h3><span class="tag">자기점검</span></div>
+    <table class="qa">
+      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+      <tr><td class="left">응급 상황 5가지를 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">위험 음식 5개 이상 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">응급처치 기본을 안다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    </table>
+  </div>
+
+  <div class="footer-note">반려동물관리사 7차시 · 4/4쪽 · 응급 마무리</div>
+</div>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>한글 쓰기 학습지</title>
+  <style>
+    /* ── 전체 기본 설정 ── */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: '맑은 고딕', 'Malgun Gothic', sans-serif;
+      background: #f0f0f0;
+    }
+
+    /* ── A4 페이지 ── */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      background: #fff;
+      margin: 10mm auto;
+      padding: 12mm 14mm;
+      position: relative;
+    }
+
+    /* ── 인쇄 설정 ── */
+    @media print {
+      body { background: #fff; }
+      .page {
+        margin: 0;
+        padding: 12mm 14mm;
+        page-break-after: always;
+        box-shadow: none;
+      }
+    }
+
+    /* ── 헤더 ── */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid #333;
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+    }
+
+    .title {
+      font-size: 22pt;
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: #1a1a1a;
+    }
+
+    .info-box {
+      display: flex;
+      gap: 10px;
+      font-size: 10pt;
+    }
+
+    .info-box span {
+      border-bottom: 1.5px solid #555;
+      padding-bottom: 2px;
+      min-width: 60px;
+    }
+
+    /* ── 섹션 제목 ── */
+    .section-title {
+      font-size: 12pt;
+      font-weight: 700;
+      background: #333;
+      color: #fff;
+      padding: 3px 10px;
+      margin: 9px 0 5px;
+      border-radius: 3px;
+      letter-spacing: 1px;
+    }
+
+    /* ── 쓰기 줄 (격자 스타일) ── */
+    .write-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 4px;
+      gap: 6px;
+    }
+
+    .label {
+      font-size: 20pt;
+      font-weight: 700;
+      width: 36px;
+      text-align: center;
+      color: #222;
+      flex-shrink: 0;
+    }
+
+    .label-word {
+      font-size: 16pt;
+      font-weight: 700;
+      width: 72px;
+      text-align: center;
+      color: #222;
+      flex-shrink: 0;
+      letter-spacing: 2px;
+    }
+
+    .label-sentence {
+      font-size: 13pt;
+      font-weight: 700;
+      min-width: 130px;
+      color: #222;
+      flex-shrink: 0;
+    }
+
+    /* 개별 글자 박스 */
+    .char-box {
+      width: 34px;
+      height: 34px;
+      border: 1.5px solid #aaa;
+      position: relative;
+      flex-shrink: 0;
+    }
+
+    /* 안내선 (십자) */
+    .char-box::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 0; right: 0;
+      border-top: 1px dashed #ddd;
+    }
+
+    .char-box::after {
+      content: '';
+      position: absolute;
+      left: 50%; top: 0; bottom: 0;
+      border-left: 1px dashed #ddd;
+    }
+
+    /* 보기 글자 (회색으로 표시) */
+    .char-box.sample {
+      background: #f9f9f9;
+    }
+
+    .char-box.sample span {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 18pt;
+      font-weight: 700;
+      color: #bbb;
+      z-index: 1;
+    }
+
+    /* 문장 쓰기용 긴 줄 */
+    .sentence-line {
+      flex: 1;
+      height: 34px;
+      border-bottom: 2px solid #555;
+      position: relative;
+    }
+
+    /* ── 2단 레이아웃 (자음/모음) ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4px 12px;
+    }
+
+    /* ── 구분선 ── */
+    hr {
+      border: none;
+      border-top: 1px dashed #ccc;
+      margin: 6px 0;
+    }
+
+    /* ── 칭찬 스티커 영역 ── */
+    .sticker-area {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .sticker-box {
+      width: 30px;
+      height: 30px;
+      border: 1.5px dashed #aaa;
+      border-radius: 50%;
+    }
+
+    .sticker-label {
+      font-size: 9pt;
+      color: #888;
+    }
+
+    /* 빈 쓰기 줄 (자유 쓰기) */
+    .free-line {
+      height: 38px;
+      border-bottom: 2px solid #999;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════ 1페이지 : 자음·모음 / 글자 쓰기 ════════════════ -->
+<div class="page">
+
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="title">한글 쓰기 연습</div>
+    <div class="info-box">
+      <span>이름 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span>날짜 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- 1. 모음 쓰기 -->
+  <div class="section-title">① 모음을 따라 써 보세요</div>
+  <div class="two-col">
+
+    <div class="write-row">
+      <div class="label">ㅏ</div>
+      <div class="char-box sample"><span>ㅏ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">ㅓ</div>
+      <div class="char-box sample"><span>ㅓ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">ㅗ</div>
+      <div class="char-box sample"><span>ㅗ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">ㅜ</div>
+      <div class="char-box sample"><span>ㅜ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">ㅡ</div>
+      <div class="char-box sample"><span>ㅡ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">ㅣ</div>
+      <div class="char-box sample"><span>ㅣ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <!-- 2. 자음 쓰기 -->
+  <div class="section-title">② 자음을 따라 써 보세요</div>
+  <div class="two-col">
+
+    <div class="write-row">
+      <div class="label">ㄱ</div>
+      <div class="char-box sample"><span>ㄱ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">ㄴ</div>
+      <div class="char-box sample"><span>ㄴ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">ㄷ</div>
+      <div class="char-box sample"><span>ㄷ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">ㄹ</div>
+      <div class="char-box sample"><span>ㄹ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">ㅁ</div>
+      <div class="char-box sample"><span>ㅁ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">ㅂ</div>
+      <div class="char-box sample"><span>ㅂ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">ㅅ</div>
+      <div class="char-box sample"><span>ㅅ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">ㅇ</div>
+      <div class="char-box sample"><span>ㅇ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">ㅈ</div>
+      <div class="char-box sample"><span>ㅈ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">ㅎ</div>
+      <div class="char-box sample"><span>ㅎ</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <!-- 3. 받침 없는 글자 -->
+  <div class="section-title">③ 글자를 따라 써 보세요 (받침 없는 글자)</div>
+  <div class="two-col">
+
+    <div class="write-row">
+      <div class="label">가</div>
+      <div class="char-box sample"><span>가</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">나</div>
+      <div class="char-box sample"><span>나</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">다</div>
+      <div class="char-box sample"><span>다</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">마</div>
+      <div class="char-box sample"><span>마</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">바</div>
+      <div class="char-box sample"><span>바</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">사</div>
+      <div class="char-box sample"><span>사</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+  </div>
+
+  <!-- 칭찬 스티커 -->
+  <div class="sticker-area">
+    <span class="sticker-label">칭찬 스티커</span>
+    <div class="sticker-box"></div>
+    <div class="sticker-box"></div>
+    <div class="sticker-box"></div>
+  </div>
+
+</div>
+
+
+<!-- ════════════════ 2페이지 : 낱말·문장 쓰기 ════════════════ -->
+<div class="page">
+
+  <!-- 헤더 -->
+  <div class="header">
+    <div class="title">한글 쓰기 연습</div>
+    <div class="info-box">
+      <span>이름 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span>날짜 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- 4. 받침 있는 글자 -->
+  <div class="section-title">④ 글자를 따라 써 보세요 (받침 있는 글자)</div>
+  <div class="two-col">
+
+    <div class="write-row">
+      <div class="label">산</div>
+      <div class="char-box sample"><span>산</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">말</div>
+      <div class="char-box sample"><span>말</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">밥</div>
+      <div class="char-box sample"><span>밥</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">눈</div>
+      <div class="char-box sample"><span>눈</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">손</div>
+      <div class="char-box sample"><span>손</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+    <div class="write-row">
+      <div class="label">발</div>
+      <div class="char-box sample"><span>발</span></div>
+      <div class="char-box"></div><div class="char-box"></div><div class="char-box"></div><div class="char-box"></div>
+    </div>
+
+  </div>
+
+  <hr>
+
+  <!-- 5. 낱말 쓰기 -->
+  <div class="section-title">⑤ 낱말을 따라 써 보세요</div>
+
+  <div class="write-row" style="margin-bottom:6px;">
+    <div class="label-word">사 과</div>
+    <div class="char-box sample"><span>사</span></div>
+    <div class="char-box sample"><span>과</span></div>
+    <div class="char-box"></div><div class="char-box"></div>
+    <div class="char-box"></div><div class="char-box"></div>
+    <div class="char-box"></div><div class="char-box"></div>
+  </div>
+
+  <div class="write-row" style="margin-bottom:6px;">
+    <div class="label-word">하 늘</div>
+    <div class="char-box sample"><span>하</span></div>
+    <div class="char-box sample"><span>늘</span></div>
+    <div class="char-box"></div><div class="char-box"></div>
+    <div class="char-box"></div><div class="char-box"></div>
+    <div class="char-box"></div><div class="char-box"></div>
+  </div>
+
+  <div class="write-row" style="margin-bottom:6px;">
+    <div class="label-word">나 무</div>
+    <div class="char-box sample"><span>나</span></div>
+    <div class="char-box sample"><span>무</span></div>
+    <div class="char-box"></div><div class="char-box"></div>
+    <div class="char-box"></div><div class="char-box"></div>
+    <div class="char-box"></div><div class="char-box"></div>
+  </div>
+
+  <div class="write-row" style="margin-bottom:6px;">
+    <div class="label-word">친 구</div>
+    <div class="char-box sample"><span>친</span></div>
+    <div class="char-box sample"><span>구</span></div>
+    <div class="char-box"></div><div class="char-box"></div>
+    <div class="char-box"></div><div class="char-box"></div>
+    <div class="char-box"></div><div class="char-box"></div>
+  </div>
+
+  <div class="write-row" style="margin-bottom:6px;">
+    <div class="label-word">학 교</div>
+    <div class="char-box sample"><span>학</span></div>
+    <div class="char-box sample"><span>교</span></div>
+    <div class="char-box"></div><div class="char-box"></div>
+    <div class="char-box"></div><div class="char-box"></div>
+    <div class="char-box"></div><div class="char-box"></div>
+  </div>
+
+  <hr>
+
+  <!-- 6. 문장 쓰기 -->
+  <div class="section-title">⑥ 문장을 따라 써 보세요</div>
+
+  <div class="write-row" style="margin-bottom: 8px; align-items: flex-end;">
+    <div class="label-sentence">나는 학교에 갑니다.</div>
+    <div class="sentence-line"></div>
+  </div>
+
+  <div class="write-row" style="margin-bottom: 8px; align-items: flex-end;">
+    <div class="label-sentence">선생님, 안녕하세요.</div>
+    <div class="sentence-line"></div>
+  </div>
+
+  <div class="write-row" style="margin-bottom: 8px; align-items: flex-end;">
+    <div class="label-sentence">나는 밥을 먹었습니다.</div>
+    <div class="sentence-line"></div>
+  </div>
+
+  <div class="write-row" style="margin-bottom: 8px; align-items: flex-end;">
+    <div class="label-sentence">오늘 날씨가 맑습니다.</div>
+    <div class="sentence-line"></div>
+  </div>
+
+  <hr>
+
+  <!-- 7. 자유 쓰기 -->
+  <div class="section-title">⑦ 자유롭게 써 보세요</div>
+  <div class="free-line"></div>
+  <div class="free-line"></div>
+  <div class="free-line"></div>
+
+  <!-- 칭찬 스티커 -->
+  <div class="sticker-area">
+    <span class="sticker-label">칭찬 스티커</span>
+    <div class="sticker-box"></div>
+    <div class="sticker-box"></div>
+    <div class="sticker-box"></div>
+  </div>
+
+</div>
+
+</body>
+</html>

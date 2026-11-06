@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>S20 왕따·따돌림 인식과 대처 — 예은·주현·미정</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #fff59d 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #f57f17;
+  border-bottom: 2px solid #fbc02d; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; color: #f57f17; }
+.cover-main { text-align: center; padding: 8px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #f57f17; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 1.85em; letter-spacing: -1.5px; color: #e65100; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #f57f17; font-weight: 500; }
+.cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 8px; }
+.cover-info { background: #fff; border: 2px solid #fbc02d; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 6px; color: #f57f17; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 3px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 14px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #f57f17; padding-bottom: 3px; }
+.cover-name .label { color: #e65100; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #f57f17; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #e65100; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #f57f17; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #fff8e1; border-left: 4px solid #f57f17; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #e65100; }
+.tip { background: #e0f2f1; border-left: 4px solid #00897b; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.tip b { color: #004d40; }
+.note { background: #fff3e0; border-left: 4px solid #ef6c00; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #bf360c; }
+
+.activity { background: #fff; border: 1.8px solid #fbc02d; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #e65100; font-size: 1.05em; }
+.activity .tag { background: #fff59d; color: #e65100; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 60px; border-bottom: 2px solid #e65100; text-align: center; padding: 0 6px; color: #e65100; font-weight: 700; }
+.blank.long { min-width: 160px; }
+
+.compare-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
+.compare-table th, .compare-table td { border: 1.3px solid #fbc02d; padding: 6px 10px; text-align: left; vertical-align: middle; }
+.compare-table th { background: #fff8e1; color: #e65100; font-weight: 700; text-align: center; }
+.compare-table .bad { background: #ffebee; color: #b71c1c; }
+.compare-table .good { background: #e8f5e9; color: #1b5e20; font-weight: 700; }
+
+.principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0; }
+.pri-card { background: #fff; border: 2px solid #f57f17; border-radius: 10px; padding: 10px; text-align: center; }
+.pri-card .icon { font-size: 1.7em; }
+.pri-card .name { font-weight: 700; color: #e65100; }
+.pri-card .desc { font-size: 0.85em; color: #f57f17; margin-top: 3px; }
+
+.dialogue { background: #fff8e1; border: 1.5px solid #fbc02d; border-radius: 12px; padding: 12px 14px; margin: 8px 0; }
+.dialogue .title { font-weight: 700; color: #e65100; margin-bottom: 6px; }
+.speech { display: flex; gap: 10px; margin: 8px 0; align-items: flex-start; }
+.speech.right { justify-content: flex-end; }
+.speech .avatar { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: #ffe0b2; color: #bf360c; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.9em; }
+.speech.right .avatar { background: #f57f17; color: #fff; font-size: 0.8em; }
+.speech .bubble { max-width: 76%; background: #fff; border: 1.5px solid #fbc02d; border-radius: 14px; padding: 8px 12px; font-size: 0.95em; }
+.speech.right .bubble { background: #fff8e1; border-color: #f57f17; }
+.speech .bubble .who { font-weight: 700; color: #bf360c; font-size: 0.85em; margin-bottom: 2px; }
+.speech.right .bubble .who { color: #e65100; }
+
+.situation-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 8px 0; }
+.sit-card { background: #fff; border: 1.5px solid #fbc02d; border-radius: 10px; padding: 10px; }
+.sit-card .place { background: #fff8e1; color: #e65100; padding: 4px 8px; border-radius: 6px; font-weight: 700; font-size: 0.9em; margin-bottom: 6px; text-align: center; }
+.sit-card .role { font-size: 0.85em; color: #f57f17; margin-bottom: 4px; }
+.sit-card .example { background: #f3e5f5; color: #4a148c; padding: 4px 8px; border-radius: 6px; font-size: 0.9em; margin: 4px 0; font-style: italic; }
+.sit-card .fill { border-bottom: 1px solid #90a4ae; min-height: 22px; margin: 4px 0; }
+
+.checklist { background: #ffebee; border: 2px dashed #c62828; border-radius: 12px; padding: 12px 14px; margin: 8px 0; }
+.checklist .title { color: #b71c1c; font-weight: 700; margin-bottom: 6px; }
+.checklist label { display: block; padding: 4px 0; font-size: 0.95em; }
+
+.page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
+@media print {
+  body { background: #fff; font-size: 9.5pt; line-height: 1.35; }
+  .toolbar, #name-editor { display: none; }
+  .page { box-shadow: none; margin: 0 auto; padding: 10mm 12mm; }
+  .activity { padding: 8px 11px; margin: 7px 0; }
+  .intro, .tip, .note { padding: 6px 10px; margin: 5px 0; }
+  .dialogue { padding: 8px 11px; margin: 6px 0; }
+  .speech { margin: 5px 0; }
+  .speech .bubble { padding: 6px 10px; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">🌼 S20 왕따·따돌림 인식과 대처</span><span class="muted">사회성 · Level 20</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<!-- 표지 -->
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#e65100;">S20 · 심화</b></span>
+    <span>고등학교 특수학급</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">따돌림 · 방관자·피해자</span>
+    <h1>예은·주현·미정의 따돌림 대처</h1>
+    <p class="lead">방관자에서 도움 손 내미는 사람으로</p>
+  </div>
+  <div class="cover-emoji">🌼 🤝 💛</div>
+  <div class="cover-info">
+    <h3>🎯 오늘의 목표</h3>
+    <ul>
+      <li>따돌림의 <b>미묘한 신호</b>를 알아본다.</li>
+      <li><b>방관자·가담자·도움자</b>의 차이를 안다.</li>
+      <li>내가 <b>피해자</b>일 때, <b>목격자</b>일 때 각각 할 일을 안다.</li>
+    </ul>
+  </div>
+  <div class="cover-info" style="border-color:#a5d6a7;">
+    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+    <ul>
+      <li><b>예은</b>: 새 친구가 자꾸 모임에서 빠지는 걸 목격</li>
+      <li><b>주현</b>: 반에서 조용히 소외되는 친구를 봄</li>
+      <li><b>미정</b>: 요즘 자기가 따돌림당하는 것 같아 힘듦</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">학년·반</span></div>
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+  <div class="page-foot">사회성 시리즈 · S20 · 표지</div>
+</section>
+
+<!-- 1쪽 -->
+<section class="page">
+  <div class="page-head">
+    <h2>🤝 방관자에서 도움자로</h2>
+    <span class="step">1쪽 · 원리</span>
+  </div>
+  <div class="intro">
+    따돌림은 <b>때리지 않아도 폭력</b>이에요. 말 안 하기·모임 배제·소문 퍼뜨리기·눈총 주기 모두 따돌림에 해당해요.
+    <b>가만히 보는 것(방관)도 사실상 가담</b>이 될 수 있어요.
+  </div>
+
+  <div class="principles">
+    <div class="pri-card">
+      <div class="icon">😑</div>
+      <div class="name">가담자</div>
+      <div class="desc">직접 놀리거나 배제 주도</div>
+    </div>
+    <div class="pri-card">
+      <div class="icon">🙈</div>
+      <div class="name">방관자</div>
+      <div class="desc">보고도 침묵·모른 척</div>
+    </div>
+    <div class="pri-card">
+      <div class="icon">🤝</div>
+      <div class="name">도움자</div>
+      <div class="desc">말 걸어 주기·신고·함께 있기</div>
+    </div>
+  </div>
+
+  <table class="compare-table">
+    <tr>
+      <th style="width:22%;">따돌림 신호</th>
+      <th style="width:78%;">알아채기 (내 반 친구·나 자신)</th>
+    </tr>
+    <tr>
+      <td class="bad"><b>배제</b></td>
+      <td>급식·모임·조 편성에서 <b>반복적으로 혼자</b> 남음</td>
+    </tr>
+    <tr>
+      <td class="bad"><b>소문</b></td>
+      <td>사실이 아닌 얘기·별명이 <b>돌아다님</b></td>
+    </tr>
+    <tr>
+      <td class="bad"><b>무시</b></td>
+      <td>인사·질문에 답이 없거나, 눈을 마주치지 않음</td>
+    </tr>
+    <tr>
+      <td class="bad"><b>몸짓</b></td>
+      <td>지나갈 때 눈총·비웃음·수군거림</td>
+    </tr>
+    <tr>
+      <td class="bad"><b>SNS</b></td>
+      <td>단톡에서 나만 빼기·저격글·인용 놀림</td>
+    </tr>
+    <tr>
+      <td class="bad"><b>내 몸</b></td>
+      <td>학교 가기 싫음·잠 못 잠·복통·눈물</td>
+    </tr>
+  </table>
+
+  <div class="dialogue">
+    <div class="title">📖 예은이의 도움자 행동</div>
+    <div class="speech">
+      <div class="avatar">예은</div>
+      <div class="bubble">
+        <div class="who">예은</div>
+        (혼자 앉아 있는 친구에게 다가가) 여기 앉아도 돼? 오늘 급식 뭐 나왔더라?
+      </div>
+    </div>
+    <div class="speech right">
+      <div class="bubble">
+        <div class="who">친구</div>
+        어... 응. 미역국이야.
+      </div>
+      <div class="avatar">친구</div>
+    </div>
+    <div class="speech">
+      <div class="avatar">예은</div>
+      <div class="bubble">
+        <div class="who">예은</div>
+        너 <b>수학 수업 필기 잘하더라.</b> 나 어제 결석해서 <b>부탁해도 될까?</b> 대신 내가 사회 필기 빌려줄게.
+      </div>
+    </div>
+    <div class="speech right">
+      <div class="bubble">
+        <div class="who">친구</div>
+        (웃으며) 응, 좋아. 고마워.
+      </div>
+      <div class="avatar">친구</div>
+    </div>
+  </div>
+
+  <div class="page-foot">사회성 시리즈 · S20 · 1쪽 / 2</div>
+</section>
+
+<!-- 2쪽 -->
+<section class="page">
+  <div class="page-head">
+    <h2>💛 실전: 목격자·피해자의 할 일</h2>
+    <span class="step">2쪽 · 실전</span>
+  </div>
+  <div class="intro">
+    한 사람의 <b>따뜻한 한마디</b>가 큰 힘이 돼요. 무리에 반대하는 게 어려우면, <b>혼자 조용히 말 걸어 주기</b>부터 시작.
+    내가 피해자라면, <b>혼자 참지 말고</b> 도움을 요청해요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 상황별 도움 행동</h3><span class="tag">6장면</span></div>
+    <div class="situation-grid">
+      <div class="sit-card">
+        <div class="place">🍚 급식</div>
+        <div class="role">혼자 앉은 친구</div>
+        <div class="example">예: "여기 앉아도 돼?"</div>
+        <div class="fill"></div>
+        <div class="fill"></div>
+      </div>
+      <div class="sit-card">
+        <div class="place">👥 조 편성</div>
+        <div class="role">아무도 안 뽑는 친구</div>
+        <div class="example">예: "○○야, 우리 조 하자."</div>
+        <div class="fill"></div>
+        <div class="fill"></div>
+      </div>
+      <div class="sit-card">
+        <div class="place">📱 단톡</div>
+        <div class="role">저격글 올라옴</div>
+        <div class="example">예: 캡처 → 담임샘 알림</div>
+        <div class="fill"></div>
+        <div class="fill"></div>
+      </div>
+      <div class="sit-card">
+        <div class="place">🚻 화장실</div>
+        <div class="role">친구가 우는 걸 봄</div>
+        <div class="example">예: "괜찮아? 나도 옆에 있을게."</div>
+        <div class="fill"></div>
+        <div class="fill"></div>
+      </div>
+      <div class="sit-card">
+        <div class="place">🏫 복도</div>
+        <div class="role">놀림 목격</div>
+        <div class="example">예: "그만하자, 재미없어."</div>
+        <div class="fill"></div>
+        <div class="fill"></div>
+      </div>
+      <div class="sit-card">
+        <div class="place">🆘 내가 피해자</div>
+        <div class="role">힘든 시간</div>
+        <div class="example">예: 담임·부모·Wee·1388</div>
+        <div class="fill"></div>
+        <div class="fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="checklist">
+    <div class="title">✅ 도움자·피해자 셀프 체크</div>
+    <label><input type="checkbox" style="margin-right:6px;"> 혼자 있는 친구에게 <b>한마디 걸었다</b></label>
+    <label><input type="checkbox" style="margin-right:6px;"> 놀림·저격에 <b>동참하지 않고</b> 자리 옮겼다</label>
+    <label><input type="checkbox" style="margin-right:6px;"> 심각한 상황은 <b>담임·부모</b>에게 알렸다</label>
+    <label><input type="checkbox" style="margin-right:6px;"> 내가 힘들 땐 <b>117·1388·Wee</b>에 도움 요청</label>
+    <label><input type="checkbox" style="margin-right:6px;"> 나에게 "내 잘못이 아니야"라고 말했다</label>
+  </div>
+
+  <div class="note">
+    🌼 <b>축하해요.</b> 사회성 시리즈 <b>S1~S20</b>을 모두 마쳤어요.
+    자기소개부터 학교폭력·따돌림 대처까지, 이제 여러 관계와 상황에서 <b>서로 존중하는 힘</b>을 갖췄어요.
+    실생활에서 오늘 배운 것 <b>딱 한 가지</b>만이라도 이번 주에 실천해 보세요!
+  </div>
+
+  <div class="page-foot">사회성 시리즈 · S20 · 2쪽 / 2</div>
+</section>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

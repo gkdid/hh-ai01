@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>S30 종합 · 어른의 대인관계 — 하은·하영·주은·주현·미정·채원·예은</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ce93d8 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #4a148c;
+  border-bottom: 2px solid #ab47bc; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; color: #6a1b9a; }
+.cover-main { text-align: center; padding: 8px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #6a1b9a; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 1.9em; letter-spacing: -1.5px; color: #4a148c; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #6a1b9a; font-weight: 500; }
+.cover-emoji { text-align: center; font-size: 3.2em; margin: 12px 0; letter-spacing: 5px; }
+.cover-info { background: #fff; border: 2px solid #ab47bc; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 6px; color: #4a148c; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 3px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 14px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #6a1b9a; padding-bottom: 3px; }
+.cover-name .label { color: #4a148c; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #6a1b9a; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #4a148c; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #6a1b9a; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #f3e5f5; border-left: 4px solid #6a1b9a; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #4a148c; }
+.tip { background: #e0f2f1; border-left: 4px solid #00897b; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.tip b { color: #004d40; }
+.note { background: #fff3e0; border-left: 4px solid #ef6c00; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #bf360c; }
+
+.activity { background: #fff; border: 1.8px solid #ab47bc; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #4a148c; font-size: 1.05em; }
+.activity .tag { background: #e1bee7; color: #4a148c; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 60px; border-bottom: 2px solid #4a148c; text-align: center; padding: 0 6px; color: #4a148c; font-weight: 700; }
+.blank.long { min-width: 160px; }
+
+.review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin: 8px 0; }
+.review-card { background: #fff; border: 1.5px solid; border-radius: 10px; padding: 7px 10px; font-size: 0.86em; }
+.review-card .num { font-weight: 900; padding: 2px 8px; border-radius: 8px; display: inline-block; margin-bottom: 3px; color: #fff; font-size: 0.85em; }
+.review-card .title { font-weight: 700; margin-left: 4px; font-size: 0.95em; }
+.review-card .rule { font-size: 0.85em; margin-top: 2px; color: #4e342e; }
+.review-card.c1 { border-color: #ad1457; } .review-card.c1 .num { background: #ad1457; }
+.review-card.c2 { border-color: #6a1b9a; } .review-card.c2 .num { background: #6a1b9a; }
+.review-card.c3 { border-color: #283593; } .review-card.c3 .num { background: #283593; }
+.review-card.c4 { border-color: #0277bd; } .review-card.c4 .num { background: #0277bd; }
+.review-card.c5 { border-color: #00695c; } .review-card.c5 .num { background: #00695c; }
+.review-card.c6 { border-color: #558b2f; } .review-card.c6 .num { background: #558b2f; }
+.review-card.c7 { border-color: #ef6c00; } .review-card.c7 .num { background: #ef6c00; }
+.review-card.c8 { border-color: #c62828; } .review-card.c8 .num { background: #c62828; }
+.review-card.c9 { border-color: #33691e; } .review-card.c9 .num { background: #33691e; }
+
+.map-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0; }
+.map-card { background: #fff; border: 2px solid #6a1b9a; border-radius: 10px; padding: 8px 10px; }
+.map-card .m-title { background: #f3e5f5; color: #4a148c; padding: 3px 8px; border-radius: 6px; font-weight: 700; text-align: center; font-size: 0.9em; margin-bottom: 4px; }
+.map-card .m-line { border-bottom: 1px solid #90a4ae; min-height: 20px; margin: 3px 0; font-size: 0.85em; }
+.map-card .m-hint { font-size: 0.78em; color: #6a1b9a; font-style: italic; margin-bottom: 3px; }
+
+.checklist { background: #fff8e1; border: 2px dashed #f57f17; border-radius: 12px; padding: 12px 14px; margin: 8px 0; }
+.checklist .title { color: #bf360c; font-weight: 700; margin-bottom: 6px; }
+.checklist label { display: block; padding: 4px 0; font-size: 0.95em; }
+
+.page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
+@media print { body { background: #fff; font-size: 9.5pt; line-height: 1.35; } .toolbar, #name-editor { display: none; } .page { box-shadow: none; margin: 0 auto; padding: 10mm 12mm; } .review-grid { gap: 5px; } .review-card { padding: 6px 8px; } .map-grid { gap: 6px; } .map-card { padding: 6px 8px; } .activity { padding: 8px 11px; margin: 7px 0; } .intro, .tip, .note { padding: 6px 10px; margin: 5px 0; } .checklist { padding: 8px 11px; } .checklist label { padding: 2px 0; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">🎓 S30 종합 · 어른의 대인관계</span><span class="muted">사회성 · Level 30 · 마지막</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#4a148c;">S30 · 마지막</b></span>
+    <span>고등학교 특수학급</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">종합 · 관계망 지도</span>
+    <h1>내가 만들어 가는 어른의 관계</h1>
+    <p class="lead">S11~S29 총정리 + 나의 관계망 지도 + 1년 계획</p>
+  </div>
+  <div class="cover-emoji">🎓 🌐 💖</div>
+  <div class="cover-info">
+    <h3>🎯 오늘의 목표</h3>
+    <ul>
+      <li>지금까지 배운 <b>사회성 원칙</b>을 한눈에 정리한다.</li>
+      <li>내 <b>관계망 6영역</b>을 지도로 그린다.</li>
+      <li>앞으로 <b>1년 계획</b>을 세운다.</li>
+    </ul>
+  </div>
+  <div class="cover-info" style="border-color:#a5d6a7;">
+    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+    <ul>
+      <li><b>하은·하영·주은·주현·미정·채원·예은</b>이 함께 완주해 왔어요.</li>
+      <li>이제 <b>나의 관계망 지도</b>를 그려 봐요.</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">학년·반</span></div>
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+  <div class="page-foot">사회성 시리즈 · S30 · 표지</div>
+</section>
+
+<section class="page">
+  <div class="page-head">
+    <h2>📚 S11~S29 한눈에 총정리</h2>
+    <span class="step">1쪽 · 총복습</span>
+  </div>
+  <div class="intro">
+    S11부터 S29까지 배운 <b>9가지 핵심 관계 원칙</b>이에요. 어떤 상황에서도 <b>이 중 하나</b>를 떠올리면 도움이 돼요.
+  </div>
+
+  <div class="review-grid">
+    <div class="review-card c1">
+      <span class="num">S11-12</span><span class="title">칭찬·위로</span>
+      <div class="rule">칭찬은 <b>구체적으로</b>, 위로는 <b>고치기보다 듣기</b></div>
+    </div>
+    <div class="review-card c2">
+      <span class="num">S13-14</span><span class="title">뒷담·부모</span>
+      <div class="rule">뒷담은 <b>돌지 않게</b>, 부모와는 <b>규칙적 대화</b></div>
+    </div>
+    <div class="review-card c3">
+      <span class="num">S15-16</span><span class="title">형제·이성 우정</span>
+      <div class="rule">공간·선 <b>존중</b>, 이성 친구는 <b>편안한 거리</b></div>
+    </div>
+    <div class="review-card c4">
+      <span class="num">S17-18</span><span class="title">연애·이별</span>
+      <div class="rule">동의·존중, 이별은 <b>존중하며 마무리</b></div>
+    </div>
+    <div class="review-card c5">
+      <span class="num">S19-20</span><span class="title">학교폭력·따돌림</span>
+      <div class="rule">참지 말고 <b>어른·117</b>. 목격도 <b>알리기</b></div>
+    </div>
+    <div class="review-card c6">
+      <span class="num">S21-22</span><span class="title">몸·온라인 안전</span>
+      <div class="rule">"싫어요"+벗어남+알림. 112·117·1366</div>
+    </div>
+    <div class="review-card c7">
+      <span class="num">S23-25</span><span class="title">직장·손님</span>
+      <div class="rule">지시 확인·실수 보고·매니저 호출</div>
+    </div>
+    <div class="review-card c8">
+      <span class="num">S26-27</span><span class="title">이웃·공공장소</span>
+      <div class="rule">관리실 경유·소리 낮추기·자리 양보</div>
+    </div>
+    <div class="review-card c9">
+      <span class="num">S28-29</span><span class="title">지역·멘토</span>
+      <div class="rule">한 곳에 참여+3명의 어른</div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 상황·원칙 매칭</h3><span class="tag">5문항</span></div>
+    <p>다음 상황에 <b>어떤 원칙</b>이 필요한지 위 카드에서 골라 써요. (예: S23 상사 대화)</p>
+    <p>① 카페 알바에서 손님이 반말·큰소리 → <span class="blank long">&nbsp;</span></p>
+    <p>② 위층 발소리로 밤잠 못 잠 → <span class="blank long">&nbsp;</span></p>
+    <p>③ SNS로 낯선 어른이 셀카 요구 → <span class="blank long">&nbsp;</span></p>
+    <p>④ 친구가 자기 험담을 다른 친구에게 함 → <span class="blank long">&nbsp;</span></p>
+    <p>⑤ 진로 결정이 어려움 → <span class="blank long">&nbsp;</span></p>
+  </div>
+
+  <div class="tip">
+    💡 <b>한 문장 정리</b>: 어른의 대인관계 = <b>존중 + 절차 + 도움 요청</b>. 이 셋만 잊지 않으면 대부분의 상황이 풀려요.
+  </div>
+
+  <div class="page-foot">사회성 시리즈 · S30 · 1쪽 / 2</div>
+</section>
+
+<section class="page">
+  <div class="page-head">
+    <h2>🌐 나의 관계망 지도 · 1년 목표</h2>
+    <span class="step">2쪽 · 나의 지도</span>
+  </div>
+  <div class="intro">
+    <b>관계는 그냥 생기는 것이 아니라 내가 만드는 것</b>이에요. 아래 6영역에 지금 내가 만나는 사람과
+    앞으로 만나고 싶은 사람을 적어 봐요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 나의 관계망 지도 (6영역)</h3><span class="tag">쓰기</span></div>
+    <div class="map-grid">
+      <div class="map-card">
+        <div class="m-title">👨‍👩‍👧 가족</div>
+        <div class="m-hint">이름 / 대화 빈도</div>
+        <div class="m-line"></div>
+        <div class="m-line"></div>
+        <div class="m-line"></div>
+      </div>
+      <div class="map-card">
+        <div class="m-title">👯 친구</div>
+        <div class="m-hint">단짝·친한 친구 3명</div>
+        <div class="m-line"></div>
+        <div class="m-line"></div>
+        <div class="m-line"></div>
+      </div>
+      <div class="map-card">
+        <div class="m-title">🧑‍🏫 도움 어른</div>
+        <div class="m-hint">선생님·상담사·친척 어른</div>
+        <div class="m-line"></div>
+        <div class="m-line"></div>
+        <div class="m-line"></div>
+      </div>
+      <div class="map-card">
+        <div class="m-title">🏠 이웃</div>
+        <div class="m-hint">인사하는 이웃·관리실</div>
+        <div class="m-line"></div>
+        <div class="m-line"></div>
+      </div>
+      <div class="map-card">
+        <div class="m-title">💼 직장·알바</div>
+        <div class="m-hint">사장·동료·손님</div>
+        <div class="m-line"></div>
+        <div class="m-line"></div>
+      </div>
+      <div class="map-card">
+        <div class="m-title">🌿 지역사회</div>
+        <div class="m-hint">동호회·봉사·주민센터</div>
+        <div class="m-line"></div>
+        <div class="m-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 나의 1년 관계 목표</h3><span class="tag">쓰기</span></div>
+    <p>1년 후에 <b>어떤 관계</b>를 만들고 싶은지, 실천할 <b>작은 한 걸음</b>을 써 봐요.</p>
+    <p>① 이번 달에 <b>고맙다</b>고 말할 사람: <span class="blank long">&nbsp;</span></p>
+    <p>② 이번 학기 <b>참여할 곳</b> 한 곳: <span class="blank long">&nbsp;</span></p>
+    <p>③ 새로 만나고 싶은 <b>도움 어른</b>: <span class="blank long">&nbsp;</span></p>
+    <p>④ <b>내가 도울 사람</b>(가족·친구·이웃): <span class="blank long">&nbsp;</span></p>
+    <p>⑤ 1년 뒤 <b>내 관계 한 줄</b>: "<span class="blank long">&nbsp;</span>"</p>
+  </div>
+
+  <div class="checklist">
+    <div class="title">🎉 어른의 대인관계 5가지 약속</div>
+    <label><input type="checkbox" style="margin-right:6px;"> 상대의 <b>말이 끝날 때까지</b> 듣는다</label>
+    <label><input type="checkbox" style="margin-right:6px;"> 부탁·거절·사과를 <b>솔직하고 예의 있게</b> 한다</label>
+    <label><input type="checkbox" style="margin-right:6px;"> 갈등이 생기면 <b>사실+감정</b>으로 이야기한다</label>
+    <label><input type="checkbox" style="margin-right:6px;"> 힘들 때 <b>혼자 참지 않고</b> 도움을 청한다</label>
+    <label><input type="checkbox" style="margin-right:6px;"> 매일 한 번은 누군가에게 <b>고마움</b>을 표현한다</label>
+  </div>
+
+  <div class="note">
+    🎓 <b>축하해요!</b> 사회성 시리즈 <b>S1~S30</b>을 모두 마쳤어요.
+    자기소개에서 시작해 어른의 관계망까지 왔어요. 오늘 배운 것 <b>딱 한 가지</b>만
+    이번 주에 실천해 보세요. 그 작은 실천이 <b>1년 뒤 나</b>를 만듭니다.
+  </div>
+
+  <div class="page-foot">사회성 시리즈 · S30 · 2쪽 / 2</div>
+</section>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @media print {
+    body { margin: 0; background: white; }
+    .page { page-break-after: always; margin: 0; padding: 18mm 18mm 14mm; box-shadow: none; }
+    .page:last-child { page-break-after: avoid; }
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; background: #e8f5e9; margin: 0; padding: 20px; }
+
+  .page {
+    background: white; width: 210mm; min-height: 297mm;
+    margin: 0 auto 30px; padding: 15mm 18mm 13mm;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  /* ── 헤더 ── */
+  .sheet-header {
+    border: 2px solid #2e7d32; border-radius: 6px;
+    padding: 10px 16px; margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .sheet-title { font-size: 19px; font-weight: bold; color: #000; }
+  .sheet-sub   { font-size: 12px; color: #555; margin-top: 2px; }
+  .logo-badge  {
+    background: #2e7d32; color: white; font-size: 12px; font-weight: bold;
+    padding: 5px 13px; border-radius: 20px; white-space: nowrap;
+  }
+
+  /* ── 이름·날짜 ── */
+  .info-row { display: flex; gap: 18px; margin-bottom: 11px; }
+  .info-box {
+    border-bottom: 1.5px solid #333; flex: 1; padding-bottom: 3px;
+    display: flex; align-items: center; gap: 5px; font-size: 13px;
+  }
+  .info-label { font-weight: bold; white-space: nowrap; color: #333; }
+
+  /* ── 소제목 ── */
+  .section-title {
+    background: #2e7d32; color: white; font-size: 13px; font-weight: bold;
+    padding: 5px 13px; border-radius: 4px; margin: 13px 0 8px;
+  }
+  .section-title-dark {
+    background: #333; color: white; font-size: 13px; font-weight: bold;
+    padding: 5px 13px; border-radius: 4px; margin: 13px 0 8px;
+  }
+
+  /* ── 안내 박스 ── */
+  .tip-box {
+    background: #f1f8e9; border-left: 4px solid #2e7d32;
+    border-radius: 0 6px 6px 0; padding: 7px 11px;
+    font-size: 12px; color: #333; margin-bottom: 10px; line-height: 1.8;
+  }
+  .info-box-yellow {
+    background: #fffde7; border-left: 4px solid #f9a825;
+    border-radius: 0 6px 6px 0; padding: 7px 11px;
+    font-size: 12px; color: #333; margin-bottom: 10px; line-height: 1.8;
+  }
+
+  /* ── 계산 흐름도 ── */
+  .flow-wrap {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0; margin: 10px 0 13px; flex-wrap: nowrap;
+  }
+  .flow-box {
+    border: 2px solid #2e7d32; border-radius: 8px; padding: 9px 11px;
+    text-align: center; background: #f1f8e9; min-width: 90px;
+  }
+  .flow-box-blank {
+    border: 2px dashed #aaa; border-radius: 8px; padding: 9px 11px;
+    text-align: center; background: #fafafa; min-width: 90px;
+  }
+  .flow-label { font-size: 11px; color: #555; margin-bottom: 3px; }
+  .flow-val   { font-size: 13px; font-weight: bold; color: #1b5e20; }
+  .flow-arrow {
+    font-size: 13px; color: #2e7d32; font-weight: bold;
+    padding: 0 4px; white-space: nowrap; text-align: center;
+  }
+  .flow-mul { font-size: 10px; color: #555; display: block; }
+
+  /* ── 문제 박스 ── */
+  .q-box {
+    border: 1.5px solid #c8e6c9; border-radius: 6px;
+    padding: 11px 13px; margin-bottom: 10px; background: #fff;
+  }
+  .q-head { display: flex; align-items: flex-start; margin-bottom: 7px; }
+  .q-num  {
+    display: inline-block; background: #2e7d32; color: white;
+    font-size: 12px; font-weight: bold; border-radius: 50%;
+    width: 23px; height: 23px; line-height: 23px; text-align: center;
+    margin-right: 7px; flex-shrink: 0; margin-top: 1px;
+  }
+  .q-text { font-size: 13.5px; line-height: 1.9; flex: 1; }
+
+  /* ── 답란 ── */
+  .answer-line  { border: none; border-bottom: 1.5px solid #888; width: 100%; margin-top: 4px; height: 25px; display: block; }
+  .answer-label { font-size: 11.5px; color: #444; font-weight: bold; }
+  .answer-grid  { display: grid; grid-template-columns: 1fr 1fr;     gap: 10px; margin-top: 5px; }
+  .answer-grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;  margin-top: 5px; }
+
+  .blank    { border-bottom: 1.5px solid #333; min-width: 70px;  display: inline-block; vertical-align: bottom; }
+  .blank-sm { border-bottom: 1.5px solid #333; min-width: 45px;  display: inline-block; vertical-align: bottom; }
+  .blank-lg { border-bottom: 1.5px solid #333; min-width: 120px; display: inline-block; vertical-align: bottom; }
+
+  .calc-step { font-size: 13px; color: #333; margin-bottom: 5px; line-height: 2.1; }
+  .calc-hint { font-size: 11.5px; color: #666; background: #f9f9f9; border: 1px dashed #ccc; border-radius: 4px; padding: 4px 8px; margin-bottom: 6px; line-height: 1.8; }
+
+  /* ── 급여 명세서 ── */
+  .payslip {
+    border: 2px solid #a5d6a7; border-radius: 8px;
+    padding: 12px 16px; font-size: 12.5px; background: #fafafa; margin: 6px 0 8px;
+  }
+  .payslip-title { font-size: 15px; font-weight: bold; text-align: center; margin-bottom: 8px; color: #1b5e20; letter-spacing: 1px; }
+  .payslip-info  { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; font-size: 12px; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 1px solid #ccc; }
+  .payslip-row   { display: flex; justify-content: space-between; padding: 3px 4px; }
+  .payslip-row:nth-child(even) { background: #f1f8e9; }
+  .payslip-sub   { font-size: 11px; color: #666; padding: 2px 10px; display: flex; justify-content: space-between; }
+  .payslip-divider { border: none; border-top: 1px dashed #bbb; margin: 4px 0; }
+  .payslip-deduct { background: #fff8e1; }
+  .payslip-total {
+    border-top: 2px solid #2e7d32; margin-top: 5px; padding-top: 5px;
+    font-weight: bold; display: flex; justify-content: space-between;
+    font-size: 14px; color: #1b5e20;
+  }
+
+  /* ── 가계부 테이블 ── */
+  .ledger {
+    border: 1.5px solid #a5d6a7; border-radius: 6px; overflow: hidden;
+    margin: 6px 0 8px; font-size: 12.5px;
+  }
+  .ledger-head {
+    display: grid; background: #2e7d32; color: white;
+    font-weight: bold; padding: 6px 10px; font-size: 12px;
+  }
+  .ledger-row  {
+    display: grid; padding: 5px 10px; border-bottom: 1px dashed #dde; font-size: 12.5px;
+  }
+  .ledger-row:last-child { border-bottom: none; }
+  .ledger-total {
+    display: grid; padding: 6px 10px;
+    background: #e8f5e9; font-weight: bold; border-top: 1.5px solid #a5d6a7;
+  }
+  .ledger-balance {
+    display: grid; padding: 6px 10px;
+    background: #f1f8e9; font-weight: bold; font-size: 13px; color: #1b5e20;
+    border-top: 2px solid #2e7d32;
+  }
+  .col3 { grid-template-columns: 2fr 1fr 1.5fr; }
+  .col4 { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
+
+  /* ── 영수증 ── */
+  .receipt {
+    border: 1.5px dashed #aaa; border-radius: 6px;
+    padding: 10px 16px; font-size: 12.5px; background: #fafafa; margin: 6px 0;
+    max-width: 270px; margin-left: auto; margin-right: auto;
+  }
+  .receipt-title   { text-align: center; font-weight: bold; font-size: 14px; margin-bottom: 6px; padding-bottom: 5px; border-bottom: 1px solid #bbb; }
+  .receipt-row     { display: flex; justify-content: space-between; padding: 3px 0; }
+  .receipt-divider { border: none; border-top: 1px dashed #bbb; margin: 3px 0; }
+  .receipt-total   { font-weight: bold; display: flex; justify-content: space-between; padding-top: 5px; margin-top: 3px; border-top: 2px solid #333; font-size: 14px; }
+
+  /* ── 체크/선택 ── */
+  .check-row { display: flex; gap: 14px; margin-top: 7px; flex-wrap: wrap; }
+  .check-col { display: flex; flex-direction: column; gap: 7px; margin-top: 7px; }
+  .check-item { display: flex; align-items: flex-start; gap: 6px; font-size: 13px; line-height: 1.6; }
+  .check-box  { width: 16px; height: 16px; border: 1.5px solid #555; border-radius: 3px; display: inline-block; flex-shrink: 0; margin-top: 2px; }
+
+  /* ── 비교표 ── */
+  .compare { border-collapse: collapse; width: 100%; margin: 6px 0 8px; font-size: 12.5px; }
+  .compare th { background: #2e7d32; color: white; padding: 6px 8px; border: 1px solid #1b5e20; text-align: center; }
+  .compare td { padding: 6px 8px; border: 1px solid #c8e6c9; text-align: center; }
+  .compare tr:nth-child(even) td { background: #f1f8e9; }
+  .compare .hl { font-weight: bold; color: #1b5e20; }
+
+  /* ── 나만의 가계부 ── */
+  .myplan { border: 1.5px solid #c8e6c9; border-radius: 6px; overflow: hidden; margin: 6px 0 8px; font-size: 12.5px; }
+  .myplan-head  { display: grid; grid-template-columns: 2fr 2fr 1.5fr; background: #555; color: white; font-weight: bold; padding: 6px 10px; font-size: 12px; }
+  .myplan-row   { display: grid; grid-template-columns: 2fr 2fr 1.5fr; padding: 5px 10px; border-bottom: 1px dashed #ddd; min-height: 28px; }
+  .myplan-total { display: grid; grid-template-columns: 2fr 2fr 1.5fr; padding: 6px 10px; background: #f5f5f5; font-weight: bold; border-top: 1.5px solid #ccc; }
+
+  /* ── 정답표 ── */
+  .ans-table { border-collapse: collapse; width: 100%; }
+  .ans-table th { background: #2e7d32; color: white; padding: 6px 7px; border: 1px solid #1b5e20; font-size: 12px; }
+  .ans-table td { padding: 6px 7px; border: 1px solid #c8e6c9; font-size: 12px; }
+  .ans-table tr:nth-child(even) td { background: #f1f8e9; }
+  .ans-table .ans { font-weight: bold; color: #1b5e20; }
+
+  /* ── 지출분류 ── */
+  .category-row { display: flex; align-items: center; gap: 8px; padding: 4px 0; border-bottom: 1px dashed #eee; font-size: 13px; }
+  .category-row:last-child { border-bottom: none; }
+  .cat-item { flex: 1.5; }
+  .cat-amount { min-width: 70px; font-weight: bold; color: #2e7d32; }
+  .cat-select { display: flex; gap: 6px; flex: 2; flex-wrap: wrap; }
+  .cat-btn { border: 1.5px solid #aaa; border-radius: 20px; padding: 2px 9px; font-size: 11.5px; white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PAGE 1 : 시급 → 일급 → 주급 → 월급 Q1~Q4
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">💰 월급과 가계부 수학 학습지</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 1쪽 — 시급부터 월급까지 계산하기</div>
+    </div>
+    <div class="logo-badge">월급·가계부 수학</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+    <div class="info-box"><span class="info-label">점수</span></div>
+  </div>
+
+  <div class="tip-box">
+    <b>시급</b>이란 1시간 일하고 받는 돈이에요. 2026년 최저시급은 <b>10,320원</b>이에요.<br>
+    시급에 근무 시간을 곱하면 일급, 일급에 근무일을 곱하면 주급, 주급에 주수를 곱하면 월급을 구할 수 있어요.
+  </div>
+
+  <!-- 계산 흐름도 -->
+  <div class="section-title">💡 급여 계산 흐름 (시급 10,320원 · 하루 4시간 · 주 5일 · 한 달 4주)</div>
+  <div class="flow-wrap">
+    <div class="flow-box">
+      <div class="flow-label">시급</div>
+      <div class="flow-val">10,320원</div>
+    </div>
+    <div class="flow-arrow">─ ×4시간 ─▶</div>
+    <div class="flow-box">
+      <div class="flow-label">일급 (하루)</div>
+      <div class="flow-val">41,280원</div>
+    </div>
+    <div class="flow-arrow">─ ×5일 ─▶</div>
+    <div class="flow-box">
+      <div class="flow-label">주급 (1주)</div>
+      <div class="flow-val">206,400원</div>
+    </div>
+    <div class="flow-arrow">─ ×4주 ─▶</div>
+    <div class="flow-box">
+      <div class="flow-label">월급 (한 달)</div>
+      <div class="flow-val">825,600원</div>
+    </div>
+  </div>
+
+  <div class="section-title">문제 풀기 (1~4번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">1</span>
+      <span class="q-text"><b>주현</b>이는 카페에서 시급 <b>10,320원</b>을 받고 하루 <b>4시간</b> 일해요.
+        하루에 받는 급여(일급)는 얼마인가요?</span>
+    </div>
+    <div class="calc-hint">도움말: 10,000 × 4 = 40,000 / 320 × 4 = 1,280 / 40,000 + 1,280 = ?</div>
+    <div class="calc-step">일급 = 시급 × 근무시간 &nbsp;→&nbsp; 10,320 × 4 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답 (일급)</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">2</span>
+      <span class="q-text"><b>주은</b>이의 일급은 41,280원이에요. 주 <b>5일</b> 일한다면
+        일주일 급여(주급)는 얼마인가요?</span>
+    </div>
+    <div class="calc-hint">도움말: 40,000 × 5 = 200,000 / 1,280 × 5 = 6,400 / 200,000 + 6,400 = ?</div>
+    <div class="calc-step">주급 = 일급 × 근무일 &nbsp;→&nbsp; 41,280 × 5 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답 (주급)</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">3</span>
+      <span class="q-text"><b>하은</b>이의 주급은 206,400원이에요. 한 달을 <b>4주</b>로 계산하면
+        월급은 얼마인가요?</span>
+    </div>
+    <div class="calc-step">월급 = 주급 × 4주 &nbsp;→&nbsp; 206,400 × 4 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답 (월급)</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">4</span>
+      <span class="q-text"><b>하영</b>이의 급여 계산 흐름표를 완성해 보세요.
+        (시급 10,320원 · 하루 4시간 · 주 5일 · 한 달 4주)</span>
+    </div>
+    <div class="flow-wrap" style="margin: 8px 0;">
+      <div class="flow-box-blank">
+        <div class="flow-label">시급</div>
+        <div class="flow-val">10,320원</div>
+      </div>
+      <div class="flow-arrow" style="color:#aaa;">─ ×<span class="blank-sm" style="min-width:30px;"></span> ─▶</div>
+      <div class="flow-box-blank">
+        <div class="flow-label">일급</div>
+        <div class="flow-val"><span class="blank-sm"></span>원</div>
+      </div>
+      <div class="flow-arrow" style="color:#aaa;">─ ×<span class="blank-sm" style="min-width:30px;"></span> ─▶</div>
+      <div class="flow-box-blank">
+        <div class="flow-label">주급</div>
+        <div class="flow-val"><span class="blank-sm"></span>원</div>
+      </div>
+      <div class="flow-arrow" style="color:#aaa;">─ ×<span class="blank-sm" style="min-width:25px;"></span> ─▶</div>
+      <div class="flow-box-blank">
+        <div class="flow-label">월급</div>
+        <div class="flow-val"><span class="blank-sm"></span>원</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 2 : 급여 명세서 + 다양한 급여 상황 Q5~Q8
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">💰 월급과 가계부 수학 학습지</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 2쪽 — 급여 명세서 &amp; 여러 가지 급여 상황</div>
+    </div>
+    <div class="logo-badge">월급·가계부 수학</div>
+  </div>
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <div class="info-box-yellow">
+    <b>알아두기 — 4대 보험 공제</b>: 한 달 근무시간이 60시간 이상이면 월급에서 4대 보험료가 공제돼요.
+    공제 후 실제 손에 받는 돈을 <b>실수령액</b>이라고 해요. &nbsp; 실수령액 = 월급 − 공제액
+  </div>
+
+  <div class="section-title">문제 풀기 (5~8번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">5</span>
+      <span class="q-text"><b>채원</b>이의 이번 달 급여 명세서예요. 빈칸을 채워 실수령액을 구해 보세요.</span>
+    </div>
+    <div class="payslip">
+      <div class="payslip-title">💼 급여 명세서</div>
+      <div class="payslip-info">
+        <span>사원명: 채원</span><span>근무처: ○○편의점</span>
+        <span>시급: 10,320원</span><span>월 근무일: 20일 (4시간/일)</span>
+      </div>
+      <div class="payslip-row"><span>기본급 (41,280원 × 20일)</span><span>825,600원</span></div>
+      <hr class="payslip-divider">
+      <div class="payslip-row payslip-deduct" style="font-weight:bold;"><span>📌 공제 내역</span><span></span></div>
+      <div class="payslip-sub"><span>국민연금</span><span>37,000원</span></div>
+      <div class="payslip-sub"><span>건강보험</span><span>24,000원</span></div>
+      <div class="payslip-sub"><span>고용보험</span><span>7,000원</span></div>
+      <div class="payslip-sub"><span>소득세</span><span>6,000원</span></div>
+      <div class="payslip-row payslip-deduct"><span>공제 합계</span><span><span class="blank-sm"></span>원</span></div>
+      <hr class="payslip-divider">
+      <div class="payslip-total"><span>💚 실수령액</span><span><span class="blank-sm"></span>원</span></div>
+    </div>
+    <div class="calc-step">공제 합계: 37,000 + 24,000 + 7,000 + 6,000 = <span class="blank"></span>원</div>
+    <div class="calc-step">실수령액: 825,600 − <span class="blank-sm"></span> = <span class="blank"></span>원</div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">6</span>
+      <span class="q-text"><b>예은</b>이는 이번 달 몸이 아파서 하루 결근했어요.
+        원래 20일 근무해야 하는데 <b>19일</b>만 일했어요. 이번 달 기본급은 얼마인가요?</span>
+    </div>
+    <div class="calc-hint">방법 ①: 41,280 × 19 &nbsp;|&nbsp; 방법 ②: 825,600 − 41,280 (월급에서 하루치 빼기)</div>
+    <div class="calc-step">방법 ②: 825,600 − 41,280 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">7</span>
+      <span class="q-text"><b>주현</b>이는 이번 주 토요일에 <b>추가로 4시간</b> 더 일했어요.
+        추가 근무 급여는 얼마인가요? 이번 주 전체 급여는 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 추가 급여: 10,320 × 4 = <span class="blank"></span>원</div>
+    <div class="calc-step">② 이번 주 전체: 206,400 + <span class="blank-sm"></span> = <span class="blank"></span>원</div>
+    <div class="answer-grid3">
+      <div><div class="answer-label">추가 급여</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">이번 주 전체 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">8</span>
+      <span class="q-text"><b>주은</b>이는 A편의점과 B카페 두 곳에서 알바 제안을 받았어요.
+        어느 곳이 월급을 더 많이 받는지 비교해 보세요. (한 달 20일 기준)</span>
+    </div>
+    <table class="compare">
+      <thead>
+        <tr><th>구분</th><th>시급</th><th>하루 근무</th><th>일급</th><th>월급 (×20일)</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="hl">A편의점</td>
+          <td>10,320원</td>
+          <td>4시간</td>
+          <td><span class="blank-sm"></span>원</td>
+          <td><span class="blank-sm"></span>원</td>
+        </tr>
+        <tr>
+          <td class="hl">B카페</td>
+          <td>11,000원</td>
+          <td>3시간</td>
+          <td><span class="blank-sm"></span>원</td>
+          <td><span class="blank-sm"></span>원</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="calc-step">
+      A 일급: 10,320 × 4 = <span class="blank-sm"></span>원 &nbsp;→&nbsp; 월급: <span class="blank-sm"></span> × 20 = <span class="blank-sm"></span>원
+    </div>
+    <div class="calc-step">
+      B 일급: 11,000 × 3 = <span class="blank-sm"></span>원 &nbsp;→&nbsp; 월급: <span class="blank-sm"></span> × 20 = <span class="blank-sm"></span>원
+    </div>
+    <div style="font-size:13px; margin-top:6px;">
+      월급을 더 많이 받는 곳은? &nbsp;
+      <span style="border: 1.5px solid #555; border-radius: 4px; padding: 2px 12px;">A편의점</span> &nbsp;/&nbsp;
+      <span style="border: 1.5px solid #555; border-radius: 4px; padding: 2px 12px;">B카페</span>
+      &nbsp; 이유: <span class="blank-lg"></span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 3 : 가계부 작성하기 Q9~Q11
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">💰 월급과 가계부 수학 학습지</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 3쪽 — 가계부 작성하기</div>
+    </div>
+    <div class="logo-badge">월급·가계부 수학</div>
+  </div>
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <div class="tip-box">
+    <b>가계부</b>란 한 달 동안 들어온 돈(수입)과 나간 돈(지출)을 적는 기록장이에요.
+    <b>잔액 = 수입 − 지출 합계</b> &nbsp;|&nbsp; 지출을 항목별로 나누면 어디에 얼마를 쓰는지 한눈에 알 수 있어요.
+  </div>
+
+  <div class="section-title">문제 풀기 (9~11번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">9</span>
+      <span class="q-text"><b>하은</b>이의 이번 달 지출 목록이에요. 각 항목이 어떤 지출 종류인지
+        알맞은 것에 ○표 해 보세요.</span>
+    </div>
+    <div style="border: 1.5px solid #c8e6c9; border-radius: 6px; padding: 8px 12px; margin: 5px 0; font-size: 12.5px;">
+      <div class="category-row">
+        <span class="cat-item">지하철 교통카드 충전</span>
+        <span class="cat-amount">50,000원</span>
+        <div class="cat-select">
+          <span class="cat-btn">교통비</span>
+          <span class="cat-btn">식비</span>
+          <span class="cat-btn">통신비</span>
+          <span class="cat-btn">쇼핑</span>
+        </div>
+      </div>
+      <div class="category-row">
+        <span class="cat-item">치킨 배달</span>
+        <span class="cat-amount">22,000원</span>
+        <div class="cat-select">
+          <span class="cat-btn">교통비</span>
+          <span class="cat-btn">식비</span>
+          <span class="cat-btn">저축</span>
+          <span class="cat-btn">쇼핑</span>
+        </div>
+      </div>
+      <div class="category-row">
+        <span class="cat-item">넷플릭스 구독료</span>
+        <span class="cat-amount">17,000원</span>
+        <div class="cat-select">
+          <span class="cat-btn">교통비</span>
+          <span class="cat-btn">식비</span>
+          <span class="cat-btn">통신·구독비</span>
+          <span class="cat-btn">의류</span>
+        </div>
+      </div>
+      <div class="category-row">
+        <span class="cat-item">운동화 구매</span>
+        <span class="cat-amount">65,000원</span>
+        <div class="cat-select">
+          <span class="cat-btn">교통비</span>
+          <span class="cat-btn">의류·쇼핑</span>
+          <span class="cat-btn">저축</span>
+          <span class="cat-btn">통신비</span>
+        </div>
+      </div>
+      <div class="category-row">
+        <span class="cat-item">은행 저금</span>
+        <span class="cat-amount">150,000원</span>
+        <div class="cat-select">
+          <span class="cat-btn">교통비</span>
+          <span class="cat-btn">식비</span>
+          <span class="cat-btn">쇼핑</span>
+          <span class="cat-btn">저축</span>
+        </div>
+      </div>
+      <div class="category-row">
+        <span class="cat-item">친구 생일 선물</span>
+        <span class="cat-amount">30,000원</span>
+        <div class="cat-select">
+          <span class="cat-btn">교통비</span>
+          <span class="cat-btn">경조사·선물</span>
+          <span class="cat-btn">통신비</span>
+          <span class="cat-btn">저축</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">10</span>
+      <span class="q-text"><b>하영</b>이의 10월 가계부예요. 지출 합계와 잔액을 계산해 보세요.
+        (실수령액 751,600원 기준)</span>
+    </div>
+    <div class="ledger">
+      <div class="ledger-head col4"><span>항목</span><span style="text-align:right;">예산</span><span style="text-align:right;">실제 지출</span><span style="text-align:right;">비고</span></div>
+      <div class="ledger-row col4"><span>💚 저축</span><span style="text-align:right;">200,000원</span><span style="text-align:right;">200,000원</span><span style="text-align:right; color:#2e7d32;">✔ 목표달성</span></div>
+      <div class="ledger-row col4"><span>🍚 식비</span><span style="text-align:right;">130,000원</span><span style="text-align:right;">130,000원</span><span></span></div>
+      <div class="ledger-row col4"><span>🚌 교통비</span><span style="text-align:right;">60,000원</span><span style="text-align:right;">60,000원</span><span></span></div>
+      <div class="ledger-row col4"><span>📱 통신비</span><span style="text-align:right;">45,000원</span><span style="text-align:right;">45,000원</span><span></span></div>
+      <div class="ledger-row col4"><span>👗 의류·미용</span><span style="text-align:right;">80,000원</span><span style="text-align:right;">80,000원</span><span></span></div>
+      <div class="ledger-row col4"><span>🎬 문화·취미</span><span style="text-align:right;">70,000원</span><span style="text-align:right;">70,000원</span><span></span></div>
+      <div class="ledger-total col4"><span>지출 합계</span><span style="text-align:right;">585,000원</span><span style="text-align:right;"><span class="blank-sm"></span>원</span><span></span></div>
+      <div class="ledger-balance col4"><span>💰 잔액 (실수령액 − 지출)</span><span></span><span style="text-align:right;"><span class="blank-sm"></span>원</span><span></span></div>
+    </div>
+    <div class="calc-step">
+      지출 합계: 200,000+130,000+60,000+45,000+80,000+70,000 = <span class="blank"></span>원
+    </div>
+    <div class="calc-step">잔액: 751,600 − <span class="blank"></span> = <span class="blank"></span>원</div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">11</span>
+      <span class="q-text"><b>채원</b>이의 이번 주 영수증이에요. 항목을 가계부에 기록하고 합계를 구해 보세요.</span>
+    </div>
+    <div style="display: flex; gap: 10px; align-items: flex-start;">
+      <div class="receipt" style="flex-shrink:0; max-width:200px; margin:0;">
+        <div class="receipt-title">📋 이번 주 지출</div>
+        <div class="receipt-row"><span>버스·지하철</span><span>12,000원</span></div>
+        <div class="receipt-row"><span>편의점 도시락 3회</span><span>15,000원</span></div>
+        <div class="receipt-row"><span>카페 아메리카노 2잔</span><span>9,000원</span></div>
+        <div class="receipt-row"><span>영화 관람</span><span>14,000원</span></div>
+        <div class="receipt-row"><span>헤어컷</span><span>12,000원</span></div>
+        <hr class="receipt-divider">
+        <div class="receipt-total"><span>합계</span><span><span class="blank-sm"></span>원</span></div>
+      </div>
+      <div style="flex:1;">
+        <div class="ledger" style="font-size:12px;">
+          <div class="ledger-head col3" style="font-size:11.5px;"><span>항목</span><span style="text-align:center;">분류</span><span style="text-align:right;">금액</span></div>
+          <div class="ledger-row col3"><span>버스·지하철</span><span style="text-align:center;">교통비</span><span style="text-align:right;">12,000원</span></div>
+          <div class="ledger-row col3"><span>편의점 도시락</span><span style="text-align:center;"><span class="blank-sm"></span></span><span style="text-align:right;"><span class="blank-sm"></span>원</span></div>
+          <div class="ledger-row col3"><span>카페 커피</span><span style="text-align:center;"><span class="blank-sm"></span></span><span style="text-align:right;"><span class="blank-sm"></span>원</span></div>
+          <div class="ledger-row col3"><span>영화 관람</span><span style="text-align:center;"><span class="blank-sm"></span></span><span style="text-align:right;"><span class="blank-sm"></span>원</span></div>
+          <div class="ledger-row col3"><span>헤어컷</span><span style="text-align:center;"><span class="blank-sm"></span></span><span style="text-align:right;"><span class="blank-sm"></span>원</span></div>
+          <div class="ledger-total col3"><span>합계</span><span></span><span style="text-align:right;"><span class="blank-sm"></span>원</span></div>
+        </div>
+        <div class="calc-step" style="font-size:12px;">합계: 12,000 + 15,000 + 9,000 + 14,000 + 12,000 = <span class="blank-sm"></span>원</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 4 : 저축 계획 + 예산 관리 + 나만의 가계부 Q12~Q14
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">💰 월급과 가계부 수학 학습지</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 4쪽 — 저축 계획 &amp; 나만의 가계부</div>
+    </div>
+    <div class="logo-badge">월급·가계부 수학</div>
+  </div>
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <div class="section-title">문제 풀기 (12~13번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">12</span>
+      <span class="q-text"><b>예은</b>이는 갖고 싶은 물건을 사기 위해 매달 저축하고 있어요.
+        아래 표를 완성하고, 각 물건을 살 수 있을 때까지 몇 달이 걸리는지 구해 보세요.
+        (매달 저축액 200,000원)</span>
+    </div>
+    <table class="compare">
+      <thead>
+        <tr><th>갖고 싶은 물건</th><th>가격</th><th>저축 계획 식</th><th>몇 달 후?</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🎧 무선 이어폰</td>
+          <td>200,000원</td>
+          <td>200,000 ÷ 200,000 =</td>
+          <td class="hl"><span class="blank-sm"></span>달 후</td>
+        </tr>
+        <tr>
+          <td>👟 운동화</td>
+          <td>400,000원</td>
+          <td>400,000 ÷ 200,000 =</td>
+          <td class="hl"><span class="blank-sm"></span>달 후</td>
+        </tr>
+        <tr>
+          <td>💻 태블릿 PC</td>
+          <td>600,000원</td>
+          <td>600,000 ÷ 200,000 =</td>
+          <td class="hl"><span class="blank-sm"></span>달 후</td>
+        </tr>
+        <tr>
+          <td>📷 카메라</td>
+          <td>800,000원</td>
+          <td>800,000 ÷ 200,000 =</td>
+          <td class="hl"><span class="blank-sm"></span>달 후</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="calc-step">
+      무선 이어폰: 200,000 ÷ 200,000 = <span class="blank-sm"></span>달 &nbsp;/&nbsp;
+      태블릿 PC: 600,000 ÷ 200,000 = <span class="blank-sm"></span>달
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">13</span>
+      <span class="q-text"><b>주현</b>이의 이번 달 생활비 예산과 실제 지출을 비교해요.
+        예산을 초과한 항목과 초과 금액을 구하고, 다음 달 절약 방법을 생각해 보세요.</span>
+    </div>
+    <div class="ledger" style="font-size:12px;">
+      <div class="ledger-head" style="grid-template-columns:2fr 1fr 1fr 1fr; font-size:11.5px; padding:6px 10px;"><span>항목</span><span style="text-align:right;">예산</span><span style="text-align:right;">실제 지출</span><span style="text-align:right;">차이 (+초과/-절약)</span></div>
+      <div class="ledger-row" style="grid-template-columns:2fr 1fr 1fr 1fr;"><span>식비</span><span style="text-align:right;">130,000원</span><span style="text-align:right;">158,000원</span><span style="text-align:right; color:#c62828;">+<span class="blank-sm"></span>원</span></div>
+      <div class="ledger-row" style="grid-template-columns:2fr 1fr 1fr 1fr;"><span>교통비</span><span style="text-align:right;">60,000원</span><span style="text-align:right;">60,000원</span><span style="text-align:right; color:#2e7d32;">0원</span></div>
+      <div class="ledger-row" style="grid-template-columns:2fr 1fr 1fr 1fr;"><span>의류·쇼핑</span><span style="text-align:right;">80,000원</span><span style="text-align:right;">125,000원</span><span style="text-align:right; color:#c62828;">+<span class="blank-sm"></span>원</span></div>
+      <div class="ledger-row" style="grid-template-columns:2fr 1fr 1fr 1fr;"><span>문화·취미</span><span style="text-align:right;">70,000원</span><span style="text-align:right;">55,000원</span><span style="text-align:right; color:#2e7d32;">−<span class="blank-sm"></span>원</span></div>
+      <div class="ledger-total" style="grid-template-columns:2fr 1fr 1fr 1fr;"><span>합계</span><span style="text-align:right;">340,000원</span><span style="text-align:right;"><span class="blank-sm"></span>원</span><span style="text-align:right; color:#c62828;">+<span class="blank-sm"></span>원</span></div>
+    </div>
+    <div class="calc-step">
+      실제 지출 합계: 158,000+60,000+125,000+55,000 = <span class="blank"></span>원 &nbsp;/&nbsp;
+      예산 초과 금액: <span class="blank"></span> − 340,000 = <span class="blank"></span>원
+    </div>
+    <div style="font-size:12.5px; margin-top:5px;">다음 달에 예산을 지키려면 어떻게 해야 할까요? (한 가지 이상 써 보세요)</div>
+    <div class="answer-line" style="margin-top:5px;"></div>
+  </div>
+
+  <!-- 나만의 가계부 -->
+  <div class="section-title-dark">⭐ 나만의 가계부 계획 세우기 (14번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">14</span>
+      <span class="q-text">내가 매달 751,600원(실수령액)을 받는다면, 어떻게 사용할지 나만의 가계부 계획을 세워 보세요.
+        반드시 저축 항목을 포함해야 해요.</span>
+    </div>
+    <div class="myplan">
+      <div class="myplan-head"><span>항목</span><span>사용 계획 (내용)</span><span>금액</span></div>
+      <div class="myplan-row"><span>💚 저축</span><span></span><span></span></div>
+      <div class="myplan-row"><span>🍚 식비</span><span></span><span></span></div>
+      <div class="myplan-row"><span>🚌 교통비</span><span></span><span></span></div>
+      <div class="myplan-row"><span>📱 통신비</span><span></span><span></span></div>
+      <div class="myplan-row"><span>👗 의류·미용</span><span></span><span></span></div>
+      <div class="myplan-row"><span>🎬 문화·취미</span><span></span><span></span></div>
+      <div class="myplan-row"><span>기타</span><span></span><span></span></div>
+      <div class="myplan-total"><span>지출 합계</span><span></span><span></span></div>
+    </div>
+    <div style="font-size:13px;">수입 751,600원 − 지출 합계 <span class="blank"></span>원 = 잔액 <span class="blank"></span>원</div>
+    <div style="font-size:12.5px; margin-top:8px; color:#555;">내 가계부에서 가장 중요하게 생각한 항목은 무엇인가요? 이유는?</div>
+    <div class="answer-line" style="margin-top:4px;"></div>
+    <div class="answer-line" style="margin-top:10px;"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 5 : 정답지 (선생님용)
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">💰 월급과 가계부 수학 학습지 — 정답지</div>
+      <div class="sheet-sub">선생님용 · 5쪽</div>
+    </div>
+    <div class="logo-badge">정답지</div>
+  </div>
+
+  <div class="tip-box">
+    <b>지도 팁</b>: 1~4번은 계산기를 함께 사용해 과정을 확인해도 좋아요.
+    10,320처럼 복잡한 숫자는 "만의 자리 + 나머지" 분리 계산법(도움말 참고)을 익히게 해주세요.
+    14번 나만의 가계부는 발표 및 토의 활동으로 확장하고, 저축의 중요성을 함께 이야기해 보세요.
+  </div>
+
+  <div class="section-title">정답 모음</div>
+
+  <table class="ans-table">
+    <colgroup>
+      <col style="width:7%"><col style="width:18%"><col style="width:47%"><col style="width:28%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th style="text-align:center;">번호</th>
+        <th style="text-align:center;">핵심 포인트</th>
+        <th style="text-align:center;">풀이</th>
+        <th style="text-align:center;">답</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">1</td>
+        <td>시급 × 시간 = 일급</td>
+        <td>10,320 × 4 = (10,000×4) + (320×4) = 40,000 + 1,280</td>
+        <td class="ans">41,280원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">2</td>
+        <td>일급 × 근무일 = 주급</td>
+        <td>41,280 × 5 = (40,000×5) + (1,280×5) = 200,000 + 6,400</td>
+        <td class="ans">206,400원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">3</td>
+        <td>주급 × 4주 = 월급</td>
+        <td>206,400 × 4 = (200,000×4) + (6,400×4) = 800,000 + 25,600</td>
+        <td class="ans">825,600원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">4</td>
+        <td>흐름도 완성</td>
+        <td>×4시간 → 일급 41,280 / ×5일 → 주급 206,400 / ×4주 → 월급 825,600</td>
+        <td class="ans">41,280 / 206,400 / 825,600원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">5</td>
+        <td>공제 후 실수령액</td>
+        <td>공제 합계: 37,000+24,000+7,000+6,000=74,000 / 실수령액: 825,600−74,000</td>
+        <td class="ans">공제 74,000원 / 실수령 751,600원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">6</td>
+        <td>결근 시 급여</td>
+        <td>825,600 − 41,280 (또는 41,280 × 19)</td>
+        <td class="ans">784,320원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">7</td>
+        <td>추가 근무</td>
+        <td>추가: 10,320×4=41,280 / 전체: 206,400+41,280</td>
+        <td class="ans">추가 41,280원 / 전체 247,680원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">8</td>
+        <td>알바 비교</td>
+        <td>A 일급: 10,320×4=41,280 → 월 41,280×20=825,600 / B 일급: 11,000×3=33,000 → 월 33,000×20=660,000</td>
+        <td class="ans">A편의점 (차이 165,600원)</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">9</td>
+        <td>지출 분류</td>
+        <td>교통카드→교통비 / 치킨→식비 / 넷플릭스→통신·구독비 / 운동화→의류·쇼핑 / 저금→저축 / 선물→경조사·선물</td>
+        <td class="ans">분류 확인</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">10</td>
+        <td>가계부 잔액</td>
+        <td>지출 합계: 200,000+130,000+60,000+45,000+80,000+70,000=585,000 / 잔액: 751,600−585,000</td>
+        <td class="ans">지출 585,000원 / 잔액 166,600원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">11</td>
+        <td>영수증 → 가계부</td>
+        <td>식비: 도시락 15,000+커피 9,000 / 취미: 영화 14,000 / 미용: 헤어컷 12,000 / 합계: 12,000+15,000+9,000+14,000+12,000</td>
+        <td class="ans">합계 62,000원</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">12</td>
+        <td>저축 목표 달성</td>
+        <td>이어폰 200,000÷200,000=1 / 운동화 400,000÷200,000=2 / 태블릿 600,000÷200,000=3 / 카메라 800,000÷200,000=4</td>
+        <td class="ans">1달 / 2달 / 3달 / 4달</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">13</td>
+        <td>예산 초과 분석</td>
+        <td>실제 합계: 158,000+60,000+125,000+55,000=398,000 / 초과: 398,000−340,000=58,000 / 식비+28,000 / 의류+45,000 / 취미−15,000</td>
+        <td class="ans">총 58,000원 초과</td>
+      </tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">14</td>
+        <td>자유 작성</td>
+        <td colspan="2">학생이 작성한 금액의 합계가 751,600원 이하인지, 저축 항목이 포함되었는지 확인</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box" style="margin-top:14px;">
+    <b>수업 활용 아이디어</b><br>
+    · 1~4번: "나는 시급이 얼마면 좋겠어?" 목표 시급 토론 후 직접 계산해 보는 활동<br>
+    · 5번 급여 명세서: 실제 급여 명세서 양식을 보여주며 각 공제 항목의 의미 설명<br>
+    · 8번 알바 비교: "시급이 높으면 무조건 좋을까?" — 시간과 시급의 관계 토의<br>
+    · 9번 지출 분류: 영수증 실물을 가져와 직접 분류해 보는 체험 활동으로 확장<br>
+    · 12번 저축 목표: 학생 각자 갖고 싶은 물건 발표 후 저축 목표 기간 계산<br>
+    · 14번 나만의 가계부: 모둠별 발표 → "가장 알뜰한 가계부" 선발 토의 활동<br>
+    · 심화: 주휴수당(1주 15시간 이상 시 1일치 추가) 개념 소개 → 월급 재계산 도전
+  </div>
+</div>
+
+</body>
+</html>

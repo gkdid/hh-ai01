@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Country Word Search · 나라 영어 단어찾기 30×30</title>
+<style>
+  :root {
+    --grad-from: #0277bd;
+    --grad-to: #01579b;
+    --accent: #0277bd;
+    --accent-dark: #01579b;
+    --accent-light: #e1f5fe;
+    --accent-border: #b3e5fc;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Malgun Gothic', '맑은 고딕', AppleGothic, 'Segoe UI', sans-serif;
+    background: #f4f6f8;
+    color: #1f2d3d;
+    -webkit-user-select: none; user-select: none;
+  }
+  header {
+    background: linear-gradient(135deg, var(--grad-from) 0%, var(--grad-to) 100%);
+    color: #fff; padding: 20px 24px 18px; text-align: center;
+  }
+  header .hero {
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px; flex-wrap: wrap;
+  }
+  header .hero .hero-emoji { font-size: 2.2em; line-height: 1; }
+  header h1 { margin: 0; font-size: 1.5em; letter-spacing: -0.5px; }
+  header p  { margin: 6px 0 0; opacity: 0.92; font-size: 0.95em; }
+  .emoji-band {
+    margin-top: 10px; font-size: 1.4em;
+    letter-spacing: 6px; opacity: 0.95;
+  }
+  .name-row {
+    display: none; margin-top: 8px;
+    font-size: 11pt; color: #000; text-align: left;
+  }
+
+  .controls {
+    background: #fff; border-bottom: 1px solid #e0e6ec;
+    padding: 10px 16px; display: flex; gap: 10px;
+    flex-wrap: wrap; align-items: center; justify-content: center;
+  }
+  .controls button {
+    background: var(--accent); color: #fff; border: none;
+    padding: 8px 16px; border-radius: 8px; font-size: 0.95em;
+    cursor: pointer; font-weight: 600;
+  }
+  .controls button:hover { background: var(--accent-dark); }
+  .controls button.alt { background: #607d8b; }
+  .controls button.alt:hover { background: #455a64; }
+  .controls .status {
+    font-weight: 700; color: var(--accent); font-size: 1em;
+    padding: 6px 12px; background: var(--accent-light); border-radius: 8px;
+  }
+
+  main {
+    display: flex; gap: 16px; padding: 16px;
+    max-width: 1200px; margin: 0 auto; align-items: flex-start;
+  }
+  .grid-wrap {
+    background: #fff; border: 3px solid var(--accent-border);
+    border-radius: 10px; padding: 8px;
+    overflow: auto; flex-shrink: 0;
+  }
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(30, 26px);
+    grid-template-rows: repeat(30, 26px);
+    gap: 0; user-select: none; touch-action: none;
+  }
+  .cell {
+    width: 26px; height: 26px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Consolas','Courier New',monospace;
+    font-size: 14px; font-weight: 700; color: #263238;
+    border: 1px solid #f0f0f0; background: #fff; cursor: pointer;
+  }
+  .cell.selecting { background: #ffe082; color: #e65100; }
+  .cell.found  { background: #c8e6c9; color: #1b5e20; }
+  .cell.found2 { background: #b3e5fc; color: #01579b; }
+  .cell.found3 { background: #f8bbd0; color: #880e4f; }
+  .cell.found4 { background: #ffe0b2; color: #bf360c; }
+  .cell.found5 { background: #d1c4e9; color: #311b92; }
+  .cell.found6 { background: #ffccbc; color: #bf360c; }
+
+  aside {
+    flex: 1; min-width: 240px; max-width: 320px;
+    background: #fff; border: 3px solid var(--accent-border);
+    border-radius: 10px; padding: 14px;
+    position: sticky; top: 16px;
+  }
+  aside h2 {
+    margin: 0 0 10px; font-size: 1.05em;
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent-border);
+    padding-bottom: 6px;
+  }
+  ul.words {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4px 8px; font-size: 0.92em;
+  }
+  ul.words li {
+    padding: 3px 6px; border-radius: 4px; color: #37474f;
+    font-family: 'Consolas',monospace;
+    font-weight: 600; letter-spacing: 0.5px;
+    display: flex; align-items: center; gap: 6px;
+  }
+  ul.words li .ico {
+    font-family: 'Segoe UI Emoji','Apple Color Emoji',sans-serif;
+    font-size: 1.2em; flex-shrink: 0;
+  }
+  ul.words li.found {
+    text-decoration: line-through; color: #9e9e9e; background: #f5f5f5;
+  }
+  .hint {
+    margin-top: 12px; padding: 10px;
+    background: #fff8e1; border: 1px solid #ffe082;
+    border-radius: 8px; font-size: 0.85em; color: #6d4c41; line-height: 1.5;
+  }
+
+  @media (max-width: 1000px) {
+    main { flex-direction: column; align-items: center; }
+    aside { position: static; max-width: none; width: 100%; max-width: 900px; }
+    ul.words { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* ===== A4 한 장 인쇄 ===== */
+  @page { size: A4 portrait; margin: 9mm; }
+  @media print {
+    html, body { background: #fff; color: #000; }
+    header {
+      background: var(--accent-light) !important; color: #000 !important;
+      padding: 3mm 4mm; text-align: left;
+      border: 1pt solid var(--accent); border-radius: 2mm;
+    }
+    header .hero { justify-content: flex-start; gap: 4mm; }
+    header .hero .hero-emoji { font-size: 14pt; }
+    header h1 { font-size: 13pt; margin: 0; color: var(--accent); }
+    header p  { font-size: 9pt; margin: 1mm 0 0; color: #333; }
+    .emoji-band { font-size: 11pt; letter-spacing: 4px; margin-top: 2mm; opacity: 0.9; }
+    .name-row { display: block; }
+
+    .controls { display: none; }
+    main { display: block; padding: 0; margin: 0; max-width: none; }
+
+    .grid-wrap {
+      border: 1.5pt solid var(--accent); padding: 1mm;
+      border-radius: 0; margin: 4mm auto 3mm;
+      width: max-content; page-break-inside: avoid;
+    }
+    #grid {
+      grid-template-columns: repeat(30, 5.5mm);
+      grid-template-rows: repeat(30, 5.5mm);
+    }
+    .cell {
+      width: 5.5mm; height: 5.5mm; font-size: 9pt;
+      border: 0.2pt solid #ddd;
+      color: #000 !important; background: #fff !important;
+    }
+    .cell.found,.cell.found2,.cell.found3,
+    .cell.found4,.cell.found5,.cell.found6,.cell.selecting {
+      background: #fff !important; color: #000 !important;
+    }
+
+    aside {
+      position: static; border: 1pt solid var(--accent);
+      border-radius: 0; padding: 3mm 4mm;
+      max-width: none; width: 100%; page-break-inside: avoid;
+    }
+    aside h2 {
+      font-size: 10pt; margin: 0 0 2mm; color: var(--accent);
+      border-bottom: 0.5pt solid var(--accent); padding-bottom: 1mm;
+    }
+    ul.words {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1mm 4mm; font-size: 9pt;
+    }
+    ul.words li {
+      padding: 0; background: none !important;
+      color: #000 !important; text-decoration: none !important;
+    }
+    ul.words li .ico { font-size: 11pt; }
+    .hint { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hero">
+    <span class="hero-emoji">🌏</span>
+    <h1>Country Word Search · 나라 영어 단어찾기 (30×30)</h1>
+    <span class="hero-emoji">🗺️</span>
+  </div>
+  <p>전 세계 여러 나라의 영어 이름 30개를 찾아보세요. 가로 · 세로 · 대각선 8방향, 거꾸로도 숨어 있어요.</p>
+  <div class="emoji-band">🌏 🗺️ 🏛️ 🗽 🗼 🏰 ⛩️ 🚩 🛫 🌐</div>
+  <div class="name-row">이름: ______________________  반: ______  번호: ______  날짜: ______</div>
+</header>
+
+<div class="controls">
+  <button id="btnNew">🔄 새 퍼즐</button>
+  <button id="btnReveal" class="alt">💡 정답 보기</button>
+  <button id="btnPrint" class="alt">🖨️ 인쇄 (A4 1장)</button>
+  <span class="status" id="status">찾은 단어: 0 / 0</span>
+</div>
+
+<main>
+  <div class="grid-wrap"><div id="grid"></div></div>
+  <aside>
+    <h2>📚 찾을 단어 목록</h2>
+    <ul class="words" id="wordList"></ul>
+    <div class="hint">
+      <b>방법:</b> 첫 글자를 누르고 마우스를 끌어 마지막 글자에서 떼면 단어가 선택됩니다.
+      가로 · 세로 · 대각선(8방향) 모두 가능, 거꾸로도 OK. 터치 화면에서도 동작합니다.
+    </div>
+  </aside>
+</main>
+
+<script>
+(() => {
+  const SIZE = 30;
+  const WORDS = [
+    {word:"KOREA",icon:"🇰🇷"},{word:"JAPAN",icon:"🇯🇵"},{word:"CHINA",icon:"🇨🇳"},
+    {word:"AMERICA",icon:"🇺🇸"},{word:"FRANCE",icon:"🇫🇷"},{word:"GERMANY",icon:"🇩🇪"},
+    {word:"ITALY",icon:"🇮🇹"},{word:"SPAIN",icon:"🇪🇸"},{word:"ENGLAND",icon:"🇬🇧"},
+    {word:"CANADA",icon:"🇨🇦"},{word:"MEXICO",icon:"🇲🇽"},{word:"BRAZIL",icon:"🇧🇷"},
+    {word:"ARGENTINA",icon:"🇦🇷"},{word:"AUSTRALIA",icon:"🇦🇺"},{word:"INDIA",icon:"🇮🇳"},
+    {word:"VIETNAM",icon:"🇻🇳"},{word:"THAILAND",icon:"🇹🇭"},{word:"INDONESIA",icon:"🇮🇩"},
+    {word:"RUSSIA",icon:"🇷🇺"},{word:"GREECE",icon:"🇬🇷"},{word:"TURKEY",icon:"🇹🇷"},
+    {word:"EGYPT",icon:"🇪🇬"},{word:"KENYA",icon:"🇰🇪"},{word:"CHILE",icon:"🇨🇱"},
+    {word:"POLAND",icon:"🇵🇱"},{word:"SWEDEN",icon:"🇸🇪"},{word:"NORWAY",icon:"🇳🇴"},
+    {word:"FINLAND",icon:"🇫🇮"},{word:"SINGAPORE",icon:"🇸🇬"},{word:"MALAYSIA",icon:"🇲🇾"}
+  ];
+  const DIRS = [[0,1],[0,-1],[1,0],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1]];
+  const ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  const gridEl = document.getElementById('grid');
+  const listEl = document.getElementById('wordList');
+  const statusEl = document.getElementById('status');
+
+  let grid, wordPlacements, foundSet, cellEls;
+  let selecting = false, startCell = null, currentSel = [];
+
+  const makeEmpty = () => Array.from({length:SIZE},() => Array(SIZE).fill(null));
+
+  function tryPlace(g, word) {
+    for (let a = 0; a < 400; a++) {
+      const d = DIRS[Math.floor(Math.random()*DIRS.length)];
+      const r = Math.floor(Math.random()*SIZE);
+      const c = Math.floor(Math.random()*SIZE);
+      const er = r + d[0]*(word.length-1), ec = c + d[1]*(word.length-1);
+      if (er<0||er>=SIZE||ec<0||ec>=SIZE) continue;
+      let ok = true;
+      for (let i=0;i<word.length;i++) {
+        const cr=r+d[0]*i, cc=c+d[1]*i;
+        if (g[cr][cc] && g[cr][cc] !== word[i]) { ok=false; break; }
+      }
+      if (!ok) continue;
+      for (let i=0;i<word.length;i++) g[r+d[0]*i][c+d[1]*i] = word[i];
+      return { word, start:[r,c], dir:d };
+    }
+    return null;
+  }
+
+  function generate() {
+    let g, placements;
+    for (let attempt=0; attempt<8; attempt++) {
+      g = makeEmpty(); placements = [];
+      const sorted = [...WORDS].sort((a,b) => b.word.length - a.word.length);
+      let allOk = true;
+      for (const w of sorted) {
+        const p = tryPlace(g, w.word);
+        if (p) { p.icon = w.icon; placements.push(p); }
+        else { allOk = false; break; }
+      }
+      if (allOk) break;
+    }
+    for (let r=0;r<SIZE;r++) for (let c=0;c<SIZE;c++)
+      if (!g[r][c]) g[r][c] = ALPHABET[Math.floor(Math.random()*26)];
+    return { g, placements };
+  }
+
+  function render() {
+    gridEl.innerHTML = '';
+    cellEls = Array.from({length:SIZE},() => Array(SIZE));
+    const frag = document.createDocumentFragment();
+    for (let r=0;r<SIZE;r++) for (let c=0;c<SIZE;c++) {
+      const d = document.createElement('div');
+      d.className = 'cell'; d.textContent = grid[r][c];
+      d.dataset.r = r; d.dataset.c = c;
+      cellEls[r][c] = d; frag.appendChild(d);
+    }
+    gridEl.appendChild(frag);
+
+    listEl.innerHTML = '';
+    [...wordPlacements].sort((a,b) => a.word.localeCompare(b.word)).forEach(p => {
+      const li = document.createElement('li');
+      li.dataset.word = p.word;
+      const ico = document.createElement('span');
+      ico.className = 'ico'; ico.textContent = p.icon;
+      const txt = document.createElement('span'); txt.textContent = p.word;
+      li.appendChild(ico); li.appendChild(txt);
+      listEl.appendChild(li);
+    });
+    updateStatus();
+  }
+
+  function updateStatus() {
+    statusEl.textContent = `찾은 단어: ${foundSet.size} / ${wordPlacements.length}`;
+    if (foundSet.size === wordPlacements.length && wordPlacements.length > 0)
+      statusEl.textContent += ' 🎉 완성!';
+  }
+
+  const clearSel = () => { currentSel.forEach(c => c.classList.remove('selecting')); currentSel = []; };
+
+  function snapLine(sr, sc, er, ec) {
+    const dr=er-sr, dc=ec-sc;
+    if (dr===0 && dc===0) return [[sr,sc]];
+    let best=null, bestScore=-Infinity;
+    for (const d of DIRS) {
+      const score = d[0]*dr + d[1]*dc;
+      if (score > bestScore) { bestScore = score; best = d; }
+    }
+    const len = Math.max(Math.abs(dr), Math.abs(dc));
+    const cells = [];
+    for (let i=0;i<=len;i++) {
+      const r=sr+best[0]*i, c=sc+best[1]*i;
+      if (r<0||r>=SIZE||c<0||c>=SIZE) break;
+      cells.push([r,c]);
+    }
+    return cells;
+  }
+
+  function applySel(cells) {
+    clearSel();
+    currentSel = cells.map(([r,c]) => cellEls[r][c]);
+    currentSel.forEach(el => el.classList.add('selecting'));
+  }
+
+  function checkSelection(cells) {
+    if (cells.length < 2) return null;
+    const w = cells.map(([r,c]) => grid[r][c]).join('');
+    const rev = w.split('').reverse().join('');
+    for (const p of wordPlacements) {
+      if (foundSet.has(p.word)) continue;
+      if (p.word === w || p.word === rev) return p;
+    }
+    return null;
+  }
+
+  function markFound(cells, word, idx) {
+    const klass = ['found','found2','found3','found4','found5','found6'][idx % 6];
+    cells.forEach(([r,c]) => cellEls[r][c].classList.add(klass));
+    const li = listEl.querySelector(`li[data-word="${word}"]`);
+    if (li) li.classList.add('found');
+    foundSet.add(word); updateStatus();
+  }
+
+  function getCellAt(x,y) {
+    const el = document.elementFromPoint(x,y);
+    if (el && el.classList && el.classList.contains('cell'))
+      return [parseInt(el.dataset.r), parseInt(el.dataset.c)];
+    return null;
+  }
+
+  function onDown(e) {
+    const t = e.touches ? e.touches[0] : e;
+    const pos = getCellAt(t.clientX, t.clientY);
+    if (!pos) return;
+    selecting = true; startCell = pos; applySel([pos]);
+    e.preventDefault();
+  }
+  function onMove(e) {
+    if (!selecting) return;
+    const t = e.touches ? e.touches[0] : e;
+    const pos = getCellAt(t.clientX, t.clientY);
+    if (!pos) return;
+    applySel(snapLine(startCell[0], startCell[1], pos[0], pos[1]));
+    e.preventDefault();
+  }
+  function onUp() {
+    if (!selecting) return;
+    selecting = false;
+    const cells = currentSel.map(el => [parseInt(el.dataset.r), parseInt(el.dataset.c)]);
+    const m = checkSelection(cells);
+    if (m) {
+      const mc = [];
+      for (let i=0;i<m.word.length;i++)
+        mc.push([m.start[0]+m.dir[0]*i, m.start[1]+m.dir[1]*i]);
+      const idx = wordPlacements.findIndex(p => p.word === m.word);
+      clearSel(); markFound(mc, m.word, idx);
+    } else clearSel();
+  }
+
+  gridEl.addEventListener('mousedown', onDown);
+  window.addEventListener('mousemove', onMove);
+  window.addEventListener('mouseup', onUp);
+  gridEl.addEventListener('touchstart', onDown, {passive:false});
+  gridEl.addEventListener('touchmove', onMove, {passive:false});
+  gridEl.addEventListener('touchend', onUp);
+
+  function reveal() {
+    wordPlacements.forEach((p, idx) => {
+      if (foundSet.has(p.word)) return;
+      const cells = [];
+      for (let i=0;i<p.word.length;i++)
+        cells.push([p.start[0]+p.dir[0]*i, p.start[1]+p.dir[1]*i]);
+      markFound(cells, p.word, idx);
+    });
+  }
+
+  function newPuzzle() {
+    const r = generate();
+    grid = r.g; wordPlacements = r.placements;
+    foundSet = new Set();
+    render();
+  }
+
+  document.getElementById('btnNew').addEventListener('click', newPuzzle);
+  document.getElementById('btnReveal').addEventListener('click', () => {
+    if (confirm('정답을 모두 표시할까요?')) reveal();
+  });
+  document.getElementById('btnPrint').addEventListener('click', () => window.print());
+
+  newPuzzle();
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @media print {
+    body { margin: 0; background: white; }
+    .page { page-break-after: always; margin: 0; padding: 18mm 18mm 14mm; box-shadow: none; }
+    .page:last-child { page-break-after: avoid; }
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; background: #eee; margin: 0; padding: 20px; }
+
+  .page {
+    background: white; width: 210mm; min-height: 297mm;
+    margin: 0 auto 30px; padding: 15mm 18mm 13mm;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  .sheet-header {
+    border: 2px solid #333; border-radius: 6px;
+    padding: 10px 16px; margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .sheet-title { font-size: 19px; font-weight: bold; color: #000; }
+  .sheet-sub { font-size: 12px; color: #555; margin-top: 2px; }
+  .logo-badge {
+    background: #333; color: white; font-size: 12px; font-weight: bold;
+    padding: 5px 13px; border-radius: 20px; white-space: nowrap;
+  }
+
+  .info-row { display: flex; gap: 18px; margin-bottom: 11px; }
+  .info-box {
+    border-bottom: 1.5px solid #333; flex: 1; padding-bottom: 3px;
+    display: flex; align-items: center; gap: 5px; font-size: 13px;
+  }
+  .info-label { font-weight: bold; white-space: nowrap; color: #333; }
+
+  .section-title {
+    background: #333; color: white; font-size: 13px; font-weight: bold;
+    padding: 5px 13px; border-radius: 4px; margin: 13px 0 8px;
+  }
+
+  .price-table {
+    border: 1.5px solid #aaa; border-radius: 6px;
+    padding: 8px 13px; margin: 5px 0 10px; font-size: 13px; line-height: 1.85;
+  }
+  .price-row { display: flex; justify-content: space-between; align-items: center; }
+  .price-name { color: #222; }
+  .price-val { font-weight: bold; }
+  .price-sub { font-size: 11px; color: #666; margin-left: 7px; }
+  .price-divider { border: none; border-top: 1px dashed #bbb; margin: 2px 0; }
+  .price-group { font-size: 11px; font-weight: bold; color: #555; margin: 5px 0 2px; letter-spacing: 0.5px; }
+
+  /* 재료 카드 그리드 */
+  .ingr-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 7px;
+    margin: 6px 0 10px;
+  }
+  .ingr-card {
+    border: 1.5px solid #bbb; border-radius: 6px;
+    padding: 7px 8px; text-align: center; font-size: 12px; background: #fafafa;
+  }
+  .ingr-icon { font-size: 18px; display: block; margin-bottom: 3px; }
+  .ingr-name { font-weight: bold; display: block; margin-bottom: 1px; }
+  .ingr-gram { color: #555; font-size: 11px; }
+  .ingr-price { font-weight: bold; font-size: 11.5px; margin-top: 2px; }
+
+  .q-box {
+    border: 1.5px solid #aaa; border-radius: 6px;
+    padding: 11px 13px; margin-bottom: 10px; background: #fff;
+  }
+  .q-head { display: flex; align-items: flex-start; margin-bottom: 7px; }
+  .q-num {
+    display: inline-block; background: #333; color: white;
+    font-size: 12px; font-weight: bold; border-radius: 50%;
+    width: 23px; height: 23px; line-height: 23px; text-align: center;
+    margin-right: 7px; flex-shrink: 0; margin-top: 1px;
+  }
+  .q-text { font-size: 13.5px; line-height: 1.85; flex: 1; }
+
+  .answer-line {
+    border: none; border-bottom: 1.5px solid #888;
+    width: 100%; margin-top: 4px; height: 25px; background: transparent; display: block;
+  }
+  .answer-label { font-size: 11.5px; color: #444; font-weight: bold; }
+  .answer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 5px; }
+  .answer-grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 5px; }
+
+  .check-row { display: flex; gap: 12px; margin-top: 6px; flex-wrap: wrap; }
+  .check-item { display: flex; align-items: center; gap: 5px; font-size: 13px; }
+  .check-box { width: 16px; height: 16px; border: 1.5px solid #555; border-radius: 3px; display: inline-block; flex-shrink: 0; }
+
+  .tip-box {
+    background: #f5f5f5; border-left: 4px solid #666;
+    border-radius: 0 6px 6px 0; padding: 7px 11px;
+    font-size: 12px; color: #444; margin-bottom: 10px; line-height: 1.75;
+  }
+
+  .receipt {
+    border: 1.5px solid #aaa; border-radius: 6px;
+    padding: 8px 13px; font-size: 13px; background: white; margin: 6px 0 7px;
+  }
+  .receipt-title { text-align: center; font-weight: bold; font-size: 13px; margin-bottom: 4px; }
+  .receipt-row { display: flex; justify-content: space-between; padding: 2px 0; }
+  .receipt-total {
+    border-top: 1.5px solid #333; margin-top: 4px; padding-top: 4px;
+    font-weight: bold; display: flex; justify-content: space-between;
+  }
+
+  .blank { border-bottom: 1.5px solid #333; min-width: 52px; display: inline-block; }
+  .blank-sm { border-bottom: 1.5px solid #333; min-width: 35px; display: inline-block; }
+  .blank-lg { border-bottom: 1.5px solid #333; min-width: 105px; display: inline-block; }
+
+  .calc-step { font-size: 13px; color: #333; margin-bottom: 5px; line-height: 2; }
+
+  .order-grid { border: 1.5px solid #aaa; border-radius: 6px; overflow: hidden; margin: 6px 0 7px; font-size: 12.5px; }
+  .order-grid-head {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    background: #555; color: white; font-weight: bold; padding: 5px 9px; font-size: 12px;
+  }
+  .order-grid-row {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    padding: 5px 9px; border-bottom: 1px dashed #ddd;
+  }
+  .order-grid-row:last-child { border-bottom: none; }
+  .order-grid-total {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr;
+    padding: 5px 9px; background: #f0f0f0; font-weight: bold; border-top: 1.5px solid #aaa;
+  }
+
+  /* 재료 담기 시각화 */
+  .tray-box {
+    border: 1.5px solid #aaa; border-radius: 6px;
+    padding: 9px 13px; margin: 6px 0 8px; font-size: 12.5px; background: #fafafa;
+  }
+  .tray-row { display: flex; align-items: center; gap: 8px; padding: 3px 0; border-bottom: 1px dashed #ddd; }
+  .tray-row:last-child { border-bottom: none; }
+  .tray-name { flex: 1; }
+  .tray-g { min-width: 55px; color: #555; }
+  .tray-price { min-width: 65px; font-weight: bold; text-align: right; }
+
+  table { border-collapse: collapse; width: 100%; }
+  th { background: #333; color: white; padding: 6px 7px; border: 1px solid #555; font-size: 12px; }
+  td { padding: 6px 7px; border: 1px solid #ccc; font-size: 12px; }
+  tr:nth-child(even) td { background: #f9f9f9; }
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE 1 : 마라탕 소개 + 재료 알기 ===== -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">마라탕 집 이용하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 1쪽 — 마라탕 재료 알기</div>
+    </div>
+    <div class="logo-badge">마라탕 수학</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+    <div class="info-box"><span class="info-label">점수</span></div>
+  </div>
+
+  <div class="tip-box">
+    알아두기: 마라탕은 중국에서 온 음식으로, 먹고 싶은 재료를 골라 무게를 재서 계산해요.
+    각 재료마다 100g당 가격이 정해져 있어요. 재료를 많이 담을수록 가격이 올라가요.
+    이 가게는 <b>재료 100g당 1,000원</b>이에요.
+  </div>
+
+  <div class="section-title">마라탕 재료 소개 (100g당 1,000원)</div>
+  <div class="ingr-grid">
+    <div class="ingr-card"><span class="ingr-icon">🥩</span><span class="ingr-name">소고기</span><span class="ingr-gram">50g 단위</span><span class="ingr-price">500원/50g</span></div>
+    <div class="ingr-card"><span class="ingr-icon">🍤</span><span class="ingr-name">새우</span><span class="ingr-gram">50g 단위</span><span class="ingr-price">500원/50g</span></div>
+    <div class="ingr-card"><span class="ingr-icon">🦑</span><span class="ingr-name">오징어</span><span class="ingr-gram">50g 단위</span><span class="ingr-price">500원/50g</span></div>
+    <div class="ingr-card"><span class="ingr-icon">🍄</span><span class="ingr-name">버섯</span><span class="ingr-gram">50g 단위</span><span class="ingr-price">500원/50g</span></div>
+    <div class="ingr-card"><span class="ingr-icon">🥦</span><span class="ingr-name">브로콜리</span><span class="ingr-gram">50g 단위</span><span class="ingr-price">500원/50g</span></div>
+    <div class="ingr-card"><span class="ingr-icon">🌽</span><span class="ingr-name">옥수수</span><span class="ingr-gram">50g 단위</span><span class="ingr-price">500원/50g</span></div>
+    <div class="ingr-card"><span class="ingr-icon">🍜</span><span class="ingr-name">당면(면)</span><span class="ingr-gram">50g 단위</span><span class="ingr-price">500원/50g</span></div>
+    <div class="ingr-card"><span class="ingr-icon">🧀</span><span class="ingr-name">두부</span><span class="ingr-gram">50g 단위</span><span class="ingr-price">500원/50g</span></div>
+    <div class="ingr-card"><span class="ingr-icon">🥚</span><span class="ingr-name">어묵</span><span class="ingr-gram">50g 단위</span><span class="ingr-price">500원/50g</span></div>
+    <div class="ingr-card"><span class="ingr-icon">🥬</span><span class="ingr-name">청경채</span><span class="ingr-gram">50g 단위</span><span class="ingr-price">500원/50g</span></div>
+    <div class="ingr-card"><span class="ingr-icon">🫘</span><span class="ingr-name">떡</span><span class="ingr-gram">50g 단위</span><span class="ingr-price">500원/50g</span></div>
+    <div class="ingr-card"><span class="ingr-icon">🌿</span><span class="ingr-name">숙주나물</span><span class="ingr-gram">50g 단위</span><span class="ingr-price">500원/50g</span></div>
+  </div>
+
+  <div class="tip-box">
+    계산 방법: 재료의 총 무게(g) ÷ 100 × 1,000원 = 마라탕 가격<br>
+    예) 재료 200g → 200 ÷ 100 × 1,000 = <b>2,000원</b> &nbsp;|&nbsp; 재료 350g → 350 ÷ 100 × 1,000 = <b>3,500원</b>
+  </div>
+
+  <div class="section-title">문제 풀기 (1~2번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">1</span>
+      <span class="q-text">하영이는 소고기 100g, 버섯 100g을 골랐어요.
+        재료의 무게는 모두 몇 g인가요? 가격은 얼마인가요?</span>
+    </div>
+    <div class="answer-grid3">
+      <div><div class="answer-label">무게 합계 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">총 무게</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">가격</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">2</span>
+      <span class="q-text">하은이는 새우 50g, 두부 100g, 당면 50g, 청경채 100g을 골랐어요.
+        재료의 총 무게는 몇 g인가요? 가격은 얼마인가요?</span>
+    </div>
+    <div class="calc-step">
+      무게 합계: <span class="blank-sm"></span> + <span class="blank-sm"></span> + <span class="blank-sm"></span> + <span class="blank-sm"></span> = <span class="blank-sm"></span> g
+    </div>
+    <div class="answer-grid">
+      <div><div class="answer-label">가격 계산식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 2 : 재료 담기 + 사이드 메뉴 ===== -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">마라탕 집 이용하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 2쪽 — 재료 담고 계산하기</div>
+    </div>
+    <div class="logo-badge">마라탕 수학</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <div class="tip-box">
+    기억해요: 재료 100g = 1,000원 / 재료 50g = 500원<br>
+    사이드 메뉴: 공기밥 1,000원 · 군만두 5,000원 · 탕수육(小) 8,000원 · 음료수 2,000원
+  </div>
+
+  <div class="section-title">문제 풀기 (3~6번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">3</span>
+      <span class="q-text">주은이가 담은 재료 목록이에요. 각 재료의 가격과 전체 합계를 구해 보세요.</span>
+    </div>
+    <div class="tray-box">
+      <div class="tray-row"><span class="tray-name">오징어</span><span class="tray-g">100g</span><span class="tray-price"><span class="blank-sm"></span> 원</span></div>
+      <div class="tray-row"><span class="tray-name">떡</span><span class="tray-g">100g</span><span class="tray-price"><span class="blank-sm"></span> 원</span></div>
+      <div class="tray-row"><span class="tray-name">어묵</span><span class="tray-g">50g</span><span class="tray-price"><span class="blank-sm"></span> 원</span></div>
+      <div class="tray-row"><span class="tray-name">숙주나물</span><span class="tray-g">50g</span><span class="tray-price"><span class="blank-sm"></span> 원</span></div>
+      <div class="tray-row" style="font-weight:bold;"><span class="tray-name">합계</span><span class="tray-g"><span class="blank-sm"></span> g</span><span class="tray-price"><span class="blank-sm"></span> 원</span></div>
+    </div>
+    <div class="answer-label">합계를 구하는 식</div>
+    <div class="answer-line"></div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">4</span>
+      <span class="q-text">채원이는 재료를 300g 담고, 공기밥 1개를 추가로 주문했어요.
+        채원이가 내야 할 전체 금액은 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 재료 300g 가격: 300 ÷ 100 × 1,000 = <span class="blank"></span> 원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">전체 금액 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">5</span>
+      <span class="q-text">예은이는 소고기 100g, 새우 50g, 버섯 100g, 브로콜리 50g을 담고
+        음료수 1잔을 추가했어요. 20,000원을 냈다면 거스름돈은 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 재료 총 무게: <span class="blank-sm"></span> + <span class="blank-sm"></span> + <span class="blank-sm"></span> + <span class="blank-sm"></span> = <span class="blank-sm"></span> g</div>
+    <div class="calc-step">② 재료 가격: <span class="blank"></span> ÷ 100 × 1,000 = <span class="blank"></span> 원</div>
+    <div class="calc-step">③ 재료 + 음료수: <span class="blank"></span> + 2,000 = <span class="blank"></span> 원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">거스름돈 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">6</span>
+      <span class="q-text">주현이는 10,000원을 가지고 있어요. 재료를 몇 g까지 담을 수 있나요?
+        (사이드 메뉴는 주문하지 않아요.)</span>
+    </div>
+    <div class="check-row">
+      <div class="check-item"><span class="check-box"></span> 500g</div>
+      <div class="check-item"><span class="check-box"></span> 1,000g</div>
+      <div class="check-item"><span class="check-box"></span> 1,500g</div>
+      <div class="check-item"><span class="check-box"></span> 2,000g</div>
+    </div>
+    <div style="font-size:12px; color:#555; margin-top:6px;">이유:</div>
+    <div class="answer-line"></div>
+  </div>
+</div>
+
+<!-- ===== PAGE 3 : 여러 명 주문 + 영수증 ===== -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">마라탕 집 이용하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 3쪽 — 여러 명이 함께 주문하기</div>
+    </div>
+    <div class="logo-badge">마라탕 수학</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <div class="section-title">문제 풀기 (7~10번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">7</span>
+      <span class="q-text">정선이(200g)와 하영이(150g)가 각각 재료를 담았어요.
+        두 사람이 낸 돈을 합치면 모두 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 정선이: 200g → <span class="blank"></span> 원 &nbsp;&nbsp; ② 하영이: 150g → <span class="blank"></span> 원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">합계 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">8</span>
+      <span class="q-text">하은이네 모둠 4명이 마라탕 가게에서 아래처럼 주문했어요.
+        빈칸을 채워 주문서를 완성해 보세요.</span>
+    </div>
+    <div class="order-grid">
+      <div class="order-grid-head"><span>이름</span><span>재료 무게</span><span>재료 가격</span><span>추가 주문</span></div>
+      <div class="order-grid-row"><span>하은</span><span>200g</span><span><span class="blank-sm"></span> 원</span><span>공기밥 1개</span></div>
+      <div class="order-grid-row"><span>주은</span><span>250g</span><span><span class="blank-sm"></span> 원</span><span>없음</span></div>
+      <div class="order-grid-row"><span>채원</span><span>150g</span><span><span class="blank-sm"></span> 원</span><span>음료수 1잔</span></div>
+      <div class="order-grid-row"><span>예은</span><span>300g</span><span><span class="blank-sm"></span> 원</span><span>없음</span></div>
+      <div class="order-grid-total"><span>전체 합계</span><span></span><span></span><span><span class="blank-sm"></span> 원</span></div>
+    </div>
+    <div class="answer-label">전체 합계를 구하는 식</div>
+    <div class="answer-line"></div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">9</span>
+      <span class="q-text">주현이는 재료 250g을 담고, 군만두(5,000원)를 추가했어요.
+        아래 영수증의 빈칸을 완성해 보세요.</span>
+    </div>
+    <div class="receipt">
+      <div class="receipt-title">영수증</div>
+      <div class="receipt-row"><span>마라탕 재료 250g</span><span><span class="blank"></span> 원</span></div>
+      <div class="receipt-row"><span>군만두 × 1</span><span>5,000원</span></div>
+      <div class="receipt-total"><span>합계</span><span><span class="blank"></span> 원</span></div>
+    </div>
+    <div class="answer-label">합계를 구하는 식</div>
+    <div class="answer-line"></div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">10</span>
+      <span class="q-text">정선이와 친구 2명이 함께 마라탕을 먹었어요.
+        세 사람의 재료 가격 합계가 9,000원이었어요.
+        똑같이 나눠 낸다면 한 사람이 내야 할 금액은 얼마인가요?</span>
+    </div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식 쓰기</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PAGE 4 : 재료 고르기 + 용돈 계획 ===== -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">마라탕 집 이용하기</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 4쪽 — 재료 고르고 계획 세우기</div>
+    </div>
+    <div class="logo-badge">마라탕 수학</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <div class="section-title">문제 풀기 (11~13번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">11</span>
+      <span class="q-text">하영이는 15,000원으로 마라탕 재료와 사이드 메뉴를 주문하려고 해요.
+        탕수육(8,000원)을 꼭 먹고 싶다면, 재료는 최대 몇 g까지 담을 수 있나요?</span>
+    </div>
+    <div class="calc-step">① 탕수육 뺀 나머지 돈: 15,000 - 8,000 = <span class="blank"></span> 원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">재료 최대 무게 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">12</span>
+      <span class="q-text">아래 보기에서 옳은 것에 ✔ 표시해 보세요.</span>
+    </div>
+    <div class="check-row" style="flex-direction:column; gap:7px; margin-top:5px;">
+      <div class="check-item"><span class="check-box"></span> 재료 100g의 가격은 500원이다.</div>
+      <div class="check-item"><span class="check-box"></span> 재료 200g의 가격은 2,000원이다.</div>
+      <div class="check-item"><span class="check-box"></span> 재료 350g의 가격은 3,000원이다.</div>
+      <div class="check-item"><span class="check-box"></span> 재료를 많이 담을수록 가격이 올라간다.</div>
+      <div class="check-item"><span class="check-box"></span> 재료 50g을 담으면 가격은 500원이다.</div>
+    </div>
+  </div>
+
+  <div class="section-title">스스로 재료 담아 보기 (13번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">13</span>
+      <span class="q-text">내가 마라탕 가게에 간다면 어떤 재료를 담고 싶은지 써 보고, 총 금액을 계산해 보세요.
+        (1쪽 재료 카드를 보고 자유롭게 골라요.)</span>
+    </div>
+    <div class="tray-box">
+      <div class="tray-row"><span class="tray-name"><span class="blank-lg"></span></span><span class="tray-g"><span class="blank-sm"></span> g</span><span class="tray-price"><span class="blank-sm"></span> 원</span></div>
+      <div class="tray-row"><span class="tray-name"><span class="blank-lg"></span></span><span class="tray-g"><span class="blank-sm"></span> g</span><span class="tray-price"><span class="blank-sm"></span> 원</span></div>
+      <div class="tray-row"><span class="tray-name"><span class="blank-lg"></span></span><span class="tray-g"><span class="blank-sm"></span> g</span><span class="tray-price"><span class="blank-sm"></span> 원</span></div>
+      <div class="tray-row"><span class="tray-name"><span class="blank-lg"></span></span><span class="tray-g"><span class="blank-sm"></span> g</span><span class="tray-price"><span class="blank-sm"></span> 원</span></div>
+      <div class="tray-row" style="font-weight:bold;"><span class="tray-name">합계</span><span class="tray-g"><span class="blank-sm"></span> g</span><span class="tray-price"><span class="blank-sm"></span> 원</span></div>
+    </div>
+    <div class="answer-label">사이드 메뉴도 추가하고 싶다면 써 보세요.</div>
+    <div class="answer-line"></div>
+    <div style="margin-top:8px;" class="answer-label">전체 금액 식</div>
+    <div class="answer-line"></div>
+    <div style="margin-top:10px; font-size:13.5px;">용돈 <b>15,000원</b>으로 내 주문을 할 수 있나요?</div>
+    <div class="check-row" style="margin-top:5px;">
+      <div class="check-item"><span class="check-box"></span> 있어요</div>
+      <div class="check-item"><span class="check-box"></span> 없어요</div>
+    </div>
+    <div style="font-size:12px; color:#555; margin-top:5px;">이유:</div>
+    <div class="answer-line"></div>
+  </div>
+</div>
+
+<!-- ===== PAGE 5 : 정답지 ===== -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">마라탕 집 이용하기 — 정답지</div>
+      <div class="sheet-sub">선생님용 · 5쪽</div>
+    </div>
+    <div class="logo-badge">정답지</div>
+  </div>
+
+  <div class="tip-box">
+    지도 tip: 무게 계산이 어려운 학생은 100g 단위 블록이나 저울 그림을 활용하세요.
+    "100g = 1,000원" 규칙을 먼저 충분히 익힌 뒤 문제를 풀도록 안내해 주세요.
+    13번은 자유 작성으로 학생이 쓴 내용을 바탕으로 함께 계산하며 확인해 주세요.
+  </div>
+
+  <div class="section-title">정답 모음</div>
+
+  <table>
+    <colgroup>
+      <col style="width:8%"><col style="width:47%"><col style="width:27%"><col style="width:18%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th style="text-align:center;">번호</th>
+        <th style="text-align:center;">식 / 풀이</th>
+        <th style="text-align:center;">답</th>
+        <th style="text-align:center;">비고</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="text-align:center; font-weight:bold;">1</td><td>100+100 = 200g / 200÷100×1,000 =</td><td style="font-weight:bold;">2,000원</td><td style="font-size:11px; color:#555;">무게+가격</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">2</td><td>50+100+50+100 = 300g / 300÷100×1,000 =</td><td style="font-weight:bold;">3,000원</td><td style="font-size:11px; color:#555;">무게+가격</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">3</td><td>오징어1,000+떡1,000+어묵500+숙주500 / 총 300g</td><td style="font-weight:bold;">3,000원</td><td style="font-size:11px; color:#555;">재료 목록</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">4</td><td>300÷100×1,000 = 3,000 / 3,000+1,000 =</td><td style="font-weight:bold;">4,000원</td><td style="font-size:11px; color:#555;">혼합</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">5</td><td>100+50+100+50 = 300g / 3,000+2,000 = 5,000 / 20,000-5,000 =</td><td style="font-weight:bold;">15,000원</td><td style="font-size:11px; color:#555;">혼합·뺄셈</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">6</td><td>10,000 ÷ 1,000 × 100 = 1,000g</td><td style="font-weight:bold;">1,000g ✔</td><td style="font-size:11px; color:#555;">역산</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">7</td><td>200÷100×1,000 = 2,000 / 150÷100×1,000 = 1,500 / 2,000+1,500 =</td><td style="font-weight:bold;">3,500원</td><td style="font-size:11px; color:#555;">덧셈</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">8</td><td>하은2,000+밥1,000=3,000 / 주은2,500 / 채원1,500+음료2,000=3,500 / 예은3,000 → 합계</td><td style="font-weight:bold;">12,000원</td><td style="font-size:11px; color:#555;">주문서</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">9</td><td>250÷100×1,000 = 2,500 / 2,500+5,000 =</td><td style="font-weight:bold;">7,500원</td><td style="font-size:11px; color:#555;">영수증</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">10</td><td>9,000 ÷ 3 =</td><td style="font-weight:bold;">3,000원</td><td style="font-size:11px; color:#555;">나눗셈</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">11</td><td>15,000-8,000 = 7,000 / 7,000÷1,000×100 =</td><td style="font-weight:bold;">700g</td><td style="font-size:11px; color:#555;">역산</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">12</td><td>옳은 것: ②④⑤ (①은 100g=1,000원 / ③은 350g=3,500원)</td><td style="font-weight:bold;">②④⑤ ✔</td><td style="font-size:11px; color:#555;">O/X</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">13</td><td colspan="3">자유 작성 — 학생이 선택한 재료와 무게로 함께 계산 확인</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box" style="margin-top:15px;">
+    수업 활용 아이디어<br>
+    · 재료 카드(1쪽) 를 실물 카드로 만들어 직접 골라 보는 활동으로 확장<br>
+    · 저울 모형이나 그림으로 무게 개념 시각화 후 계산 연습<br>
+    · 역할극: 손님이 재료를 고르면 점원이 무게를 달고 가격을 알려주는 상황 연습<br>
+    · 13번 자유 주문 발표 후 "누가 가장 알뜰하게 골랐을까?" 토의 활동으로 연결<br>
+    · 6번·11번 역산 문제는 수직선이나 표를 이용해 단계별로 안내
+  </div>
+</div>
+
+</body>
+</html>

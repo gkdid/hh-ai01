@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>1인 기본 생활비 — 수학 학습지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4 portrait; margin: 14mm 15mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  font-size: 12pt; line-height: 1.55;
+}
+
+.toolbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #00695c; color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.toolbar .muted { color: #b2dfdb; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button {
+  background: #ffd54f; color: #004d40; border: none; font: inherit; font-weight: 700;
+  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+}
+.toolbar button:hover { background: #ffe082; }
+
+.page {
+  width: 210mm; min-height: 297mm;
+  margin: 14mm auto; padding: 14mm 16mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  position: relative; page-break-after: always;
+}
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover {
+  padding: 20mm 18mm;
+  background: linear-gradient(135deg, #fff 0%, #e0f2f1 100%);
+}
+.cover-top {
+  display: flex; justify-content: space-between;
+  font-size: 0.9em; color: #607d8b;
+  border-bottom: 2px solid #cfd8dc; padding-bottom: 10px; margin-bottom: 22px;
+}
+.cover-top .subject { font-weight: 700; color: #00695c; }
+.cover-main { text-align: center; padding: 16px 0 12px; }
+.cover-main .badge {
+  display: inline-block; padding: 6px 18px; border-radius: 20px;
+  background: #00695c; color: #fff; font-weight: 700; font-size: 0.95em;
+  margin-bottom: 12px; letter-spacing: 0.5px;
+}
+.cover-main h1 {
+  margin: 0; font-size: 2.0em; letter-spacing: -1.5px;
+  color: #004d40; font-weight: 900;
+}
+.cover-main .lead {
+  margin: 6px 0 0; font-size: 1em; color: #455a64; font-weight: 500;
+}
+.name-box {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin: 16px 0;
+}
+.name-cell { border: 1.5px solid #90a4ae; border-radius: 8px; padding: 9px 12px; }
+.name-cell span { display: block; font-size: 0.78em; color: #546e7a; font-weight: 500; }
+.name-cell em { display: block; min-height: 22px; font-style: normal; }
+
+.cast, .toc, .info {
+  border: 2px solid #4db6ac; border-radius: 10px;
+  padding: 12px 16px; margin-top: 10px; background: #e0f2f1;
+}
+.cast h2, .toc h2, .info h2 {
+  margin: 0 0 6px; font-size: 1.05em; color: #004d40;
+  border-bottom: 1px dashed #26a69a; padding-bottom: 5px;
+}
+.info p { margin: 0; font-size: 0.95em; color: #263238; }
+
+.cast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.person {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 10px; background: #fff;
+  border: 1px solid #eee; border-radius: 8px;
+  font-weight: 700; color: #37474f; font-size: 0.95em;
+}
+.dot { display: inline-block; width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+.d1 { background: #FF6B6B; }
+.d2 { background: #4ECDC4; }
+.d3 { background: #FFD166; }
+.d4 { background: #A78BFA; }
+.d5 { background: #6FCF97; }
+.d6 { background: #F48FB1; }
+
+.toc ol { margin: 4px 0 0; padding-left: 22px; }
+.toc li { padding: 2px 0; }
+
+.ph {
+  display: flex; align-items: center; gap: 14px;
+  border-bottom: 3px solid #004d40; padding-bottom: 10px; margin-bottom: 14px;
+}
+.ph-num {
+  flex-shrink: 0; width: 54px; height: 54px;
+  background: #004d40; color: #ffd54f;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.6em; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; border-radius: 10px;
+}
+.ph-title h2 { margin: 0; font-size: 1.4em; color: #004d40; }
+.ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.92em; }
+
+.scene {
+  background: #e0f2f1; border-left: 6px solid #26a69a;
+  border-radius: 6px; padding: 10px 14px; margin-bottom: 12px;
+}
+.scene p { margin: 0; }
+
+.tip {
+  background: #fff8e1; border-left: 5px solid #ffb300;
+  border-radius: 6px; padding: 8px 12px; margin: 8px 0;
+}
+.tip .tip-title { display: block; font-weight: 700; color: #e65100; margin-bottom: 4px; }
+
+.practice h3 {
+  display: inline-block; background: #ffd54f; color: #004d40;
+  padding: 3px 14px; border-radius: 16px; font-size: 1em; margin: 6px 0 10px;
+}
+.q {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 12px; padding-bottom: 10px;
+  border-bottom: 1px dashed #cfd8dc;
+}
+.q:last-child { border-bottom: none; }
+.q .no {
+  position: absolute; left: 0; top: 0;
+  width: 28px; height: 28px;
+  background: #004d40; color: #fff;
+  border-radius: 50%; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; font-size: 0.9em;
+}
+.q p { margin: 0 0 5px; }
+.q .sub-q { margin-top: 5px; font-weight: 500; color: #455a64; }
+
+.blank {
+  display: inline-block; border-bottom: 1.5px solid #263238;
+  min-width: 70px; height: 20px; vertical-align: baseline;
+}
+
+.box {
+  display: inline-block; min-width: 70px; height: 26px;
+  border: 2px solid #004d40; background: #fff;
+  border-radius: 4px; vertical-align: middle; margin: 0 3px;
+}
+.box.wide { min-width: 110px; }
+.box.xwide { min-width: 160px; }
+
+.formula {
+  background: #fffde7; border: 1.5px dashed #fbc02d;
+  border-radius: 8px; padding: 8px 14px;
+  text-align: center; font-size: 1.05em; margin: 6px 0; font-weight: 500;
+}
+
+table { width: 100%; border-collapse: collapse; margin: 5px 0; }
+th, td {
+  border: 1.5px solid #90a4ae;
+  padding: 6px 9px; text-align: center; vertical-align: middle;
+}
+th { background: #e0f2f1; font-weight: 700; color: #004d40; }
+td.left, th.left { text-align: left; }
+.budget-table .hi { background: #fff3e0; font-weight: 700; }
+
+/* 가계부 카드 */
+.budget-board {
+  border: 3px double #00695c;
+  border-radius: 12px; padding: 10px 14px; margin: 8px 0;
+  background: #f1f8e9;
+}
+.budget-board h4 {
+  text-align: center; margin: 0 0 6px;
+  color: #004d40; font-size: 1.1em;
+}
+.budget-board table { margin: 0; }
+
+/* 영수증/통장 */
+.receipt {
+  border: 2px dashed #00695c;
+  border-radius: 10px; padding: 10px 14px; margin: 8px 0;
+  background: #fff;
+}
+.receipt h4 {
+  text-align: center; margin: 0 0 6px;
+  color: #004d40; font-size: 1.05em; letter-spacing: 1px;
+}
+.receipt .meta-line {
+  display: flex; justify-content: space-between;
+  font-size: 0.85em; color: #455a64;
+  border-bottom: 1px dashed #4db6ac; padding-bottom: 4px; margin-bottom: 5px;
+}
+
+.page-no {
+  position: absolute; bottom: 8mm; right: 16mm;
+  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
+}
+
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  html, body {
+    background: #fff !important; margin: 0; padding: 0;
+    font-size: 10pt; line-height: 1.35;
+  }
+  .toolbar, .no-print { display: none !important; }
+  .page {
+    width: 210mm; min-height: 297mm;
+    margin: 0 !important; padding: 10mm 13mm;
+    box-shadow: none; border: none;
+    page-break-after: always; break-after: page;
+  }
+  .page:last-of-type { page-break-after: auto; }
+  .q, .scene, .tip, .formula, .budget-board, .receipt,
+  .name-box, .cast, .toc, .info, .ph, tr {
+    page-break-inside: avoid !important; break-inside: avoid !important;
+  }
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  h1 { font-size: 1.8em; margin: 0; }
+  h2 { font-size: 1.25em; margin: 0 0 4px; }
+  h3 { font-size: 1em; margin: 5px 0 4px; padding: 3px 10px; }
+  p { margin: 0 0 3px; }
+  ul, ol { margin: 3px 0; }
+  .page.cover { padding: 14mm 14mm; }
+  .ph { padding-bottom: 7px; margin-bottom: 8px; gap: 10px; }
+  .ph-num { width: 42px; height: 42px; font-size: 1.3em; border-radius: 8px; }
+  .ph-title h2 { font-size: 1.2em; }
+  .scene, .tip { padding: 7px 11px; margin-bottom: 6px; }
+  .budget-board, .receipt { padding: 7px 11px; margin: 5px 0; }
+  .budget-board h4, .receipt h4 { font-size: 1em; }
+  .q { margin-bottom: 7px; padding-bottom: 5px; padding-left: 32px; }
+  .q .no { width: 24px; height: 24px; font-size: 0.85em; }
+  .formula { padding: 5px 10px; margin: 3px 0; font-size: 0.95em; }
+  .box { min-width: 56px; height: 20px; }
+  th, td { padding: 4px 6px; }
+  .page-no { bottom: 6mm; right: 14mm; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <div><strong>1인 기본 생활비 — 수학 학습지</strong>
+    <span class="muted">A4 · 5쪽 · 인쇄해서 사용하세요</span>
+  </div>
+  <button onclick="window.print()">🖨️ 인쇄하기</button>
+</div>
+
+<!-- =================================================== -->
+<!-- 표지 -->
+<!-- =================================================== -->
+<section class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">수학</span> &nbsp;|&nbsp; 고등학교 특수학급 자립 생활 수학</div>
+    <div>2026학년도 1학기</div>
+  </div>
+
+  <div class="cover-main">
+    <span class="badge">자립 생활 수학 프로젝트</span>
+    <h1>🏠 혼자 살 때 한 달에 얼마가 들까?</h1>
+    <p class="lead">월세 · 식비 · 교통 · 통신 · 공과금 — 1인 가구 생활비를 수학으로</p>
+  </div>
+
+  <div class="name-box">
+    <div class="name-cell"><span>학년 / 반</span><em>&nbsp;</em></div>
+    <div class="name-cell"><span>이름</span><em>&nbsp;</em></div>
+    <div class="name-cell"><span>날짜</span><em>&nbsp;</em></div>
+  </div>
+
+  <div class="info">
+    <h2>🏠 1인 가구란?</h2>
+    <p>혼자 사는 집을 <strong>1인 가구</strong>라고 해요. 졸업하고 직장을 다니거나 학교를 다니려고
+       부모님 집에서 나와 <strong>원룸·오피스텔</strong>에서 혼자 사는 경우가 많아요.
+       혼자 살면 자유롭지만 <strong>월세, 관리비, 전기·가스·수도, 통신비, 식비</strong>까지
+       내가 직접 내야 해요. 오늘은 한 달에 얼마가 드는지, 월급에서 얼마가 남는지,
+       어떻게 절약할 수 있는지 <strong>수학으로 계산</strong>해 봅시다.</p>
+  </div>
+
+  <div class="cast">
+    <h2>👫 오늘 함께 살림 계획 짜는 친구들</h2>
+    <div class="cast-grid">
+      <div class="person"><span class="dot d6"></span>하영 · 자취 1년 차 선배</div>
+      <div class="person"><span class="dot d2"></span>하은 · 졸업 곧 자취 시작</div>
+      <div class="person"><span class="dot d1"></span>채원 · 본가에서 출퇴근</div>
+      <div class="person"><span class="dot d5"></span>예은 · 자취 알아보는 중</div>
+      <div class="person"><span class="dot d4"></span>주은 · 부모님께 묻는 중</div>
+      <div class="person"><span class="dot d3"></span>주현 · 룸메이트 구하는 중</div>
+    </div>
+  </div>
+
+  <div class="toc">
+    <h2>📚 차례</h2>
+    <ol>
+      <li><strong>1차시</strong> 한 달 생활비 항목 알기 — 8가지 항목과 합계</li>
+      <li><strong>2차시</strong> 월급에서 남는 돈 — 수입·지출·잔액과 비율(%)</li>
+      <li><strong>3차시</strong> 절약하는 법 — 외식 vs 집밥, 요금제, 구독 정리</li>
+      <li><strong>4차시</strong> 1년 살림 계획 — 비상금·저축·큰 지출 나눠 모으기</li>
+    </ol>
+  </div>
+
+  <div class="page-no">— 1 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 1차시: 한 달 생활비 항목 알기 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">1</div>
+    <div class="ph-title">
+      <h2>한 달 생활비 항목 알기</h2>
+      <p>혼자 살 때 한 달에 어떤 돈이 나가는지 항목별로 알아봐요.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>하영이는 졸업하고 회사에 다니며 <strong>서울에서 원룸</strong>에 혼자 살고 있어요.
+       하영이가 동생 하은이에게 "혼자 살면 이런 돈이 매달 나가더라"고 알려 줬어요.
+       항목은 크게 <strong>8가지</strong>예요: <strong>월세, 관리비, 식비, 교통비,
+       통신비, 공과금(전기·수도·가스), 생활용품, 저축</strong>.</p>
+  </div>
+
+  <div class="budget-board">
+    <h4>🏠 하영이의 한 달 생활비 (서울 원룸 기준)</h4>
+    <table class="budget-table">
+      <tr><th class="left">항목</th><th>금액(원)</th><th class="left">설명</th></tr>
+      <tr><td class="left">월세</td><td>500,000</td><td class="left">집세 (보증금 따로)</td></tr>
+      <tr><td class="left">관리비</td><td>70,000</td><td class="left">청소·엘리베이터·인터넷</td></tr>
+      <tr><td class="left">식비</td><td>350,000</td><td class="left">장보기 + 가끔 외식</td></tr>
+      <tr><td class="left">교통비</td><td>80,000</td><td class="left">지하철·버스 정기권</td></tr>
+      <tr><td class="left">통신비</td><td>50,000</td><td class="left">휴대폰 요금</td></tr>
+      <tr><td class="left">공과금</td><td>60,000</td><td class="left">전기·수도·가스</td></tr>
+      <tr><td class="left">생활용품</td><td>40,000</td><td class="left">세제·휴지·샴푸</td></tr>
+      <tr><td class="left">저축</td><td>150,000</td><td class="left">비상금·미래 자금</td></tr>
+      <tr class="hi"><th class="left">한 달 합계</th><th colspan="2"><span class="box wide"></span></th></tr>
+    </table>
+  </div>
+
+  <div class="practice">
+    <h3>💰 항목별 합계</h3>
+
+    <div class="q"><div class="no">1</div><div>
+      <p>하영이의 한 달 생활비 <strong>8가지 항목 합계</strong>는 얼마인가요?
+         (위 표의 금액을 모두 더해 봅시다.)</p>
+      <div class="formula">500,000 + 70,000 + 350,000 + 80,000 + 50,000 + 60,000 + 40,000 + 150,000
+        = <span class="box xwide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">2</div><div>
+      <p>이 중에서 <strong>가장 큰 항목</strong>은 무엇이고 얼마인가요?
+         또 <strong>가장 작은 항목</strong>은 무엇이고 얼마인가요?</p>
+      <p class="sub-q">👉 가장 큰 항목: <span class="blank" style="min-width:120px;"></span>
+         &nbsp;&nbsp; 금액: <span class="box"></span> 원</p>
+      <p class="sub-q">👉 가장 작은 항목: <span class="blank" style="min-width:120px;"></span>
+         &nbsp;&nbsp; 금액: <span class="box"></span> 원</p>
+    </div></div>
+
+    <div class="q"><div class="no">3</div><div>
+      <p><strong>고정비</strong>(매달 거의 똑같이 나가는 돈: 월세 + 관리비 + 통신비)는 합쳐서 얼마인가요?</p>
+      <div class="formula">500,000 + 70,000 + 50,000 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">4</div><div>
+      <p><strong>변동비</strong>(달마다 바뀌는 돈: 식비 + 교통비 + 공과금 + 생활용품)는 합쳐서 얼마인가요?</p>
+      <div class="formula">350,000 + 80,000 + 60,000 + 40,000 = <span class="box wide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">5</div><div>
+      <p>하은이는 식비를 <strong>일주일에 80,000원</strong>씩 쓴다고 들었어요.
+         한 달(4주)이면 얼마이고, 하영이의 식비 350,000원과 비교하면 더 많은가요, 적은가요?</p>
+      <div class="formula">80,000 &times; 4 = <span class="box wide"></span> 원</div>
+      <p class="sub-q">👉 하영이(350,000원)와 비교: ▢ 더 많다 &nbsp; ▢ 더 적다 &nbsp; ▢ 같다</p>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 2 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 2차시: 월급에서 남는 돈 + 비율 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">2</div>
+    <div class="ph-title">
+      <h2>월급에서 남는 돈과 비율</h2>
+      <p>한 달 수입에서 지출을 빼고, 항목별 비율(%)을 알아봐요.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>하영이는 회사에서 <strong>월급 1,800,000원</strong>(세금 떼고 받는 돈)을 받아요.
+       지난 시간에 계산한 한 달 생활비 <strong>1,300,000원</strong>을 쓰고 남는 돈은
+       다음 달 비상금으로 모아 둬요. 항목별로 월급의 <strong>몇 %</strong>를 쓰는지도
+       계산해 보면 어디에 돈이 많이 나가는지 한눈에 알 수 있어요.</p>
+  </div>
+
+  <div class="tip"><span class="tip-title">💡 비율(%) 구하기</span>
+    (그 항목 금액) &divide; (전체 금액) &times; 100 = 비율(%)<br>
+    예) 월세 500,000원이 월급 1,800,000원에서 차지하는 비율 →
+    500,000 &divide; 1,800,000 &times; 100 ≈ <strong>27.8%</strong>
+  </div>
+
+  <div class="practice">
+    <h3>📊 월급과 지출 계산</h3>
+
+    <div class="q"><div class="no">6</div><div>
+      <p>하영이의 <strong>월급에서 지출을 뺀 남는 돈</strong>은 얼마인가요?
+         (월급 1,800,000원 &minus; 생활비 1,300,000원)</p>
+      <div class="formula">1,800,000 &minus; 1,300,000 = <span class="box wide"></span> 원</div>
+      <p class="sub-q">👉 남은 돈은 ▢ 비상금에 추가 &nbsp; ▢ 다음 달 큰 지출에 사용
+         &nbsp; ▢ 부모님께 용돈으로 드림</p>
+    </div></div>
+
+    <div class="q"><div class="no">7</div><div>
+      <p>월급 1,800,000원에서 <strong>월세 500,000원</strong>이 차지하는 비율은 약 몇 %인가요?
+         (소수 첫째자리에서 반올림하지 않고 그대로 적어요.)</p>
+      <div class="formula">500,000 &divide; 1,800,000 &times; 100 ≈ <span class="box"></span> %</div>
+    </div></div>
+
+    <div class="q"><div class="no">8</div><div>
+      <p>월급 1,800,000원에서 <strong>식비 350,000원</strong>이 차지하는 비율은 약 몇 %인가요?</p>
+      <div class="formula">350,000 &divide; 1,800,000 &times; 100 ≈ <span class="box"></span> %</div>
+    </div></div>
+
+    <div class="q"><div class="no">9</div><div>
+      <p>다음은 전문가가 추천하는 <strong>월급 사용 비율</strong>이에요.
+         하영이의 실제 비율과 비교해 봅시다. (월급 1,800,000원 기준)</p>
+      <table>
+        <tr><th class="left">항목</th><th>추천 비율</th><th>추천 금액</th><th>하영 실제</th></tr>
+        <tr><td class="left">주거(월세+관리비)</td><td>30%</td><td>540,000원</td><td>570,000원</td></tr>
+        <tr><td class="left">식비</td><td>20%</td><td><span class="box"></span> 원</td><td>350,000원</td></tr>
+        <tr><td class="left">저축</td><td>10%</td><td><span class="box"></span> 원</td><td>150,000원</td></tr>
+      </table>
+      <p class="sub-q">👉 추천 식비 = 1,800,000 &times; 0.2 = ▢ 원, &nbsp;
+         추천 저축 = 1,800,000 &times; 0.1 = ▢ 원</p>
+    </div></div>
+
+    <div class="q"><div class="no">10</div><div>
+      <p>하은이는 곧 졸업하면 <strong>월급 1,500,000원</strong>으로 시작한다고 해요.
+         월세 + 관리비가 월급의 <strong>30% 이하</strong>가 되려면 두 항목 합계가
+         얼마 이하여야 하나요?</p>
+      <div class="formula">1,500,000 &times; 0.3 = <span class="box wide"></span> 원 이하</div>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 3 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 3차시: 절약하는 법 -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">3</div>
+    <div class="ph-title">
+      <h2>절약하는 법</h2>
+      <p>같은 생활인데 돈을 덜 쓰는 방법을 비교해 봐요.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>혼자 살면 <strong>나도 모르게 새는 돈</strong>이 많아요. 매일 배달 한 끼,
+       사용 안 하는 OTT 구독, 비싼 요금제까지. 작아 보여도 한 달, 1년이면 큰돈이에요.
+       오늘은 <strong>외식 vs 집밥, 요금제 비교, 안 보는 구독 정리</strong>로
+       얼마를 아낄 수 있는지 계산해 봅시다.</p>
+  </div>
+
+  <div class="tip"><span class="tip-title">💡 "한 달 절약 = 한 달 보너스"</span>
+    하루에 5,000원만 줄여도 한 달이면 <strong>5,000 &times; 30 = 150,000원</strong>이에요.
+    1년이면 <strong>1,800,000원</strong> → 거의 월급 한 달치를 더 버는 셈이에요.
+  </div>
+
+  <div class="practice">
+    <h3>💸 절약 효과 계산</h3>
+
+    <div class="q"><div class="no">11</div><div>
+      <p>예은이는 점심마다 <strong>배달 음식 12,000원</strong>을 먹어요.
+         집에서 도시락을 싸면 <strong>한 끼 4,000원</strong>이에요.
+         한 끼당 얼마를 아끼고, 한 달(20일 근무 기준)이면 얼마를 아낄 수 있나요?</p>
+      <div class="formula">12,000 &minus; 4,000 = <span class="box"></span> 원 (한 끼 절약)</div>
+      <div class="formula">(한 끼 절약) &times; 20 = <span class="box wide"></span> 원 (한 달 절약)</div>
+    </div></div>
+
+    <div class="q"><div class="no">12</div><div>
+      <p>주은이는 휴대폰 요금제 두 가지 중에서 고민이에요. 한 달에 얼마 차이 나고,
+         1년이면 얼마 차이가 나나요?</p>
+      <table>
+        <tr><th class="left">요금제</th><th>한 달 요금</th><th>1년 요금 (×12)</th></tr>
+        <tr><td class="left">A: 비싼 요금제</td><td>69,000원</td><td><span class="box"></span> 원</td></tr>
+        <tr><td class="left">B: 알뜰 요금제</td><td>29,000원</td><td><span class="box"></span> 원</td></tr>
+        <tr><td class="left">차이 (A &minus; B)</td><td><span class="box"></span> 원</td><td><span class="box"></span> 원</td></tr>
+      </table>
+    </div></div>
+
+    <div class="q"><div class="no">13</div><div>
+      <p>채원이는 OTT 구독을 4개나 쓰고 있어요. 그런데 자주 보는 건 1개뿐이에요.
+         <strong>3개를 해지</strong>하면 한 달, 1년에 얼마를 아낄 수 있나요?</p>
+      <table>
+        <tr><th class="left">구독</th><th>한 달 요금</th></tr>
+        <tr><td class="left">넷플릭스 (자주 봄)</td><td>13,500원</td></tr>
+        <tr><td class="left">디즈니플러스 (거의 안 봄)</td><td>9,900원</td></tr>
+        <tr><td class="left">유튜브 프리미엄 (거의 안 봄)</td><td>14,900원</td></tr>
+        <tr><td class="left">티빙 (거의 안 봄)</td><td>9,500원</td></tr>
+      </table>
+      <div class="formula">9,900 + 14,900 + 9,500 = <span class="box wide"></span> 원 (한 달 절약)</div>
+      <div class="formula">(한 달 절약) &times; 12 = <span class="box wide"></span> 원 (1년 절약)</div>
+    </div></div>
+
+    <div class="q"><div class="no">14</div><div>
+      <p>하은이는 매일 카페에서 <strong>아메리카노 4,500원</strong>을 사 마셔요.
+         일주일에 3일만 텀블러에 직접 내려 가면, 한 달(4주) 얼마를 아낄 수 있나요?</p>
+      <div class="formula">4,500 &times; 3 = <span class="box"></span> 원 (한 주 절약)</div>
+      <div class="formula">(한 주 절약) &times; 4 = <span class="box wide"></span> 원 (한 달 절약)</div>
+    </div></div>
+
+    <div class="q"><div class="no">15</div><div>
+      <p>11~14번의 <strong>한 달 절약액을 모두 합치면</strong> 얼마인가요?
+         이 돈을 모두 저축한다면 1년에 얼마가 모이나요?</p>
+      <p class="sub-q">👉 한 달 절약 합계: <span class="box wide"></span> 원</p>
+      <p class="sub-q">👉 1년 저축 (×12): <span class="box xwide"></span> 원</p>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 4 —</div>
+</section>
+
+<!-- =================================================== -->
+<!-- 4차시: 1년 살림 계획 (비상금·저축·큰 지출) -->
+<!-- =================================================== -->
+<section class="page">
+  <div class="ph">
+    <div class="ph-num">4</div>
+    <div class="ph-title">
+      <h2>1년 살림 계획</h2>
+      <p>비상금, 큰 지출, 룸메이트 더치페이까지 1년 단위로 계획해 봐요.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p>한 달 살림만 보면 작아 보이지만, <strong>1년 단위로 보면 큰돈</strong>이에요.
+       갑자기 아플 때, 가전이 고장 났을 때, 이사할 때를 대비해
+       <strong>비상금 6개월치</strong>를 따로 모아 두는 게 좋아요.
+       주현이처럼 <strong>룸메이트와 같이 살면</strong> 월세와 공과금을 반으로 나눌 수 있어요.</p>
+  </div>
+
+  <div class="receipt">
+    <h4>📒 하영이의 1년 살림 요약 (월 합계 1,300,000원 기준)</h4>
+    <div class="meta-line">
+      <span>1인 가구 · 서울 원룸</span>
+      <span>2026년 정리</span>
+    </div>
+    <table>
+      <tr><th class="left">항목</th><th>한 달</th><th>1년 (×12)</th></tr>
+      <tr><td class="left">월세</td><td>500,000</td><td><span class="box"></span></td></tr>
+      <tr><td class="left">관리비 + 공과금</td><td>130,000</td><td><span class="box"></span></td></tr>
+      <tr><td class="left">식비</td><td>350,000</td><td><span class="box"></span></td></tr>
+      <tr><td class="left">교통·통신·생활용품</td><td>170,000</td><td><span class="box"></span></td></tr>
+      <tr><td class="left">저축</td><td>150,000</td><td><span class="box"></span></td></tr>
+      <tr class="hi"><th class="left">1년 합계</th><th>1,300,000</th><th><span class="box wide"></span></th></tr>
+    </table>
+  </div>
+
+  <div class="practice">
+    <h3>📅 1년 계획 · 비상금 · 룸메이트</h3>
+
+    <div class="q"><div class="no">16</div><div>
+      <p>위 표의 <strong>1년 합계</strong>를 구해 봅시다.
+         한 달 1,300,000원 &times; 12달은 얼마인가요?</p>
+      <div class="formula">1,300,000 &times; 12 = <span class="box xwide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">17</div><div>
+      <p>전문가는 갑자기 일을 못 할 때를 대비해 <strong>한 달 생활비의 6배</strong>를
+         비상금으로 모아 두라고 해요. 하영이의 비상금 목표 금액은 얼마인가요?</p>
+      <div class="formula">1,300,000 &times; 6 = <span class="box xwide"></span> 원</div>
+    </div></div>
+
+    <div class="q"><div class="no">18</div><div>
+      <p>하영이가 한 달에 <strong>150,000원씩 저축</strong>한다면, 비상금 목표(17번 답)까지
+         <strong>몇 달</strong>이 걸릴까요? 또 약 <strong>몇 년</strong>인가요?</p>
+      <div class="formula">(17번 답) &divide; 150,000 = <span class="box"></span> 달
+        = 약 <span class="box"></span> 년</div>
+    </div></div>
+
+    <div class="q"><div class="no">19</div><div>
+      <p>주현이는 친구와 <strong>투룸을 같이 빌려서 룸메이트</strong>로 살기로 했어요.
+         월세 800,000원 + 관리비 100,000원 + 공과금 80,000원을 둘이 똑같이 나누면
+         1인당 얼마인가요?</p>
+      <div class="formula">800,000 + 100,000 + 80,000 = <span class="box wide"></span> 원 (둘 합계)</div>
+      <div class="formula">(둘 합계) &divide; 2 = <span class="box wide"></span> 원 (1인당)</div>
+      <p class="sub-q">👉 혼자 살 때 하영이의 같은 항목(월세 500,000 + 관리비 70,000 + 공과금 60,000 =
+         630,000원)과 비교: ▢ 룸메이트가 더 싸다 &nbsp; ▢ 혼자가 더 싸다</p>
+    </div></div>
+
+    <div class="q"><div class="no">20</div><div>
+      <p>예은이는 자취를 시작하려고 <strong>가전 + 가구 세트 1,200,000원</strong>이
+         필요해요. 한 달에 100,000원씩 모은다면 몇 달이 걸리고, 200,000원씩 모으면
+         몇 달이 걸리나요?</p>
+      <div class="formula">1,200,000 &divide; 100,000 = <span class="box"></span> 달
+        (한 달 10만원씩)</div>
+      <div class="formula">1,200,000 &divide; 200,000 = <span class="box"></span> 달
+        (한 달 20만원씩)</div>
+      <p class="sub-q">👉 자취 시작 전, 가장 먼저 사야 할 가전 1개는?
+         <span class="blank" style="min-width:200px;"></span></p>
+    </div></div>
+  </div>
+
+  <div class="page-no">— 5 —</div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+~$*
+
+# 로컬 Claude Code 설정
+.claude/
+
+# 내부 빌드 스크립트
+sm/_build/

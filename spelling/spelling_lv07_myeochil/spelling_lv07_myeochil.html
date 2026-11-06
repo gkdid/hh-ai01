@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>L7 며칠·어떻게/어떡해 — 채원이의 약속 톡</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffe0b2 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #4a148c;
+  border-bottom: 2px solid #f48fb1; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; color: #c2185b; }
+.cover-main { text-align: center; padding: 8px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #c2185b; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 1.9em; letter-spacing: -1.5px; color: #880e4f; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #880e4f; font-weight: 500; }
+.cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 6px; }
+.cover-info { background: #fff; border: 2px solid #f48fb1; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 6px; color: #880e4f; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 3px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 14px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #c2185b; padding-bottom: 3px; }
+.cover-name .label { color: #880e4f; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #c2185b; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #880e4f; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #c2185b; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #fce4ec; border-left: 4px solid #d81b60; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #880e4f; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 8px 12px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.95em; }
+.tip b { color: #f57f17; }
+.note { background: #e0f2f1; border-left: 4px solid #00897b; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #004d40; }
+
+.activity { background: #fff; border: 1.8px solid #f48fb1; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #880e4f; font-size: 1.05em; }
+.activity .tag { background: #f8bbd0; color: #880e4f; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 44px; border-bottom: 2px solid #880e4f; text-align: center; padding: 0 6px; color: #c2185b; font-weight: 700; }
+.blank.short { min-width: 30px; }
+
+.super-rule { background: #c2185b; color: #fff; border-radius: 12px; padding: 12px 16px; margin: 8px 0; text-align: center; }
+.super-rule .title { font-size: 1.15em; font-weight: 900; margin-bottom: 6px; }
+.super-rule .lines { background: #fff; color: #c2185b; padding: 8px 14px; border-radius: 8px; margin: 4px 0; font-weight: 700; }
+
+.rule-box { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0; }
+.rule { border-radius: 12px; padding: 12px 14px; }
+.rule.how { background: #e3f2fd; border: 2px solid #1976d2; }
+.rule.how .title { color: #0d47a1; font-weight: 900; font-size: 1.15em; margin-bottom: 6px; }
+.rule.what { background: #ffebee; border: 2px solid #e53935; }
+.rule.what .title { color: #b71c1c; font-weight: 900; font-size: 1.15em; margin-bottom: 6px; }
+.rule ul { margin: 4px 0; padding-left: 18px; font-size: 0.92em; }
+.rule .ex { background: #fff; padding: 6px 10px; border-radius: 6px; margin-top: 6px; font-size: 0.92em; }
+
+.chat { background: #fff59d; border-radius: 14px; padding: 12px; margin: 8px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+.chat .header { background: #f9a825; color: #4e342e; font-weight: 700; padding: 6px 10px; border-radius: 8px; margin-bottom: 8px; text-align: center; }
+.chat .msg { display: flex; align-items: flex-end; gap: 6px; margin: 6px 0; }
+.chat .msg.mine { justify-content: flex-end; }
+.chat .msg .name { font-size: 0.75em; color: #616161; margin: 0 2px 2px; }
+.chat .msg .bubble { max-width: 78%; padding: 7px 11px; border-radius: 14px; font-size: 0.95em; background: #fff; }
+.chat .msg.mine .bubble { background: #ffe082; border-radius: 14px 4px 14px 14px; }
+.chat .msg .col { display: flex; flex-direction: column; }
+.chat .msg .bubble .highlight { background: #ffcdd2; padding: 1px 4px; border-radius: 4px; font-weight: 700; color: #b71c1c; }
+
+.q-list p { margin: 6px 0; padding: 6px 10px; background: #fce4ec; border-radius: 6px; }
+.q-list .choice { color: #c2185b; font-weight: 700; }
+
+.page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
+@media print { body { background: #fff; } .toolbar { display: none; } .page { box-shadow: none; margin: 0 auto; } }
+
+.sp-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
+.sp-table th, .sp-table td { border: 1.2px solid #f48fb1; padding: 6px 8px; vertical-align: top; }
+.sp-table th { background: #fce4ec; color: #880e4f; font-weight: 700; text-align: center; }
+.sp-table td.left { text-align: left; }
+.check-list { list-style: none; padding-left: 4px; margin: 6px 0; }
+.check-list li { padding: 5px 8px; background: #fce4ec; margin: 4px 0; border-radius: 6px; border-left: 3px solid #f48fb1; }
+.check-list input[type="checkbox"] { margin-right: 6px; transform: scale(1.1); }
+.write-lines { background: #fff; border: 1.5px solid #f48fb1; border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+.write-lines .wl { border-bottom: 1.2px solid #cfd8dc; min-height: 22px; margin: 6px 0; }
+.pair-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 6px 0; }
+.pair-card { border: 1.3px solid #f48fb1; border-radius: 8px; padding: 8px 10px; background: #fff; }
+.pair-card .sent { font-size: 0.95em; margin-bottom: 4px; }
+.pair-card .pick { display: flex; gap: 8px; font-size: 0.9em; }
+.pair-card .pick label { padding: 2px 8px; border: 1px solid #b0bec5; border-radius: 12px; background: #f5f7f9; }
+
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">💬 L7 며칠·어떻게/어떡해</span><span class="muted">맞춤법 · Level 7</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<!-- 표지 -->
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">국어</span> · 맞춤법 시리즈 · <b style="color:#880e4f;">L7</b></span>
+    <span>고등학교 특수학급</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">며칠 · 어떡해 · 어떻게</span>
+    <h1>채원이의 약속 톡 대화</h1>
+    <p class="lead">"몇 일"은 없어요! "며칠" 하나만 맞아요</p>
+  </div>
+  <div class="cover-emoji">💬 📅 🎬</div>
+  <div class="cover-info">
+    <h3>🎯 학습 목표</h3>
+    <ul>
+      <li><b>몇 일</b>은 잘못된 표기, <b>며칠</b>이 옳은 표기임을 안다.</li>
+      <li><b>어떻게</b>(방법·상태)와 <b>어떡해</b>(감탄·걱정)를 구분한다.</li>
+      <li>카톡 대화에서 자주 하는 실수를 <b>바르게 고친다.</b></li>
+    </ul>
+  </div>
+  <div class="cover-info" style="border-color:#a5d6a7;">
+    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+    <ul>
+      <li><b>채원이</b>가 친구들과 <b>영화 약속</b> 톡을 하고 있어요. 그런데 자주 실수하는 낱말이 있어요!</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">학년·반</span></div>
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+  <div class="page-foot">맞춤법 시리즈 · L7 · 표지</div>
+</section>
+
+<!-- 1쪽: 규칙 -->
+<section class="page">
+  <div class="page-head">
+    <h2>📖 며칠 · 어떻게 · 어떡해</h2>
+    <span class="step">1쪽 · 규칙</span>
+  </div>
+  <div class="intro">
+    카톡·문자에서 자주 실수하는 세 낱말이에요. 하나씩 확실히 익혀요.
+  </div>
+
+  <div class="super-rule">
+    <div class="title">🔑 필살기 ① — 며칠은 언제나 며칠!</div>
+    <div class="lines">✅ 며칠 (며칠 만에, 며칠째, 며칠 후)</div>
+    <div class="lines">❌ 몇 일 · 몇일 (모두 <b>틀린 표기</b>!)</div>
+    <div style="font-size:0.9em; margin-top:6px;">
+      "며칠"은 <b>이미 굳어진 낱말</b>이라 항상 그대로 써요.<br>
+      "몇 년 · 몇 월"은 띄어 쓰고 이렇게 쓰지만, <b>"며칠"만은 예외</b>!
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <div class="rule how">
+      <div class="title">🔵 어떻게 (= 어떠하게)</div>
+      <div>방법·상태를 묻거나 나타내요. <b>뒤에 다른 말이 이어져요.</b></div>
+      <div class="ex">
+        <ul>
+          <li>이거 <b>어떻게</b> 해? (방법)</li>
+          <li><b>어떻게</b> 지냈어? (상태)</li>
+          <li><b>어떻게</b> 알았어? (방법)</li>
+          <li>공부는 <b>어떻게</b> 하고 있어? (방법)</li>
+          <li>넌 이걸 <b>어떻게</b> 생각해? (의견)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rule what">
+      <div class="title">🔴 어떡해 (= 어떻게 해)</div>
+      <div>걱정·감탄·큰일 났을 때. <b>문장 끝에 옴</b>, 그 자체로 완성돼요.</div>
+      <div class="ex">
+        <ul>
+          <li>나 이제 <b>어떡해</b>! (걱정)</li>
+          <li>이걸 <b>어떡해</b>... (당황)</li>
+          <li>아, <b>어떡해</b> ㅠㅠ (감탄)</li>
+          <li>지각인데 <b>어떡해</b>! (큰일)</li>
+          <li>망했다, <b>어떡해</b>! (당황)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    💡 <b>구별 팁 — "어떡해"는 문장 끝!</b><br>
+    · 그 자체로 <b>완성된 감탄문</b>이면 → <b>어떡해</b><br>
+    · 뒤에 다른 말이 이어지면 → <b>어떻게</b><br>
+    · 예: "지각인데 <b>어떡해</b>!" (끝, 감탄) / "지각인데 <b>어떻게</b> 하지?" (뒤에 "하지" 붙음)
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 며칠·어떻게·어떡해 골라 쓰기</h3><span class="tag">10문항</span></div>
+    <div class="q-list">
+      <p>① 시험이 <span class="choice">( 며칠 / 몇 일 )</span> 남았지?</p>
+      <p>② 이 문제 <span class="choice">( 어떻게 / 어떡해 )</span> 풀어?</p>
+      <p>③ 아, 늦었어! 나 <span class="choice">( 어떻게 / 어떡해 )</span>!</p>
+      <p>④ 방학이 <span class="choice">( 며칠 / 몇 일 )</span> 안 남았어.</p>
+      <p>⑤ <span class="choice">( 어떻게 / 어떡해 )</span> 지내니? 오랜만이야!</p>
+      <p>⑥ 지갑을 잃어버렸어. <span class="choice">( 어떻게 / 어떡해 )</span> ㅠㅠ</p>
+      <p>⑦ 그 소식을 <span class="choice">( 어떻게 / 어떡해 )</span> 알았어?</p>
+      <p>⑧ <span class="choice">( 며칠 / 몇 일 )</span> 만에 만나는 거지?</p>
+      <p>⑨ 이걸 <span class="choice">( 어떻게 / 어떡해 )</span> 해야 될지 모르겠어.</p>
+      <p>⑩ 아 진짜 <span class="choice">( 어떻게 / 어떡해 )</span>! 완전 망했어!</p>
+    </div>
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · L7 · 1쪽 / 2</div>
+</section>
+
+<!-- 2쪽: 채원이의 톡 -->
+<section class="page">
+  <div class="page-head">
+    <h2>💬 채원이의 영화 약속 톡</h2>
+    <span class="step">2쪽 · 실전</span>
+  </div>
+  <div class="intro">
+    채원이가 <b>예은·하영</b>이와 나눈 영화 약속 톡이에요. <b>빨간 표시</b> 낱말이 맞는지 확인하고 <b>바르게</b> 고쳐 봐요.
+  </div>
+
+  <div class="chat">
+    <div class="header">📱 채원 · 예은 · 하영 (3명)</div>
+    <div class="msg mine">
+      <div class="col">
+        <div class="name">채원</div>
+        <div class="bubble">얘들아! 우리 이번 주말에 영화 볼래? <span class="highlight">몇 일</span>이 좋아?</div>
+      </div>
+    </div>
+    <div class="msg">
+      <div class="col">
+        <div class="name">예은</div>
+        <div class="bubble">오 좋아! 근데 나 토요일에 학원 있어서. 일요일은 <span class="highlight">어떻게</span>?</div>
+      </div>
+    </div>
+    <div class="msg">
+      <div class="col">
+        <div class="name">하영</div>
+        <div class="bubble">일요일 좋아! 영화 <span class="highlight">몇 일</span> 개봉한 그거 보자!</div>
+      </div>
+    </div>
+    <div class="msg mine">
+      <div class="col">
+        <div class="name">채원</div>
+        <div class="bubble">근데 표 예매 <span class="highlight">어떻해</span>? 각자 예매할까 아니면 내가 다 할까?</div>
+      </div>
+    </div>
+    <div class="msg">
+      <div class="col">
+        <div class="name">예은</div>
+        <div class="bubble">채원이 네가 해 줘! 나 <span class="highlight">어떻게</span> 하는지 잘 몰라 ㅠ</div>
+      </div>
+    </div>
+    <div class="msg">
+      <div class="col">
+        <div class="name">하영</div>
+        <div class="bubble">헐 근데 나 지갑 놓고 왔어. <span class="highlight">어떻게</span>!!! ㅠㅠ</div>
+      </div>
+    </div>
+    <div class="msg mine">
+      <div class="col">
+        <div class="name">채원</div>
+        <div class="bubble">괜찮아 ㅋㅋ 일단 내가 결제하고 나중에 받을게. <span class="highlight">몇 일</span>이나 걸릴지 몰라도 상관없어~</div>
+      </div>
+    </div>
+    <div class="msg">
+      <div class="col">
+        <div class="name">하영</div>
+        <div class="bubble">진짜 고마워 ㅠㅠ 이걸 <span class="highlight">어떻게</span> 갚지... 밥 살게!</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 톡에서 틀린 낱말 고치기</h3><span class="tag">8군데</span></div>
+    <p>위 톡의 <b>빨간 표시 8개</b>를 확인하고 <b>바르게</b> 고쳐 봐요.</p>
+    <p>① "<b>몇 일</b>이 좋아?" → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+    <p>② "일요일은 <b>어떻게</b>?" → 이대로 O · 어떡해로 X? ( <span class="blank short">&nbsp;</span> )
+      <span style="font-size:0.85em; color:#455a64;">힌트: 문장 끝인가?</span></p>
+    <p>③ "영화 <b>몇 일</b> 개봉한" → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+    <p>④ "예매 <b>어떻해</b>?" → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+    <p>⑤ "<b>어떻게</b> 하는지 잘 몰라" → 이대로 O ( <span class="blank short">&nbsp;</span> )
+      <span style="font-size:0.85em; color:#455a64;">힌트: 뒤에 "하는지" 붙음</span></p>
+    <p>⑥ "지갑 놓고 왔어. <b>어떻게</b>!!!" → <span class="blank" style="min-width:60px;">&nbsp;</span>
+      <span style="font-size:0.85em; color:#455a64;">힌트: 감탄 문장 끝</span></p>
+    <p>⑦ "<b>몇 일</b>이나 걸릴지" → <span class="blank" style="min-width:60px;">&nbsp;</span></p>
+    <p>⑧ "이걸 <b>어떻게</b> 갚지" → 이대로 O ( <span class="blank short">&nbsp;</span> )
+      <span style="font-size:0.85em; color:#455a64;">힌트: 뒤에 "갚지" 붙음</span></p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 카톡 답장 완성하기</h3><span class="tag">쓰기</span></div>
+    <p>친구가 카톡을 보냈어요. <b>어떻게/어떡해/며칠</b>을 알맞게 넣어 답장을 완성해요.</p>
+    <p>[친구] "야, 나 시험 망했어 ㅠㅠ (<span class="blank" style="min-width:60px;">&nbsp;</span>)!"</p>
+    <p>[나] "너무 걱정하지 마! (<span class="blank" style="min-width:60px;">&nbsp;</span>) 안 남은 개학이 걱정이겠지만..."</p>
+    <p>[친구] "그럼 이제 (<span class="blank" style="min-width:60px;">&nbsp;</span>) 해야 해?"</p>
+    <p>[나] "일단 지금부터라도 (<span class="blank" style="min-width:60px;">&nbsp;</span>) 준비할지 계획을 짜 보자!"</p>
+  </div>
+
+  <div class="note">🌟 <b>실천:</b> 카톡에서 헷갈릴 때 <b>"어떻게 해 → 어떡해"</b>로 풀리면 어떡해, 그 자체 감탄이면 어떡해!</div>
+
+  <div class="page-foot">맞춤법 시리즈 · L7 · 2쪽 / 2</div>
+</section>
+
+
+<section class="page">
+  <div class="page-head">
+    <h2>🔁 복습 · 자기 점검 — 며칠 · 어떡해</h2>
+    <span class="step">추가 1쪽 · 복습</span>
+  </div>
+  <div class="intro">오늘 배운 <b>며칠 · 어떡해</b> 규칙을 <b>내 말로 다시</b> 써 보고, 평소 내가 자주 틀렸던 부분을 정리해 봐요.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A1. 내 말로 규칙 쓰기</h3><span class="tag">서술형</span></div>
+    <p>오늘 배운 규칙을 <b>친구에게 설명하듯</b> 한두 문장으로 써 봐요.</p>
+    <div class="write-lines"><div class="wl">&nbsp;</div><div class="wl">&nbsp;</div></div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A2. 이 규칙이 필요한 상황 3개</h3><span class="tag">상황 떠올리기</span></div>
+    <p>이 맞춤법이 <b>실제로 쓰일 상황</b>을 떠올려 3개만 적어 봐요. (예: 문자할 때, 자기소개 쓸 때, 공지 쓸 때…)</p>
+    <ol style="margin:6px 0 6px 22px;">
+      <li style="margin:6px 0;">상황 ① <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+      <li style="margin:6px 0;">상황 ② <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+      <li style="margin:6px 0;">상황 ③ <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+    </ol>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A3. 내가 자주 틀리던 표기 → 바른 표기</h3><span class="tag">3행 표</span></div>
+    <p>이번 레슨과 관련해 <b>평소 내가 자주 틀리던 형태</b>와 <b>바른 형태</b>를 비교해 적어 봐요.</p>
+    <table class="sp-table">
+      <tr><th style="width:8%;">번호</th><th style="width:40%;">내가 자주 쓰던 형태 (❌)</th><th style="width:40%;">바른 형태 (⭕)</th><th style="width:12%;">언제?</th></tr>
+      <tr><td>①</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+      <tr><td>②</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+      <tr><td>③</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+    </table>
+    <div class="tip">💡 "언제?" 칸에는 <b>문자·일기·숙제·시험</b> 같이 자주 쓰는 자리를 적어 두면 스스로 체크하기 좋아요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A4. 자기 점검 체크리스트</h3><span class="tag">5개</span></div>
+    <ul class="check-list">
+      <li><label><input type="checkbox" disabled> 오늘 규칙을 <b>세 문장 이상</b> 소리 내어 읽어 봤다.</label></li>
+      <li><label><input type="checkbox" disabled> 어제·오늘 내가 쓴 글에서 이 규칙 자리를 <b>직접 확인</b>해 봤다.</label></li>
+      <li><label><input type="checkbox" disabled> 자주 틀리던 형태를 <b>표에 정리</b>했다.</label></li>
+      <li><label><input type="checkbox" disabled> 다음에 틀렸을 때 <b>스스로 고쳐 쓸 자신</b>이 조금 생겼다.</label></li>
+      <li><label><input type="checkbox" disabled> 다음 레슨을 <b>기대</b>한다.</label></li>
+    </ul>
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · 며칠 · 어떡해 · 복습쪽</div>
+</section>
+
+
+<section class="page">
+  <div class="page-head">
+    <h2>✍️ 쓰기 실전 — 며칠 · 어떡해</h2>
+    <span class="step">추가 2쪽 · 쓰기</span>
+  </div>
+  <div class="intro">배운 규칙을 <b>실제 문장으로 써 보기</b>로 마무리해요. 짧아도 좋으니 <b>직접</b> 써 보는 게 제일 중요해요.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B1. 오늘의 규칙을 넣은 문장 3개</h3><span class="tag">직접 쓰기</span></div>
+    <p>오늘 배운 <b>며칠 · 어떡해</b> 규칙이 꼭 보이는 문장을 세 개 써 봐요.</p>
+    <div class="write-lines">
+      <div class="wl">① &nbsp;</div>
+      <div class="wl">② &nbsp;</div>
+      <div class="wl">③ &nbsp;</div>
+    </div>
+    <div class="tip">💡 완성한 뒤 <b>소리 내어 읽어</b> 어색한 곳이 없는지 확인해요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B2. 상황 메시지 쓰기 — 예은에게</h3><span class="tag">3~5문장</span></div>
+    <p><b>상황:</b> 며칠 뒤에 만날 수 있냐는 질문</p>
+    <p>이 상황에 맞게 짧은 메시지를 써 봐요. 오늘 배운 <b>며칠 · 어떡해</b> 규칙이 들어가면 더 좋아요.</p>
+    <div class="write-lines">
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B3. 내 다짐 한 문장</h3><span class="tag">마무리</span></div>
+    <p>앞으로 <b>며칠 · 어떡해</b>이(가) 나오는 자리에서 <b>어떻게 신경 쓸지</b> 한 문장으로 적어 봐요.</p>
+    <div class="write-lines"><div class="wl">앞으로 나는, &nbsp;</div></div>
+  </div>
+
+  <div class="note">🌟 <b>진짜 배움은 쓸 때 일어나요.</b> 오늘 쓴 문장을 <b>하루 뒤 다시</b> 읽어 보면 눈에 보이는 것이 또 달라져요.</div>
+
+  <div class="page-foot">맞춤법 시리즈 · 며칠 · 어떡해 · 쓰기쪽</div>
+</section>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

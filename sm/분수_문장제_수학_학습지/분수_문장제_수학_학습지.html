@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>분수 문장제 — 수학 학습지</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  font-size: 11pt; line-height: 1.5;
+}
+.toolbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #1565c0; color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #bbdefb; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button {
+  background: #ffd54f; color: #0d47a1; border: none; font: inherit; font-weight: 700;
+  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+}
+.page {
+  width: 210mm; min-height: 297mm;
+  margin: 10mm auto; padding: 13mm 14mm 16mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  position: relative; page-break-after: always;
+}
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 20mm 16mm; background: linear-gradient(135deg, #fff 0%, #e3f2fd 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.95em; color: #607d8b;
+  border-bottom: 2px solid #cfd8dc; padding-bottom: 8px; margin-bottom: 22px; }
+.cover-top .subject { font-weight: 700; color: #1565c0; }
+.cover-main { text-align: center; padding: 10px 0; }
+.cover-main .badge {
+  display: inline-block; padding: 6px 18px; border-radius: 20px;
+  background: #1565c0; color: #fff; font-weight: 700; font-size: 1em; margin-bottom: 12px;
+}
+.cover-main h1 { margin: 0; font-size: 2.3em; letter-spacing: -1.5px; color: #0d47a1; font-weight: 900; }
+.cover-main .lead { margin: 10px 0 0; font-size: 1.05em; color: #455a64; font-weight: 500; }
+
+.cast { background: #fff; border: 2px solid #64b5f6; border-radius: 12px; padding: 14px 18px; margin-top: 20px; }
+.cast h3 { margin: 0 0 8px; color: #0d47a1; font-size: 1.08em; }
+.cast-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.person {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px; background: #e3f2fd;
+  border: 1px solid #90caf9; border-radius: 10px;
+  font-weight: 700; color: #0d47a1; font-size: 1em;
+}
+.dot { display: inline-block; width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; }
+.d1 { background: #FF6B6B; } .d2 { background: #4ECDC4; } .d3 { background: #FFD166; }
+.d4 { background: #A78BFA; } .d5 { background: #6FCF97; } .d6 { background: #F48FB1; }
+
+.cover-info { background: #fff; border: 2px solid #a5d6a7; border-radius: 12px; padding: 14px 18px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 8px; color: #2e7d32; font-size: 1.08em; }
+.cover-info ul { margin: 0; padding-left: 20px; }
+.cover-info li { margin: 4px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 22px; font-size: 1em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #607d8b; padding-bottom: 4px; }
+.cover-name .label { color: #455a64; font-weight: 700; margin-right: 6px; }
+
+.page-head {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #1565c0; padding-bottom: 6px; margin-bottom: 12px;
+}
+.page-head h2 { margin: 0; color: #0d47a1; font-size: 1.45em; letter-spacing: -0.5px; }
+.page-head .step {
+  font-size: 0.88em; color: #fff; background: #1565c0;
+  padding: 4px 12px; border-radius: 12px; font-weight: 700;
+}
+
+.intro { background: #e3f2fd; border-left: 4px solid #1976d2; padding: 10px 14px; margin: 8px 0 14px; border-radius: 0 6px 6px 0; font-size: 1em; }
+.intro b { color: #0d47a1; }
+.tip { background: #fff8e1; border-left: 4px solid #ffb300; padding: 9px 13px; margin: 10px 0; border-radius: 0 6px 6px 0; font-size: 0.95em; }
+.tip b { color: #e65100; }
+
+.activity { background: #fff; border: 1.8px solid #90caf9; border-radius: 10px; padding: 12px 16px; margin: 12px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #0d47a1; font-size: 1.1em; }
+.activity .tag { background: #bbdefb; color: #0d47a1; font-size: 0.8em; font-weight: 700; padding: 3px 10px; border-radius: 10px; }
+.activity p { margin: 6px 0; }
+
+table.props { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 1em; }
+table.props th, table.props td { border: 1.3px solid #b0bec5; padding: 7px 8px; text-align: center; vertical-align: middle; }
+table.props th { background: #bbdefb; color: #0d47a1; font-weight: 700; }
+table.props td.left { text-align: left; }
+
+.blank { display: inline-block; min-width: 56px; border-bottom: 2px solid #607d8b; text-align: center; padding: 0 6px; color: #1565c0; font-weight: 700; }
+.blank.short { min-width: 36px; }
+.blank.long { min-width: 110px; }
+.write-line { border-bottom: 1.3px solid #90a4ae; min-height: 22px; margin: 6px 0; }
+
+/* 분수 표시 */
+.frac {
+  display: inline-flex; flex-direction: column; align-items: center;
+  vertical-align: middle; margin: 0 3px; font-size: 1em; line-height: 1.0;
+}
+.frac .num { border-bottom: 1.8px solid #263238; padding: 0 6px 1px; font-weight: 700; }
+.frac .den { padding: 1px 6px 0; font-weight: 700; }
+
+/* 분수 막대 */
+.bar {
+  display: inline-grid; width: 220px; height: 26px;
+  border: 1.8px solid #0d47a1; border-radius: 4px; overflow: hidden;
+  vertical-align: middle;
+}
+.bar.b2 { grid-template-columns: repeat(2, 1fr); }
+.bar.b3 { grid-template-columns: repeat(3, 1fr); }
+.bar.b4 { grid-template-columns: repeat(4, 1fr); }
+.bar.b5 { grid-template-columns: repeat(5, 1fr); }
+.bar.b6 { grid-template-columns: repeat(6, 1fr); }
+.bar.b8 { grid-template-columns: repeat(8, 1fr); }
+.bar div { border-right: 1px solid #90caf9; }
+.bar div:last-child { border-right: none; }
+.bar div.on { background: #ffd54f; }
+
+/* 피자 분수 */
+.pizza-row { display: flex; gap: 18px; justify-content: center; margin: 10px 0; flex-wrap: wrap; }
+.pizza-item { text-align: center; }
+.pizza-item .cap { margin-top: 6px; font-size: 1em; font-weight: 700; color: #c62828; }
+
+.scene-box {
+  background: #fffde7; border: 1.5px dashed #fbc02d;
+  border-radius: 10px; padding: 12px 16px; margin: 10px 0;
+  font-size: 1em;
+}
+.scene-box .icon { font-size: 1.2em; margin-right: 4px; }
+
+.summary-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 14px 0; }
+.summary-card { background: #fff; border: 2.2px solid; border-radius: 10px; padding: 12px; text-align: center; }
+.summary-card.add { border-color: #2e7d32; background: #e8f5e9; }
+.summary-card.sub { border-color: #c62828; background: #ffebee; }
+.summary-card .name { font-size: 1.4em; font-weight: 900; margin-bottom: 4px; }
+.summary-card.add .name { color: #1b5e20; }
+.summary-card.sub .name { color: #b71c1c; }
+.summary-card .pts { text-align: left; font-size: 0.92em; padding-left: 18px; margin: 6px 0 0; }
+
+.page-foot { position: absolute; bottom: 6mm; left: 0; right: 0; text-align: center; font-size: 0.78em; color: #90a4ae; }
+
+@media print {
+  body { background: #fff; }
+  .toolbar { display: none; }
+  .page { box-shadow: none; margin: 0 auto; padding: 12mm 14mm 14mm; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">🍕 분수 문장제 학습지</span><span class="muted">친구들의 이야기로 배우는 분수</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<!-- ============ 표지 ============ -->
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">수학</span> · 분수 문장제</span>
+    <span>고등학교 특수학급</span>
+  </div>
+
+  <div class="cover-main">
+    <span class="badge">분수 문장제 5차시</span>
+    <h1>친구들과 함께 푸는 분수 이야기</h1>
+    <p class="lead">피자, 케이크, 음료수 — 분수로 사이좋게 나눠요</p>
+  </div>
+
+  <div class="cast">
+    <h3>👥 등장인물</h3>
+    <div class="cast-grid">
+      <div class="person"><span class="dot d1"></span>주은</div>
+      <div class="person"><span class="dot d2"></span>주현</div>
+      <div class="person"><span class="dot d3"></span>예은</div>
+      <div class="person"><span class="dot d4"></span>하은</div>
+      <div class="person"><span class="dot d5"></span>채원</div>
+      <div class="person"><span class="dot d6"></span>하영</div>
+    </div>
+  </div>
+
+  <div class="cover-info">
+    <h3>🎯 학습 목표</h3>
+    <ul>
+      <li>분수가 무엇을 뜻하는지 그림으로 안다.</li>
+      <li>일상 속에서 분수를 찾아 쓸 수 있다.</li>
+      <li>분모가 같은 분수의 덧셈·뺄셈을 한다.</li>
+      <li>친구와 음식을 나누는 이야기에 분수를 쓴다.</li>
+    </ul>
+  </div>
+
+  <div class="cover-name">
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+
+  <div class="page-foot">분수 문장제 학습지 · 표지</div>
+</section>
+
+<!-- ============ 1쪽: 분수 개념 ============ -->
+<section class="page">
+  <div class="page-head">
+    <h2>🍕 분수가 뭐예요?</h2>
+    <span class="step">1쪽 · 개념</span>
+  </div>
+
+  <div class="intro">
+    <b>분수</b>는 전체를 <b>똑같이 나눈 것 중 몇 조각</b>인지를 나타내는 수예요.
+    피자 한 판을 친구들과 나눠 먹을 때 분수가 필요해요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 분수의 구조</h3><span class="tag">개념</span></div>
+    <div style="background:#ffebee; border:1.5px solid #ef9a9a; border-radius:10px; padding:18px; text-align:center; margin:8px 0;">
+      <div style="font-size:2.6em; color:#c62828; font-weight:900;">3 / 4</div>
+      <div style="font-size:1em; margin-top:8px;"><b>분자(3)</b> = 가져간 조각 수 &nbsp; · &nbsp; <b>분모(4)</b> = 똑같이 나눈 수</div>
+      <div style="font-size:0.95em; margin-top:6px; color:#546e7a;">읽기: <b>사 분의 삼</b></div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 피자로 보는 분수</h3><span class="tag">그림</span></div>
+    <p>색칠된 부분을 분수로 써 보세요.</p>
+    <div class="pizza-row">
+      <div class="pizza-item">
+        <svg viewBox="0 0 80 80" width="100" height="100">
+          <circle cx="40" cy="40" r="36" fill="#fff" stroke="#bf360c" stroke-width="2"/>
+          <path d="M40,40 L40,4 A36,36 0 0,1 76,40 Z" fill="#ffcc80"/>
+          <line x1="40" y1="4" x2="40" y2="76" stroke="#bf360c" stroke-width="1.5"/>
+          <line x1="4" y1="40" x2="76" y2="40" stroke="#bf360c" stroke-width="1.5"/>
+        </svg>
+        <div class="cap">분수: <span class="blank short">&nbsp;</span> / <span class="blank short">4</span></div>
+      </div>
+      <div class="pizza-item">
+        <svg viewBox="0 0 80 80" width="100" height="100">
+          <circle cx="40" cy="40" r="36" fill="#fff" stroke="#bf360c" stroke-width="2"/>
+          <path d="M40,40 L40,4 A36,36 0 0,1 76,40 Z" fill="#ffcc80"/>
+          <path d="M40,40 L76,40 A36,36 0 0,1 40,76 Z" fill="#ffcc80"/>
+          <line x1="40" y1="4" x2="40" y2="76" stroke="#bf360c" stroke-width="1.5"/>
+          <line x1="4" y1="40" x2="76" y2="40" stroke="#bf360c" stroke-width="1.5"/>
+        </svg>
+        <div class="cap">분수: <span class="blank short">&nbsp;</span> / <span class="blank short">&nbsp;</span></div>
+      </div>
+      <div class="pizza-item">
+        <svg viewBox="0 0 80 80" width="100" height="100">
+          <circle cx="40" cy="40" r="36" fill="#fff" stroke="#bf360c" stroke-width="2"/>
+          <path d="M40,40 L40,4 A36,36 0 0,1 76,40 Z" fill="#ffcc80"/>
+          <path d="M40,40 L76,40 A36,36 0 0,1 40,76 Z" fill="#ffcc80"/>
+          <path d="M40,40 L40,76 A36,36 0 0,1 4,40 Z" fill="#ffcc80"/>
+          <line x1="40" y1="4" x2="40" y2="76" stroke="#bf360c" stroke-width="1.5"/>
+          <line x1="4" y1="40" x2="76" y2="40" stroke="#bf360c" stroke-width="1.5"/>
+        </svg>
+        <div class="cap">분수: <span class="blank short">&nbsp;</span> / <span class="blank short">&nbsp;</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 막대로 보는 분수</h3><span class="tag">그림</span></div>
+    <p>색칠된 칸을 분수로 써 보세요.</p>
+    <p>① <span class="bar b4"><div class="on"></div><div></div><div></div><div></div></span> &nbsp; → 분수: <span class="blank">&nbsp;</span></p>
+    <p>② <span class="bar b6"><div class="on"></div><div class="on"></div><div class="on"></div><div></div><div></div><div></div></span> &nbsp; → 분수: <span class="blank">&nbsp;</span></p>
+    <p>③ <span class="bar b8"><div class="on"></div><div class="on"></div><div class="on"></div><div class="on"></div><div class="on"></div><div></div><div></div><div></div></span> &nbsp; → 분수: <span class="blank">&nbsp;</span></p>
+  </div>
+
+  <div class="page-foot">분수 문장제 학습지 · 1쪽 / 5</div>
+</section>
+
+<!-- ============ 2쪽: 일상 속 분수 ============ -->
+<section class="page">
+  <div class="page-head">
+    <h2>🏫 일상 속에서 분수 찾기</h2>
+    <span class="step">2쪽 · 분수 찾기</span>
+  </div>
+
+  <div class="intro">
+    피자 조각, 케이크 조각, 친구 수 — 우리 일상에는 분수가 정말 많아요. 친구들의 이야기를 분수로 써 봐요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 친구들 이야기를 분수로</h3><span class="tag">실생활</span></div>
+    <p>밑줄 친 부분을 분수로 써 보세요.</p>
+    <table class="props">
+      <tr><th style="width:70%;">상황</th><th>분수</th></tr>
+      <tr><td class="left"><b>주은</b>이는 피자 4조각 중 1조각을 먹었다.</td><td><span class="blank">&nbsp;</span></td></tr>
+      <tr><td class="left"><b>예은</b>이는 케이크를 6등분해서 2조각을 받았다.</td><td><span class="blank">&nbsp;</span></td></tr>
+      <tr><td class="left"><b>주현</b>이는 초콜릿 8조각 중 3조각을 친구에게 줬다.</td><td><span class="blank">&nbsp;</span></td></tr>
+      <tr><td class="left"><b>하은</b>이는 김밥 한 줄을 5조각으로 잘라 1조각을 먹었다.</td><td><span class="blank">&nbsp;</span></td></tr>
+      <tr><td class="left"><b>하영</b>이는 음료수 한 병의 절반을 마셨다.</td><td><span class="blank">&nbsp;</span></td></tr>
+    </table>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 분수 크기 비교</h3><span class="tag">비교</span></div>
+    <p>분모가 같으면 <b>분자가 클수록 큰 분수</b>예요. 더 큰 쪽에 ○ 표 하세요.</p>
+    <p>① ( <span class="frac"><span class="num">3</span><span class="den">5</span></span> ) ↔ ( <span class="frac"><span class="num">4</span><span class="den">5</span></span> )</p>
+    <p>② ( <span class="frac"><span class="num">5</span><span class="den">8</span></span> ) ↔ ( <span class="frac"><span class="num">3</span><span class="den">8</span></span> )</p>
+    <p>③ ( <span class="frac"><span class="num">7</span><span class="den">10</span></span> ) ↔ ( <span class="frac"><span class="num">9</span><span class="den">10</span></span> )</p>
+    <p>④ <b>채원</b>이는 피자 한 판 중 <span class="frac"><span class="num">2</span><span class="den">8</span></span>을, <b>하영</b>이는 <span class="frac"><span class="num">5</span><span class="den">8</span></span>을 먹었어요. 누가 더 많이 먹었나요? &nbsp; → <span class="blank">&nbsp;</span></p>
+  </div>
+
+  <div class="tip">💡 <b>꼭 기억!</b> 분수 = (가져간 만큼) / (똑같이 나눈 수). 분모가 같을 때만 직접 비교해요.</div>
+
+  <div class="page-foot">분수 문장제 학습지 · 2쪽 / 5</div>
+</section>
+
+<!-- ============ 3쪽: 분수 덧셈 ============ -->
+<section class="page">
+  <div class="page-head">
+    <h2>➕ 분수의 덧셈 — 함께 모으기</h2>
+    <span class="step">3쪽 · 덧셈</span>
+  </div>
+
+  <div class="intro">
+    분모가 같으면 <b>분자끼리만 더하면</b> 돼요. 분모는 그대로!
+    <br>예: <span class="frac"><span class="num">2</span><span class="den">5</span></span> + <span class="frac"><span class="num">1</span><span class="den">5</span></span> = <span class="frac"><span class="num">3</span><span class="den">5</span></span>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 6. 분수 덧셈 연습</h3><span class="tag">+</span></div>
+    <table class="props">
+      <tr><td>① <span class="frac"><span class="num">1</span><span class="den">4</span></span> + <span class="frac"><span class="num">2</span><span class="den">4</span></span> = <span class="blank">&nbsp;</span></td><td>② <span class="frac"><span class="num">1</span><span class="den">5</span></span> + <span class="frac"><span class="num">2</span><span class="den">5</span></span> = <span class="blank">&nbsp;</span></td></tr>
+      <tr><td>③ <span class="frac"><span class="num">2</span><span class="den">6</span></span> + <span class="frac"><span class="num">3</span><span class="den">6</span></span> = <span class="blank">&nbsp;</span></td><td>④ <span class="frac"><span class="num">3</span><span class="den">8</span></span> + <span class="frac"><span class="num">4</span><span class="den">8</span></span> = <span class="blank">&nbsp;</span></td></tr>
+    </table>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 7. 이야기 문제 — 피자 나눠 먹기</h3><span class="tag">실생활</span></div>
+    <div class="scene-box">
+      <span class="icon">🍕</span> <b>주은</b>이와 <b>주현</b>이가 피자 한 판(8조각)을 같이 먹었어요.
+      주은이는 <span class="frac"><span class="num">2</span><span class="den">8</span></span>을, 주현이는 <span class="frac"><span class="num">3</span><span class="den">8</span></span>을 먹었어요.
+    </div>
+    <p>➡ 둘이 합쳐 먹은 피자는 한 판의 얼마일까요?</p>
+    <p>식: <span class="frac"><span class="num">2</span><span class="den">8</span></span> + <span class="frac"><span class="num">3</span><span class="den">8</span></span> = <span class="blank">&nbsp;</span></p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 8. 이야기 문제 — 케이크</h3><span class="tag">실생활</span></div>
+    <div class="scene-box">
+      <span class="icon">🍰</span> <b>예은</b>이는 케이크의 <span class="frac"><span class="num">1</span><span class="den">6</span></span>을, <b>하은</b>이는 <span class="frac"><span class="num">2</span><span class="den">6</span></span>을 받았어요.
+    </div>
+    <p>➡ 둘이 받은 케이크는 모두 케이크의 얼마일까요?</p>
+    <p>식: <span class="frac"><span class="num">1</span><span class="den">6</span></span> + <span class="frac"><span class="num">2</span><span class="den">6</span></span> = <span class="blank">&nbsp;</span></p>
+  </div>
+
+  <div class="page-foot">분수 문장제 학습지 · 3쪽 / 5</div>
+</section>
+
+<!-- ============ 4쪽: 분수 뺄셈 ============ -->
+<section class="page">
+  <div class="page-head">
+    <h2>➖ 분수의 뺄셈 — 남은 양 구하기</h2>
+    <span class="step">4쪽 · 뺄셈</span>
+  </div>
+
+  <div class="intro">
+    분모가 같으면 <b>분자끼리만 빼면</b> 돼요. 분모는 그대로!
+    <br>예: <span class="frac"><span class="num">4</span><span class="den">5</span></span> − <span class="frac"><span class="num">1</span><span class="den">5</span></span> = <span class="frac"><span class="num">3</span><span class="den">5</span></span>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 9. 분수 뺄셈 연습</h3><span class="tag">−</span></div>
+    <table class="props">
+      <tr><td>① <span class="frac"><span class="num">3</span><span class="den">4</span></span> − <span class="frac"><span class="num">1</span><span class="den">4</span></span> = <span class="blank">&nbsp;</span></td><td>② <span class="frac"><span class="num">4</span><span class="den">5</span></span> − <span class="frac"><span class="num">2</span><span class="den">5</span></span> = <span class="blank">&nbsp;</span></td></tr>
+      <tr><td>③ <span class="frac"><span class="num">5</span><span class="den">6</span></span> − <span class="frac"><span class="num">2</span><span class="den">6</span></span> = <span class="blank">&nbsp;</span></td><td>④ <span class="frac"><span class="num">6</span><span class="den">8</span></span> − <span class="frac"><span class="num">3</span><span class="den">8</span></span> = <span class="blank">&nbsp;</span></td></tr>
+    </table>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 10. 이야기 문제 — 음료수</h3><span class="tag">실생활</span></div>
+    <div class="scene-box">
+      <span class="icon">🥤</span> <b>채원</b>이의 음료수 한 병의 <span class="frac"><span class="num">5</span><span class="den">8</span></span>이 남아 있었어요. 그중 <span class="frac"><span class="num">2</span><span class="den">8</span></span>을 더 마셨어요.
+    </div>
+    <p>➡ 지금 남은 음료수는 한 병의 얼마일까요?</p>
+    <p>식: <span class="frac"><span class="num">5</span><span class="den">8</span></span> − <span class="frac"><span class="num">2</span><span class="den">8</span></span> = <span class="blank">&nbsp;</span></p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 11. 이야기 문제 — 케이크</h3><span class="tag">실생활</span></div>
+    <div class="scene-box">
+      <span class="icon">🍰</span> <b>하영</b>이의 생일 케이크 한 판 중 <span class="frac"><span class="num">5</span><span class="den">6</span></span>이 남아 있었어요. 친구들이 <span class="frac"><span class="num">3</span><span class="den">6</span></span>을 더 먹었어요.
+    </div>
+    <p>➡ 지금 케이크는 한 판의 얼마가 남았나요?</p>
+    <p>식: <span class="frac"><span class="num">5</span><span class="den">6</span></span> − <span class="frac"><span class="num">3</span><span class="den">6</span></span> = <span class="blank">&nbsp;</span></p>
+  </div>
+
+  <div class="page-foot">분수 문장제 학습지 · 4쪽 / 5</div>
+</section>
+
+<!-- ============ 5쪽: 정리 ============ -->
+<section class="page">
+  <div class="page-head">
+    <h2>📌 정리 & 자기 점검</h2>
+    <span class="step">5쪽 · 마무리</span>
+  </div>
+
+  <div class="intro">
+    분모가 같으면 분자끼리만 계산해요. 분모는 그대로!
+  </div>
+
+  <div class="summary-grid">
+    <div class="summary-card add">
+      <div class="name">➕ 분수 덧셈</div>
+      <ul class="pts">
+        <li>분모가 같으면</li>
+        <li>분자끼리만 더해요</li>
+        <li>분모는 그대로</li>
+        <li>예: 1/5 + 2/5 = 3/5</li>
+      </ul>
+    </div>
+    <div class="summary-card sub">
+      <div class="name">➖ 분수 뺄셈</div>
+      <ul class="pts">
+        <li>분모가 같으면</li>
+        <li>분자끼리만 빼요</li>
+        <li>분모는 그대로</li>
+        <li>예: 4/5 − 1/5 = 3/5</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 12. 종합 문제</h3><span class="tag">통합</span></div>
+    <p>① <b>주은·주현·예은</b> 셋이 피자 한 판(8조각)을 나눠 먹었어요. 주은이가 <span class="frac"><span class="num">2</span><span class="den">8</span></span>, 주현이가 <span class="frac"><span class="num">3</span><span class="den">8</span></span>을 먹었어요. 셋이 합쳐 먹은 양은? &nbsp;
+    예은이는 1조각을 먹었어요 (<span class="frac"><span class="num">1</span><span class="den">8</span></span>).</p>
+    <p>식: <span class="frac"><span class="num">2</span><span class="den">8</span></span> + <span class="frac"><span class="num">3</span><span class="den">8</span></span> + <span class="frac"><span class="num">1</span><span class="den">8</span></span> = <span class="blank">&nbsp;</span></p>
+    <p>② 피자 한 판에서 셋이 먹고 남은 양은? (한 판 = <span class="frac"><span class="num">8</span><span class="den">8</span></span>)</p>
+    <p>식: <span class="frac"><span class="num">8</span><span class="den">8</span></span> − <span class="blank">&nbsp;</span> = <span class="blank">&nbsp;</span></p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 13. 자기 점검</h3><span class="tag">자기 확인</span></div>
+    <table class="props">
+      <tr><th style="width:60%;">확인할 내용</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+      <tr><td class="left">분수의 분자와 분모가 뜻하는 것을 안다.</td><td>○</td><td>○</td><td>○</td></tr>
+      <tr><td class="left">그림을 보고 분수로 나타낼 수 있다.</td><td>○</td><td>○</td><td>○</td></tr>
+      <tr><td class="left">분모가 같은 분수의 덧셈을 할 수 있다.</td><td>○</td><td>○</td><td>○</td></tr>
+      <tr><td class="left">분모가 같은 분수의 뺄셈을 할 수 있다.</td><td>○</td><td>○</td><td>○</td></tr>
+      <tr><td class="left">이야기 문제를 식으로 세울 수 있다.</td><td>○</td><td>○</td><td>○</td></tr>
+    </table>
+  </div>
+
+  <div class="activity" style="border-color:#a5d6a7; background:#f1f8e9;">
+    <div class="head"><h3>🌟 마무리 한마디</h3><span class="tag" style="background:#c8e6c9; color:#1b5e20;">기록</span></div>
+    <p>오늘 가장 쉬웠던 활동은 무엇인가요?</p>
+    <div class="write-line"></div>
+    <p>한 번 더 연습하고 싶은 부분은 무엇인가요?</p>
+    <div class="write-line"></div>
+  </div>
+
+  <div class="page-foot">분수 문장제 학습지 · 5쪽 / 5 · 수고하셨습니다 👏</div>
+</section>
+
+</body>
+</html>

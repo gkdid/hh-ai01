@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>L6 붙이다·부치다 — 예은이의 편지 부치기</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffe0b2 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #6d4c41;
+  border-bottom: 2px solid #ffcc80; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; color: #e65100; }
+.cover-main { text-align: center; padding: 8px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #e65100; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #bf360c; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #bf360c; font-weight: 500; }
+.cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 6px; }
+.cover-info { background: #fff; border: 2px solid #ffb74d; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 6px; color: #bf360c; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 3px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 14px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #8d6e63; padding-bottom: 3px; }
+.cover-name .label { color: #4e342e; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #e65100; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #bf360c; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #e65100; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #fff3e0; border-left: 4px solid #ef6c00; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #bf360c; }
+.tip { background: #fff8e1; border-left: 4px solid #f9a825; padding: 8px 12px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.95em; }
+.tip b { color: #f57f17; }
+.note { background: #e0f2f1; border-left: 4px solid #00897b; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #004d40; }
+
+.activity { background: #fff; border: 1.8px solid #ffb74d; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #bf360c; font-size: 1.05em; }
+.activity .tag { background: #ffe0b2; color: #bf360c; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 44px; border-bottom: 2px solid #6d4c41; text-align: center; padding: 0 6px; color: #bf360c; font-weight: 700; }
+.blank.short { min-width: 30px; }
+
+.rule-box { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0; }
+.rule { border-radius: 12px; padding: 12px 14px; }
+.rule.but { background: #e3f2fd; border: 2px solid #1976d2; }
+.rule.but .title { color: #0d47a1; font-weight: 900; font-size: 1.15em; margin-bottom: 6px; }
+.rule.buch { background: #fce4ec; border: 2px solid #d81b60; }
+.rule.buch .title { color: #880e4f; font-weight: 900; font-size: 1.15em; margin-bottom: 6px; }
+.rule ul { margin: 4px 0; padding-left: 18px; font-size: 0.92em; }
+.rule .ex { background: #fff; padding: 6px 10px; border-radius: 6px; margin-top: 6px; font-size: 0.92em; }
+
+.envelope { background: #fff; border: 2px solid #6d4c41; border-radius: 8px; padding: 16px; margin: 10px 0; position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.envelope::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 40px;
+  background: linear-gradient(180deg, #ffe0b2, transparent);
+  border-radius: 8px 8px 0 0;
+}
+.envelope .stamp { position: absolute; top: 12px; right: 12px; width: 60px; height: 70px; background: #fff8e1; border: 2px dashed #e65100; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 1.4em; }
+.envelope .to { position: relative; z-index: 1; }
+.envelope .to .head { font-weight: 900; color: #bf360c; margin-bottom: 6px; }
+.envelope .to .address { background: #fff8e1; padding: 6px 10px; border-radius: 6px; font-size: 0.92em; }
+.envelope .from { text-align: left; margin-top: 40px; font-size: 0.88em; color: #6d4c41; padding-left: 6px; border-left: 3px solid #ffb74d; }
+
+.step-flow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0; }
+.step-flow .step-card { background: #fff; border: 1.8px solid #ffb74d; border-radius: 10px; padding: 10px; text-align: center; }
+.step-flow .step-card .num { background: #e65100; color: #fff; width: 24px; height: 24px; border-radius: 50%; display: inline-block; line-height: 24px; font-weight: 900; margin-bottom: 3px; }
+.step-flow .step-card .action { font-weight: 700; color: #bf360c; font-size: 0.95em; }
+.step-flow .step-card .word { background: #fff8e1; padding: 3px 8px; border-radius: 6px; margin-top: 4px; display: inline-block; font-size: 0.85em; color: #bf360c; font-weight: 700; }
+
+.diary { background: #fff; border: 2px solid #ffb74d; border-radius: 12px; padding: 14px 16px; margin: 8px 0; }
+.diary .diary-head { display: flex; justify-content: space-between; padding-bottom: 6px; border-bottom: 1px dashed #ffcc80; margin-bottom: 8px; }
+.diary .diary-head .who { font-weight: 900; color: #bf360c; }
+.diary .diary-head .date { color: #f57f17; }
+.diary .body { font-size: 0.98em; line-height: 1.75; }
+.diary .highlight { background: #ffcdd2; padding: 1px 4px; border-radius: 4px; font-weight: 700; color: #b71c1c; }
+
+.q-list p { margin: 6px 0; padding: 6px 10px; background: #fff8e1; border-radius: 6px; }
+.q-list .choice { color: #bf360c; font-weight: 700; }
+
+.page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
+@media print { body { background: #fff; } .toolbar { display: none; } .page { box-shadow: none; margin: 0 auto; } }
+
+.sp-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
+.sp-table th, .sp-table td { border: 1.2px solid #ffb74d; padding: 6px 8px; vertical-align: top; }
+.sp-table th { background: #fff3e0; color: #bf360c; font-weight: 700; text-align: center; }
+.sp-table td.left { text-align: left; }
+.check-list { list-style: none; padding-left: 4px; margin: 6px 0; }
+.check-list li { padding: 5px 8px; background: #fff3e0; margin: 4px 0; border-radius: 6px; border-left: 3px solid #ffb74d; }
+.check-list input[type="checkbox"] { margin-right: 6px; transform: scale(1.1); }
+.write-lines { background: #fff; border: 1.5px solid #ffb74d; border-radius: 8px; padding: 10px 12px; margin: 8px 0; }
+.write-lines .wl { border-bottom: 1.2px solid #cfd8dc; min-height: 22px; margin: 6px 0; }
+.pair-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 6px 0; }
+.pair-card { border: 1.3px solid #ffb74d; border-radius: 8px; padding: 8px 10px; background: #fff; }
+.pair-card .sent { font-size: 0.95em; margin-bottom: 4px; }
+.pair-card .pick { display: flex; gap: 8px; font-size: 0.9em; }
+.pair-card .pick label { padding: 2px 8px; border: 1px solid #b0bec5; border-radius: 12px; background: #f5f7f9; }
+
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">📮 L6 붙이다·부치다</span><span class="muted">맞춤법 · Level 6</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<!-- 표지 -->
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">국어</span> · 맞춤법 시리즈 · <b style="color:#bf360c;">L6</b></span>
+    <span>고등학교 특수학급</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">붙이다 · 부치다</span>
+    <h1>예은이의 편지 부치기</h1>
+    <p class="lead">우표는 <b>붙이고</b>, 편지는 <b>부치기</b>!</p>
+  </div>
+  <div class="cover-emoji">📮 ✉️ 🏛</div>
+  <div class="cover-info">
+    <h3>🎯 학습 목표</h3>
+    <ul>
+      <li><b>붙이다</b>는 접착·부착의 뜻, <b>부치다</b>는 우편·힘 등의 뜻임을 안다.</li>
+      <li>실생활 여러 상황에서 두 낱말을 <b>구분해서 쓴다</b>.</li>
+      <li>우체국·편지 상황에서 <b>정확한 표기</b>로 편지를 완성한다.</li>
+    </ul>
+  </div>
+  <div class="cover-info" style="border-color:#a5d6a7;">
+    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+    <ul>
+      <li><b>예은이</b>가 시골 할머니께 편지를 써서 우체국에 가려고 해요. 무엇을 <b>붙이고</b>, 무엇을 <b>부칠까요?</b></li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">학년·반</span></div>
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+  <div class="page-foot">맞춤법 시리즈 · L6 · 표지</div>
+</section>
+
+<!-- 1쪽: 규칙 -->
+<section class="page">
+  <div class="page-head">
+    <h2>📖 붙이다 vs 부치다</h2>
+    <span class="step">1쪽 · 규칙</span>
+  </div>
+  <div class="intro">
+    두 낱말은 발음이 <b>[부치다]</b>로 비슷해서 자주 헷갈려요. 하지만 <b>완전히 다른 뜻</b>이니 구분해야 해요.
+  </div>
+
+  <div class="rule-box">
+    <div class="rule but">
+      <div class="title">🔵 붙이다 (붙게 하다)</div>
+      <div>두 물건이 <b>서로 닿아 있게</b> 하는 일. <b>접착·부착·연결</b>의 뜻.</div>
+      <div class="ex">
+        <ul>
+          <li>우표를 봉투에 <b>붙이다</b></li>
+          <li>스티커를 다이어리에 <b>붙이다</b></li>
+          <li>반창고를 상처에 <b>붙이다</b></li>
+          <li>이름표를 가슴에 <b>붙이다</b></li>
+          <li>조건을 <b>붙이다</b> (덧붙이다)</li>
+          <li>마음을 <b>붙이다</b> (정을 두다)</li>
+          <li>불을 <b>붙이다</b> (불이 붙게 하다)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="rule buch">
+      <div class="title">🟣 부치다 (여러 뜻)</div>
+      <div>① <b>우편으로 보내다</b> &nbsp; ② <b>힘에 겹다</b> &nbsp; ③ <b>부침개 만들기</b> &nbsp; ④ 회의에 부치다</div>
+      <div class="ex">
+        <ul>
+          <li>편지를 우체국에서 <b>부치다</b> (우편)</li>
+          <li>돈을 <b>부치다</b> (송금)</li>
+          <li>소포를 <b>부치다</b> (택배)</li>
+          <li>일이 힘에 <b>부치다</b> (감당 어려움)</li>
+          <li>부침개를 <b>부치다</b> (요리)</li>
+          <li>회의에 <b>부치다</b> (안건 올리기)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">
+    💡 <b>가장 헷갈리는 우체국 상황</b><br>
+    <b>봉투에 우표는 → 붙이다</b> (봉투와 우표가 서로 닿음)<br>
+    <b>편지 자체를 우체국으로 → 부치다</b> (다른 곳으로 보냄)<br>
+    · 우표를 <b>붙여서</b> 편지를 <b>부치다</b> ⭕ (두 낱말이 함께 나와요!)
+  </div>
+
+  <div class="step-flow">
+    <div class="step-card">
+      <div class="num">1</div>
+      <div class="action">편지지에 편지 쓰기</div>
+      <div class="word">글을 쓰다</div>
+    </div>
+    <div class="step-card">
+      <div class="num">2</div>
+      <div class="action">봉투에 편지 넣고 봉하기</div>
+      <div class="word">붙이다 (스티커/풀)</div>
+    </div>
+    <div class="step-card">
+      <div class="num">3</div>
+      <div class="action">봉투 위에 우표 붙이기</div>
+      <div class="word">붙이다 (우표)</div>
+    </div>
+    <div class="step-card">
+      <div class="num">4</div>
+      <div class="action">우체국에 편지 보내기</div>
+      <div class="word">부치다 (우편)</div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 붙이다·부치다 골라 쓰기</h3><span class="tag">10문항</span></div>
+    <div class="q-list">
+      <p>① 봉투에 우표를 <span class="choice">( 붙 / 부 )</span>였어.</p>
+      <p>② 이 편지 좀 대신 <span class="choice">( 붙 / 부 )</span>쳐 줘.</p>
+      <p>③ 벽에 사진을 예쁘게 <span class="choice">( 붙 / 부 )</span>였다.</p>
+      <p>④ 반창고를 상처에 <span class="choice">( 붙 / 부 )</span>였다.</p>
+      <p>⑤ 요즘 학원 숙제가 힘에 <span class="choice">( 붙 / 부 )</span>친다.</p>
+      <p>⑥ 엄마가 감자전을 <span class="choice">( 붙 / 부 )</span>치고 계셔.</p>
+      <p>⑦ 이 문제는 회의에 <span class="choice">( 붙 / 부 )</span>쳐서 결정하자.</p>
+      <p>⑧ 새 학교에도 이제 마음을 <span class="choice">( 붙 / 부 )</span>였어.</p>
+      <p>⑨ 이번 달 용돈을 은행으로 <span class="choice">( 붙 / 부 )</span>쳐 주세요.</p>
+      <p>⑩ 이름표를 가슴에 <span class="choice">( 붙 / 부 )</span>이고 왔어.</p>
+    </div>
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · L6 · 1쪽 / 2</div>
+</section>
+
+<!-- 2쪽: 편지 상황 -->
+<section class="page">
+  <div class="page-head">
+    <h2>📮 예은이의 편지와 우체국 일기</h2>
+    <span class="step">2쪽 · 실전</span>
+  </div>
+  <div class="intro">
+    예은이가 시골 할머니께 편지를 부치는 일을 일기로 썼어요. <b>빨간 표시</b>가 있는 낱말이 <b>붙이다</b>인지 <b>부치다</b>인지 확인해요.
+  </div>
+
+  <div class="envelope">
+    <div class="stamp">📮</div>
+    <div class="to">
+      <div class="head">📬 받는 사람</div>
+      <div class="address">
+        경상북도 문경시 문경읍 문경새재로 123<br>
+        <b>김순자 할머니</b> 앞
+      </div>
+    </div>
+    <div class="from">
+      보내는 사람: 서울시 종로구 · 손녀 <b>예은</b> 올림
+    </div>
+  </div>
+
+  <div class="diary">
+    <div class="diary-head">
+      <span class="who">📝 예은이의 우체국 다녀온 일기</span>
+      <span class="date">2026년 9월 18일 · 맑음</span>
+    </div>
+    <div class="body">
+      할머니께 오랜만에 편지를 썼다. 편지지에 정성껏 글을 쓰고, 봉투에 편지를 넣고 스티커를 <span class="highlight">부쳤다</span>.
+      그다음 봉투 오른쪽 위에 우표를 <span class="highlight">부치고</span>, 우체국에 갔다.
+      <br><br>
+      우체국 직원분이 "편지 <span class="highlight">붙이러</span> 오셨어요?" 하고 물으셨다. 나는 "네, 할머니께 편지 <span class="highlight">붙이려고요</span>."라고 대답했다.
+      직원분이 웃으시면서 "우표는 <span class="highlight">부치</span>는 게 아니라 <span class="highlight">붙이는</span> 거고, 편지는 <span class="highlight">붙이는</span> 게 아니라 <span class="highlight">부치는</span> 거예요~"라고 알려 주셨다.
+      <br><br>
+      집에 와서 엄마한테 이야기했더니 저녁에 부침개를 <span class="highlight">붙이며</span> "예은이가 오늘 국어 공부 제대로 했네~" 하고 웃으셨다.
+      요즘 학원 숙제가 힘에 <span class="highlight">붙</span>이지만, 오늘 하나 배웠으니 됐다!
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 일기 속 틀린 낱말 고치기</h3><span class="tag">9군데</span></div>
+    <p>일기 속 <b>빨간 표시 9개</b>가 <b>붙이다·부치다</b> 중 무엇으로 써야 하는지 바르게 고쳐 봐요.</p>
+    <p>① 스티커를 <b>부쳤다</b> (봉투에) → <span class="blank short">&nbsp;</span></p>
+    <p>② 우표를 <b>부치고</b> (봉투에) → <span class="blank short">&nbsp;</span></p>
+    <p>③ "편지 <b>붙이러</b> 오셨어요?" → <span class="blank short">&nbsp;</span></p>
+    <p>④ "편지 <b>붙이려고요</b>" → <span class="blank short">&nbsp;</span></p>
+    <p>⑤ "우표는 <b>부치</b>는 게 아니라" → <span class="blank short">&nbsp;</span></p>
+    <p>⑥ "<b>붙이는</b> 거고" (우표는) → <span class="blank short">&nbsp;</span></p>
+    <p>⑦ "편지는 <b>붙이는</b> 게 아니라" → <span class="blank short">&nbsp;</span></p>
+    <p>⑧ 부침개를 <b>붙이며</b> → <span class="blank short">&nbsp;</span></p>
+    <p>⑨ 힘에 <b>붙</b>이지만 → 힘에 <span class="blank short">&nbsp;</span></p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 우체국 대화 완성</h3><span class="tag">쓰기</span></div>
+    <p>다음 우체국 대화의 빈칸을 <b>붙이다·부치다</b> 알맞은 것으로 채워요.</p>
+    <p>[손님] "이 편지를 미국에 (<span class="blank short">&nbsp;</span>)고 싶은데요. 얼마인가요?"</p>
+    <p>[직원] "국제우편은 3천 원이고, 여기 우표를 (<span class="blank short">&nbsp;</span>)여 주시면 돼요."</p>
+    <p>[손님] "네, 우표를 (<span class="blank short">&nbsp;</span>)고 저기 우체통에 넣으면 되나요?"</p>
+    <p>[직원] "저희가 대신 (<span class="blank short">&nbsp;</span>)어 드릴게요. 여기 놓아 주세요."</p>
+  </div>
+
+  <div class="note">🌟 <b>실천:</b> 이번 주에 <b>가족·친구</b>에게 편지 한 통 써 보고, 봉투에 우표를 <b>붙여</b> 우체국에서 <b>부쳐</b> 봐요!</div>
+
+  <div class="page-foot">맞춤법 시리즈 · L6 · 2쪽 / 2</div>
+</section>
+
+
+<section class="page">
+  <div class="page-head">
+    <h2>🔁 복습 · 자기 점검 — 붙이다 · 부치다</h2>
+    <span class="step">추가 1쪽 · 복습</span>
+  </div>
+  <div class="intro">오늘 배운 <b>붙이다 · 부치다</b> 규칙을 <b>내 말로 다시</b> 써 보고, 평소 내가 자주 틀렸던 부분을 정리해 봐요.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A1. 내 말로 규칙 쓰기</h3><span class="tag">서술형</span></div>
+    <p>오늘 배운 규칙을 <b>친구에게 설명하듯</b> 한두 문장으로 써 봐요.</p>
+    <div class="write-lines"><div class="wl">&nbsp;</div><div class="wl">&nbsp;</div></div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A2. 이 규칙이 필요한 상황 3개</h3><span class="tag">상황 떠올리기</span></div>
+    <p>이 맞춤법이 <b>실제로 쓰일 상황</b>을 떠올려 3개만 적어 봐요. (예: 문자할 때, 자기소개 쓸 때, 공지 쓸 때…)</p>
+    <ol style="margin:6px 0 6px 22px;">
+      <li style="margin:6px 0;">상황 ① <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+      <li style="margin:6px 0;">상황 ② <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+      <li style="margin:6px 0;">상황 ③ <span class="blank" style="min-width:320px;">&nbsp;</span></li>
+    </ol>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A3. 내가 자주 틀리던 표기 → 바른 표기</h3><span class="tag">3행 표</span></div>
+    <p>이번 레슨과 관련해 <b>평소 내가 자주 틀리던 형태</b>와 <b>바른 형태</b>를 비교해 적어 봐요.</p>
+    <table class="sp-table">
+      <tr><th style="width:8%;">번호</th><th style="width:40%;">내가 자주 쓰던 형태 (❌)</th><th style="width:40%;">바른 형태 (⭕)</th><th style="width:12%;">언제?</th></tr>
+      <tr><td>①</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+      <tr><td>②</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+      <tr><td>③</td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td class="left"><span class="blank" style="min-width:160px;">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td></tr>
+    </table>
+    <div class="tip">💡 "언제?" 칸에는 <b>문자·일기·숙제·시험</b> 같이 자주 쓰는 자리를 적어 두면 스스로 체크하기 좋아요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 A4. 자기 점검 체크리스트</h3><span class="tag">5개</span></div>
+    <ul class="check-list">
+      <li><label><input type="checkbox" disabled> 오늘 규칙을 <b>세 문장 이상</b> 소리 내어 읽어 봤다.</label></li>
+      <li><label><input type="checkbox" disabled> 어제·오늘 내가 쓴 글에서 이 규칙 자리를 <b>직접 확인</b>해 봤다.</label></li>
+      <li><label><input type="checkbox" disabled> 자주 틀리던 형태를 <b>표에 정리</b>했다.</label></li>
+      <li><label><input type="checkbox" disabled> 다음에 틀렸을 때 <b>스스로 고쳐 쓸 자신</b>이 조금 생겼다.</label></li>
+      <li><label><input type="checkbox" disabled> 다음 레슨을 <b>기대</b>한다.</label></li>
+    </ul>
+  </div>
+
+  <div class="page-foot">맞춤법 시리즈 · 붙이다 · 부치다 · 복습쪽</div>
+</section>
+
+
+<section class="page">
+  <div class="page-head">
+    <h2>✍️ 쓰기 실전 — 붙이다 · 부치다</h2>
+    <span class="step">추가 2쪽 · 쓰기</span>
+  </div>
+  <div class="intro">배운 규칙을 <b>실제 문장으로 써 보기</b>로 마무리해요. 짧아도 좋으니 <b>직접</b> 써 보는 게 제일 중요해요.</div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B1. 오늘의 규칙을 넣은 문장 3개</h3><span class="tag">직접 쓰기</span></div>
+    <p>오늘 배운 <b>붙이다 · 부치다</b> 규칙이 꼭 보이는 문장을 세 개 써 봐요.</p>
+    <div class="write-lines">
+      <div class="wl">① &nbsp;</div>
+      <div class="wl">② &nbsp;</div>
+      <div class="wl">③ &nbsp;</div>
+    </div>
+    <div class="tip">💡 완성한 뒤 <b>소리 내어 읽어</b> 어색한 곳이 없는지 확인해요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B2. 상황 메시지 쓰기 — 하은에게</h3><span class="tag">3~5문장</span></div>
+    <p><b>상황:</b> 편지에 우표를 붙이고 부친 이야기</p>
+    <p>이 상황에 맞게 짧은 메시지를 써 봐요. 오늘 배운 <b>붙이다 · 부치다</b> 규칙이 들어가면 더 좋아요.</p>
+    <div class="write-lines">
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+      <div class="wl">&nbsp;</div>
+    </div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 B3. 내 다짐 한 문장</h3><span class="tag">마무리</span></div>
+    <p>앞으로 <b>붙이다 · 부치다</b>이(가) 나오는 자리에서 <b>어떻게 신경 쓸지</b> 한 문장으로 적어 봐요.</p>
+    <div class="write-lines"><div class="wl">앞으로 나는, &nbsp;</div></div>
+  </div>
+
+  <div class="note">🌟 <b>진짜 배움은 쓸 때 일어나요.</b> 오늘 쓴 문장을 <b>하루 뒤 다시</b> 읽어 보면 눈에 보이는 것이 또 달라져요.</div>
+
+  <div class="page-foot">맞춤법 시리즈 · 붙이다 · 부치다 · 쓰기쪽</div>
+</section>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>2차시 학습지 - 타인의 마음 이해하기</title>
+<style>
+  @page { size: 210mm 297mm; margin: 18mm; }
+  * { box-sizing: border-box; }
+  html, body { width: 210mm; }
+  body {
+    font-family: 'Malgun Gothic', '맑은 고딕', 'Nanum Gothic', sans-serif;
+    font-size: 13pt;
+    line-height: 1.7;
+    color: #222;
+    margin: 0 auto;
+    padding: 18mm;
+    width: 210mm;
+  }
+  @media print {
+    html, body { width: 210mm; margin: 0; padding: 0; }
+    body { padding: 0; }
+    .sheet { padding: 18mm; }
+  }
+  .sheet { width: 210mm; min-height: 297mm; padding: 0; page-break-after: always; }
+  .sheet:last-child { page-break-after: auto; }
+  h1 {
+    font-size: 19pt; text-align: center;
+    border-top: 3px solid #7aa03f; border-bottom: 3px solid #7aa03f;
+    padding: 10px 0; margin: 0 0 8px 0; color: #3f6834;
+  }
+  .subtitle { text-align: center; color: #666; font-size: 11pt; margin-bottom: 16px; }
+  .info { display: flex; justify-content: space-between; font-size: 11pt; margin-bottom: 16px; padding: 0 6px; }
+  .info span { border-bottom: 1px solid #333; min-width: 90px; padding: 0 6px; }
+  h2 {
+    font-size: 15pt; background: #e6efd9;
+    padding: 6px 12px; border-left: 6px solid #7aa03f;
+    margin: 18px 0 10px 0;
+  }
+  h3 { font-size: 13pt; margin: 12px 0 6px 0; color: #444; }
+  p { margin: 6px 0; }
+  .write-line { border-bottom: 1.2px solid #666; height: 28px; margin-bottom: 3px; }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+  table.vocab td, table.vocab th {
+    border: 1.2px solid #888; padding: 6px 8px;
+    font-size: 12pt; vertical-align: top;
+  }
+  table.vocab th { background: #e6efd9; font-weight: bold; }
+  .passage {
+    background: #fff; border: 1.5px solid #7aa03f;
+    border-radius: 6px; padding: 14px 18px; margin: 10px 0;
+    font-size: 12.5pt; line-height: 1.9;
+  }
+  .passage .title { font-weight: bold; font-size: 13pt; margin-bottom: 8px; color: #3f6834; }
+  .dialog { margin: 4px 0 4px 12px; }
+  .dialog b { color: #3f6834; }
+  .note {
+    background: #f5fbec; border-left: 4px solid #7aa03f;
+    padding: 8px 12px; font-size: 11.5pt; margin: 8px 0;
+  }
+  .box { border: 2px dashed #888; padding: 12px; margin: 10px 0; background: #fafaf2; }
+  .pov-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin: 10px 0;
+  }
+  .pov-card {
+    border: 2px solid #7aa03f; border-radius: 8px;
+    padding: 12px 14px; background: #fff;
+  }
+  .pov-card .who {
+    display: inline-block; background: #7aa03f; color: white;
+    padding: 3px 10px; border-radius: 4px; font-weight: bold;
+    margin-bottom: 6px; font-size: 11pt;
+  }
+  .compare {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin: 10px 0;
+  }
+  .compare .good, .compare .bad {
+    border-radius: 6px; padding: 10px 14px;
+  }
+  .compare .good { background: #eff6eb; border: 2px solid #7aa03f; }
+  .compare .bad { background: #fbeeee; border: 2px solid #c87171; }
+  .compare .good .tag { background: #7aa03f; color: white; padding: 2px 8px; border-radius: 3px; font-size: 10.5pt; }
+  .compare .bad .tag { background: #c87171; color: white; padding: 2px 8px; border-radius: 3px; font-size: 10.5pt; }
+  .page-num { text-align: right; font-size: 10pt; color: #888; margin-top: 14px; }
+  .structure {
+    border: 1.5px solid #7aa03f; border-radius: 6px;
+    padding: 10px 14px; background: #f5fbec;
+    margin: 8px 0; font-size: 11.5pt;
+  }
+  .structure b { color: #3f6834; }
+</style>
+</head>
+<body>
+
+<!-- ============ 2-1 ============ -->
+<div class="sheet">
+  <h1>🌿 2차시 · 타인의 마음 이해하기 (1/5)</h1>
+  <div class="subtitle">인물의 마음 읽기 — 문학 속 감정 추론</div>
+  <div class="info">
+    <div>이름: <span>&nbsp;</span></div><div>반: <span>&nbsp;</span></div><div>날짜: <span>&nbsp;</span></div>
+  </div>
+
+  <h2>📖 읽기. 짧은 이야기 — "점심시간의 하은이"</h2>
+  <div class="passage">
+    <div class="title">점심시간의 하은이</div>
+    점심시간, 하은이는 급식실 문 앞에서 한참을 서 있었다. 친구들은 이미 자리를 잡고 앉아 큰 소리로 이야기하고 있었다.
+    <div class="dialog">"야, 하은아! 여기 자리 없어. 저쪽 가서 앉아."</div>
+    주은이가 손을 휘저으며 말했다. 하은이는 고개를 끄덕이고 돌아섰다. 숟가락을 드는 손이 조금 떨렸다. 입 안의 밥이 모래처럼 느껴졌다.
+    <br><br>
+    집에 가는 길, 하은이는 아무 말도 하지 않고 걸었다. 엄마가 "오늘 학교 어땠어?" 하고 묻자, 하은이는 작게 웃으며 <b>"응, 괜찮았어."</b> 하고 답했다.
+  </div>
+
+  <h2>💭 인물의 마음 추론하기</h2>
+
+  <p><b>1.</b> 하은이가 급식실 앞에서 느꼈을 감정을 <u>두 가지 이상</u> 써 봅시다. (1차시 감정 어휘 활용)</p>
+  <div class="write-line"></div>
+
+  <p><b>2.</b> "숟가락을 드는 손이 조금 떨렸다", "밥이 모래처럼 느껴졌다"라는 표현에서 하은이의 어떤 마음을 짐작할 수 있나요?</p>
+  <div class="write-line"></div>
+  <div class="write-line"></div>
+
+  <p><b>3.</b> 엄마에게 "괜찮았어"라고 답한 하은이의 진짜 마음은 무엇이었을까요?</p>
+  <div class="write-line"></div>
+  <div class="write-line"></div>
+
+  <p><b>4.</b> 하은이가 말로 표현하지 않은 감정을 알아채려면 무엇을 살펴야 할까요? (힌트: 표정, 행동, 목소리 등)</p>
+  <div class="write-line"></div>
+  <div class="write-line"></div>
+
+  <p><b>5.</b> 내가 하은이의 친구라면 어떤 말을 건네고 싶나요?</p>
+  <div class="write-line"></div>
+  <div class="write-line"></div>
+
+  <div class="page-num">1 / 5</div>
+</div>
+
+<!-- ============ 2-2 ============ -->
+<div class="sheet">
+  <h1>🌿 2차시 · 타인의 마음 이해하기 (2/5)</h1>
+  <div class="subtitle">한 사건, 두 관점 — 입장 바꿔 생각하기</div>
+
+  <h2>📖 상황. 단짝 친구 사이에 생긴 일</h2>
+  <div class="passage">
+    하영이와 주현이는 3년째 단짝 친구다. 어느 날 주현이는 <b>새로 전학 온 친구 채원이</b>와 쉬는 시간에 이야기를 나누게 되었다. 하영이는 주현이가 자기를 찾지 않는 것 같아 속상했고, 결국 주현이에게 <b>"너 요즘 나한테 관심 없지?"</b>라고 따지듯 말했다. 주현이는 당황해서 <b>"왜 그래, 갑자기?"</b>라고 답했고, 둘 사이에는 어색한 침묵이 흘렀다.
+  </div>
+
+  <h2>✍ 활동. 두 사람의 입장이 되어 보기</h2>
+
+  <div class="pov-grid">
+    <div class="pov-card">
+      <span class="who">하영이의 입장</span>
+      <p><b>① 어떤 마음이 들었을까?</b></p>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <p><b>② 왜 그런 말을 했을까?</b></p>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <p><b>③ 하영이가 진짜 원한 것은?</b></p>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+
+    <div class="pov-card">
+      <span class="who">주현이의 입장</span>
+      <p><b>① 어떤 마음이 들었을까?</b></p>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <p><b>② 왜 당황했을까?</b></p>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+      <p><b>③ 주현이가 진짜 원한 것은?</b></p>
+      <div class="write-line"></div>
+      <div class="write-line"></div>
+    </div>
+  </div>
+
+  <h2>💭 깊이 생각하기</h2>
+
+  <p><b>1.</b> 두 사람 모두 '나는 틀리지 않았다'고 느낄 수 있습니다. 왜 그럴까요?</p>
+  <div class="write-line"></div>
+  <div class="write-line"></div>
+
+  <p><b>2.</b> 이런 오해를 줄이려면, 하영이는 어떤 말로 마음을 표현했어야 할까요?</p>
+  <div class="box" style="min-height:40px;">
+    <p style="font-size:11pt; color:#666;">(예: "나한테 관심 없지?" 대신 다른 표현을 써 보세요)</p>
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+  </div>
+
+  <div class="page-num">2 / 5</div>
+</div>
+
+<!-- ============ 2-3 ============ -->
+<div class="sheet">
+  <h1>🌿 2차시 · 타인의 마음 이해하기 (3/5)</h1>
+  <div class="subtitle">공감의 말 vs 공감이 서툰 말</div>
+
+  <h2>📖 공감이란 무엇일까?</h2>
+  <div class="note">
+    <b>공감(共感)</b>은 상대방의 마음을 내 일처럼 느껴 주는 것입니다. <br>
+    상대의 감정을 <b>알아차리고</b>, <b>판단하지 않고</b>, <b>함께 있어 주는</b> 것이 공감의 핵심이에요.
+  </div>
+
+  <h2>🔍 활동 1. 공감 표현 비교하기</h2>
+  <p>친구가 "나 수행평가 망쳤어..." 라고 말했을 때, 어떤 반응이 공감의 말일까요?</p>
+
+  <div class="compare">
+    <div class="good">
+      <span class="tag">공감 ○</span>
+      <p>"많이 속상했겠다. 열심히 준비했는데..."</p>
+      <p style="font-size:11pt; color:#555;">→ 상대의 감정을 <b>알아차리고 이름 붙여</b> 준다.</p>
+    </div>
+    <div class="bad">
+      <span class="tag">공감 ✕</span>
+      <p>"야, 그거 별거 아니야. 다음에 잘하면 되지."</p>
+      <p style="font-size:11pt; color:#555;">→ 상대의 감정을 <b>축소·해결</b>하려 한다.</p>
+    </div>
+  </div>
+
+  <div class="compare">
+    <div class="good">
+      <span class="tag">공감 ○</span>
+      <p>"그랬구나, 지금 마음이 어때?"</p>
+      <p style="font-size:11pt; color:#555;">→ <b>더 들을 준비</b>가 되어 있음을 보여 준다.</p>
+    </div>
+    <div class="bad">
+      <span class="tag">공감 ✕</span>
+      <p>"너만 망친 거 아니잖아. 나도 어제..."</p>
+      <p style="font-size:11pt; color:#555;">→ <b>내 이야기로 가로채</b> 버린다.</p>
+    </div>
+  </div>
+
+  <h2>✍ 활동 2. 공감의 말 바꿔 쓰기</h2>
+  <p>아래 '공감이 서툰 말'을 공감의 말로 바꿔 써 봅시다.</p>
+
+  <table class="vocab">
+    <tr><th>상황</th><th style="width:32%;">공감이 서툰 말</th><th style="width:32%;">공감의 말로 바꾸기</th></tr>
+    <tr>
+      <td>친구: "엄마가 내 일기를 몰래 봤어."</td>
+      <td>"뭐 그게 큰일이야?"</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>친구: "자꾸 잠이 안 와..."</td>
+      <td>"일찍 자면 되잖아."</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>친구: "나 진짜 못생긴 것 같아."</td>
+      <td>"아니야, 예뻐." (무성의하게)</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>친구: "부모님이 싸우셔서 집에 가기 싫어."</td>
+      <td>"부모님 싸움은 늘 있는 거야."</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+
+  <div class="page-num">3 / 5</div>
+</div>
+
+<!-- ============ 2-4 ============ -->
+<div class="sheet">
+  <h1>🌿 2차시 · 타인의 마음 이해하기 (4/5)</h1>
+  <div class="subtitle">갈등 상황 분석과 해결 방안 찾기</div>
+
+  <h2>📖 갈등 사례 ① — "SNS 단톡방 초대"</h2>
+  <div class="passage">
+    우리 반 여자 친구들 8명이 있는 단톡방이 있다. 어느 날 나만 빼고 7명이 있는 <b>새로운 단톡방</b>이 만들어진 것을 알게 되었다. 그 방에서 주말 약속을 잡고 있었다는 사실도 알게 되었다. 나는 왜 나만 빼고 만들었는지 이해가 안 되고, 하루 종일 머릿속에서 그 생각이 떠나지 않았다.
+  </div>
+
+  <h3>🔎 분석하기</h3>
+  <table class="vocab">
+    <tr><th style="width:30%;">① 문제의 핵심은?</th><td style="height:40px;">&nbsp;</td></tr>
+    <tr><th>② '나'의 감정은?</th><td style="height:40px;">&nbsp;</td></tr>
+    <tr><th>③ 친구들의 입장에서 생각해 보면?</th><td style="height:40px;">&nbsp;</td></tr>
+    <tr><th>④ 어떻게 말을 꺼내면 좋을까?</th><td style="height:40px;">&nbsp;</td></tr>
+  </table>
+
+  <h2>📖 갈등 사례 ② — "빌려준 필기"</h2>
+  <div class="passage">
+    친한 친구 A에게 내가 정리한 시험 대비 필기 노트를 빌려주었다. 그런데 A는 그 노트를 <b>다른 친구 B에게 또 빌려주었고</b>, B는 노트에 커피를 쏟아 일부 페이지가 번져 버렸다. A는 "미안한데 B가 그런 거야"라고만 말했다.
+  </div>
+
+  <h3>🔎 분석하기</h3>
+  <table class="vocab">
+    <tr><th style="width:30%;">① 문제의 핵심은?</th><td style="height:40px;">&nbsp;</td></tr>
+    <tr><th>② '나'의 감정은?</th><td style="height:40px;">&nbsp;</td></tr>
+    <tr><th>③ 나는 A에게 무엇을 바라는가?</th><td style="height:40px;">&nbsp;</td></tr>
+    <tr><th>④ 관계를 지키면서 마음을 전하는 법?</th><td style="height:40px;">&nbsp;</td></tr>
+  </table>
+
+  <h2>💭 정리하기</h2>
+  <p>두 갈등 사례에서 공통적으로 중요한 것은 무엇인가요?</p>
+  <div class="write-line"></div>
+  <div class="write-line"></div>
+
+  <div class="page-num">4 / 5</div>
+</div>
+
+<!-- ============ 2-5 ============ -->
+<div class="sheet">
+  <h1>🌿 2차시 · 타인의 마음 이해하기 (5/5)</h1>
+  <div class="subtitle">공감 대화 시나리오 직접 쓰기</div>
+
+  <h2>📖 공감 대화의 4단계</h2>
+  <div class="structure">
+    <p><b>① 듣기</b> — 판단하지 않고 끝까지 듣는다. ("그래서 어떻게 됐어?")</p>
+    <p><b>② 감정 알아차리기</b> — 상대의 감정에 이름을 붙여 준다. ("많이 속상했겠다.")</p>
+    <p><b>③ 확인하기</b> — 내가 이해한 것이 맞는지 물어본다. ("네 말은 ~라는 거지?")</p>
+    <p><b>④ 함께 있어 주기</b> — 해결책을 강요하지 않고 곁에 있겠다고 말한다. ("내가 옆에 있을게.")</p>
+  </div>
+
+  <h2>✍ 활동. 시나리오 쓰기</h2>
+  <p>아래 상황에서 친구와 나의 대화를 4단계 공감에 맞춰 써 봅시다.</p>
+
+  <div class="box">
+    <p><b>상황</b>: 점심시간, 친구 예은이가 울먹이며 나에게 말을 걸었다.<br>
+    "나 어제 엄마한테 엄청 혼났어. 나만 잘못한 것도 아닌데..."</p>
+  </div>
+
+  <table class="vocab">
+    <tr><th style="width:110px;">단계</th><th>내가 할 말</th></tr>
+    <tr>
+      <td><b>① 듣기</b></td>
+      <td style="height:50px;">예) 무슨 일이 있었어? 천천히 말해 봐.</td>
+    </tr>
+    <tr>
+      <td><b>② 감정 알아차리기</b></td>
+      <td style="height:50px;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td><b>③ 확인하기</b></td>
+      <td style="height:50px;">&nbsp;</td>
+    </tr>
+    <tr>
+      <td><b>④ 함께 있어 주기</b></td>
+      <td style="height:50px;">&nbsp;</td>
+    </tr>
+  </table>
+
+  <h2>🎭 짝과 역할극 해 보기</h2>
+  <div class="note">
+    짝꿍과 <b>예은이 역 / 나의 역</b>을 바꿔 가며 두 번 연기해 봅시다. <br>
+    연기 후 서로에게 "어떤 순간이 가장 위로가 되었는지" 이야기해 주세요.
+  </div>
+
+  <h2>🌼 오늘의 마음 일기</h2>
+  <div class="box" style="min-height:100px;">
+    <p>오늘 배운 내용 중에서 <b>'이건 진짜 써 보고 싶다'</b> 싶은 것 하나를 골라 적어 봅시다. 왜 그렇게 느꼈는지도 함께 써 주세요.</p>
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+    <div class="write-line"></div>
+  </div>
+
+  <div class="page-num">5 / 5</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>화폐 수학 7차시 — 문구점에서 예산 안에 사기</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.55; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #6a1b9a; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; } .toolbar .muted { color: #e1bee7; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffd54f; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #e1bee7 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #4a148c;
+  border-bottom: 2px solid #ba68c8; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; }
+.cover-main { text-align: center; padding: 10px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #6a1b9a; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #4a148c; font-weight: 900; }
+.cover-main .lead { margin: 10px 0 0; font-size: 1.02em; color: #6a1b9a; font-weight: 500; }
+.cover-emoji { text-align:center; font-size: 3.6em; margin: 18px 0; letter-spacing: 10px; }
+.cover-info { background: #fff; border: 2px solid #ba68c8; border-radius: 12px; padding: 14px 18px; margin-top: 16px; }
+.cover-info h3 { margin: 0 0 8px; color: #4a148c; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 4px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 16px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #4a148c; padding-bottom: 3px; }
+.cover-name .label { color: #4a148c; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #6a1b9a; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #4a148c; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #6a1b9a; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #f3e5f5; border-left: 4px solid #8e24aa; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #4a148c; }
+.tip { background: #fffde7; border-left: 4px solid #f9a825; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.tip b { color: #f57f17; }
+.note { background: #e0f2f1; border-left: 4px solid #00897b; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #004d40; }
+
+.activity { background: #fff; border: 1.8px solid #ba68c8; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #4a148c; font-size: 1.05em; }
+.activity .tag { background: #e1bee7; color: #4a148c; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 60px; border-bottom: 2px solid #4a148c; text-align: center; padding: 0 6px; color: #4a148c; font-weight: 700; }
+.blank.short { min-width: 36px; } .blank.long { min-width: 140px; }
+
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0; }
+.prod { background: #fff; border: 1.5px solid #ce93d8; border-radius: 10px; padding: 8px; text-align: center; }
+.prod .em { font-size: 1.8em; } .prod .n { font-weight: 700; color: #4a148c; font-size: 0.9em; margin-top: 2px; }
+.prod .p { font-weight: 900; color: #37474f; font-size: 0.95em; margin-top: 3px; }
+
+.compare { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 8px 0; }
+.compare .good { background: #e8f5e9; border: 1.5px solid #66bb6a; border-radius: 10px; padding: 8px 12px; }
+.compare .bad { background: #ffebee; border: 1.5px solid #ef5350; border-radius: 10px; padding: 8px 12px; }
+.compare .good .title { color: #1b5e20; font-weight: 700; margin-bottom: 4px; }
+.compare .bad .title { color: #b71c1c; font-weight: 700; margin-bottom: 4px; }
+
+table.qa { width: 100%; border-collapse: collapse; margin: 8px 0; }
+table.qa th, table.qa td { border: 1.5px solid #b0bec5; padding: 6px 8px; text-align: center; }
+table.qa th { background: #e1bee7; color: #4a148c; }
+table.qa td.left { text-align: left; }
+
+.footer-note { position: absolute; bottom: 8mm; left: 14mm; right: 14mm; text-align: center;
+  color: #78909c; font-size: 0.8em; border-top: 1px dashed #b0bec5; padding-top: 5px; }
+@media print { .toolbar { display: none; } .page { margin: 0 auto; box-shadow: none; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">화폐 수학 7차시</span><span class="muted">문구점 예산·선택 · A4 4쪽</span></div>
+  <button onclick="window.print()">🖨 인쇄하기</button>
+</div>
+
+<!-- 표지 -->
+<div class="page cover">
+  <div class="cover-top">
+    <div><span class="subject">수학 · 실생활 활용</span> · 화폐 단원 7/10</div>
+    <div>혜화여자고등학교 특수학급</div>
+  </div>
+  <div class="cover-main">
+    <span class="badge">Lv.7 예산과 선택</span>
+    <h1>문구점에서 똑똑하게 사기</h1>
+    <p class="lead">필요 vs 원함 구분 · 예산 안 최대 만족 · 우선순위</p>
+  </div>
+  <div class="cover-emoji">✏️ 📓 🎨 💜</div>
+  <div class="cover-info">
+    <h3>이번 시간에 배울 것</h3>
+    <ul>
+      <li>내가 사고 싶은 것과 꼭 필요한 것을 <b>구분</b>하기</li>
+      <li>정해진 예산 안에서 <b>우선순위</b>대로 골라 사기</li>
+      <li>같은 물건이라도 <b>가게·묶음</b>에 따라 가격 비교하기</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+    <div class="line"><span class="label">반</span></div>
+  </div>
+</div>
+
+<!-- 1쪽 : 필요 vs 원함 -->
+<div class="page">
+  <div class="page-head"><h2>1. 필요한 것과 원하는 것</h2><span class="step">Step 1</span></div>
+  <div class="intro">
+    <b>💡 두 가지 구분</b><br>
+    <b>필요한 것</b>: 학교 준비물, 수업에 꼭 있어야 하는 것 (예: 연필, 노트)<br>
+    <b>원하는 것</b>: 없어도 되지만 갖고 싶은 것 (예: 캐릭터 스티커, 예쁜 필통)
+  </div>
+
+  <div class="product-grid">
+    <div class="prod"><div class="em">✏️</div><div class="n">연필(1자루)</div><div class="p">800 원</div></div>
+    <div class="prod"><div class="em">📕</div><div class="n">공책(A5)</div><div class="p">2,500 원</div></div>
+    <div class="prod"><div class="em">🖊️</div><div class="n">볼펜(1자루)</div><div class="p">1,200 원</div></div>
+    <div class="prod"><div class="em">📏</div><div class="n">자(30cm)</div><div class="p">1,500 원</div></div>
+    <div class="prod"><div class="em">🎨</div><div class="n">색연필 12색</div><div class="p">6,500 원</div></div>
+    <div class="prod"><div class="em">✂️</div><div class="n">가위</div><div class="p">3,000 원</div></div>
+    <div class="prod"><div class="em">📐</div><div class="n">삼각자 세트</div><div class="p">4,500 원</div></div>
+    <div class="prod"><div class="em">🖇️</div><div class="n">클립 한 통</div><div class="p">1,800 원</div></div>
+    <div class="prod"><div class="em">🎀</div><div class="n">캐릭터 스티커</div><div class="p">3,500 원</div></div>
+    <div class="prod"><div class="em">👛</div><div class="n">캐릭터 필통</div><div class="p">12,000 원</div></div>
+    <div class="prod"><div class="em">🖍️</div><div class="n">형광펜(1자루)</div><div class="p">1,800 원</div></div>
+    <div class="prod"><div class="em">📚</div><div class="n">스프링 노트</div><div class="p">4,500 원</div></div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 하은이의 준비물 목록 분류</h3><span class="tag">분류</span></div>
+    <p>선생님이 다음 시간에 <b>연필, 공책, 자, 색연필 12색</b>이 필요하다고 하셨어요. <b>하은</b>이가 보기엔 <b>캐릭터 스티커</b>와 <b>캐릭터 필통</b>도 사고 싶어요. 분류해 보세요.</p>
+    <table class="qa">
+      <tr><th>물건</th><th>필요 / 원함</th></tr>
+      <tr><td>연필</td><td><span class="blank">필요</span></td></tr>
+      <tr><td>공책</td><td><span class="blank"></span></td></tr>
+      <tr><td>자</td><td><span class="blank"></span></td></tr>
+      <tr><td>색연필 12색</td><td><span class="blank"></span></td></tr>
+      <tr><td>캐릭터 스티커</td><td><span class="blank"></span></td></tr>
+      <tr><td>캐릭터 필통</td><td><span class="blank"></span></td></tr>
+    </table>
+    <div class="tip"><b>💡 판단 기준</b> "수업이나 생활에 없으면 어려운 것"이면 <b>필요</b>. "있으면 좋지만 없어도 되는 것"이면 <b>원함</b>.</div>
+  </div>
+
+  <div class="footer-note">화폐 수학 7차시 · 1/4쪽 · 필요 vs 원함</div>
+</div>
+
+<!-- 2쪽 : 예산 안 우선순위 -->
+<div class="page">
+  <div class="page-head"><h2>2. 예산 안에서 우선순위</h2><span class="step">Step 2</span></div>
+  <div class="intro">
+    <b>💡 규칙</b> ① <b>필요한 것 먼저</b> ② 남는 돈으로 <b>원하는 것</b> ③ 예산을 넘으면 원하는 것부터 뺀다.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 하영이의 예산 10,000원</h3><span class="tag">우선순위</span></div>
+    <p><b>하영</b>이는 예산 <b>10,000원</b>이 있어요. 필요한 것: 연필 3자루, 공책 1권, 볼펜 1자루. 원하는 것: 캐릭터 스티커.</p>
+    <table class="qa">
+      <tr><th>물건</th><th>구분</th><th>가격 계산</th><th>소계</th></tr>
+      <tr><td>연필 3자루</td><td>필요</td><td>800 × 3</td><td><span class="blank short">2,400</span></td></tr>
+      <tr><td>공책 1권</td><td>필요</td><td>2,500 × 1</td><td><span class="blank short"></span></td></tr>
+      <tr><td>볼펜 1자루</td><td>필요</td><td>1,200 × 1</td><td><span class="blank short"></span></td></tr>
+      <tr><th colspan="3">필요한 것 소계</th><th><span class="blank"></span></th></tr>
+    </table>
+    <p>남는 돈 = 10,000 − <span class="blank short"></span> = <span class="blank"></span> 원</p>
+    <p>남는 돈으로 <b>캐릭터 스티커(3,500원)</b>을 살 수 있나요? <span class="blank short"></span> (O/X)</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 주은이의 예산 8,000원</h3><span class="tag">부족한 예산</span></div>
+    <p><b>주은</b>이는 예산 <b>8,000원</b>. 사고 싶은 것: 색연필 12색(6,500), 형광펜 2자루(1,800×2), 캐릭터 스티커(3,500).</p>
+    <p>모두 담으면 합계 = 6,500 + 3,600 + 3,500 = <span class="blank"></span> 원</p>
+    <p>예산 초과? <span class="blank short"></span> (O/X) · 초과 금액 = <span class="blank"></span> 원</p>
+    <p><b>필요/원함</b>을 생각해 무엇을 뺄지 골라 보세요. 뺄 것: <span class="blank long"></span></p>
+    <p>선택 후 합계: <span class="blank"></span> 원 · 예산 안? <span class="blank short"></span> (O/X)</p>
+    <div class="note"><b>❗ 팁</b> 스티커는 원함, 색연필과 형광펜은 수업에 쓰이면 필요. 우선순위로 판단해요.</div>
+  </div>
+
+  <div class="footer-note">화폐 수학 7차시 · 2/4쪽 · 예산 우선순위</div>
+</div>
+
+<!-- 3쪽 : 묶음/단품 비교, 다른 가게 -->
+<div class="page">
+  <div class="page-head"><h2>3. 개당 가격 비교</h2><span class="step">Step 3</span></div>
+  <div class="intro">
+    <b>💡 왜 필요할까?</b> 같은 물건도 <b>묶음</b>으로 사면 개당 값이 다를 수 있어요. <br>
+    공식: <b>개당 가격 = 총가격 ÷ 개수</b>. 개당이 작을수록 <b>이득</b>.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 주현이의 연필 사기</h3><span class="tag">개당 비교</span></div>
+    <p>같은 연필을 두 가게에서 팔아요.</p>
+    <div class="compare">
+      <div class="good">
+        <div class="title">A문구점</div>
+        <p>연필 <b>1자루 800원</b>. 낱개로 살 수 있음.</p>
+        <p>3자루 값 = 800 × 3 = <span class="blank short">2,400</span> 원</p>
+      </div>
+      <div class="bad">
+        <div class="title">B문구점</div>
+        <p>연필 <b>3자루 묶음 2,100원</b>. (묶음만 판매)</p>
+        <p>개당 가격 = 2,100 ÷ 3 = <span class="blank short"></span> 원</p>
+      </div>
+    </div>
+    <p>연필 <b>3자루가 필요</b>하다면 어느 가게가 이득? <span class="blank">B</span> · 이유: 3자루에 <span class="blank short"></span> 원 vs <span class="blank short"></span> 원 → <span class="blank short"></span> 원 절약</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 미정이의 볼펜 사기</h3><span class="tag">개당 비교</span></div>
+    <p>두 가게의 볼펜 가격:</p>
+    <div class="compare">
+      <div class="good">
+        <div class="title">A문구점</div>
+        <p>볼펜 낱개 1,200원</p>
+      </div>
+      <div class="bad">
+        <div class="title">B문구점</div>
+        <p>볼펜 5자루 묶음 <b>5,500원</b></p>
+      </div>
+    </div>
+    <p>B 개당 = 5,500 ÷ 5 = <span class="blank short"></span> 원</p>
+    <p>미정이는 <b>2자루만</b> 필요해요. 각 가게에서 사면?</p>
+    <p>· A: 1,200 × 2 = <span class="blank short"></span> 원</p>
+    <p>· B: 5자루 묶음만 판매 → 5,500 원 (3자루는 안 씀)</p>
+    <p>미정이에게 이득인 곳: <span class="blank short"></span> (A/B) · 이유: <span class="blank long"></span></p>
+    <div class="tip"><b>💡 요령</b> 개당 값만 보지 말고 "실제 <b>필요한 개수</b>"까지 계산해야 진짜 이득이 보여요.</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 6. 채원이의 스프링노트 vs 낱권</h3><span class="tag">개당 비교</span></div>
+    <p>스프링노트 낱권 = 4,500원 · 3권 묶음 = 12,000원. 개당 비교하세요.</p>
+    <p>묶음 개당 = 12,000 ÷ 3 = <span class="blank short"></span> 원. 낱권보다 <span class="blank short"></span> 원 <b>싸다/비싸다</b> (동그라미)</p>
+    <p>3권을 살 때 이득: <span class="blank short"></span> 원 절약</p>
+  </div>
+
+  <div class="footer-note">화폐 수학 7차시 · 3/4쪽 · 개당 가격 비교</div>
+</div>
+
+<!-- 4쪽 : 종합 -->
+<div class="page">
+  <div class="page-head"><h2>4. 종합 — 예은이의 새 학기 준비</h2><span class="step">Step 4</span></div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 7. 예은이의 새 학기 리스트 (예산 20,000원)</h3><span class="tag">종합</span></div>
+    <p><b>필요한 것</b>: 연필 5자루, 공책 2권, 볼펜 2자루, 자 1개, 형광펜 2자루</p>
+    <p><b>원하는 것</b>: 캐릭터 스티커 1개, 캐릭터 필통 1개</p>
+    <table class="qa">
+      <tr><th>물건</th><th>단가</th><th>수량</th><th>소계</th></tr>
+      <tr><td>연필</td><td>800</td><td>5</td><td><span class="blank short"></span></td></tr>
+      <tr><td>공책</td><td>2,500</td><td>2</td><td><span class="blank short"></span></td></tr>
+      <tr><td>볼펜</td><td>1,200</td><td>2</td><td><span class="blank short"></span></td></tr>
+      <tr><td>자</td><td>1,500</td><td>1</td><td><span class="blank short"></span></td></tr>
+      <tr><td>형광펜</td><td>1,800</td><td>2</td><td><span class="blank short"></span></td></tr>
+      <tr><th colspan="3">필요한 것 소계</th><th><span class="blank"></span></th></tr>
+    </table>
+    <p>남은 돈 = 20,000 − <span class="blank short"></span> = <span class="blank"></span> 원</p>
+    <p>남은 돈으로 살 수 있는 원하는 것:
+      ☐ 스티커(3,500) · ☐ 필통(12,000). 예산 안에서 살 수 있는 것에 O 표시.</p>
+    <p>최종 총액 = <span class="blank"></span> 원 · 거스름돈 = <span class="blank"></span> 원</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 8. 스스로 확인</h3><span class="tag">자기점검</span></div>
+    <table class="qa">
+      <tr><th style="width:60%">확인 문항</th><th>잘함</th><th>보통</th><th>더 연습</th></tr>
+      <tr><td class="left">필요한 것과 원하는 것을 구분한다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">예산 안에서 우선순위로 선택한다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+      <tr><td class="left">개당 가격을 비교해 더 싼 것을 고른다</td><td>☐</td><td>☐</td><td>☐</td></tr>
+    </table>
+  </div>
+
+  <div class="tip"><b>💡 오늘의 한 문장</b> "꼭 필요한 것부터 먼저, 원하는 것은 남는 돈으로."</div>
+
+  <div class="footer-note">화폐 수학 7차시 · 4/4쪽 · 다음은 용돈 관리!</div>
+</div>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @media print {
+    body { margin: 0; background: white; }
+    .page { page-break-after: always; margin: 0; padding: 18mm 18mm 14mm; box-shadow: none; }
+    .page:last-child { page-break-after: avoid; }
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; background: #fce4ec; margin: 0; padding: 20px; }
+
+  .page {
+    background: white; width: 210mm; min-height: 297mm;
+    margin: 0 auto 30px; padding: 15mm 18mm 13mm;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  /* ── 헤더 ── */
+  .sheet-header {
+    border: 2px solid #c62828; border-radius: 6px;
+    padding: 10px 16px; margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(to right, #fff, #fff5f5);
+  }
+  .sheet-title { font-size: 19px; font-weight: bold; color: #000; }
+  .sheet-sub   { font-size: 12px; color: #555; margin-top: 2px; }
+  .logo-badge  {
+    background: #c62828; color: white; font-size: 12px; font-weight: bold;
+    padding: 5px 13px; border-radius: 20px; white-space: nowrap;
+  }
+
+  /* ── 이름·날짜 ── */
+  .info-row { display: flex; gap: 18px; margin-bottom: 11px; }
+  .info-box {
+    border-bottom: 1.5px solid #333; flex: 1; padding-bottom: 3px;
+    display: flex; align-items: center; gap: 5px; font-size: 13px;
+  }
+  .info-label { font-weight: bold; white-space: nowrap; color: #333; }
+
+  /* ── 소제목 ── */
+  .section-title {
+    background: #c62828; color: white; font-size: 13px; font-weight: bold;
+    padding: 5px 13px; border-radius: 4px; margin: 13px 0 8px;
+  }
+  .section-title-dark {
+    background: #333; color: white; font-size: 13px; font-weight: bold;
+    padding: 5px 13px; border-radius: 4px; margin: 13px 0 8px;
+  }
+
+  /* ── 안내 박스 ── */
+  .tip-box {
+    background: #fff5f5; border-left: 4px solid #c62828;
+    border-radius: 0 6px 6px 0; padding: 7px 11px;
+    font-size: 12px; color: #333; margin-bottom: 10px; line-height: 1.8;
+  }
+  .tip-box-blue {
+    background: #e3f2fd; border-left: 4px solid #1565c0;
+    border-radius: 0 6px 6px 0; padding: 7px 11px;
+    font-size: 12px; color: #333; margin-bottom: 10px; line-height: 1.8;
+  }
+  .tip-box-yellow {
+    background: #fffde7; border-left: 4px solid #f9a825;
+    border-radius: 0 6px 6px 0; padding: 7px 11px;
+    font-size: 12px; color: #333; margin-bottom: 10px; line-height: 1.8;
+  }
+
+  /* ── 환율 공식 박스 ── */
+  .fx-wrap {
+    display: flex; gap: 10px; margin: 8px 0 11px;
+  }
+  .fx-box {
+    flex: 1; border: 2px solid #c62828; border-radius: 8px;
+    padding: 9px 14px; text-align: center; background: #fff5f5;
+  }
+  .fx-label { font-size: 11px; color: #555; margin-bottom: 3px; }
+  .fx-formula { font-size: 14px; font-weight: bold; color: #c62828; }
+
+  /* ── 환전표 ── */
+  .fx-table { border-collapse: collapse; width: 100%; margin: 6px 0 10px; font-size: 12.5px; }
+  .fx-table th { background: #c62828; color: white; padding: 6px 10px; border: 1px solid #900; text-align: center; }
+  .fx-table td { padding: 6px 10px; border: 1px solid #f0c0c0; text-align: center; }
+  .fx-table tr:nth-child(even) td { background: #fff5f5; }
+  .fx-table .hl { font-weight: bold; color: #c62828; }
+
+  /* ── 가격 카드 ── */
+  .price-grid { display: grid; gap: 6px; margin: 6px 0 10px; }
+  .price-grid-4 { grid-template-columns: repeat(4, 1fr); }
+  .price-grid-5 { grid-template-columns: repeat(5, 1fr); }
+  .price-grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+  .price-card {
+    border: 1.5px solid #f0c0c0; border-radius: 6px;
+    padding: 7px 8px; text-align: center; font-size: 11.5px; background: #fff8f8;
+  }
+  .price-icon  { font-size: 18px; display: block; margin-bottom: 3px; }
+  .price-name  { font-weight: bold; display: block; margin-bottom: 2px; font-size: 12px; }
+  .price-yen   { font-weight: bold; color: #c62828; font-size: 12px; }
+  .price-won   { color: #666; font-size: 11px; }
+
+  /* ── 일반 테이블 ── */
+  .ptable { border-collapse: collapse; width: 100%; margin: 6px 0 10px; font-size: 12.5px; }
+  .ptable th { background: #c62828; color: white; padding: 5px 8px; border: 1px solid #900; text-align: center; }
+  .ptable td { padding: 5px 8px; border: 1px solid #f0c0c0; text-align: center; }
+  .ptable tr:nth-child(even) td { background: #fff5f5; }
+  .ptable .bold { font-weight: bold; color: #c62828; }
+
+  /* ── 문제 박스 ── */
+  .q-box {
+    border: 1.5px solid #f0c0c0; border-radius: 6px;
+    padding: 11px 13px; margin-bottom: 10px; background: #fff;
+  }
+  .q-head { display: flex; align-items: flex-start; margin-bottom: 7px; }
+  .q-num  {
+    display: inline-block; background: #c62828; color: white;
+    font-size: 12px; font-weight: bold; border-radius: 50%;
+    width: 23px; height: 23px; line-height: 23px; text-align: center;
+    margin-right: 7px; flex-shrink: 0; margin-top: 1px;
+  }
+  .q-text { font-size: 13.5px; line-height: 1.9; flex: 1; }
+
+  /* ── 답란 ── */
+  .answer-line  { border: none; border-bottom: 1.5px solid #888; width: 100%; margin-top: 4px; height: 25px; display: block; }
+  .answer-label { font-size: 11.5px; color: #444; font-weight: bold; }
+  .answer-grid  { display: grid; grid-template-columns: 1fr 1fr;     gap: 10px; margin-top: 5px; }
+  .answer-grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;  margin-top: 5px; }
+  .answer-grid4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 7px; margin-top: 5px; }
+
+  .blank    { border-bottom: 1.5px solid #333; min-width: 65px;  display: inline-block; vertical-align: bottom; }
+  .blank-sm { border-bottom: 1.5px solid #333; min-width: 45px;  display: inline-block; vertical-align: bottom; }
+  .blank-lg { border-bottom: 1.5px solid #333; min-width: 115px; display: inline-block; vertical-align: bottom; }
+
+  .calc-step { font-size: 13px; color: #333; margin-bottom: 5px; line-height: 2.1; }
+  .calc-hint { font-size: 11.5px; color: #555; background: #fff9f9; border: 1px dashed #f0c0c0; border-radius: 4px; padding: 4px 8px; margin-bottom: 6px; line-height: 1.8; }
+
+  /* ── 예산표 ── */
+  .budget-grid { border: 1.5px solid #f0c0c0; border-radius: 6px; overflow: hidden; margin: 6px 0 8px; font-size: 12.5px; }
+  .budget-head { background: #c62828; color: white; font-weight: bold; padding: 6px 10px; font-size: 12px; display: grid; }
+  .budget-row  { padding: 5px 10px; border-bottom: 1px dashed #f5dada; display: grid; }
+  .budget-row:last-child { border-bottom: none; }
+  .budget-sub  { padding: 3px 10px 3px 22px; border-bottom: 1px dashed #fce4e4; display: grid; font-size: 12px; color: #444; }
+  .budget-total  { padding: 6px 10px; background: #fff0f0; font-weight: bold; border-top: 1.5px solid #f0c0c0; display: grid; }
+  .budget-final  { padding: 7px 10px; background: #c62828; color: white; font-weight: bold; font-size: 13px; display: grid; border-radius: 0 0 6px 6px; }
+  .col3 { grid-template-columns: 2fr 1.5fr 1.5fr; }
+  .col4 { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
+
+  /* ── 영수증 ── */
+  .receipt {
+    border: 1.5px dashed #bbb; border-radius: 6px;
+    padding: 10px 16px; font-size: 12.5px; background: #fafafa; margin: 6px 0;
+    max-width: 260px; margin-left: auto; margin-right: auto;
+  }
+  .receipt-title   { text-align: center; font-weight: bold; font-size: 14px; margin-bottom: 6px; padding-bottom: 5px; border-bottom: 1px solid #bbb; }
+  .receipt-row     { display: flex; justify-content: space-between; padding: 3px 0; }
+  .receipt-divider { border: none; border-top: 1px dashed #bbb; margin: 3px 0; }
+  .receipt-total   { font-weight: bold; display: flex; justify-content: space-between; padding-top: 5px; margin-top: 3px; border-top: 2px solid #333; font-size: 14px; }
+  .receipt-sub     { display: flex; justify-content: space-between; padding: 2px 0; font-size: 12px; color: #c62828; font-weight: bold; }
+
+  /* ── 체크 ── */
+  .check-row { display: flex; gap: 14px; margin-top: 7px; flex-wrap: wrap; }
+  .check-col { display: flex; flex-direction: column; gap: 7px; margin-top: 7px; }
+  .check-item { display: flex; align-items: flex-start; gap: 6px; font-size: 13px; line-height: 1.6; }
+  .check-box  { width: 16px; height: 16px; border: 1.5px solid #555; border-radius: 3px; display: inline-block; flex-shrink: 0; margin-top: 2px; }
+
+  /* ── 나만의 계획표 ── */
+  .plan-grid { border: 1.5px solid #f0c0c0; border-radius: 6px; overflow: hidden; margin: 6px 0 8px; font-size: 12.5px; }
+  .plan-head  { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1.5fr; background: #555; color: white; font-weight: bold; padding: 6px 10px; font-size: 12px; }
+  .plan-row   { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1.5fr; padding: 5px 10px; border-bottom: 1px dashed #eee; min-height: 28px; }
+  .plan-total { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1.5fr; padding: 6px 10px; background: #f5f5f5; font-weight: bold; border-top: 1.5px solid #ccc; }
+
+  /* ── 정답표 ── */
+  .ans-table { border-collapse: collapse; width: 100%; }
+  .ans-table th { background: #c62828; color: white; padding: 6px 7px; border: 1px solid #900; font-size: 12px; }
+  .ans-table td { padding: 6px 7px; border: 1px solid #f0c0c0; font-size: 12px; }
+  .ans-table tr:nth-child(even) td { background: #fff5f5; }
+  .ans-table .ans { font-weight: bold; color: #c62828; }
+
+  /* ── USJ 구역 배너 ── */
+  .usj-zone {
+    border: 2px solid #f9a825; border-radius: 8px;
+    padding: 8px 12px; margin: 6px 0 10px; background: #fffde7;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .usj-zone-icon { font-size: 22px; flex-shrink: 0; }
+  .usj-zone-name { font-weight: bold; font-size: 13px; color: #333; }
+  .usj-zone-desc { font-size: 11.5px; color: #666; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PAGE 1 : 오사카 여행 소개 + 환전 계산 Q1~Q3
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🇯🇵 오사카 여행 &amp; 유니버셜 스튜디오 수학 학습지</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 1쪽 — 환율과 환전 계산하기</div>
+    </div>
+    <div class="logo-badge">오사카 여행 수학</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+    <div class="info-box"><span class="info-label">점수</span></div>
+  </div>
+
+  <div class="tip-box">
+    일본 여행을 가려면 <b>환전</b>이 필요해요! 일본 돈은 <b>엔(¥)</b>이에요.
+    여행 전에 우리나라 돈(원, ₩)을 엔으로 바꿔야 해요.
+    이 학습지에서는 <b>100엔 = 900원</b> 환율로 계산해요.
+    오사카는 타코야키·라멘이 맛있는 도시이고, 유니버셜 스튜디오 재팬(USJ)이 있는 곳이에요! 🎡
+  </div>
+
+  <!-- 환율 공식 박스 -->
+  <div class="section-title">💱 환율 계산 공식 (100엔 = 900원 / 1엔 = 9원)</div>
+  <div class="fx-wrap">
+    <div class="fx-box">
+      <div class="fx-label">🇯🇵 엔 → 🇰🇷 원 으로 바꿀 때</div>
+      <div class="fx-formula">엔 × 9 = 원</div>
+      <div style="font-size:11px; color:#666; margin-top:3px;">예) 1,000엔 × 9 = 9,000원</div>
+    </div>
+    <div class="fx-box">
+      <div class="fx-label">🇰🇷 원 → 🇯🇵 엔 으로 바꿀 때</div>
+      <div class="fx-formula">원 ÷ 9 = 엔</div>
+      <div style="font-size:11px; color:#666; margin-top:3px;">예) 9,000원 ÷ 9 = 1,000엔</div>
+    </div>
+  </div>
+
+  <div class="section-title">문제 풀기 (1~3번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">1</span>
+      <span class="q-text"><b>주현</b>이는 오사카에서 타코야키(600엔)를 먹었어요.
+        600엔은 우리나라 돈으로 얼마인가요?</span>
+    </div>
+    <div class="calc-step">엔 → 원: 600엔 × 9 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">2</span>
+      <span class="q-text"><b>주은</b>이는 여행 전에 45,000원을 엔으로 환전했어요.
+        몇 엔을 받을 수 있나요?</span>
+    </div>
+    <div class="calc-step">원 → 엔: 45,000원 ÷ 9 = <span class="blank"></span>엔</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">3</span>
+      <span class="q-text"><b>하은</b>이는 환전을 얼마나 해야 할지 표로 정리해 보려고 해요.
+        아래 환전표의 빈칸을 완성해 보세요.</span>
+    </div>
+    <table class="fx-table">
+      <thead>
+        <tr><th>엔 (¥)</th><th>계산</th><th>원 (₩)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="hl">1,000엔</td><td>1,000 × 9</td><td class="hl">9,000원</td></tr>
+        <tr><td class="hl">2,000엔</td><td>2,000 × 9</td><td><span class="blank-sm"></span>원</td></tr>
+        <tr><td class="hl">5,000엔</td><td>5,000 × 9</td><td><span class="blank-sm"></span>원</td></tr>
+        <tr><td class="hl">10,000엔</td><td><span class="blank-sm"></span> × 9</td><td><span class="blank-sm"></span>원</td></tr>
+        <tr><td><span class="blank-sm"></span>엔</td><td>___ × 9</td><td class="hl">27,000원</td></tr>
+        <tr><td><span class="blank-sm"></span>엔</td><td>___ × 9</td><td class="hl">90,000원</td></tr>
+      </tbody>
+    </table>
+    <div class="calc-hint">힌트: 원 → 엔 변환은 원 ÷ 9 로 계산해요 (27,000 ÷ 9 = ?)</div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 2 : 비행기 · 숙소 · 교통 Q4~Q7
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🇯🇵 오사카 여행 &amp; 유니버셜 스튜디오 수학 학습지</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 2쪽 — 비행기 · 숙소 · 교통비</div>
+    </div>
+    <div class="logo-badge">오사카 여행 수학</div>
+  </div>
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <!-- 비행기 가격표 -->
+  <div class="section-title">✈️ 비행기표 가격표 (편도 1인, 인천 ↔ 간사이 공항)</div>
+  <table class="ptable">
+    <thead>
+      <tr><th>항공사</th><th>편도 가격</th><th>왕복 가격 (×2)</th><th>특징</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>피치항공 / 제트스타</td><td class="bold">180,000원</td><td>180,000 × 2 = ?</td><td style="font-size:11px;">저가 항공사(LCC)</td></tr>
+      <tr><td>아시아나항공</td><td class="bold">280,000원</td><td>280,000 × 2 = ?</td><td style="font-size:11px;">대형 항공사</td></tr>
+    </tbody>
+  </table>
+
+  <!-- 숙소 + 교통 가격표 -->
+  <div class="section-title">🏨 숙소 &amp; 🚇 교통 가격표 (엔 기준)</div>
+  <div class="price-grid price-grid-4">
+    <div class="price-card" style="text-align:center;">
+      <span class="price-icon">🏠</span>
+      <span class="price-name">게스트하우스</span>
+      <span style="font-size:10.5px; color:#666; display:block; margin-bottom:2px;">1인 1박</span>
+      <span class="price-yen">3,000엔</span>
+      <span class="price-won">= 27,000원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-icon">🏨</span>
+      <span class="price-name">비즈니스호텔</span>
+      <span style="font-size:10.5px; color:#666; display:block; margin-bottom:2px;">1실 1박</span>
+      <span class="price-yen">8,000엔</span>
+      <span class="price-won">= 72,000원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-icon">🚌</span>
+      <span class="price-name">공항버스</span>
+      <span style="font-size:10.5px; color:#666; display:block; margin-bottom:2px;">간사이공항↔오사카</span>
+      <span class="price-yen">1,600엔</span>
+      <span class="price-won">= 14,400원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-icon">🚇</span>
+      <span class="price-name">오사카 지하철</span>
+      <span style="font-size:10.5px; color:#666; display:block; margin-bottom:2px;">1회 탑승</span>
+      <span class="price-yen">200엔</span>
+      <span class="price-won">= 1,800원</span>
+    </div>
+  </div>
+
+  <div class="section-title">문제 풀기 (4~7번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">4</span>
+      <span class="q-text"><b>하영</b>이는 피치항공(편도 180,000원)으로 오사카를 왕복했어요.
+        왕복 비행기표 값은 얼마인가요?</span>
+    </div>
+    <div class="calc-step">왕복 = 편도 × 2 &nbsp;→&nbsp; 180,000 × 2 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">5</span>
+      <span class="q-text"><b>채원</b>이는 비즈니스호텔(1박 8,000엔)에서 <b>3박</b>을 묵었어요.
+        숙박비는 모두 몇 엔인가요? 우리나라 돈으로는 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 숙박비(엔): 8,000 × 3 = <span class="blank"></span>엔</div>
+    <div class="calc-step">② 원으로 환산: <span class="blank-sm"></span>엔 × 9 = <span class="blank"></span>원</div>
+    <div class="answer-grid3">
+      <div><div class="answer-label">숙박비 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">숙박비 (엔)</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">숙박비 (원)</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">6</span>
+      <span class="q-text"><b>예은</b>이는 간사이 공항에서 오사카 시내까지 공항버스(편도 1,600엔)를 탔어요.
+        오고 갈 때 모두 버스를 탔다면, 버스 요금은 모두 몇 엔인가요? 원으로는 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 버스 요금(엔): 1,600 × 2 = <span class="blank"></span>엔</div>
+    <div class="calc-step">② 원으로 환산: <span class="blank-sm"></span>엔 × 9 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답 (엔 / 원)</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">7</span>
+      <span class="q-text"><b>주현</b>이는 오사카에서 지하철(1회 200엔)을 하루에 <b>4번</b> 탔어요.
+        3일 동안 지하철 요금은 모두 몇 엔인가요? 원으로는 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 하루 요금: 200 × 4 = <span class="blank-sm"></span>엔</div>
+    <div class="calc-step">② 3일 요금(엔): <span class="blank-sm"></span> × 3 = <span class="blank-sm"></span>엔</div>
+    <div class="calc-step">③ 원으로 환산: <span class="blank-sm"></span>엔 × 9 = <span class="blank"></span>원</div>
+    <div class="answer-grid3">
+      <div><div class="answer-label">하루 지하철 요금</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">3일 요금 (엔)</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">3일 요금 (원)</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 3 : USJ 입장권 + 식사비 Q8~Q11
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🇯🇵 오사카 여행 &amp; 유니버셜 스튜디오 수학 학습지</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 3쪽 — USJ 입장권 &amp; 식사비</div>
+    </div>
+    <div class="logo-badge">오사카 여행 수학</div>
+  </div>
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <!-- USJ 구역 소개 -->
+  <div class="section-title">🎡 유니버셜 스튜디오 재팬 (USJ) 소개</div>
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:7px; margin-bottom:9px;">
+    <div class="usj-zone"><span class="usj-zone-icon">🧙</span><div><div class="usj-zone-name">해리포터 구역</div><div class="usj-zone-desc">버터비어 · 지팡이 체험</div></div></div>
+    <div class="usj-zone"><span class="usj-zone-icon">👾</span><div><div class="usj-zone-name">슈퍼 닌텐도 월드</div><div class="usj-zone-desc">마리오 · 동키콩 어트랙션</div></div></div>
+    <div class="usj-zone"><span class="usj-zone-icon">🟡</span><div><div class="usj-zone-name">미니언 파크</div><div class="usj-zone-desc">미니언 소프트아이스크림</div></div></div>
+    <div class="usj-zone"><span class="usj-zone-icon">🦕</span><div><div class="usj-zone-name">쥬라기 공원</div><div class="usj-zone-desc">워터 라이드 · 공룡 쇼</div></div></div>
+  </div>
+
+  <!-- USJ 가격표 -->
+  <div class="section-title">🎟️ USJ 입장권 &amp; 파크 내 음식 가격</div>
+  <div class="price-grid price-grid-5">
+    <div class="price-card" style="text-align:center;">
+      <span class="price-icon">🎟️</span>
+      <span class="price-name">1일 스튜디오 패스</span>
+      <span class="price-yen">10,000엔</span>
+      <span class="price-won">= 90,000원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-icon">🍺</span>
+      <span class="price-name">버터비어</span>
+      <span style="font-size:10.5px; color:#666; display:block;">해리포터 구역</span>
+      <span class="price-yen">800엔</span>
+      <span class="price-won">= 7,200원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-icon">🌭</span>
+      <span class="price-name">핫도그</span>
+      <span style="font-size:10.5px; color:#666; display:block;">파크 내 푸드카트</span>
+      <span class="price-yen">700엔</span>
+      <span class="price-won">= 6,300원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-icon">🍔</span>
+      <span class="price-name">USJ 버거</span>
+      <span style="font-size:10.5px; color:#666; display:block;">파크 내 레스토랑</span>
+      <span class="price-yen">1,200엔</span>
+      <span class="price-won">= 10,800원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-icon">🍦</span>
+      <span class="price-name">미니언 소프트</span>
+      <span style="font-size:10.5px; color:#666; display:block;">미니언 파크</span>
+      <span class="price-yen">600엔</span>
+      <span class="price-won">= 5,400원</span>
+    </div>
+  </div>
+
+  <!-- 오사카 맛집 가격표 -->
+  <div class="section-title">🍜 오사카 맛집 메뉴 (1인 기준)</div>
+  <div class="price-grid price-grid-5">
+    <div class="price-card" style="text-align:center;">
+      <span class="price-icon">🐙</span>
+      <span class="price-name">타코야키</span>
+      <span style="font-size:10.5px; color:#666; display:block;">8개</span>
+      <span class="price-yen">600엔</span>
+      <span class="price-won">= 5,400원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-icon">🍜</span>
+      <span class="price-name">라멘</span>
+      <span style="font-size:10.5px; color:#666; display:block;">1그릇</span>
+      <span class="price-yen">900엔</span>
+      <span class="price-won">= 8,100원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-icon">🥘</span>
+      <span class="price-name">오코노미야키</span>
+      <span style="font-size:10.5px; color:#666; display:block;">1판</span>
+      <span class="price-yen">1,200엔</span>
+      <span class="price-won">= 10,800원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-icon">🍣</span>
+      <span class="price-name">회전초밥</span>
+      <span style="font-size:10.5px; color:#666; display:block;">1접시</span>
+      <span class="price-yen">150엔</span>
+      <span class="price-won">= 1,350원</span>
+    </div>
+    <div class="price-card" style="text-align:center;">
+      <span class="price-icon">🍱</span>
+      <span class="price-name">편의점 도시락</span>
+      <span style="font-size:10.5px; color:#666; display:block;">1개</span>
+      <span class="price-yen">500엔</span>
+      <span class="price-won">= 4,500원</span>
+    </div>
+  </div>
+
+  <div class="section-title">문제 풀기 (8~11번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">8</span>
+      <span class="q-text"><b>주은</b>이네 3명이 USJ 1일 스튜디오 패스(1인 10,000엔)를 샀어요.
+        3명의 입장료는 모두 몇 엔인가요? 원으로는 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 입장료(엔): 10,000 × 3 = <span class="blank"></span>엔</div>
+    <div class="calc-step">② 원으로 환산: <span class="blank-sm"></span>엔 × 9 = <span class="blank"></span>원</div>
+    <div class="answer-grid3">
+      <div><div class="answer-label">입장료 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">입장료 (엔)</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">입장료 (원)</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">9</span>
+      <span class="q-text"><b>하은</b>이는 USJ 해리포터 구역에서 버터비어(800엔)와 핫도그(700엔)를 먹었어요.
+        얼마를 냈나요? (엔과 원으로 모두 나타내세요)</span>
+    </div>
+    <div class="calc-step">① 합계(엔): 800 + 700 = <span class="blank"></span>엔</div>
+    <div class="calc-step">② 원으로 환산: <span class="blank-sm"></span>엔 × 9 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">답 (엔)</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답 (원)</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">10</span>
+      <span class="q-text"><b>하영</b>이는 오사카에서 하루 동안 타코야키(600엔), 라멘(900엔),
+        오코노미야키(1,200엔)를 먹었어요. 하루 식사비는 몇 엔인가요? 원으로는 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 식사비(엔): 600 + 900 + 1,200 = <span class="blank"></span>엔</div>
+    <div class="calc-step">② 원으로 환산: <span class="blank-sm"></span>엔 × 9 = <span class="blank"></span>원</div>
+    <div class="answer-grid3">
+      <div><div class="answer-label">식사비 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">식사비 (엔)</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">식사비 (원)</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">11</span>
+      <span class="q-text"><b>채원</b>이는 오사카 회전초밥집에서 1접시(150엔)짜리 초밥을 <b>12접시</b> 먹었어요.
+        계산서는 몇 엔인가요? 원으로는 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 계산서(엔): 150 × 12 = <span class="blank"></span>엔</div>
+    <div class="calc-step">② 원으로 환산: <span class="blank-sm"></span>엔 × 9 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답 (엔 / 원)</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 4 : 전체 예산 + 나만의 계획 Q12~Q14
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🇯🇵 오사카 여행 &amp; 유니버셜 스튜디오 수학 학습지</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 4쪽 — 전체 예산 정리 &amp; 나만의 여행 계획</div>
+    </div>
+    <div class="logo-badge">오사카 여행 수학</div>
+  </div>
+  <div class="info-row">
+    <div class="info-box"><span class="info-label">이름</span></div>
+    <div class="info-box"><span class="info-label">날짜</span></div>
+  </div>
+
+  <div class="section-title">문제 풀기 (12~13번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">12</span>
+      <span class="q-text"><b>예은</b>이의 3박 4일 오사카 여행 예산표를 완성하고 전체 여행 비용을 구해 보세요.</span>
+    </div>
+    <div class="budget-grid">
+      <div class="budget-head col4"><span>항목</span><span style="text-align:right;">계산식</span><span style="text-align:right;">엔 (¥)</span><span style="text-align:right;">원 (₩)</span></div>
+
+      <div class="budget-row col4">
+        <span>✈️ 비행기 (피치항공, 왕복)</span>
+        <span style="text-align:right; font-size:12px;">180,000 × 2</span>
+        <span style="text-align:right;">—</span>
+        <span style="text-align:right;">360,000원</span>
+      </div>
+
+      <div class="budget-row col4">
+        <span>🏨 비즈니스호텔 3박</span>
+        <span style="text-align:right; font-size:12px;">8,000 × 3</span>
+        <span style="text-align:right;"><span class="blank-sm"></span>엔</span>
+        <span style="text-align:right;"><span class="blank-sm"></span>원</span>
+      </div>
+
+      <div class="budget-row col4">
+        <span>🚌 공항버스 왕복</span>
+        <span style="text-align:right; font-size:12px;">1,600 × 2</span>
+        <span style="text-align:right;"><span class="blank-sm"></span>엔</span>
+        <span style="text-align:right;"><span class="blank-sm"></span>원</span>
+      </div>
+
+      <div class="budget-row col4">
+        <span>🚇 지하철 3일 (하루 4회)</span>
+        <span style="text-align:right; font-size:12px;">200×4×3</span>
+        <span style="text-align:right;"><span class="blank-sm"></span>엔</span>
+        <span style="text-align:right;"><span class="blank-sm"></span>원</span>
+      </div>
+
+      <div class="budget-row col4">
+        <span>🎟️ USJ 입장권</span>
+        <span style="text-align:right; font-size:12px;">10,000 × 1</span>
+        <span style="text-align:right;">10,000엔</span>
+        <span style="text-align:right;"><span class="blank-sm"></span>원</span>
+      </div>
+
+      <div class="budget-row col4">
+        <span>🍽️ 식사 3일 (2,700엔/일)</span>
+        <span style="text-align:right; font-size:12px;">2,700 × 3</span>
+        <span style="text-align:right;"><span class="blank-sm"></span>엔</span>
+        <span style="text-align:right;"><span class="blank-sm"></span>원</span>
+      </div>
+
+      <div class="budget-total col4">
+        <span>엔 지출 소계</span><span></span>
+        <span style="text-align:right;"><span class="blank-sm"></span>엔</span>
+        <span style="text-align:right;"><span class="blank-sm"></span>원</span>
+      </div>
+      <div class="budget-final col4">
+        <span>💴 전체 여행 비용 합계 (비행기 + 엔 지출)</span>
+        <span></span><span></span>
+        <span style="text-align:right;"><span class="blank-sm"></span>원</span>
+      </div>
+    </div>
+    <div class="calc-step" style="font-size:12px;">
+      호텔: 8,000×3=<span class="blank-sm"></span>엔 / 버스: 1,600×2=<span class="blank-sm"></span>엔 / 지하철: 200×4×3=<span class="blank-sm"></span>엔 / 식사: 2,700×3=<span class="blank-sm"></span>엔
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">13</span>
+      <span class="q-text"><b>주현</b>이는 오사카 여행을 위해 270,000원을 엔으로 환전했어요.
+        USJ 1일 입장권(10,000엔)을 사고, 타코야키(600엔)와 라멘(900엔)을 먹었어요.
+        남은 엔은 얼마인가요?</span>
+    </div>
+    <div class="calc-step">① 환전: 270,000원 ÷ 9 = <span class="blank"></span>엔</div>
+    <div class="calc-step">② 사용 금액: 10,000 + 600 + 900 = <span class="blank"></span>엔</div>
+    <div class="calc-step">③ 남은 엔: <span class="blank-sm"></span> − <span class="blank-sm"></span> = <span class="blank"></span>엔</div>
+    <div class="answer-grid3">
+      <div><div class="answer-label">환전 금액 (엔)</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">사용 금액 식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">남은 엔</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="section-title-dark">⭐ 나만의 오사카 여행 계획 (14번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">14</span>
+      <span class="q-text">내가 오사카에 간다면 어떤 계획을 세울지 앞 페이지 가격표를 보고 써 보세요.
+        전체 비용을 엔과 원으로 나타내 보세요.</span>
+    </div>
+    <div class="plan-grid">
+      <div class="plan-head"><span>항목</span><span style="text-align:center;">내용</span><span style="text-align:center;">엔 (¥)</span><span style="text-align:right;">원 (₩)</span></div>
+      <div class="plan-row"><span>✈️ 비행기 (왕복)</span><span></span><span></span><span></span></div>
+      <div class="plan-row"><span>🏨 숙소 ( 박)</span><span></span><span></span><span></span></div>
+      <div class="plan-row"><span>🚌 교통</span><span></span><span></span><span></span></div>
+      <div class="plan-row"><span>🎟️ USJ 입장권</span><span></span><span></span><span></span></div>
+      <div class="plan-row"><span>🍜 식사</span><span></span><span></span><span></span></div>
+      <div class="plan-row"><span>🛍️ 기념품·쇼핑</span><span></span><span></span><span></span></div>
+      <div class="plan-total"><span>합계</span><span></span><span></span><span></span></div>
+    </div>
+    <div style="font-size:13px; margin-top:4px;">예산 <b>500,000원</b>으로 내 계획을 실행할 수 있나요?</div>
+    <div class="check-row" style="margin-top:5px;">
+      <div class="check-item"><span class="check-box"></span> 할 수 있어요</div>
+      <div class="check-item"><span class="check-box"></span> 할 수 없어요</div>
+    </div>
+    <div style="font-size:12px; color:#555; margin-top:6px;">이유 / 계산 과정:</div>
+    <div class="answer-line" style="margin-top:4px;"></div>
+    <div class="answer-line" style="margin-top:10px;"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 5 : 정답지 (선생님용)
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🇯🇵 오사카 여행 &amp; USJ 수학 학습지 — 정답지</div>
+      <div class="sheet-sub">선생님용 · 5쪽</div>
+    </div>
+    <div class="logo-badge">정답지</div>
+  </div>
+
+  <div class="tip-box">
+    <b>지도 팁</b>: 환율 문제는 "×9"와 "÷9" 규칙을 먼저 충분히 익힌 뒤 문제에 적용하게 해주세요.
+    실제 스마트폰 환율 앱을 보여주며 실생활 연결 활동으로 시작하면 동기 부여에 효과적이에요.
+    12번 예산표는 계산기 사용을 허용하고 과정과 단위(엔/원) 기록에 집중하도록 지도해주세요.
+  </div>
+
+  <div class="section-title">정답 모음</div>
+
+  <table class="ans-table">
+    <colgroup>
+      <col style="width:7%"><col style="width:18%"><col style="width:45%"><col style="width:30%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th style="text-align:center;">번호</th>
+        <th style="text-align:center;">핵심 포인트</th>
+        <th style="text-align:center;">풀이</th>
+        <th style="text-align:center;">답</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="text-align:center; font-weight:bold;">1</td><td>엔→원 (×9)</td><td>600 × 9</td><td class="ans">5,400원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">2</td><td>원→엔 (÷9)</td><td>45,000 ÷ 9</td><td class="ans">5,000엔</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">3</td><td>환전표 완성</td><td>2,000×9=18,000 / 5,000×9=45,000 / 10,000×9=90,000 / 27,000÷9=3,000엔 / 90,000÷9=10,000엔</td><td class="ans">18,000 / 45,000 / 90,000원 / 3,000엔 / 10,000엔</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">4</td><td>왕복 비행기</td><td>180,000 × 2</td><td class="ans">360,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">5</td><td>숙박비 변환</td><td>8,000×3=24,000엔 → 24,000×9</td><td class="ans">24,000엔 / 216,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">6</td><td>버스 왕복 변환</td><td>1,600×2=3,200엔 → 3,200×9</td><td class="ans">3,200엔 / 28,800원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">7</td><td>지하철 단계 계산</td><td>200×4=800(하루) → 800×3=2,400엔 → 2,400×9</td><td class="ans">하루 800엔 / 3일 2,400엔 / 21,600원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">8</td><td>입장권 3인 변환</td><td>10,000×3=30,000엔 → 30,000×9</td><td class="ans">30,000엔 / 270,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">9</td><td>USJ 음식 변환</td><td>800+700=1,500엔 → 1,500×9</td><td class="ans">1,500엔 / 13,500원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">10</td><td>식사비 변환</td><td>600+900+1,200=2,700엔 → 2,700×9</td><td class="ans">2,700엔 / 24,300원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">11</td><td>초밥 곱셈 변환</td><td>150×12=1,800엔 → 1,800×9</td><td class="ans">1,800엔 / 16,200원</td></tr>
+      <tr>
+        <td style="text-align:center; font-weight:bold;">12</td>
+        <td>예산표 완성</td>
+        <td>호텔 8,000×3=24,000엔(216,000원) / 버스 1,600×2=3,200엔(28,800원) / 지하철 200×4×3=2,400엔(21,600원) / 입장권 10,000엔(90,000원) / 식사 2,700×3=8,100엔(72,900원) / 엔합계 47,700엔(429,300원)</td>
+        <td class="ans">엔 소계 47,700엔 / 전체 360,000+429,300 = 789,300원</td>
+      </tr>
+      <tr><td style="text-align:center; font-weight:bold;">13</td><td>환전 잔액</td><td>270,000÷9=30,000엔 / 사용 10,000+600+900=11,500엔 / 잔액 30,000−11,500</td><td class="ans">잔액 18,500엔</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">14</td><td>자유 계획</td><td colspan="2">학생이 선택한 항목 기준으로 환산 계산 확인 (500,000원 이내 여부 판단)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box" style="margin-top:14px;">
+    <b>수업 활용 아이디어</b><br>
+    · 1쪽 환전표: 스마트폰 환율 앱 실제로 검색해보며 "오늘 환율"과 비교하는 활동<br>
+    · 3번 환전표 완성: 짝꿍과 함께 서로 문제 내고 맞히기 활동으로 확장<br>
+    · 8번 USJ 입장권: "3명이 각자 따로 내면? 한 명이 대표로 내면?" 상황 연결<br>
+    · 13번 잔액 계산: 실제 여행에서 환전 후 예산 관리 중요성 토의<br>
+    · 14번 나만의 계획: 모둠별 발표 → "가장 알차고 알뜰한 오사카 여행" 선발 투표<br>
+    · 심화: 엔화 현금이 부족할 때 신용카드 사용 시 수수료 개념 소개
+  </div>
+</div>
+
+</body>
+</html>

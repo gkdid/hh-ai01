@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>L16 예은이의 여행 계획 — KTX와 여행 일정표</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.45; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #fff3e0 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #bf360c;
+  border-bottom: 2px solid #ffab91; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; color: #e65100; }
+.cover-main { text-align: center; padding: 8px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #e65100; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #bf360c; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #e65100; font-weight: 500; }
+.cover-clock { margin: 14px auto; display: block; }
+.cover-info { background: #fff; border: 2px solid #ff9800; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 6px; color: #bf360c; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 3px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 14px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #e65100; padding-bottom: 3px; }
+.cover-name .label { color: #bf360c; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #e65100; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #bf360c; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #e65100; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #fff3e0; border-left: 4px solid #f57c00; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #bf360c; }
+.tip { background: #e0f7fa; border-left: 4px solid #00838f; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.9em; }
+.tip b { color: #006064; }
+.note { background: #f3e5f5; border-left: 4px solid #7b1fa2; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.9em; }
+.note b { color: #4a148c; }
+
+.activity { background: #fff; border: 1.8px solid #ff9800; border-radius: 10px; padding: 9px 13px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.activity h3 { margin: 0; color: #bf360c; font-size: 1.02em; }
+.activity .tag { background: #ffe0b2; color: #bf360c; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.activity p { margin: 4px 0; }
+.blank { display: inline-block; min-width: 44px; border-bottom: 2px solid #37474f; text-align: center; padding: 0 6px; color: #bf360c; font-weight: 700; }
+.blank.short { min-width: 30px; }
+
+.story { background: #fffde7; border: 1.5px solid #ffca28; border-radius: 10px; padding: 10px 14px; margin: 8px 0; font-size: 0.98em; }
+.story b { color: #ef6c00; }
+.story .who { display: inline-block; background: #e65100; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.85em; font-weight: 700; margin-right: 6px; }
+
+.time-chip { display: inline-block; background: #ffffff; border: 1.5px solid #78909c; color: #263238; font-family: 'Courier New', monospace;
+  font-weight: 900; font-size: 1.05em; padding: 3px 9px; border-radius: 6px; letter-spacing: 2px; min-width: 66px; text-align: center; }
+
+.calc-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
+.calc-table th, .calc-table td { border: 1.3px solid #ff9800; padding: 5px 6px; text-align: center; vertical-align: middle; }
+.calc-table th { background: #ffe0b2; color: #bf360c; font-weight: 700; }
+.calc-table td.left { text-align: left; }
+
+.itinerary { background: #fff; border: 2px solid #e65100; border-radius: 10px; padding: 8px 12px; margin: 8px 0; }
+.itinerary .item { display: grid; grid-template-columns: 100px 1fr 90px; gap: 8px; align-items: center;
+  padding: 5px 0; border-bottom: 1px dashed #ffcc80; font-size: 0.94em; }
+.itinerary .item:last-child { border-bottom: none; }
+.itinerary .item .place { color: #4e342e; }
+.itinerary .item .duration { color: #bf360c; font-weight: 700; text-align: right; }
+
+.page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
+@media print { body { background: #fff; } .toolbar { display: none; } .page { box-shadow: none; margin: 0 auto; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">✈️ L16 예은이의 여행 계획</span><span class="muted">KTX·비행기·일정표 · 심화</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<!-- 표지 -->
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">수학</span> · 시계 시리즈 · <b style="color:#e65100;">Level 16</b></span>
+    <span>고등학교 특수학급</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">여행 일정 · 심화</span>
+    <h1>예은이의 여행 계획</h1>
+    <p class="lead">KTX 타고 부산까지! 몇 시간이 걸릴까요? 하루 일정을 짜 봐요.</p>
+  </div>
+
+  <svg class="cover-clock" viewBox="0 0 480 210" width="380" height="170">
+    <!-- 8:00 서울역 출발 -->
+    <g>
+      <circle cx="100" cy="100" r="88" fill="#fff" stroke="#e65100" stroke-width="4"/>
+      <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+      <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+      <!-- 8:00 hour: θ_h=240°; sin=-0.866 cos=-0.5; h_x=63.3 h_y=121.2 -->
+      <line x1="100" y1="100" x2="63.3" y2="121.2" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+      <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="100" cy="100" r="5" fill="#3e2723"/>
+      <text x="100" y="205" text-anchor="middle" font-size="14" font-weight="900" fill="#bf360c">🚄 서울역 출발 8:00</text>
+    </g>
+    <g transform="translate(210,0)">
+      <text x="30" y="95" font-size="30" font-weight="900" fill="#e65100">🚄➜</text>
+      <text x="30" y="130" font-size="15" font-weight="900" fill="#c2185b">2시간 40분</text>
+    </g>
+    <!-- 10:40 부산역 도착 -->
+    <g transform="translate(280,0)">
+      <circle cx="100" cy="100" r="88" fill="#fff" stroke="#e65100" stroke-width="4"/>
+      <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+      <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+      <!-- 10:40 hour: θ_h=320°; sin=-0.6428 cos=0.766; h_x=72.75 h_y=67.52 -->
+      <line x1="100" y1="100" x2="72.7" y2="67.5" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+      <!-- 10:40 min at 8 (240°): m_x=46.3 m_y=131 -->
+      <line x1="100" y1="100" x2="46.3" y2="131.0" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="100" cy="100" r="5" fill="#3e2723"/>
+      <text x="100" y="205" text-anchor="middle" font-size="14" font-weight="900" fill="#bf360c">🏁 부산역 도착 10:40</text>
+    </g>
+  </svg>
+
+  <div class="cover-info">
+    <h3>🎯 오늘의 목표</h3>
+    <ul>
+      <li>KTX·비행기 <b>출발·도착 시각</b>으로 소요 시간을 계산한다.</li>
+      <li>여행 <b>일정표</b>를 시각에 맞춰 정리하고 <b>여유 시간</b>을 확보한다.</li>
+      <li>내가 가고 싶은 곳의 <b>여행 계획</b>을 스스로 세운다.</li>
+    </ul>
+  </div>
+  <div class="cover-info" style="border-color:#00838f; background:#e0f7fa;">
+    <h3 style="color:#006064;">💡 알아 두기</h3>
+    <ul>
+      <li><b>KTX 서울↔부산</b>: 약 <b>2시간 40분</b> 소요</li>
+      <li>비행기(국내선): 탑승 수속·보안 검사 때문에 <b>출발 1시간 전</b>까지 공항 도착</li>
+      <li>여행 일정에 <b>이동 시간</b>과 <b>여유 시간</b>을 꼭 넣기!</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">학년·반</span></div>
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+  <div class="page-foot">시계 시리즈 · L16 · 표지</div>
+</section>
+
+<!-- 1쪽 -->
+<section class="page">
+  <div class="page-head">
+    <h2>🚄 KTX·비행기 시간 계산</h2>
+    <span class="step">1쪽 · 이동 수단 이해</span>
+  </div>
+  <div class="intro">
+    KTX나 비행기는 <b>출발 시각</b>이 정해져 있어요. 늦으면 탈 수 없으니 <b>여유 있게</b> 도착해야 해요.
+    비행기는 특히 <b>탑승 수속(체크인)</b>과 <b>보안 검사</b> 시간을 꼭 계산해야 해요.
+  </div>
+  <div class="story">
+    <span class="who">예은</span>예은이는 부산 여행을 가요. <b>8시</b> KTX를 타면 부산역에 <b>10시 40분</b>에 도착해요.
+    8:00 → 10:00 = <b>2시간</b>, 10:00 → 10:40 = <b>40분</b>. 총 <b>2시간 40분</b> 걸려요!
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. KTX 시간표</h3><span class="tag">기본 · 4문항</span></div>
+    <table class="calc-table">
+      <tr>
+        <th style="width:8%;">번호</th>
+        <th style="width:26%;">노선</th>
+        <th style="width:20%;">출발</th>
+        <th style="width:20%;">도착</th>
+        <th style="width:26%;">소요 시간</th>
+      </tr>
+      <tr>
+        <td>①</td>
+        <td class="left">🚄 서울 → 부산</td>
+        <td><span class="time-chip">8:00</span></td>
+        <td><span class="time-chip">10:40</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>②</td>
+        <td class="left">🚄 서울 → 광주송정</td>
+        <td><span class="time-chip">9:10</span></td>
+        <td><span class="time-chip">11:00</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>③</td>
+        <td class="left">🚄 서울 → 강릉</td>
+        <td><span class="time-chip">10:30</span></td>
+        <td><span class="time-chip">12:25</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>④</td>
+        <td class="left">🚄 부산 → 서울 (귀가)</td>
+        <td><span class="time-chip">6:15</span></td>
+        <td><span class="time-chip">9:00</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 비행기 이용 시간 계획</h3><span class="tag">응용 · 3문항</span></div>
+    <p>비행기는 <b>출발 1시간 전</b>까지 공항에 도착해야 해요. 집에서 공항까지 걸리는 시간을 더해 <b>출발 시각</b>을 계산해 봐요.</p>
+    <table class="calc-table">
+      <tr>
+        <th style="width:6%;">번호</th>
+        <th style="width:28%;">노선</th>
+        <th style="width:18%;">이륙</th>
+        <th style="width:18%;">공항 도착</th>
+        <th style="width:16%;">집→공항</th>
+        <th style="width:14%;">집에서 몇 시에 출발?</th>
+      </tr>
+      <tr>
+        <td>⑤</td>
+        <td class="left">✈️ 김포→제주</td>
+        <td><span class="time-chip">10:00</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시</td>
+        <td>1시간 20분</td>
+        <td>( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>⑥</td>
+        <td class="left">✈️ 인천→후쿠오카</td>
+        <td><span class="time-chip">1:30</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+        <td>1시간 45분</td>
+        <td>( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>⑦</td>
+        <td class="left">✈️ 김해→제주</td>
+        <td><span class="time-chip">7:20</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+        <td>40분</td>
+        <td>( <span class="blank short">&nbsp;</span> )시 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+    </table>
+    <div class="tip">💡 <b>⑤번 힌트:</b> 이륙 10:00 − 1시간(공항 도착) = <b>9:00</b> → 9:00 − 1시간 20분(이동) = <b>7:40</b>에 집에서 출발!</div>
+  </div>
+
+  <div class="page-foot">시계 시리즈 · L16 · 1쪽 / 2</div>
+</section>
+
+<!-- 2쪽 -->
+<section class="page">
+  <div class="page-head">
+    <h2>🗺️ 하루 여행 일정 짜기</h2>
+    <span class="step">2쪽 · 응용·계획</span>
+  </div>
+  <div class="intro">
+    여행 일정은 <b>이동 → 활동 → 이동 → 활동</b>이 반복돼요. 각 활동에 걸리는 시간과 이동 시간을 계산해서 <b>다음 활동 시작 시각</b>을 정해요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 부산 하루 여행 일정</h3><span class="tag">응용 · 5문항</span></div>
+    <p>예은이의 <b>부산 하루 여행</b> 일정이에요. KTX로 <b>10:40 부산역 도착</b>부터 시작해요.</p>
+    <div class="itinerary">
+      <div class="item"><span class="time-chip">10:40</span><span class="place">🚄 부산역 도착 · 짐 맡기기</span><span class="duration">20분</span></div>
+      <div class="item"><span class="time-chip">?</span><span class="place">🚇 지하철로 해운대까지</span><span class="duration">45분</span></div>
+      <div class="item"><span class="time-chip">?</span><span class="place">🏖️ 해운대 해변 산책·사진</span><span class="duration">1시간 30분</span></div>
+      <div class="item"><span class="time-chip">?</span><span class="place">🍜 점심 먹기 (밀면·돼지국밥)</span><span class="duration">1시간</span></div>
+      <div class="item"><span class="time-chip">?</span><span class="place">🚌 태종대로 이동</span><span class="duration">40분</span></div>
+      <div class="item"><span class="time-chip">?</span><span class="place">🌊 태종대 관광</span><span class="duration">1시간 30분</span></div>
+      <div class="item"><span class="time-chip">?</span><span class="place">🚇 부산역 돌아오기 + 저녁</span><span class="duration">1시간 20분</span></div>
+    </div>
+    <p>· ⑧ 지하철 출발 시각: ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분 &nbsp;(10:40 + 20분)</p>
+    <p>· ⑨ 해변 도착 시각: ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
+    <p>· ⑩ 점심 시작 시각: ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
+    <p>· ⑪ 태종대 도착 시각: ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
+    <p>· ⑫ 부산역 돌아온 시각(귀가 KTX 타기 직전): ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
+    <div class="tip">💡 마지막에 도착한 시각이 <b>18:00(6:00) 이전</b>이면, 6:15 KTX(활동 1의 ④번)로 무사히 귀가 가능!</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 여유 시간 확보하기</h3><span class="tag">서술형 · 2문항</span></div>
+    <p>⑬ 태종대 관광이 <b>30분 지연</b>되면 부산역 도착 시각이 <b>얼마나 늦어질까요</b>? 그리고 <b>6:15 KTX</b>를 탈 수 있을까요?<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;늦어지는 정도: ( <span class="blank">&nbsp;</span> )분 &nbsp;·&nbsp; 새 도착 시각: ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분 &nbsp;·&nbsp; 6:15 KTX 탑승: ( 예 / 아니오 )</p>
+    <p>⑭ 만약 <b>7:00 KTX</b>로 바꾸면 부산역에서 <b>얼마나 여유</b>가 있나요? ( <span class="blank">&nbsp;</span> )분</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 나만의 당일치기 여행 계획</h3><span class="tag">쓰기</span></div>
+    <p>· 여행지: <span class="blank" style="min-width:120px;">&nbsp;</span> &nbsp;·&nbsp; 교통수단: <span class="blank" style="min-width:80px;">&nbsp;</span></p>
+    <p>· 출발: ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분 → 도착: ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분 &nbsp; 소요 ( <span class="blank">&nbsp;</span> )시간 ( <span class="blank">&nbsp;</span> )분</p>
+    <p>· 하고 싶은 활동 (2가지):</p>
+    <p>&nbsp;&nbsp;① <span class="blank" style="min-width:100px;">&nbsp;</span> (약 <span class="blank short">&nbsp;</span>시간)</p>
+    <p>&nbsp;&nbsp;② <span class="blank" style="min-width:100px;">&nbsp;</span> (약 <span class="blank short">&nbsp;</span>시간)</p>
+    <p>· 돌아오는 교통: ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분 출발 → 집 도착 ( <span class="blank">&nbsp;</span> )시 ( <span class="blank">&nbsp;</span> )분</p>
+  </div>
+
+  <div class="note">🌟 <b>여행 팁:</b> 여행 일정에는 항상 <b>여유 시간 30분</b>을 넣으세요. 예상보다 늦어질 때 마음이 편해요.</div>
+
+  <div class="page-foot">시계 시리즈 · L16 · 2쪽 / 2</div>
+</section>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

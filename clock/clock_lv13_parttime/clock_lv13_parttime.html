@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>L13 주현이의 아르바이트 — 근무 시간 계산</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.45; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #e0f2f1 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #004d40;
+  border-bottom: 2px solid #4db6ac; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; color: #00695c; }
+.cover-main { text-align: center; padding: 8px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #00695c; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2.1em; letter-spacing: -1.5px; color: #004d40; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #00695c; font-weight: 500; }
+.cover-clock { margin: 14px auto; display: block; }
+.cover-info { background: #fff; border: 2px solid #26a69a; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 6px; color: #004d40; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 3px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 14px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #00695c; padding-bottom: 3px; }
+.cover-name .label { color: #004d40; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #00695c; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #004d40; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #00695c; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #e0f2f1; border-left: 4px solid #00897b; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #004d40; }
+.tip { background: #fff8e1; border-left: 4px solid #ffa000; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.9em; }
+.tip b { color: #e65100; }
+.note { background: #fce4ec; border-left: 4px solid #d81b60; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.9em; }
+.note b { color: #880e4f; }
+
+.activity { background: #fff; border: 1.8px solid #26a69a; border-radius: 10px; padding: 9px 13px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.activity h3 { margin: 0; color: #004d40; font-size: 1.02em; }
+.activity .tag { background: #b2dfdb; color: #004d40; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.activity p { margin: 4px 0; }
+.blank { display: inline-block; min-width: 44px; border-bottom: 2px solid #37474f; text-align: center; padding: 0 6px; color: #004d40; font-weight: 700; }
+.blank.short { min-width: 30px; }
+
+.story { background: #e0f7fa; border: 1.5px solid #4dd0e1; border-radius: 10px; padding: 10px 14px; margin: 8px 0; font-size: 0.98em; }
+.story b { color: #006064; }
+.story .who { display: inline-block; background: #00695c; color: #fff; padding: 2px 10px; border-radius: 10px; font-size: 0.85em; font-weight: 700; margin-right: 6px; }
+
+.time-chip { display: inline-block; background: #ffffff; border: 1.5px solid #78909c; color: #263238; font-family: 'Courier New', monospace;
+  font-weight: 900; font-size: 1.05em; padding: 3px 9px; border-radius: 6px; letter-spacing: 2px; min-width: 66px; text-align: center; }
+.time-chip.in { color: #263238; }
+.time-chip.out { color: #263238; }
+.money-chip { display: inline-block; background: #fffde7; color: #e65100; border: 1.5px solid #ffb300;
+  font-weight: 900; padding: 3px 9px; border-radius: 6px; font-size: 0.95em; }
+
+.calc-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
+.calc-table th, .calc-table td { border: 1.3px solid #26a69a; padding: 5px 6px; text-align: center; vertical-align: middle; }
+.calc-table th { background: #b2dfdb; color: #004d40; font-weight: 700; }
+.calc-table td.left { text-align: left; }
+
+.wage-box { background: #fffde7; border: 2px solid #ffb300; border-radius: 10px; padding: 8px 12px; margin: 8px 0; }
+.wage-box b { color: #e65100; }
+
+.page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
+@media print { body { background: #fff; } .toolbar { display: none; } .page { box-shadow: none; margin: 0 auto; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">🏪 L13 주현이의 아르바이트</span><span class="muted">근무 시간 계산 · 심화</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<!-- 표지 -->
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">수학</span> · 시계 시리즈 · <b style="color:#00695c;">Level 13</b></span>
+    <span>고등학교 특수학급</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">근무 시간 · 급여 계산</span>
+    <h1>주현이의 아르바이트</h1>
+    <p class="lead">출근에서 퇴근까지 <b>몇 시간</b> 일했을까요? 급여는 얼마일까요?</p>
+  </div>
+
+  <svg class="cover-clock" viewBox="0 0 480 210" width="380" height="170">
+    <!-- 4:00 출근 -->
+    <g>
+      <circle cx="100" cy="100" r="88" fill="#fff" stroke="#00695c" stroke-width="4"/>
+      <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+      <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+      <!-- 4:00 hour hand: θ_h=120°; sin=0.866, cos=-0.5; x=136.7, y=121.2 -->
+      <line x1="100" y1="100" x2="136.7" y2="121.2" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+      <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="100" cy="100" r="5" fill="#3e2723"/>
+      <text x="100" y="205" text-anchor="middle" font-size="14" font-weight="900" fill="#2e7d32">🟢 출근 4:00</text>
+    </g>
+    <g transform="translate(210,0)">
+      <text x="30" y="95" font-size="34" font-weight="900" fill="#00695c">➜</text>
+      <text x="30" y="125" font-size="16" font-weight="900" fill="#e65100">4시간</text>
+    </g>
+    <!-- 8:00 퇴근 -->
+    <g transform="translate(280,0)">
+      <circle cx="100" cy="100" r="88" fill="#fff" stroke="#00695c" stroke-width="4"/>
+      <g stroke="#3e2723" stroke-width="2.5"><line x1="100" y1="15" x2="100" y2="27"/><line x1="185" y1="100" x2="173" y2="100"/><line x1="100" y1="185" x2="100" y2="173"/><line x1="15" y1="100" x2="27" y2="100"/></g>
+      <g font-size="18" text-anchor="middle" dominant-baseline="middle" font-weight="900" fill="#3e2723"><text x="100" y="38">12</text><text x="162" y="100">3</text><text x="100" y="162">6</text><text x="38" y="100">9</text></g>
+      <!-- 8:00 hour hand: θ_h=240°; sin=-0.866, cos=-0.5; x=63.3, y=121.2 -->
+      <line x1="100" y1="100" x2="63.3" y2="121.2" stroke="#c62828" stroke-width="6" stroke-linecap="round"/>
+      <line x1="100" y1="100" x2="100" y2="38" stroke="#1565c0" stroke-width="4" stroke-linecap="round"/>
+      <circle cx="100" cy="100" r="5" fill="#3e2723"/>
+      <text x="100" y="205" text-anchor="middle" font-size="14" font-weight="900" fill="#c62828">🔴 퇴근 8:00</text>
+    </g>
+  </svg>
+
+  <div class="cover-info">
+    <h3>🎯 오늘의 목표</h3>
+    <ul>
+      <li>출근·퇴근 시각으로 <b>근무 시간</b>을 계산할 수 있다.</li>
+      <li>시급 × 시간으로 <b>일당·주급</b>을 계산할 수 있다.</li>
+      <li>주간 스케줄을 읽고 <b>내 근무표</b>를 계획할 수 있다.</li>
+    </ul>
+  </div>
+  <div class="cover-info" style="border-color:#ffb300; background:#fffde7;">
+    <h3 style="color:#e65100;">💡 알아 두기</h3>
+    <ul>
+      <li><b>2026년 최저시급</b>: 시간당 <b>10,320원</b> (예시 · 학습용)</li>
+      <li><b>근무 시간</b> = 퇴근 시각 − 출근 시각</li>
+      <li><b>일당</b> = 시급 × 근무 시간(시간)</li>
+      <li>청소년(고등학생)은 하루 <b>7시간</b>까지, 주 <b>35시간</b>까지 근무 가능</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">학년·반</span></div>
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+  <div class="page-foot">시계 시리즈 · L13 · 표지</div>
+</section>
+
+<!-- 1쪽 -->
+<section class="page">
+  <div class="page-head">
+    <h2>🏪 몇 시간 일했을까?</h2>
+    <span class="step">1쪽 · 근무 시간 계산</span>
+  </div>
+  <div class="intro">
+    아르바이트를 시작할 때 시계를 확인하고 (<b>출근</b>), 끝날 때 다시 확인해요 (<b>퇴근</b>).
+    두 시각의 차이가 <b>근무 시간</b>이에요.
+  </div>
+  <div class="story">
+    <span class="who">주현</span>주현이는 편의점에서 <b>4시</b>에 출근하고 <b>8시</b>에 퇴근했어요.
+    8 − 4 = 4, 오늘 <b>4시간</b> 일했어요! 시급이 10,320원이면 오늘 일당은 <b>10,320 × 4 = 41,280원</b>이에요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 하루 근무 시간</h3><span class="tag">기본 · 4문항</span></div>
+    <p>같은 오전/오후 안에서는 <b>퇴근 시 − 출근 시</b>. 시(時)를 넘어가면 시간과 분을 나눠서 계산!</p>
+    <table class="calc-table">
+      <tr>
+        <th style="width:8%;">번호</th>
+        <th style="width:16%;">요일</th>
+        <th style="width:22%;">출근</th>
+        <th style="width:22%;">퇴근</th>
+        <th style="width:32%;">근무 시간</th>
+      </tr>
+      <tr>
+        <td>①</td>
+        <td>월</td>
+        <td><span class="time-chip in">4:00</span></td>
+        <td><span class="time-chip out">8:00</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시간</td>
+      </tr>
+      <tr>
+        <td>②</td>
+        <td>화</td>
+        <td><span class="time-chip in">5:00</span></td>
+        <td><span class="time-chip out">9:30</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>③</td>
+        <td>수</td>
+        <td><span class="time-chip in">3:30</span></td>
+        <td><span class="time-chip out">7:00</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+      <tr>
+        <td>④</td>
+        <td>목</td>
+        <td><span class="time-chip in">4:45</span></td>
+        <td><span class="time-chip out">8:15</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시간 ( <span class="blank short">&nbsp;</span> )분</td>
+      </tr>
+    </table>
+    <div class="tip">💡 <b>④번 힌트:</b> 4:45 → 5:00 = 15분, 5:00 → 8:00 = 3시간, 8:00 → 8:15 = 15분. 합쳐서 <b>3시간 30분</b>!</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 일당 계산하기</h3><span class="tag">응용 · 4문항</span></div>
+    <div class="wage-box">
+      💰 <b>시급 10,320원</b> 기준 &nbsp;·&nbsp; 일당 = 시급 × 근무 시간(시간 단위)
+      <br>· 30분 = 0.5시간 = <b>5,160원</b> &nbsp;·&nbsp; 45분 ≈ 0.75시간 &nbsp;·&nbsp; 15분 = 0.25시간
+    </div>
+    <table class="calc-table">
+      <tr>
+        <th style="width:8%;">번호</th>
+        <th style="width:20%;">근무 시간</th>
+        <th style="width:22%;">계산식</th>
+        <th style="width:50%;">일당</th>
+      </tr>
+      <tr>
+        <td>⑤</td>
+        <td>4시간</td>
+        <td>10,320 × 4 =</td>
+        <td><span class="money-chip">( <span class="blank">&nbsp;</span> ) 원</span></td>
+      </tr>
+      <tr>
+        <td>⑥</td>
+        <td>3시간</td>
+        <td>10,320 × 3 =</td>
+        <td><span class="money-chip">( <span class="blank">&nbsp;</span> ) 원</span></td>
+      </tr>
+      <tr>
+        <td>⑦</td>
+        <td>5시간</td>
+        <td>10,320 × 5 =</td>
+        <td><span class="money-chip">( <span class="blank">&nbsp;</span> ) 원</span></td>
+      </tr>
+      <tr>
+        <td>⑧</td>
+        <td>3시간 30분</td>
+        <td>10,320 × 3 + 5,160 =</td>
+        <td><span class="money-chip">( <span class="blank">&nbsp;</span> ) 원</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="page-foot">시계 시리즈 · L13 · 1쪽 / 2</div>
+</section>
+
+<!-- 2쪽 -->
+<section class="page">
+  <div class="page-head">
+    <h2>📅 주간 근무표 관리</h2>
+    <span class="step">2쪽 · 주급·계획</span>
+  </div>
+  <div class="intro">
+    주현이는 편의점에서 일주일에 <b>3~5일</b> 일해요. 근무표를 보고 <b>주간 총 시간</b>과 <b>주급</b>을 계산해 봐요.
+    청소년은 <b>주 35시간</b>까지 근무할 수 있어요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 주현이의 일주일 근무표</h3><span class="tag">응용 · 6문항</span></div>
+    <table class="calc-table">
+      <tr>
+        <th style="width:12%;">요일</th>
+        <th style="width:22%;">출근</th>
+        <th style="width:22%;">퇴근</th>
+        <th style="width:22%;">근무 시간</th>
+        <th style="width:22%;">일당 (시급 10,320원)</th>
+      </tr>
+      <tr>
+        <td>월</td>
+        <td><span class="time-chip in">4:00</span></td>
+        <td><span class="time-chip out">8:00</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시간</td>
+        <td>( <span class="blank">&nbsp;</span> )원</td>
+      </tr>
+      <tr>
+        <td>수</td>
+        <td><span class="time-chip in">4:00</span></td>
+        <td><span class="time-chip out">7:00</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시간</td>
+        <td>( <span class="blank">&nbsp;</span> )원</td>
+      </tr>
+      <tr>
+        <td>금</td>
+        <td><span class="time-chip in">5:00</span></td>
+        <td><span class="time-chip out">9:00</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시간</td>
+        <td>( <span class="blank">&nbsp;</span> )원</td>
+      </tr>
+      <tr>
+        <td>토</td>
+        <td><span class="time-chip in">10:00</span></td>
+        <td><span class="time-chip out">3:00</span></td>
+        <td>( <span class="blank short">&nbsp;</span> )시간</td>
+        <td>( <span class="blank">&nbsp;</span> )원</td>
+      </tr>
+      <tr style="background:#e0f7fa;">
+        <td colspan="3" style="text-align:right; font-weight:700;">📊 이번 주 합계 →</td>
+        <td><b>( <span class="blank short">&nbsp;</span> )시간</b></td>
+        <td><b>( <span class="blank">&nbsp;</span> )원</b></td>
+      </tr>
+    </table>
+    <div class="tip">💡 토요일 <b>10:00 → 오후 3:00</b>은 <b>오전에서 오후로</b> 넘어가요. 12시까지 2시간 + 12시부터 3시까지 3시간 = <b>5시간</b>!</div>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 4. 교대 근무 · 이야기 문제</h3><span class="tag">서술형 · 3문항</span></div>
+    <p>① 앞 근무자 미정이는 <b>12시</b>부터 일했어요. 주현이가 <b>4시</b>에 교대하면 미정이는 몇 시간 일한 뒤 퇴근하나요?<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;( <span class="blank">&nbsp;</span> )시간</p>
+    <p>② 편의점은 오전 <b>7시</b>부터 밤 <b>11시</b>까지 영업해요. 하루 영업 시간은 몇 시간인가요?<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;( <span class="blank">&nbsp;</span> )시간</p>
+    <p>③ 하루 <b>4시간</b>씩 <b>5일</b> 일하면 이번 주 근무 시간은 총 몇 시간이며, 청소년 상한(주 35시간)을 넘나요?<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;총 ( <span class="blank">&nbsp;</span> )시간, 상한 초과 여부: ( 예 / 아니오 )</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 5. 내 아르바이트 계획하기</h3><span class="tag">쓰기</span></div>
+    <p>학교와 겹치지 않게 <b>내 주간 근무표</b>를 짜 봐요. (등교일은 <b>4시 이후</b>부터, 하루 최대 <b>4시간</b>)</p>
+    <table class="calc-table">
+      <tr>
+        <th>요일</th><th>출근</th><th>퇴근</th><th>근무 시간</th>
+      </tr>
+      <tr><td><span class="blank short">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td><td>( <span class="blank short">&nbsp;</span> )시간</td></tr>
+      <tr><td><span class="blank short">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td><td>( <span class="blank short">&nbsp;</span> )시간</td></tr>
+      <tr><td><span class="blank short">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td><td><span class="blank short">&nbsp;</span></td><td>( <span class="blank short">&nbsp;</span> )시간</td></tr>
+    </table>
+    <p>· 내 예상 주급 = 시급 <b>10,320원</b> × ( <span class="blank">&nbsp;</span> )시간 = ( <span class="blank">&nbsp;</span> )원</p>
+  </div>
+
+  <div class="note">🌟 <b>기억해요:</b> 청소년 근로자도 <b>근로계약서</b>를 꼭 써야 하고, <b>휴게시간</b>과 <b>야간 근무 제한(밤 10시 이후 금지)</b>이 있어요.</div>
+
+  <div class="page-foot">시계 시리즈 · L13 · 2쪽 / 2</div>
+</section>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

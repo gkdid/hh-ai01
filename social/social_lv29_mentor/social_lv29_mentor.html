@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>S29 나를 도와줄 어른 찾기 — 예은·하은</title>
+<style>
+@page { size: A4 portrait; margin: 10mm 12mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #eceff1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif; font-size: 10.5pt; line-height: 1.5; }
+.toolbar { position: sticky; top: 0; z-index: 50; display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #263238; color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.toolbar .title { font-weight: 700; }
+.toolbar .muted { color: #b0bec5; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button { background: #ffca28; color: #263238; border: none; font: inherit; font-weight: 700; padding: 8px 18px; border-radius: 6px; cursor: pointer; }
+.page { width: 210mm; min-height: 297mm; margin: 10mm auto; padding: 12mm 14mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12); position: relative; page-break-after: always; }
+.page:last-of-type { page-break-after: auto; }
+
+.page.cover { padding: 18mm 16mm; background: linear-gradient(135deg, #fff 0%, #ffe082 100%); }
+.cover-top { display: flex; justify-content: space-between; font-size: 0.92em; color: #e65100;
+  border-bottom: 2px solid #ffb300; padding-bottom: 8px; margin-bottom: 18px; }
+.cover-top .subject { font-weight: 700; color: #ff8f00; }
+.cover-main { text-align: center; padding: 8px 0; }
+.cover-main .badge { display: inline-block; padding: 5px 16px; border-radius: 20px;
+  background: #ff8f00; color: #fff; font-weight: 700; font-size: 0.95em; margin-bottom: 10px; }
+.cover-main h1 { margin: 0; font-size: 2em; letter-spacing: -1.5px; color: #e65100; font-weight: 900; }
+.cover-main .lead { margin: 8px 0 0; font-size: 1em; color: #ff8f00; font-weight: 500; }
+.cover-emoji { text-align: center; font-size: 3.5em; margin: 14px 0; letter-spacing: 8px; }
+.cover-info { background: #fff; border: 2px solid #ffb300; border-radius: 12px; padding: 12px 16px; margin-top: 14px; }
+.cover-info h3 { margin: 0 0 6px; color: #e65100; font-size: 1.02em; }
+.cover-info ul { margin: 0; padding-left: 20px; } .cover-info li { margin: 3px 0; }
+.cover-name { display: flex; gap: 20px; margin-top: 14px; font-size: 0.95em; }
+.cover-name .line { flex: 1; border-bottom: 1.5px solid #ff8f00; padding-bottom: 3px; }
+.cover-name .label { color: #e65100; font-weight: 700; margin-right: 6px; }
+
+.page-head { display: flex; justify-content: space-between; align-items: flex-end;
+  border-bottom: 2.5px solid #ff8f00; padding-bottom: 5px; margin-bottom: 10px; }
+.page-head h2 { margin: 0; color: #e65100; font-size: 1.3em; letter-spacing: -0.5px; }
+.page-head .step { font-size: 0.82em; color: #fff; background: #ff8f00; padding: 3px 10px; border-radius: 11px; font-weight: 700; }
+
+.intro { background: #fff8e1; border-left: 4px solid #ff8f00; padding: 8px 12px; margin: 6px 0 10px; border-radius: 0 6px 6px 0; font-size: 0.96em; }
+.intro b { color: #e65100; }
+.tip { background: #e0f2f1; border-left: 4px solid #00897b; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.tip b { color: #004d40; }
+.note { background: #fff3e0; border-left: 4px solid #ef6c00; padding: 6px 11px; margin: 7px 0; border-radius: 0 6px 6px 0; font-size: 0.92em; }
+.note b { color: #bf360c; }
+
+.activity { background: #fff; border: 1.8px solid #ffb300; border-radius: 10px; padding: 10px 14px; margin: 9px 0; }
+.activity .head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.activity h3 { margin: 0; color: #e65100; font-size: 1.05em; }
+.activity .tag { background: #ffe082; color: #e65100; font-size: 0.75em; font-weight: 700; padding: 2px 9px; border-radius: 10px; }
+.blank { display: inline-block; min-width: 60px; border-bottom: 2px solid #e65100; text-align: center; padding: 0 6px; color: #e65100; font-weight: 700; }
+.blank.long { min-width: 160px; }
+
+.principles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 8px 0; }
+.pri-card { background: #fff; border: 2px solid #ff8f00; border-radius: 10px; padding: 10px; text-align: center; }
+.pri-card .icon { font-size: 1.7em; }
+.pri-card .name { font-weight: 700; color: #e65100; }
+.pri-card .desc { font-size: 0.85em; color: #ff8f00; margin-top: 3px; }
+
+.compare-table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 0.93em; }
+.compare-table th, .compare-table td { border: 1.3px solid #ffb300; padding: 6px 10px; text-align: left; vertical-align: middle; }
+.compare-table th { background: #fff8e1; color: #e65100; font-weight: 700; text-align: center; }
+.compare-table .good { background: #c8e6c9; color: #1b5e20; font-weight: 700; }
+
+.mentor-map { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0; }
+.m-card { background: #fff; border: 1.8px solid #ff8f00; border-radius: 10px; padding: 10px; }
+.m-card .m-role { background: #fff8e1; color: #e65100; padding: 3px 8px; border-radius: 6px; font-weight: 700; font-size: 0.9em; margin-bottom: 4px; text-align: center; }
+.m-card .m-fit { font-size: 0.82em; color: #4e342e; margin-bottom: 4px; }
+.m-card .m-fill { border-bottom: 1px solid #90a4ae; min-height: 22px; margin: 3px 0; }
+
+.dialogue { background: #fff8e1; border: 1.5px solid #ffb300; border-radius: 12px; padding: 12px 14px; margin: 8px 0; }
+.dialogue .title { font-weight: 700; color: #e65100; margin-bottom: 6px; }
+.speech { display: flex; gap: 10px; margin: 8px 0; align-items: flex-start; }
+.speech.right { justify-content: flex-end; }
+.speech .avatar { flex-shrink: 0; width: 42px; height: 42px; border-radius: 50%; background: #ffcdd2; color: #b71c1c; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.85em; }
+.speech.right .avatar { background: #ff8f00; color: #fff; font-size: 0.85em; }
+.speech .bubble { max-width: 76%; background: #fff; border: 1.5px solid #ffb300; border-radius: 14px; padding: 8px 12px; font-size: 0.95em; }
+.speech.right .bubble { background: #fff8e1; border-color: #ff8f00; }
+.speech .bubble .who { font-weight: 700; color: #b71c1c; font-size: 0.85em; margin-bottom: 2px; }
+.speech.right .bubble .who { color: #e65100; }
+
+.checklist { background: #fff8e1; border: 2px dashed #f57f17; border-radius: 12px; padding: 12px 14px; margin: 8px 0; }
+.checklist .title { color: #bf360c; font-weight: 700; margin-bottom: 6px; }
+.checklist label { display: block; padding: 4px 0; font-size: 0.95em; }
+
+.page-foot { position: absolute; bottom: 5mm; left: 0; right: 0; text-align: center; font-size: 0.72em; color: #90a4ae; }
+@media print { body { background: #fff; font-size: 9.5pt; line-height: 1.35; } .toolbar, #name-editor { display: none; } .page { box-shadow: none; margin: 0 auto; padding: 10mm 12mm; } .principles { gap: 5px; } .pri-card { padding: 7px; } .activity { padding: 8px 11px; margin: 7px 0; } .intro, .tip, .note { padding: 6px 10px; margin: 5px 0; } .compare-table th, .compare-table td { padding: 4px 8px; } .dialogue { padding: 8px 11px; margin: 6px 0; } .speech { margin: 5px 0; } .speech .bubble { padding: 6px 10px; } .checklist { padding: 8px 11px; } .checklist label { padding: 2px 0; } .mentor-map { gap: 6px; } .m-card { padding: 8px; } }
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div><span class="title">🌟 S29 나를 도와줄 어른 찾기</span><span class="muted">사회성 · Level 29 · 멘토</span></div>
+  <button onclick="window.print()">🖨️ 인쇄 / PDF</button>
+</div>
+
+<section class="page cover">
+  <div class="cover-top">
+    <span><span class="subject">사회성</span> · 대인관계 시리즈 · <b style="color:#e65100;">S29 · 멘토</b></span>
+    <span>고등학교 특수학급</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">인생 멘토·조언 구하기</span>
+    <h1>나를 도와줄 어른, 어디에 있나요?</h1>
+    <p class="lead">어렵고 힘든 일이 있을 때, <b>혼자 결정하지 않아요</b></p>
+  </div>
+  <div class="cover-emoji">🌟 🧑‍🏫 🙏</div>
+  <div class="cover-info">
+    <h3>🎯 오늘의 목표</h3>
+    <ul>
+      <li>믿을 만한 <b>어른 3명</b>을 정리한다.</li>
+      <li>주제(진로·인간관계·감정)별로 <b>맞는 어른</b>을 고른다.</li>
+      <li>정중하게 <b>조언·도움</b>을 요청하는 표현을 익힌다.</li>
+    </ul>
+  </div>
+  <div class="cover-info" style="border-color:#a5d6a7;">
+    <h3 style="color:#2e7d32;">🌱 오늘의 친구</h3>
+    <ul>
+      <li><b>예은</b>: 진학·진로 고민을 담임 선생님께 상담</li>
+      <li><b>하은</b>: 감정·인간관계 고민을 상담 선생님·이모께 상담</li>
+    </ul>
+  </div>
+  <div class="cover-name">
+    <div class="line"><span class="label">학년·반</span></div>
+    <div class="line"><span class="label">이름</span></div>
+    <div class="line"><span class="label">날짜</span></div>
+  </div>
+  <div class="page-foot">사회성 시리즈 · S29 · 표지</div>
+</section>
+
+<section class="page">
+  <div class="page-head">
+    <h2>🌟 믿을 만한 어른 찾기</h2>
+    <span class="step">1쪽 · 찾기</span>
+  </div>
+  <div class="intro">
+    큰 결정·힘든 감정·모르는 일은 <b>혼자 정하지 않아요</b>. 나를 도와줄 어른을 <b>미리</b> 알아 두면
+    급할 때 도움받기 쉬워요. 부모님 외에도 <b>여러 어른</b>을 알아 두는 것이 좋아요.
+  </div>
+
+  <div class="principles">
+    <div class="pri-card">
+      <div class="icon">🤝</div>
+      <div class="name">① 편안함</div>
+      <div class="desc">말할 때 <b>편한 사람</b></div>
+    </div>
+    <div class="pri-card">
+      <div class="icon">👂</div>
+      <div class="name">② 잘 듣기</div>
+      <div class="desc">비난 없이 <b>끝까지</b></div>
+    </div>
+    <div class="pri-card">
+      <div class="icon">🔒</div>
+      <div class="name">③ 비밀 보장</div>
+      <div class="desc">다른 사람에게 말 X</div>
+    </div>
+    <div class="pri-card">
+      <div class="icon">🎯</div>
+      <div class="name">④ 경험·지식</div>
+      <div class="desc">주제에 <b>실제로 도움</b></div>
+    </div>
+  </div>
+
+  <table class="compare-table">
+    <tr>
+      <th style="width:30%;">고민 주제</th>
+      <th style="width:35%;">누구에게 물어볼까?</th>
+      <th style="width:35%;">기관·전화</th>
+    </tr>
+    <tr>
+      <td>진학·진로</td>
+      <td class="good">담임·진로 상담 교사, 대학·회사 다니는 친척</td>
+      <td>학교 진로실</td>
+    </tr>
+    <tr>
+      <td>친구·가족 관계</td>
+      <td class="good">상담 선생님, 이모·삼촌</td>
+      <td>Wee센터, 1388</td>
+    </tr>
+    <tr>
+      <td>돈·계약·아르바이트</td>
+      <td class="good">부모님·사장님·부모님 지인</td>
+      <td>알바노조, 근로복지공단</td>
+    </tr>
+    <tr>
+      <td>건강·마음</td>
+      <td class="good">보건 선생님, 병원 의사</td>
+      <td>정신건강센터 1577-0199</td>
+    </tr>
+    <tr>
+      <td>안전·폭력·성폭력</td>
+      <td class="good">담임·상담 선생님·경찰</td>
+      <td>112 · 117 · 1366</td>
+    </tr>
+    <tr>
+      <td>자살·자해 충동</td>
+      <td class="good">가족·상담 선생님</td>
+      <td>자살예방 1393 (24시간)</td>
+    </tr>
+  </table>
+
+  <div class="activity">
+    <div class="head"><h3>활동 1. 나의 어른 지도 그리기</h3><span class="tag">쓰기</span></div>
+    <p>내가 <b>믿을 만한 어른 3명</b>을 골라 이름과 관계를 써요.</p>
+    <p>① 이름·관계: <span class="blank long">&nbsp;</span> — 어떤 고민에 적합? <span class="blank long">&nbsp;</span></p>
+    <p>② 이름·관계: <span class="blank long">&nbsp;</span> — 어떤 고민에 적합? <span class="blank long">&nbsp;</span></p>
+    <p>③ 이름·관계: <span class="blank long">&nbsp;</span> — 어떤 고민에 적합? <span class="blank long">&nbsp;</span></p>
+    <p>📞 급할 때 <b>가장 먼저</b> 연락할 어른: <span class="blank long">&nbsp;</span></p>
+  </div>
+
+  <div class="dialogue">
+    <div class="title">📖 예은이의 좋은 예 — 담임 선생님께 진로 상담</div>
+    <div class="speech">
+      <div class="avatar">예은</div>
+      <div class="bubble">
+        <div class="who">예은</div>
+        선생님, <b>지금 잠깐 시간</b> 되실까요? 진로 고민을 <b>여쭤보고 싶어서요.</b>
+      </div>
+    </div>
+    <div class="speech right">
+      <div class="bubble">
+        <div class="who">담임</div>
+        어, 예은아. 앉아. 무슨 고민이야?
+      </div>
+      <div class="avatar">담임</div>
+    </div>
+    <div class="speech">
+      <div class="avatar">예은</div>
+      <div class="bubble">
+        <div class="who">예은</div>
+        <b>문화예술 계열이랑 사회복지</b> 사이에서 결정을 못 하겠어요. 어떻게 <b>결정하면 좋을지</b> 조언 부탁드려요.
+      </div>
+    </div>
+    <div class="speech right">
+      <div class="bubble">
+        <div class="who">담임</div>
+        네가 즐겁게 <b>오래 할 수 있는 일</b>이 뭔지부터 얘기해 보자. 방과 후에 30분 시간 낼 수 있어?
+      </div>
+      <div class="avatar">담임</div>
+    </div>
+  </div>
+
+  <div class="page-foot">사회성 시리즈 · S29 · 1쪽 / 2</div>
+</section>
+
+<section class="page">
+  <div class="page-head">
+    <h2>🙏 도움·조언 요청하기</h2>
+    <span class="step">2쪽 · 요청</span>
+  </div>
+  <div class="intro">
+    어른에게 도움을 요청할 때는 <b>시간 확인 → 무슨 고민인지 → 무엇을 원하는지</b> 순서로 말해요.
+    "그냥 얘기하고 싶어요"인지, "결정을 도와주세요"인지 <b>내가 원하는 것</b>을 미리 알면 좋아요.
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 2. 주제별 요청 문장 만들기</h3><span class="tag">5문항</span></div>
+    <p>다음 주제로 어른에게 도움을 요청하는 문장을 완성해요.</p>
+    <p>① (진학) 담임께: "선생님, <span class="blank long">&nbsp;</span>"</p>
+    <p>② (친구관계) 상담 선생님께: "<span class="blank long">&nbsp;</span>"</p>
+    <p>③ (돈·알바) 부모님께: "<span class="blank long">&nbsp;</span>"</p>
+    <p>④ (건강) 보건 선생님께: "<span class="blank long">&nbsp;</span>"</p>
+    <p>⑤ (마음이 힘듦) 아무 어른께: "<span class="blank long">&nbsp;</span>"</p>
+  </div>
+
+  <div class="activity">
+    <div class="head"><h3>활동 3. 하은이의 상담 4단계 대화</h3><span class="tag">쓰기</span></div>
+    <p>하은이가 <b>친구 관계 고민</b>으로 상담 선생님을 만나요. 4단계로 대화 준비.</p>
+    <p>① 시간·인사: "<span class="blank long">&nbsp;</span>"</p>
+    <p>② 무슨 일(사실): "<span class="blank long">&nbsp;</span>"</p>
+    <p>③ 내 감정: "<span class="blank long">&nbsp;</span>"</p>
+    <p>④ 원하는 것(듣기만 vs. 조언): "<span class="blank long">&nbsp;</span>"</p>
+  </div>
+
+  <div class="checklist">
+    <div class="title">✅ 좋은 멘토 관계 5가지</div>
+    <label><input type="checkbox" style="margin-right:6px;"> 어른의 <b>시간</b>을 먼저 확인한다</label>
+    <label><input type="checkbox" style="margin-right:6px;"> 감정보다 <b>사실</b>을 먼저 말한다</label>
+    <label><input type="checkbox" style="margin-right:6px;"> 내가 <b>원하는 것</b>을 분명히 말한다</label>
+    <label><input type="checkbox" style="margin-right:6px;"> 조언을 들으면 <b>감사 인사</b>를 한다</label>
+    <label><input type="checkbox" style="margin-right:6px;"> 결과를 <b>다시 전한다</b> ("덕분에 이렇게 됐어요")</label>
+  </div>
+
+  <div class="note">
+    🌱 <b>혼자 결정하지 않는 것</b>이 어른의 시작이에요. 도움을 청하는 건 약한 것이 아니라, <b>지혜로운 것</b>이에요.
+  </div>
+
+  <div class="page-foot">사회성 시리즈 · S29 · 2쪽 / 2</div>
+</section>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: sticky; top: 44px; z-index: 40; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; margin: 4px auto 0; max-width: 210mm; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08); font-size: 0.92em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none; } .sn.changed { background: transparent; padding: 0; } }
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(문서에 나온 이름 ' + detected.length + '명 · 입력 즉시 반영 · 인쇄 시 숨김)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    var toolbar = document.querySelector('.toolbar');
+    if (toolbar && toolbar.parentNode) toolbar.parentNode.insertBefore(panel, toolbar.nextSibling);
+    else document.body.insertBefore(panel, document.body.firstChild);
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

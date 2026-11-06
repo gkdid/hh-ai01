@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<style>
+  @media print {
+    body { margin: 0; background: white; }
+    .page { page-break-after: always; margin: 0; padding: 18mm 18mm 14mm; box-shadow: none; }
+    .page:last-child { page-break-after: avoid; }
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Malgun Gothic', '맑은 고딕', sans-serif; background: #ede7f6; margin: 0; padding: 20px; }
+
+  .page {
+    background: white; width: 210mm; min-height: 297mm;
+    margin: 0 auto 30px; padding: 15mm 18mm 13mm;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+
+  /* ── 헤더 ── */
+  .sheet-header {
+    border: 2px solid #6a1b9a; border-radius: 6px;
+    padding: 10px 16px; margin-bottom: 12px;
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(to right, #fff, #f9f0ff);
+  }
+  .sheet-title { font-size: 18px; font-weight: bold; color: #000; }
+  .sheet-sub   { font-size: 12px; color: #555; margin-top: 2px; }
+  .logo-badge  {
+    background: #6a1b9a; color: white; font-size: 12px; font-weight: bold;
+    padding: 5px 13px; border-radius: 20px; white-space: nowrap;
+  }
+
+  /* ── 이름·날짜 ── */
+  .info-row { display: flex; gap: 18px; margin-bottom: 11px; }
+  .info-box-line {
+    border-bottom: 1.5px solid #333; flex: 1; padding-bottom: 3px;
+    display: flex; align-items: center; gap: 5px; font-size: 13px;
+  }
+  .info-label { font-weight: bold; white-space: nowrap; color: #333; }
+
+  /* ── 소제목 ── */
+  .section-title {
+    background: #6a1b9a; color: white; font-size: 13px; font-weight: bold;
+    padding: 5px 13px; border-radius: 4px; margin: 12px 0 8px;
+  }
+  .section-title-gray {
+    background: #444; color: white; font-size: 13px; font-weight: bold;
+    padding: 5px 13px; border-radius: 4px; margin: 12px 0 8px;
+  }
+  .section-title-blue {
+    background: #0277bd; color: white; font-size: 13px; font-weight: bold;
+    padding: 5px 13px; border-radius: 4px; margin: 12px 0 8px;
+  }
+
+  /* ── 안내 박스 ── */
+  .tip-box {
+    background: #f9f0ff; border-left: 4px solid #6a1b9a;
+    border-radius: 0 6px 6px 0; padding: 7px 11px;
+    font-size: 12px; color: #333; margin-bottom: 10px; line-height: 1.8;
+  }
+  .tip-box-blue {
+    background: #e3f2fd; border-left: 4px solid #0277bd;
+    border-radius: 0 6px 6px 0; padding: 7px 11px;
+    font-size: 12px; color: #333; margin-bottom: 10px; line-height: 1.8;
+  }
+  .tip-box-green {
+    background: #e8f5e9; border-left: 4px solid #2e7d32;
+    border-radius: 0 6px 6px 0; padding: 7px 11px;
+    font-size: 12px; color: #333; margin-bottom: 10px; line-height: 1.8;
+  }
+
+  /* ── 복지카드 안내 배너 ── */
+  .welfare-banner {
+    border: 2px solid #6a1b9a; border-radius: 8px;
+    background: #f3e5f5; padding: 10px 14px; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .welfare-icon { font-size: 30px; flex-shrink: 0; }
+  .welfare-title { font-size: 14px; font-weight: bold; color: #4a148c; margin-bottom: 3px; }
+  .welfare-desc  { font-size: 12px; color: #444; line-height: 1.7; }
+
+  /* ── 할인 계산 공식 박스 ── */
+  .discount-flow {
+    display: flex; align-items: center; justify-content: center;
+    gap: 0; margin: 8px 0 12px; background: #f9f0ff;
+    border: 1.5px solid #ce93d8; border-radius: 8px; padding: 10px 14px;
+  }
+  .df-box {
+    border: 2px solid #6a1b9a; border-radius: 6px;
+    padding: 7px 10px; text-align: center; background: white; min-width: 82px;
+  }
+  .df-label { font-size: 10.5px; color: #666; margin-bottom: 2px; }
+  .df-val   { font-size: 13px; font-weight: bold; color: #4a148c; }
+  .df-arrow { font-size: 18px; color: #6a1b9a; padding: 0 8px; font-weight: bold; }
+  .df-op    { font-size: 11px; color: #555; text-align: center; display: block; }
+
+  /* ── 시설 카드 ── */
+  .facility-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 8px 0 10px; }
+  .facility-card {
+    border: 2px solid #ce93d8; border-radius: 8px; padding: 10px;
+    text-align: center; background: #fdf6ff;
+  }
+  .facility-icon  { font-size: 26px; display: block; margin-bottom: 5px; }
+  .facility-name  { font-weight: bold; font-size: 13px; color: #4a148c; margin-bottom: 4px; display: block; }
+  .facility-desc  { font-size: 11px; color: #666; margin-bottom: 6px; line-height: 1.5; display: block; }
+  .facility-price-row { display: flex; justify-content: space-between; font-size: 12px; padding: 2px 0; }
+  .price-normal   { color: #888; text-decoration: line-through; }
+  .price-welfare  { color: #6a1b9a; font-weight: bold; }
+  .price-save     { background: #6a1b9a; color: white; border-radius: 20px; padding: 1px 7px; font-size: 11px; font-weight: bold; }
+
+  /* ── 가격 비교 테이블 ── */
+  .compare-table { border-collapse: collapse; width: 100%; margin: 6px 0 10px; font-size: 12.5px; }
+  .compare-table th { padding: 7px 9px; border: 1px solid #9c4dcc; text-align: center; font-size: 12px; }
+  .compare-table td { padding: 6px 9px; border: 1px solid #e1bee7; text-align: center; }
+  .compare-table tr:nth-child(even) td { background: #f9f0ff; }
+  .th-normal  { background: #78909c; color: white; }
+  .th-welfare { background: #6a1b9a; color: white; }
+  .th-save    { background: #2e7d32; color: white; }
+  .td-welfare { font-weight: bold; color: #6a1b9a; }
+  .td-save    { font-weight: bold; color: #2e7d32; }
+  .td-total   { font-weight: bold; background: #f3e5f5 !important; }
+
+  /* ── 문제 박스 ── */
+  .q-box {
+    border: 1.5px solid #e1bee7; border-radius: 6px;
+    padding: 11px 13px; margin-bottom: 10px; background: #fff;
+  }
+  .q-head { display: flex; align-items: flex-start; margin-bottom: 7px; }
+  .q-num  {
+    display: inline-block; background: #6a1b9a; color: white;
+    font-size: 12px; font-weight: bold; border-radius: 50%;
+    width: 23px; height: 23px; line-height: 23px; text-align: center;
+    margin-right: 7px; flex-shrink: 0; margin-top: 1px;
+  }
+  .q-text { font-size: 13.5px; line-height: 1.9; flex: 1; }
+
+  /* ── 답란 ── */
+  .answer-line  { border: none; border-bottom: 1.5px solid #888; width: 100%; margin-top: 4px; height: 25px; display: block; }
+  .answer-label { font-size: 11.5px; color: #444; font-weight: bold; }
+  .answer-grid  { display: grid; grid-template-columns: 1fr 1fr;     gap: 10px; margin-top: 5px; }
+  .answer-grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px;  margin-top: 5px; }
+  .answer-grid4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 7px; margin-top: 5px; }
+
+  .blank    { border-bottom: 1.5px solid #333; min-width: 65px;  display: inline-block; vertical-align: bottom; }
+  .blank-sm { border-bottom: 1.5px solid #333; min-width: 45px;  display: inline-block; vertical-align: bottom; }
+  .blank-lg { border-bottom: 1.5px solid #333; min-width: 115px; display: inline-block; vertical-align: bottom; }
+
+  .calc-step { font-size: 13px; color: #333; margin-bottom: 5px; line-height: 2.1; }
+  .calc-hint { font-size: 11.5px; color: #555; background: #fdf6ff; border: 1px dashed #ce93d8; border-radius: 4px; padding: 4px 8px; margin-bottom: 6px; line-height: 1.8; }
+
+  /* ── 체크/선택 ── */
+  .check-row { display: flex; gap: 14px; margin-top: 7px; flex-wrap: wrap; }
+  .check-col { display: flex; flex-direction: column; gap: 7px; margin-top: 7px; }
+  .check-item { display: flex; align-items: flex-start; gap: 6px; font-size: 13px; line-height: 1.6; }
+  .check-box  { width: 16px; height: 16px; border: 1.5px solid #555; border-radius: 3px; display: inline-block; flex-shrink: 0; margin-top: 2px; }
+
+  /* ── 입장권 주문서 ── */
+  .ticket-grid { border: 1.5px solid #e1bee7; border-radius: 6px; overflow: hidden; margin: 6px 0 8px; font-size: 12.5px; }
+  .ticket-head { background: #6a1b9a; color: white; font-weight: bold; padding: 6px 10px; font-size: 12px; display: grid; }
+  .ticket-row  { padding: 5px 10px; border-bottom: 1px dashed #e8d5f5; display: grid; }
+  .ticket-row:last-child { border-bottom: none; }
+  .ticket-total { padding: 6px 10px; background: #f3e5f5; font-weight: bold; border-top: 1.5px solid #ce93d8; display: grid; }
+  .ticket-final { padding: 7px 10px; background: #6a1b9a; color: white; font-weight: bold; font-size: 13px; display: grid; }
+  .col3 { grid-template-columns: 2.2fr 1.3fr 1.5fr; }
+  .col4 { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
+
+  /* ── 영수증 ── */
+  .receipt {
+    border: 1.5px dashed #bbb; border-radius: 6px;
+    padding: 11px 16px; font-size: 12.5px; background: #fafafa; margin: 6px 0;
+    max-width: 270px; margin-left: auto; margin-right: auto;
+  }
+  .receipt-title   { text-align: center; font-weight: bold; font-size: 14px; margin-bottom: 7px; padding-bottom: 5px; border-bottom: 1px solid #bbb; letter-spacing: 1px; }
+  .receipt-row     { display: flex; justify-content: space-between; padding: 3px 0; font-size: 12.5px; }
+  .receipt-divider { border: none; border-top: 1px dashed #bbb; margin: 3px 0; }
+  .receipt-total   { font-weight: bold; display: flex; justify-content: space-between; padding-top: 5px; margin-top: 3px; border-top: 2px solid #333; font-size: 14px; }
+  .receipt-paid    { display: flex; justify-content: space-between; padding: 3px 0; color: #555; font-size: 12px; }
+  .receipt-change  { display: flex; justify-content: space-between; padding: 3px 0; color: #6a1b9a; font-weight: bold; font-size: 13px; }
+  .receipt-welfare { font-size: 11px; color: #2e7d32; font-weight: bold; text-align: center; margin-top: 4px; }
+
+  /* ── 먹거리 카드 ── */
+  .food-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin: 6px 0 10px; }
+  .food-card {
+    border: 1.5px solid #e1bee7; border-radius: 6px;
+    padding: 7px 6px; text-align: center; font-size: 11.5px; background: #fdf6ff;
+  }
+  .food-icon  { font-size: 17px; display: block; margin-bottom: 3px; }
+  .food-name  { font-weight: bold; display: block; font-size: 11.5px; margin-bottom: 2px; }
+  .food-price { color: #6a1b9a; font-weight: bold; font-size: 11.5px; }
+
+  /* ── 나만의 계획표 ── */
+  .myplan { border: 1.5px solid #e1bee7; border-radius: 6px; overflow: hidden; margin: 6px 0 8px; font-size: 12.5px; }
+  .myplan-head  { display: grid; background: #444; color: white; font-weight: bold; padding: 6px 10px; font-size: 12px; }
+  .myplan-row   { display: grid; padding: 5px 10px; border-bottom: 1px dashed #eee; min-height: 28px; }
+  .myplan-total { display: grid; padding: 6px 10px; background: #f5f5f5; font-weight: bold; border-top: 1.5px solid #ccc; }
+  .mpcol3 { grid-template-columns: 2fr 1.5fr 1.5fr; }
+  .mpcol4 { grid-template-columns: 2.5fr 1fr 1fr 1.5fr; }
+
+  /* ── 정답표 ── */
+  .ans-table { border-collapse: collapse; width: 100%; }
+  .ans-table th { background: #6a1b9a; color: white; padding: 6px 7px; border: 1px solid #4a148c; font-size: 12px; }
+  .ans-table td { padding: 6px 7px; border: 1px solid #e1bee7; font-size: 12px; }
+  .ans-table tr:nth-child(even) td { background: #f9f0ff; }
+  .ans-table .ans { font-weight: bold; color: #6a1b9a; }
+
+  /* ── 절약 뱃지 ── */
+  .save-badge {
+    display: inline-block; background: #2e7d32; color: white;
+    font-size: 12px; font-weight: bold; padding: 3px 10px; border-radius: 20px; margin-left: 5px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════
+     PAGE 1 : 시설 소개 + 복지카드 안내 + Q1~Q3
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🎢 롯데월드 · 서울스카이 · 아쿠아리움 수학 학습지</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 1쪽 — 복지카드 할인 알기 &amp; 기본 계산</div>
+    </div>
+    <div class="logo-badge">롯데월드 수학</div>
+  </div>
+
+  <div class="info-row">
+    <div class="info-box-line"><span class="info-label">이름</span></div>
+    <div class="info-box-line"><span class="info-label">날짜</span></div>
+    <div class="info-box-line"><span class="info-label">점수</span></div>
+  </div>
+
+  <!-- 복지카드 안내 -->
+  <div class="welfare-banner">
+    <div class="welfare-icon">🪪</div>
+    <div>
+      <div class="welfare-title">복지카드(장애인 복지카드)란?</div>
+      <div class="welfare-desc">
+        장애인으로 등록된 분들이 발급받는 카드예요. 시설 입구에서 복지카드를 보여주면
+        입장료를 <b>할인</b>받을 수 있어요. 이 학습지에서는 <b>50% 할인</b>이 적용돼요.<br>
+        ※ 실제 할인율은 시설마다 다를 수 있어요.
+      </div>
+    </div>
+  </div>
+
+  <!-- 50% 할인 계산 흐름 -->
+  <div class="section-title">💡 50% 할인 계산 방법</div>
+  <div class="discount-flow">
+    <div class="df-box">
+      <div class="df-label">일반 가격</div>
+      <div class="df-val">60,000원</div>
+    </div>
+    <div class="df-arrow">─ ÷ 2 ─▶<span class="df-op">(50% 할인)</span></div>
+    <div class="df-box">
+      <div class="df-label">할인 금액</div>
+      <div class="df-val">30,000원</div>
+    </div>
+    <div class="df-arrow">─ 빼기 ─▶</div>
+    <div class="df-box" style="border-color:#2e7d32;">
+      <div class="df-label" style="color:#2e7d32;">복지카드 가격</div>
+      <div class="df-val" style="color:#2e7d32;">30,000원</div>
+    </div>
+    <div style="font-size:12px; color:#2e7d32; font-weight:bold; padding-left:6px;">
+      💚 30,000원<br>절약!
+    </div>
+  </div>
+  <div class="calc-hint" style="margin-top:-5px;">
+    50% = 절반 = ÷ 2 &nbsp;|&nbsp; 할인 후 가격 = 일반 가격 ÷ 2 &nbsp;|&nbsp; 절약 금액 = 일반 가격 − 할인 후 가격
+  </div>
+
+  <!-- 세 시설 카드 -->
+  <div class="section-title">🏟️ 세 시설 소개 &amp; 입장료 (성인 1인 기준)</div>
+  <div class="facility-grid">
+    <div class="facility-card">
+      <span class="facility-icon">🎢</span>
+      <span class="facility-name">롯데월드 어드벤처</span>
+      <span class="facility-desc">놀이기구·퍼레이드·마법의숲<br>잠실 실내+실외 테마파크</span>
+      <div class="facility-price-row">
+        <span class="price-normal">60,000원</span>
+        <span class="price-save">50% 할인</span>
+      </div>
+      <div class="facility-price-row" style="justify-content:center; margin-top:3px;">
+        <span class="price-welfare">→ 30,000원</span>
+      </div>
+    </div>
+    <div class="facility-card" style="border-color:#b3c8e8; background:#f5f8ff;">
+      <span class="facility-icon">🏙️</span>
+      <span class="facility-name">서울스카이 (전망대)</span>
+      <span class="facility-desc">롯데월드타워 117~123층<br>서울 전경 360° 전망</span>
+      <div class="facility-price-row">
+        <span class="price-normal" style="color:#aaa;">30,000원</span>
+        <span class="price-save" style="background:#0277bd;">50% 할인</span>
+      </div>
+      <div class="facility-price-row" style="justify-content:center; margin-top:3px;">
+        <span class="price-welfare" style="color:#0277bd;">→ 15,000원</span>
+      </div>
+    </div>
+    <div class="facility-card" style="border-color:#80cbc4; background:#f0fafa;">
+      <span class="facility-icon">🐠</span>
+      <span class="facility-name">롯데월드 아쿠아리움</span>
+      <span class="facility-desc">650여 종 55,000마리 해양 생물<br>지하 1~2층 수중 터널</span>
+      <div class="facility-price-row">
+        <span class="price-normal" style="color:#aaa;">40,000원</span>
+        <span class="price-save" style="background:#00838f;">50% 할인</span>
+      </div>
+      <div class="facility-price-row" style="justify-content:center; margin-top:3px;">
+        <span class="price-welfare" style="color:#00838f;">→ 20,000원</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-title">문제 풀기 (1~3번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">1</span>
+      <span class="q-text"><b>주현</b>이는 롯데월드 어드벤처(일반 60,000원)에 복지카드를 제시하고
+        <b>50% 할인</b>을 받았어요. 할인 금액과 실제 낸 금액을 구해 보세요.</span>
+    </div>
+    <div class="calc-step">① 할인 금액: 60,000 ÷ 2 = <span class="blank"></span>원</div>
+    <div class="calc-step">② 복지카드 가격: 60,000 − <span class="blank-sm"></span> = <span class="blank"></span>원</div>
+    <div class="answer-grid3">
+      <div><div class="answer-label">할인 금액</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">복지카드 가격</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">절약 금액</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">2</span>
+      <span class="q-text"><b>주은</b>이는 서울스카이 전망대(일반 30,000원)를 복지카드 <b>50% 할인</b>으로
+        입장했어요. 할인 금액과 실제 낸 금액을 구해 보세요.</span>
+    </div>
+    <div class="calc-step">① 할인 금액: 30,000 ÷ 2 = <span class="blank"></span>원</div>
+    <div class="calc-step">② 복지카드 가격: 30,000 − <span class="blank-sm"></span> = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">할인 금액 / 복지카드 가격</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">3</span>
+      <span class="q-text"><b>하은</b>이는 롯데월드 아쿠아리움(일반 40,000원)을 복지카드 <b>50% 할인</b>으로
+        입장했어요. 할인 금액과 실제 낸 금액을 구해 보세요.</span>
+    </div>
+    <div class="calc-step">① 할인 금액: 40,000 ÷ 2 = <span class="blank"></span>원</div>
+    <div class="calc-step">② 복지카드 가격: 40,000 − <span class="blank-sm"></span> = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">할인 금액 / 복지카드 가격</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 2 : 세 시설 합산 · 비교 · 혼합 Q4~Q7
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🎢 롯데월드 · 서울스카이 · 아쿠아리움 수학 학습지</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 2쪽 — 세 시설 합산 &amp; 복지카드 비교 계산</div>
+    </div>
+    <div class="logo-badge">롯데월드 수학</div>
+  </div>
+  <div class="info-row">
+    <div class="info-box-line"><span class="info-label">이름</span></div>
+    <div class="info-box-line"><span class="info-label">날짜</span></div>
+  </div>
+
+  <!-- 가격 비교표 -->
+  <div class="section-title">📋 세 시설 입장권 가격 비교표 (성인 1인 기준)</div>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th style="background:#555; color:white;">시설</th>
+        <th class="th-normal">일반 가격</th>
+        <th class="th-welfare">복지카드 (50% 할인)</th>
+        <th class="th-save">절약 금액</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="font-weight:bold;">🎢 롯데월드 어드벤처</td>
+        <td>60,000원</td>
+        <td class="td-welfare">30,000원</td>
+        <td class="td-save">30,000원</td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;">🏙️ 서울스카이 전망대</td>
+        <td>30,000원</td>
+        <td class="td-welfare">15,000원</td>
+        <td class="td-save">15,000원</td>
+      </tr>
+      <tr>
+        <td style="font-weight:bold;">🐠 롯데월드 아쿠아리움</td>
+        <td>40,000원</td>
+        <td class="td-welfare">20,000원</td>
+        <td class="td-save">20,000원</td>
+      </tr>
+      <tr>
+        <td class="td-total">합계 (세 시설 모두)</td>
+        <td class="td-total">130,000원</td>
+        <td class="td-total td-welfare">65,000원</td>
+        <td class="td-total td-save">65,000원</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="section-title">문제 풀기 (4~7번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">4</span>
+      <span class="q-text"><b>하영</b>이는 복지카드를 사용해서 세 시설(롯데월드 + 서울스카이 + 아쿠아리움)을
+        모두 이용했어요. 하영이가 낸 전체 입장료는 얼마인가요?</span>
+    </div>
+    <div class="calc-step">30,000 + 15,000 + 20,000 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">5</span>
+      <span class="q-text"><b>채원</b>이는 복지카드로 세 시설 모두 입장했어요.
+        복지카드가 없었다면 일반 가격으로 얼마를 냈을까요?
+        복지카드 덕분에 얼마를 절약했나요?</span>
+    </div>
+    <div class="calc-step">① 일반 가격 합계: 60,000 + 30,000 + 40,000 = <span class="blank"></span>원</div>
+    <div class="calc-step">② 복지카드 가격 합계: 30,000 + 15,000 + 20,000 = <span class="blank"></span>원</div>
+    <div class="calc-step">③ 절약 금액: <span class="blank-sm"></span> − <span class="blank-sm"></span> = <span class="blank"></span>원</div>
+    <div class="answer-grid3">
+      <div><div class="answer-label">일반 가격 합계</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">복지카드 합계</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">절약 금액</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">6</span>
+      <span class="q-text"><b>예은</b>이(복지카드 있음)와 <b>주은</b>이(복지카드 없음)가 함께
+        아쿠아리움에 갔어요. 두 사람의 아쿠아리움 입장료 합계는 얼마인가요?</span>
+    </div>
+    <div class="calc-step">예은이 (복지카드 50% 할인): 40,000 ÷ 2 = <span class="blank"></span>원</div>
+    <div class="calc-step">주은이 (일반): <span class="blank"></span>원</div>
+    <div class="calc-step">합계: <span class="blank-sm"></span> + <span class="blank-sm"></span> = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">답</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">7</span>
+      <span class="q-text"><b>주현</b>이는 복지카드로 세 시설 모두 입장한 뒤 100,000원을 냈어요.
+        거스름돈은 얼마인가요? (세 시설 복지카드 합계: 65,000원)</span>
+    </div>
+    <div class="calc-step">거스름돈 = 낸 돈 − 입장료 합계 &nbsp;→&nbsp; 100,000 − 65,000 = <span class="blank"></span>원</div>
+    <div class="answer-grid">
+      <div><div class="answer-label">식</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">거스름돈</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 3 : 먹거리 + 하루 지출 Q8~Q11
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🎢 롯데월드 · 서울스카이 · 아쿠아리움 수학 학습지</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 3쪽 — 먹거리 계산 &amp; 하루 전체 지출</div>
+    </div>
+    <div class="logo-badge">롯데월드 수학</div>
+  </div>
+  <div class="info-row">
+    <div class="info-box-line"><span class="info-label">이름</span></div>
+    <div class="info-box-line"><span class="info-label">날짜</span></div>
+  </div>
+
+  <!-- 먹거리 가격표 -->
+  <div class="section-title">🍽️ 롯데월드몰 먹거리 &amp; 기타 가격표</div>
+  <div class="food-grid">
+    <div class="food-card">
+      <span class="food-icon">🍗</span>
+      <span class="food-name">치킨 세트</span>
+      <span class="food-price">12,000원</span>
+    </div>
+    <div class="food-card">
+      <span class="food-icon">🍕</span>
+      <span class="food-name">피자 조각</span>
+      <span class="food-price">8,000원</span>
+    </div>
+    <div class="food-card">
+      <span class="food-icon">🍦</span>
+      <span class="food-name">아이스크림</span>
+      <span class="food-price">6,000원</span>
+    </div>
+    <div class="food-card">
+      <span class="food-icon">🍿</span>
+      <span class="food-name">팝콘</span>
+      <span class="food-price">5,000원</span>
+    </div>
+    <div class="food-card">
+      <span class="food-icon">🥤</span>
+      <span class="food-name">음료수</span>
+      <span class="food-price">4,000원</span>
+    </div>
+    <div class="food-card">
+      <span class="food-icon">🍜</span>
+      <span class="food-name">라면</span>
+      <span class="food-price">7,000원</span>
+    </div>
+    <div class="food-card">
+      <span class="food-icon">🧇</span>
+      <span class="food-name">와플</span>
+      <span class="food-price">6,000원</span>
+    </div>
+    <div class="food-card">
+      <span class="food-icon">🛍️</span>
+      <span class="food-name">기념품</span>
+      <span class="food-price">15,000원</span>
+    </div>
+    <div class="food-card">
+      <span class="food-icon">🚌</span>
+      <span class="food-name">교통비</span>
+      <span style="font-size:10px; color:#666; display:block;">왕복</span>
+      <span class="food-price">5,000원</span>
+    </div>
+    <div class="food-card">
+      <span class="food-icon">📸</span>
+      <span class="food-name">포토 스팟</span>
+      <span style="font-size:10px; color:#666; display:block;">인화 사진</span>
+      <span class="food-price">10,000원</span>
+    </div>
+  </div>
+
+  <div class="section-title">문제 풀기 (8~11번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">8</span>
+      <span class="q-text"><b>하영</b>이는 롯데월드몰에서 점심으로 치킨 세트(12,000원)와 음료수(4,000원)를,
+        간식으로 아이스크림(6,000원)과 팝콘(5,000원)을 먹었어요.
+        하루 먹거리 비용은 모두 얼마인가요?</span>
+    </div>
+    <div class="calc-step">점심: 12,000 + 4,000 = <span class="blank"></span>원</div>
+    <div class="calc-step">간식: 6,000 + 5,000 = <span class="blank"></span>원</div>
+    <div class="calc-step">합계: <span class="blank-sm"></span> + <span class="blank-sm"></span> = <span class="blank"></span>원</div>
+    <div class="answer-grid3">
+      <div><div class="answer-label">점심 합계</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">간식 합계</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">먹거리 전체</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">9</span>
+      <span class="q-text"><b>채원</b>이의 영수증이에요. 빈칸을 완성하고 거스름돈을 구해 보세요.</span>
+    </div>
+    <div class="receipt">
+      <div class="receipt-title">🎢 롯데월드몰</div>
+      <div class="receipt-row"><span>피자 조각 × 2</span><span><span class="blank-sm"></span>원</span></div>
+      <div class="receipt-row"><span>아이스크림 × 1</span><span>6,000원</span></div>
+      <div class="receipt-row"><span>음료수 × 3</span><span><span class="blank-sm"></span>원</span></div>
+      <div class="receipt-row"><span>기념품 × 1</span><span>15,000원</span></div>
+      <hr class="receipt-divider">
+      <div class="receipt-total"><span>합계</span><span><span class="blank-sm"></span>원</span></div>
+      <div class="receipt-paid"><span>받은 금액</span><span>60,000원</span></div>
+      <div class="receipt-change"><span>거스름돈</span><span><span class="blank-sm"></span>원</span></div>
+    </div>
+    <div class="calc-step" style="font-size:12.5px; margin-top:4px;">
+      피자 2개: 8,000 × 2 = <span class="blank-sm"></span>원 &nbsp;/&nbsp;
+      음료수 3잔: 4,000 × 3 = <span class="blank-sm"></span>원 &nbsp;/&nbsp;
+      합계: <span class="blank-sm"></span>+6,000+<span class="blank-sm"></span>+15,000 = <span class="blank-sm"></span>원 &nbsp;/&nbsp;
+      거스름돈: 60,000 − <span class="blank-sm"></span> = <span class="blank-sm"></span>원
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">10</span>
+      <span class="q-text"><b>예은</b>이의 하루 전체 지출이에요.
+        빈칸에 금액을 쓰고 하루 합계를 구해 보세요.
+        (복지카드 50% 할인 적용, 세 시설 모두 이용)</span>
+    </div>
+    <div class="ticket-grid">
+      <div class="ticket-head col4"><span>항목</span><span style="text-align:right;">일반 가격</span><span style="text-align:right;">복지카드 할인</span><span style="text-align:right;">실제 지출</span></div>
+      <div class="ticket-row col4"><span>🎢 롯데월드 어드벤처</span><span style="text-align:right;">60,000원</span><span style="text-align:right;">30,000원↓</span><span style="text-align:right;">30,000원</span></div>
+      <div class="ticket-row col4"><span>🏙️ 서울스카이 전망대</span><span style="text-align:right;">30,000원</span><span style="text-align:right;">15,000원↓</span><span style="text-align:right;">15,000원</span></div>
+      <div class="ticket-row col4"><span>🐠 롯데월드 아쿠아리움</span><span style="text-align:right;">40,000원</span><span style="text-align:right;">20,000원↓</span><span style="text-align:right;">20,000원</span></div>
+      <div class="ticket-row col4"><span>🍽️ 먹거리 합계</span><span style="text-align:right;">—</span><span style="text-align:right;">—</span><span style="text-align:right;">27,000원</span></div>
+      <div class="ticket-row col4"><span>🛍️ 기념품</span><span style="text-align:right;">—</span><span style="text-align:right;">—</span><span style="text-align:right;">15,000원</span></div>
+      <div class="ticket-row col4"><span>🚌 교통비</span><span style="text-align:right;">—</span><span style="text-align:right;">—</span><span style="text-align:right;">5,000원</span></div>
+      <div class="ticket-total col4"><span>하루 합계</span><span style="text-align:right;"></span><span style="text-align:right;"></span><span style="text-align:right;"><span class="blank-sm"></span>원</span></div>
+    </div>
+    <div class="calc-step">
+      입장료: 30,000+15,000+20,000 = 65,000원 &nbsp;/&nbsp;
+      합계: 65,000 + 27,000 + 15,000 + 5,000 = <span class="blank"></span>원
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">11</span>
+      <span class="q-text"><b>주현</b>이는 복지카드가 있어요. <b>하은</b>이는 복지카드가 없어요.
+        두 사람이 세 시설 모두 이용할 때 입장료 차이는 얼마인가요?</span>
+    </div>
+    <div class="calc-step">주현(복지카드): 30,000 + 15,000 + 20,000 = <span class="blank"></span>원</div>
+    <div class="calc-step">하은 (일반): 60,000 + 30,000 + 40,000 = <span class="blank"></span>원</div>
+    <div class="calc-step">입장료 차이: <span class="blank-sm"></span> − <span class="blank-sm"></span> = <span class="blank"></span>원</div>
+    <div class="answer-grid3">
+      <div><div class="answer-label">주현이 입장료</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">하은이 입장료</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">차이</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 4 : 단체 방문 + 절약 활용 + 나만의 계획 Q12~Q14
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🎢 롯데월드 · 서울스카이 · 아쿠아리움 수학 학습지</div>
+      <div class="sheet-sub">문장제 수학 학습지 · 4쪽 — 단체 방문 계산 &amp; 나만의 하루 계획</div>
+    </div>
+    <div class="logo-badge">롯데월드 수학</div>
+  </div>
+  <div class="info-row">
+    <div class="info-box-line"><span class="info-label">이름</span></div>
+    <div class="info-box-line"><span class="info-label">날짜</span></div>
+  </div>
+
+  <div class="section-title">문제 풀기 (12~13번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">12</span>
+      <span class="q-text"><b>주은, 하은, 하영, 채원</b> 4명이 함께 롯데월드에 갔어요.
+        <b>주은</b>이와 <b>하은</b>이는 복지카드가 있고,
+        <b>하영</b>이와 <b>채원</b>이는 복지카드가 없어요.
+        4명 모두 세 시설(롯데월드 + 서울스카이 + 아쿠아리움) 입장권을 샀어요.
+        전체 입장료 합계는 얼마인가요?</span>
+    </div>
+    <div class="ticket-grid">
+      <div class="ticket-head col3"><span>구분</span><span style="text-align:right;">1인 입장료 (세 시설)</span><span style="text-align:right;">금액</span></div>
+      <div class="ticket-row col3"><span>🪪 주은 (복지카드)</span><span style="text-align:right;">30,000+15,000+20,000</span><span style="text-align:right;">65,000원</span></div>
+      <div class="ticket-row col3"><span>🪪 하은 (복지카드)</span><span style="text-align:right;">30,000+15,000+20,000</span><span style="text-align:right;">65,000원</span></div>
+      <div class="ticket-row col3"><span>하영 (일반)</span><span style="text-align:right;">60,000+30,000+40,000</span><span style="text-align:right;">130,000원</span></div>
+      <div class="ticket-row col3"><span>채원 (일반)</span><span style="text-align:right;">60,000+30,000+40,000</span><span style="text-align:right;">130,000원</span></div>
+      <div class="ticket-total col3"><span>4명 전체 합계</span><span></span><span style="text-align:right;"><span class="blank-sm"></span>원</span></div>
+    </div>
+    <div class="calc-step">
+      복지카드 2명: 65,000 × 2 = <span class="blank"></span>원 &nbsp;&nbsp;
+      일반 2명: 130,000 × 2 = <span class="blank"></span>원
+    </div>
+    <div class="calc-step">전체 합계: <span class="blank-sm"></span> + <span class="blank-sm"></span> = <span class="blank"></span>원</div>
+    <div class="answer-grid3">
+      <div><div class="answer-label">복지카드 2명 합계</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">일반 2명 합계</div><div class="answer-line"></div></div>
+      <div><div class="answer-label">4명 전체 합계</div><div class="answer-line"></div></div>
+    </div>
+  </div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">13</span>
+      <span class="q-text"><b>예은</b>이는 복지카드로 <b>65,000원</b>을 절약했어요.
+        이 절약한 돈으로 할 수 있는 것을 계산해 보세요.</span>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:5px;">
+      <div class="q-box" style="margin-bottom:0; background:#f9f0ff;">
+        <div style="font-size:13px; font-weight:bold; margin-bottom:6px;">① 팝콘(5,000원)을 몇 개 살 수 있을까요?</div>
+        <div class="calc-step">65,000 ÷ 5,000 = <span class="blank-sm"></span>개</div>
+        <div style="font-size:12px; color:#666;">남는 돈: <span class="blank-sm"></span>원</div>
+        <div style="margin-top:6px;"><div class="answer-label">답</div><div class="answer-line"></div></div>
+      </div>
+      <div class="q-box" style="margin-bottom:0; background:#f9f0ff;">
+        <div style="font-size:13px; font-weight:bold; margin-bottom:6px;">② 아이스크림(6,000원)을 몇 개 살 수 있을까요?</div>
+        <div class="calc-step">65,000 ÷ 6,000 = <span class="blank-sm"></span>개</div>
+        <div style="font-size:12px; color:#666;">남는 돈: <span class="blank-sm"></span>원</div>
+        <div style="margin-top:6px;"><div class="answer-label">답</div><div class="answer-line"></div></div>
+      </div>
+    </div>
+    <div style="margin-top:8px; font-size:13px;">
+      복지카드가 없었다면 살 수 없었던 것들이에요. 복지카드로 절약한 돈을 어떻게 쓰고 싶나요?
+    </div>
+    <div class="answer-line" style="margin-top:5px;"></div>
+  </div>
+
+  <div class="section-title-gray">⭐ 나만의 롯데월드 하루 계획 (14번)</div>
+
+  <div class="q-box">
+    <div class="q-head"><span class="q-num">14</span>
+      <span class="q-text">내가 롯데월드에 간다면 어떤 시설을 이용하고 무엇을 먹을지 계획을 세워 보세요.
+        복지카드 할인을 적용한 금액을 포함해서 써 보세요.</span>
+    </div>
+    <div class="myplan">
+      <div class="myplan-head mpcol4"><span>항목</span><span style="text-align:right;">일반 가격</span><span style="text-align:right;">복지카드 가격</span><span style="text-align:right;">실제 낼 금액</span></div>
+      <div class="myplan-row mpcol4">
+        <span>🎢 롯데월드 어드벤처</span>
+        <span style="text-align:right; color:#aaa; text-decoration:line-through; font-size:12px;">60,000원</span>
+        <span style="text-align:right; color:#6a1b9a; font-size:12px;">30,000원</span>
+        <span style="text-align:right;"></span>
+      </div>
+      <div class="myplan-row mpcol4">
+        <span>🏙️ 서울스카이 전망대</span>
+        <span style="text-align:right; color:#aaa; text-decoration:line-through; font-size:12px;">30,000원</span>
+        <span style="text-align:right; color:#6a1b9a; font-size:12px;">15,000원</span>
+        <span style="text-align:right;"></span>
+      </div>
+      <div class="myplan-row mpcol4">
+        <span>🐠 롯데월드 아쿠아리움</span>
+        <span style="text-align:right; color:#aaa; text-decoration:line-through; font-size:12px;">40,000원</span>
+        <span style="text-align:right; color:#6a1b9a; font-size:12px;">20,000원</span>
+        <span style="text-align:right;"></span>
+      </div>
+      <div class="myplan-row mpcol4"><span>🍽️ 먹거리 (직접 선택)</span><span></span><span></span><span></span></div>
+      <div class="myplan-row mpcol4"><span>🛍️ 기념품</span><span></span><span></span><span></span></div>
+      <div class="myplan-row mpcol4"><span>🚌 교통비</span><span></span><span></span><span></span></div>
+      <div class="myplan-total mpcol4"><span>하루 합계</span><span></span><span></span><span></span></div>
+    </div>
+    <div style="font-size:13px;">예산 <b>100,000원</b>으로 내 계획을 실행할 수 있나요?</div>
+    <div class="check-row" style="margin-top:5px; margin-bottom:7px;">
+      <div class="check-item"><span class="check-box"></span> 할 수 있어요</div>
+      <div class="check-item"><span class="check-box"></span> 할 수 없어요</div>
+    </div>
+    <div style="font-size:12px; color:#555;">이유 (계산 과정 포함):</div>
+    <div class="answer-line" style="margin-top:4px;"></div>
+    <div class="answer-line" style="margin-top:10px;"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE 5 : 정답지 (선생님용)
+     ══════════════════════════════════════════ -->
+<div class="page">
+  <div class="sheet-header">
+    <div>
+      <div class="sheet-title">🎢 롯데월드 · 서울스카이 · 아쿠아리움 수학 학습지 — 정답지</div>
+      <div class="sheet-sub">선생님용 · 5쪽</div>
+    </div>
+    <div class="logo-badge">정답지</div>
+  </div>
+
+  <div class="tip-box">
+    <b>지도 팁</b>: "50% 할인 = 절반 = ÷2" 규칙을 먼저 체감하게 해주세요.
+    1~3번에서 각 시설별로 할인 적용을 연습한 뒤, 4~7번에서 합산·비교로 확장해요.
+    복지카드 실물이나 사진을 보여주며 "실제로 어떻게 쓰는지" 함께 이야기하면 학습 동기가 높아져요.
+    13번은 절약 금액의 실질적 가치를 느끼게 하는 문제로, 다양한 답이 가능해요.
+  </div>
+
+  <div class="section-title">정답 모음</div>
+  <table class="ans-table">
+    <colgroup>
+      <col style="width:7%"><col style="width:18%"><col style="width:47%"><col style="width:28%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th style="text-align:center;">번호</th>
+        <th style="text-align:center;">핵심 포인트</th>
+        <th style="text-align:center;">풀이</th>
+        <th style="text-align:center;">답</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td style="text-align:center; font-weight:bold;">1</td><td>50% 할인 계산</td><td>할인금액: 60,000÷2=30,000 / 복지카드 가격: 60,000−30,000=30,000</td><td class="ans">할인 30,000원 / 복지카드 30,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">2</td><td>50% 할인 계산</td><td>할인금액: 30,000÷2=15,000 / 복지카드 가격: 30,000−15,000=15,000</td><td class="ans">할인 15,000원 / 복지카드 15,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">3</td><td>50% 할인 계산</td><td>할인금액: 40,000÷2=20,000 / 복지카드 가격: 40,000−20,000=20,000</td><td class="ans">할인 20,000원 / 복지카드 20,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">4</td><td>세 시설 합산</td><td>30,000+15,000+20,000</td><td class="ans">65,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">5</td><td>일반 vs 복지카드 비교</td><td>일반: 60,000+30,000+40,000=130,000 / 복지카드: 65,000 / 절약: 130,000−65,000</td><td class="ans">일반 130,000원 / 복지카드 65,000원 / 절약 65,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">6</td><td>혼합 인원 계산</td><td>예은(복지카드) 20,000 + 주은(일반) 40,000</td><td class="ans">60,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">7</td><td>거스름돈</td><td>100,000 − 65,000</td><td class="ans">35,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">8</td><td>식사비 합산</td><td>점심: 12,000+4,000=16,000 / 간식: 6,000+5,000=11,000 / 합계: 16,000+11,000</td><td class="ans">27,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">9</td><td>영수증 완성</td><td>피자 8,000×2=16,000 / 음료수 4,000×3=12,000 / 합계 16,000+6,000+12,000+15,000=49,000 / 거스름돈 60,000−49,000</td><td class="ans">합계 49,000원 / 거스름돈 11,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">10</td><td>하루 전체 지출</td><td>입장료 65,000 + 먹거리 27,000 + 기념품 15,000 + 교통비 5,000</td><td class="ans">112,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">11</td><td>1인 비교</td><td>주현(복지카드) 65,000 / 하은(일반) 130,000 / 차이 130,000−65,000</td><td class="ans">차이 65,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">12</td><td>단체 혼합 계산</td><td>복지카드 2명: 65,000×2=130,000 / 일반 2명: 130,000×2=260,000 / 합계: 130,000+260,000</td><td class="ans">390,000원</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">13</td><td>나눗셈 활용</td><td>팝콘: 65,000÷5,000=13개(나머지 0) / 아이스크림: 65,000÷6,000=10개(나머지 5,000원)</td><td class="ans">팝콘 13개 / 아이스크림 10개(5,000원 남음)</td></tr>
+      <tr><td style="text-align:center; font-weight:bold;">14</td><td>자유 계획</td><td colspan="2">세 시설 복지카드 가격(65,000원) + 먹거리·기타를 포함한 합계가 100,000원 이내인지 확인</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box" style="margin-top:14px;">
+    <b>수업 활용 아이디어</b><br>
+    · 1~3번 전: "복지카드를 받으면 어떤 기분일까?" 공감 대화 후 할인 개념 소개<br>
+    · 5번 비교 문제: "내가 아낀 돈으로 무엇을 더 할 수 있을까?" 연결 토의<br>
+    · 9번 영수증: 실제 영수증 실물을 활용하면 더 실감나는 학습 가능<br>
+    · 12번 단체 계산: "우리 반 중 복지카드 있는 사람이 ○명이면 전체 입장료는?" 응용<br>
+    · 13번 절약 활용: 절약 금액으로 "내가 가장 사고 싶은 것" 발표 활동<br>
+    · 14번 나만의 계획: 모둠별 발표 → 복지카드를 현명하게 사용하는 방법 토의<br>
+    · 심화: 실제 롯데월드 홈페이지 검색하여 현재 복지카드 할인 혜택 확인해보기
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>나의 방학, 나의 계획 — 방학계획서 쓰기 학습지</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4 portrait; margin: 14mm 15mm; }
+* { box-sizing: border-box; }
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  margin: 0; background: #e0f2f1; color: #1f2d3d;
+  font-family: 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+  font-size: 12pt; line-height: 1.65;
+}
+
+.toolbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 18px; background: #00796b; color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.toolbar .muted { color: #b2dfdb; margin-left: 10px; font-weight: 400; font-size: 0.9em; }
+.toolbar button {
+  background: #ffd54f; color: #004d40; border: none; font: inherit; font-weight: 700;
+  padding: 8px 18px; border-radius: 6px; cursor: pointer;
+}
+.toolbar button:hover { background: #ffe082; }
+
+.page {
+  width: 210mm; min-height: 297mm;
+  margin: 14mm auto; padding: 16mm 18mm;
+  background: #fff; box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+  position: relative; page-break-after: always;
+}
+.page:last-of-type { page-break-after: auto; }
+
+/* ===== 표지 ===== */
+.page.cover {
+  padding: 22mm 20mm;
+  background: linear-gradient(135deg, #fff 0%, #e0f7fa 100%);
+}
+.cover-top {
+  display: flex; justify-content: space-between;
+  font-size: 0.9em; color: #37474f;
+  border-bottom: 2px solid #b2dfdb; padding-bottom: 10px; margin-bottom: 22px;
+}
+.cover-top .subject { font-weight: 700; color: #00796b; }
+.cover-main { text-align: center; padding: 14px 0 12px; }
+.cover-main .badge {
+  display: inline-block; padding: 6px 18px; border-radius: 20px;
+  background: #00796b; color: #fff; font-weight: 700; font-size: 0.95em;
+  margin-bottom: 12px; letter-spacing: 0.5px;
+}
+.cover-main h1 {
+  margin: 0; font-size: 2.1em; letter-spacing: -1.5px;
+  color: #004d40; font-weight: 900;
+}
+.cover-main .lead {
+  margin: 8px 0 0; font-size: 1.05em; color: #37474f; font-weight: 500;
+}
+.name-box {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 8px; margin: 16px 0;
+}
+.name-cell { border: 1.5px solid #4db6ac; border-radius: 8px; padding: 10px 12px; }
+.name-cell span { display: block; font-size: 0.78em; color: #00796b; font-weight: 500; }
+.name-cell em { display: block; min-height: 24px; font-style: normal; }
+
+.goal, .info, .toc {
+  border: 2px solid #4db6ac; border-radius: 10px;
+  padding: 12px 16px; margin-top: 10px; background: #e0f2f1;
+}
+.goal h2, .info h2, .toc h2 {
+  margin: 0 0 6px; font-size: 1.05em; color: #004d40;
+  border-bottom: 1px dashed #4db6ac; padding-bottom: 5px;
+}
+.goal ul { margin: 4px 0 0; padding-left: 20px; }
+.goal li { padding: 2px 0; }
+.info p { margin: 0 0 4px; font-size: 0.95em; color: #37474f; }
+.toc ol { margin: 4px 0 0; padding-left: 24px; }
+.toc li { padding: 2px 0; }
+
+/* ===== 쪽 머리 ===== */
+.ph {
+  display: flex; align-items: center; gap: 16px;
+  border-bottom: 3px solid #00796b; padding-bottom: 12px; margin-bottom: 18px;
+}
+.ph-num {
+  flex-shrink: 0; width: 60px; height: 60px;
+  background: #00796b; color: #ffd54f;
+  font-family: 'Noto Serif KR', serif;
+  font-size: 1.5em; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; border-radius: 10px;
+  text-align: center; line-height: 1;
+}
+.ph-title h2 { margin: 0; font-size: 1.4em; color: #004d40; }
+.ph-title p { margin: 2px 0 0; color: #607d8b; font-size: 0.95em; }
+
+/* ===== 본문 ===== */
+.story {
+  background: #fff; border: 2px solid #80cbc4; border-radius: 8px;
+  padding: 12px 16px; margin: 8px 0 12px; line-height: 1.85;
+}
+.story p { margin: 0 0 6px; }
+
+.scene {
+  background: #e0f7fa; border-left: 6px solid #0097a7;
+  border-radius: 6px; padding: 12px 16px; margin-bottom: 14px;
+}
+.scene p { margin: 0; }
+
+.tip {
+  background: #fff3e0; border-left: 5px solid #ef6c00;
+  border-radius: 6px; padding: 10px 14px; margin: 10px 0;
+}
+.tip .tip-title { display: block; font-weight: 700; color: #bf360c; margin-bottom: 4px; }
+
+.warm {
+  background: #fce4ec; border-left: 6px solid #c2185b;
+  border-radius: 6px; padding: 10px 14px; margin: 10px 0;
+}
+.warm .tip-title { display: block; font-weight: 700; color: #880e4f; margin-bottom: 4px; }
+
+.calm {
+  background: #e8f5e9; border-left: 6px solid #388e3c;
+  border-radius: 6px; padding: 10px 14px; margin: 10px 0;
+}
+.calm .tip-title { display: block; font-weight: 700; color: #1b5e20; margin-bottom: 4px; }
+
+/* ===== 대비 박스 ===== */
+.compare {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin: 8px 0;
+}
+.compare-card { border-radius: 10px; padding: 10px 14px; }
+.compare-card.left {
+  background: #eceff1; border: 1.5px solid #90a4ae;
+}
+.compare-card.right {
+  background: #e0f7fa; border: 1.5px solid #4dd0e1;
+}
+.compare-card h4 { margin: 0 0 4px; font-size: 1em; }
+.compare-card.left h4 { color: #455a64; }
+.compare-card.right h4 { color: #006064; }
+.compare-card ul { margin: 4px 0 0; padding-left: 20px; }
+.compare-card li { font-size: 0.92em; padding: 1px 0; }
+
+/* ===== 4영역 카드 ===== */
+.area-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
+  margin: 10px 0;
+}
+.area {
+  background: #fff; border: 2px solid #4db6ac; border-radius: 10px;
+  padding: 10px 12px; text-align: center;
+}
+.area .a-icon { font-size: 1.8em; line-height: 1.1; }
+.area strong { display: block; color: #004d40; font-size: 1em; margin: 4px 0; }
+.area small { display: block; color: #546e7a; font-size: 0.82em; line-height: 1.4; }
+.area.a1 { border-color: #26a69a; background: #e0f2f1; }
+.area.a2 { border-color: #7e57c2; background: #ede7f6; }
+.area.a3 { border-color: #ef6c00; background: #fff3e0; }
+.area.a4 { border-color: #ec407a; background: #fce4ec; }
+.area.a1 strong { color: #004d40; }
+.area.a2 strong { color: #4527a0; }
+.area.a3 strong { color: #bf360c; }
+.area.a4 strong { color: #880e4f; }
+
+/* ===== 예시 모음 (4열 메뉴) ===== */
+.area-menu {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px;
+  margin: 6px 0 10px;
+}
+.area-menu-col {
+  border-radius: 8px; padding: 8px 10px;
+  border: 1.5px solid;
+}
+.area-menu-col h5 {
+  margin: 0 0 4px; font-size: 0.9em; padding: 3px 10px;
+  border-radius: 10px; display: inline-block; color: #fff;
+}
+.area-menu-col ul {
+  margin: 4px 0 0; padding-left: 18px;
+  font-size: 0.82em; line-height: 1.55;
+}
+.area-menu-col li { padding: 1px 0; color: #37474f; }
+.mc1 { border-color: #26a69a; background: #e0f2f1; }
+.mc1 h5 { background: #26a69a; }
+.mc2 { border-color: #7e57c2; background: #ede7f6; }
+.mc2 h5 { background: #7e57c2; }
+.mc3 { border-color: #ef6c00; background: #fff3e0; }
+.mc3 h5 { background: #ef6c00; }
+.mc4 { border-color: #ec407a; background: #fce4ec; }
+.mc4 h5 { background: #ec407a; }
+
+/* ===== 목표 입력 카드 ===== */
+.goal-cards {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+  margin: 10px 0;
+}
+.goal-card {
+  border: 2px solid #b2dfdb; border-radius: 10px;
+  padding: 10px 14px; background: #f1fbf9;
+}
+.goal-card h4 {
+  margin: 0 0 5px; font-size: 0.95em; padding: 3px 10px;
+  border-radius: 12px; display: inline-block;
+}
+.goal-card.g1 { border-color: #26a69a; }
+.goal-card.g1 h4 { background: #26a69a; color: #fff; }
+.goal-card.g2 { border-color: #7e57c2; }
+.goal-card.g2 h4 { background: #7e57c2; color: #fff; }
+.goal-card.g3 { border-color: #ef6c00; }
+.goal-card.g3 h4 { background: #ef6c00; color: #fff; }
+.goal-card.g4 { border-color: #ec407a; }
+.goal-card.g4 h4 { background: #ec407a; color: #fff; }
+.goal-card .example {
+  font-size: 0.82em; color: #607d8b; font-style: italic;
+  margin: 3px 0 5px;
+}
+
+/* ===== 예시 대비 (모호 vs 구체) ===== */
+.vs-box {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+  margin: 8px 0;
+}
+.vs-card {
+  border-radius: 10px; padding: 10px 14px;
+}
+.vs-card.bad {
+  background: #fff8e1; border: 1.5px dashed #ffb300;
+}
+.vs-card.good {
+  background: #e8f5e9; border: 2px solid #66bb6a;
+}
+.vs-card .vs-tag {
+  display: inline-block; padding: 2px 10px; border-radius: 12px;
+  font-size: 0.82em; font-weight: 700; margin-bottom: 5px;
+}
+.vs-card.bad .vs-tag { background: #ffb300; color: #4e342e; }
+.vs-card.good .vs-tag { background: #388e3c; color: #fff; }
+.vs-card p { margin: 0; font-size: 0.94em; }
+
+/* ===== SMART 원칙 카드 ===== */
+.smart-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  margin: 8px 0;
+}
+.smart {
+  background: #e0f7fa; border: 1.5px solid #4dd0e1; border-radius: 10px;
+  padding: 8px 10px; text-align: center;
+}
+.smart .num {
+  display: inline-block; width: 26px; height: 26px;
+  background: #0097a7; color: #fff; border-radius: 50%;
+  font-weight: 700; line-height: 26px; margin-bottom: 4px;
+  font-size: 0.9em;
+}
+.smart strong { display: block; color: #006064; font-size: 0.95em; }
+.smart small { display: block; color: #37474f; font-size: 0.82em; margin-top: 2px; line-height: 1.4; }
+
+/* ===== 6명 친구 프로필 ===== */
+.friend-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  margin: 8px 0 10px;
+}
+.friend {
+  border: 1.5px solid; border-left-width: 6px; border-radius: 10px;
+  padding: 8px 12px; background: #fff;
+}
+.friend .f-name {
+  font-weight: 700; margin-bottom: 3px; font-size: 1em;
+  display: flex; align-items: center; gap: 6px;
+}
+.friend .f-name .emoji { font-size: 1.15em; }
+.friend .f-desc {
+  font-size: 0.84em; color: #37474f; margin: 0; line-height: 1.55;
+}
+.friend.f1 { border-color: #90a4ae; }
+.friend.f1 .f-name { color: #37474f; }
+.friend.f2 { border-color: #0097a7; }
+.friend.f2 .f-name { color: #006064; }
+.friend.f3 { border-color: #7cb342; }
+.friend.f3 .f-name { color: #33691e; }
+.friend.f4 { border-color: #7e57c2; }
+.friend.f4 .f-name { color: #4527a0; }
+.friend.f5 { border-color: #ef6c00; }
+.friend.f5 .f-name { color: #bf360c; }
+.friend.f6 { border-color: #ec407a; }
+.friend.f6 .f-name { color: #880e4f; }
+
+/* ===== 상황 카드 ===== */
+.scenario-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px;
+  margin: 8px 0;
+}
+.scenario {
+  background: #fff8e1; border: 1.5px solid #ffca28;
+  border-radius: 10px; padding: 9px 13px;
+}
+.scenario .s-q {
+  font-weight: 700; color: #bf360c; margin: 0 0 5px; font-size: 0.95em;
+}
+.scenario .s-a {
+  font-size: 0.88em; color: #37474f; margin: 0;
+  padding: 5px 9px; background: rgba(255,255,255,0.75);
+  border-radius: 6px; line-height: 1.55;
+}
+.scenario .s-a::before { content: "🔑 "; }
+
+/* ===== 주간 계획표 ===== */
+table.week {
+  width: 100%; border-collapse: collapse; margin: 8px 0;
+  font-size: 0.9em;
+}
+.week th, .week td {
+  border: 1px solid #4db6ac; padding: 6px 5px;
+  text-align: center;
+  height: 42px;
+}
+.week th {
+  background: #00796b; color: #fff;
+  font-weight: 700;
+}
+.week td.label {
+  background: #e0f2f1; font-weight: 600; color: #004d40;
+  width: 15%; font-size: 0.88em;
+}
+
+/* ===== 하루 시간표 예시 ===== */
+table.tbl {
+  width: 100%; border-collapse: collapse; margin: 8px 0;
+}
+.tbl th, .tbl td {
+  border: 1px solid #4db6ac; padding: 6px 10px;
+  text-align: left; font-size: 0.94em;
+}
+.tbl th {
+  background: #00796b; color: #fff;
+  font-weight: 700; text-align: center;
+}
+.tbl tr:nth-child(even) td { background: #f1fbf9; }
+
+/* ===== 계획서 최종 양식 ===== */
+.plan-sheet {
+  border: 3px solid #00796b; border-radius: 12px;
+  padding: 14px 18px; background: #fff;
+  margin: 8px 0;
+}
+.plan-sheet .ps-title {
+  text-align: center; font-weight: 700; color: #004d40;
+  font-size: 1.15em; border-bottom: 2px dashed #4db6ac;
+  padding-bottom: 6px; margin-bottom: 10px;
+}
+.plan-sheet .ps-row {
+  display: grid; grid-template-columns: 100px 1fr;
+  gap: 8px; margin-bottom: 7px; align-items: start;
+}
+.plan-sheet .ps-label {
+  background: #b2dfdb; color: #004d40;
+  padding: 4px 8px; border-radius: 6px;
+  font-weight: 700; font-size: 0.9em;
+  text-align: center;
+}
+.plan-sheet .ps-input {
+  border-bottom: 1.5px solid #90a4ae;
+  min-height: 26px;
+}
+.plan-sheet .ps-input.multi {
+  border: 1.5px dashed #90a4ae; border-radius: 6px;
+  padding: 6px 10px; min-height: 44px;
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0, transparent 26px, #cfd8dc 26px, #cfd8dc 27px);
+  background-position: 0 8px;
+}
+
+/* ===== 짝활동 (사회성) ===== */
+.partner {
+  background: #fce4ec; border: 2px solid #f48fb1; border-radius: 10px;
+  padding: 12px 16px; margin: 10px 0;
+}
+.partner h4 {
+  margin: 0 0 6px; color: #880e4f; font-size: 1em;
+  display: flex; align-items: center; gap: 6px;
+}
+.partner-lines {
+  background: #fff; padding: 6px 10px; border-radius: 6px;
+  margin-top: 4px;
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0, transparent 26px, #f8bbd0 26px, #f8bbd0 27px);
+  min-height: 80px;
+}
+
+/* ===== 문제 ===== */
+.practice h3 {
+  display: inline-block; background: #ffd54f; color: #004d40;
+  padding: 4px 14px; border-radius: 16px; font-size: 1em; margin: 8px 0 12px;
+}
+.q {
+  position: relative;
+  padding-left: 42px;
+  margin-bottom: 12px; padding-bottom: 10px;
+  border-bottom: 1px dashed #cfd8dc;
+}
+.q:last-child { border-bottom: none; }
+.q .no {
+  position: absolute; left: 0; top: 0;
+  width: 30px; height: 30px;
+  background: #00796b; color: #fff;
+  border-radius: 50%; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; font-size: 0.92em;
+}
+.q p { margin: 0 0 6px; }
+.q .sub-q { margin-top: 5px; font-weight: 500; color: #455a64; }
+
+.choice-box {
+  background: #fffde7; border: 1.5px solid #fdd835;
+  border-radius: 8px; padding: 7px 14px; margin: 6px 0;
+  font-weight: 500;
+}
+.choice-box::before { content: "<보기> "; font-weight: 700; color: #f57f17; }
+
+.blank {
+  display: inline-block; border-bottom: 1.5px solid #263238;
+  min-width: 70px; height: 22px; vertical-align: baseline;
+}
+.blank.long { min-width: 220px; }
+
+.lines {
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0, transparent 32px, #b0bec5 32px, #b0bec5 33px
+  );
+  height: 34px; margin: 4px 0;
+}
+.lines.two { height: 68px; }
+.lines.three { height: 102px; }
+
+.pledge {
+  background: #fffde7; border: 2px dashed #fbc02d;
+  border-radius: 8px; padding: 12px 16px; margin: 10px 0;
+}
+.pledge h4 { margin: 0 0 6px; color: #f57f17; font-size: 1.05em; }
+
+.self-check {
+  background: #f1f8e9; border: 1.5px solid #aed581;
+  border-radius: 8px; padding: 12px 16px; margin-top: 14px;
+}
+.self-check h4 { margin: 0 0 6px; color: #33691e; font-size: 1em; }
+.self-check label { display: block; padding: 2px 0; }
+.self-check input[type=checkbox] {
+  margin-right: 8px; width: 16px; height: 16px;
+  accent-color: #7cb342; vertical-align: middle;
+}
+
+.page-no {
+  position: absolute; bottom: 8mm; right: 18mm;
+  color: #90a4ae; font-size: 0.85em; letter-spacing: 1px;
+}
+
+/* ===== 인쇄 ===== */
+@media print {
+  @page { size: A4 portrait; margin: 0; }
+  html, body {
+    background: #fff !important; margin: 0; padding: 0;
+    font-size: 10pt; line-height: 1.38;
+  }
+  .toolbar, .no-print { display: none !important; }
+  .page {
+    width: 210mm; min-height: 297mm;
+    margin: 0 !important; padding: 10mm 13mm;
+    box-shadow: none; border: none;
+    page-break-after: always; break-after: page;
+  }
+  .page:last-of-type { page-break-after: auto; }
+  .q, .scene, .tip, .warm, .calm, .story, .compare,
+  .area-grid, .goal-cards, .goal-card, .smart-grid, .vs-box,
+  .self-check, .pledge, .partner, .plan-sheet,
+  .name-box, .goal, .info, .toc, .ph,
+  table.tbl, table.week, tr {
+    page-break-inside: avoid !important; break-inside: avoid !important;
+  }
+  h1, h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+  h1 { font-size: 1.8em; margin: 0; }
+  h2 { font-size: 1.18em; margin: 0 0 4px; }
+  h3 { font-size: 1em; margin: 6px 0 4px; padding: 3px 10px; }
+  p { margin: 0 0 3px; }
+  ul, ol { margin: 3px 0; }
+  .page.cover { padding: 16mm 16mm; }
+  .ph { padding-bottom: 8px; margin-bottom: 10px; gap: 12px; }
+  .ph-num { width: 46px; height: 46px; font-size: 1.2em; border-radius: 8px; }
+  .ph-title h2 { font-size: 1.18em; }
+  .scene, .tip, .warm, .calm, .story { padding: 7px 12px; margin: 4px 0 8px; }
+  .compare { gap: 6px; }
+  .compare-card { padding: 7px 10px; }
+  .area-grid { gap: 6px; }
+  .area { padding: 6px 8px; }
+  .area .a-icon { font-size: 1.4em; }
+  .area-menu { gap: 4px; }
+  .area-menu-col { padding: 5px 8px; }
+  .area-menu-col h5 { font-size: 0.82em; padding: 2px 8px; }
+  .area-menu-col ul { font-size: 0.72em; padding-left: 14px; line-height: 1.4; }
+  .goal-cards { gap: 6px; }
+  .goal-card { padding: 7px 10px; }
+  .smart-grid { gap: 5px; }
+  .smart { padding: 6px 8px; }
+  .smart .num { width: 22px; height: 22px; line-height: 22px; }
+  .tbl th, .tbl td { padding: 4px 7px; font-size: 0.88em; }
+  .week th, .week td { padding: 4px; height: 32px; font-size: 0.82em; }
+  .q { margin-bottom: 8px; padding-bottom: 6px; padding-left: 34px; }
+  .q .no { width: 26px; height: 26px; font-size: 0.88em; }
+  .lines { height: 26px;
+    background-image: repeating-linear-gradient(
+      to bottom, transparent 0, transparent 24px, #b0bec5 24px, #b0bec5 25px); }
+  .lines.two { height: 52px; }
+  .lines.three { height: 78px; }
+  .self-check { padding: 7px 12px; margin-top: 8px; }
+  .pledge { padding: 8px 12px; margin: 6px 0; }
+  .partner { padding: 8px 12px; }
+  .partner-lines { min-height: 60px; }
+  .plan-sheet { padding: 8px 12px; }
+  .plan-sheet .ps-row { margin-bottom: 4px; }
+  .plan-sheet .ps-input.multi { min-height: 32px; }
+  .plan-sheet .ps-label { padding: 3px 6px; font-size: 0.8em; }
+  .page-no { bottom: 6mm; right: 14mm; }
+
+  /* A4 한 장 fit — 신규 섹션 최적화 */
+  .friend-grid, .scenario-grid, .area-menu {
+    page-break-inside: avoid !important; break-inside: avoid !important;
+  }
+  .friend-grid { gap: 5px !important; }
+  .friend { padding: 6px 10px !important; }
+  .friend .f-name { font-size: 0.88em; margin-bottom: 2px; }
+  .friend .f-desc { font-size: 0.76em !important; line-height: 1.4 !important; }
+  .scenario-grid { gap: 5px !important; }
+  .scenario { padding: 6px 10px !important; }
+  .scenario .s-q { font-size: 0.85em; margin-bottom: 3px; }
+  .scenario .s-a { font-size: 0.78em !important; padding: 3px 7px; line-height: 1.4 !important; }
+
+  /* 목표 카드 컴팩트 */
+  .goal-card { padding: 6px 10px !important; }
+  .goal-card h4 { font-size: 0.85em !important; padding: 2px 8px !important; margin-bottom: 3px !important; }
+  .goal-card .example { font-size: 0.75em !important; margin: 2px 0 3px !important; }
+  .goal-cards { gap: 5px !important; }
+
+  /* 자기점검·서약·짝활동 컴팩트 */
+  .self-check label { padding: 1px 0 !important; font-size: 0.88em; }
+  .pledge { padding: 7px 11px !important; margin: 5px 0 !important; }
+  .partner { padding: 7px 11px !important; }
+  .partner h4 { font-size: 0.9em !important; }
+  .partner-lines { min-height: 45px !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar no-print">
+  <div><strong>🌊 나의 방학, 나의 계획</strong> <span class="muted">국어 · 방학계획서 쓰기 · 표지 + 7쪽</span></div>
+  <button onclick="window.print()">🖨 인쇄하기</button>
+</div>
+
+<!-- ============ 표지 ============ -->
+<div class="page cover">
+  <div class="cover-top">
+    <span><b class="subject">국어</b> · 방학계획서 쓰기</span>
+    <span>고등학교 특수학급 · 총 7차시</span>
+  </div>
+  <div class="cover-main">
+    <span class="badge">🌊 여름·겨울 방학 계획 세우기</span>
+    <h1>나의 방학, 나의 계획</h1>
+    <p class="lead">목표를 세우고 · 계획을 쓰고 · 실천을 다짐해요</p>
+  </div>
+
+  <div class="name-box">
+    <div class="name-cell"><span>학년 반</span><em></em></div>
+    <div class="name-cell"><span>번호</span><em></em></div>
+    <div class="name-cell"><span>이름</span><em></em></div>
+  </div>
+
+  <div class="goal">
+    <h2>📚 학습 목표</h2>
+    <ul>
+      <li>방학계획서의 <b>네 가지 구성 요소</b>를 이해할 수 있어요.</li>
+      <li>내 방학을 <b>건강 · 학습 · 취미 · 관계</b> 4영역으로 나누어 목표를 세울 수 있어요.</li>
+      <li>모호한 계획을 <b>구체적이고 실천 가능한 문장</b>으로 고쳐 쓸 수 있어요.</li>
+      <li>가족·친구와 함께할 계획을 포함해 나만의 <b>방학계획서</b>를 완성할 수 있어요.</li>
+    </ul>
+  </div>
+
+  <div class="info">
+    <h2>🗓️ 학습 안내</h2>
+    <p>이 학습지는 국어 수업 시간에 <b>글쓰기·의사소통</b>을 중심으로 진행해요.</p>
+    <p>혼자 쓰는 시간과 <b>짝과 나누는 시간</b>이 함께 있어요.</p>
+    <p>정답보다 <b>내 생각을 문장으로 표현</b>하는 것이 더 중요해요. 틀려도 괜찮아요.</p>
+  </div>
+
+  <div class="toc">
+    <h2>📖 차례</h2>
+    <ol>
+      <li>왜 계획을 세울까? — 채원이와 하영이의 방학 이야기</li>
+      <li>방학계획서 이해하기 — 구성 요소와 SMART 원칙</li>
+      <li>4영역 소개 + 다시 쓰기 예시 + 예시 모음</li>
+      <li>나의 4영역 목표 쓰기</li>
+      <li>다양한 방학의 모습 · 6가지 상황 대처</li>
+      <li>주간 계획표 만들기 — 하영이 예시 + 나의 계획</li>
+      <li>나만의 방학계획서 완성 · 짝과 나누기 · 다짐</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ============ 1쪽 ============ -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-num">1</div>
+    <div class="ph-title">
+      <h2>왜 방학계획서를 쓸까?</h2>
+      <p>두 학생의 방학이 이렇게 달랐어요.</p>
+    </div>
+  </div>
+
+  <div class="story">
+    <p><b>채원이</b>는 방학이 시작되자마자 침대에 누워 스마트폰만 보았어요. 처음엔 “드디어 자유다!” 하고 신났지만, 하루가 지나고 이틀이 지나자 시간이 어떻게 흘러가는지 잘 몰랐어요. 개학 전날, 방학 숙제도 안 하고 <b>“나 방학 동안 뭐 했지?”</b> 하고 텅 빈 마음이 들었어요.</p>
+    <p><b>하영이</b>는 방학 첫날에 A4 한 장을 꺼내 <b>방학계획서</b>를 썼어요. 아침 8시에 일어나 운동 20분, 오전엔 방학 숙제, 오후엔 도서관 다녀오기. 주말엔 가족과 영화. 매일 다 지키진 못했지만, 지킨 날이 더 많았어요. 개학 날 하영이는 뿌듯한 마음으로 학교에 왔어요.</p>
+  </div>
+
+  <div class="compare">
+    <div class="compare-card left">
+      <h4>🌫 계획이 없을 때</h4>
+      <ul>
+        <li>시간이 어떻게 지나가는지 모른다</li>
+        <li>하고 싶었던 일도 결국 못 한다</li>
+        <li>방학 끝에 <b>후회</b>가 남는다</li>
+        <li>가족·친구와 약속을 잊는다</li>
+      </ul>
+    </div>
+    <div class="compare-card right">
+      <h4>🌊 계획이 있을 때</h4>
+      <ul>
+        <li>매일 <b>무엇을 할지</b>가 분명하다</li>
+        <li>다 못해도 “한 만큼”이 남는다</li>
+        <li>방학 끝에 <b>뿌듯함</b>이 남는다</li>
+        <li>가족·친구와 함께할 시간을 챙긴다</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="tip">
+    <span class="tip-title">💡 계획서의 힘</span>
+    계획서는 <b>“꼭 지켜야 하는 명령”</b>이 아니라, <b>“내가 나에게 주는 약속”</b>이에요. 다 못 지켜도 괜찮아요. 계획을 <b>쓰는 순간</b>부터 이미 방학이 달라지기 시작해요.
+  </div>
+
+  <div class="practice">
+    <h3>✏️ 생각 열기</h3>
+    <div class="q">
+      <span class="no">1</span>
+      <p>이야기 속 <b>채원이</b>와 <b>하영이</b>의 가장 큰 차이는 무엇인가요? 한 문장으로 써 보세요.</p>
+      <div class="lines"></div>
+    </div>
+    <div class="q">
+      <span class="no">2</span>
+      <p>지난 방학을 떠올려 보세요. 나는 <b>채원이</b>와 더 비슷했나요, <b>하영이</b>와 더 비슷했나요? 그 이유는요?</p>
+      <div class="lines two"></div>
+    </div>
+    <div class="q">
+      <span class="no">3</span>
+      <p>이번 방학이 끝났을 때, 나는 어떤 기분으로 개학 날을 맞고 싶은가요?</p>
+      <p class="sub-q">아래 <보기>에서 골라 O표 하고, 이유도 한 줄 써 보세요.</p>
+      <div class="choice-box">뿌듯함 · 후회 · 아쉬움 · 재미있었다 · 잘 쉬었다 · 성장했다</div>
+      <p>이유: </p>
+      <div class="lines"></div>
+    </div>
+  </div>
+
+  <div class="page-no">— 1 —</div>
+</div>
+
+<!-- ============ 2쪽 ============ -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-num">2</div>
+    <div class="ph-title">
+      <h2>방학계획서, 무엇을 쓰나요?</h2>
+      <p>계획서의 네 가지 구성 요소와 좋은 목표의 조건</p>
+    </div>
+  </div>
+
+  <div class="story">
+    <p><b>방학계획서</b>는 방학 동안 <b>“내가 무엇을, 언제, 어떻게 할지”</b>를 미리 정리해서 쓴 글이에요. 국어 시간에는 이 계획서를 통해 <b>내 생각을 문장으로 표현</b>하는 힘을 길러요.</p>
+  </div>
+
+  <div class="scene">
+    <p><b>💠 방학계획서 네 가지 구성 요소</b></p>
+  </div>
+
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th style="width:22%;">구성 요소</th>
+        <th style="width:38%;">무엇을 쓰나요?</th>
+        <th>예시 문장</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>① 기간</b></td>
+        <td>방학이 언제부터 언제까지인지</td>
+        <td>7월 22일 ~ 8월 20일 (30일간)</td>
+      </tr>
+      <tr>
+        <td><b>② 목표</b></td>
+        <td>이 방학에 <b>이루고 싶은 것</b></td>
+        <td>매일 30분씩 걷기 · 방학 숙제 다 하기</td>
+      </tr>
+      <tr>
+        <td><b>③ 실천 방법</b></td>
+        <td>목표를 <b>어떻게</b> 이룰지</td>
+        <td>아침 8시에 알람 맞추기 · 하루 1과씩 풀기</td>
+      </tr>
+      <tr>
+        <td><b>④ 함께할 사람</b></td>
+        <td>가족·친구 등 <b>같이할 사람</b></td>
+        <td>일요일마다 엄마와 산책 · 친구와 도서관</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="scene" style="margin-top:14px;">
+    <p><b>💠 좋은 목표의 3가지 조건 — 쉽게 부르는 <b>SMART</b> (스마트)</b></p>
+  </div>
+
+  <div class="smart-grid">
+    <div class="smart">
+      <div class="num">1</div>
+      <strong>구체적으로</strong>
+      <small>“운동하기”가 아니라<br>“매일 아침 20분 걷기”</small>
+    </div>
+    <div class="smart">
+      <div class="num">2</div>
+      <strong>할 수 있게</strong>
+      <small>내 몸과 시간에 맞게<br>“하루 30분”이면 충분</small>
+    </div>
+    <div class="smart">
+      <div class="num">3</div>
+      <strong>기간을 정해서</strong>
+      <small>“방학 내내” 대신<br>“7월 마지막 주까지”</small>
+    </div>
+  </div>
+
+  <div class="tip">
+    <span class="tip-title">✍️ 모호한 목표 vs 구체적인 목표</span>
+    같은 마음도 쓰기에 따라 <b>지킬 수 있는 목표</b>가 되고, <b>흐지부지</b> 되기도 해요.
+  </div>
+
+  <div class="vs-box">
+    <div class="vs-card bad">
+      <span class="vs-tag">😵 모호해요</span>
+      <p>“책을 많이 읽자.”</p>
+      <p style="margin-top:4px; font-size:0.85em; color:#795548;">→ 얼마나? 언제? 어떻게? 알 수 없어요.</p>
+    </div>
+    <div class="vs-card good">
+      <span class="vs-tag">😊 구체적이에요</span>
+      <p>“하루 20분씩, 방학 동안 책 3권을 읽는다.”</p>
+      <p style="margin-top:4px; font-size:0.85em; color:#1b5e20;">→ 얼마나·언제·몇 권까지 정해져 있어요.</p>
+    </div>
+  </div>
+
+  <div class="practice">
+    <h3>✏️ 문장 고쳐 쓰기</h3>
+    <div class="q">
+      <span class="no">1</span>
+      <p>아래 목표를 <b>더 구체적인 문장</b>으로 고쳐 써 보세요.</p>
+      <p class="sub-q">(1) “운동을 좀 하자.” →</p>
+      <div class="lines"></div>
+      <p class="sub-q">(2) “가족과 잘 지내자.” →</p>
+      <div class="lines"></div>
+    </div>
+    <div class="q">
+      <span class="no">2</span>
+      <p>친구들이 각자 방학 목표를 썼어요. <b>가장 좋은 목표 문장</b>은 무엇인가요? ( &nbsp;&nbsp; )</p>
+      <p class="sub-q">① <b>예은</b>: 열심히 산다.</p>
+      <p class="sub-q">② <b>주은</b>: 요리를 잘한다.</p>
+      <p class="sub-q">③ <b>하은</b>: 매주 토요일 저녁, 엄마와 반찬 한 가지를 함께 만든다.</p>
+      <p class="sub-q">④ <b>주현</b>: 방학 때 많이 논다.</p>
+    </div>
+  </div>
+
+  <div class="page-no">— 2 —</div>
+</div>
+
+<!-- ============ 3쪽 ============ -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-num">3</div>
+    <div class="ph-title">
+      <h2>4영역으로 나의 목표 세우기</h2>
+      <p>한 가지에 치우치지 않고, 균형 잡힌 방학을 만들어요.</p>
+    </div>
+  </div>
+
+  <div class="story">
+    <p>좋은 방학은 한 가지만 잘하는 방학이 아니에요. <b>건강 · 학습 · 취미 · 관계</b> 네 가지가 골고루 채워질 때 마음이 편안해요. 각 영역에서 <b>딱 하나</b>만 정해도 충분해요.</p>
+  </div>
+
+  <div class="area-grid">
+    <div class="area a1">
+      <div class="a-icon">💪</div>
+      <strong>건강</strong>
+      <small>몸 · 잠 · 밥 · 운동</small>
+    </div>
+    <div class="area a2">
+      <div class="a-icon">📚</div>
+      <strong>학습</strong>
+      <small>공부 · 숙제 · 독서</small>
+    </div>
+    <div class="area a3">
+      <div class="a-icon">🎨</div>
+      <strong>취미</strong>
+      <small>내가 좋아하는 것</small>
+    </div>
+    <div class="area a4">
+      <div class="a-icon">💗</div>
+      <strong>관계</strong>
+      <small>가족 · 친구와 시간</small>
+    </div>
+  </div>
+
+  <div class="scene" style="margin-top:10px;">
+    <p><b>💠 4영역별 <b>다시 쓰기</b> 예시</b> — 같은 마음, 이렇게 다르게 써요.</p>
+  </div>
+
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th style="width:14%;">영역</th>
+        <th style="width:33%;">😵 모호한 문장</th>
+        <th>😊 구체적인 문장 (SMART)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><b>💪 건강</b></td>
+        <td>“건강해지자.”</td>
+        <td>매일 오후 3시, 아파트 놀이터에서 30분 걷기 (주 5일)</td>
+      </tr>
+      <tr>
+        <td><b>📚 학습</b></td>
+        <td>“공부 좀 하자.”</td>
+        <td>월·수·금 오전 9~11시, 방학 숙제 하루 2쪽씩</td>
+      </tr>
+      <tr>
+        <td><b>🎨 취미</b></td>
+        <td>“취미를 갖자.”</td>
+        <td>주 3회, K-pop 안무 1곡을 8월 안에 완성하기</td>
+      </tr>
+      <tr>
+        <td><b>💗 관계</b></td>
+        <td>“친구랑 잘 지내자.”</td>
+        <td>주 1회 화요일 저녁, 친구에게 안부 문자 보내기</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="scene" style="margin-top:10px;">
+    <p><b>🌈 각 영역 예시 모음</b> — 여기서 골라도 좋고, 나만의 목표를 만들어도 좋아요.</p>
+  </div>
+
+  <div class="area-menu">
+    <div class="area-menu-col mc1">
+      <h5>💪 건강</h5>
+      <ul>
+        <li>매일 8시 기상·12시 취침</li>
+        <li>아침·저녁 20분씩 걷기</li>
+        <li>물 하루 6잔 마시기</li>
+        <li>매일 아침밥 챙기기</li>
+        <li>주 3회 스트레칭 15분</li>
+        <li>스마트폰 밤 11시엔 끄기</li>
+      </ul>
+    </div>
+    <div class="area-menu-col mc2">
+      <h5>📚 학습</h5>
+      <ul>
+        <li>방학 숙제 8월 10일까지</li>
+        <li>책 2권 읽고 감상 쓰기</li>
+        <li>영어 단어 하루 10개</li>
+        <li>일기 주 3회 쓰기</li>
+        <li>수학 문제집 하루 2쪽</li>
+        <li>뉴스 기사 1개 요약</li>
+      </ul>
+    </div>
+    <div class="area-menu-col mc3">
+      <h5>🎨 취미</h5>
+      <ul>
+        <li>K-pop 안무 1곡 익히기</li>
+        <li>그림 주 1장 그리기</li>
+        <li>간식 요리 3가지 배우기</li>
+        <li>영화·드라마 3편 감상</li>
+        <li>사진 앨범 만들기</li>
+        <li>새 보드게임 배우기</li>
+      </ul>
+    </div>
+    <div class="area-menu-col mc4">
+      <h5>💗 관계</h5>
+      <ul>
+        <li>주말 저녁 가족과 식사</li>
+        <li>친구와 방학 중 2번 만나기</li>
+        <li>친구에게 주 1회 안부 문자</li>
+        <li>부모님과 산책 주 1회</li>
+        <li>동생·오빠와 함께 하는 활동</li>
+        <li>친척집 방문·전화 1회</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="calm">
+    <span class="tip-title">💗 사회성 tip — “관계” 영역 잊지 않기</span>
+    방학은 학교 친구를 못 만나는 시간이 길어져요. 가족과 대화하는 시간, 친구에게 안부 문자를 보내는 것도 <b>훌륭한 관계 계획</b>이에요.
+  </div>
+
+  <div class="page-no">— 3 —</div>
+</div>
+
+<!-- ============ 4쪽 — 나의 목표 쓰기 ============ -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-num">4</div>
+    <div class="ph-title">
+      <h2>나의 4영역 목표 쓰기</h2>
+      <p>3쪽의 예시를 참고해서 나만의 문장으로 정해요.</p>
+    </div>
+  </div>
+
+  <div class="story">
+    <p>이제 <b>나의 목표</b>를 정할 시간이에요. 앞 쪽의 예시를 그대로 써도 좋고, <b>내 상황에 맞게</b> 새롭게 만들어도 좋아요. 각 영역에 <b>딱 한 문장</b>씩만 정하면 충분해요.</p>
+  </div>
+
+  <div class="practice">
+    <h3>✏️ 나의 4영역 목표 쓰기</h3>
+    <div class="goal-cards">
+      <div class="goal-card g1">
+        <h4>💪 건강</h4>
+        <p class="example">예) 밤 12시 전에 자기 · 매일 20분 산책</p>
+        <div class="lines two"></div>
+      </div>
+      <div class="goal-card g2">
+        <h4>📚 학습</h4>
+        <p class="example">예) 방학 숙제 8월 10일까지 · 책 2권 읽기</p>
+        <div class="lines two"></div>
+      </div>
+      <div class="goal-card g3">
+        <h4>🎨 취미</h4>
+        <p class="example">예) 그림 5장 그리기 · K-pop 안무 배우기</p>
+        <div class="lines two"></div>
+      </div>
+      <div class="goal-card g4">
+        <h4>💗 관계</h4>
+        <p class="example">예) 주말 저녁 가족 식사 · 친구와 2번 만나기</p>
+        <div class="lines two"></div>
+      </div>
+    </div>
+
+    <div class="q" style="margin-top:14px;">
+      <span class="no">1</span>
+      <p>위 4가지 목표 중, 나에게 <b>가장 중요한 것</b>은 무엇이고 그 이유는요?</p>
+      <p class="sub-q">가장 중요한 영역: <span class="blank"></span></p>
+      <p class="sub-q">이유:</p>
+      <div class="lines two"></div>
+    </div>
+    <div class="q">
+      <span class="no">2</span>
+      <p>내 목표를 <b>함께 응원해 줄 사람</b>은 누구인가요? (2명 이상)</p>
+      <div class="lines"></div>
+    </div>
+  </div>
+
+  <div class="page-no">— 4 —</div>
+</div>
+
+<!-- ============ 5쪽 — 다양한 상황과 대처 ============ -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-num">5</div>
+    <div class="ph-title">
+      <h2>다양한 방학의 모습과 상황</h2>
+      <p>친구들의 스타일을 살펴보고, 예상 상황에 미리 대비해요.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p><b>👭 우리 반 친구들의 방학 스타일</b> — 정답은 없어요. 나에게 맞는 방식을 찾는 게 중요해요.</p>
+  </div>
+
+  <div class="friend-grid">
+    <div class="friend f1">
+      <div class="f-name"><span class="emoji">🌫</span>채원</div>
+      <p class="f-desc"><b>계획 없이</b> 시작했다가 시간이 순식간에 사라졌어요. 이번엔 짧아도 계획서를 <b>써 보기</b>로 결심.</p>
+    </div>
+    <div class="friend f2">
+      <div class="f-name"><span class="emoji">🌊</span>하영</div>
+      <p class="f-desc">요일·시간별로 <b>꼼꼼히</b> 계획을 짜요. 매일 저녁 지킨 걸 O표. 뿌듯한 방학의 대표주자.</p>
+    </div>
+    <div class="friend f3">
+      <div class="f-name"><span class="emoji">🌿</span>하은</div>
+      <p class="f-desc">완벽하게 못 지켜도 <b>다시 시작</b>해요. 계획이 <b>8할</b>만 되어도 충분하다는 생각.</p>
+    </div>
+    <div class="friend f4">
+      <div class="f-name"><span class="emoji">📚</span>주현</div>
+      <p class="f-desc"><b>학습</b>에 힘을 실은 방학. 그래도 잠·밥·운동은 잊지 않아요. 한 영역만 잘하는 건 무리.</p>
+    </div>
+    <div class="friend f5">
+      <div class="f-name"><span class="emoji">🎨</span>예은</div>
+      <p class="f-desc"><b>취미와 관계</b>가 우선. 그림, 가족 산책이 계획의 중심. 여유 있게 채우는 방학.</p>
+    </div>
+    <div class="friend f6">
+      <div class="f-name"><span class="emoji">🗓</span>주은</div>
+      <p class="f-desc">병원·특강 등 <b>특별한 일정</b>이 많아 요일마다 다른 계획. 융통성 있게 조율해요.</p>
+    </div>
+  </div>
+
+  <div class="scene" style="margin-top:10px;">
+    <p><b>🤔 만약 이런 상황이라면?</b> — 방학 중 자주 생기는 6가지 상황과 대처법</p>
+  </div>
+
+  <div class="scenario-grid">
+    <div class="scenario">
+      <div class="s-q">😅 3일째부터 계획을 못 지켰어요</div>
+      <p class="s-a">지운 자국은 두고 <b>내일 한 칸</b>부터 다시 시작해요. 못 지킨다고 계획을 버리진 않아요.</p>
+    </div>
+    <div class="scenario">
+      <div class="s-q">🚗 갑자기 친척집에 가야 해요</div>
+      <p class="s-a">그 날은 <b>“가족 시간”</b>으로 표시. 놓친 하루는 주말로 옮기거나 그냥 지나가도 괜찮아요.</p>
+    </div>
+    <div class="scenario">
+      <div class="s-q">📱 친구가 자꾸 놀자고 연락해요</div>
+      <p class="s-a"><b>“오후 3시 이후엔 가능해!”</b>처럼 시간을 정해 답해요. 무조건 거절도, 무조건 허락도 X.</p>
+    </div>
+    <div class="scenario">
+      <div class="s-q">🏥 병원·특강 등 예약이 있는 날</div>
+      <p class="s-a">그 날은 학습·취미 시간을 <b>짧게</b> 잡고, 기본 리듬(잠·밥)만 지켜요.</p>
+    </div>
+    <div class="scenario">
+      <div class="s-q">🤒 몸이 아파요</div>
+      <p class="s-a">쉬는 것도 <b>계획의 한 부분</b>이에요. 자책하지 말고, 낫는 데 집중해요.</p>
+    </div>
+    <div class="scenario">
+      <div class="s-q">🌙 밤에 잠이 안 와요</div>
+      <p class="s-a">스마트폰을 <b>1시간 전에 끄기</b>. 그래도 못 자면 아침 알람은 그대로 유지해서 리듬 지키기.</p>
+    </div>
+  </div>
+
+  <div class="practice">
+    <h3>✏️ 나는 어떤 스타일?</h3>
+    <div class="q">
+      <span class="no">1</span>
+      <p>위 6명 중 나는 어떤 친구와 <b>가장 비슷</b>한가요? <b>배우고 싶은</b> 친구는 누구인가요?</p>
+      <p class="sub-q">나와 비슷한 친구: <span class="blank"></span> &nbsp;&nbsp; 배우고 싶은 친구: <span class="blank"></span></p>
+    </div>
+    <div class="q">
+      <span class="no">2</span>
+      <p>6가지 상황 중 나에게 <b>가장 있을 법한</b> 상황과 나만의 대처 방법을 써 보세요.</p>
+      <div class="lines"></div>
+    </div>
+  </div>
+
+  <div class="page-no">— 5 —</div>
+</div>
+
+<!-- ============ 6쪽 ============ -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-num">6</div>
+    <div class="ph-title">
+      <h2>주간 계획표 만들기</h2>
+      <p>하루와 일주일을 시간으로 나누어 배치해 보아요.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <p><b>🌅 하루 시간을 5구간으로 나누기</b> — 시간 감각을 익혀 보세요.</p>
+  </div>
+
+  <table class="tbl">
+    <thead>
+      <tr>
+        <th style="width:22%;">구간</th>
+        <th style="width:28%;">시간</th>
+        <th>추천 활동</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><b>🌅 아침</b></td><td>07:00 ~ 09:00</td><td>일어나기 · 세수 · 아침밥 · 가벼운 운동</td></tr>
+      <tr><td><b>☀️ 오전</b></td><td>09:00 ~ 12:00</td><td>공부 · 숙제 · 독서 (집중이 잘 되는 시간)</td></tr>
+      <tr><td><b>🍚 점심 후</b></td><td>13:00 ~ 15:00</td><td>산책 · 심부름 · 짧은 낮잠도 좋아요</td></tr>
+      <tr><td><b>🎨 오후</b></td><td>15:00 ~ 18:00</td><td>취미 · 친구 만남 · 자유 시간</td></tr>
+      <tr><td><b>🌙 저녁</b></td><td>18:00 ~ 22:00</td><td>저녁밥 · 가족 시간 · 씻고 잘 준비</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warm">
+    <span class="tip-title">🌙 잠 시간 지키기</span>
+    방학이라도 <b>매일 비슷한 시간</b>에 잠들고 일어나는 것이 가장 중요해요. 밤 12시 전에 자고 아침 8시 전에 일어나기를 권해요.
+  </div>
+
+  <div class="scene" style="margin-top:12px;">
+    <p><b>📅 나의 <b>일주일</b> 계획표</b> — 아래 예시를 참고해 빈칸에 <b>내 계획</b>을 써 보세요.</p>
+  </div>
+
+  <div style="background:#e0f2f1; border:1.5px dashed #4db6ac; border-radius:8px; padding:7px 12px; margin:6px 0 8px; font-size:0.88em; line-height:1.6;">
+    <b style="color:#004d40;">✨ 하영이 예시</b> — 월 오전: 방학 숙제 · 화 오후: 그림 그리기 · 수 오후: 친구와 도서관 · 목 오전: 영어 단어 · 금 오후: 요리 배우기 · 토: 가족 산책 · 일: 자유 시간
+  </div>
+
+  <table class="week">
+    <thead>
+      <tr>
+        <th>시간</th>
+        <th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th><th>일</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="label">아침<br>07~09</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td class="label">오전<br>09~12</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td class="label">오후<br>13~18</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td class="label">저녁<br>18~22</td>
+        <td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip">
+    <span class="tip-title">💡 실천이 잘 되는 3가지 방법</span>
+    <b>① 알람</b>을 맞춰 놓기 &nbsp;·&nbsp; <b>② 눈에 잘 보이는 곳</b>에 계획서 붙이기 &nbsp;·&nbsp; <b>③ 지킨 날은 O표</b> 하기 (다 못 지켜도 O표 하나가 힘이 돼요)
+  </div>
+
+  <div class="page-no">— 6 —</div>
+</div>
+
+<!-- ============ 7쪽 ============ -->
+<div class="page">
+  <div class="ph">
+    <div class="ph-num">7</div>
+    <div class="ph-title">
+      <h2>나만의 방학계획서 완성하기</h2>
+      <p>지금까지 정한 내용을 <b>한 장의 계획서</b>로 옮겨 쓰고, 짝과 나눠 보아요.</p>
+    </div>
+  </div>
+
+  <div style="background:#e0f2f1; border:1.5px dashed #4db6ac; border-radius:8px; padding:7px 12px; margin:0 0 8px; font-size:0.83em; line-height:1.6;">
+    <b style="color:#004d40;">✨ 하영이의 완성 예시 (참고)</b> &nbsp;·&nbsp;
+    <b>건강</b>: 매일 8시 기상·밤 12시 취침 &nbsp;|&nbsp;
+    <b>학습</b>: 방학 숙제 8월 10일까지·책 2권 &nbsp;|&nbsp;
+    <b>취미</b>: K-pop 안무 1곡 배우기 &nbsp;|&nbsp;
+    <b>관계</b>: 주말 저녁 가족 식사·친구 2번 만나기 &nbsp;|&nbsp;
+    <b>함께</b>: 엄마·채원
+  </div>
+
+  <div class="plan-sheet">
+    <div class="ps-title">🌊 20 &nbsp;&nbsp; 년 &nbsp;&nbsp;&nbsp; 방 학 계 획 서 🌊</div>
+    <div class="ps-row">
+      <div class="ps-label">이름</div>
+      <div class="ps-input"></div>
+    </div>
+    <div class="ps-row">
+      <div class="ps-label">기간</div>
+      <div class="ps-input"></div>
+    </div>
+    <div class="ps-row">
+      <div class="ps-label">계획서 제목</div>
+      <div class="ps-input"></div>
+    </div>
+    <div class="ps-row">
+      <div class="ps-label">💪 건강 목표</div>
+      <div class="ps-input multi"></div>
+    </div>
+    <div class="ps-row">
+      <div class="ps-label">📚 학습 목표</div>
+      <div class="ps-input multi"></div>
+    </div>
+    <div class="ps-row">
+      <div class="ps-label">🎨 취미 목표</div>
+      <div class="ps-input multi"></div>
+    </div>
+    <div class="ps-row">
+      <div class="ps-label">💗 관계 목표</div>
+      <div class="ps-input multi"></div>
+    </div>
+    <div class="ps-row">
+      <div class="ps-label">함께할 사람</div>
+      <div class="ps-input"></div>
+    </div>
+  </div>
+
+  <div class="partner">
+    <h4>🤝 짝과 나누기 — 서로의 계획서를 소개해요</h4>
+    <p style="margin:0 0 4px; font-size:0.92em;">짝의 계획서를 듣고 <b>가장 인상 깊은 목표</b>와 <b>응원의 한마디</b>를 써 주세요.</p>
+    <div class="partner-lines"></div>
+  </div>
+
+  <div class="pledge">
+    <h4>✋ 나에게 주는 약속</h4>
+    <p>나 (&nbsp;&nbsp;<span class="blank"></span>&nbsp;&nbsp;)는(은) 이번 방학에 위 계획을 <b>지키기 위해 노력</b>할 것을 약속합니다. 다 못 지켜도 다시 시작하고, 스스로를 <b>응원</b>하겠습니다.</p>
+    <p style="margin-top:8px; text-align:right;">20&nbsp;&nbsp;&nbsp; 년&nbsp;&nbsp; 월&nbsp;&nbsp; 일 &nbsp;&nbsp; 이름 <span class="blank"></span> (서명)</p>
+  </div>
+
+  <div class="self-check">
+    <h4>✅ 다 쓴 다음 스스로 점검하기</h4>
+    <label><input type="checkbox"> 4가지 영역(건강·학습·취미·관계)에 모두 목표를 썼다.</label>
+    <label><input type="checkbox"> 목표가 <b>구체적인 문장</b>으로 되어 있다. (숫자·시간·요일이 있다)</label>
+    <label><input type="checkbox"> <b>함께할 사람</b>이 계획서에 들어 있다.</label>
+    <label><input type="checkbox"> 짝의 계획을 듣고 응원의 말을 써 주었다.</label>
+    <label><input type="checkbox"> 이 계획서를 <b>눈에 잘 보이는 곳</b>에 붙여 둘 곳을 정했다.</label>
+  </div>
+
+  <div class="page-no">— 7 —</div>
+</div>
+
+</body>
+</html>
