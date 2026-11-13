@@ -1,0 +1,2012 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>☕ 바리스타 2급 실기 시뮬레이터 (KCA)</title>
+<style>
+:root{
+  --coffee:#6F4E37;--coffee-dark:#3E2723;--espresso:#2E1A0D;
+  --latte:#D7B899;--cream:#FFF8E7;--milk:#FFFAF2;--caramel:#C48355;
+  --navy:#191F28;--gray:#8B95A1;--gray2:#B0B8C1;
+  --bg:#F2EEE8;--line:#E5DED3;--white:#FFFFFF;
+  --green:#00A86B;--green-light:#E6F7EF;--red:#E53935;--red-light:#FEECEC;
+  --yellow:#FFC107;--amber:#F39C12;--amber-light:#FFF3E0;--blue:#2E86DE;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{font-family:'Pretendard','Malgun Gothic',-apple-system,sans-serif;background:#DCD4C7;min-height:100vh;display:flex;justify-content:center;color:var(--navy);}
+.app{width:100%;max-width:460px;background:var(--milk);min-height:100vh;position:relative;box-shadow:0 0 40px rgba(0,0,0,.2);display:flex;flex-direction:column;overflow:hidden;}
+
+.teacher-bar{background:var(--espresso);color:#fff;padding:10px 14px;font-size:12px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+.teacher-bar .badge{background:var(--yellow);color:var(--espresso);padding:2px 8px;border-radius:10px;font-weight:800;font-size:11px;}
+.teacher-panel{background:#4E342E;color:#F5E6D3;padding:14px 18px 18px;font-size:13px;line-height:1.65;display:none;}
+.teacher-panel.open{display:block;}
+.teacher-panel h4{color:var(--yellow);font-size:13.5px;margin-top:12px;margin-bottom:4px;}
+.teacher-panel h4:first-child{margin-top:0;}
+.teacher-panel ul{padding-left:18px;}
+.teacher-panel li{margin-bottom:3px;}
+.teacher-panel kbd{background:#5D4037;padding:1px 6px;border-radius:4px;font-size:11.5px;font-weight:700;}
+.teacher-panel .src{font-size:11px;opacity:.75;margin-top:10px;}
+.teacher-panel .src a{color:#FFD966;}
+
+.statusbar{background:var(--milk);padding:8px 20px 4px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;color:var(--espresso);border-bottom:1px solid var(--line);}
+
+.hdr{background:var(--milk);color:var(--espresso);padding:14px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);min-height:52px;}
+.hdr-back{background:transparent;border:none;width:36px;height:36px;font-size:22px;cursor:pointer;color:var(--espresso);display:flex;align-items:center;justify-content:center;border-radius:50%;}
+.hdr-back:active{background:var(--bg);}
+.hdr-title{font-size:17px;font-weight:800;flex:1;}
+.hdr .sub{font-size:12px;color:var(--gray);margin-left:6px;font-weight:600;}
+
+.screen{display:none;flex:1;overflow-y:auto;padding-bottom:30px;}
+.screen.active{display:block;}
+.sec{padding:22px 20px;}
+.sec-no-top{padding:0 20px 22px;}
+
+/* 홈 */
+.hero{margin:16px 16px 20px;background:linear-gradient(135deg,var(--coffee-dark) 0%,var(--coffee) 100%);color:#fff;border-radius:22px;padding:22px 22px 24px;position:relative;overflow:hidden;box-shadow:0 8px 20px rgba(62,39,35,.25);}
+.hero::before{content:'';position:absolute;right:-30px;top:-30px;width:140px;height:140px;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);border-radius:50%;}
+.hero-tag{font-size:11.5px;font-weight:700;background:rgba(255,255,255,.22);padding:4px 10px;border-radius:20px;display:inline-block;margin-bottom:10px;}
+.hero h1{font-size:22px;font-weight:800;letter-spacing:-.3px;margin-bottom:6px;line-height:1.3;}
+.hero p{font-size:13.5px;opacity:.9;line-height:1.5;max-width:70%;}
+.hero-stats{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
+.hero-stat{background:rgba(255,255,255,.18);border-radius:10px;padding:7px 11px;font-size:11.5px;}
+.hero-stat b{font-size:14px;display:block;margin-top:2px;font-weight:800;}
+
+.progress-wrap{margin:0 16px 20px;background:#fff;border-radius:16px;padding:16px 18px;border:1.5px solid var(--line);}
+.progress-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.progress-title{font-size:14px;font-weight:800;color:var(--espresso);}
+.progress-pct{font-size:14px;font-weight:800;color:var(--coffee);}
+.progress-bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--coffee),var(--caramel));border-radius:4px;transition:width .4s;}
+
+.main-menu{margin:0 16px 20px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.menu-card{background:#fff;border-radius:18px;padding:18px 16px;border:1.5px solid var(--line);cursor:pointer;transition:all .15s;display:flex;flex-direction:column;gap:6px;position:relative;overflow:hidden;min-height:116px;}
+.menu-card:active{transform:scale(.98);}
+.menu-card:hover{box-shadow:0 8px 16px rgba(62,39,35,.1);border-color:var(--coffee);}
+.menu-card .mc-ico{font-size:36px;line-height:1;margin-bottom:4px;}
+.menu-card h3{font-size:16px;font-weight:800;color:var(--espresso);}
+.menu-card p{font-size:12px;color:var(--gray);line-height:1.4;}
+.menu-card.wide{grid-column:span 2;flex-direction:row;align-items:center;gap:14px;background:linear-gradient(135deg,#3E2723 0%,#5D4037 100%);color:#fff;border-color:transparent;min-height:auto;}
+.menu-card.wide .mc-ico{font-size:40px;flex-shrink:0;margin-bottom:0;background:rgba(255,255,255,.14);width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;}
+.menu-card.wide h3{color:#fff;}
+.menu-card.wide p{color:rgba(255,255,255,.75);}
+
+.footer-src{padding:16px 20px 24px;font-size:11px;color:var(--gray);line-height:1.5;text-align:center;background:var(--bg);}
+.footer-src a{color:var(--coffee);text-decoration:none;}
+
+/* 이론 */
+.theory-mode{display:flex;gap:6px;padding:12px 16px;}
+.tm-btn{flex:1;padding:12px 10px;background:#fff;border:1.5px solid var(--line);border-radius:12px;font-size:13.5px;font-weight:700;color:var(--gray);cursor:pointer;font-family:inherit;}
+.tm-btn.active{background:var(--coffee);color:#fff;border-color:var(--coffee);}
+.sec-title{padding:4px 20px 12px;font-size:15px;font-weight:800;color:var(--espresso);display:flex;align-items:center;gap:8px;}
+.sec-title small{font-size:12px;font-weight:600;color:var(--gray);margin-left:4px;}
+.flash-grid{padding:4px 16px 20px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.flash{background:var(--cream);border:1.5px solid var(--line);border-radius:14px;padding:14px 12px;text-align:center;cursor:pointer;min-height:150px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px;transition:all .15s;position:relative;}
+.flash:hover{border-color:var(--coffee);}
+.flash:active{transform:scale(.97);}
+.flash-ico{width:44px;height:44px;}
+.flash-ico svg{width:100%;height:100%;}
+.flash-term{font-size:15px;font-weight:800;color:var(--espresso);}
+.flash-hint{font-size:11.5px;color:var(--gray);margin-top:2px;}
+.flash.flipped .flash-front{display:none;}
+.flash-back{display:none;font-size:12.5px;color:var(--navy);line-height:1.5;padding:0 2px;}
+.flash.flipped .flash-back{display:block;}
+.flash-tag{position:absolute;top:8px;right:10px;font-size:10.5px;font-weight:700;color:var(--coffee);background:#fff;padding:1px 6px;border-radius:6px;}
+
+/* 퀴즈 */
+.quiz-wrap{padding:16px;}
+.quiz-prog{display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.quiz-prog-bar{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden;}
+.quiz-prog-fill{height:100%;background:var(--coffee);transition:width .3s;}
+.quiz-prog-txt{font-size:12.5px;font-weight:700;color:var(--gray);white-space:nowrap;}
+.quiz-q{background:#fff;border:1.5px solid var(--line);border-radius:16px;padding:20px 18px;margin-bottom:14px;font-size:16px;font-weight:700;color:var(--espresso);line-height:1.5;}
+.quiz-opts{display:flex;flex-direction:column;gap:9px;}
+.quiz-opt{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:14px 16px;font-size:14.5px;color:var(--navy);cursor:pointer;text-align:left;font-family:inherit;font-weight:600;transition:all .15s;}
+.quiz-opt:hover{border-color:var(--coffee);}
+.quiz-opt.correct{background:var(--green-light);border-color:var(--green);color:var(--green);}
+.quiz-opt.wrong{background:var(--red-light);border-color:var(--red);color:var(--red);}
+.quiz-opt:disabled{cursor:not-allowed;}
+.quiz-exp{margin-top:12px;background:var(--amber-light);border-radius:12px;padding:12px 14px;font-size:13px;color:#6D4A00;line-height:1.5;display:none;}
+.quiz-exp.show{display:block;}
+.quiz-result{background:#fff;border-radius:16px;padding:22px;text-align:center;margin:0 16px;}
+.quiz-result-score{font-size:46px;font-weight:800;color:var(--coffee);margin-bottom:4px;}
+.quiz-result-score .max{font-size:20px;color:var(--gray);}
+.quiz-result-grade{font-size:15px;font-weight:700;margin-bottom:14px;}
+
+/* 시뮬레이터 공통 */
+.sim-nav{display:flex;gap:4px;padding:10px 12px;background:#fff;border-bottom:1px solid var(--line);overflow-x:auto;}
+.sim-nav::-webkit-scrollbar{display:none;}
+.sim-step{min-width:64px;padding:8px 10px;background:var(--bg);border-radius:10px;font-size:11.5px;font-weight:700;color:var(--gray);cursor:pointer;text-align:center;border:none;font-family:inherit;flex-shrink:0;}
+.sim-step .sn{display:block;font-size:14px;font-weight:800;margin-bottom:2px;}
+.sim-step.active{background:var(--coffee);color:#fff;}
+.sim-step.done{background:var(--green-light);color:var(--green);}
+.sim-step.done .sn::before{content:'✓ ';}
+
+.stage-panel{display:none;padding:14px 16px;}
+.stage-panel.active{display:block;}
+.stage-head{background:linear-gradient(135deg,var(--coffee),var(--coffee-dark));color:#fff;border-radius:14px;padding:14px 16px;margin-bottom:14px;}
+.stage-head .sh-no{font-size:11.5px;opacity:.8;font-weight:700;letter-spacing:.5px;}
+.stage-head .sh-title{font-size:18px;font-weight:800;margin:2px 0 4px;}
+.stage-head .sh-hint{font-size:12.5px;opacity:.9;line-height:1.5;}
+
+.stage-visual{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;position:relative;overflow:hidden;}
+.stage-visual svg{display:block;margin:0 auto;max-width:100%;height:auto;}
+
+.stage-controls{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px;}
+.ctrl-row{display:flex;gap:8px;margin-bottom:10px;align-items:center;}
+.ctrl-row:last-child{margin-bottom:0;}
+.ctrl-lbl{font-size:13px;font-weight:700;color:var(--espresso);min-width:70px;}
+.ctrl-val{font-size:14px;font-weight:800;color:var(--coffee);min-width:60px;text-align:center;}
+
+.dial-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;}
+.dial-btn{width:44px;height:44px;border-radius:50%;border:none;background:var(--coffee);color:#fff;font-size:22px;font-weight:800;cursor:pointer;font-family:inherit;}
+.dial-btn:disabled{background:var(--gray2);cursor:not-allowed;}
+.dial-btn:active:not(:disabled){transform:scale(.95);background:var(--coffee-dark);}
+.dial-display{flex:1;text-align:center;}
+.dial-num{font-size:48px;font-weight:800;color:var(--espresso);line-height:1;}
+.dial-desc{font-size:12px;color:var(--gray);margin-top:4px;line-height:1.4;}
+.dial-desc.good{color:var(--green);font-weight:700;}
+.dial-desc.warn{color:var(--amber);font-weight:700;}
+.dial-desc.bad{color:var(--red);font-weight:700;}
+
+.action-btn{width:100%;padding:16px;border:none;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;font-family:inherit;transition:all .15s;margin-top:4px;}
+.action-btn:disabled{background:var(--gray2);color:#fff;cursor:not-allowed;opacity:.6;}
+.action-btn:active:not(:disabled){transform:scale(.98);}
+.ab-coffee{background:var(--coffee);color:#fff;}
+.ab-coffee:hover:not(:disabled){background:var(--coffee-dark);}
+.ab-green{background:var(--green);color:#fff;}
+.ab-red{background:var(--red);color:#fff;}
+.ab-blue{background:var(--blue);color:#fff;}
+.ab-gray{background:var(--bg);color:var(--navy);border:1.5px solid var(--line);}
+
+.btn-row{display:flex;gap:10px;}
+.btn-row .action-btn{flex:1;}
+
+.feedback-box{margin-top:10px;padding:12px 14px;border-radius:10px;font-size:13.5px;line-height:1.5;background:var(--bg);color:var(--navy);min-height:44px;display:flex;align-items:center;gap:8px;}
+.feedback-box.good{background:var(--green-light);color:var(--green);}
+.feedback-box.warn{background:var(--amber-light);color:#8A5A00;}
+.feedback-box.bad{background:var(--red-light);color:var(--red);}
+.feedback-box b{font-weight:800;}
+
+/* 저울/게이지 */
+.scale-display{background:#111;color:#4CAF50;padding:12px 16px;border-radius:12px;text-align:center;font-family:'Pretendard',monospace;letter-spacing:1px;margin-bottom:10px;border:2px solid #222;}
+.scale-display .sd-label{font-size:11px;opacity:.7;}
+.scale-display .sd-val{font-size:32px;font-weight:800;font-variant-numeric:tabular-nums;text-shadow:0 0 6px rgba(76,175,80,.6);}
+.scale-display .sd-tgt{font-size:11px;opacity:.65;margin-top:2px;}
+
+.force-gauge{position:relative;height:28px;background:linear-gradient(90deg,#e0e0e0 0%,#fff59d 40%,#aed581 55%,#aed581 75%,#ff8a65 85%,#e53935 100%);border-radius:14px;margin:8px 0 6px;overflow:hidden;border:2px solid #333;}
+.force-indicator{position:absolute;top:0;bottom:0;width:4px;background:#333;transform:translateX(-50%);transition:left .05s linear;}
+.force-marks{display:flex;justify-content:space-between;font-size:10px;color:var(--gray);padding:0 2px;font-weight:700;}
+.force-marks b{color:var(--green);}
+
+.level-indicator{width:80px;height:80px;border-radius:50%;background:#f5f5f5;border:3px solid #333;margin:10px auto;position:relative;overflow:hidden;box-shadow:inset 0 2px 6px rgba(0,0,0,.2);}
+.level-bubble{position:absolute;width:20px;height:20px;background:radial-gradient(circle at 30% 30%,#90CAF9,#2196F3);border-radius:50%;top:30px;left:30px;transition:all .25s;box-shadow:0 1px 3px rgba(0,0,0,.3);}
+.level-cross{position:absolute;inset:0;}
+.level-cross::before,.level-cross::after{content:'';position:absolute;background:rgba(0,0,0,.2);}
+.level-cross::before{top:50%;left:10%;right:10%;height:1px;transform:translateY(-50%);}
+.level-cross::after{left:50%;top:10%;bottom:10%;width:1px;transform:translateX(-50%);}
+.level-circle{position:absolute;inset:25%;border:1.5px solid var(--green);border-radius:50%;}
+
+.temp-display{background:#fff;border:2px solid var(--line);border-radius:12px;padding:14px 16px;text-align:center;margin-bottom:10px;}
+.temp-val{font-size:38px;font-weight:800;color:var(--coffee);font-variant-numeric:tabular-nums;}
+.temp-val .unit{font-size:20px;color:var(--gray);}
+.temp-bar{height:10px;background:linear-gradient(90deg,#90CAF9 0%,#FFE082 35%,#A5D6A7 55%,#FFAB91 75%,#E53935 100%);border-radius:5px;margin-top:8px;position:relative;}
+.temp-marker{position:absolute;top:-4px;bottom:-4px;width:3px;background:#333;border-radius:2px;transform:translateX(-50%);transition:left .3s;}
+.temp-marks{display:flex;justify-content:space-between;font-size:10px;color:var(--gray);margin-top:6px;font-weight:700;}
+.temp-marks b{color:var(--green);}
+
+/* 타이머 */
+.timer-card{background:linear-gradient(135deg,var(--espresso),var(--coffee-dark));color:#fff;border-radius:14px;padding:16px;text-align:center;margin-bottom:12px;}
+.timer-label{font-size:12px;opacity:.85;margin-bottom:4px;}
+.timer-display{font-size:44px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-1px;line-height:1.1;}
+.timer-display .unit{font-size:18px;opacity:.75;}
+.timer-sub{font-size:11.5px;opacity:.7;margin-top:4px;}
+
+/* 결과 */
+.result-card{background:#fff;border:2px solid var(--coffee);border-radius:18px;padding:22px 18px;margin-bottom:14px;}
+.result-total{font-size:52px;font-weight:800;color:var(--coffee);text-align:center;line-height:1;}
+.result-total .max{font-size:22px;color:var(--gray);font-weight:700;}
+.result-grade{text-align:center;font-size:17px;font-weight:800;margin:8px 0 18px;}
+.result-grade.pass{color:var(--green);}
+.result-grade.fail{color:var(--red);}
+.result-stage{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);}
+.result-stage:last-child{border-bottom:none;}
+.rs-name{flex:1;font-size:14px;font-weight:700;color:var(--navy);}
+.rs-score{font-size:15px;font-weight:800;}
+.rs-bar{height:5px;background:var(--line);border-radius:3px;overflow:hidden;width:80px;}
+.rs-bar-fill{height:100%;transition:width .5s;}
+.rs-bar-fill.good{background:var(--green);}
+.rs-bar-fill.warn{background:var(--amber);}
+.rs-bar-fill.bad{background:var(--red);}
+
+/* 체크리스트/모의시험 공통 */
+.checklist-card{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:12px;}
+.cl-title{font-size:14.5px;font-weight:800;color:var(--espresso);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.cl-list{display:flex;flex-direction:column;gap:2px;}
+.pl-item{display:flex;gap:10px;align-items:flex-start;padding:9px 0;font-size:13.5px;color:var(--navy);line-height:1.5;cursor:pointer;}
+.pl-check{width:24px;height:24px;flex-shrink:0;border:2px solid var(--gray2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:transparent;font-size:13px;font-weight:800;background:#fff;}
+.pl-item.checked .pl-check{background:var(--green);border-color:var(--green);color:#fff;}
+.pl-item.checked .pl-text{color:var(--gray);text-decoration:line-through;}
+.pl-text{flex:1;}
+.pl-text b{color:var(--coffee);font-weight:800;}
+
+/* 머신 시연 */
+.machine-wrap{padding:0 16px 16px;}
+.machine-display{background:#111;color:#4CAF50;font-family:'Pretendard',monospace;letter-spacing:1px;padding:12px 16px;border-radius:12px 12px 0 0;font-size:15px;font-weight:800;text-align:center;border:2px solid #222;border-bottom:none;text-shadow:0 0 6px rgba(76,175,80,.6);}
+.machine-display .md-time{font-size:28px;display:block;margin-top:2px;font-variant-numeric:tabular-nums;}
+.machine-stage{background:linear-gradient(180deg,#2a2520 0%,#1a1612 100%);border-radius:0 0 18px 18px;padding:14px 10px 18px;border:2px solid #222;border-top:none;position:relative;overflow:hidden;}
+.machine-svg{width:100%;max-width:380px;height:auto;display:block;margin:0 auto;}
+.machine-controls{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mc-btn{padding:16px 10px;border:none;border-radius:14px;font-size:14.5px;font-weight:800;cursor:pointer;font-family:inherit;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:6px;color:#fff;}
+.mc-btn:hover:not(:disabled){transform:translateY(-1px);}
+.mc-btn:disabled{opacity:.4;cursor:not-allowed;}
+.mc-btn.brew1{background:#27AE60;}
+.mc-btn.brew2{background:#1E8449;}
+.mc-btn.steam{background:#2980B9;}
+.mc-btn.hotwater{background:#D35400;}
+.mc-btn.stop{background:#C0392B;grid-column:span 2;}
+.mc-btn.portafilter{background:#5D4037;grid-column:span 2;}
+
+/* 모의시험 */
+.exam-timer-big{background:linear-gradient(135deg,var(--espresso),var(--coffee-dark));color:#fff;padding:24px 20px 18px;border-radius:22px;margin:4px 16px 14px;text-align:center;position:relative;}
+.exam-phase{font-size:13px;opacity:.85;margin-bottom:4px;}
+.exam-time{font-size:54px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-1px;margin-bottom:8px;line-height:1;}
+.exam-of{font-size:13px;opacity:.8;}
+.exam-bar{height:7px;background:rgba(255,255,255,.2);border-radius:4px;margin-top:12px;overflow:hidden;}
+.exam-bar-fill{height:100%;background:var(--amber);border-radius:4px;transition:width .3s;}
+.exam-btn-row{display:flex;gap:10px;margin:0 16px 14px;}
+.exam-btn{flex:1;padding:14px;border:none;border-radius:14px;font-size:15px;font-weight:800;cursor:pointer;font-family:inherit;transition:all .15s;}
+.exam-btn.start{background:var(--coffee);color:#fff;}
+.exam-btn.pause{background:var(--amber);color:#fff;}
+.exam-btn.stop{background:var(--bg);color:var(--navy);}
+.exam-task-card{margin:0 16px 10px;background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px;}
+.exam-task-card.done{background:var(--green-light);border-color:var(--green);}
+.exam-task-card.current{background:var(--amber-light);border-color:var(--amber);}
+.exam-task-ico{width:40px;height:40px;flex-shrink:0;font-size:30px;line-height:40px;text-align:center;}
+.exam-task-info{flex:1;}
+.exam-task-name{font-size:14.5px;font-weight:800;color:var(--espresso);}
+.exam-task-meta{font-size:12px;color:var(--gray);margin-top:2px;}
+.exam-task-badge{font-size:12px;font-weight:800;padding:5px 10px;border-radius:14px;background:var(--bg);color:var(--gray);}
+.exam-task-card.done .exam-task-badge{background:var(--green);color:#fff;}
+.exam-task-card.current .exam-task-badge{background:var(--amber);color:#fff;}
+
+/* 토스트 */
+.toast{position:fixed;bottom:60px;left:50%;transform:translateX(-50%);background:rgba(46,26,13,.95);color:#fff;padding:12px 22px;border-radius:24px;font-size:14px;font-weight:600;z-index:999;opacity:0;transition:all .25s;pointer-events:none;max-width:90%;text-align:center;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-8px);}
+
+/* 머신 애니메이션 */
+.machine-svg .espresso-stream{opacity:0;transition:opacity .2s;}
+.machine-svg .hotwater-stream{opacity:0;transition:opacity .2s;}
+.machine-svg .steam-group{opacity:0;}
+.machine-svg .cup-fill{transform-box:fill-box;transform-origin:center bottom;transform:scaleY(0);}
+.machine-svg .portafilter-group{transition:transform .3s;}
+.machine-svg.pf-off .portafilter-group{transform:translateY(-10px);opacity:.5;}
+.machine-svg.brewing .espresso-stream{opacity:1;animation:streamPulse .18s ease-in-out infinite;}
+.machine-svg.brewing .cup-fill{animation:cupFill 25s linear forwards;}
+.machine-svg.brewing .power-led{fill:#4CAF50;animation:ledBlink .5s linear infinite;}
+.machine-svg.steaming .steam-group{opacity:1;}
+.machine-svg.steaming .steam-1{animation:steamRise1 1.3s ease-out infinite;}
+.machine-svg.steaming .steam-2{animation:steamRise2 1.5s ease-out infinite;animation-delay:.3s;}
+.machine-svg.steaming .steam-3{animation:steamRise3 1.4s ease-out infinite;animation-delay:.6s;}
+.machine-svg.steaming .power-led{fill:#2196F3;animation:ledBlink .5s linear infinite;}
+.machine-svg.hotwater .hotwater-stream{opacity:1;animation:streamPulse .2s ease-in-out infinite;}
+
+/* 그라인더 애니메이션 */
+.grinder-svg .burr{transform-box:fill-box;transform-origin:center;}
+.grinder-svg.grinding .burr{animation:burrSpin .2s linear infinite;}
+.grinder-svg .bean-drop{opacity:0;}
+.grinder-svg.grinding .bean-drop{opacity:1;animation:beanFall 1s linear infinite;}
+.grinder-svg .ground-pile{transform-box:fill-box;transform-origin:center bottom;transform:scaleY(0);}
+
+/* 추출 애니메이션 */
+.extract-svg .stream-left,.extract-svg .stream-right{opacity:0;}
+.extract-svg.brewing .stream-left,.extract-svg.brewing .stream-right{opacity:1;animation:streamPulse .18s ease-in-out infinite;}
+.extract-svg .cup-fill{transform-box:fill-box;transform-origin:center bottom;transform:scaleY(0);}
+.extract-svg.brewing .cup-fill{animation:cupFill 30s linear forwards;}
+
+/* 스티밍 애니메이션 */
+.steam-svg .steam-puff{opacity:0;}
+.steam-svg.steaming .steam-puff{opacity:.85;}
+.steam-svg.steaming .puff-1{animation:steamRise1 1.3s ease-out infinite;}
+.steam-svg.steaming .puff-2{animation:steamRise2 1.5s ease-out infinite;animation-delay:.3s;}
+.steam-svg.steaming .puff-3{animation:steamRise3 1.4s ease-out infinite;animation-delay:.6s;}
+.steam-svg .milk-surface{transition:all .3s;}
+.steam-svg.steaming .milk-surface{animation:milkSwirl 1s ease-in-out infinite;}
+.steam-svg .foam-layer{transform-box:fill-box;transform-origin:center bottom;transform:scaleY(0);transition:transform .5s;}
+
+@keyframes streamPulse{0%,100%{transform:scaleY(1);}50%{transform:scaleY(1.05);}}
+@keyframes cupFill{from{transform:scaleY(0);}to{transform:scaleY(1);}}
+@keyframes steamRise1{0%{transform:translate(0,0) scale(1);opacity:.9;}100%{transform:translate(-4px,-30px) scale(1.5);opacity:0;}}
+@keyframes steamRise2{0%{transform:translate(0,0) scale(1);opacity:.8;}100%{transform:translate(3px,-28px) scale(1.6);opacity:0;}}
+@keyframes steamRise3{0%{transform:translate(0,0) scale(1);opacity:.85;}100%{transform:translate(-2px,-25px) scale(1.4);opacity:0;}}
+@keyframes ledBlink{0%,100%{opacity:1;}50%{opacity:.4;}}
+@keyframes milkSwirl{0%,100%{transform:rotate(0deg);}50%{transform:rotate(2deg);}}
+@keyframes burrSpin{from{transform:rotate(0);}to{transform:rotate(360deg);}}
+@keyframes beanFall{0%{transform:translateY(0);opacity:1;}100%{transform:translateY(30px);opacity:0;}}
+
+@media print{.app{box-shadow:none;max-width:100%;}}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="teacher-bar" onclick="toggleTeacher()">
+    <span>👩‍🏫 교사용 안내 · 한국커피협회 바리스타 2급 실기</span>
+    <span class="badge" id="tBadge">열기 ▼</span>
+  </div>
+  <div class="teacher-panel" id="teacherPanel">
+    <h4>☕ 이 앱의 핵심</h4>
+    <ul>
+      <li><b>단계별 시뮬레이션</b>이 메인 — 그라인더부터 라떼아트까지 6단계가 <b>물리적으로 연동</b>돼요</li>
+      <li>앞 단계 결과(분쇄도·중량·탬핑힘)가 뒤 단계(추출시간·크레마)에 실제로 영향을 줍니다</li>
+      <li>총 100점 만점. 60점 이상 "합격", 80점 이상 "우수"</li>
+    </ul>
+    <h4>📋 KCA 2급 실기 핵심 기준</h4>
+    <ul>
+      <li>에스프레소 추출: <b>20~30초, 25±5ml</b> (완벽: 25~28초)</li>
+      <li>도징(2샷): <b>18~20g</b>, 탬핑 힘 <b>15~20kg</b></li>
+      <li>우유 온도: <b>60~65°C</b>, 70°C 초과 감점</li>
+      <li>밀크폼: <b>1~1.5cm</b>, 광택 있고 매끄러워야 함</li>
+      <li>전체 서비스 시간: <b>10분 이내</b> (준비+정리 포함 15분)</li>
+    </ul>
+    <h4>📝 수업 활용 예시</h4>
+    <ul>
+      <li>1차시 — <kbd>이론학습 → 플래시카드</kbd> 10개 용어 암기 후 <kbd>퀴즈</kbd> 통과</li>
+      <li>2차시 — <kbd>단계별 시뮬레이션</kbd> 그라인더(1단계) 반복 연습</li>
+      <li>3차시 — 2단계(탬핑)까지 연속 수행</li>
+      <li>4차시 — 전체 6단계 완주, 점수 60점 이상 목표</li>
+      <li>5차시 — <kbd>모의시험</kbd> 15분 안에 끝내기</li>
+    </ul>
+    <p class="src">출처: <a href="https://github.com/hfg-gmuend/openmoji" target="_blank">OpenMoji (CC BY-SA 4.0, GitHub)</a> — 아이콘. 바리스타 기구·머신은 자체 제작 SVG.</p>
+  </div>
+
+  <div class="statusbar">
+    <span id="sbTime">오전 9:30</span>
+    <span>☕ 바리스타 모드</span>
+  </div>
+
+  <!-- 홈 -->
+  <div class="screen active" id="scr-home">
+    <div class="hero">
+      <span class="hero-tag">한국커피협회 (KCA) · 바리스타 2급</span>
+      <h1>실기 시뮬레이터</h1>
+      <p>실제 머신처럼 작동하는<br>6단계 물리 기반 시뮬레이터</p>
+      <div class="hero-stats">
+        <div class="hero-stat">추출<b>20~30초</b></div>
+        <div class="hero-stat">도징<b>18~20g</b></div>
+        <div class="hero-stat">우유<b>60~65°C</b></div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-head">
+        <div class="progress-title">📊 내 숙달도</div>
+        <div class="progress-pct" id="progPct">0%</div>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progFill" style="width:0"></div></div>
+      <div style="margin-top:10px;font-size:12px;color:var(--gray);line-height:1.5;" id="progNote">
+        각 메뉴를 한번씩 체험하면 100%! 현재 0/5
+      </div>
+    </div>
+    <div class="main-menu">
+      <div class="menu-card wide" onclick="go('sim')">
+        <div class="mc-ico">⚙️</div>
+        <div><h3>단계별 시뮬레이션</h3><p>6단계 물리 기반 연동 연습 (메인)</p></div>
+      </div>
+      <div class="menu-card" onclick="go('theory')">
+        <div class="mc-ico">📚</div>
+        <h3>이론학습</h3>
+        <p>용어 카드 + 퀴즈</p>
+      </div>
+      <div class="menu-card" onclick="go('machine')">
+        <div class="mc-ico">☕</div>
+        <h3>머신 시연</h3>
+        <p>자유 조작 모드</p>
+      </div>
+      <div class="menu-card" onclick="go('exam')">
+        <div class="mc-ico">⏱️</div>
+        <h3>모의시험</h3>
+        <p>15분 전체 시연</p>
+      </div>
+      <div class="menu-card" onclick="go('checklist')">
+        <div class="mc-ico">📋</div>
+        <h3>복장·위생</h3>
+        <p>시험장 체크</p>
+      </div>
+    </div>
+    <div class="footer-src">
+      이미지 출처: <a href="https://github.com/hfg-gmuend/openmoji" target="_blank">OpenMoji (CC BY-SA 4.0)</a><br>
+      ※ KCA 2급 실기 기준은 <a href="https://www.kca.or.kr/" target="_blank">한국커피협회</a> 공식 기준 참고
+    </div>
+  </div>
+
+  <!-- 이론학습 -->
+  <div class="screen" id="scr-theory">
+    <div class="hdr"><button class="hdr-back" onclick="go('home')">←</button><span class="hdr-title">📚 이론학습</span></div>
+    <div class="theory-mode">
+      <button class="tm-btn active" id="tmCard" onclick="setTheoryMode('card')">📇 카드 (뒤집기)</button>
+      <button class="tm-btn" id="tmQuiz" onclick="setTheoryMode('quiz')">❓ 퀴즈 (10문항)</button>
+    </div>
+    <div id="theoryCard">
+      <div class="sec-title">용어·기구 사전 <small id="cardCount">10개</small></div>
+      <div class="flash-grid" id="flashGrid"></div>
+    </div>
+    <div id="theoryQuiz" style="display:none;">
+      <div class="quiz-wrap" id="quizWrap"></div>
+    </div>
+  </div>
+
+  <!-- 단계별 시뮬레이션 (메인) -->
+  <div class="screen" id="scr-sim">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('home')">←</button>
+      <span class="hdr-title">⚙️ 단계별 시뮬레이션</span>
+      <span class="sub" id="simScoreLbl">0점</span>
+    </div>
+    <div class="sim-nav" id="simNav">
+      <button class="sim-step active" data-s="1" onclick="goStage(1)"><span class="sn">1</span>그라인더</button>
+      <button class="sim-step" data-s="2" onclick="goStage(2)"><span class="sn">2</span>탬핑</button>
+      <button class="sim-step" data-s="3" onclick="goStage(3)"><span class="sn">3</span>추출</button>
+      <button class="sim-step" data-s="4" onclick="goStage(4)"><span class="sn">4</span>스티밍</button>
+      <button class="sim-step" data-s="5" onclick="goStage(5)"><span class="sn">5</span>라떼아트</button>
+      <button class="sim-step" data-s="6" onclick="goStage(6)"><span class="sn">6</span>결과</button>
+    </div>
+
+    <!-- STAGE 1: 그라인더 -->
+    <div class="stage-panel active" data-s="1">
+      <div class="stage-head">
+        <div class="sh-no">STAGE 1 / 6</div>
+        <div class="sh-title">☕ 그라인더로 분쇄하기</div>
+        <div class="sh-hint">① 분쇄도를 <b>5(에스프레소 최적)</b>에 맞추세요<br>② <b>GRIND 버튼</b>을 눌러 원두를 갈아요<br>③ 저울이 <b>18g</b>에 가까워지면 <b>정지</b>를 누르세요</div>
+      </div>
+      <div class="stage-visual">
+        <svg class="grinder-svg" id="grinderSvg" viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="hopperGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#78909C" stop-opacity=".4"/>
+              <stop offset="100%" stop-color="#546E7A" stop-opacity=".2"/>
+            </linearGradient>
+            <radialGradient id="beanGrad">
+              <stop offset="0%" stop-color="#8D6E63"/>
+              <stop offset="100%" stop-color="#3E2723"/>
+            </radialGradient>
+          </defs>
+          <!-- 호퍼 (원두통) -->
+          <path d="M 80 20 L 240 20 L 220 110 L 100 110 Z" fill="url(#hopperGrad)" stroke="#455A64" stroke-width="2"/>
+          <ellipse cx="160" cy="20" rx="80" ry="6" fill="#455A64"/>
+          <!-- 원두 (호퍼 안) -->
+          <g id="hopperBeans">
+            <ellipse cx="130" cy="55" rx="7" ry="5" fill="url(#beanGrad)" transform="rotate(-20 130 55)"/>
+            <ellipse cx="155" cy="48" rx="7" ry="5" fill="url(#beanGrad)" transform="rotate(10 155 48)"/>
+            <ellipse cx="180" cy="55" rx="7" ry="5" fill="url(#beanGrad)" transform="rotate(-30 180 55)"/>
+            <ellipse cx="200" cy="48" rx="7" ry="5" fill="url(#beanGrad)" transform="rotate(20 200 48)"/>
+            <ellipse cx="140" cy="75" rx="7" ry="5" fill="url(#beanGrad)" transform="rotate(5 140 75)"/>
+            <ellipse cx="165" cy="80" rx="7" ry="5" fill="url(#beanGrad)" transform="rotate(-10 165 80)"/>
+            <ellipse cx="190" cy="78" rx="7" ry="5" fill="url(#beanGrad)" transform="rotate(25 190 78)"/>
+            <ellipse cx="150" cy="95" rx="7" ry="5" fill="url(#beanGrad)" transform="rotate(-15 150 95)"/>
+            <ellipse cx="175" cy="95" rx="7" ry="5" fill="url(#beanGrad)" transform="rotate(10 175 95)"/>
+          </g>
+          <!-- 그라인더 몸체 -->
+          <rect x="70" y="110" width="180" height="90" rx="8" fill="#37474F"/>
+          <rect x="75" y="115" width="170" height="80" rx="6" fill="#455A64"/>
+          <!-- 분쇄날 (회전) -->
+          <g transform="translate(160,155)">
+            <circle class="burr" cx="0" cy="0" r="32" fill="#263238" stroke="#1a2328" stroke-width="2"/>
+            <g class="burr">
+              <path d="M 0 -30 L 5 -10 L -5 -10 Z" fill="#78909C"/>
+              <path d="M 30 0 L 10 5 L 10 -5 Z" fill="#78909C"/>
+              <path d="M 0 30 L -5 10 L 5 10 Z" fill="#78909C"/>
+              <path d="M -30 0 L -10 -5 L -10 5 Z" fill="#78909C"/>
+              <circle cx="0" cy="0" r="6" fill="#90A4AE"/>
+            </g>
+          </g>
+          <!-- 떨어지는 원두 애니메이션 -->
+          <g class="bean-drop">
+            <circle cx="160" cy="125" r="3" fill="#5D4037"/>
+          </g>
+          <!-- 디스펜서 출구 -->
+          <path d="M 140 195 L 180 195 L 170 220 L 150 220 Z" fill="#263238"/>
+          <!-- 포터필터 받침대 -->
+          <rect x="120" y="222" width="80" height="6" fill="#1a2328"/>
+          <!-- 포터필터 -->
+          <g id="pfLanding" transform="translate(160,225)">
+            <circle cx="0" cy="18" r="30" fill="#C0C0C0" stroke="#666" stroke-width="1.5"/>
+            <circle cx="0" cy="18" r="25" fill="#2a2a2a"/>
+            <!-- 쌓이는 가루 -->
+            <ellipse class="ground-pile" cx="0" cy="18" rx="22" ry="6" fill="#4E342E"/>
+          </g>
+          <!-- 조작부 -->
+          <circle cx="90" cy="140" r="7" fill="#F44336"/>
+          <text x="90" y="160" font-size="7" fill="#aaa" text-anchor="middle" font-family="sans-serif">전원</text>
+          <rect x="220" y="130" width="22" height="30" rx="3" fill="#1a2328"/>
+          <text x="231" y="150" font-size="8" fill="#4CAF50" text-anchor="middle" font-family="sans-serif" font-weight="800" id="grinderNumDisp">5</text>
+        </svg>
+      </div>
+      <div class="scale-display">
+        <div class="sd-label">⚖️ 저울 (SCALE)</div>
+        <div class="sd-val"><span id="scaleVal">0.0</span> g</div>
+        <div class="sd-tgt">목표: 18.0g (16~20g 허용)</div>
+      </div>
+      <div class="stage-controls">
+        <div class="ctrl-row"><div class="ctrl-lbl">분쇄도</div></div>
+        <div class="dial-row">
+          <button class="dial-btn" id="grindMinus" onclick="changeGrind(-1)">−</button>
+          <div class="dial-display">
+            <div class="dial-num" id="grindNum">5</div>
+            <div class="dial-desc" id="grindDesc">보통(에스프레소 최적)</div>
+          </div>
+          <button class="dial-btn" id="grindPlus" onclick="changeGrind(1)">+</button>
+        </div>
+        <div class="btn-row" style="margin-top:12px;">
+          <button class="action-btn ab-coffee" id="grindStartBtn" onclick="grinderStart()">▶ GRIND 분쇄 시작</button>
+          <button class="action-btn ab-red" id="grindStopBtn" onclick="grinderStop()" disabled>■ 정지</button>
+        </div>
+      </div>
+      <div class="feedback-box" id="stage1Fb">분쇄도를 고르고 시작하세요</div>
+      <button class="action-btn ab-green" id="stage1Next" onclick="goStage(2)" disabled style="margin-top:12px;">다음 단계: 탬핑 →</button>
+    </div>
+
+    <!-- STAGE 2: 탬핑 -->
+    <div class="stage-panel" data-s="2">
+      <div class="stage-head">
+        <div class="sh-no">STAGE 2 / 6</div>
+        <div class="sh-title">🔨 레벨링 & 탬핑</div>
+        <div class="sh-hint">① <b>레벨링</b>으로 가루를 평평하게<br>② <b>탬핑 버튼을 꾹 눌러</b> 힘이 <b>15~20kg</b> 구간일 때 손 떼기<br>③ 수평계 거품이 중앙 원 안에 있어야 수평</div>
+      </div>
+      <div class="stage-visual">
+        <svg viewBox="0 0 320 240" xmlns="http://www.w3.org/2000/svg" id="tampSvg">
+          <!-- 포터필터 상면 -->
+          <circle cx="160" cy="120" r="80" fill="#C0C0C0" stroke="#555" stroke-width="2"/>
+          <circle cx="160" cy="120" r="72" fill="#2a2a2a"/>
+          <!-- 가루 -->
+          <g id="groundsSurface">
+            <circle cx="160" cy="120" r="68" fill="#5D4037"/>
+            <circle cx="140" cy="105" r="4" fill="#4A2E24" opacity=".6"/>
+            <circle cx="180" cy="110" r="3" fill="#4A2E24" opacity=".6"/>
+            <circle cx="150" cy="135" r="3" fill="#4A2E24" opacity=".6"/>
+            <circle cx="175" cy="130" r="4" fill="#4A2E24" opacity=".6"/>
+            <circle cx="165" cy="115" r="2" fill="#6D4C35" opacity=".8"/>
+          </g>
+          <!-- 탬퍼 (내려오는 애니메이션) -->
+          <g id="tamperIcon" transform="translate(160,30)" opacity="0">
+            <rect x="-10" y="0" width="20" height="25" rx="2" fill="#5D4037"/>
+            <rect x="-18" y="25" width="36" height="6" fill="#3E2723"/>
+            <ellipse cx="0" cy="34" rx="30" ry="8" fill="#B0BEC5"/>
+          </g>
+          <!-- 손잡이 -->
+          <rect x="155" y="195" width="10" height="35" fill="#5D4037"/>
+          <rect x="145" y="225" width="30" height="8" rx="2" fill="#3E2723"/>
+        </svg>
+      </div>
+      <div style="display:flex;gap:12px;align-items:center;margin-bottom:10px;">
+        <div class="level-indicator"><div class="level-cross"></div><div class="level-circle"></div><div class="level-bubble" id="levelBubble"></div></div>
+        <div style="flex:1;">
+          <div style="font-size:12px;color:var(--gray);font-weight:700;margin-bottom:4px;">수평계</div>
+          <div style="font-size:13px;color:var(--navy);line-height:1.5;" id="levelText">파란 거품이 중앙에 있어야 수평입니다</div>
+        </div>
+      </div>
+      <div class="stage-controls">
+        <div class="ctrl-row"><div class="ctrl-lbl">탬핑 힘</div><div class="ctrl-val"><span id="forceVal">0.0</span> kg</div></div>
+        <div class="force-gauge"><div class="force-indicator" id="forceInd" style="left:0%;"></div></div>
+        <div class="force-marks"><span>0</span><span>10</span><b>15</b><b>20</b><span>25</span></div>
+        <div class="btn-row" style="margin-top:12px;">
+          <button class="action-btn ab-blue" id="levelBtn" onclick="doLevel()">⚖️ 레벨링</button>
+          <button class="action-btn ab-coffee" id="tampBtn"
+            onmousedown="tampDown()" onmouseup="tampUp()" onmouseleave="tampUp()"
+            ontouchstart="event.preventDefault();tampDown()" ontouchend="event.preventDefault();tampUp()">
+            🔨 탬핑 (누르기)
+          </button>
+        </div>
+      </div>
+      <div class="feedback-box" id="stage2Fb">먼저 레벨링을 하고 탬핑하세요</div>
+      <button class="action-btn ab-green" id="stage2Next" onclick="goStage(3)" disabled style="margin-top:12px;">다음 단계: 추출 →</button>
+    </div>
+
+    <!-- STAGE 3: 추출 -->
+    <div class="stage-panel" data-s="3">
+      <div class="stage-head">
+        <div class="sh-no">STAGE 3 / 6</div>
+        <div class="sh-title">💧 에스프레소 추출</div>
+        <div class="sh-hint">① 포터필터를 <b>장착</b>하세요 (돌려 끼움)<br>② <b>추출 시작</b> 버튼을 누르고 <b>25~28초</b>에 정지<br>목표: 시간 <b>25±5초</b>, 양 <b>25±5ml</b></div>
+      </div>
+      <div class="stage-visual">
+        <svg class="extract-svg" id="extractSvg" viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="espStream" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#6B3E1B"/>
+              <stop offset="100%" stop-color="#2E1A0D"/>
+            </linearGradient>
+            <linearGradient id="cremaGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#C48355"/>
+              <stop offset="100%" stop-color="#8B5A2B"/>
+            </linearGradient>
+          </defs>
+          <!-- 그룹헤드 -->
+          <rect x="100" y="30" width="120" height="30" rx="6" fill="#555"/>
+          <rect x="110" y="55" width="100" height="16" rx="4" fill="#C0C0C0"/>
+          <!-- 포터필터 (장착) -->
+          <g id="extractPF" opacity="0.3">
+            <rect x="125" y="68" width="70" height="20" rx="2" fill="#C0C0C0"/>
+            <rect x="140" y="88" width="40" height="8" fill="#888"/>
+            <rect x="155" y="96" width="10" height="30" fill="#5D4037"/>
+            <rect x="148" y="126" width="24" height="8" rx="2" fill="#3E2723"/>
+          </g>
+          <!-- 추출 스트림 -->
+          <rect class="stream-left" x="150" y="96" width="3" height="80" fill="url(#espStream)" transform-origin="151.5 176"/>
+          <rect class="stream-right" x="167" y="96" width="3" height="80" fill="url(#espStream)" transform-origin="168.5 176"/>
+          <!-- 에스프레소 잔 -->
+          <g transform="translate(160,180)">
+            <path d="M -36 0 L 36 0 L 30 56 Q 30 64 22 64 L -22 64 Q -30 64 -30 56 Z" fill="#fff" stroke="#999" stroke-width="2"/>
+            <ellipse cx="0" cy="0" rx="36" ry="8" fill="#fafafa" stroke="#999" stroke-width="2"/>
+            <path d="M 36 14 Q 52 14 52 30 Q 52 44 36 44" stroke="#999" stroke-width="3" fill="none"/>
+            <!-- 내용물 -->
+            <rect class="cup-fill" x="-28" y="4" width="56" height="52" fill="#4B2810"/>
+            <!-- 크레마 (크기 조정) -->
+            <ellipse class="crema-top" id="cremaTop" cx="0" cy="4" rx="0" ry="0" fill="url(#cremaGrad)" opacity="0"/>
+          </g>
+          <!-- 추출량 표시 (ml 눈금) -->
+          <g transform="translate(240,190)" font-family="sans-serif" font-size="9" fill="#666">
+            <line x1="0" y1="0" x2="0" y2="50" stroke="#ccc" stroke-width="1"/>
+            <line x1="-3" y1="0" x2="0" y2="0" stroke="#ccc"/>
+            <text x="4" y="3">30ml</text>
+            <line x1="-3" y1="25" x2="0" y2="25" stroke="#ccc"/>
+            <text x="4" y="28">15ml</text>
+            <line x1="-3" y1="50" x2="0" y2="50" stroke="#ccc"/>
+            <text x="4" y="53">0ml</text>
+          </g>
+        </svg>
+      </div>
+      <div class="timer-card">
+        <div class="timer-label">⏱️ 추출 시간 / 양</div>
+        <div class="timer-display"><span id="extTime">0.0</span><span class="unit">초</span></div>
+        <div class="timer-sub">현재 추출량: <span id="extVol">0.0</span>ml / 목표 25ml</div>
+      </div>
+      <div class="stage-controls">
+        <div class="btn-row">
+          <button class="action-btn ab-gray" id="pfLockBtn" onclick="lockPortafilter()">🔧 포터필터 장착</button>
+          <button class="action-btn ab-coffee" id="extStartBtn" onclick="extractStart()" disabled>▶ 추출 시작</button>
+        </div>
+        <div style="margin-top:10px;">
+          <button class="action-btn ab-red" id="extStopBtn" onclick="extractStop()" disabled>■ 정지</button>
+        </div>
+      </div>
+      <div class="feedback-box" id="stage3Fb">포터필터를 먼저 장착하세요</div>
+      <button class="action-btn ab-green" id="stage3Next" onclick="goStage(4)" disabled style="margin-top:12px;">다음 단계: 스티밍 →</button>
+    </div>
+
+    <!-- STAGE 4: 스티밍 -->
+    <div class="stage-panel" data-s="4">
+      <div class="stage-head">
+        <div class="sh-no">STAGE 4 / 6</div>
+        <div class="sh-title">💨 밀크 스티밍</div>
+        <div class="sh-hint">① 피처에 우유를 <b>1/3~1/2</b>만큼 담기<br>② 스팀봉 끝을 <b>수면 바로 아래</b>(위치 1)로<br>③ <b>60~65°C</b>에서 정지하기 (70°C 초과 감점)</div>
+      </div>
+      <div class="stage-visual">
+        <svg class="steam-svg" id="steamSvg" viewBox="0 0 320 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="milkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#FFFAF2"/>
+              <stop offset="100%" stop-color="#F5EADD"/>
+            </linearGradient>
+          </defs>
+          <!-- 머신 일부 (스팀봉 연결부) -->
+          <rect x="30" y="0" width="80" height="60" rx="4" fill="#333"/>
+          <rect x="35" y="5" width="70" height="20" rx="2" fill="#1a1a1a"/>
+          <circle cx="90" cy="15" r="4" fill="#4CAF50"/>
+          <!-- 스팀봉 -->
+          <rect x="68" y="55" width="14" height="30" rx="2" fill="#555"/>
+          <path id="steamWand" d="M 75 85 Q 75 140 90 170" stroke="url(#espStream)" stroke-width="10" fill="none" stroke-linecap="round" style="stroke:#B0BEC5;"/>
+          <circle id="wandTip" cx="90" cy="170" r="5" fill="#777" stroke="#444" stroke-width="1"/>
+          <!-- 스티밍피처 -->
+          <g transform="translate(90,170)">
+            <ellipse cx="60" cy="100" rx="52" ry="6" fill="#000" opacity=".2"/>
+            <path d="M 15 0 L 100 0 L 103 10 L 100 94 Q 100 104 88 104 L 27 104 Q 15 104 15 94 Z" fill="#E0E7EB" stroke="#546E7A" stroke-width="2"/>
+            <path d="M 100 0 L 115 -8 L 118 2 L 103 10 Z" fill="#CFD8DC" stroke="#546E7A" stroke-width="1.5"/>
+            <rect x="103" y="14" width="8" height="60" rx="3" fill="none" stroke="#546E7A" stroke-width="4"/>
+            <!-- 우유 (안쪽, 레벨 조정 가능) -->
+            <rect class="milk-surface" id="milkFill" x="20" y="54" width="80" height="48" fill="url(#milkGrad)"/>
+            <!-- 거품 층 (위쪽) -->
+            <rect class="foam-layer" id="foamLayer" x="20" y="50" width="80" height="10" fill="#FFFFFF"/>
+            <text x="60" y="90" font-size="10" fill="#78909C" text-anchor="middle" font-family="sans-serif">우유</text>
+          </g>
+          <!-- 스팀 증기 -->
+          <g class="steam-group">
+            <circle class="steam-puff puff-1" cx="85" cy="200" r="6" fill="#fff"/>
+            <circle class="steam-puff puff-2" cx="95" cy="195" r="7" fill="#fff"/>
+            <circle class="steam-puff puff-3" cx="88" cy="190" r="5" fill="#fff"/>
+          </g>
+        </svg>
+      </div>
+      <div class="temp-display">
+        <div class="temp-val"><span id="milkTemp">25</span><span class="unit">°C</span></div>
+        <div class="temp-bar"><div class="temp-marker" id="tempMarker" style="left:7%;"></div></div>
+        <div class="temp-marks"><span>25°</span><b>60°</b><b>65°</b><span>70°</span><span>90°</span></div>
+      </div>
+      <div class="stage-controls">
+        <div class="ctrl-row">
+          <div class="ctrl-lbl">우유 양</div>
+          <div class="ctrl-val"><span id="milkAmt">0</span> (피처의)</div>
+        </div>
+        <div class="btn-row" style="margin:6px 0 12px;">
+          <button class="action-btn ab-gray" onclick="setMilk(0.33)">1/3 담기</button>
+          <button class="action-btn ab-gray" onclick="setMilk(0.5)">1/2 담기</button>
+          <button class="action-btn ab-gray" onclick="setMilk(0.75)">너무 많이</button>
+        </div>
+        <div class="ctrl-row">
+          <div class="ctrl-lbl">스팀봉 위치</div>
+          <div class="ctrl-val" id="wandPosDesc">0 · 공기 중</div>
+        </div>
+        <input type="range" min="0" max="2" step="1" value="0" id="wandPos" oninput="setWandPos(this.value)" style="width:100%;">
+        <div style="display:flex;justify-content:space-between;font-size:11px;color:var(--gray);font-weight:700;margin-top:2px;">
+          <span>0: 위</span><b>1: 수면 바로 아래</b><span>2: 깊이</span>
+        </div>
+        <div class="btn-row" style="margin-top:12px;">
+          <button class="action-btn ab-blue" id="steamStartBtn" onclick="steamStart()">▶ 스팀 시작</button>
+          <button class="action-btn ab-red" id="steamStopBtn" onclick="steamStop()" disabled>■ 정지</button>
+        </div>
+      </div>
+      <div class="feedback-box" id="stage4Fb">우유 양과 스팀봉 위치를 먼저 설정하세요</div>
+      <button class="action-btn ab-green" id="stage4Next" onclick="goStage(5)" disabled style="margin-top:12px;">다음 단계: 라떼아트 →</button>
+    </div>
+
+    <!-- STAGE 5: 라떼아트 -->
+    <div class="stage-panel" data-s="5">
+      <div class="stage-head">
+        <div class="sh-no">STAGE 5 / 6</div>
+        <div class="sh-title">🌸 라떼아트 붓기</div>
+        <div class="sh-hint">① 패턴을 고르고 <b>붓기 시작</b><br>② 화면에 나오는 <b>타이밍 버튼</b>을 때맞춰 누르세요<br>③ 3번 모두 성공하면 만점</div>
+      </div>
+      <div class="stage-visual">
+        <svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg" id="artSvg">
+          <!-- 카푸치노 잔 (위에서 본 모양) -->
+          <ellipse cx="160" cy="130" rx="95" ry="95" fill="#8B5A2B"/>
+          <ellipse cx="160" cy="130" rx="85" ry="85" fill="#A87444"/>
+          <!-- 라떼아트 (완성되면 나타남) -->
+          <g id="artResult" opacity="0"></g>
+          <!-- 손잡이 -->
+          <path d="M 255 130 Q 285 130 285 150 Q 285 170 255 170" stroke="#A0A0A0" stroke-width="7" fill="none"/>
+        </svg>
+      </div>
+      <div class="stage-controls">
+        <div class="ctrl-row"><div class="ctrl-lbl" style="min-width:auto;">패턴 선택</div></div>
+        <div class="btn-row" style="margin:4px 0;">
+          <button class="action-btn ab-gray" onclick="selectArt('heart')" id="artBtnHeart">❤️ 하트</button>
+          <button class="action-btn ab-gray" onclick="selectArt('rosetta')" id="artBtnRosetta">🌿 로제타</button>
+          <button class="action-btn ab-gray" onclick="selectArt('tulip')" id="artBtnTulip">🌷 튤립</button>
+        </div>
+        <div class="ctrl-row" style="margin-top:12px;">
+          <div class="ctrl-lbl" style="min-width:auto;">선택: <span id="artSelName">(없음)</span></div>
+        </div>
+        <button class="action-btn ab-coffee" id="artStartBtn" onclick="artStart()" disabled style="margin-top:10px;">▶ 붓기 시작</button>
+        <div class="btn-row" style="margin-top:10px;display:none;" id="artActionRow">
+          <button class="action-btn ab-blue" id="artCue" onclick="artCue()">⏱️ 지금!</button>
+        </div>
+      </div>
+      <div class="feedback-box" id="stage5Fb">패턴을 선택하고 붓기 시작하세요</div>
+      <button class="action-btn ab-green" id="stage5Next" onclick="goStage(6)" disabled style="margin-top:12px;">결과 보기 →</button>
+    </div>
+
+    <!-- STAGE 6: 결과 -->
+    <div class="stage-panel" data-s="6">
+      <div class="stage-head">
+        <div class="sh-no">STAGE 6 / 6</div>
+        <div class="sh-title">🏆 종합 결과</div>
+        <div class="sh-hint">여섯 단계의 종합 점수를 확인하세요. 각 단계의 세부 평가도 함께 봅니다.</div>
+      </div>
+      <div id="resultCard"></div>
+      <div class="btn-row" style="margin-top:12px;">
+        <button class="action-btn ab-gray" onclick="resetSim()">🔄 처음부터 다시</button>
+        <button class="action-btn ab-coffee" onclick="go('home')">홈으로</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 머신 시연 -->
+  <div class="screen" id="scr-machine">
+    <div class="hdr"><button class="hdr-back" onclick="go('home')">←</button><span class="hdr-title">☕ 머신 시연 (자유조작)</span></div>
+    <div class="machine-wrap">
+      <div class="machine-display">
+        <div id="mcStatus">전원 켜짐 · 대기</div>
+        <span class="md-time" id="mcTime">00.0초</span>
+      </div>
+      <div class="machine-stage">
+        <svg class="machine-svg" id="mcSvg" viewBox="0 0 400 420" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="espGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#6B3E1B"/><stop offset="100%" stop-color="#2E1A0D"/>
+            </linearGradient>
+            <linearGradient id="bodyGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#4a4a4a"/><stop offset="100%" stop-color="#2a2a2a"/>
+            </linearGradient>
+            <linearGradient id="chromeGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#F5F5F5"/><stop offset="50%" stop-color="#C0C0C0"/><stop offset="100%" stop-color="#909090"/>
+            </linearGradient>
+          </defs>
+          <rect x="130" y="20" width="140" height="70" rx="6" fill="#555" stroke="#333" stroke-width="1.5"/>
+          <rect x="138" y="28" width="124" height="54" rx="4" fill="#78909C" opacity=".4"/>
+          <rect x="138" y="52" width="124" height="30" rx="2" fill="#2196F3" opacity=".35"/>
+          <text x="200" y="68" font-size="11" fill="#fff" text-anchor="middle" font-family="sans-serif" font-weight="700">💧 물탱크</text>
+          <rect x="50" y="80" width="300" height="80" rx="10" fill="url(#bodyGrad2)"/>
+          <circle cx="90" cy="120" r="22" fill="#E8EAF6" stroke="#333" stroke-width="2"/>
+          <circle cx="90" cy="120" r="18" fill="#F5F5F5"/>
+          <line x1="90" y1="120" x2="100" y2="112" stroke="#D32F2F" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="90" cy="120" r="2.5" fill="#333"/>
+          <text x="90" y="150" font-size="8" fill="#ccc" text-anchor="middle" font-family="sans-serif">BAR</text>
+          <rect x="155" y="100" width="90" height="26" rx="4" fill="#8B5A2B"/>
+          <text x="200" y="118" font-size="12" font-weight="800" fill="#FFF" text-anchor="middle" font-family="sans-serif">BARISTA</text>
+          <circle class="power-led" cx="300" cy="100" r="4" fill="#4CAF50"/>
+          <text x="300" y="118" font-size="7" fill="#aaa" text-anchor="middle" font-family="sans-serif">POWER</text>
+          <rect x="140" y="135" width="120" height="22" rx="4" fill="#111"/>
+          <circle cx="155" cy="146" r="6" fill="#4CAF50"/>
+          <text x="155" y="168" font-size="7" fill="#ccc" text-anchor="middle" font-family="sans-serif">1샷</text>
+          <circle cx="178" cy="146" r="6" fill="#4CAF50"/>
+          <text x="178" y="168" font-size="7" fill="#ccc" text-anchor="middle" font-family="sans-serif">2샷</text>
+          <circle cx="200" cy="146" r="6" fill="#F44336"/>
+          <text x="200" y="168" font-size="7" fill="#ccc" text-anchor="middle" font-family="sans-serif">정지</text>
+          <circle cx="222" cy="146" r="6" fill="#2196F3"/>
+          <text x="222" y="168" font-size="7" fill="#ccc" text-anchor="middle" font-family="sans-serif">스팀</text>
+          <circle cx="245" cy="146" r="6" fill="#FF9800"/>
+          <text x="245" y="168" font-size="7" fill="#ccc" text-anchor="middle" font-family="sans-serif">온수</text>
+          <rect x="50" y="160" width="300" height="100" rx="8" fill="#333"/>
+          <rect x="55" y="165" width="290" height="90" rx="6" fill="#2c2c2c"/>
+          <g class="portafilter-group">
+            <rect x="105" y="170" width="50" height="18" rx="4" fill="url(#chromeGrad2)"/>
+            <rect x="115" y="188" width="30" height="8" rx="2" fill="#888"/>
+            <rect x="118" y="196" width="24" height="10" rx="1" fill="#C0C0C0"/>
+            <rect x="127" y="210" width="6" height="26" fill="#5D4037"/>
+            <rect x="123" y="236" width="14" height="6" rx="1" fill="#3E2723"/>
+            <rect class="espresso-stream" x="127" y="210" width="2" height="60" fill="url(#espGrad2)" transform-origin="128 240"/>
+            <rect class="espresso-stream" x="131" y="210" width="2" height="60" fill="url(#espGrad2)" transform-origin="132 240"/>
+          </g>
+          <g class="portafilter-group">
+            <rect x="245" y="170" width="50" height="18" rx="4" fill="url(#chromeGrad2)"/>
+            <rect x="255" y="188" width="30" height="8" rx="2" fill="#888"/>
+            <rect x="258" y="196" width="24" height="10" rx="1" fill="#C0C0C0"/>
+            <rect x="267" y="210" width="6" height="26" fill="#5D4037"/>
+            <rect x="263" y="236" width="14" height="6" rx="1" fill="#3E2723"/>
+            <rect class="espresso-stream" x="267" y="210" width="2" height="60" fill="url(#espGrad2)" transform-origin="268 240"/>
+            <rect class="espresso-stream" x="271" y="210" width="2" height="60" fill="url(#espGrad2)" transform-origin="272 240"/>
+          </g>
+          <g>
+            <rect x="334" y="175" width="18" height="12" rx="2" fill="#555"/>
+            <path d="M 343 187 Q 343 215 325 230" stroke="url(#chromeGrad2)" stroke-width="8" fill="none" stroke-linecap="round"/>
+            <circle cx="325" cy="230" r="4.5" fill="#777" stroke="#444" stroke-width="1"/>
+            <g class="steam-group">
+              <circle class="steam-1" cx="321" cy="222" r="5" fill="#fff" opacity=".9"/>
+              <circle class="steam-2" cx="328" cy="218" r="6" fill="#fff" opacity=".85"/>
+              <circle class="steam-3" cx="323" cy="212" r="5" fill="#fff" opacity=".8"/>
+            </g>
+            <rect class="hotwater-stream" x="324" y="234" width="2" height="30" fill="#4FC3F7" opacity="0"/>
+          </g>
+          <rect x="50" y="260" width="300" height="30" rx="6" fill="#1a1a1a"/>
+          <rect x="55" y="265" width="290" height="20" rx="3" fill="#2a2a2a"/>
+          <rect x="60" y="290" width="280" height="12" rx="3" fill="#1a1a1a"/>
+          <g transform="translate(130,300)">
+            <path d="M -18 0 L 18 0 L 15 28 Q 15 32 11 32 L -11 32 Q -15 32 -15 28 Z" fill="#fff" stroke="#999" stroke-width="1.5"/>
+            <ellipse cx="0" cy="0" rx="18" ry="4" fill="#fafafa" stroke="#999" stroke-width="1.5"/>
+            <path d="M 18 8 Q 26 8 26 16 Q 26 22 18 22" stroke="#999" stroke-width="2" fill="none"/>
+            <rect class="cup-fill" x="-13" y="6" width="26" height="24" fill="#5D3317"/>
+          </g>
+          <g transform="translate(270,300)">
+            <path d="M -18 0 L 18 0 L 15 28 Q 15 32 11 32 L -11 32 Q -15 32 -15 28 Z" fill="#fff" stroke="#999" stroke-width="1.5"/>
+            <ellipse cx="0" cy="0" rx="18" ry="4" fill="#fafafa" stroke="#999" stroke-width="1.5"/>
+            <path d="M 18 8 Q 26 8 26 16 Q 26 22 18 22" stroke="#999" stroke-width="2" fill="none"/>
+            <rect class="cup-fill" x="-13" y="6" width="26" height="24" fill="#5D3317"/>
+          </g>
+          <text x="200" y="415" font-size="9" fill="#666" text-anchor="middle" font-family="sans-serif">BARISTA PRACTICE MACHINE</text>
+        </svg>
+      </div>
+      <div class="machine-controls">
+        <button class="mc-btn brew1" onclick="mcAction('brew1')">▶ 1샷 추출</button>
+        <button class="mc-btn brew2" onclick="mcAction('brew2')">▶▶ 2샷 추출</button>
+        <button class="mc-btn steam" onclick="mcAction('steam')">💨 스팀 ON</button>
+        <button class="mc-btn hotwater" onclick="mcAction('hotwater')">💧 온수</button>
+        <button class="mc-btn portafilter" onclick="mcAction('togglePF')">🔧 포터필터 끼우기 / 빼기</button>
+        <button class="mc-btn stop" onclick="mcAction('stop')">■ 정지</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 모의시험 -->
+  <div class="screen" id="scr-exam">
+    <div class="hdr"><button class="hdr-back" onclick="confirmExitExam()">←</button><span class="hdr-title">⏱️ 모의시험</span><span class="sub" id="examPhaseLbl">대기</span></div>
+    <div class="exam-timer-big">
+      <div class="exam-phase" id="examPhase">준비 완료되면 시작 버튼을 눌러주세요</div>
+      <div class="exam-time" id="examTime">15:00</div>
+      <div class="exam-of">15분 안에 전체 과정 끝내기</div>
+      <div class="exam-bar"><div class="exam-bar-fill" id="examBarFill" style="width:100%"></div></div>
+    </div>
+    <div class="exam-btn-row" id="examBtnRow">
+      <button class="exam-btn start" onclick="startExam()">▶ 시험 시작</button>
+    </div>
+    <div style="padding:4px 20px 10px;font-size:14px;font-weight:800;color:var(--espresso);">📋 시험 순서 (체크로 완료)</div>
+    <div id="examTasks"></div>
+    <div style="padding:0 16px 20px;">
+      <button class="action-btn ab-coffee" onclick="finishExam()" id="examFinishBtn" disabled>시험 종료 · 채점하기</button>
+    </div>
+    <div id="examResultWrap"></div>
+  </div>
+
+  <!-- 체크리스트 -->
+  <div class="screen" id="scr-checklist">
+    <div class="hdr"><button class="hdr-back" onclick="go('home')">←</button><span class="hdr-title">📋 복장·위생 체크</span></div>
+    <div style="padding:14px 16px 10px;font-size:13px;color:var(--gray);">시험장 입장 전 꼭 확인하세요. 모두 체크하면 💯</div>
+    <div class="sec-no-top">
+      <div class="checklist-card"><div class="cl-title">👔 복장</div><div class="cl-list" id="cl-cloth"></div></div>
+      <div class="checklist-card"><div class="cl-title">🧼 위생</div><div class="cl-list" id="cl-hygiene"></div></div>
+      <div class="checklist-card"><div class="cl-title">☕ 기물</div><div class="cl-list" id="cl-tool"></div></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+</div>
+<script>
+'use strict';
+
+/* ============================================================
+   전역 상태
+============================================================ */
+const state = {
+  visited: {theory:false, sim:false, machine:false, exam:false, checklist:false},
+  // 이론
+  theoryMode: 'card',
+  quiz: {idx:0, score:0, order:[], answered:false},
+  // 시뮬레이터
+  sim: {
+    stage: 1,
+    stageDone: {1:false,2:false,3:false,4:false,5:false},
+    grind: {size:5, weight:0, grinding:false, timer:null},
+    tamp: {leveled:false, force:0, maxForce:0, tamping:false, forceTimer:null, level:0, locked:false, result:null},
+    extract: {locked:false, running:false, time:0, vol:0, timer:null, result:null},
+    steam: {milk:0, pos:0, running:false, temp:25, foam:0, timer:null, result:null},
+    art: {type:'', running:false, cueIdx:0, cueWindow:false, cueTimer:null, hits:0, result:null},
+    scores: {}
+  },
+  // 체크리스트 체크
+  checked: {},
+  // 머신 시연
+  machine: {mode:'idle', startTime:0, timerInterval:null, autoStopTimeout:null, pfOn:true},
+  // 모의시험
+  exam: {running:false, startTime:0, remaining:900, interval:null, tasks:[]}
+};
+
+/* ============================================================
+   화면 전환
+============================================================ */
+function go(screen){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById('scr-'+screen);
+  if (el) el.classList.add('active');
+  window.scrollTo(0,0);
+  if (screen === 'home') updateProgress();
+  if (screen === 'theory'){ markVisited('theory'); renderTheory(); }
+  if (screen === 'sim'){ markVisited('sim'); goStage(state.sim.stage); }
+  if (screen === 'machine'){ markVisited('machine'); mcReset(); }
+  if (screen === 'exam'){ markVisited('exam'); initExam(); }
+  if (screen === 'checklist'){ markVisited('checklist'); renderChecklist(); }
+  // 머신 자동 정리
+  if (screen !== 'machine' && state.machine.mode !== 'idle'){
+    mcClearTimers();
+    const svg = document.getElementById('mcSvg');
+    if (svg) svg.classList.remove('brewing','steaming','hotwater');
+    state.machine.mode = 'idle';
+  }
+}
+function markVisited(key){ state.visited[key] = true; }
+function updateProgress(){
+  const keys = Object.keys(state.visited);
+  const done = keys.filter(k => state.visited[k]).length;
+  const pct = Math.round(done/keys.length*100);
+  const pctEl = document.getElementById('progPct');
+  const fillEl = document.getElementById('progFill');
+  const noteEl = document.getElementById('progNote');
+  if (pctEl) pctEl.textContent = pct + '%';
+  if (fillEl) fillEl.style.width = pct + '%';
+  if (noteEl) noteEl.textContent = '각 메뉴를 한번씩 체험하면 100%! 현재 ' + done + '/' + keys.length;
+}
+function toggleTeacher(){
+  const p = document.getElementById('teacherPanel');
+  const b = document.getElementById('tBadge');
+  p.classList.toggle('open');
+  b.textContent = p.classList.contains('open') ? '닫기 ▲' : '열기 ▼';
+}
+
+/* ============================================================
+   이론 학습
+============================================================ */
+const TERMS = [
+  {term:'에스프레소', hint:'ESPRESSO · 추출 음료', back:'고온·고압(9bar)으로 20~30초 동안 커피를 추출한 25±5ml 음료. 모든 커피 메뉴의 기초.', ico:'☕', tag:'음료'},
+  {term:'크레마', hint:'Crema · 황금색 거품', back:'에스프레소 위에 뜨는 황갈색 거품층. 3~4mm가 적정. 신선한 원두일수록 두껍다.', ico:'🫧', tag:'음료'},
+  {term:'포터필터', hint:'Portafilter · 손잡이', back:'에스프레소 머신에 장착하는 손잡이 달린 필터. 분쇄 원두를 담아 탬핑 후 머신에 끼운다.', ico:'🔧', tag:'기구'},
+  {term:'탬핑', hint:'Tamping · 다지기', back:'포터필터의 가루를 탬퍼로 15~20kg 힘으로 수평하게 눌러 다지는 작업. 추출 균일성을 만든다.', ico:'🔨', tag:'작업'},
+  {term:'도징', hint:'Dosing · 분쇄 담기', back:'그라인더에서 포터필터에 가루를 담는 작업. 2급은 보통 2샷 기준 18~20g.', ico:'⚖️', tag:'작업'},
+  {term:'스티밍피처', hint:'Pitcher · 우유통', back:'우유를 데울 때 쓰는 손잡이 달린 스테인리스 통. 차가운 우유를 1/3~1/2 넣는다.', ico:'🥛', tag:'기구'},
+  {term:'스티밍', hint:'Steaming · 스팀 데우기', back:'스팀봉으로 우유를 데우며 공기를 넣는 과정. 60~65°C에서 멈추고 1cm 이상의 폼을 만든다.', ico:'💨', tag:'작업'},
+  {term:'카푸치노', hint:'Cappuccino · 거품 음료', back:'에스프레소 + 스팀밀크 + 1cm 이상의 밀크폼. 2급 실기에서 2잔을 만든다.', ico:'☕', tag:'음료'},
+  {term:'그라인더', hint:'Grinder · 분쇄기', back:'원두를 가는 기계. 분쇄도가 추출시간을 좌우한다. 에스프레소는 5번(중간) 근처.', ico:'⚙️', tag:'기구'},
+  {term:'퍽', hint:'Puck · 추출 후 커피', back:'추출이 끝난 뒤 포터필터에 남은 원두 덩어리. 넉박스에 깨끗이 탈락시켜 버린다.', ico:'🥮', tag:'작업'},
+];
+const QUIZ = [
+  {q:'에스프레소의 적정 추출 시간은?', opts:['5~10초','20~30초','60~90초','3분 이상'], a:1, exp:'20~30초가 KCA 2급 기준. 25~28초가 완벽 구간.'},
+  {q:'에스프레소 2샷 도징 중량은?', opts:['5g','10g','18~20g','40g'], a:2, exp:'2샷 기준 18~20g이 일반적.'},
+  {q:'카푸치노 우유의 적정 온도는?', opts:['30~40°C','50~55°C','60~65°C','80°C 이상'], a:2, exp:'60~65°C가 이상적. 70°C 초과 시 우유 단백질이 타서 감점.'},
+  {q:'밀크폼의 최소 두께는?', opts:['없어도 됨','1cm','3cm','5cm'], a:1, exp:'카푸치노는 1cm 이상의 폼이 필수.'},
+  {q:'탬핑에 가하는 힘은?', opts:['1~2kg','5~10kg','15~20kg','30kg 이상'], a:2, exp:'15~20kg 정도의 수평 압력이 표준.'},
+  {q:'추출 후 포터필터에 남는 원두 덩어리를 뭐라고 부르나?', opts:['빈','퍽','크레마','셀러'], a:1, exp:'퍽(puck). 넉박스에 탈락시켜 버린다.'},
+  {q:'에스프레소 머신의 추출 압력은?', opts:['1bar','3bar','9bar','20bar'], a:2, exp:'9bar(약 9기압)가 표준.'},
+  {q:'KCA 2급 실기 총 서비스 시간은?', opts:['5분','10분','15분','30분'], a:1, exp:'10분 안에 전체 4잔(에스프레소 2 + 카푸치노 2)을 완성.'},
+  {q:'그라인더 분쇄도가 너무 굵으면?', opts:['추출이 너무 빠르고 시다','추출이 너무 느리고 쓰다','크레마가 두꺼워진다','차이 없음'], a:0, exp:'굵으면 물이 빨리 통과해 과소추출(신맛).'},
+  {q:'다음 중 라떼아트 기본 패턴이 아닌 것은?', opts:['하트','로제타','튤립','에펠탑'], a:3, exp:'하트·로제타·튤립이 기본 3대 패턴.'},
+];
+function setTheoryMode(mode){
+  state.theoryMode = mode;
+  document.getElementById('tmCard').classList.toggle('active', mode==='card');
+  document.getElementById('tmQuiz').classList.toggle('active', mode==='quiz');
+  document.getElementById('theoryCard').style.display = mode==='card' ? 'block' : 'none';
+  document.getElementById('theoryQuiz').style.display = mode==='quiz' ? 'block' : 'none';
+  if (mode === 'quiz') startQuiz();
+}
+function renderTheory(){
+  const grid = document.getElementById('flashGrid');
+  grid.innerHTML = '';
+  TERMS.forEach(t => {
+    const c = document.createElement('div');
+    c.className = 'flash';
+    const front = document.createElement('div');
+    front.className = 'flash-front';
+    front.innerHTML = '<div class="flash-ico" style="font-size:38px;line-height:44px">'+t.ico+'</div><div class="flash-term">'+t.term+'</div><div class="flash-hint">'+t.hint+'</div>';
+    const back = document.createElement('div');
+    back.className = 'flash-back';
+    back.textContent = t.back;
+    const tag = document.createElement('span');
+    tag.className = 'flash-tag';
+    tag.textContent = t.tag;
+    c.appendChild(tag); c.appendChild(front); c.appendChild(back);
+    c.onclick = () => c.classList.toggle('flipped');
+    grid.appendChild(c);
+  });
+}
+function startQuiz(){
+  state.quiz.idx = 0; state.quiz.score = 0; state.quiz.answered = false;
+  state.quiz.order = QUIZ.map((_,i)=>i).sort(()=>Math.random()-.5);
+  renderQuiz();
+}
+function renderQuiz(){
+  const wrap = document.getElementById('quizWrap');
+  if (state.quiz.idx >= QUIZ.length){
+    renderQuizResult();
+    return;
+  }
+  const qi = state.quiz.order[state.quiz.idx];
+  const q = QUIZ[qi];
+  wrap.innerHTML = '';
+  const prog = document.createElement('div');
+  prog.className = 'quiz-prog';
+  prog.innerHTML = '<div class="quiz-prog-bar"><div class="quiz-prog-fill" style="width:'+((state.quiz.idx)/QUIZ.length*100)+'%"></div></div><span class="quiz-prog-txt">'+(state.quiz.idx+1)+' / '+QUIZ.length+'</span>';
+  wrap.appendChild(prog);
+  const qd = document.createElement('div');
+  qd.className = 'quiz-q';
+  qd.textContent = (state.quiz.idx+1)+'. '+q.q;
+  wrap.appendChild(qd);
+  const opts = document.createElement('div');
+  opts.className = 'quiz-opts';
+  q.opts.forEach((o,i) => {
+    const b = document.createElement('button');
+    b.className = 'quiz-opt';
+    b.textContent = (i+1)+') '+o;
+    b.onclick = () => answerQuiz(i, q);
+    opts.appendChild(b);
+  });
+  wrap.appendChild(opts);
+  const exp = document.createElement('div');
+  exp.className = 'quiz-exp';
+  exp.id = 'quizExp';
+  wrap.appendChild(exp);
+}
+function answerQuiz(i, q){
+  if (state.quiz.answered) return;
+  state.quiz.answered = true;
+  const btns = document.querySelectorAll('.quiz-opt');
+  btns.forEach((b,bi) => {
+    b.disabled = true;
+    if (bi === q.a) b.classList.add('correct');
+    else if (bi === i) b.classList.add('wrong');
+  });
+  if (i === q.a){ state.quiz.score++; }
+  const exp = document.getElementById('quizExp');
+  exp.classList.add('show');
+  exp.innerHTML = (i===q.a ? '✅ 정답!' : '❌ 오답') + ' · ' + q.exp;
+  setTimeout(() => {
+    state.quiz.idx++;
+    state.quiz.answered = false;
+    renderQuiz();
+  }, 2200);
+}
+function renderQuizResult(){
+  const wrap = document.getElementById('quizWrap');
+  const score = state.quiz.score;
+  const total = QUIZ.length;
+  const grade = score >= 8 ? '우수' : score >= 6 ? '통과' : '재도전';
+  const gclass = score >= 6 ? 'pass' : 'fail';
+  wrap.innerHTML = '<div class="quiz-result"><div class="quiz-result-score">'+score+'<span class="max">/'+total+'</span></div><div class="quiz-result-grade '+gclass+'">'+grade+'</div><button class="action-btn ab-coffee" onclick="startQuiz()">🔄 다시 풀기</button></div>';
+}
+
+/* ============================================================
+   시뮬레이터: 공통
+============================================================ */
+function goStage(n){
+  state.sim.stage = n;
+  document.querySelectorAll('.sim-step').forEach(b => {
+    const s = parseInt(b.dataset.s, 10);
+    b.classList.toggle('active', s === n);
+    b.classList.toggle('done', state.sim.stageDone[s] === true);
+  });
+  document.querySelectorAll('.stage-panel').forEach(p => {
+    p.classList.toggle('active', parseInt(p.dataset.s,10) === n);
+  });
+  if (n === 6) renderResult();
+  updateScoreLabel();
+}
+function updateScoreLabel(){
+  const total = Object.values(state.sim.scores).reduce((a,b)=>a+b, 0);
+  document.getElementById('simScoreLbl').textContent = total + '점';
+}
+function markStageDone(n){
+  state.sim.stageDone[n] = true;
+  document.querySelector('.sim-step[data-s="'+n+'"]').classList.add('done');
+  const nextBtn = document.getElementById('stage'+n+'Next');
+  if (nextBtn) nextBtn.disabled = false;
+  updateScoreLabel();
+}
+function resetSim(){
+  state.sim.stage = 1;
+  state.sim.stageDone = {1:false,2:false,3:false,4:false,5:false};
+  state.sim.grind = {size:5, weight:0, grinding:false, timer:null};
+  state.sim.tamp = {leveled:false, force:0, maxForce:0, tamping:false, forceTimer:null, level:0, locked:false, result:null};
+  state.sim.extract = {locked:false, running:false, time:0, vol:0, timer:null, result:null};
+  state.sim.steam = {milk:0, pos:0, running:false, temp:25, foam:0, timer:null, result:null};
+  state.sim.art = {type:'', running:false, cueIdx:0, cueWindow:false, cueTimer:null, hits:0, result:null};
+  state.sim.scores = {};
+  // UI 초기화
+  document.getElementById('grindNum').textContent = '5';
+  document.getElementById('grinderNumDisp').textContent = '5';
+  document.getElementById('scaleVal').textContent = '0.0';
+  document.getElementById('grindStartBtn').disabled = false;
+  document.getElementById('grindStopBtn').disabled = true;
+  document.getElementById('stage1Next').disabled = true;
+  document.getElementById('stage1Fb').className = 'feedback-box';
+  document.getElementById('stage1Fb').textContent = '분쇄도를 고르고 시작하세요';
+  document.getElementById('grinderSvg').classList.remove('grinding');
+  updateGrindDesc();
+  document.getElementById('forceVal').textContent = '0.0';
+  document.getElementById('forceInd').style.left = '0%';
+  document.getElementById('stage2Next').disabled = true;
+  document.getElementById('stage2Fb').className = 'feedback-box';
+  document.getElementById('stage2Fb').textContent = '먼저 레벨링을 하고 탬핑하세요';
+  document.getElementById('levelBubble').style.top = '30px';
+  document.getElementById('levelBubble').style.left = '30px';
+  document.getElementById('extTime').textContent = '0.0';
+  document.getElementById('extVol').textContent = '0.0';
+  document.getElementById('pfLockBtn').disabled = false;
+  document.getElementById('extStartBtn').disabled = true;
+  document.getElementById('extStopBtn').disabled = true;
+  document.getElementById('stage3Next').disabled = true;
+  document.getElementById('stage3Fb').className = 'feedback-box';
+  document.getElementById('stage3Fb').textContent = '포터필터를 먼저 장착하세요';
+  document.getElementById('extractSvg').classList.remove('brewing');
+  document.getElementById('extractPF').style.opacity = '0.3';
+  document.getElementById('milkTemp').textContent = '25';
+  document.getElementById('milkAmt').textContent = '0';
+  document.getElementById('wandPos').value = 0;
+  document.getElementById('stage4Fb').className = 'feedback-box';
+  document.getElementById('stage4Fb').textContent = '우유 양과 스팀봉 위치를 먼저 설정하세요';
+  document.getElementById('stage4Next').disabled = true;
+  document.getElementById('steamSvg').classList.remove('steaming');
+  document.getElementById('artSelName').textContent = '(없음)';
+  document.getElementById('artStartBtn').disabled = true;
+  document.getElementById('stage5Fb').className = 'feedback-box';
+  document.getElementById('stage5Fb').textContent = '패턴을 선택하고 붓기 시작하세요';
+  document.getElementById('stage5Next').disabled = true;
+  document.getElementById('artResult').setAttribute('opacity','0');
+  document.getElementById('artActionRow').style.display = 'none';
+  goStage(1);
+}
+
+/* ============================================================
+   STAGE 1: 그라인더
+============================================================ */
+const GRIND_INFO = {
+  1:{name:'아주 미세',desc:'터키식 커피용 (너무 미세)',baseTime:40,quality:'bad'},
+  2:{name:'미세',desc:'에스프레소 과추출 위험',baseTime:36,quality:'bad'},
+  3:{name:'약간 미세',desc:'에스프레소 살짝 느림',baseTime:32,quality:'warn'},
+  4:{name:'미세-보통',desc:'에스프레소 OK',baseTime:28,quality:'good'},
+  5:{name:'보통(에스프레소 최적)',desc:'에스프레소 완벽 ✓',baseTime:25,quality:'good'},
+  6:{name:'약간 보통',desc:'에스프레소 살짝 빠름',baseTime:22,quality:'good'},
+  7:{name:'중간-굵게',desc:'드립커피 영역 (에스프레소에는 굵음)',baseTime:18,quality:'warn'},
+  8:{name:'굵게',desc:'프렌치프레스용 (너무 굵음)',baseTime:15,quality:'bad'},
+  9:{name:'아주 굵게',desc:'콜드브루용 (너무 굵음)',baseTime:12,quality:'bad'},
+  10:{name:'매우 굵게',desc:'전혀 안 맞음',baseTime:10,quality:'bad'}
+};
+function changeGrind(delta){
+  if (state.sim.grind.grinding) return;
+  const v = state.sim.grind.size + delta;
+  if (v < 1 || v > 10) return;
+  state.sim.grind.size = v;
+  document.getElementById('grindNum').textContent = v;
+  document.getElementById('grinderNumDisp').textContent = v;
+  updateGrindDesc();
+}
+function updateGrindDesc(){
+  const info = GRIND_INFO[state.sim.grind.size];
+  const el = document.getElementById('grindDesc');
+  el.textContent = info.desc;
+  el.className = 'dial-desc ' + info.quality;
+  document.getElementById('grindMinus').disabled = state.sim.grind.size <= 1;
+  document.getElementById('grindPlus').disabled = state.sim.grind.size >= 10;
+}
+function grinderStart(){
+  if (state.sim.grind.grinding) return;
+  state.sim.grind.grinding = true;
+  state.sim.grind.weight = 0;
+  document.getElementById('grinderSvg').classList.add('grinding');
+  document.getElementById('grindStartBtn').disabled = true;
+  document.getElementById('grindStopBtn').disabled = false;
+  document.getElementById('grindMinus').disabled = true;
+  document.getElementById('grindPlus').disabled = true;
+  const groundPile = document.querySelector('.ground-pile');
+  const startT = Date.now();
+  // 분쇄도에 따라 속도 미세 차이
+  const ratePerSec = 4.5; // 4.5g/sec
+  state.sim.grind.timer = setInterval(() => {
+    const elapsed = (Date.now() - startT)/1000;
+    state.sim.grind.weight = elapsed * ratePerSec;
+    document.getElementById('scaleVal').textContent = state.sim.grind.weight.toFixed(1);
+    // ground-pile 스케일
+    const scale = Math.min(1, state.sim.grind.weight / 20);
+    if (groundPile) groundPile.style.transform = 'scaleY('+scale.toFixed(2)+')';
+    // 과도 시 자동 정지 (25g)
+    if (state.sim.grind.weight >= 25){ grinderStop(); }
+  }, 50);
+}
+function grinderStop(){
+  if (!state.sim.grind.grinding) return;
+  clearInterval(state.sim.grind.timer);
+  state.sim.grind.grinding = false;
+  document.getElementById('grinderSvg').classList.remove('grinding');
+  document.getElementById('grindStartBtn').disabled = false;
+  document.getElementById('grindStopBtn').disabled = true;
+  updateGrindDesc();
+  const w = state.sim.grind.weight;
+  // 점수 계산: 18g ±2g good, ±4g warn, else bad
+  // 분쇄도 가중치 포함
+  const info = GRIND_INFO[state.sim.grind.size];
+  let doseScore = 0;
+  if (w >= 17 && w <= 20){ doseScore = 10; }
+  else if (w >= 16 && w <= 22){ doseScore = 7; }
+  else if (w >= 14 && w <= 24){ doseScore = 4; }
+  else { doseScore = 0; }
+  let grindScore = (info.quality === 'good') ? 10 : (info.quality === 'warn' ? 5 : 1);
+  const total = doseScore + grindScore;
+  state.sim.scores.s1 = total;
+  // 피드백
+  const fb = document.getElementById('stage1Fb');
+  let msg = '✓ 분쇄 완료: <b>'+w.toFixed(1)+'g</b> (목표 18g) · 분쇄도 '+state.sim.grind.size+'단<br>';
+  if (doseScore === 10 && grindScore === 10){ fb.className = 'feedback-box good'; msg += '🏆 완벽! (+'+total+'점)'; }
+  else if (total >= 12){ fb.className = 'feedback-box good'; msg += '👍 좋아요 (+'+total+'점)'; }
+  else if (total >= 8){ fb.className = 'feedback-box warn'; msg += '⚠️ 아쉬움 (+'+total+'점)'; }
+  else { fb.className = 'feedback-box bad'; msg += '❌ 재연습 필요 (+'+total+'점)'; }
+  fb.innerHTML = msg;
+  markStageDone(1);
+  toast('1단계 점수: ' + total + '/20점');
+}
+
+/* ============================================================
+   STAGE 2: 레벨링 & 탬핑
+============================================================ */
+function doLevel(){
+  state.sim.tamp.leveled = true;
+  document.getElementById('levelBtn').disabled = true;
+  document.getElementById('levelBtn').textContent = '✓ 레벨링 완료';
+  // 가루 표면 평탄화 애니메이션
+  const surface = document.getElementById('groundsSurface');
+  if (surface) surface.setAttribute('opacity', '0.5');
+  setTimeout(() => { if (surface) surface.setAttribute('opacity','1'); }, 400);
+  document.getElementById('stage2Fb').innerHTML = '✓ 레벨링 완료. 이제 <b>탬핑 버튼을 꾹 누르세요</b> (15~20kg에서 떼기)';
+  document.getElementById('stage2Fb').className = 'feedback-box';
+}
+function tampDown(){
+  if (!state.sim.tamp.leveled){ toast('먼저 레벨링을 하세요'); return; }
+  if (state.sim.tamp.locked) return;
+  if (state.sim.tamp.tamping) return;
+  state.sim.tamp.tamping = true;
+  state.sim.tamp.force = 0;
+  state.sim.tamp.maxForce = 0;
+  state.sim.tamp.level = 0;
+  const startT = Date.now();
+  // 0 → 최대 25kg까지 1.5초에 도달
+  const rate = 25 / 1.5; // kg per second
+  state.sim.tamp.forceTimer = setInterval(() => {
+    const el = (Date.now() - startT)/1000;
+    state.sim.tamp.force = Math.min(25, el * rate);
+    state.sim.tamp.maxForce = Math.max(state.sim.tamp.maxForce, state.sim.tamp.force);
+    document.getElementById('forceVal').textContent = state.sim.tamp.force.toFixed(1);
+    document.getElementById('forceInd').style.left = (state.sim.tamp.force/25*100) + '%';
+    // 수평계: 힘이 커질수록 미세 흔들림
+    const wobble = Math.sin(el*8) * Math.min(state.sim.tamp.force*0.6, 10);
+    state.sim.tamp.level = Math.abs(wobble);
+    const bubble = document.getElementById('levelBubble');
+    if (bubble){
+      bubble.style.top = (30 + wobble) + 'px';
+      bubble.style.left = (30 + Math.cos(el*8)*wobble*0.5) + 'px';
+    }
+  }, 40);
+}
+function tampUp(){
+  if (!state.sim.tamp.tamping) return;
+  clearInterval(state.sim.tamp.forceTimer);
+  state.sim.tamp.tamping = false;
+  const f = state.sim.tamp.force;
+  const mx = state.sim.tamp.maxForce;
+  const lv = state.sim.tamp.level;
+  // 수평계 원위치
+  const bubble = document.getElementById('levelBubble');
+  if (bubble){ bubble.style.top = '30px'; bubble.style.left = '30px'; }
+  // 점수: 힘 15~20 = 만점 / 수평 <5 good, >8 bad
+  let forceScore = 0;
+  if (f >= 15 && f <= 20){ forceScore = 10; }
+  else if (f >= 12 && f < 15){ forceScore = 6; }
+  else if (f > 20 && f <= 23){ forceScore = 6; }
+  else if (f >= 10 && f < 12){ forceScore = 3; }
+  else if (f > 23){ forceScore = 2; }
+  else { forceScore = 0; }
+  let levelScore = (lv < 3) ? 10 : (lv < 6) ? 6 : (lv < 10) ? 3 : 0;
+  const total = forceScore + levelScore;
+  state.sim.scores.s2 = total;
+  state.sim.tamp.locked = true;
+  state.sim.tamp.result = {force:f, level:lv};
+  // 피드백
+  const fb = document.getElementById('stage2Fb');
+  let msg = '✓ 탬핑 완료: 힘 <b>'+f.toFixed(1)+'kg</b>, 수평 흔들림 '+lv.toFixed(1)+'°<br>';
+  if (forceScore === 10 && levelScore === 10){ fb.className = 'feedback-box good'; msg += '🏆 완벽한 탬핑! (+'+total+'점)'; }
+  else if (total >= 14){ fb.className = 'feedback-box good'; msg += '👍 좋습니다 (+'+total+'점)'; }
+  else if (total >= 9){ fb.className = 'feedback-box warn'; msg += '⚠️ 아쉬움 - 힘 15~20kg, 수평 유지 연습 (+'+total+'점)'; }
+  else { fb.className = 'feedback-box bad'; msg += '❌ 재연습: '+(f<15?'힘 더 세게 ':'')+(f>20?'힘 더 약하게 ':'')+(lv>=6?'수평 유지':'')+' (+'+total+'점)'; }
+  fb.innerHTML = msg;
+  markStageDone(2);
+  toast('2단계 점수: ' + total + '/20점');
+}
+
+/* ============================================================
+   STAGE 3: 추출
+============================================================ */
+function lockPortafilter(){
+  if (state.sim.extract.locked) return;
+  state.sim.extract.locked = true;
+  document.getElementById('pfLockBtn').disabled = true;
+  document.getElementById('pfLockBtn').textContent = '✓ 장착 완료';
+  document.getElementById('extStartBtn').disabled = false;
+  document.getElementById('extractPF').style.opacity = '1';
+  document.getElementById('stage3Fb').innerHTML = '✓ 포터필터 장착 완료. <b>추출 시작</b> 버튼을 누르세요.';
+  toast('🔧 포터필터 장착');
+}
+function extractStart(){
+  if (state.sim.extract.running) return;
+  state.sim.extract.running = true;
+  state.sim.extract.time = 0;
+  state.sim.extract.vol = 0;
+  document.getElementById('extractSvg').classList.add('brewing');
+  document.getElementById('extStartBtn').disabled = true;
+  document.getElementById('extStopBtn').disabled = false;
+  // 예상 추출 시간 계산 (분쇄도 + 탬핑에 따라)
+  const grindBase = GRIND_INFO[state.sim.grind.size].baseTime;
+  const tampF = state.sim.tamp.result ? state.sim.tamp.result.force : 17;
+  const tampAdj = (tampF - 17) * 0.4; // 강할수록 느려짐
+  state.sim.extract.expectedTime = grindBase + tampAdj;
+  // 흐름 속도 (ml/sec) = 25ml / expectedTime
+  const flowRate = 50 / state.sim.extract.expectedTime; // 2샷 50ml 기준
+  const startT = Date.now();
+  state.sim.extract.timer = setInterval(() => {
+    const t = (Date.now() - startT)/1000;
+    state.sim.extract.time = t;
+    state.sim.extract.vol = t * flowRate;
+    document.getElementById('extTime').textContent = t.toFixed(1);
+    document.getElementById('extVol').textContent = state.sim.extract.vol.toFixed(1);
+    // 자동 정지 (40초)
+    if (t >= 40){ extractStop(); }
+  }, 50);
+}
+function extractStop(){
+  if (!state.sim.extract.running) return;
+  clearInterval(state.sim.extract.timer);
+  state.sim.extract.running = false;
+  document.getElementById('extStopBtn').disabled = true;
+  document.getElementById('extractSvg').classList.remove('brewing');
+  const t = state.sim.extract.time;
+  const v = state.sim.extract.vol;
+  // 2샷 기준 시간 20~30초, 양 20~30ml (1샷 양 10~15로 2샷 20~30)
+  // 하지만 KCA는 1잔 25±5 → 2잔 합계 50±10
+  let timeScore = 0;
+  if (t >= 25 && t <= 30){ timeScore = 15; }
+  else if (t >= 22 && t <= 33){ timeScore = 10; }
+  else if (t >= 20 && t <= 35){ timeScore = 6; }
+  else if (t >= 15 && t <= 40){ timeScore = 3; }
+  else { timeScore = 0; }
+  let volScore = 0;
+  if (v >= 45 && v <= 55){ volScore = 10; }
+  else if (v >= 40 && v <= 60){ volScore = 6; }
+  else if (v >= 30 && v <= 70){ volScore = 3; }
+  else { volScore = 0; }
+  // 크레마 품질: 분쇄도·탬핑·시간이 모두 좋아야 좋음
+  const stageOK = GRIND_INFO[state.sim.grind.size].quality === 'good'
+    && state.sim.tamp.result && state.sim.tamp.result.force >= 14 && state.sim.tamp.result.force <= 22;
+  let cremaScore = stageOK && timeScore >= 10 ? 5 : stageOK ? 3 : 1;
+  const total = timeScore + volScore + cremaScore;
+  state.sim.scores.s3 = total;
+  state.sim.extract.result = {time:t, vol:v, cremaScore};
+  // 크레마 시각화
+  const crema = document.getElementById('cremaTop');
+  if (crema){
+    const rx = Math.min(26, 10 + cremaScore * 4);
+    const ry = Math.min(5, 2 + cremaScore * 0.8);
+    crema.setAttribute('rx', rx);
+    crema.setAttribute('ry', ry);
+    crema.setAttribute('opacity', '1');
+    crema.setAttribute('fill', cremaScore >= 4 ? 'url(#cremaGrad)' : cremaScore >= 2 ? '#A87444' : '#5D3317');
+  }
+  const fb = document.getElementById('stage3Fb');
+  let msg = '✓ 추출 완료: 시간 <b>'+t.toFixed(1)+'초</b> / 양 <b>'+v.toFixed(1)+'ml</b><br>';
+  if (total >= 25){ fb.className = 'feedback-box good'; msg += '🏆 완벽 추출! 크레마도 좋아요 (+'+total+'점)'; }
+  else if (total >= 18){ fb.className = 'feedback-box good'; msg += '👍 좋습니다 (+'+total+'점)'; }
+  else if (total >= 10){ fb.className = 'feedback-box warn'; msg += '⚠️ '+(t<25?'추출이 빨랐어요 (분쇄 더 미세) ':'')+(t>30?'추출이 느렸어요 (분쇄 더 굵게) ':'')+' (+'+total+'점)'; }
+  else { fb.className = 'feedback-box bad'; msg += '❌ 재연습 필요 - 분쇄도/탬핑 다시 확인 (+'+total+'점)'; }
+  fb.innerHTML = msg;
+  markStageDone(3);
+  toast('3단계 점수: ' + total + '/30점');
+}
+
+/* ============================================================
+   STAGE 4: 밀크 스티밍
+============================================================ */
+function setMilk(amt){
+  if (state.sim.steam.running) return;
+  state.sim.steam.milk = amt;
+  const display = amt === 0.33 ? '1/3' : amt === 0.5 ? '1/2' : '너무 많음';
+  document.getElementById('milkAmt').textContent = display;
+  // 시각화
+  const fill = document.getElementById('milkFill');
+  const h = amt * 48;
+  fill.setAttribute('y', 54 - h + 48);
+  fill.setAttribute('height', h);
+  checkSteamReady();
+}
+function setWandPos(v){
+  if (state.sim.steam.running) return;
+  state.sim.steam.pos = parseInt(v,10);
+  const descs = {0:'0 · 공기 중 (너무 높음)', 1:'1 · 수면 바로 아래 ✓', 2:'2 · 깊이 (텍스처링 어려움)'};
+  document.getElementById('wandPosDesc').textContent = descs[state.sim.steam.pos];
+  checkSteamReady();
+}
+function checkSteamReady(){
+  const ok = state.sim.steam.milk > 0;
+  document.getElementById('steamStartBtn').disabled = !ok;
+}
+function steamStart(){
+  if (state.sim.steam.running) return;
+  if (state.sim.steam.milk === 0){ toast('우유를 먼저 담으세요'); return; }
+  state.sim.steam.running = true;
+  state.sim.steam.temp = 25;
+  state.sim.steam.foam = 0;
+  document.getElementById('steamSvg').classList.add('steaming');
+  document.getElementById('steamStartBtn').disabled = true;
+  document.getElementById('steamStopBtn').disabled = false;
+  const pos = state.sim.steam.pos;
+  // 온도: 0.5°C per 200ms (초당 2.5°C) 적정 속도
+  // 포지션에 따라 거품 형성 속도 달라짐
+  const foamRate = pos === 1 ? 0.07 : (pos === 0 ? 0.15 : 0.01); // cm per 200ms
+  const tempRate = 0.5; // °C per 200ms
+  state.sim.steam.timer = setInterval(() => {
+    state.sim.steam.temp += tempRate;
+    state.sim.steam.foam = Math.min(3, state.sim.steam.foam + foamRate);
+    document.getElementById('milkTemp').textContent = Math.round(state.sim.steam.temp);
+    const tempPct = ((state.sim.steam.temp - 25)/65) * 100;
+    document.getElementById('tempMarker').style.left = Math.max(0, Math.min(100, tempPct)) + '%';
+    // 거품 시각화
+    const foamEl = document.getElementById('foamLayer');
+    const foamScale = Math.min(1, state.sim.steam.foam / 1.5);
+    foamEl.style.transform = 'scaleY('+foamScale.toFixed(2)+')';
+    // 과열 자동 종료
+    if (state.sim.steam.temp >= 85){ steamStop(); }
+  }, 200);
+}
+function steamStop(){
+  if (!state.sim.steam.running) return;
+  clearInterval(state.sim.steam.timer);
+  state.sim.steam.running = false;
+  document.getElementById('steamSvg').classList.remove('steaming');
+  document.getElementById('steamStopBtn').disabled = true;
+  const t = state.sim.steam.temp;
+  const f = state.sim.steam.foam;
+  // 온도 점수
+  let tempScore = 0;
+  if (t >= 60 && t <= 65){ tempScore = 10; }
+  else if (t >= 55 && t <= 70){ tempScore = 6; }
+  else if (t >= 50 && t <= 75){ tempScore = 3; }
+  else { tempScore = 0; }
+  // 거품 점수 (1~1.5cm 이상)
+  let foamScore = 0;
+  if (f >= 1 && f <= 1.5){ foamScore = 10; }
+  else if (f >= 0.7 && f <= 2){ foamScore = 6; }
+  else if (f >= 0.5 && f <= 2.5){ foamScore = 3; }
+  else { foamScore = 0; }
+  const total = tempScore + foamScore;
+  state.sim.scores.s4 = total;
+  state.sim.steam.result = {temp:t, foam:f};
+  const fb = document.getElementById('stage4Fb');
+  let msg = '✓ 스티밍 완료: 온도 <b>'+Math.round(t)+'°C</b>, 거품 <b>'+f.toFixed(1)+'cm</b><br>';
+  if (total >= 18){ fb.className = 'feedback-box good'; msg += '🏆 완벽한 스티밍! (+'+total+'점)'; }
+  else if (total >= 12){ fb.className = 'feedback-box good'; msg += '👍 좋습니다 (+'+total+'점)'; }
+  else if (total >= 6){ fb.className = 'feedback-box warn'; msg += '⚠️ '+(t>65?'온도 과열 ':'')+(t<60?'온도 미달 ':'')+(f<1?'거품 부족 ':'')+(f>1.5?'거품 과다 ':'')+' (+'+total+'점)'; }
+  else { fb.className = 'feedback-box bad'; msg += '❌ 재연습: 스팀봉은 수면 바로 아래, 60~65°C에서 정지 (+'+total+'점)'; }
+  fb.innerHTML = msg;
+  markStageDone(4);
+  toast('4단계 점수: ' + total + '/20점');
+}
+
+/* ============================================================
+   STAGE 5: 라떼아트
+============================================================ */
+const ART_PATTERNS = {
+  heart: {name:'❤️ 하트', cues:3, svg:'<path d="M -50 -5 Q -56 -25 -40 -35 Q -20 -35 0 -10 Q 20 -35 40 -35 Q 56 -25 50 -5 L 0 45 Z" fill="#FFF8E7" transform="translate(160,120)"/>'},
+  rosetta: {name:'🌿 로제타', cues:5, svg:'<g transform="translate(160,120)"><path d="M 0 -60 Q -22 -40 -14 -20 Q -24 -8 -14 4 Q -24 16 -14 28 Q -24 40 -8 52 Q 0 60 8 52 Q 24 40 14 28 Q 24 16 14 4 Q 24 -8 14 -20 Q 22 -40 0 -60 Z" fill="#FFF8E7"/><path d="M 0 -60 L 0 60" stroke="#A87444" stroke-width="1.5"/></g>'},
+  tulip: {name:'🌷 튤립', cues:4, svg:'<g transform="translate(160,120)"><ellipse cx="0" cy="40" rx="30" ry="18" fill="#FFF8E7"/><ellipse cx="0" cy="18" rx="22" ry="14" fill="#FFF8E7"/><ellipse cx="0" cy="-2" rx="16" ry="11" fill="#FFF8E7"/><circle cx="0" cy="-20" r="8" fill="#FFF8E7"/></g>'}
+};
+function selectArt(type){
+  if (state.sim.art.running) return;
+  state.sim.art.type = type;
+  document.getElementById('artSelName').textContent = ART_PATTERNS[type].name;
+  ['Heart','Rosetta','Tulip'].forEach(t => {
+    const btn = document.getElementById('artBtn'+t);
+    btn.className = 'action-btn ab-gray';
+  });
+  document.getElementById('artBtn' + type.charAt(0).toUpperCase()+type.slice(1)).className = 'action-btn ab-coffee';
+  document.getElementById('artStartBtn').disabled = false;
+}
+function artStart(){
+  if (!state.sim.art.type){ toast('패턴을 먼저 고르세요'); return; }
+  if (state.sim.art.running) return;
+  state.sim.art.running = true;
+  state.sim.art.cueIdx = 0;
+  state.sim.art.hits = 0;
+  document.getElementById('artStartBtn').disabled = true;
+  document.getElementById('artActionRow').style.display = 'flex';
+  document.getElementById('artResult').setAttribute('opacity','0');
+  document.getElementById('stage5Fb').innerHTML = '🎯 "<b>지금!</b>" 버튼이 <b>초록색</b>으로 변할 때 눌러요';
+  document.getElementById('stage5Fb').className = 'feedback-box';
+  const pattern = ART_PATTERNS[state.sim.art.type];
+  scheduleCue(pattern.cues);
+}
+function scheduleCue(totalCues){
+  // 임의 간격(1.5~2.5초 뒤) 큐 발동, 0.8초 동안 적중 가능
+  if (state.sim.art.cueIdx >= totalCues){ artFinish(); return; }
+  const delay = 1200 + Math.random() * 800;
+  state.sim.art.cueTimer = setTimeout(() => {
+    state.sim.art.cueWindow = true;
+    const btn = document.getElementById('artCue');
+    btn.classList.remove('ab-blue');
+    btn.classList.add('ab-green');
+    btn.textContent = '⏱️ 지금! (' + (state.sim.art.cueIdx+1) + '/' + totalCues + ')';
+    setTimeout(() => {
+      if (state.sim.art.cueWindow){
+        // 놓침
+        state.sim.art.cueWindow = false;
+        state.sim.art.cueIdx++;
+        btn.classList.remove('ab-green');
+        btn.classList.add('ab-blue');
+        btn.textContent = '⏱️ 대기…';
+        toast('⏰ 놓쳤어요!');
+        scheduleCue(totalCues);
+      }
+    }, 800);
+  }, delay);
+}
+function artCue(){
+  if (!state.sim.art.running) return;
+  const btn = document.getElementById('artCue');
+  const totalCues = ART_PATTERNS[state.sim.art.type].cues;
+  if (state.sim.art.cueWindow){
+    // 적중
+    state.sim.art.hits++;
+    state.sim.art.cueWindow = false;
+    state.sim.art.cueIdx++;
+    btn.classList.remove('ab-green');
+    btn.classList.add('ab-blue');
+    btn.textContent = '⏱️ 대기…';
+    toast('✓ 성공!');
+    scheduleCue(totalCues);
+  } else {
+    // 성급
+    toast('❌ 너무 빨라요');
+  }
+}
+function artFinish(){
+  state.sim.art.running = false;
+  document.getElementById('artActionRow').style.display = 'none';
+  document.getElementById('artStartBtn').disabled = false;
+  const pattern = ART_PATTERNS[state.sim.art.type];
+  const hits = state.sim.art.hits;
+  const total = Math.round((hits/pattern.cues) * 10);
+  state.sim.scores.s5 = total;
+  state.sim.art.result = {hits, totalCues:pattern.cues};
+  // 결과 SVG 표시
+  const result = document.getElementById('artResult');
+  result.innerHTML = pattern.svg;
+  result.setAttribute('opacity', (hits/pattern.cues).toFixed(2));
+  const fb = document.getElementById('stage5Fb');
+  let msg = '✓ 라떼아트: '+pattern.name+' · <b>'+hits+'/'+pattern.cues+'</b> 성공<br>';
+  if (hits === pattern.cues){ fb.className = 'feedback-box good'; msg += '🏆 완벽! (+'+total+'점)'; }
+  else if (hits >= pattern.cues * 0.6){ fb.className = 'feedback-box warn'; msg += '👍 괜찮아요 (+'+total+'점)'; }
+  else { fb.className = 'feedback-box bad'; msg += '❌ 타이밍 연습 필요 (+'+total+'점)'; }
+  fb.innerHTML = msg;
+  markStageDone(5);
+  toast('5단계 점수: ' + total + '/10점');
+}
+
+/* ============================================================
+   STAGE 6: 결과
+============================================================ */
+function renderResult(){
+  const s = state.sim.scores;
+  const s1 = s.s1 || 0, s2 = s.s2 || 0, s3 = s.s3 || 0, s4 = s.s4 || 0, s5 = s.s5 || 0;
+  const total = s1 + s2 + s3 + s4 + s5;
+  const max = 100;
+  const grade = total >= 80 ? '우수 합격' : total >= 60 ? '합격' : '불합격 (재도전)';
+  const gclass = total >= 60 ? 'pass' : 'fail';
+  const stages = [
+    {name:'① 그라인더 (분쇄+도징)', score:s1, max:20},
+    {name:'② 레벨링+탬핑', score:s2, max:20},
+    {name:'③ 에스프레소 추출', score:s3, max:30},
+    {name:'④ 밀크 스티밍', score:s4, max:20},
+    {name:'⑤ 라떼아트', score:s5, max:10},
+  ];
+  let html = '<div class="result-card"><div class="result-total">'+total+'<span class="max">/'+max+'</span></div><div class="result-grade '+gclass+'">'+grade+'</div>';
+  stages.forEach(st => {
+    const pct = (st.score/st.max) * 100;
+    const cls = pct >= 70 ? 'good' : pct >= 40 ? 'warn' : 'bad';
+    html += '<div class="result-stage">' +
+      '<div class="rs-name">'+st.name+'</div>' +
+      '<div class="rs-bar"><div class="rs-bar-fill '+cls+'" style="width:'+pct+'%"></div></div>' +
+      '<div class="rs-score" style="color:var(--'+(cls==='good'?'green':cls==='warn'?'amber':'red')+');">'+st.score+'/'+st.max+'</div>' +
+      '</div>';
+  });
+  html += '</div>';
+  // 조언
+  const tips = [];
+  if (s1 < 14) tips.push('• 그라인더: 분쇄도 <b>5번</b>에서 <b>18g</b>을 정확히 맞추세요.');
+  if (s2 < 14) tips.push('• 탬핑: 힘은 <b>15~20kg</b>, 수평은 거품을 중앙 원 안에.');
+  if (s3 < 20) tips.push('• 추출: <b>25~30초</b>, <b>50ml 전후</b>. 빠르면 분쇄를 더 미세하게.');
+  if (s4 < 14) tips.push('• 스티밍: 봉 위치 <b>1(수면 바로 아래)</b>에서 <b>60~65°C</b>에 정지.');
+  if (s5 < 7) tips.push('• 라떼아트: "지금!" 버튼이 <b>초록색</b>일 때만 눌러요.');
+  if (tips.length){
+    html += '<div class="checklist-card"><div class="cl-title">💡 개선 조언</div><div style="font-size:13.5px;line-height:1.7;color:var(--navy);">' + tips.join('<br>') + '</div></div>';
+  } else {
+    html += '<div class="checklist-card" style="background:var(--green-light);border-color:var(--green);"><div class="cl-title">🏆 모든 단계 우수!</div><div style="font-size:13.5px;color:var(--green);line-height:1.5;">실제 시험에서도 이 정도 수준이면 합격권입니다. 반복 연습으로 안정감을 키우세요.</div></div>';
+  }
+  document.getElementById('resultCard').innerHTML = html;
+  updateScoreLabel();
+}
+
+/* ============================================================
+   체크리스트
+============================================================ */
+const CL = {
+  cloth: [
+    {id:'cl-c1', text:'깨끗한 <b>흰색 셔츠</b> 또는 단정한 상의'},
+    {id:'cl-c2', text:'<b>검정 긴 바지</b> (반바지·치마 X)'},
+    {id:'cl-c3', text:'<b>앞치마</b> 깨끗하게 착용 (끈 단단히)'},
+    {id:'cl-c4', text:'<b>검정 양말·닫힌 신발</b> (샌들 X, 굽 낮게)'},
+    {id:'cl-c5', text:'긴 머리는 <b>단단히 묶기</b>'},
+  ],
+  hygiene: [
+    {id:'cl-h1', text:'손톱 짧게 자르고 <b>매니큐어 제거</b>'},
+    {id:'cl-h2', text:'<b>시계·반지·팔찌</b> 제거'},
+    {id:'cl-h3', text:'진한 향수·화장 피하기'},
+    {id:'cl-h4', text:'시험 시작 전 <b>손 비누로 꼼꼼히 씻기</b>'},
+    {id:'cl-h5', text:'<b>기침·재채기</b> 시 고개 돌리고 다시 손 씻기'},
+  ],
+  tool: [
+    {id:'cl-t1', text:'린넨(마른 행주) 2장 이상 (탬핑용·스팀봉용)'},
+    {id:'cl-t2', text:'탬퍼 준비 (15~20kg 힘 체크)'},
+    {id:'cl-t3', text:'스티밍피처(350ml) × 1'},
+    {id:'cl-t4', text:'에스프레소 잔 2개 · 카푸치노 잔 2개 예열'},
+    {id:'cl-t5', text:'포터필터 2개 깨끗이 린스'},
+    {id:'cl-t6', text:'그라인더 분쇄도 확인 (시험장 기준)'},
+  ],
+};
+function renderChecklist(){
+  Object.keys(CL).forEach(k => {
+    const wrap = document.getElementById('cl-'+k);
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    CL[k].forEach(it => {
+      const el = document.createElement('div');
+      el.className = 'pl-item' + (state.checked[it.id] ? ' checked' : '');
+      el.innerHTML = '<div class="pl-check">'+ (state.checked[it.id]?'✓':'') +'</div><div class="pl-text">'+ it.text +'</div>';
+      el.onclick = () => {
+        state.checked[it.id] = !state.checked[it.id];
+        renderChecklist();
+        checkAllChecklist();
+      };
+      wrap.appendChild(el);
+    });
+  });
+}
+function checkAllChecklist(){
+  const all = [...CL.cloth, ...CL.hygiene, ...CL.tool];
+  const done = all.filter(it => state.checked[it.id]).length;
+  if (done === all.length) toast('💯 모든 체크 완료! 시험장 입장 준비 OK');
+}
+
+/* ============================================================
+   머신 시연
+============================================================ */
+function mcSetMode(mode){
+  const svg = document.getElementById('mcSvg');
+  if (!svg) return;
+  svg.classList.remove('brewing','steaming','hotwater');
+  state.machine.mode = mode;
+  if (mode !== 'idle') svg.classList.add(mode);
+}
+function mcClearTimers(){
+  if (state.machine.timerInterval){ clearInterval(state.machine.timerInterval); state.machine.timerInterval = null; }
+  if (state.machine.autoStopTimeout){ clearTimeout(state.machine.autoStopTimeout); state.machine.autoStopTimeout = null; }
+}
+function mcStartTimer(){
+  state.machine.startTime = Date.now();
+  state.machine.timerInterval = setInterval(() => {
+    const t = (Date.now() - state.machine.startTime) / 1000;
+    const timeEl = document.getElementById('mcTime');
+    if (timeEl) timeEl.textContent = t.toFixed(1) + '초';
+  }, 100);
+}
+function mcSetStatus(text){
+  const el = document.getElementById('mcStatus');
+  if (el) el.textContent = text;
+}
+function mcAction(action){
+  const svg = document.getElementById('mcSvg');
+  if (!svg) return;
+  if (action === 'togglePF'){
+    state.machine.pfOn = !state.machine.pfOn;
+    svg.classList.toggle('pf-off', !state.machine.pfOn);
+    mcSetStatus(state.machine.pfOn ? '포터필터 장착 완료' : '포터필터 분리');
+    toast(state.machine.pfOn ? '🔧 포터필터 끼움' : '🔧 포터필터 빼기');
+    return;
+  }
+  if (action === 'stop'){
+    mcClearTimers();
+    mcSetMode('idle');
+    const t = document.getElementById('mcTime');
+    if (t) t.textContent = '00.0초';
+    mcSetStatus('⏸ 정지됨 · 대기');
+    return;
+  }
+  if ((action === 'brew1' || action === 'brew2') && !state.machine.pfOn){
+    toast('⚠️ 포터필터를 먼저 끼워주세요');
+    mcSetStatus('❌ 포터필터 없음');
+    return;
+  }
+  mcClearTimers();
+  const t = document.getElementById('mcTime');
+  if (t) t.textContent = '00.0초';
+  if (action === 'brew1'){
+    mcSetMode('brewing');
+    mcSetStatus('☕ 에스프레소 1샷 추출 중');
+    mcStartTimer();
+    state.machine.autoStopTimeout = setTimeout(() => {
+      mcClearTimers();
+      mcSetMode('idle');
+      const ts = ((Date.now() - state.machine.startTime) / 1000).toFixed(1);
+      mcSetStatus('✅ 1샷 완료 (' + ts + '초)');
+    }, 25000);
+  } else if (action === 'brew2'){
+    mcSetMode('brewing');
+    mcSetStatus('☕☕ 2샷 추출 중');
+    mcStartTimer();
+    state.machine.autoStopTimeout = setTimeout(() => {
+      mcClearTimers();
+      mcSetMode('idle');
+      const ts = ((Date.now() - state.machine.startTime) / 1000).toFixed(1);
+      mcSetStatus('✅ 2샷 완료 (' + ts + '초)');
+    }, 28000);
+  } else if (action === 'steam'){
+    mcSetMode('steaming');
+    mcSetStatus('💨 스팀 분사 중');
+    mcStartTimer();
+  } else if (action === 'hotwater'){
+    mcSetMode('hotwater');
+    mcSetStatus('💧 온수 추출 중');
+    mcStartTimer();
+    state.machine.autoStopTimeout = setTimeout(() => {
+      mcClearTimers();
+      mcSetMode('idle');
+      mcSetStatus('✅ 온수 완료');
+    }, 8000);
+  }
+}
+function mcReset(){
+  mcClearTimers();
+  const svg = document.getElementById('mcSvg');
+  if (svg) svg.classList.remove('brewing','steaming','hotwater','pf-off');
+  state.machine.mode = 'idle';
+  state.machine.pfOn = true;
+  const t = document.getElementById('mcTime');
+  if (t) t.textContent = '00.0초';
+  mcSetStatus('전원 켜짐 · 대기');
+}
+
+/* ============================================================
+   모의시험
+============================================================ */
+const EXAM_TASKS = [
+  {id:'e1', name:'① 복장·위생 점검', meta:'앞치마·손씻기', ico:'🧼'},
+  {id:'e2', name:'② 작업대·기물 세팅', meta:'잔 예열, 린넨 준비', ico:'🧽'},
+  {id:'e3', name:'③ 에스프레소 2잔 #1', meta:'20~30초 / 25±5ml', ico:'☕'},
+  {id:'e4', name:'④ 에스프레소 2잔 #2', meta:'한번 더 2잔', ico:'☕'},
+  {id:'e5', name:'⑤ 카푸치노 2잔', meta:'우유 60~65°C, 폼 1cm+', ico:'🥛'},
+  {id:'e6', name:'⑥ 서비스·정리', meta:'제공, 작업대 정리', ico:'🧹'},
+];
+function initExam(){
+  state.exam.running = false;
+  state.exam.remaining = 900;
+  state.exam.tasks = EXAM_TASKS.map(t => ({...t, done:false}));
+  document.getElementById('examTime').textContent = '15:00';
+  document.getElementById('examPhase').textContent = '준비 완료되면 시작 버튼을 눌러주세요';
+  document.getElementById('examPhaseLbl').textContent = '대기';
+  document.getElementById('examBarFill').style.width = '100%';
+  document.getElementById('examFinishBtn').disabled = true;
+  document.getElementById('examResultWrap').innerHTML = '';
+  document.getElementById('examBtnRow').innerHTML = '<button class="exam-btn start" onclick="startExam()">▶ 시험 시작</button>';
+  renderExamTasks();
+}
+function renderExamTasks(){
+  const wrap = document.getElementById('examTasks');
+  wrap.innerHTML = '';
+  state.exam.tasks.forEach((t,i) => {
+    const el = document.createElement('div');
+    const isCurrent = state.exam.running && !t.done && state.exam.tasks.slice(0,i).every(x=>x.done);
+    el.className = 'exam-task-card' + (t.done?' done':'') + (isCurrent?' current':'');
+    const ico = document.createElement('div'); ico.className = 'exam-task-ico'; ico.textContent = t.ico;
+    const info = document.createElement('div'); info.className = 'exam-task-info';
+    const name = document.createElement('div'); name.className = 'exam-task-name'; name.textContent = t.name;
+    const meta = document.createElement('div'); meta.className = 'exam-task-meta'; meta.textContent = t.meta;
+    info.appendChild(name); info.appendChild(meta);
+    const badge = document.createElement('div'); badge.className = 'exam-task-badge'; badge.textContent = t.done?'완료':'대기';
+    el.appendChild(ico); el.appendChild(info); el.appendChild(badge);
+    el.onclick = () => { if (state.exam.running) toggleExamTask(t.id); };
+    wrap.appendChild(el);
+  });
+}
+function toggleExamTask(id){
+  const t = state.exam.tasks.find(x => x.id === id);
+  if (!t) return;
+  t.done = !t.done;
+  renderExamTasks();
+  const allDone = state.exam.tasks.every(x => x.done);
+  document.getElementById('examFinishBtn').disabled = !allDone;
+  if (t.done) toast('✅ ' + t.name + ' 완료');
+}
+function startExam(){
+  state.exam.running = true;
+  state.exam.startTime = Date.now();
+  document.getElementById('examPhaseLbl').textContent = '진행중';
+  document.getElementById('examPhase').textContent = '✨ 집중! 15분 안에 끝내세요';
+  document.getElementById('examBtnRow').innerHTML =
+    '<button class="exam-btn pause" onclick="pauseExam()">⏸ 일시정지</button>' +
+    '<button class="exam-btn stop" onclick="stopExam()">■ 포기</button>';
+  state.exam.interval = setInterval(tickExam, 100);
+  renderExamTasks();
+}
+function pauseExam(){
+  if (!state.exam.running) return;
+  clearInterval(state.exam.interval);
+  state.exam.running = false;
+  document.getElementById('examPhaseLbl').textContent = '일시정지';
+  document.getElementById('examBtnRow').innerHTML =
+    '<button class="exam-btn start" onclick="resumeExam()">▶ 다시 시작</button>' +
+    '<button class="exam-btn stop" onclick="stopExam()">■ 포기</button>';
+}
+function resumeExam(){
+  state.exam.running = true;
+  state.exam.startTime = Date.now() - (900 - state.exam.remaining)*1000;
+  state.exam.interval = setInterval(tickExam, 100);
+  document.getElementById('examPhaseLbl').textContent = '진행중';
+  document.getElementById('examBtnRow').innerHTML =
+    '<button class="exam-btn pause" onclick="pauseExam()">⏸ 일시정지</button>' +
+    '<button class="exam-btn stop" onclick="stopExam()">■ 포기</button>';
+}
+function stopExam(){
+  clearInterval(state.exam.interval);
+  state.exam.running = false;
+  initExam();
+  toast('시험 종료');
+}
+function tickExam(){
+  const elapsed = (Date.now() - state.exam.startTime)/1000;
+  state.exam.remaining = Math.max(0, 900 - elapsed);
+  const m = Math.floor(state.exam.remaining/60);
+  const s = Math.floor(state.exam.remaining%60);
+  document.getElementById('examTime').textContent = String(m).padStart(2,'0')+':'+String(s).padStart(2,'0');
+  document.getElementById('examBarFill').style.width = (state.exam.remaining/900*100)+'%';
+  if (state.exam.remaining <= 0){
+    clearInterval(state.exam.interval);
+    state.exam.running = false;
+    finishExam(true);
+  }
+}
+function finishExam(timeout){
+  clearInterval(state.exam.interval);
+  state.exam.running = false;
+  const doneCount = state.exam.tasks.filter(t=>t.done).length;
+  const totalTasks = state.exam.tasks.length;
+  const taskScore = Math.round((doneCount/totalTasks)*70);
+  const usedTime = 900 - state.exam.remaining;
+  let timeScore = 0;
+  if (usedTime <= 15*60){
+    if (usedTime <= 10*60) timeScore = 30;
+    else if (usedTime <= 12*60) timeScore = 25;
+    else timeScore = 20;
+  }
+  const total = taskScore + timeScore;
+  const grade = total >= 60 ? 'pass' : 'fail';
+  const gradeText = total >= 80 ? '합격! 우수' : total >= 60 ? '합격!' : '불합격 (연습 더)';
+  document.getElementById('examResultWrap').innerHTML =
+    '<div class="result-card" style="margin:14px 16px;">' +
+      '<div class="result-total">'+total+'<span class="max">/100</span></div>' +
+      '<div class="result-grade '+grade+'">'+gradeText+'</div>' +
+      '<div class="result-stage"><div class="rs-name">사용 시간</div><div class="rs-score">'+Math.floor(usedTime/60)+'분 '+Math.floor(usedTime%60)+'초</div></div>' +
+      '<div class="result-stage"><div class="rs-name">완료 과제</div><div class="rs-score">'+doneCount+'/'+totalTasks+'</div></div>' +
+      '<div class="result-stage"><div class="rs-name">과제 점수</div><div class="rs-score">'+taskScore+'점</div></div>' +
+      '<div class="result-stage"><div class="rs-name">시간 점수</div><div class="rs-score">'+timeScore+'점</div></div>' +
+      (timeout?'<div class="result-stage"><div class="rs-name" style="color:var(--red);">시간초과 자동 종료</div><div class="rs-score" style="color:var(--red);">-</div></div>':'') +
+    '</div>' +
+    '<div class="btn-row" style="margin:0 16px 20px;">' +
+      '<button class="action-btn ab-gray" onclick="initExam()">다시 도전</button>' +
+      '<button class="action-btn ab-coffee" onclick="go(\'home\')">홈으로</button>' +
+    '</div>';
+  document.getElementById('examBtnRow').innerHTML = '';
+  window.scrollTo({top:document.body.scrollHeight, behavior:'smooth'});
+}
+function confirmExitExam(){
+  if (state.exam.running){
+    if (confirm('시험 진행 중입니다. 정말 나가시겠어요?')){
+      clearInterval(state.exam.interval);
+      state.exam.running = false;
+      go('home');
+    }
+  } else { go('home'); }
+}
+
+/* ============================================================
+   토스트 + 초기화
+============================================================ */
+let toastTimer;
+function toast(msg){
+  const el = document.getElementById('toast');
+  el.innerHTML = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+}
+function init(){
+  const d = new Date();
+  const hh = d.getHours(), mm = d.getMinutes();
+  const ampm = hh < 12 ? '오전' : '오후';
+  const h12 = hh === 0 ? 12 : hh > 12 ? hh - 12 : hh;
+  document.getElementById('sbTime').textContent = ampm + ' ' + h12 + ':' + String(mm).padStart(2,'0');
+  updateGrindDesc();
+  updateProgress();
+}
+init();
+</script>
+</body>
+</html>

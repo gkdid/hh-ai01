@@ -1,0 +1,2456 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🏦 은행 연습 앱 - 생활수학</title>
+<style>
+:root{
+  --blue:#3182F6;
+  --blue-dark:#1B64DA;
+  --blue-light:#E8F3FF;
+  --navy:#191F28;
+  --gray:#8B95A1;
+  --gray2:#B0B8C1;
+  --bg:#F2F4F6;
+  --line:#E5E8EB;
+  --white:#FFFFFF;
+  --green:#00C471;
+  --green-light:#E6F9F1;
+  --red:#F04452;
+  --red-light:#FEECEC;
+  --yellow:#FFC107;
+  --orange:#FF6B35;
+  --purple:#8B5CF6;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{
+  font-family:'Pretendard','Malgun Gothic','맑은 고딕',-apple-system,sans-serif;
+  background:#DCE0E5;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  color:var(--navy);
+}
+.app{
+  width:100%;
+  max-width:460px;
+  background:var(--white);
+  min-height:100vh;
+  position:relative;
+  box-shadow:0 0 40px rgba(0,0,0,.18);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+/* ── 상태바(가짜) ── */
+.statusbar{
+  background:var(--white);
+  padding:8px 20px 4px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:13px;
+  font-weight:700;
+  color:var(--navy);
+}
+.statusbar .right{display:flex;gap:6px;align-items:center;}
+
+/* ── 공통 헤더 ── */
+.hdr{
+  background:var(--white);
+  color:var(--navy);
+  padding:14px 18px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border-bottom:1px solid var(--line);
+  min-height:52px;
+}
+.hdr-back{
+  background:transparent;
+  border:none;
+  width:32px;height:32px;
+  font-size:22px;
+  cursor:pointer;
+  color:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+}
+.hdr-back.hidden{visibility:hidden;}
+.hdr-title{font-size:17px;font-weight:700;flex:1;}
+.hdr-right{font-size:20px;cursor:pointer;color:var(--gray);}
+
+/* ── 화면 ── */
+.screen{display:none;flex:1;overflow-y:auto;padding-bottom:80px;}
+.screen.active{display:block;}
+
+/* ── 로그인/비밀번호 ── */
+.lock-wrap{
+  padding:50px 24px 30px;
+  text-align:center;
+  background:linear-gradient(180deg,var(--blue) 0%,var(--blue-dark) 100%);
+  color:#fff;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+.lock-logo{
+  font-size:56px;
+  margin-bottom:12px;
+}
+.lock-bank{
+  font-size:22px;
+  font-weight:800;
+  margin-bottom:4px;
+}
+.lock-user{
+  font-size:14px;
+  opacity:.9;
+  margin-bottom:34px;
+}
+.lock-title{
+  font-size:17px;
+  font-weight:700;
+  margin-bottom:24px;
+}
+.pin-dots{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  margin-bottom:28px;
+}
+.pin-dot{
+  width:16px;height:16px;
+  border-radius:50%;
+  border:2px solid rgba(255,255,255,.5);
+  background:transparent;
+  transition:all .15s;
+}
+.pin-dot.filled{background:#fff;border-color:#fff;}
+.pin-err{color:#FFD4D4;font-size:14px;margin-top:-18px;margin-bottom:12px;min-height:20px;font-weight:600;}
+.keypad{
+  background:rgba(255,255,255,.1);
+  margin-top:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  padding:10px 0 20px;
+  border-radius:20px 20px 0 0;
+}
+.key{
+  background:transparent;
+  border:none;
+  color:#fff;
+  font-size:26px;
+  font-weight:600;
+  padding:18px 0;
+  cursor:pointer;
+  transition:background .1s;
+  border-radius:12px;
+  margin:4px;
+  font-family:inherit;
+}
+.key:active{background:rgba(255,255,255,.2);}
+.key.sm{font-size:16px;font-weight:700;}
+.pin-hint{font-size:12px;color:rgba(255,255,255,.7);text-align:center;margin-top:12px;}
+
+/* ── 홈 ── */
+.home-head{
+  padding:22px 20px 14px;
+  background:var(--white);
+}
+.home-greeting{
+  font-size:14px;
+  color:var(--gray);
+  margin-bottom:4px;
+}
+.home-name{
+  font-size:22px;
+  font-weight:800;
+  color:var(--navy);
+}
+.account-card{
+  margin:4px 16px 18px;
+  background:linear-gradient(135deg,var(--blue) 0%,var(--blue-dark) 100%);
+  border-radius:20px;
+  padding:22px 22px 24px;
+  color:#fff;
+  box-shadow:0 8px 20px rgba(49,130,246,.25);
+}
+.acc-bank{
+  font-size:13px;
+  opacity:.85;
+  margin-bottom:2px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.acc-num{
+  font-size:14px;
+  font-weight:600;
+  opacity:.9;
+  margin-bottom:14px;
+  letter-spacing:.3px;
+}
+.acc-balance-lbl{
+  font-size:13px;
+  opacity:.8;
+  margin-bottom:4px;
+}
+.acc-balance{
+  font-size:30px;
+  font-weight:800;
+  letter-spacing:-.5px;
+  margin-bottom:14px;
+}
+.acc-balance .unit{font-size:20px;font-weight:700;margin-left:2px;}
+.acc-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.acc-btn{
+  background:rgba(255,255,255,.22);
+  border:none;
+  color:#fff;
+  padding:12px;
+  border-radius:12px;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  transition:background .15s;
+  font-family:inherit;
+  display:flex;align-items:center;justify-content:center;gap:5px;
+}
+.acc-btn:hover,.acc-btn:active{background:rgba(255,255,255,.35);}
+
+/* 빠른메뉴 */
+.quick-menu{
+  margin:0 16px 18px;
+  background:var(--white);
+  border:1.5px solid var(--line);
+  border-radius:18px;
+  padding:16px 10px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:4px;
+}
+.qm{
+  text-align:center;
+  padding:8px 4px;
+  cursor:pointer;
+  border-radius:12px;
+  transition:background .1s;
+}
+.qm:hover{background:var(--blue-light);}
+.qm-ico{
+  font-size:26px;
+  margin-bottom:6px;
+  display:block;
+}
+.qm-name{font-size:12.5px;font-weight:600;color:var(--navy);}
+
+/* 미션박스 */
+.mission-box{
+  margin:0 16px 18px;
+  background:linear-gradient(135deg,#FFF8E7,#FFEFC9);
+  border:2px solid #FFD966;
+  border-radius:18px;
+  padding:16px 18px;
+}
+.mission-hd{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:14px;
+  font-weight:800;
+  color:#8A6A00;
+  margin-bottom:10px;
+}
+.mission-list{display:flex;flex-direction:column;gap:7px;}
+.mission-item{
+  background:rgba(255,255,255,.7);
+  padding:10px 12px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:13.5px;
+  color:var(--navy);
+  cursor:pointer;
+  transition:all .15s;
+}
+.mission-item:hover{background:#fff;}
+.mission-item.done{
+  background:var(--green-light);
+  color:var(--gray);
+  text-decoration:line-through;
+}
+.mission-chk{
+  width:22px;height:22px;
+  border:2px solid var(--gray2);
+  border-radius:50%;
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  background:#fff;
+  color:transparent;
+  font-size:13px;
+  font-weight:700;
+}
+.mission-item.done .mission-chk{
+  background:var(--green);
+  border-color:var(--green);
+  color:#fff;
+}
+.mission-txt{flex:1;}
+.mission-reward{font-size:11px;font-weight:700;color:#8A6A00;}
+
+/* 최근거래 */
+.recent-head{
+  padding:14px 20px 8px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.recent-title{font-size:16px;font-weight:800;color:var(--navy);}
+.recent-more{font-size:13px;color:var(--gray);cursor:pointer;}
+.txn-list{padding:0 10px;}
+.txn{
+  display:flex;
+  align-items:center;
+  padding:12px 10px;
+  gap:12px;
+  border-radius:12px;
+  cursor:pointer;
+}
+.txn:hover{background:var(--bg);}
+.txn-ico{
+  width:42px;height:42px;
+  border-radius:50%;
+  background:var(--blue-light);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+  flex-shrink:0;
+}
+.txn-ico.out{background:var(--red-light);}
+.txn-ico.in{background:var(--green-light);}
+.txn-info{flex:1;min-width:0;}
+.txn-name{font-size:14.5px;font-weight:700;color:var(--navy);}
+.txn-meta{font-size:12px;color:var(--gray);margin-top:2px;}
+.txn-amt{font-size:15px;font-weight:800;text-align:right;}
+.txn-amt.minus{color:var(--red);}
+.txn-amt.plus{color:var(--blue);}
+.txn-bal{font-size:11.5px;color:var(--gray);margin-top:2px;}
+
+/* ── 공통 화면 요소 ── */
+.sec-pad{padding:20px 20px 10px;}
+.sec-pad-full{padding:22px 20px;}
+.big-label{
+  font-size:22px;
+  font-weight:800;
+  color:var(--navy);
+  line-height:1.3;
+  margin-bottom:28px;
+}
+.big-label small{display:block;font-size:14px;font-weight:600;color:var(--gray);margin-top:6px;}
+
+.input-box{
+  border-bottom:2px solid var(--line);
+  padding:8px 0 12px;
+  margin-bottom:22px;
+}
+.input-lbl{
+  font-size:13px;
+  color:var(--gray);
+  margin-bottom:6px;
+  font-weight:600;
+}
+.input-amt{
+  width:100%;
+  border:none;
+  outline:none;
+  font-size:26px;
+  font-weight:800;
+  color:var(--navy);
+  background:transparent;
+  font-family:inherit;
+}
+.input-amt:focus{outline:none;}
+.input-txt{
+  width:100%;
+  border:none;
+  outline:none;
+  font-size:19px;
+  font-weight:700;
+  color:var(--navy);
+  background:transparent;
+  font-family:inherit;
+  padding:4px 0;
+}
+.input-help{
+  font-size:13px;
+  color:var(--gray);
+  margin-top:4px;
+}
+.input-err{
+  font-size:13px;
+  color:var(--red);
+  margin-top:4px;
+  min-height:18px;
+  font-weight:600;
+}
+
+/* 금액 빠른선택 버튼 */
+.amt-chips{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin:12px 0 20px;
+}
+.chip{
+  padding:11px 2px;
+  background:var(--bg);
+  border:1.5px solid var(--line);
+  border-radius:10px;
+  font-size:13.5px;
+  font-weight:700;
+  color:var(--navy);
+  cursor:pointer;
+  font-family:inherit;
+}
+.chip:hover,.chip:active{background:var(--blue-light);border-color:var(--blue);color:var(--blue);}
+
+/* 은행 선택 그리드 */
+.bank-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  padding:0 4px;
+}
+.bank-card{
+  border:2px solid var(--line);
+  border-radius:14px;
+  padding:14px 6px;
+  text-align:center;
+  cursor:pointer;
+  transition:all .15s;
+  background:#fff;
+}
+.bank-card:hover{border-color:var(--blue);background:var(--blue-light);}
+.bank-card.selected{border-color:var(--blue);background:var(--blue-light);}
+.bank-logo{
+  width:44px;height:44px;
+  border-radius:50%;
+  margin:0 auto 8px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:800;
+  color:#fff;
+}
+.bank-name{font-size:12.5px;font-weight:700;color:var(--navy);}
+
+/* 받는분 카드 */
+.recipient-card{
+  background:var(--bg);
+  border-radius:14px;
+  padding:16px 18px;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:18px;
+}
+.recipient-ava{
+  width:48px;height:48px;
+  border-radius:50%;
+  background:var(--blue);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;
+  flex-shrink:0;
+}
+.recipient-info{flex:1;min-width:0;}
+.recipient-name{font-size:15px;font-weight:800;color:var(--navy);}
+.recipient-acc{font-size:12.5px;color:var(--gray);margin-top:3px;}
+
+/* ── 확인 박스 ── */
+.confirm-box{
+  background:var(--bg);
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:18px;
+}
+.confirm-row{
+  display:flex;
+  justify-content:space-between;
+  padding:9px 0;
+  font-size:14px;
+  border-bottom:1px dashed #D5DAE0;
+}
+.confirm-row:last-child{border-bottom:none;}
+.confirm-lbl{color:var(--gray);font-weight:600;}
+.confirm-val{color:var(--navy);font-weight:700;text-align:right;max-width:65%;}
+.confirm-row.big{
+  padding-top:14px;
+  margin-top:4px;
+  border-top:2px solid #D5DAE0;
+  border-bottom:none;
+  font-size:17px;
+}
+.confirm-row.big .confirm-val{color:var(--blue);font-weight:800;font-size:19px;}
+
+/* ── 지폐 분해 표시 (출금 시) ── */
+.bills-box{
+  background:var(--green-light);
+  border:2px solid #A6E8C9;
+  border-radius:16px;
+  padding:16px 18px;
+  margin-bottom:18px;
+}
+.bills-title{
+  font-size:14px;
+  font-weight:800;
+  color:#016B40;
+  margin-bottom:10px;
+  display:flex;align-items:center;gap:6px;
+}
+.bills-grid{display:flex;flex-direction:column;gap:7px;}
+.bill-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#fff;
+  border-radius:10px;
+  padding:9px 13px;
+}
+.bill-info{display:flex;align-items:center;gap:10px;}
+.bill-ico{
+  min-width:48px;
+  text-align:center;
+  padding:5px 8px;
+  border-radius:6px;
+  font-size:11.5px;
+  font-weight:800;
+  color:#fff;
+}
+.bill-50k{background:#F4B860;}
+.bill-10k{background:#88C486;}
+.bill-5k{background:#DB8787;}
+.bill-1k{background:#6AA2C7;}
+.bill-500{background:#C2B280;}
+.bill-100{background:#B88B4A;}
+.bill-name{font-size:14px;font-weight:700;color:var(--navy);}
+.bill-count{font-size:15px;font-weight:800;color:var(--navy);}
+.bill-count .multi{color:var(--gray);font-weight:600;font-size:12px;margin:0 5px;}
+
+/* ── 결과 화면 ── */
+.result-wrap{
+  text-align:center;
+  padding:40px 20px 20px;
+}
+.result-ani{
+  font-size:70px;
+  margin-bottom:16px;
+  animation:pop .6s ease;
+}
+@keyframes pop{
+  0%{transform:scale(0);opacity:0;}
+  60%{transform:scale(1.2);}
+  100%{transform:scale(1);opacity:1;}
+}
+.result-title{
+  font-size:24px;
+  font-weight:800;
+  color:var(--navy);
+  margin-bottom:6px;
+}
+.result-sub{
+  font-size:14px;
+  color:var(--gray);
+  margin-bottom:24px;
+}
+
+/* ── 버튼 ── */
+.bottom-btn-wrap{
+  position:sticky;
+  bottom:0;
+  left:0;right:0;
+  background:var(--white);
+  padding:12px 16px 18px;
+  border-top:1px solid var(--line);
+  margin-top:auto;
+}
+.btn{
+  width:100%;
+  padding:16px;
+  border:none;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+  font-family:inherit;
+  transition:all .15s;
+}
+.btn-blue{background:var(--blue);color:#fff;}
+.btn-blue:hover{background:var(--blue-dark);}
+.btn-blue:disabled{background:var(--gray2);cursor:not-allowed;}
+.btn-gray{background:var(--bg);color:var(--navy);}
+.btn-gray:hover{background:#E5E8EB;}
+.btn-green{background:var(--green);color:#fff;}
+
+.btn-row{display:flex;gap:10px;}
+.btn-row .btn{flex:1;}
+
+/* ── 거래내역 상세 리스트 ── */
+.txn-full{padding:10px 10px 20px;}
+.txn-day-head{
+  padding:14px 12px 6px;
+  font-size:13px;
+  font-weight:700;
+  color:var(--gray);
+}
+.txn-filter{
+  display:flex;
+  gap:8px;
+  padding:14px 16px 6px;
+  overflow-x:auto;
+}
+.txn-filter::-webkit-scrollbar{display:none;}
+.filter-chip{
+  padding:7px 14px;
+  background:var(--bg);
+  border:1.5px solid var(--line);
+  border-radius:20px;
+  font-size:13px;
+  font-weight:700;
+  color:var(--gray);
+  cursor:pointer;
+  white-space:nowrap;
+  font-family:inherit;
+}
+.filter-chip.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+
+/* ── 교사용 가이드 ── */
+.teacher-bar{
+  background:#263238;
+  color:#fff;
+  padding:8px 14px;
+  font-size:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+}
+.teacher-bar .badge{
+  background:#FFC107;
+  color:#263238;
+  padding:2px 8px;
+  border-radius:10px;
+  font-weight:800;
+  font-size:11px;
+}
+.teacher-panel{
+  background:#37474F;
+  color:#ECEFF1;
+  padding:14px 18px 18px;
+  font-size:13px;
+  line-height:1.65;
+  display:none;
+}
+.teacher-panel.open{display:block;}
+.teacher-panel h4{
+  color:#FFD966;
+  font-size:13.5px;
+  margin-bottom:6px;
+  margin-top:10px;
+}
+.teacher-panel h4:first-child{margin-top:0;}
+.teacher-panel ul{padding-left:18px;}
+.teacher-panel li{margin-bottom:3px;}
+.teacher-panel kbd{
+  background:#546E7A;
+  padding:1px 6px;
+  border-radius:4px;
+  font-size:11.5px;
+  font-weight:700;
+  font-family:inherit;
+}
+
+/* 토스트 */
+.toast{
+  position:fixed;
+  bottom:90px;
+  left:50%;
+  transform:translateX(-50%);
+  background:rgba(25,31,40,.9);
+  color:#fff;
+  padding:12px 20px;
+  border-radius:24px;
+  font-size:14px;
+  font-weight:600;
+  z-index:999;
+  opacity:0;
+  transition:all .25s;
+  pointer-events:none;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-6px);}
+
+/* 숫자키패드 (금액입력용) */
+.numpad{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
+  padding:10px 14px 18px;
+  background:var(--bg);
+}
+.numpad .nkey{
+  background:#fff;
+  border:none;
+  padding:16px 0;
+  font-size:22px;
+  font-weight:700;
+  border-radius:10px;
+  cursor:pointer;
+  font-family:inherit;
+  color:var(--navy);
+  box-shadow:0 1px 2px rgba(0,0,0,.05);
+}
+.numpad .nkey:active{background:var(--blue-light);}
+.numpad .nkey.del{background:var(--bg);color:var(--red);box-shadow:none;}
+
+/* ── 계좌개설 스텝바 ── */
+.open-steps{
+  display:flex;
+  gap:4px;
+  padding:14px 16px 10px;
+  background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.step-pill{
+  flex:1;
+  height:6px;
+  background:var(--line);
+  border-radius:3px;
+}
+.step-pill.active{background:var(--blue);}
+.step-caption{
+  text-align:center;
+  font-size:12px;
+  color:var(--gray);
+  padding:8px 0 4px;
+  background:var(--white);
+  font-weight:600;
+}
+
+/* 통장 종류 카드 */
+.type-list{display:flex;flex-direction:column;gap:12px;}
+.type-card{
+  border:2px solid var(--line);
+  border-radius:16px;
+  padding:16px 18px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  cursor:pointer;
+  transition:all .15s;
+  background:#fff;
+}
+.type-card:hover,.type-card.selected{border-color:var(--blue);background:var(--blue-light);}
+.type-ico{
+  width:48px;height:48px;
+  border-radius:12px;
+  background:var(--blue-light);
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;
+  flex-shrink:0;
+}
+.type-card.selected .type-ico{background:#fff;}
+.type-info{flex:1;}
+.type-name{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:3px;}
+.type-desc{font-size:12.5px;color:var(--gray);line-height:1.4;}
+
+/* 폼 필드 */
+.field{
+  margin-bottom:18px;
+}
+.field-lbl{
+  font-size:13.5px;
+  font-weight:700;
+  color:var(--navy);
+  margin-bottom:8px;
+  display:flex;
+  align-items:center;
+  gap:4px;
+}
+.field-lbl .req{color:var(--red);}
+.field-inp{
+  width:100%;
+  padding:14px 14px;
+  border:1.5px solid var(--line);
+  border-radius:12px;
+  font-size:15px;
+  color:var(--navy);
+  background:#fff;
+  font-family:inherit;
+  outline:none;
+  transition:border-color .15s;
+}
+.field-inp:focus{border-color:var(--blue);}
+.field-hint{font-size:12px;color:var(--gray);margin-top:5px;}
+.field-err{font-size:12px;color:var(--red);margin-top:5px;min-height:14px;font-weight:600;}
+
+/* 작은 PIN 입력 */
+.pin-mini-wrap{
+  padding:30px 0 20px;
+  text-align:center;
+}
+.pin-mini-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--navy);
+  margin-bottom:22px;
+}
+.pin-mini-dots{
+  display:flex;
+  gap:16px;
+  justify-content:center;
+  margin-bottom:12px;
+}
+.pin-mini-dot{
+  width:16px;height:16px;
+  border-radius:50%;
+  border:2px solid var(--gray2);
+  background:transparent;
+  transition:all .15s;
+}
+.pin-mini-dot.filled{background:var(--blue);border-color:var(--blue);}
+.pin-mini-err{color:var(--red);font-size:13px;min-height:18px;font-weight:600;margin-bottom:12px;}
+.keypad-light{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:6px;
+  padding:0 14px 10px;
+}
+.keypad-light .key{
+  color:var(--navy);
+  background:var(--bg);
+  border-radius:10px;
+  margin:0;
+  padding:16px 0;
+  font-size:22px;
+  font-weight:700;
+}
+.keypad-light .key:active{background:var(--blue-light);}
+.keypad-light .key.sm{font-size:14px;}
+
+/* 약관 체크박스 */
+.terms-wrap{display:flex;flex-direction:column;gap:2px;}
+.term-item{
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  padding:14px 4px;
+  cursor:pointer;
+  border-bottom:1px solid var(--line);
+}
+.term-item:last-child{border-bottom:none;}
+.term-item.all{
+  background:var(--blue-light);
+  border-radius:12px;
+  padding:14px 14px;
+  border:none;
+  margin-bottom:8px;
+}
+.term-chk{
+  width:24px;height:24px;
+  border-radius:50%;
+  border:2px solid var(--gray2);
+  background:#fff;
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  color:transparent;
+  font-size:14px;
+  font-weight:800;
+  transition:all .15s;
+}
+.term-item.checked .term-chk{
+  background:var(--blue);
+  border-color:var(--blue);
+  color:#fff;
+}
+.term-item.all.checked .term-chk{background:var(--blue);border-color:var(--blue);}
+.term-main{flex:1;}
+.term-name{font-size:14.5px;color:var(--navy);font-weight:600;}
+.term-item.required .term-name::before{content:'[필수] ';color:var(--red);font-weight:700;}
+.term-item.optional .term-name::before{content:'[선택] ';color:var(--gray);font-weight:700;}
+.term-item.all .term-name{font-size:15.5px;font-weight:800;}
+.term-detail{font-size:12px;color:var(--gray);margin-top:3px;}
+.term-view{
+  font-size:12px;color:var(--gray);
+  padding:4px 8px;border:1px solid var(--line);border-radius:6px;
+  background:#fff;cursor:pointer;flex-shrink:0;
+}
+
+/* 요약 정보 (완료 화면) */
+.open-done-card{
+  background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+  color:#fff;
+  padding:22px;
+  border-radius:20px;
+  margin-bottom:18px;
+  text-align:left;
+  box-shadow:0 8px 24px rgba(49,130,246,.3);
+}
+.open-done-card .odc-bank{font-size:14px;opacity:.9;margin-bottom:2px;}
+.open-done-card .odc-type{font-size:13px;opacity:.8;margin-bottom:14px;}
+.open-done-card .odc-acc{
+  font-size:24px;
+  font-weight:800;
+  letter-spacing:.5px;
+  margin-bottom:6px;
+  font-family:'Pretendard',monospace;
+}
+.open-done-card .odc-copy{
+  background:rgba(255,255,255,.2);
+  border:none;color:#fff;
+  padding:6px 12px;border-radius:14px;
+  font-size:12px;font-weight:700;cursor:pointer;
+  font-family:inherit;
+}
+
+/* 내가 만든 통장 카드 (홈) */
+.created-head{
+  padding:4px 20px 8px;
+  font-size:14px;font-weight:700;color:var(--gray);
+}
+.created-card{
+  margin:0 16px 10px;
+  border:1.5px solid var(--line);
+  border-radius:16px;
+  padding:14px 16px;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.created-logo{
+  width:42px;height:42px;
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:800;color:#fff;
+  flex-shrink:0;
+}
+.created-info{flex:1;min-width:0;}
+.created-name{font-size:14px;font-weight:700;color:var(--navy);}
+.created-num{font-size:12px;color:var(--gray);margin-top:2px;}
+.created-bal{font-size:14px;font-weight:800;color:var(--navy);}
+.created-bal small{font-size:11px;color:var(--gray);font-weight:600;}
+
+/* 인쇄 숨김 */
+@media print{
+  .app{box-shadow:none;max-width:100%;}
+  .teacher-bar,.teacher-panel{display:block!important;}
+}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <!-- 교사용 가이드 -->
+  <div class="teacher-bar" onclick="toggleTeacher()">
+    <span>👩‍🏫 교사용 안내 · 수업 활용법</span>
+    <span class="badge" id="tBadge">열기 ▼</span>
+  </div>
+  <div class="teacher-panel" id="teacherPanel">
+    <h4>💡 이 앱의 목표</h4>
+    <ul>
+      <li>은행 계좌에서 <b>입금 · 출금 · 이체</b> 하는 법을 익혀요</li>
+      <li>금액을 숫자로 바르게 입력하고, <b>잔액을 계산</b>해봐요</li>
+      <li><b>지폐 단위</b>(5만원·1만원·5천원·1천원)로 돈을 세는 연습을 해요</li>
+      <li>거래내역을 읽고 <b>용돈 관리</b>를 배워봐요</li>
+    </ul>
+    <h4>🎯 미션 (앱 홈에서 자동으로 체크)</h4>
+    <ul>
+      <li>미션1: <b>50,000원 입금</b>하기</li>
+      <li>미션2: 친구에게 <b>30,000원 이체</b>하기</li>
+      <li>미션3: ATM에서 <b>23,000원 출금</b>하기 → 지폐 몇 장씩 나오는지 보기</li>
+      <li>미션4: 거래내역에서 <b>이번 달 지출 합계</b> 찾아보기</li>
+      <li>미션5: <b>새 통장(계좌) 만들기</b> — 은행·통장종류·본인정보·비밀번호·약관까지 5단계 체험</li>
+    </ul>
+    <h4>🆕 계좌개설 수업 포인트</h4>
+    <ul>
+      <li>본인정보(이름·생년월일·전화·주소)는 왜 필요할까? → 실명제 설명</li>
+      <li>비밀번호는 왜 <b>1234, 생년월일</b>로 하면 안 될까? (쉬운 번호는 자동 거절)</li>
+      <li>약관 중 <b>[필수] vs [선택]</b> 차이 짚어주기</li>
+      <li>완성된 계좌번호는 다른 사람에게 알려줘도 될까? (받을 때 O / 비밀번호 X)</li>
+    </ul>
+    <h4>🔐 비밀번호</h4>
+    <ul>
+      <li>기본값은 <kbd>1234</kbd> 입니다. 틀려도 3번까지 알려주고 다시 시작해요.</li>
+      <li>이체·출금 시에도 비밀번호를 한번 더 물어봅니다 (실제 은행과 동일).</li>
+    </ul>
+    <h4>📝 수업 팁</h4>
+    <ul>
+      <li>홈 → 미션을 먼저 소리내어 읽고 차례대로 수행</li>
+      <li>출금 후 지폐 분해를 보며 "5만원권 □장, 1만원권 □장" 받아 적게 하기</li>
+      <li>이체 완료 후 거래내역에서 방금 거래가 잘 기록됐는지 확인</li>
+      <li>잔액이 부족할 때 어떻게 되는지도 실험해보기 (부족하면 경고)</li>
+    </ul>
+  </div>
+
+  <!-- 상태바 -->
+  <div class="statusbar">
+    <span id="sbTime">오전 9:30</span>
+    <span class="right">📶 📶 🔋 85%</span>
+  </div>
+
+  <!-- ─────────── 잠금화면 ─────────── -->
+  <div class="screen active" id="scr-lock">
+    <div class="lock-wrap">
+      <div class="lock-logo">🏦</div>
+      <div class="lock-bank">하은은행</div>
+      <div class="lock-user">하은이 통장</div>
+      <div class="lock-title">비밀번호 4자리를 입력하세요</div>
+      <div class="pin-dots" id="pinDots">
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+        <div class="pin-dot"></div>
+      </div>
+      <div class="pin-err" id="pinErr">&nbsp;</div>
+      <div class="pin-hint">힌트: 처음에는 <b>1234</b> 예요</div>
+      <div class="keypad" id="pinKeypad"></div>
+    </div>
+  </div>
+
+  <!-- ─────────── 홈 ─────────── -->
+  <div class="screen" id="scr-home">
+    <div class="home-head">
+      <div class="home-greeting">안녕하세요 👋</div>
+      <div class="home-name" id="homeName">하은님</div>
+    </div>
+
+    <!-- 계좌카드 -->
+    <div class="account-card">
+      <div class="acc-bank">🏦 하은은행 · 입출금통장</div>
+      <div class="acc-num" id="accNum">123-456-789012</div>
+      <div class="acc-balance-lbl">출금 가능 금액</div>
+      <div class="acc-balance"><span id="balance">125,000</span><span class="unit">원</span></div>
+      <div class="acc-actions">
+        <button class="acc-btn" onclick="go('deposit')">＋ 입금</button>
+        <button class="acc-btn" onclick="go('withdraw')">－ 출금</button>
+      </div>
+    </div>
+
+    <!-- 내가 만든 통장 -->
+    <div id="createdAccountsWrap"></div>
+
+    <!-- 빠른메뉴 -->
+    <div class="quick-menu">
+      <div class="qm" onclick="go('transfer1')"><span class="qm-ico">💸</span><span class="qm-name">이체</span></div>
+      <div class="qm" onclick="go('history')"><span class="qm-ico">📋</span><span class="qm-name">거래내역</span></div>
+      <div class="qm" onclick="go('open-bank')"><span class="qm-ico">🆕</span><span class="qm-name">계좌개설</span></div>
+      <div class="qm" onclick="go('withdraw')"><span class="qm-ico">🏧</span><span class="qm-name">ATM출금</span></div>
+    </div>
+
+    <!-- 미션 -->
+    <div class="mission-box">
+      <div class="mission-hd">🎯 오늘의 미션</div>
+      <div class="mission-list" id="missionList"></div>
+    </div>
+
+    <!-- 최근거래 -->
+    <div class="recent-head">
+      <div class="recent-title">최근 거래내역</div>
+      <div class="recent-more" onclick="go('history')">전체보기 ›</div>
+    </div>
+    <div class="txn-list" id="homeTxnList"></div>
+  </div>
+
+  <!-- ─────────── 입금 화면 ─────────── -->
+  <div class="screen" id="scr-deposit">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('home')">←</button>
+      <span class="hdr-title">💰 입금하기</span>
+    </div>
+    <div class="sec-pad-full">
+      <div class="big-label">
+        얼마를 입금할까요?
+        <small>현금을 입금기에 넣는다고 생각해보세요</small>
+      </div>
+      <div class="input-box">
+        <div class="input-lbl">입금 금액</div>
+        <input class="input-amt" id="depAmt" type="text" inputmode="numeric" placeholder="0" oninput="formatAmt(this);checkDep();">
+        <div class="input-help" id="depHelp">원 단위로 입력하세요</div>
+      </div>
+      <div class="amt-chips">
+        <button class="chip" onclick="addAmt('depAmt',10000)">+1만</button>
+        <button class="chip" onclick="addAmt('depAmt',50000)">+5만</button>
+        <button class="chip" onclick="addAmt('depAmt',100000)">+10만</button>
+        <button class="chip" onclick="setAmt('depAmt',0)">지우기</button>
+      </div>
+      <div class="confirm-box">
+        <div class="confirm-row">
+          <span class="confirm-lbl">입금 전 잔액</span>
+          <span class="confirm-val" id="depBefore">0원</span>
+        </div>
+        <div class="confirm-row">
+          <span class="confirm-lbl">입금 금액</span>
+          <span class="confirm-val" id="depShow">0원</span>
+        </div>
+        <div class="confirm-row big">
+          <span class="confirm-lbl">입금 후 잔액</span>
+          <span class="confirm-val" id="depAfter">0원</span>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-btn-wrap">
+      <button class="btn btn-blue" id="depBtn" onclick="doDeposit()" disabled>입금하기</button>
+    </div>
+  </div>
+
+  <!-- ─────────── 출금 화면 ─────────── -->
+  <div class="screen" id="scr-withdraw">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('home')">←</button>
+      <span class="hdr-title">🏧 출금하기 (ATM)</span>
+    </div>
+    <div class="sec-pad-full">
+      <div class="big-label">
+        얼마를 뽑을까요?
+        <small>ATM에서 지폐로 받습니다 (1,000원 단위)</small>
+      </div>
+      <div class="input-box">
+        <div class="input-lbl">출금 금액</div>
+        <input class="input-amt" id="wdAmt" type="text" inputmode="numeric" placeholder="0" oninput="formatAmt(this);checkWd();">
+        <div class="input-err" id="wdErr">&nbsp;</div>
+      </div>
+      <div class="amt-chips">
+        <button class="chip" onclick="setAmt('wdAmt',10000)">1만원</button>
+        <button class="chip" onclick="setAmt('wdAmt',30000)">3만원</button>
+        <button class="chip" onclick="setAmt('wdAmt',50000)">5만원</button>
+        <button class="chip" onclick="setAmt('wdAmt',100000)">10만원</button>
+      </div>
+      <div class="confirm-box">
+        <div class="confirm-row">
+          <span class="confirm-lbl">현재 잔액</span>
+          <span class="confirm-val" id="wdBefore">0원</span>
+        </div>
+        <div class="confirm-row">
+          <span class="confirm-lbl">출금 금액</span>
+          <span class="confirm-val" id="wdShow">0원</span>
+        </div>
+        <div class="confirm-row">
+          <span class="confirm-lbl">수수료</span>
+          <span class="confirm-val">0원 <small style="color:#999;font-weight:500;">(같은 은행)</small></span>
+        </div>
+        <div class="confirm-row big">
+          <span class="confirm-lbl">출금 후 잔액</span>
+          <span class="confirm-val" id="wdAfter">0원</span>
+        </div>
+      </div>
+      <!-- 지폐 미리보기 -->
+      <div class="bills-box" id="wdBillsBox" style="display:none;">
+        <div class="bills-title">💵 받을 지폐 · 동전</div>
+        <div class="bills-grid" id="wdBills"></div>
+      </div>
+    </div>
+    <div class="bottom-btn-wrap">
+      <button class="btn btn-blue" id="wdBtn" onclick="doWithdraw()" disabled>출금하기</button>
+    </div>
+  </div>
+
+  <!-- ─────────── 이체 1: 은행선택 ─────────── -->
+  <div class="screen" id="scr-transfer1">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('home')">←</button>
+      <span class="hdr-title">💸 어느 은행으로 보낼까요?</span>
+    </div>
+    <div class="sec-pad-full">
+      <div class="big-label" style="font-size:18px;margin-bottom:20px;">
+        받는 분이 쓰는 은행을 고르세요
+      </div>
+      <div class="bank-grid" id="bankGrid"></div>
+    </div>
+  </div>
+
+  <!-- ─────────── 이체 2: 계좌번호 입력 ─────────── -->
+  <div class="screen" id="scr-transfer2">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('transfer1')">←</button>
+      <span class="hdr-title">계좌번호 입력</span>
+    </div>
+    <div class="sec-pad-full">
+      <div class="big-label">
+        <span id="trBankName">○○은행</span>의<br>계좌번호를 입력하세요
+        <small>'-' 없이 숫자만 입력해도 돼요</small>
+      </div>
+      <div class="input-box">
+        <div class="input-lbl">계좌번호</div>
+        <input class="input-txt" id="trAcc" type="text" inputmode="numeric" placeholder="예) 110-123-456789" oninput="checkTr2()">
+        <div class="input-err" id="trAccErr">&nbsp;</div>
+      </div>
+      <!-- 빠른선택: 자주 보내는 사람 -->
+      <div class="input-lbl" style="margin-top:10px;">👥 자주 보내는 사람</div>
+      <div id="friendList" style="margin-top:8px;"></div>
+    </div>
+    <div class="bottom-btn-wrap">
+      <button class="btn btn-blue" id="tr2Btn" onclick="toTransfer3()" disabled>다음</button>
+    </div>
+  </div>
+
+  <!-- ─────────── 이체 3: 금액입력 ─────────── -->
+  <div class="screen" id="scr-transfer3">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('transfer2')">←</button>
+      <span class="hdr-title">보낼 금액</span>
+    </div>
+    <div class="sec-pad-full">
+      <div class="recipient-card">
+        <div class="recipient-ava" id="trAva">👤</div>
+        <div class="recipient-info">
+          <div class="recipient-name" id="trName">받는 분</div>
+          <div class="recipient-acc" id="trAccShow">○○은행 000-000-000</div>
+        </div>
+      </div>
+      <div class="big-label" style="font-size:18px;">
+        얼마를 보낼까요?
+        <small id="trBalHelp">출금 가능 125,000원</small>
+      </div>
+      <div class="input-box">
+        <div class="input-lbl">보낼 금액</div>
+        <input class="input-amt" id="trAmt" type="text" inputmode="numeric" placeholder="0" oninput="formatAmt(this);checkTr3()">
+        <div class="input-err" id="trAmtErr">&nbsp;</div>
+      </div>
+      <div class="amt-chips">
+        <button class="chip" onclick="addAmt('trAmt',1000)">+1천</button>
+        <button class="chip" onclick="addAmt('trAmt',10000)">+1만</button>
+        <button class="chip" onclick="addAmt('trAmt',50000)">+5만</button>
+        <button class="chip" onclick="setAmt('trAmt',0)">지우기</button>
+      </div>
+      <div class="input-box" style="margin-top:14px;">
+        <div class="input-lbl">받는 분에게 (선택)</div>
+        <input class="input-txt" id="trMemo" type="text" placeholder="예) 생일축하해 🎂" maxlength="12">
+      </div>
+    </div>
+    <div class="bottom-btn-wrap">
+      <button class="btn btn-blue" id="tr3Btn" onclick="toTransfer4()" disabled>다음</button>
+    </div>
+  </div>
+
+  <!-- ─────────── 이체 4: 확인 ─────────── -->
+  <div class="screen" id="scr-transfer4">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('transfer3')">←</button>
+      <span class="hdr-title">이체 내용 확인</span>
+    </div>
+    <div class="sec-pad-full">
+      <div class="big-label" style="font-size:20px;">
+        아래 내용이 맞나요?
+        <small>⚠️ 한번 보낸 돈은 바로 되돌릴 수 없어요</small>
+      </div>
+      <div class="confirm-box">
+        <div class="confirm-row">
+          <span class="confirm-lbl">받는 분</span>
+          <span class="confirm-val" id="cf-name">-</span>
+        </div>
+        <div class="confirm-row">
+          <span class="confirm-lbl">받는 은행</span>
+          <span class="confirm-val" id="cf-bank">-</span>
+        </div>
+        <div class="confirm-row">
+          <span class="confirm-lbl">계좌번호</span>
+          <span class="confirm-val" id="cf-acc">-</span>
+        </div>
+        <div class="confirm-row" id="cf-memo-row" style="display:none;">
+          <span class="confirm-lbl">메모</span>
+          <span class="confirm-val" id="cf-memo">-</span>
+        </div>
+        <div class="confirm-row big">
+          <span class="confirm-lbl">보낼 금액</span>
+          <span class="confirm-val" id="cf-amt">-</span>
+        </div>
+      </div>
+      <div class="confirm-box" style="background:var(--blue-light);">
+        <div class="confirm-row">
+          <span class="confirm-lbl">보내기 전 내 잔액</span>
+          <span class="confirm-val" id="cf-before">-</span>
+        </div>
+        <div class="confirm-row">
+          <span class="confirm-lbl">보낸 후 내 잔액</span>
+          <span class="confirm-val" id="cf-after">-</span>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-btn-wrap">
+      <div class="btn-row">
+        <button class="btn btn-gray" onclick="go('transfer3')">수정</button>
+        <button class="btn btn-blue" onclick="doTransfer()">이체하기</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────── 계좌개설 1: 은행선택 ─────────── -->
+  <div class="screen" id="scr-open-bank">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('home')">←</button>
+      <span class="hdr-title">🆕 새 통장 만들기</span>
+    </div>
+    <div class="open-steps">
+      <div class="step-pill active"></div><div class="step-pill"></div><div class="step-pill"></div>
+      <div class="step-pill"></div><div class="step-pill"></div>
+    </div>
+    <div class="step-caption">1/5 은행 선택</div>
+    <div class="sec-pad-full">
+      <div class="big-label">
+        어느 은행에서 만들까요?
+        <small>마음에 드는 은행을 하나 골라주세요</small>
+      </div>
+      <div class="bank-grid" id="openBankGrid"></div>
+    </div>
+  </div>
+
+  <!-- ─────────── 계좌개설 2: 통장 종류 ─────────── -->
+  <div class="screen" id="scr-open-type">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('open-bank')">←</button>
+      <span class="hdr-title">통장 종류</span>
+    </div>
+    <div class="open-steps">
+      <div class="step-pill active"></div><div class="step-pill active"></div><div class="step-pill"></div>
+      <div class="step-pill"></div><div class="step-pill"></div>
+    </div>
+    <div class="step-caption">2/5 통장 종류 선택</div>
+    <div class="sec-pad-full">
+      <div class="big-label">
+        어떤 통장을 만들까요?
+        <small id="openTypeHelp">○○은행에서 만들 통장 종류를 골라주세요</small>
+      </div>
+      <div class="type-list" id="openTypeList"></div>
+    </div>
+    <div class="bottom-btn-wrap">
+      <button class="btn btn-blue" id="openTypeBtn" onclick="go('open-info')" disabled>다음</button>
+    </div>
+  </div>
+
+  <!-- ─────────── 계좌개설 3: 본인정보 ─────────── -->
+  <div class="screen" id="scr-open-info">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('open-type')">←</button>
+      <span class="hdr-title">본인 정보 입력</span>
+    </div>
+    <div class="open-steps">
+      <div class="step-pill active"></div><div class="step-pill active"></div><div class="step-pill active"></div>
+      <div class="step-pill"></div><div class="step-pill"></div>
+    </div>
+    <div class="step-caption">3/5 본인 정보</div>
+    <div class="sec-pad-full">
+      <div class="big-label">
+        본인 정보를 알려주세요
+        <small>실제 은행에서도 꼭 필요한 정보예요</small>
+      </div>
+      <div class="field">
+        <label class="field-lbl">이름 <span class="req">*</span></label>
+        <input class="field-inp" id="openName" type="text" placeholder="예) 김하은" maxlength="10" oninput="checkOpenInfo()">
+        <div class="field-hint">주민등록증에 있는 이름을 그대로 적어요</div>
+      </div>
+      <div class="field">
+        <label class="field-lbl">생년월일 <span class="req">*</span></label>
+        <input class="field-inp" id="openBirth" type="text" inputmode="numeric" placeholder="예) 2008-03-15" maxlength="10" oninput="formatBirth(this);checkOpenInfo()">
+        <div class="field-hint">8자리 숫자 (연-월-일). 2008 → 3 → 15</div>
+        <div class="field-err" id="openBirthErr">&nbsp;</div>
+      </div>
+      <div class="field">
+        <label class="field-lbl">전화번호 <span class="req">*</span></label>
+        <input class="field-inp" id="openPhone" type="text" inputmode="numeric" placeholder="예) 010-1234-5678" maxlength="13" oninput="formatPhone(this);checkOpenInfo()">
+        <div class="field-hint">휴대전화 번호 11자리</div>
+        <div class="field-err" id="openPhoneErr">&nbsp;</div>
+      </div>
+      <div class="field">
+        <label class="field-lbl">주소 <span class="req">*</span></label>
+        <input class="field-inp" id="openAddr" type="text" placeholder="예) 서울시 종로구 세종대로 110" maxlength="40" oninput="checkOpenInfo()">
+        <div class="field-hint">도로명 주소 또는 지번 주소</div>
+      </div>
+    </div>
+    <div class="bottom-btn-wrap">
+      <button class="btn btn-blue" id="openInfoBtn" onclick="go('open-pin')" disabled>다음</button>
+    </div>
+  </div>
+
+  <!-- ─────────── 계좌개설 4: 비밀번호 설정 ─────────── -->
+  <div class="screen" id="scr-open-pin">
+    <div class="hdr">
+      <button class="hdr-back" onclick="goBackPin()">←</button>
+      <span class="hdr-title">비밀번호 만들기</span>
+    </div>
+    <div class="open-steps">
+      <div class="step-pill active"></div><div class="step-pill active"></div><div class="step-pill active"></div>
+      <div class="step-pill active"></div><div class="step-pill"></div>
+    </div>
+    <div class="step-caption">4/5 비밀번호 설정</div>
+    <div class="pin-mini-wrap">
+      <div class="pin-mini-title" id="openPinTitle">새 비밀번호 4자리를 입력하세요</div>
+      <div class="pin-mini-dots" id="openPinDots">
+        <div class="pin-mini-dot"></div><div class="pin-mini-dot"></div>
+        <div class="pin-mini-dot"></div><div class="pin-mini-dot"></div>
+      </div>
+      <div class="pin-mini-err" id="openPinErr">&nbsp;</div>
+    </div>
+    <div class="keypad-light" id="openPinKeypad"></div>
+    <div style="padding:10px 20px 20px;font-size:12.5px;color:var(--gray);text-align:center;line-height:1.5;">
+      ⚠️ <b>1234, 0000, 생년월일</b> 같은 쉬운 번호는 피해주세요<br>
+      누구에게도 알려주면 안 돼요!
+    </div>
+  </div>
+
+  <!-- ─────────── 계좌개설 5: 약관동의 ─────────── -->
+  <div class="screen" id="scr-open-terms">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('open-pin')">←</button>
+      <span class="hdr-title">약관 동의</span>
+    </div>
+    <div class="open-steps">
+      <div class="step-pill active"></div><div class="step-pill active"></div><div class="step-pill active"></div>
+      <div class="step-pill active"></div><div class="step-pill active"></div>
+    </div>
+    <div class="step-caption">5/5 약관 동의</div>
+    <div class="sec-pad-full">
+      <div class="big-label">
+        약관에 동의해주세요
+        <small>[필수]는 모두 체크해야 통장을 만들 수 있어요</small>
+      </div>
+      <div class="terms-wrap">
+        <div class="term-item all" id="termAll" onclick="toggleAllTerms()">
+          <div class="term-chk">✓</div>
+          <div class="term-main">
+            <div class="term-name">모든 약관에 동의합니다</div>
+            <div class="term-detail">아래 5개 약관에 한번에 동의해요</div>
+          </div>
+        </div>
+        <div class="term-item required" data-req="1" onclick="toggleTerm(this)">
+          <div class="term-chk">✓</div>
+          <div class="term-main"><div class="term-name">은행 거래 기본 약관에 동의</div></div>
+          <div class="term-view" onclick="event.stopPropagation();showTermDetail('거래약관')">보기</div>
+        </div>
+        <div class="term-item required" data-req="1" onclick="toggleTerm(this)">
+          <div class="term-chk">✓</div>
+          <div class="term-main"><div class="term-name">개인정보 수집·이용에 동의</div></div>
+          <div class="term-view" onclick="event.stopPropagation();showTermDetail('개인정보')">보기</div>
+        </div>
+        <div class="term-item required" data-req="1" onclick="toggleTerm(this)">
+          <div class="term-chk">✓</div>
+          <div class="term-main"><div class="term-name">입출금 통장 전자금융 거래 약관</div></div>
+          <div class="term-view" onclick="event.stopPropagation();showTermDetail('전자금융')">보기</div>
+        </div>
+        <div class="term-item optional" data-req="0" onclick="toggleTerm(this)">
+          <div class="term-chk">✓</div>
+          <div class="term-main"><div class="term-name">광고·이벤트 정보 수신 (선택)</div></div>
+          <div class="term-view" onclick="event.stopPropagation();showTermDetail('광고')">보기</div>
+        </div>
+        <div class="term-item optional" data-req="0" onclick="toggleTerm(this)">
+          <div class="term-chk">✓</div>
+          <div class="term-main"><div class="term-name">맞춤 상품 추천 (선택)</div></div>
+          <div class="term-view" onclick="event.stopPropagation();showTermDetail('추천')">보기</div>
+        </div>
+      </div>
+    </div>
+    <div class="bottom-btn-wrap">
+      <button class="btn btn-blue" id="openTermsBtn" onclick="finishOpenAccount()" disabled>통장 만들기</button>
+    </div>
+  </div>
+
+  <!-- ─────────── 계좌개설 완료 ─────────── -->
+  <div class="screen" id="scr-open-done">
+    <div class="sec-pad-full">
+      <div class="result-wrap">
+        <div class="result-ani">🎉</div>
+        <div class="result-title">통장이 만들어졌어요!</div>
+        <div class="result-sub">새 계좌번호를 꼭 기억해두세요</div>
+      </div>
+      <div class="open-done-card">
+        <div class="odc-bank" id="oddBank">○○은행</div>
+        <div class="odc-type" id="oddType">입출금통장</div>
+        <div class="odc-acc" id="oddAcc">000-00-000000</div>
+        <button class="odc-copy" onclick="copyAcc()">📋 계좌번호 복사</button>
+      </div>
+      <div class="confirm-box">
+        <div class="confirm-row">
+          <span class="confirm-lbl">예금주</span>
+          <span class="confirm-val" id="oddName">-</span>
+        </div>
+        <div class="confirm-row">
+          <span class="confirm-lbl">개설 일자</span>
+          <span class="confirm-val" id="oddDate">-</span>
+        </div>
+        <div class="confirm-row">
+          <span class="confirm-lbl">첫 잔액</span>
+          <span class="confirm-val">0원</span>
+        </div>
+        <div class="confirm-row big">
+          <span class="confirm-lbl">축하해요 🎊</span>
+          <span class="confirm-val">통장 발급 완료</span>
+        </div>
+      </div>
+      <div style="background:var(--yellow);background:#FFF8E7;border:1.5px solid #FFD966;border-radius:12px;padding:14px;font-size:13px;line-height:1.6;color:#8A6A00;">
+        💡 <b>기억할 점!</b><br>
+        • 통장 비밀번호는 <b>절대 다른 사람에게 알려주지 않기</b><br>
+        • 계좌번호는 돈을 받을 때만 알려줘요 (보낼 때 X)<br>
+        • 모르는 사람이 비밀번호 물어보면 꼭 <b>신고</b>하기
+      </div>
+    </div>
+    <div class="bottom-btn-wrap">
+      <button class="btn btn-blue" onclick="go('home')">홈으로 돌아가기</button>
+    </div>
+  </div>
+
+  <!-- ─────────── 결과 (공통) ─────────── -->
+  <div class="screen" id="scr-result">
+    <div class="sec-pad-full">
+      <div class="result-wrap">
+        <div class="result-ani" id="resultIco">✅</div>
+        <div class="result-title" id="resultTitle">완료!</div>
+        <div class="result-sub" id="resultSub">잘 하셨어요</div>
+      </div>
+      <div class="confirm-box" id="resultBox"></div>
+      <div class="bills-box" id="resultBillsBox" style="display:none;">
+        <div class="bills-title">💵 받은 지폐 · 동전</div>
+        <div class="bills-grid" id="resultBills"></div>
+      </div>
+    </div>
+    <div class="bottom-btn-wrap">
+      <div class="btn-row">
+        <button class="btn btn-gray" onclick="go('history')">거래내역 보기</button>
+        <button class="btn btn-blue" onclick="go('home')">홈으로</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────── 거래내역 ─────────── -->
+  <div class="screen" id="scr-history">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('home')">←</button>
+      <span class="hdr-title">📋 거래내역</span>
+    </div>
+    <div class="account-card" style="margin:14px 16px;">
+      <div class="acc-bank">🏦 하은은행 · 입출금통장</div>
+      <div class="acc-num" id="accNum2">123-456-789012</div>
+      <div class="acc-balance-lbl">현재 잔액</div>
+      <div class="acc-balance"><span id="balance2">125,000</span><span class="unit">원</span></div>
+    </div>
+    <div class="txn-filter">
+      <button class="filter-chip active" onclick="filterTxn(event,'all')">전체</button>
+      <button class="filter-chip" onclick="filterTxn(event,'in')">💰 입금</button>
+      <button class="filter-chip" onclick="filterTxn(event,'out')">💸 출금·이체</button>
+    </div>
+    <div class="txn-full" id="txnFull"></div>
+    <div style="padding:14px 16px 20px;background:var(--bg);margin-top:10px;">
+      <div style="font-size:13px;font-weight:700;color:var(--gray);margin-bottom:8px;">📊 이번 달 요약</div>
+      <div class="confirm-box" style="background:#fff;margin:0;">
+        <div class="confirm-row">
+          <span class="confirm-lbl">💰 총 들어온 돈</span>
+          <span class="confirm-val" style="color:var(--blue);" id="sumIn">0원</span>
+        </div>
+        <div class="confirm-row">
+          <span class="confirm-lbl">💸 총 쓴 돈</span>
+          <span class="confirm-val" style="color:var(--red);" id="sumOut">0원</span>
+        </div>
+        <div class="confirm-row big">
+          <span class="confirm-lbl">차액</span>
+          <span class="confirm-val" id="sumDiff">0원</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 토스트 -->
+  <div class="toast" id="toast"></div>
+
+</div>
+
+<script>
+/* ============================================================
+   상태
+============================================================ */
+const state = {
+  pin: '1234',
+  pinInput: '',
+  pinTries: 0,
+  balance: 125000,
+  owner: '하은',
+  accountNum: '123-456-789012',
+  txns: [
+    {date:'2026-11-10', time:'15:22', type:'in',  name:'엄마',     memo:'용돈', amt:50000,  bal:125000},
+    {date:'2026-11-08', time:'12:40', type:'out', name:'편의점CU', memo:'간식', amt:-4500,  bal:75000},
+    {date:'2026-11-05', time:'18:10', type:'out', name:'버거킹',   memo:'저녁', amt:-9800,  bal:79500},
+    {date:'2026-11-02', time:'09:15', type:'in',  name:'아빠',     memo:'수고비',amt:20000,  bal:89300},
+    {date:'2026-10-28', time:'20:00', type:'out', name:'메가박스', memo:'영화', amt:-14000, bal:69300},
+    {date:'2026-10-25', time:'17:30', type:'out', name:'다이소',   memo:'학용품',amt:-7200,  bal:83300},
+    {date:'2026-10-20', time:'13:00', type:'in',  name:'할머니',   memo:'생일돈',amt:30000,  bal:90500},
+  ],
+  missions: [
+    {id:'m1', text:'💰 50,000원 입금하기', reward:'잘했어요!', done:false, check:(t)=>t.type==='in' && t.amt===50000 && t.name==='내가 입금'},
+    {id:'m2', text:'💸 친구에게 30,000원 이체하기', reward:'친구 좋아요!', done:false, check:(t)=>t.type==='out' && t.amt===-30000 && t.memo!=='ATM출금'},
+    {id:'m3', text:'🏧 ATM에서 23,000원 출금하기', reward:'지폐 확인!', done:false, check:(t)=>t.type==='out' && t.amt===-23000 && t.memo==='ATM출금'},
+    {id:'m4', text:'📋 거래내역에서 이번 달 지출 보기', reward:'관찰 완료!', done:false, check:null},
+    {id:'m5', text:'🆕 새 통장 만들기 (계좌개설)',       reward:'통장 발급!', done:false, check:null},
+  ],
+  // 이체 임시
+  tr: {bank:'', bankName:'', accNum:'', amt:0, memo:'', name:''}
+};
+
+const BANKS = [
+  {code:'KB', name:'국민은행', color:'#FFBC00'},
+  {code:'SH', name:'신한은행', color:'#0046FF'},
+  {code:'WR', name:'우리은행', color:'#0083CB'},
+  {code:'NH', name:'농협은행', color:'#01A651'},
+  {code:'HN', name:'하나은행', color:'#009490'},
+  {code:'KA', name:'카카오뱅크', color:'#FFE812', fg:'#191F28'},
+  {code:'TS', name:'토스뱅크', color:'#1A1A1A'},
+  {code:'IB', name:'기업은행', color:'#0086CA'},
+  {code:'SC', name:'새마을금고', color:'#C62828'},
+];
+
+const FRIENDS = [
+  {name:'엄마',   bank:'KB', bankName:'국민은행',   acc:'123-01-456789'},
+  {name:'아빠',   bank:'SH', bankName:'신한은행',   acc:'110-321-987654'},
+  {name:'하영',   bank:'KA', bankName:'카카오뱅크', acc:'3333-02-1234567'},
+  {name:'주은',   bank:'TS', bankName:'토스뱅크',   acc:'1000-9876-5432'},
+  {name:'채원',   bank:'NH', bankName:'농협은행',   acc:'352-1234-5678-90'},
+];
+
+/* ============================================================
+   화면 전환
+============================================================ */
+let history = ['home'];
+function go(screen) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById('scr-' + screen);
+  if (el) el.classList.add('active');
+  window.scrollTo(0,0);
+  // 홈 들어갈 때 갱신
+  if (screen === 'home'){ renderHome(); renderCreatedAccounts(); }
+  if (screen === 'history') renderHistory();
+  if (screen === 'deposit') resetDeposit();
+  if (screen === 'withdraw') resetWithdraw();
+  if (screen === 'transfer1') { state.tr = {bank:'',bankName:'',accNum:'',amt:0,memo:'',name:''}; renderBanks(); }
+  if (screen === 'transfer2') { renderFriends(); document.getElementById('trAcc').value=''; document.getElementById('trBankName').textContent = state.tr.bankName; document.getElementById('tr2Btn').disabled = true; }
+  if (screen === 'transfer3') { document.getElementById('trAmt').value=''; document.getElementById('trMemo').value=''; document.getElementById('tr3Btn').disabled = true; updateTr3Recipient(); }
+  if (screen === 'transfer4') renderTr4();
+  // 계좌개설 흐름
+  if (screen === 'open-bank'){
+    state.opening = {bank:'',bankName:'',bankCode:'',bankColor:'',bankFg:'',type:'',typeName:'',name:'',birth:'',phone:'',addr:'',pin:'',pinConfirm:'',pinPhase:'set',pinInput:''};
+    renderOpenBanks();
+  }
+  if (screen === 'open-type'){ renderOpenTypes(); document.getElementById('openTypeBtn').disabled = !state.opening.type; }
+  if (screen === 'open-info'){
+    // 입력 유지
+    if (state.opening.name) document.getElementById('openName').value = state.opening.name;
+    if (state.opening.birth) document.getElementById('openBirth').value = state.opening.birth;
+    if (state.opening.phone) document.getElementById('openPhone').value = state.opening.phone;
+    if (state.opening.addr) document.getElementById('openAddr').value = state.opening.addr;
+    checkOpenInfo();
+  }
+  if (screen === 'open-pin') resetOpenPin();
+  if (screen === 'open-terms'){
+    // 약관 초기 상태: 모두 해제
+    document.querySelectorAll('#scr-open-terms .term-item').forEach(it => it.classList.remove('checked'));
+    updateTermsState();
+  }
+  // 미션4 체크
+  if (screen === 'history') markMission('m4');
+}
+
+/* ============================================================
+   PIN 입력
+============================================================ */
+function buildKeypad(){
+  const keys = ['1','2','3','4','5','6','7','8','9','재입력','0','←'];
+  const kp = document.getElementById('pinKeypad');
+  kp.innerHTML = '';
+  keys.forEach(k => {
+    const b = document.createElement('button');
+    b.className = 'key' + (['재입력','←'].includes(k) ? ' sm' : '');
+    b.textContent = k;
+    b.type='button';
+    b.onclick = () => pinPress(k);
+    kp.appendChild(b);
+  });
+}
+function pinPress(k){
+  if (k === '재입력') { state.pinInput = ''; updatePinDots(); clearPinErr(); return; }
+  if (k === '←') { state.pinInput = state.pinInput.slice(0,-1); updatePinDots(); return; }
+  if (state.pinInput.length >= 4) return;
+  state.pinInput += k;
+  updatePinDots();
+  if (state.pinInput.length === 4) setTimeout(verifyPin, 200);
+}
+function updatePinDots(){
+  const dots = document.querySelectorAll('#pinDots .pin-dot');
+  dots.forEach((d,i) => d.classList.toggle('filled', i < state.pinInput.length));
+}
+function verifyPin(){
+  if (state.pinInput === state.pin){
+    document.getElementById('pinErr').textContent = '';
+    state.pinInput = '';
+    state.pinTries = 0;
+    go('home');
+  } else {
+    state.pinTries++;
+    document.getElementById('pinErr').textContent = `비밀번호가 달라요! (${state.pinTries}/3 틀림)`;
+    document.getElementById('pinDots').animate([
+      {transform:'translateX(0)'},{transform:'translateX(-10px)'},
+      {transform:'translateX(10px)'},{transform:'translateX(0)'}
+    ], {duration:300});
+    state.pinInput = '';
+    setTimeout(updatePinDots, 300);
+    if (state.pinTries >= 3){
+      document.getElementById('pinErr').textContent = '3번 틀렸어요. 힌트: 1234';
+      state.pinTries = 0;
+    }
+  }
+}
+function clearPinErr(){ document.getElementById('pinErr').textContent = ' '; }
+
+/* ============================================================
+   홈 렌더링
+============================================================ */
+function renderHome(){
+  document.getElementById('homeName').textContent = state.owner + '님';
+  document.getElementById('balance').textContent = state.balance.toLocaleString();
+  document.getElementById('balance2').textContent = state.balance.toLocaleString();
+  // 최근거래 (최신 3개)
+  const list = document.getElementById('homeTxnList');
+  list.innerHTML = '';
+  state.txns.slice(0,3).forEach(t => list.appendChild(makeTxnEl(t)));
+  // 미션
+  const ml = document.getElementById('missionList');
+  ml.innerHTML = '';
+  state.missions.forEach(m => {
+    const item = document.createElement('div');
+    item.className = 'mission-item' + (m.done ? ' done' : '');
+    item.innerHTML =
+      '<div class="mission-chk">'+ (m.done?'✓':'') +'</div>' +
+      '<div class="mission-txt">'+ m.text +'</div>' +
+      (m.done ? '<div class="mission-reward">' + m.reward + '</div>' : '');
+    ml.appendChild(item);
+  });
+}
+function makeTxnEl(t){
+  const el = document.createElement('div');
+  el.className = 'txn';
+  const sign = t.amt > 0 ? '+' : '';
+  const cls = t.amt > 0 ? 'plus' : 'minus';
+  const icoClass = t.amt > 0 ? 'in' : 'out';
+  let ico = '💰';
+  if (t.type === 'out'){
+    if (t.memo === 'ATM출금') ico = '🏧';
+    else if (/편의점|다이소|버거|메가|피자|치킨|분식/.test(t.name)) ico = '🏪';
+    else ico = '💸';
+  } else {
+    if (t.name === '내가 입금') ico = '💵';
+  }
+  el.innerHTML =
+    '<div class="txn-ico '+ icoClass +'">'+ ico +'</div>' +
+    '<div class="txn-info">' +
+      '<div class="txn-name">'+ t.name +'</div>' +
+      '<div class="txn-meta">'+ formatDate(t.date) +' '+ t.time + (t.memo? ' · '+t.memo : '') +'</div>' +
+    '</div>' +
+    '<div>' +
+      '<div class="txn-amt '+cls+'">'+ sign + t.amt.toLocaleString() +'원</div>' +
+      '<div class="txn-bal">잔액 '+ t.bal.toLocaleString() +'원</div>' +
+    '</div>';
+  return el;
+}
+function formatDate(d){ // 2026-11-10 → 11.10
+  const parts = d.split('-');
+  return parts[1]+'.'+parts[2];
+}
+
+/* ============================================================
+   거래내역
+============================================================ */
+let txnFilter = 'all';
+function renderHistory(){
+  const wrap = document.getElementById('txnFull');
+  wrap.innerHTML = '';
+  // 날짜별 그룹
+  let curDate = '';
+  const filtered = state.txns.filter(t =>
+    txnFilter === 'all' ||
+    (txnFilter === 'in' && t.type === 'in') ||
+    (txnFilter === 'out' && t.type === 'out')
+  );
+  filtered.forEach(t => {
+    if (t.date !== curDate){
+      curDate = t.date;
+      const h = document.createElement('div');
+      h.className = 'txn-day-head';
+      h.textContent = formatFullDate(t.date);
+      wrap.appendChild(h);
+    }
+    wrap.appendChild(makeTxnEl(t));
+  });
+  if (filtered.length === 0){
+    wrap.innerHTML = '<div style="padding:40px 20px;text-align:center;color:var(--gray);">거래내역이 없어요</div>';
+  }
+  // 이번 달 요약
+  const thisMonth = state.txns.filter(t => t.date.startsWith('2026-11'));
+  const sumIn = thisMonth.filter(t => t.amt > 0).reduce((s,t)=>s+t.amt, 0);
+  const sumOut = thisMonth.filter(t => t.amt < 0).reduce((s,t)=>s+t.amt, 0);
+  document.getElementById('sumIn').textContent = '+' + sumIn.toLocaleString() + '원';
+  document.getElementById('sumOut').textContent = sumOut.toLocaleString() + '원';
+  const diff = sumIn + sumOut;
+  document.getElementById('sumDiff').textContent = (diff>=0?'+':'') + diff.toLocaleString() + '원';
+  document.getElementById('sumDiff').style.color = diff >= 0 ? 'var(--blue)' : 'var(--red)';
+}
+function formatFullDate(d){
+  const [y,m,day] = d.split('-');
+  const wd = ['일','월','화','수','목','금','토'];
+  const date = new Date(y, parseInt(m)-1, day);
+  return `${parseInt(m)}월 ${parseInt(day)}일 (${wd[date.getDay()]})`;
+}
+function filterTxn(ev, type){
+  txnFilter = type;
+  document.querySelectorAll('.filter-chip').forEach(c=>c.classList.remove('active'));
+  ev.target.classList.add('active');
+  renderHistory();
+}
+
+/* ============================================================
+   입금
+============================================================ */
+function resetDeposit(){
+  document.getElementById('depAmt').value = '';
+  document.getElementById('depBefore').textContent = state.balance.toLocaleString() + '원';
+  document.getElementById('depShow').textContent = '0원';
+  document.getElementById('depAfter').textContent = state.balance.toLocaleString() + '원';
+  document.getElementById('depBtn').disabled = true;
+}
+function checkDep(){
+  const v = parseAmt('depAmt');
+  document.getElementById('depShow').textContent = v.toLocaleString() + '원';
+  document.getElementById('depAfter').textContent = (state.balance + v).toLocaleString() + '원';
+  document.getElementById('depBtn').disabled = !(v > 0);
+}
+function doDeposit(){
+  const amt = parseAmt('depAmt');
+  if (amt <= 0) return;
+  state.balance += amt;
+  const t = {
+    date: todayStr(), time: nowTime(),
+    type:'in', name:'내가 입금', memo:'현금입금',
+    amt: amt, bal: state.balance
+  };
+  state.txns.unshift(t);
+  checkMissions(t);
+  showResult('✅', '입금 완료!', amt.toLocaleString() + '원을 넣었어요', [
+    ['입금 금액', amt.toLocaleString() + '원'],
+    ['입금 후 잔액', state.balance.toLocaleString() + '원'],
+  ]);
+}
+
+/* ============================================================
+   출금
+============================================================ */
+function resetWithdraw(){
+  document.getElementById('wdAmt').value = '';
+  document.getElementById('wdBefore').textContent = state.balance.toLocaleString() + '원';
+  document.getElementById('wdShow').textContent = '0원';
+  document.getElementById('wdAfter').textContent = state.balance.toLocaleString() + '원';
+  document.getElementById('wdErr').innerHTML = '&nbsp;';
+  document.getElementById('wdBtn').disabled = true;
+  document.getElementById('wdBillsBox').style.display = 'none';
+}
+function checkWd(){
+  const v = parseAmt('wdAmt');
+  document.getElementById('wdShow').textContent = v.toLocaleString() + '원';
+  document.getElementById('wdAfter').textContent = (state.balance - v).toLocaleString() + '원';
+  const err = document.getElementById('wdErr');
+  const box = document.getElementById('wdBillsBox');
+  let ok = true;
+  if (v > state.balance){
+    err.textContent = '⚠️ 잔액이 부족해요 (' + state.balance.toLocaleString() + '원까지 가능)';
+    ok = false;
+  } else if (v > 0 && v % 1000 !== 0){
+    err.textContent = '⚠️ ATM은 1,000원 단위로만 뽑을 수 있어요';
+    ok = false;
+  } else {
+    err.innerHTML = '&nbsp;';
+  }
+  if (ok && v > 0){
+    box.style.display = 'block';
+    renderBills('wdBills', v);
+  } else {
+    box.style.display = 'none';
+  }
+  document.getElementById('wdBtn').disabled = !(ok && v > 0);
+}
+function doWithdraw(){
+  const amt = parseAmt('wdAmt');
+  if (amt <= 0 || amt > state.balance) return;
+  state.balance -= amt;
+  const t = {
+    date: todayStr(), time: nowTime(),
+    type:'out', name:'ATM 출금', memo:'ATM출금',
+    amt: -amt, bal: state.balance
+  };
+  state.txns.unshift(t);
+  checkMissions(t);
+  showResult('🏧', '출금 완료!', amt.toLocaleString() + '원을 뽑았어요', [
+    ['출금 금액', amt.toLocaleString() + '원'],
+    ['출금 후 잔액', state.balance.toLocaleString() + '원'],
+  ], amt);
+}
+
+/* 지폐 분해 */
+function breakdown(amt){
+  const bills = [
+    {name:'5만원권', value:50000, cls:'bill-50k'},
+    {name:'1만원권', value:10000, cls:'bill-10k'},
+    {name:'5천원권', value:5000,  cls:'bill-5k'},
+    {name:'1천원권', value:1000,  cls:'bill-1k'},
+    {name:'500원', value:500,  cls:'bill-500'},
+    {name:'100원', value:100,  cls:'bill-100'},
+  ];
+  const result = [];
+  let rem = amt;
+  bills.forEach(b => {
+    const n = Math.floor(rem / b.value);
+    if (n > 0){ result.push({...b, count:n}); rem -= n * b.value; }
+  });
+  return result;
+}
+function renderBills(elId, amt){
+  const wrap = document.getElementById(elId);
+  wrap.innerHTML = '';
+  const parts = breakdown(amt);
+  parts.forEach(p => {
+    const row = document.createElement('div');
+    row.className = 'bill-row';
+    row.innerHTML =
+      '<div class="bill-info">' +
+        '<span class="bill-ico '+p.cls+'">'+p.name+'</span>' +
+        '<span class="bill-name">'+p.value.toLocaleString()+'원</span>' +
+      '</div>' +
+      '<div class="bill-count">'+ p.count +'<span class="multi">×</span>'+ (p.value*p.count).toLocaleString()+'원</div>';
+    wrap.appendChild(row);
+  });
+  if (parts.length === 0){
+    wrap.innerHTML = '<div style="padding:12px;text-align:center;color:var(--gray);">금액을 입력해주세요</div>';
+  }
+}
+
+/* ============================================================
+   이체
+============================================================ */
+function renderBanks(){
+  const grid = document.getElementById('bankGrid');
+  grid.innerHTML = '';
+  BANKS.forEach(b => {
+    const card = document.createElement('div');
+    card.className = 'bank-card';
+    card.innerHTML =
+      '<div class="bank-logo" style="background:'+b.color+';color:'+(b.fg||'#fff')+';">'+ b.code +'</div>' +
+      '<div class="bank-name">'+ b.name +'</div>';
+    card.onclick = () => {
+      state.tr.bank = b.code;
+      state.tr.bankName = b.name;
+      go('transfer2');
+    };
+    grid.appendChild(card);
+  });
+}
+function renderFriends(){
+  const list = document.getElementById('friendList');
+  const fs = FRIENDS.filter(f => f.bank === state.tr.bank);
+  list.innerHTML = '';
+  if (fs.length === 0){
+    list.innerHTML = '<div style="padding:16px;background:var(--bg);border-radius:12px;font-size:13px;color:var(--gray);text-align:center;">이 은행으로 자주 보낸 사람이 없어요.<br>계좌번호를 직접 입력해주세요.</div>';
+    return;
+  }
+  fs.forEach(f => {
+    const el = document.createElement('div');
+    el.className = 'recipient-card';
+    el.style.cursor = 'pointer';
+    el.style.marginBottom = '8px';
+    el.innerHTML =
+      '<div class="recipient-ava">'+ f.name.charAt(0) +'</div>' +
+      '<div class="recipient-info">' +
+        '<div class="recipient-name">'+ f.name +'</div>' +
+        '<div class="recipient-acc">'+ f.bankName +' · '+ f.acc +'</div>' +
+      '</div>';
+    el.onclick = () => {
+      document.getElementById('trAcc').value = f.acc;
+      state.tr.name = f.name;
+      checkTr2();
+    };
+    list.appendChild(el);
+  });
+}
+function checkTr2(){
+  const v = document.getElementById('trAcc').value.trim();
+  const digits = v.replace(/[-\s]/g,'');
+  const ok = digits.length >= 8 && /^\d+$/.test(digits);
+  document.getElementById('trAccErr').textContent = '';
+  if (v && !/^[\d\- ]+$/.test(v)){
+    document.getElementById('trAccErr').textContent = '숫자와 -(하이픈)만 쓸 수 있어요';
+  } else if (v && !ok){
+    document.getElementById('trAccErr').textContent = '계좌번호는 숫자 8자리 이상이에요';
+  } else {
+    document.getElementById('trAccErr').innerHTML = '&nbsp;';
+  }
+  document.getElementById('tr2Btn').disabled = !ok;
+}
+function toTransfer3(){
+  const v = document.getElementById('trAcc').value.trim();
+  state.tr.accNum = v;
+  // 친구 매칭 확인
+  const found = FRIENDS.find(f => f.acc === v || f.acc.replace(/[-\s]/g,'') === v.replace(/[-\s]/g,''));
+  if (found){ state.tr.name = found.name; }
+  else if (!state.tr.name){ state.tr.name = '받는 분'; }
+  go('transfer3');
+}
+function updateTr3Recipient(){
+  document.getElementById('trName').textContent = state.tr.name;
+  document.getElementById('trAccShow').textContent = state.tr.bankName + ' · ' + state.tr.accNum;
+  document.getElementById('trAva').textContent = state.tr.name.charAt(0) || '👤';
+  document.getElementById('trBalHelp').textContent = '출금 가능 ' + state.balance.toLocaleString() + '원';
+}
+function checkTr3(){
+  const v = parseAmt('trAmt');
+  const err = document.getElementById('trAmtErr');
+  let ok = v > 0;
+  if (v > state.balance){
+    err.textContent = '⚠️ 잔액이 부족해요 (' + state.balance.toLocaleString() + '원까지 가능)';
+    ok = false;
+  } else {
+    err.innerHTML = '&nbsp;';
+  }
+  document.getElementById('tr3Btn').disabled = !ok;
+}
+function toTransfer4(){
+  state.tr.amt = parseAmt('trAmt');
+  state.tr.memo = document.getElementById('trMemo').value.trim();
+  go('transfer4');
+}
+function renderTr4(){
+  document.getElementById('cf-name').textContent = state.tr.name;
+  document.getElementById('cf-bank').textContent = state.tr.bankName;
+  document.getElementById('cf-acc').textContent = state.tr.accNum;
+  document.getElementById('cf-amt').textContent = state.tr.amt.toLocaleString() + '원';
+  document.getElementById('cf-before').textContent = state.balance.toLocaleString() + '원';
+  document.getElementById('cf-after').textContent = (state.balance - state.tr.amt).toLocaleString() + '원';
+  if (state.tr.memo){
+    document.getElementById('cf-memo-row').style.display = 'flex';
+    document.getElementById('cf-memo').textContent = state.tr.memo;
+  } else {
+    document.getElementById('cf-memo-row').style.display = 'none';
+  }
+}
+function doTransfer(){
+  const amt = state.tr.amt;
+  if (amt > state.balance){ toast('잔액이 부족해요'); return; }
+  state.balance -= amt;
+  const t = {
+    date: todayStr(), time: nowTime(),
+    type:'out', name:state.tr.name, memo:state.tr.memo || '이체',
+    amt: -amt, bal: state.balance
+  };
+  state.txns.unshift(t);
+  checkMissions(t);
+  showResult('💸', '이체 완료!',
+    state.tr.name + '님께 ' + amt.toLocaleString() + '원을 보냈어요',
+    [
+      ['받는 분', state.tr.name],
+      ['받는 은행', state.tr.bankName],
+      ['계좌번호', state.tr.accNum],
+      ['보낸 금액', amt.toLocaleString() + '원'],
+      ['보낸 후 잔액', state.balance.toLocaleString() + '원'],
+    ]
+  );
+}
+
+/* ============================================================
+   결과화면 공통
+============================================================ */
+function showResult(ico, title, sub, rows, withdrawAmt){
+  document.getElementById('resultIco').textContent = ico;
+  document.getElementById('resultTitle').textContent = title;
+  document.getElementById('resultSub').textContent = sub;
+  const box = document.getElementById('resultBox');
+  box.innerHTML = '';
+  rows.forEach((r,i) => {
+    const row = document.createElement('div');
+    row.className = 'confirm-row' + (i === rows.length-1 ? ' big' : '');
+    row.innerHTML = '<span class="confirm-lbl">'+ r[0] +'</span><span class="confirm-val">'+ r[1] +'</span>';
+    box.appendChild(row);
+  });
+  const billsBox = document.getElementById('resultBillsBox');
+  if (withdrawAmt){
+    billsBox.style.display = 'block';
+    renderBills('resultBills', withdrawAmt);
+  } else {
+    billsBox.style.display = 'none';
+  }
+  go('result');
+}
+
+/* ============================================================
+   미션
+============================================================ */
+function checkMissions(t){
+  state.missions.forEach(m => {
+    if (m.done || !m.check) return;
+    if (m.check(t)){ m.done = true; toast('🎉 미션 완료: ' + m.text); }
+  });
+}
+function markMission(id){
+  const m = state.missions.find(x => x.id === id);
+  if (m && !m.done){ m.done = true; toast('🎉 미션 완료: ' + m.text); }
+}
+
+/* ============================================================
+   입력 도우미
+============================================================ */
+function formatAmt(input){
+  let v = input.value.replace(/[^\d]/g, '');
+  if (v === ''){ input.value = ''; return; }
+  input.value = parseInt(v, 10).toLocaleString();
+}
+function parseAmt(id){
+  const v = document.getElementById(id).value.replace(/[^\d]/g, '');
+  return v === '' ? 0 : parseInt(v, 10);
+}
+function addAmt(id, n){
+  const cur = parseAmt(id);
+  document.getElementById(id).value = (cur + n).toLocaleString();
+  // 체크 트리거
+  document.getElementById(id).dispatchEvent(new Event('input'));
+}
+function setAmt(id, n){
+  document.getElementById(id).value = n === 0 ? '' : n.toLocaleString();
+  document.getElementById(id).dispatchEvent(new Event('input'));
+}
+function todayStr(){
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+}
+function nowTime(){
+  const d = new Date();
+  return String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
+}
+
+/* ============================================================
+   토스트
+============================================================ */
+let toastTimer;
+function toast(msg){
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+}
+
+/* ============================================================
+   교사 패널
+============================================================ */
+function toggleTeacher(){
+  const p = document.getElementById('teacherPanel');
+  const b = document.getElementById('tBadge');
+  p.classList.toggle('open');
+  b.textContent = p.classList.contains('open') ? '닫기 ▲' : '열기 ▼';
+}
+
+/* ============================================================
+   계좌개설
+============================================================ */
+const ACC_TYPES = [
+  {code:'checking', ico:'💳', name:'입출금 통장', desc:'언제든 돈을 넣고 뺄 수 있어요. 가장 기본이에요.'},
+  {code:'youth',    ico:'🧑‍🎓', name:'청소년 통장', desc:'만 19세 미만 전용. 수수료가 없거나 저렴해요.'},
+  {code:'saving',   ico:'🏦', name:'적금 통장', desc:'매달 정해진 돈을 넣어요. 이자가 더 많아요.'},
+  {code:'time',     ico:'💰', name:'예금 통장', desc:'큰 돈을 한번에 맡기고 기간 뒤에 찾아요.'},
+];
+const TERM_DETAILS = {
+  '거래약관':'은행과 내가 거래할 때 지켜야 할 기본 규칙이에요. (예: 비밀번호 보관 책임)',
+  '개인정보':'은행이 이름·주민번호·전화번호 등을 안전하게 저장하고 꼭 필요할 때만 쓴다는 약속이에요.',
+  '전자금융':'앱이나 ATM으로 돈을 넣고 뺄 때의 규칙이에요. 사고가 나면 어떻게 처리할지도 들어있어요.',
+  '광고':'은행이 새 상품을 문자·앱 알림으로 안내해도 될지 선택하는 항목이에요.',
+  '추천':'나의 이용 패턴을 분석해서 어울리는 상품을 추천해도 될지 선택해요.',
+};
+state.opening = {bank:'',bankName:'',bankCode:'',bankColor:'',bankFg:'',type:'',typeName:'',name:'',birth:'',phone:'',addr:'',pin:'',pinConfirm:'',pinPhase:'set',pinInput:''};
+state.createdAccounts = [];
+
+function renderOpenBanks(){
+  const grid = document.getElementById('openBankGrid');
+  grid.innerHTML = '';
+  BANKS.forEach(b => {
+    const card = document.createElement('div');
+    card.className = 'bank-card';
+    card.innerHTML =
+      '<div class="bank-logo" style="background:'+b.color+';color:'+(b.fg||'#fff')+';">'+ b.code +'</div>' +
+      '<div class="bank-name">'+ b.name +'</div>';
+    card.onclick = () => {
+      state.opening.bank = b.code;
+      state.opening.bankCode = b.code;
+      state.opening.bankName = b.name;
+      state.opening.bankColor = b.color;
+      state.opening.bankFg = b.fg || '#fff';
+      go('open-type');
+    };
+    grid.appendChild(card);
+  });
+}
+function renderOpenTypes(){
+  document.getElementById('openTypeHelp').textContent = state.opening.bankName + '에서 만들 통장 종류를 골라주세요';
+  const list = document.getElementById('openTypeList');
+  list.innerHTML = '';
+  ACC_TYPES.forEach(t => {
+    const el = document.createElement('div');
+    el.className = 'type-card' + (state.opening.type === t.code ? ' selected' : '');
+    el.innerHTML =
+      '<div class="type-ico">'+ t.ico +'</div>' +
+      '<div class="type-info">' +
+        '<div class="type-name">'+ t.name +'</div>' +
+        '<div class="type-desc">'+ t.desc +'</div>' +
+      '</div>';
+    el.onclick = () => {
+      state.opening.type = t.code;
+      state.opening.typeName = t.name;
+      renderOpenTypes();
+      document.getElementById('openTypeBtn').disabled = false;
+    };
+    list.appendChild(el);
+  });
+}
+function formatBirth(input){
+  let v = input.value.replace(/[^\d]/g,'').slice(0,8);
+  if (v.length >= 7) v = v.slice(0,4) + '-' + v.slice(4,6) + '-' + v.slice(6);
+  else if (v.length >= 5) v = v.slice(0,4) + '-' + v.slice(4);
+  input.value = v;
+}
+function formatPhone(input){
+  let v = input.value.replace(/[^\d]/g,'').slice(0,11);
+  if (v.length >= 8) v = v.slice(0,3) + '-' + v.slice(3,7) + '-' + v.slice(7);
+  else if (v.length >= 4) v = v.slice(0,3) + '-' + v.slice(3);
+  input.value = v;
+}
+function checkOpenInfo(){
+  const name = document.getElementById('openName').value.trim();
+  const birth = document.getElementById('openBirth').value.trim();
+  const phone = document.getElementById('openPhone').value.trim();
+  const addr = document.getElementById('openAddr').value.trim();
+
+  // 검증
+  const birthOk = /^\d{4}-\d{2}-\d{2}$/.test(birth);
+  const phoneOk = /^010-\d{4}-\d{4}$/.test(phone) || /^01[1-9]-\d{3,4}-\d{4}$/.test(phone);
+
+  document.getElementById('openBirthErr').textContent = (birth && !birthOk) ? '예: 2008-03-15 형태로 입력해주세요' : '';
+  document.getElementById('openPhoneErr').textContent = (phone && !phoneOk) ? '예: 010-1234-5678 형태로 입력해주세요' : '';
+
+  const ok = name.length >= 2 && birthOk && phoneOk && addr.length >= 5;
+  document.getElementById('openInfoBtn').disabled = !ok;
+  if (ok){
+    state.opening.name = name;
+    state.opening.birth = birth;
+    state.opening.phone = phone;
+    state.opening.addr = addr;
+  }
+}
+
+/* ── 계좌개설 비밀번호 ── */
+function buildOpenPinKeypad(){
+  const keys = ['1','2','3','4','5','6','7','8','9','재입력','0','←'];
+  const kp = document.getElementById('openPinKeypad');
+  kp.innerHTML = '';
+  keys.forEach(k => {
+    const b = document.createElement('button');
+    b.className = 'key' + (['재입력','←'].includes(k) ? ' sm' : '');
+    b.textContent = k;
+    b.type = 'button';
+    b.onclick = () => openPinPress(k);
+    kp.appendChild(b);
+  });
+}
+function resetOpenPin(){
+  state.opening.pin = '';
+  state.opening.pinConfirm = '';
+  state.opening.pinPhase = 'set';
+  state.opening.pinInput = '';
+  document.getElementById('openPinTitle').textContent = '새 비밀번호 4자리를 입력하세요';
+  document.getElementById('openPinErr').innerHTML = '&nbsp;';
+  updateOpenPinDots();
+}
+function openPinPress(k){
+  if (k === '재입력'){ state.opening.pinInput = ''; updateOpenPinDots(); document.getElementById('openPinErr').innerHTML = '&nbsp;'; return; }
+  if (k === '←'){ state.opening.pinInput = state.opening.pinInput.slice(0,-1); updateOpenPinDots(); return; }
+  if (state.opening.pinInput.length >= 4) return;
+  state.opening.pinInput += k;
+  updateOpenPinDots();
+  if (state.opening.pinInput.length === 4) setTimeout(handleOpenPin, 200);
+}
+function updateOpenPinDots(){
+  const dots = document.querySelectorAll('#openPinDots .pin-mini-dot');
+  dots.forEach((d,i) => d.classList.toggle('filled', i < state.opening.pinInput.length));
+}
+function handleOpenPin(){
+  if (state.opening.pinPhase === 'set'){
+    // 쉬운 비번 거르기
+    const weak = ['1234','0000','1111','2222','3333','4444','5555','6666','7777','8888','9999','1212','4321','1004'];
+    if (weak.includes(state.opening.pinInput)){
+      document.getElementById('openPinErr').textContent = '너무 쉬운 번호예요. 다른 번호로 해주세요';
+      state.opening.pinInput = '';
+      setTimeout(updateOpenPinDots, 400);
+      return;
+    }
+    state.opening.pin = state.opening.pinInput;
+    state.opening.pinInput = '';
+    state.opening.pinPhase = 'confirm';
+    document.getElementById('openPinTitle').textContent = '한번 더 입력해서 확인해주세요';
+    document.getElementById('openPinErr').innerHTML = '&nbsp;';
+    updateOpenPinDots();
+  } else {
+    if (state.opening.pinInput === state.opening.pin){
+      state.opening.pinConfirm = state.opening.pinInput;
+      go('open-terms');
+    } else {
+      document.getElementById('openPinErr').textContent = '앞에서 입력한 비밀번호와 달라요!';
+      document.getElementById('openPinDots').animate([
+        {transform:'translateX(0)'},{transform:'translateX(-8px)'},
+        {transform:'translateX(8px)'},{transform:'translateX(0)'}
+      ], {duration:260});
+      state.opening.pinInput = '';
+      setTimeout(updateOpenPinDots, 300);
+    }
+  }
+}
+function goBackPin(){
+  if (state.opening.pinPhase === 'confirm'){
+    // 설정 단계로
+    state.opening.pinPhase = 'set';
+    state.opening.pin = '';
+    state.opening.pinInput = '';
+    document.getElementById('openPinTitle').textContent = '새 비밀번호 4자리를 입력하세요';
+    document.getElementById('openPinErr').innerHTML = '&nbsp;';
+    updateOpenPinDots();
+  } else {
+    go('open-info');
+  }
+}
+
+/* ── 약관 ── */
+function toggleTerm(el){
+  el.classList.toggle('checked');
+  updateTermsState();
+}
+function toggleAllTerms(){
+  const all = document.getElementById('termAll');
+  const items = document.querySelectorAll('#scr-open-terms .term-item:not(.all)');
+  const nextState = !all.classList.contains('checked');
+  all.classList.toggle('checked', nextState);
+  items.forEach(it => it.classList.toggle('checked', nextState));
+  updateTermsState();
+}
+function updateTermsState(){
+  const items = document.querySelectorAll('#scr-open-terms .term-item:not(.all)');
+  const required = Array.from(items).filter(it => it.dataset.req === '1');
+  const allChecked = Array.from(items).every(it => it.classList.contains('checked'));
+  const reqChecked = required.every(it => it.classList.contains('checked'));
+  document.getElementById('termAll').classList.toggle('checked', allChecked);
+  document.getElementById('openTermsBtn').disabled = !reqChecked;
+}
+function showTermDetail(key){
+  alert('[' + key + ' 약관]\n\n' + TERM_DETAILS[key]);
+}
+
+/* ── 개설 완료 ── */
+function genAccountNum(code){
+  // 은행별 계좌번호 패턴 간단 시뮬
+  const r = () => Math.floor(Math.random() * 10);
+  const d = (n) => Array.from({length:n}, r).join('');
+  if (code === 'KB') return d(3)+'-'+d(2)+'-'+d(6);
+  if (code === 'SH') return '110-'+d(3)+'-'+d(6);
+  if (code === 'WR') return d(4)+'-'+d(3)+'-'+d(6);
+  if (code === 'NH') return '352-'+d(4)+'-'+d(4)+'-'+d(2);
+  if (code === 'HN') return d(3)+'-'+d(6)+'-'+d(5);
+  if (code === 'KA') return '3333-'+d(2)+'-'+d(7);
+  if (code === 'TS') return '1000-'+d(4)+'-'+d(4);
+  if (code === 'IB') return d(3)+'-'+d(6)+'-'+d(2)+'-'+d(3);
+  if (code === 'SC') return d(4)+'-'+d(4)+'-'+d(4)+'-'+d(1);
+  return d(3)+'-'+d(3)+'-'+d(6);
+}
+function finishOpenAccount(){
+  const accNum = genAccountNum(state.opening.bankCode);
+  const newAcc = {
+    bankCode: state.opening.bankCode,
+    bankName: state.opening.bankName,
+    bankColor: state.opening.bankColor,
+    bankFg: state.opening.bankFg,
+    type: state.opening.type,
+    typeName: state.opening.typeName,
+    accNum: accNum,
+    owner: state.opening.name,
+    birth: state.opening.birth,
+    phone: state.opening.phone,
+    addr: state.opening.addr,
+    pin: state.opening.pin,
+    balance: 0,
+    createdAt: todayStr(),
+  };
+  state.createdAccounts.push(newAcc);
+  markMission('m5');
+  // 완료 화면 세팅
+  document.getElementById('oddBank').textContent = newAcc.bankName;
+  document.getElementById('oddType').textContent = newAcc.typeName;
+  document.getElementById('oddAcc').textContent = newAcc.accNum;
+  document.getElementById('oddName').textContent = newAcc.owner;
+  document.getElementById('oddDate').textContent = formatFullDate(newAcc.createdAt);
+  go('open-done');
+  toast('🎉 ' + newAcc.bankName + ' ' + newAcc.typeName + ' 개설 완료!');
+}
+function copyAcc(){
+  const text = document.getElementById('oddAcc').textContent;
+  if (navigator.clipboard){
+    navigator.clipboard.writeText(text).then(()=>toast('계좌번호를 복사했어요'));
+  } else {
+    toast('계좌번호: ' + text);
+  }
+}
+
+/* ── 홈에 생성된 계좌 표시 ── */
+function renderCreatedAccounts(){
+  const wrap = document.getElementById('createdAccountsWrap');
+  wrap.innerHTML = '';
+  if (state.createdAccounts.length === 0) return;
+  const head = document.createElement('div');
+  head.className = 'created-head';
+  head.textContent = '🆕 내가 만든 통장 (' + state.createdAccounts.length + '개)';
+  wrap.appendChild(head);
+  state.createdAccounts.forEach(a => {
+    const card = document.createElement('div');
+    card.className = 'created-card';
+    card.innerHTML =
+      '<div class="created-logo" style="background:'+a.bankColor+';color:'+a.bankFg+';">'+a.bankCode+'</div>' +
+      '<div class="created-info">' +
+        '<div class="created-name">'+ a.bankName +' · '+ a.typeName +'</div>' +
+        '<div class="created-num">'+ a.accNum +'</div>' +
+      '</div>' +
+      '<div class="created-bal">'+ a.balance.toLocaleString() +'<small> 원</small></div>';
+    wrap.appendChild(card);
+  });
+}
+
+/* ============================================================
+   초기화
+============================================================ */
+function init(){
+  buildKeypad();
+  buildOpenPinKeypad();
+  // 시간 표시
+  const d = new Date();
+  const hh = d.getHours();
+  const mm = d.getMinutes();
+  const ampm = hh < 12 ? '오전' : '오후';
+  const h12 = hh === 0 ? 12 : hh > 12 ? hh - 12 : hh;
+  document.getElementById('sbTime').textContent = ampm + ' ' + h12 + ':' + String(mm).padStart(2,'0');
+}
+init();
+</script>
+
+</body>
+</html>
