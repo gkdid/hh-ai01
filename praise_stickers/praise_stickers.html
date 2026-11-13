@@ -956,7 +956,7 @@ function toast(msg, type) {
  const el = document.getElementById('toast');
  el.textContent = msg;
  el.className = 'toast show' + (type ? ' ' + type : '');
- setTimeout( => { el.className = 'toast'; }, 1800);
+ setTimeout(() => { el.className = 'toast'; }, 1800);
 }
 
 function findStudent(id) { return data.students.find(s => s.id === id); }
@@ -993,8 +993,8 @@ const modeTeacherBtn = document.getElementById('modeTeacher');
 const viewStickers = document.getElementById('viewStickers');
 const teacherPanel = document.getElementById('teacherPanel');
 
-modeViewBtn.addEventListener('click()',  => setMode('view'));
-modeTeacherBtn.addEventListener('click()',  => setMode('teacher'));
+modeViewBtn.addEventListener('click', () =>setMode('view'));
+modeTeacherBtn.addEventListener('click', () =>setMode('teacher'));
 
 function setMode(m) {
  if (m === 'view') {
@@ -1147,23 +1147,23 @@ function renderTeacherStudents() {
  `;
  }).join('');
  el.querySelectorAll('button[data-lib-select]').forEach(b => {
- b.addEventListener('click()',  => {
+ b.addEventListener('click', () =>{
  const [sid, idx] = b.dataset.libSelect.split(':');
  selectLibraryImage(sid, parseInt(idx, 10));
  });
  });
  el.querySelectorAll('button[data-lib-del]').forEach(b => {
- b.addEventListener('click()', (e) => {
+ b.addEventListener('click', (e) => {
  e.stopPropagation();
  const [sid, idx] = b.dataset.libDel.split(':');
  deleteLibraryImage(sid, parseInt(idx, 10));
  });
  });
  el.querySelectorAll('button[data-lib-add]').forEach(b => {
- b.addEventListener('click()',  => addLibraryImage(b.dataset.libAdd));
+ b.addEventListener('click', () =>addLibraryImage(b.dataset.libAdd));
  });
  el.querySelectorAll('button[data-act]').forEach(b => {
- b.addEventListener('click()',  => {
+ b.addEventListener('click', () =>{
  const id = b.dataset.id;
  const act = b.dataset.act;
  if (act === 'give') giveSticker(id);
@@ -1197,10 +1197,10 @@ function renderStudentManageList() {
  `;
  }).join('');
  el.querySelectorAll('button[data-del]').forEach(b => {
- b.addEventListener('click()',  => deleteStudent(b.dataset.del));
+ b.addEventListener('click', () =>deleteStudent(b.dataset.del));
  });
  el.querySelectorAll('button[data-color]').forEach(b => {
- b.addEventListener('click()',  => cycleStudentColor(b.dataset.color));
+ b.addEventListener('click', () =>cycleStudentColor(b.dataset.color));
  });
 }
 
@@ -1269,7 +1269,7 @@ function resizeImageToDataUrl(file, maxSize) {
  const reader = new FileReader();
  reader.onload = (e) => {
  const img = new Image();
- img.onload =  => {
+ img.onload = () => {
  const sourceSize = Math.min(img.width, img.height);
  const sx = (img.width - sourceSize) / 2;
  const sy = (img.height - sourceSize) / 2;
@@ -1281,10 +1281,10 @@ function resizeImageToDataUrl(file, maxSize) {
  ctx.drawImage(img, sx, sy, sourceSize, sourceSize, 0, 0, size, size);
  resolve(canvas.toDataURL('image/jpeg', 0.85));
  };
- img.onerror =  => reject(new Error('image decode failed'));
+ img.onerror = () => reject(new Error('image decode failed'));
  img.src = e.target.result;
  };
- reader.onerror =  => reject(new Error('file read failed'));
+ reader.onerror = () => reject(new Error('file read failed'));
  reader.readAsDataURL(file);
  });
 }
@@ -1307,7 +1307,7 @@ function renderRewardList() {
  </div>
  `).join('');
  el.querySelectorAll('button[data-rdel]').forEach(b => {
- b.addEventListener('click()',  => deleteReward(b.dataset.rdel));
+ b.addEventListener('click', () =>deleteReward(b.dataset.rdel));
  });
 }
 
@@ -1393,7 +1393,7 @@ function openRedeemModal(studentId) {
  </button>
  `).join('');
  document.querySelectorAll('#redeemRewardList button').forEach(b => {
- b.addEventListener('click()',  => redeem(b.dataset.rid));
+ b.addEventListener('click', () =>redeem(b.dataset.rid));
  });
  redeemModal.classList.add('show');
 }
@@ -1402,8 +1402,8 @@ function closeRedeemModal() {
  redeemModal.classList.remove('show');
  redeemingStudentId = null;
 }
-document.getElementById('closeModalBtn').addEventListener('click()', closeRedeemModal());
-redeemModal.addEventListener('click()', (e) => { if (e.target === redeemModal) closeRedeemModal(); });
+document.getElementById('closeModalBtn').addEventListener('click', closeRedeemModal);
+redeemModal.addEventListener('click', (e) => { if (e.target === redeemModal) closeRedeemModal(); });
 
 function redeem(rewardId) {
  const s = findStudent(redeemingStudentId);
@@ -1426,7 +1426,7 @@ function redeem(rewardId) {
 }
 
 /* ─── 학생 추가/삭제 ─── */
-document.getElementById('addStudentBtn').addEventListener('click()', addStudent());
+document.getElementById('addStudentBtn').addEventListener('click', addStudent);
 document.getElementById('newStudentName').addEventListener('keydown', (e) => {
  if (e.key === 'Enter') addStudent();
 });
@@ -1471,7 +1471,7 @@ function deleteStudent(id) {
 }
 
 /* ─── 보상 추가/삭제 ─── */
-document.getElementById('addRewardBtn').addEventListener('click()', addReward());
+document.getElementById('addRewardBtn').addEventListener('click', addReward);
 ['newRewardIcon', 'newRewardName', 'newRewardCost'].forEach(id => {
  document.getElementById(id).addEventListener('keydown', (e) => {
  if (e.key === 'Enter') addReward();
@@ -1481,7 +1481,7 @@ document.getElementById('rewardStudentSelect').addEventListener('change', (e) =>
  rewardEditTarget = e.target.value;
  renderRewardList();
 });
-document.getElementById('copyRewardBtn').addEventListener('click()', copyRewardsFromOther());
+document.getElementById('copyRewardBtn').addEventListener('click', copyRewardsFromOther);
 
 function addReward() {
  const icon = document.getElementById('newRewardIcon').value.trim() || '🎁';
@@ -1544,7 +1544,7 @@ function copyRewardsFromOther() {
 }
 
 /* ─── 로그 비우기 ─── */
-document.getElementById('clearLogBtn').addEventListener('click()',  => {
+document.getElementById('clearLogBtn').addEventListener('click', () =>{
  if (data.logs.length === 0) return;
  if (!confirm('활동 로그를 모두 지울까요?\n(학생별 스티커 수와 히스토리는 유지됩니다)')) return;
  data.logs = [];
@@ -1554,7 +1554,7 @@ document.getElementById('clearLogBtn').addEventListener('click()',  => {
 });
 
 /* ─── 백업/복원 ─── */
-document.getElementById('exportBtn').addEventListener('click()',  => {
+document.getElementById('exportBtn').addEventListener('click', () =>{
  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
  const url = URL.createObjectURL(blob);
  const d = new Date();
@@ -1567,7 +1567,7 @@ document.getElementById('exportBtn').addEventListener('click()',  => {
  toast('📤 백업 파일을 내려받았어요');
 });
 
-document.getElementById('importBtn').addEventListener('click()',  => {
+document.getElementById('importBtn').addEventListener('click', () =>{
  document.getElementById('importFile').click();
 });
 document.getElementById('importFile').addEventListener('change', (e) => {
@@ -1598,7 +1598,7 @@ document.getElementById('importFile').addEventListener('change', (e) => {
  e.target.value = '';
 });
 
-document.getElementById('resetBtn').addEventListener('click()',  => {
+document.getElementById('resetBtn').addEventListener('click', () =>{
  if (!confirm('정말 모든 데이터를 초기화할까요?\n학생 명단, 스티커 수, 보상 항목, 로그가 모두 삭제됩니다.\n(되돌릴 수 없어요)')) return;
  if (!confirm('한 번 더 확인할게요. 정말 초기화할까요?')) return;
  data = structuredClone(DEFAULT_DATA);
@@ -1608,13 +1608,13 @@ document.getElementById('resetBtn').addEventListener('click()',  => {
 });
 
 /* ─── 인쇄 ─── */
-document.getElementById('printBtn').addEventListener('click()',  => {
+document.getElementById('printBtn').addEventListener('click', () =>{
  if (data.students.length === 0) { toast('인쇄할 학생이 없어요', 'warn'); return; }
  const d = new Date();
  document.querySelector('.print-date').textContent =
  `인쇄 날짜: ${d.getFullYear()}. ${String(d.getMonth()+1).padStart(2,'0')}. ${String(d.getDate()).padStart(2,'0')}.`;
  if (teacherPanel.style.display !== 'none') setMode('view');
- setTimeout( => window.print(), 100);
+ setTimeout(() => window.print(), 100);
 });
 
 /* ─── 초기 ─── */

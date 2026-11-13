@@ -232,7 +232,7 @@ function loadFromHash() {
  if (h) loadDoc(h);
 }
 
-window.addEventListener('hashchange', loadFromHash());
+window.addEventListener('hashchange', loadFromHash);
 document.getElementById('q').addEventListener('input', e => renderSidebar(e.target.value));
 
 // marked options
