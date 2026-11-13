@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🍽️ 외식서비스 연습 앱 · 진로와 직업</title>
+<style>
+:root{
+  --orange:#E67E22;--orange-dark:#D35400;--orange-light:#FFF3E0;
+  --yellow:#F39C12;--yellow-light:#FFF8E7;
+  --cream:#FFFAF2;
+  --navy:#2C3E50;--gray:#7F8C8D;--gray2:#BDC3C7;
+  --bg:#F5F0E8;--line:#EEE6D8;--white:#FFFFFF;
+  --green:#27AE60;--green-light:#E8F8F0;--red:#E74C3C;--red-light:#FEECEC;
+  --blue:#3498DB;--blue-light:#EBF5FB;
+  --purple:#8E44AD;--purple-light:#F3E5F5;
+  --amber:#F39C12;--amber-light:#FFF3E0;
+  /* 영역별 테마 */
+  --ar-reception:#3498DB;--ar-reception-l:#EBF5FB;
+  --ar-kitchen:#27AE60;--ar-kitchen-l:#E8F8F0;
+  --ar-cleaning:#8E44AD;--ar-cleaning-l:#F3E5F5;
+  --ar-service:#E67E22;--ar-service-l:#FFF3E0;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{font-family:'Pretendard','Malgun Gothic',-apple-system,sans-serif;background:#E0D5C3;min-height:100vh;display:flex;justify-content:center;color:var(--navy);}
+.app{width:100%;max-width:460px;background:var(--cream);min-height:100vh;position:relative;box-shadow:0 0 40px rgba(0,0,0,.2);display:flex;flex-direction:column;overflow:hidden;}
+
+/* 교사 */
+.teacher-bar{background:var(--navy);color:#fff;padding:10px 14px;font-size:12px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+.teacher-bar .badge{background:var(--yellow);color:var(--navy);padding:2px 8px;border-radius:10px;font-weight:800;font-size:11px;}
+.teacher-panel{background:#34495E;color:#ECF0F1;padding:14px 18px 18px;font-size:13px;line-height:1.65;display:none;}
+.teacher-panel.open{display:block;}
+.teacher-panel h4{color:var(--yellow);font-size:13.5px;margin-top:12px;margin-bottom:4px;}
+.teacher-panel h4:first-child{margin-top:0;}
+.teacher-panel ul{padding-left:18px;}
+.teacher-panel li{margin-bottom:3px;}
+.teacher-panel kbd{background:#2C3E50;padding:1px 6px;border-radius:4px;font-size:11.5px;font-weight:700;}
+
+/* 상태바 */
+.statusbar{background:var(--cream);padding:8px 20px 4px;display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:700;color:var(--navy);border-bottom:1px solid var(--line);}
+
+/* 헤더 */
+.hdr{background:var(--cream);color:var(--navy);padding:14px 18px;display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);min-height:52px;}
+.hdr-back{background:transparent;border:none;width:36px;height:36px;font-size:22px;cursor:pointer;color:var(--navy);display:flex;align-items:center;justify-content:center;border-radius:50%;}
+.hdr-back:active{background:var(--bg);}
+.hdr-title{font-size:17px;font-weight:800;flex:1;}
+.hdr .sub{font-size:12px;color:var(--gray);font-weight:700;}
+.hdr-ico{font-size:22px;}
+
+/* 화면 */
+.screen{display:none;flex:1;overflow-y:auto;padding-bottom:30px;}
+.screen.active{display:block;}
+.sec{padding:22px 20px;}
+.sec-no-top{padding:0 20px 22px;}
+
+/* 홈 */
+.hero{margin:16px 16px 18px;background:linear-gradient(135deg,var(--orange) 0%,var(--orange-dark) 100%);color:#fff;border-radius:22px;padding:20px 22px 22px;position:relative;overflow:hidden;box-shadow:0 8px 20px rgba(230,126,34,.3);}
+.hero::before{content:'';position:absolute;right:-30px;top:-30px;width:140px;height:140px;background:radial-gradient(circle,rgba(255,255,255,.14) 0%,transparent 70%);border-radius:50%;}
+.hero-tag{font-size:11.5px;font-weight:700;background:rgba(255,255,255,.25);padding:4px 10px;border-radius:20px;display:inline-block;margin-bottom:8px;}
+.hero h1{font-size:23px;font-weight:800;letter-spacing:-.3px;margin-bottom:6px;line-height:1.3;}
+.hero p{font-size:13.5px;opacity:.9;line-height:1.5;max-width:75%;}
+.hero-img{position:absolute;right:14px;bottom:10px;font-size:52px;opacity:.9;}
+
+/* 진행도 */
+.progress-wrap{margin:0 16px 18px;background:#fff;border-radius:16px;padding:14px 16px;border:1.5px solid var(--line);}
+.progress-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;}
+.progress-title{font-size:14px;font-weight:800;color:var(--navy);}
+.progress-pct{font-size:14px;font-weight:800;color:var(--orange);}
+.progress-bar{height:8px;background:var(--line);border-radius:4px;overflow:hidden;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--yellow),var(--orange));border-radius:4px;transition:width .4s;}
+.progress-chips{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:10px;}
+.p-chip{text-align:center;padding:6px 0;background:var(--bg);border-radius:8px;font-size:11px;font-weight:700;color:var(--gray);}
+.p-chip.done{color:#fff;}
+.p-chip.done.reception{background:var(--ar-reception);}
+.p-chip.done.kitchen{background:var(--ar-kitchen);}
+.p-chip.done.cleaning{background:var(--ar-cleaning);}
+.p-chip.done.service{background:var(--ar-service);}
+
+/* 메뉴 */
+.menu-grid{margin:0 16px 16px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.menu-card{background:#fff;border-radius:18px;padding:18px 16px;border:1.5px solid var(--line);cursor:pointer;transition:all .15s;display:flex;flex-direction:column;gap:6px;position:relative;min-height:134px;}
+.menu-card:active{transform:scale(.98);}
+.menu-card:hover{box-shadow:0 8px 16px rgba(0,0,0,.08);}
+.menu-card .mc-ico{font-size:42px;line-height:1;margin-bottom:4px;}
+.menu-card h3{font-size:16px;font-weight:800;color:var(--navy);}
+.menu-card p{font-size:12px;color:var(--gray);line-height:1.4;}
+.menu-card.reception{border-color:var(--ar-reception);background:var(--ar-reception-l);}
+.menu-card.kitchen{border-color:var(--ar-kitchen);background:var(--ar-kitchen-l);}
+.menu-card.cleaning{border-color:var(--ar-cleaning);background:var(--ar-cleaning-l);}
+.menu-card.service{border-color:var(--ar-service);background:var(--ar-service-l);}
+.menu-card.reception h3{color:#1A5C8E;}
+.menu-card.kitchen h3{color:#1B6B3F;}
+.menu-card.cleaning h3{color:#5E2C76;}
+.menu-card.service h3{color:#8B4513;}
+.menu-card.wide{grid-column:span 2;flex-direction:row;align-items:center;gap:14px;min-height:auto;}
+.menu-card.wide .mc-ico{font-size:40px;flex-shrink:0;margin-bottom:0;width:56px;height:56px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:#fff;}
+.menu-card.exam{background:linear-gradient(135deg,#2C3E50,#34495E);border-color:transparent;}
+.menu-card.exam h3,.menu-card.exam p{color:#fff;}
+.menu-card.exam p{opacity:.8;}
+.menu-card.exam .mc-ico{background:rgba(255,255,255,.2);color:#fff;}
+
+/* 영역 공통 - 하위모듈 탭 */
+.mod-nav{display:flex;gap:6px;padding:12px 16px;overflow-x:auto;background:#fff;border-bottom:1px solid var(--line);}
+.mod-nav::-webkit-scrollbar{display:none;}
+.mod-chip{background:var(--bg);border:1.5px solid var(--line);border-radius:20px;padding:9px 15px;font-size:13px;font-weight:700;color:var(--gray);cursor:pointer;white-space:nowrap;font-family:inherit;flex-shrink:0;}
+.mod-chip.active{color:#fff;border-color:transparent;}
+.mod-chip.done{background:var(--green-light);color:var(--green);border-color:var(--green);}
+.scr-reception .mod-chip.active{background:var(--ar-reception);}
+.scr-kitchen .mod-chip.active{background:var(--ar-kitchen);}
+.scr-cleaning .mod-chip.active{background:var(--ar-cleaning);}
+.scr-service .mod-chip.active{background:var(--ar-service);}
+
+.mod-panel{display:none;padding:14px 16px;}
+.mod-panel.active{display:block;}
+
+/* 시나리오 카드 */
+.scenario{background:#fff;border-radius:16px;padding:16px 18px;margin-bottom:14px;border:1.5px solid var(--line);}
+.scenario-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.scn-ico{font-size:36px;flex-shrink:0;line-height:1;}
+.scn-title{font-size:13.5px;color:var(--gray);font-weight:700;}
+.scn-text{font-size:15.5px;font-weight:700;color:var(--navy);line-height:1.5;margin-top:4px;}
+.scn-question{font-size:14px;color:var(--navy);font-weight:700;margin-top:10px;padding-top:12px;border-top:1px dashed var(--line);}
+
+.scn-img{background:linear-gradient(135deg,#FFF8E7,#FFF3E0);border-radius:12px;padding:16px;text-align:center;font-size:62px;line-height:1;margin:8px 0 12px;border:1px solid var(--line);}
+
+.opt-list{display:flex;flex-direction:column;gap:9px;margin-top:12px;}
+.opt{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:13px 15px;font-size:14.5px;color:var(--navy);cursor:pointer;text-align:left;font-family:inherit;font-weight:600;transition:all .15s;line-height:1.5;display:flex;gap:10px;align-items:flex-start;}
+.opt:hover:not(:disabled){border-color:var(--orange);}
+.opt .opt-num{color:var(--gray);font-weight:800;flex-shrink:0;}
+.opt.correct{background:var(--green-light);border-color:var(--green);color:var(--green);}
+.opt.correct .opt-num{color:var(--green);}
+.opt.wrong{background:var(--red-light);border-color:var(--red);color:var(--red);}
+.opt.wrong .opt-num{color:var(--red);}
+.opt:disabled{cursor:not-allowed;}
+
+.feedback-box{margin-top:12px;padding:12px 14px;border-radius:12px;font-size:13.5px;line-height:1.5;background:var(--bg);color:var(--navy);min-height:44px;display:none;}
+.feedback-box.show{display:block;}
+.feedback-box.good{background:var(--green-light);color:#1B6B3F;}
+.feedback-box.warn{background:var(--amber-light);color:#8A5A00;}
+.feedback-box.bad{background:var(--red-light);color:#8A2F2F;}
+.feedback-box b{font-weight:800;}
+
+/* 진행 상태 */
+.mod-progress{display:flex;align-items:center;gap:10px;padding:0 16px 12px;}
+.mod-progress-bar{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden;}
+.mod-progress-fill{height:100%;transition:width .3s;}
+.mod-progress-txt{font-size:12.5px;font-weight:700;color:var(--gray);white-space:nowrap;}
+.scr-reception .mod-progress-fill{background:var(--ar-reception);}
+.scr-kitchen .mod-progress-fill{background:var(--ar-kitchen);}
+.scr-cleaning .mod-progress-fill{background:var(--ar-cleaning);}
+.scr-service .mod-progress-fill{background:var(--ar-service);}
+
+/* 버튼 */
+.action-btn{width:100%;padding:16px;border:none;border-radius:12px;font-size:16px;font-weight:800;cursor:pointer;font-family:inherit;transition:all .15s;color:#fff;}
+.action-btn:disabled{background:var(--gray2);cursor:not-allowed;opacity:.6;}
+.action-btn:active:not(:disabled){transform:scale(.98);}
+.ab-orange{background:var(--orange);}
+.ab-orange:hover:not(:disabled){background:var(--orange-dark);}
+.ab-blue{background:var(--ar-reception);}
+.ab-green{background:var(--ar-kitchen);}
+.ab-purple{background:var(--ar-cleaning);}
+.ab-service{background:var(--ar-service);}
+.ab-gray{background:var(--bg);color:var(--navy);border:1.5px solid var(--line);}
+.ab-navy{background:var(--navy);}
+.btn-row{display:flex;gap:10px;}
+.btn-row .action-btn{flex:1;}
+
+/* 분류 게임 (드래그 대신 탭) */
+.sort-items{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0;}
+.sort-item{background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:12px 6px;text-align:center;cursor:pointer;transition:all .15s;font-family:inherit;}
+.sort-item:active{transform:scale(.96);}
+.sort-item.selected{border-color:var(--orange);background:var(--orange-light);box-shadow:0 0 0 3px rgba(230,126,34,.2);}
+.sort-item.placed{opacity:.35;pointer-events:none;}
+.sort-item-ico{font-size:34px;line-height:1;}
+.sort-item-name{font-size:12px;font-weight:700;color:var(--navy);margin-top:4px;}
+.sort-cats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;}
+.sort-cat{background:#fff;border:2px dashed var(--line);border-radius:12px;padding:14px 8px;text-align:center;min-height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;cursor:pointer;transition:all .15s;font-family:inherit;}
+.sort-cat:active{transform:scale(.96);}
+.sort-cat-ico{font-size:26px;}
+.sort-cat-name{font-size:12px;font-weight:800;color:var(--navy);}
+.sort-cat-count{font-size:10.5px;color:var(--gray);font-weight:700;margin-top:2px;}
+
+/* 체크리스트 */
+.chk-card{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:12px;}
+.chk-title{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.chk-list{display:flex;flex-direction:column;gap:2px;}
+.chk-item{display:flex;gap:11px;align-items:flex-start;padding:10px 0;font-size:13.5px;color:var(--navy);line-height:1.5;cursor:pointer;}
+.chk-check{width:26px;height:26px;flex-shrink:0;border:2px solid var(--gray2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:transparent;font-size:14px;font-weight:800;background:#fff;}
+.chk-item.checked .chk-check{background:var(--green);border-color:var(--green);color:#fff;}
+.chk-item.checked .chk-text{color:var(--gray);text-decoration:line-through;}
+.chk-text{flex:1;}
+.chk-text b{color:var(--orange);font-weight:800;}
+
+/* 결과 */
+.result-card{background:#fff;border:2px solid var(--orange);border-radius:18px;padding:22px 18px;margin-bottom:14px;}
+.result-total{font-size:52px;font-weight:800;color:var(--orange);text-align:center;line-height:1;}
+.result-total .max{font-size:22px;color:var(--gray);}
+.result-grade{text-align:center;font-size:17px;font-weight:800;margin:8px 0 18px;}
+.result-grade.pass{color:var(--green);}
+.result-grade.fail{color:var(--red);}
+.result-stage{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px dashed var(--line);}
+.result-stage:last-child{border-bottom:none;}
+.rs-name{flex:1;font-size:14px;font-weight:700;color:var(--navy);}
+.rs-bar{height:5px;background:var(--line);border-radius:3px;overflow:hidden;width:80px;}
+.rs-bar-fill{height:100%;transition:width .5s;}
+.rs-bar-fill.good{background:var(--green);}
+.rs-bar-fill.warn{background:var(--amber);}
+.rs-bar-fill.bad{background:var(--red);}
+.rs-score{font-size:15px;font-weight:800;}
+
+/* 토스트 */
+.toast{position:fixed;bottom:60px;left:50%;transform:translateX(-50%);background:rgba(44,62,80,.95);color:#fff;padding:12px 22px;border-radius:24px;font-size:14px;font-weight:600;z-index:999;opacity:0;transition:all .25s;pointer-events:none;max-width:90%;text-align:center;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(-8px);}
+
+.footer-src{padding:16px 20px 24px;font-size:11px;color:var(--gray);line-height:1.5;text-align:center;background:var(--bg);}
+
+/* 모의평가 */
+.exam-hdr{background:linear-gradient(135deg,var(--navy),#34495E);color:#fff;padding:22px 20px 24px;border-radius:18px;margin:14px 16px;text-align:center;}
+.exam-hdr h2{font-size:20px;font-weight:800;margin-bottom:4px;}
+.exam-hdr p{font-size:13px;opacity:.85;line-height:1.5;}
+.exam-prog{display:flex;align-items:center;gap:10px;padding:12px 16px;}
+.exam-prog-bar{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden;}
+.exam-prog-fill{height:100%;background:var(--orange);transition:width .3s;}
+.exam-prog-txt{font-size:12.5px;font-weight:700;color:var(--gray);white-space:nowrap;}
+
+/* 요약 뱃지 */
+.tag-row{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0;}
+.tag{background:var(--bg);padding:3px 9px;border-radius:12px;font-size:11px;font-weight:700;color:var(--gray);}
+.tag.good{background:var(--green-light);color:var(--green);}
+
+/* 서빙 자세 그림 */
+.pose-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0;}
+.pose-card{background:#fff;border:2px solid var(--line);border-radius:14px;padding:14px;text-align:center;cursor:pointer;transition:all .15s;}
+.pose-card:active{transform:scale(.97);}
+.pose-card.selected{border-color:var(--orange);background:var(--orange-light);}
+.pose-card.correct{border-color:var(--green);background:var(--green-light);}
+.pose-card.wrong{border-color:var(--red);background:var(--red-light);}
+.pose-img{font-size:68px;line-height:1;margin-bottom:6px;}
+.pose-desc{font-size:12.5px;color:var(--navy);font-weight:700;line-height:1.4;}
+
+/* 실연연습 메뉴 카드 - 홈 */
+.menu-card.roleplay{background:linear-gradient(135deg,#FFE9C9,#FFCF91);border-color:var(--orange);}
+.menu-card.roleplay h3{color:#8B4513;}
+.menu-card.roleplay .mc-ico{background:rgba(255,255,255,.55);color:var(--orange-dark);}
+
+/* 실연연습 - 역할극 UI */
+.rp-hero{background:linear-gradient(135deg,var(--orange),var(--orange-dark));color:#fff;padding:18px 20px 20px;margin:14px 16px 10px;border-radius:18px;position:relative;overflow:hidden;}
+.rp-hero::before{content:'🎤';position:absolute;right:16px;top:10px;font-size:62px;opacity:.22;}
+.rp-hero h2{font-size:19px;font-weight:800;margin-bottom:4px;}
+.rp-hero p{font-size:13px;opacity:.92;line-height:1.5;max-width:75%;}
+
+.rp-prog{display:flex;align-items:center;gap:10px;padding:10px 16px 12px;}
+.rp-prog-bar{flex:1;height:6px;background:var(--line);border-radius:3px;overflow:hidden;}
+.rp-prog-fill{height:100%;background:var(--orange);transition:width .3s;}
+.rp-prog-txt{font-size:12.5px;font-weight:700;color:var(--gray);white-space:nowrap;}
+
+.rp-card{background:#fff;border-radius:16px;padding:18px;margin:0 16px 14px;border:1.5px solid var(--line);}
+.rp-area-badge{display:inline-block;background:var(--orange-light);color:var(--orange-dark);padding:4px 11px;border-radius:20px;font-size:12px;font-weight:800;margin-bottom:10px;}
+.rp-scene{background:var(--bg);border-left:4px solid var(--orange);padding:12px 14px;border-radius:8px;margin-bottom:14px;font-size:14px;line-height:1.55;color:var(--navy);}
+.rp-scene b{color:var(--orange-dark);font-weight:800;}
+
+.rp-dialog{background:var(--blue-light);border-radius:12px;padding:14px;margin-bottom:12px;border:1px solid #D4E6F7;}
+.rp-dialog-head{display:flex;align-items:center;gap:8px;justify-content:space-between;margin-bottom:8px;}
+.rp-dialog-label{font-size:12.5px;font-weight:800;color:var(--ar-reception);}
+.rp-dialog-text{font-size:15.5px;font-weight:700;color:var(--navy);line-height:1.5;}
+.rp-tts-btn{background:var(--ar-reception);color:#fff;border:none;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:17px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.rp-tts-btn:active{transform:scale(.9);}
+.rp-tts-btn.speaking{animation:ttsPulse 1s infinite;}
+@keyframes ttsPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.6;transform:scale(1.08);}}
+
+.rp-target{background:var(--green-light);border-radius:12px;padding:14px;margin-bottom:14px;border:1px solid #D1EFDC;}
+.rp-target-label{font-size:12.5px;font-weight:800;color:var(--green);margin-bottom:5px;}
+.rp-target-text{font-size:15.5px;font-weight:700;color:#1B6B3F;line-height:1.5;}
+.rp-target-keys{margin-top:9px;display:flex;flex-wrap:wrap;gap:5px;}
+.rp-key-tag{background:#fff;border:1.5px solid var(--green);color:var(--green);padding:3px 9px;border-radius:12px;font-size:11.5px;font-weight:800;transition:all .2s;}
+.rp-key-tag.matched{background:var(--green);color:#fff;}
+
+.rp-mic-wrap{text-align:center;padding:16px 0 6px;}
+.rp-mic-btn{background:linear-gradient(135deg,var(--orange),var(--orange-dark));color:#fff;border:none;border-radius:50%;width:84px;height:84px;cursor:pointer;font-size:34px;box-shadow:0 8px 20px rgba(230,126,34,.35);transition:all .2s;}
+.rp-mic-btn:active{transform:scale(.95);}
+.rp-mic-btn:disabled{background:var(--gray2);cursor:not-allowed;box-shadow:none;opacity:.6;}
+.rp-mic-btn.listening{animation:micPulse 1.2s infinite;background:linear-gradient(135deg,var(--red),#C0392B);}
+@keyframes micPulse{0%,100%{box-shadow:0 0 0 0 rgba(231,76,60,.45),0 6px 16px rgba(231,76,60,.4);}50%{box-shadow:0 0 0 18px rgba(231,76,60,0),0 6px 16px rgba(231,76,60,.4);}}
+.rp-mic-label{font-size:13px;color:var(--gray);font-weight:700;margin-top:10px;}
+.rp-mic-label.listening{color:var(--red);}
+
+.rp-recog{background:var(--bg);border:1.5px dashed var(--gray2);border-radius:12px;padding:14px;margin-top:10px;min-height:54px;font-size:14.5px;color:var(--navy);line-height:1.55;font-weight:600;}
+.rp-recog.empty{color:var(--gray);font-style:italic;text-align:center;font-weight:500;}
+
+.rp-score{margin-top:12px;padding:14px;border-radius:12px;text-align:center;}
+.rp-score.good{background:var(--green-light);color:#1B6B3F;border:1.5px solid var(--green);}
+.rp-score.ok{background:var(--amber-light);color:#8A5A00;border:1.5px solid var(--amber);}
+.rp-score.bad{background:var(--red-light);color:#8A2F2F;border:1.5px solid var(--red);}
+.rp-score-big{font-size:22px;font-weight:800;margin-bottom:5px;}
+.rp-score-txt{font-size:13.5px;line-height:1.55;font-weight:700;}
+.rp-score-tip{font-size:12.5px;font-weight:600;margin-top:6px;opacity:.9;}
+
+.rp-footer{display:flex;gap:9px;padding:0 16px 18px;}
+.rp-footer .action-btn{flex:1;padding:14px;font-size:14.5px;}
+.rp-manual-btn{background:#fff;border:1.5px dashed var(--gray2);color:var(--gray);padding:10px;border-radius:10px;font-size:12.5px;font-weight:700;cursor:pointer;width:100%;margin-top:10px;font-family:inherit;transition:all .15s;}
+.rp-manual-btn:hover{color:var(--orange);border-color:var(--orange);}
+
+.rp-support{padding:14px 20px 20px;font-size:11.5px;color:var(--gray);line-height:1.55;text-align:center;background:var(--bg);border-top:1px solid var(--line);}
+.rp-support b{color:var(--navy);font-weight:800;}
+.rp-support .warn{color:var(--amber);font-weight:700;}
+
+/* 실연연습 결과 */
+.rp-result-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:14px 0 4px;}
+.rp-result-chip{text-align:center;padding:9px 4px;border-radius:10px;font-size:11.5px;font-weight:800;}
+.rp-result-chip.pass{background:var(--green);color:#fff;}
+.rp-result-chip.part{background:var(--amber);color:#fff;}
+.rp-result-chip.skip{background:var(--gray2);color:#fff;}
+
+@media print{.app{box-shadow:none;max-width:100%;}}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="teacher-bar" onclick="toggleTeacher()">
+    <span>👩‍🏫 교사용 안내 · 진로와 직업 · 외식서비스</span>
+    <span class="badge" id="tBadge">열기 ▼</span>
+  </div>
+  <div class="teacher-panel" id="teacherPanel">
+    <h4>🍽️ 이 앱의 목표</h4>
+    <ul>
+      <li>특수교육 <b>진로와 직업 교과</b> 외식서비스 영역 실습</li>
+      <li>네 영역(응대·주방·청소·서비스) 모두 <b>실제 상황 시나리오</b>로 연습</li>
+      <li>직업 자존감을 해치지 않도록 <b>실패 → 즉시 재시도</b>, 점수보다 완료 중심</li>
+    </ul>
+    <h4>📋 영역별 핵심 내용</h4>
+    <ul>
+      <li><b>응대</b> — 시간대별 인사, 자리 안내, 주문받기, 민원 응대</li>
+      <li><b>주방</b> — 설거지 순서, 식재료 분류, 위생 규칙, 도구 이름</li>
+      <li><b>청소</b> — 테이블 치우기, 바닥 청소, 분리배출, 유니폼 관리</li>
+      <li><b>서비스</b> — 서빙 자세, 음식 전달, 돌발상황 대응</li>
+    </ul>
+    <h4>📝 수업 활용</h4>
+    <ul>
+      <li>1차시 — <kbd>응대</kbd> 전 모듈 (실제 식당 영상과 병행 권장)</li>
+      <li>2차시 — <kbd>주방</kbd> 전 모듈 + 학교 조리실 체험 연계</li>
+      <li>3차시 — <kbd>청소</kbd> 전 모듈 + 교실 청소 실습</li>
+      <li>4차시 — <kbd>서비스</kbd> 전 모듈 + 역할놀이</li>
+      <li>5차시 — <kbd>종합 모의평가</kbd>로 복습·정리</li>
+    </ul>
+    <h4>🎭 실연연습(말하기) — NEW</h4>
+    <ul>
+      <li>깃허브 오픈소스 <b>Web Speech API</b>(annyang.js(MIT) 접근법) 활용 — 브라우저 마이크로 학생이 직접 말하기</li>
+      <li>손님 멘트는 TTS로 재생 → 학생이 응답 → 핵심 어구 자동 매칭 → 즉시 피드백</li>
+      <li>마이크 권한이 필요하며 <b>Chrome·Edge</b>에서 가장 잘 동작합니다 (모바일 Safari 제한)</li>
+      <li>마이크가 없거나 소음 심한 교실에서는 <kbd>소리내어 말했어요</kbd> 버튼으로 수동 완료 처리 가능</li>
+    </ul>
+    <h4>💡 수업 팁</h4>
+    <ul>
+      <li>정답을 맞히는 것보다 <b>왜 그렇게 하는지</b> 이야기 나누기</li>
+      <li>틀렸을 때 즉시 재시도 가능 — 좌절감 없게</li>
+      <li>실제 식당·카페 견학 전후 반복 사용 효과적</li>
+      <li>실연연습은 2~3명씩 짝지어 <b>역할놀이</b>로 진행하고 앱은 심판 역할로 활용</li>
+    </ul>
+  </div>
+
+  <div class="statusbar">
+    <span id="sbTime">오전 9:30</span>
+    <span>🍽️ 외식서비스 모드</span>
+  </div>
+
+  <!-- 홈 -->
+  <div class="screen active" id="scr-home">
+    <div class="hero">
+      <span class="hero-tag">진로와 직업 · 특수교육</span>
+      <h1>외식서비스 연습</h1>
+      <p>식당·카페에서<br>일할 때 필요한 네 가지</p>
+      <div class="hero-img">🍽️</div>
+    </div>
+
+    <div class="progress-wrap">
+      <div class="progress-head">
+        <div class="progress-title">📊 내 숙달도</div>
+        <div class="progress-pct" id="progPct">0%</div>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progFill" style="width:0"></div></div>
+      <div class="progress-chips">
+        <div class="p-chip" id="pChipReception">응대 0/4</div>
+        <div class="p-chip" id="pChipKitchen">주방 0/4</div>
+        <div class="p-chip" id="pChipCleaning">청소 0/4</div>
+        <div class="p-chip" id="pChipService">서비스 0/3</div>
+      </div>
+    </div>
+
+    <div class="menu-grid">
+      <div class="menu-card reception" onclick="go('reception')">
+        <div class="mc-ico">🙋</div>
+        <h3>응대</h3>
+        <p>인사·안내·주문·민원</p>
+      </div>
+      <div class="menu-card kitchen" onclick="go('kitchen')">
+        <div class="mc-ico">🍳</div>
+        <h3>주방</h3>
+        <p>설거지·식재료·위생</p>
+      </div>
+      <div class="menu-card cleaning" onclick="go('cleaning')">
+        <div class="mc-ico">🧹</div>
+        <h3>청소</h3>
+        <p>테이블·바닥·분리배출</p>
+      </div>
+      <div class="menu-card service" onclick="go('service')">
+        <div class="mc-ico">🍽️</div>
+        <h3>서비스</h3>
+        <p>서빙·전달·돌발상황</p>
+      </div>
+      <div class="menu-card wide roleplay" onclick="go('roleplay')">
+        <div class="mc-ico">🎭</div>
+        <div><h3>실연연습 (말하기)</h3><p>마이크로 직접 말하고 자동 채점 · 8개 상황</p></div>
+      </div>
+      <div class="menu-card wide" onclick="go('checklist')">
+        <div class="mc-ico">✅</div>
+        <div><h3>출근 전 체크리스트</h3><p>복장·위생·마음가짐</p></div>
+      </div>
+      <div class="menu-card wide exam" onclick="go('exam')">
+        <div class="mc-ico">🏆</div>
+        <div><h3>종합 모의평가</h3><p>네 영역에서 10문제 뽑기</p></div>
+      </div>
+    </div>
+
+    <div class="footer-src">
+      특수교육 진로와 직업 교과(외식서비스) 참고 · 이모지 유니코드
+    </div>
+  </div>
+
+  <!-- 응대 -->
+  <div class="screen scr-reception" id="scr-reception">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('home')">←</button>
+      <span class="hdr-ico">🙋</span>
+      <span class="hdr-title">응대</span>
+      <span class="sub" id="recModLbl">1/4 모듈</span>
+    </div>
+    <div class="mod-nav" id="recNav">
+      <button class="mod-chip active" data-m="greet" onclick="setRecMod('greet')">1. 인사</button>
+      <button class="mod-chip" data-m="seat" onclick="setRecMod('seat')">2. 자리 안내</button>
+      <button class="mod-chip" data-m="order" onclick="setRecMod('order')">3. 주문 받기</button>
+      <button class="mod-chip" data-m="complain" onclick="setRecMod('complain')">4. 민원 응대</button>
+    </div>
+    <div class="mod-progress">
+      <div class="mod-progress-bar"><div class="mod-progress-fill" id="recProgFill" style="width:0"></div></div>
+      <div class="mod-progress-txt" id="recProgTxt">0 / 0</div>
+    </div>
+    <div id="recContent"></div>
+  </div>
+
+  <!-- 주방 -->
+  <div class="screen scr-kitchen" id="scr-kitchen">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('home')">←</button>
+      <span class="hdr-ico">🍳</span>
+      <span class="hdr-title">주방</span>
+      <span class="sub" id="kitModLbl">1/4 모듈</span>
+    </div>
+    <div class="mod-nav" id="kitNav">
+      <button class="mod-chip active" data-m="dish" onclick="setKitMod('dish')">1. 설거지</button>
+      <button class="mod-chip" data-m="food" onclick="setKitMod('food')">2. 식재료</button>
+      <button class="mod-chip" data-m="hygiene" onclick="setKitMod('hygiene')">3. 위생</button>
+      <button class="mod-chip" data-m="tool" onclick="setKitMod('tool')">4. 도구</button>
+    </div>
+    <div class="mod-progress">
+      <div class="mod-progress-bar"><div class="mod-progress-fill" id="kitProgFill" style="width:0"></div></div>
+      <div class="mod-progress-txt" id="kitProgTxt">0 / 0</div>
+    </div>
+    <div id="kitContent"></div>
+  </div>
+
+  <!-- 청소 -->
+  <div class="screen scr-cleaning" id="scr-cleaning">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('home')">←</button>
+      <span class="hdr-ico">🧹</span>
+      <span class="hdr-title">청소</span>
+      <span class="sub" id="cleModLbl">1/4 모듈</span>
+    </div>
+    <div class="mod-nav" id="cleNav">
+      <button class="mod-chip active" data-m="table" onclick="setCleMod('table')">1. 테이블</button>
+      <button class="mod-chip" data-m="floor" onclick="setCleMod('floor')">2. 바닥</button>
+      <button class="mod-chip" data-m="trash" onclick="setCleMod('trash')">3. 분리배출</button>
+      <button class="mod-chip" data-m="uniform" onclick="setCleMod('uniform')">4. 유니폼</button>
+    </div>
+    <div class="mod-progress">
+      <div class="mod-progress-bar"><div class="mod-progress-fill" id="cleProgFill" style="width:0"></div></div>
+      <div class="mod-progress-txt" id="cleProgTxt">0 / 0</div>
+    </div>
+    <div id="cleContent"></div>
+  </div>
+
+  <!-- 서비스 -->
+  <div class="screen scr-service" id="scr-service">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('home')">←</button>
+      <span class="hdr-ico">🍽️</span>
+      <span class="hdr-title">서비스</span>
+      <span class="sub" id="svcModLbl">1/3 모듈</span>
+    </div>
+    <div class="mod-nav" id="svcNav">
+      <button class="mod-chip active" data-m="pose" onclick="setSvcMod('pose')">1. 서빙 자세</button>
+      <button class="mod-chip" data-m="deliver" onclick="setSvcMod('deliver')">2. 전달</button>
+      <button class="mod-chip" data-m="emergency" onclick="setSvcMod('emergency')">3. 돌발상황</button>
+    </div>
+    <div class="mod-progress">
+      <div class="mod-progress-bar"><div class="mod-progress-fill" id="svcProgFill" style="width:0"></div></div>
+      <div class="mod-progress-txt" id="svcProgTxt">0 / 0</div>
+    </div>
+    <div id="svcContent"></div>
+  </div>
+
+  <!-- 체크리스트 -->
+  <div class="screen" id="scr-checklist">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('home')">←</button>
+      <span class="hdr-ico">✅</span>
+      <span class="hdr-title">출근 전 체크리스트</span>
+    </div>
+    <div style="padding:14px 16px 10px;font-size:13px;color:var(--gray);line-height:1.5;">식당에 가기 전 꼭 확인하세요. 모두 체크하면 💯 준비 완료!</div>
+    <div class="sec-no-top">
+      <div class="chk-card"><div class="chk-title">👔 복장</div><div class="chk-list" id="chkCloth"></div></div>
+      <div class="chk-card"><div class="chk-title">🧼 위생</div><div class="chk-list" id="chkHygiene"></div></div>
+      <div class="chk-card"><div class="chk-title">😊 마음가짐</div><div class="chk-list" id="chkMind"></div></div>
+      <div class="chk-card"><div class="chk-title">🎒 소지품</div><div class="chk-list" id="chkItem"></div></div>
+    </div>
+  </div>
+
+  <!-- 모의평가 -->
+  <div class="screen" id="scr-exam">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('home')">←</button>
+      <span class="hdr-ico">🏆</span>
+      <span class="hdr-title">종합 모의평가</span>
+    </div>
+    <div class="exam-hdr">
+      <h2>🏆 외식서비스 종합평가</h2>
+      <p>네 영역에서 뽑은 <b>10문제</b><br>60점 이상이면 합격!</p>
+    </div>
+    <div class="exam-prog">
+      <div class="exam-prog-bar"><div class="exam-prog-fill" id="examProgFill" style="width:0"></div></div>
+      <div class="exam-prog-txt" id="examProgTxt">0 / 10</div>
+    </div>
+    <div id="examContent" style="padding:0 16px 20px;"></div>
+  </div>
+
+  <!-- 실연연습 (역할극 / 말하기) -->
+  <div class="screen" id="scr-roleplay">
+    <div class="hdr">
+      <button class="hdr-back" onclick="go('home')">←</button>
+      <span class="hdr-ico">🎭</span>
+      <span class="hdr-title">실연연습</span>
+      <span class="sub" id="rpModLbl">1/8</span>
+    </div>
+    <div class="rp-hero">
+      <h2>🎤 실제처럼 말해 보기</h2>
+      <p>손님 멘트를 듣고 <b>직접 말해</b>보세요.<br>핵심 어구를 말하면 자동으로 채점돼요!</p>
+    </div>
+    <div class="rp-prog">
+      <div class="rp-prog-bar"><div class="rp-prog-fill" id="rpProgFill" style="width:0"></div></div>
+      <div class="rp-prog-txt" id="rpProgTxt">0 / 8</div>
+    </div>
+    <div id="rpContent"></div>
+    <div class="rp-support">
+      🎙️ <b>Web Speech API</b> (오픈 웹 표준 · GitHub 오픈소스 <code>annyang.js</code> 접근법 활용)<br>
+      <span class="warn">⚠ Chrome·Edge 권장</span> · 처음 사용 시 마이크 권한을 허용해 주세요
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+</div>
+
+<script>
+'use strict';
+
+/* ============================================================
+   상태
+============================================================ */
+const state = {
+  completed: {},
+  area: {reception:'greet', kitchen:'dish', cleaning:'table', service:'pose'},
+  modProg: {},
+  checked: {},
+  exam: {idx:0, questions:[], score:0, answered:false}
+};
+
+/* ============================================================
+   데이터: 응대 (Reception)
+============================================================ */
+const REC_DATA = {
+  greet: [
+    {ico:'☀️🚪', scene:'아침 10시 · 손님이 문을 열고 들어옴',
+     q:'어떻게 인사할까요?',
+     opts:['어서 오세요! 안녕하세요~','안녕?','뭐 드실래요?','잠깐만요'],
+     a:0, exp:'아침·점심·저녁 모두 "어서 오세요"가 기본입니다. 밝게 "안녕하세요"를 덧붙이면 더 좋아요.'},
+    {ico:'🌆🚪', scene:'저녁 7시 · 손님이 들어옴',
+     q:'어떻게 인사할까요?',
+     opts:['안녕히 가세요','어서 오세요~','식사하셨어요?','수고하세요'],
+     a:1, exp:'들어올 때는 "어서 오세요". "안녕히 가세요"는 돌아갈 때 쓰는 인사예요.'},
+    {ico:'👋🚪', scene:'손님이 식사를 마치고 나가는 중',
+     q:'어떻게 인사할까요?',
+     opts:['뭐라도 하세요','안녕히 가세요. 또 오세요!','잠깐만요','밥 더 드세요'],
+     a:1, exp:'"안녕히 가세요"가 기본. "또 오세요"를 덧붙이면 손님이 다시 오고 싶어해요.'},
+    {ico:'🧑‍🦱✨', scene:'어제도 왔던 단골손님이 들어옴',
+     q:'어떻게 인사할까요?',
+     opts:['또 왔어요?','어제도 와놓고 또 와요?','어서 오세요! 오늘도 와주셔서 감사합니다','아는 척 안 함'],
+     a:2, exp:'반가움을 표현하되 반말·부담스러운 말은 피하기. 감사 표현이 가장 안전해요.'},
+  ],
+  seat: [
+    {ico:'👨‍👩‍👧', scene:'가족으로 보이는 여러 명이 들어옴',
+     q:'제일 먼저 뭐라고 말할까요?',
+     opts:['메뉴판 드릴게요','몇 분이세요?','뭐 드실래요?','자리 비었어요'],
+     a:1, exp:'인원을 확인해야 적절한 테이블을 안내할 수 있어요. 다음에 "이쪽으로 안내해 드릴게요".'},
+    {ico:'🙋‍♂️', scene:'혼자 온 손님에게 자리 안내',
+     q:'자리를 알려드릴 때 바른 표현은?',
+     opts:['저기 앉아요','이쪽으로 오세요','알아서 앉으세요','저쪽 저쪽!'],
+     a:1, exp:'"이쪽으로 오세요" + 손바닥을 펴서 방향을 가리키기. 손가락으로 가리키지 않아요.'},
+    {ico:'📖', scene:'손님이 자리에 앉은 직후',
+     q:'무엇을 가장 먼저 해야 할까요?',
+     opts:['바로 주문 받기','메뉴판 드리고 조금 기다리기','물만 가져다 드리기','그냥 둠'],
+     a:1, exp:'메뉴판을 먼저 드리고 결정할 시간을 드려요. 1~2분 후 "주문 도와드릴까요?"'},
+    {ico:'♿', scene:'휠체어를 탄 손님이 들어옴',
+     q:'어디로 안내할까요?',
+     opts:['가장 멀리 있는 자리','입구에 가까운 넓은 자리','계단 위 자리','주방 옆 자리'],
+     a:1, exp:'이동이 편한 넓은 자리를 안내. 통로 확보도 중요해요.'},
+  ],
+  order: [
+    {ico:'📝', scene:'손님이 "김치찌개 하나, 비빔밥 하나 주세요"',
+     q:'바로 알겠다고만 할까요?',
+     opts:['네 알겠어요','김치찌개 1, 비빔밥 1 맞으신가요?','네 금방 나와요','비빔밥만 주문받기'],
+     a:1, exp:'주문을 꼭 <b>복창(다시 말하기)</b>해서 실수를 막아요. 손님도 안심해요.'},
+    {ico:'🔄', scene:'손님이 "아 역시 김치찌개는 빼주세요"라고 수정',
+     q:'어떻게 응대할까요?',
+     opts:['이미 주문했어요!','네, 김치찌개 빼고 비빔밥 하나로 수정할게요','그러면 안 돼요','주방에 가서 소리치기'],
+     a:1, exp:'수정 내용을 복창하며 차분하게 받아요. 안 된다면 정중하게 "죄송합니다, 이미 조리중이라…"'},
+    {ico:'✅', scene:'주문을 다 받았어요',
+     q:'마지막 멘트로 좋은 것은?',
+     opts:['이만 가세요','주문 들어갑니다, 잠시만 기다려 주세요','뭐 더 안 드세요?','빨리 주세요'],
+     a:1, exp:'주문 접수 완료를 알리고 기다리는 시간을 양해 구해요.'},
+    {ico:'💰', scene:'손님이 "매운 거 잘 못 먹는데요?"',
+     q:'어떻게 대답할까요?',
+     opts:['그럼 먹지 마세요','덜 맵게 해드릴 수 있는 메뉴 추천드릴게요','매운 거 밖에 없어요','주방에 물어보고 오겠습니다'],
+     a:3, exp:'본인이 모르면 반드시 <b>확인 후 안내</b>. 함부로 "가능해요/안 돼요" 답하지 않아요.'},
+  ],
+  complain: [
+    {ico:'⏰😠', scene:'손님: "음식이 왜 이렇게 늦어요?"',
+     q:'첫 응대로 바른 것은?',
+     opts:['죄송합니다. 바로 확인해 드리겠습니다','원래 그래요','기다리세요','주방이 느려서…'],
+     a:0, exp:'<b>먼저 사과</b> 후 <b>즉시 확인</b>. 변명이나 책임 전가는 금물.'},
+    {ico:'🧂😖', scene:'손님: "너무 짜요"',
+     q:'어떻게 대응할까요?',
+     opts:['드시지 마세요','죄송합니다. 새로 가져다 드릴까요?','간이 좀 세요','소금을 덜어내세요'],
+     a:1, exp:'사과 후 <b>교체 제안</b>이 최선. 손님이 거절하면 다른 방안 제시.'},
+    {ico:'🚻', scene:'손님: "화장실이 어디예요?"',
+     q:'어떻게 안내할까요?',
+     opts:['저기요','이쪽으로 쭉 가시면 오른쪽에 있어요','몰라요','알아서 찾아요'],
+     a:1, exp:'손님이 길을 잃지 않도록 <b>구체적인 방향</b> 안내. 손바닥으로 방향 표시.'},
+    {ico:'🍽️💢', scene:'손님: "음식에 머리카락이 들어있어요"',
+     q:'가장 먼저 해야 할 일은?',
+     opts:['다른 음식과 바꾸기','진심으로 사과하고 관리자(매니저) 불러오기','모르는 척하기','손님 머리카락 아니냐 묻기'],
+     a:1, exp:'위생 문제는 중대 사안. <b>사과 + 매니저 호출</b>. 본인이 혼자 처리하려 하지 않아요.'},
+  ],
+};
+
+/* ============================================================
+   데이터: 주방 (Kitchen)
+============================================================ */
+const KIT_DATA = {
+  dish: [
+    {ico:'🍽️💧', scene:'손님이 다 먹고 남긴 그릇을 설거지해요',
+     q:'올바른 설거지 순서는?',
+     opts:[
+       '음식물 버리기 → 물에 불리기 → 세제로 닦기 → 깨끗한 물로 헹구기 → 건조대',
+       '세제로 닦기 → 음식물 버리기 → 헹구기 → 건조대',
+       '헹구기 → 세제로 닦기 → 불리기 → 건조대',
+       '세제 바로 뿌리기 → 바로 건조대'],
+     a:0, exp:'① 음식물 → ② 불림 → ③ 세제거품 → ④ 헹굼 → ⑤ 건조. 순서가 어긋나면 깨끗이 안 돼요.'},
+    {ico:'♨️', scene:'아주 뜨거운 냄비를 설거지해야 해요',
+     q:'어떻게 할까요?',
+     opts:['바로 찬물에 넣기','식힌 뒤에 씻기','뜨거운 채로 바로 닦기','그냥 두기'],
+     a:1, exp:'뜨거운 그릇에 찬물을 바로 넣으면 <b>깨질 수 있어요</b>. 반드시 식힌 뒤에.'},
+    {ico:'🧼', scene:'세제 양은 얼마나 쓸까요?',
+     q:'알맞은 양은?',
+     opts:['그릇마다 가득 짜기','적당량(500원 동전 크기)','한 통 다 쓰기','세제 안 씀'],
+     a:1, exp:'너무 많으면 헹구기 어렵고 낭비. 너무 적으면 깨끗이 안 돼요.'},
+    {ico:'🧽', scene:'수세미(스펀지)를 두 종류 받았어요',
+     q:'기름진 접시엔 어떤 걸 써야 할까요?',
+     opts:['거친 쪽','부드러운 쪽','둘 다 안 씀','마른 걸레'],
+     a:0, exp:'기름·눌어붙은 음식은 거친 쪽. 코팅된 프라이팬은 부드러운 쪽. 용도를 구분해요.'},
+  ],
+  food: {
+    type:'sort',
+    scene:'식재료를 보관 장소에 맞게 분류해요',
+    q:'각 재료를 어디에 보관할지 선택하세요',
+    cats:[
+      {id:'fridge', name:'냉장', ico:'🧊', desc:'0~5°C'},
+      {id:'freezer', name:'냉동', ico:'❄️', desc:'-18°C'},
+      {id:'room', name:'상온', ico:'🌡️', desc:'실온 보관'},
+    ],
+    items:[
+      {id:'milk', name:'우유', ico:'🥛', cat:'fridge'},
+      {id:'icecream', name:'아이스크림', ico:'🍦', cat:'freezer'},
+      {id:'rice', name:'쌀', ico:'🌾', cat:'room'},
+      {id:'apple', name:'사과', ico:'🍎', cat:'fridge'},
+      {id:'frz_dumpling', name:'냉동만두', ico:'🥟', cat:'freezer'},
+      {id:'ramen', name:'라면', ico:'🍜', cat:'room'},
+      {id:'yogurt', name:'요거트', ico:'🫙', cat:'fridge'},
+      {id:'frz_shrimp', name:'냉동새우', ico:'🦐', cat:'freezer'},
+      {id:'can', name:'통조림', ico:'🥫', cat:'room'},
+    ],
+    exp:'우유·과일·요거트는 <b>냉장</b>, 아이스크림·냉동식품은 <b>냉동</b>, 쌀·라면·통조림은 <b>상온</b>. 식중독 예방의 기본!'
+  },
+  hygiene: [
+    {ico:'🙌🧼', scene:'주방 일을 시작하기 전',
+     q:'가장 먼저 해야 할 일은?',
+     opts:['음식 재료 꺼내기','손을 비누로 꼼꼼히 씻기','앞치마만 입기','바로 요리 시작'],
+     a:1, exp:'모든 음식 작업의 기본은 <b>손 씻기</b>. 30초 이상 비누로 손가락 사이까지.'},
+    {ico:'👨‍🍳', scene:'주방에 들어갈 때 착용',
+     q:'반드시 해야 하는 것은?',
+     opts:['모자·앞치마','반지와 시계','진한 향수','화려한 옷'],
+     a:0, exp:'머리카락·장신구는 음식 오염의 원인. <b>모자(머리망)·앞치마</b> 필수.'},
+    {ico:'🤧', scene:'일하는 중 기침이 나왔어요',
+     q:'어떻게 할까요?',
+     opts:['음식 위에 그대로 기침','고개를 돌리고 팔로 가리기, 그리고 손 다시 씻기','조용히 참기','마스크 안 쓰기'],
+     a:1, exp:'기침·재채기 후엔 <b>반드시 손 다시 씻기</b>. 손바닥이 아닌 <b>팔꿈치 안쪽</b>에 하기.'},
+    {ico:'🥩🥬', scene:'생고기를 손질한 도마에 야채를 자르려고 해요',
+     q:'어떻게 할까요?',
+     opts:['그대로 자름','도마와 칼을 깨끗이 씻고 자름','야채만 물에 헹굼','상관없음'],
+     a:1, exp:'<b>교차오염</b>을 막기 위해 생고기 다룬 도구는 반드시 세척. 색깔별 도마 사용도 좋아요.'},
+  ],
+  tool: [
+    {ico:'🍳', scene:'평평하고 손잡이가 달린 요리 도구',
+     q:'이것의 이름은?',
+     opts:['냄비','프라이팬','주전자','국자'],
+     a:1, exp:'프라이팬(frying pan). 볶음·부침에 써요.'},
+    {ico:'🔪', scene:'음식을 자를 때 쓰는 도구',
+     q:'이것의 이름은?',
+     opts:['칼','집게','가위','숟가락'],
+     a:0, exp:'칼. 날이 있어 위험하니 <b>손잡이 쪽을 잡고</b> 전달해요.'},
+    {ico:'🥄', scene:'국을 떠서 그릇에 담는 도구',
+     q:'이것의 이름은?',
+     opts:['젓가락','숟가락','국자','집게'],
+     a:2, exp:'국자(ladle). 손잡이가 길어 뜨거운 국물도 안전해요.'},
+    {ico:'🧊', scene:'아주 차가운 온도로 식재료를 보관',
+     q:'이것의 이름은?',
+     opts:['오븐','냉동고','전자레인지','식기세척기'],
+     a:1, exp:'냉동고(freezer). -18°C 이하로 장기 보관할 때 사용해요.'},
+  ],
+};
+
+/* ============================================================
+   데이터: 청소 (Cleaning)
+============================================================ */
+const CLE_DATA = {
+  table: [
+    {ico:'🍽️', scene:'손님이 떠난 테이블',
+     q:'올바른 치우기 순서는?',
+     opts:[
+       '그릇·수저 치우기 → 음식물·휴지 버리기 → 행주로 닦기 → 소독 스프레이',
+       '소독 스프레이 먼저 → 그릇 치우기',
+       '행주로 닦기 → 그릇 치우기',
+       '그냥 두기'],
+     a:0, exp:'치우기 전엔 닦아도 소용없어요. ① 치우고 → ② 비우고 → ③ 닦고 → ④ 소독.'},
+    {ico:'🫧', scene:'테이블을 닦는 행주',
+     q:'언제 빨아야 할까요?',
+     opts:['한 번만 쓰고 안 빨아도 됨','테이블 2~3개 닦고 자주 빨기','하루 끝에만 빨기','안 빨고 그냥 씀'],
+     a:1, exp:'더러운 행주로 닦으면 오히려 균이 퍼져요. <b>자주 빨고 깨끗한 걸로 교체</b>.'},
+    {ico:'🧂', scene:'테이블 위에 소금·후추 통이 있어요',
+     q:'치울 때 어떻게 할까요?',
+     opts:['그냥 둠','가볍게 닦고 자리 정리','통째로 버림','아예 치움'],
+     a:1, exp:'소금·후추·물수건 등은 <b>정해진 자리</b>에 다시 두어야 다음 손님이 편해요.'},
+  ],
+  floor: [
+    {ico:'🧹', scene:'식당 바닥 청소',
+     q:'올바른 순서는?',
+     opts:[
+       '빗자루로 쓸기 → 걸레질 → 건조',
+       '걸레질 → 쓸기 → 건조',
+       '물 붓기 → 쓸기',
+       '쓸기만 하기'],
+     a:0, exp:'먼저 쓸어서 큰 쓰레기 제거 → 젖은 걸레로 닦기 → 자연 건조. 순서가 중요해요.'},
+    {ico:'⚠️', scene:'바닥이 아직 젖어있어요',
+     q:'손님이 지나다닐 수 있어요. 어떻게?',
+     opts:['그냥 둠','"바닥 젖음" 안내판 세우기','빨리 뛰어다님','불 끄기'],
+     a:1, exp:'<b>미끄러짐 사고 예방</b>. 노란 안내판은 꼭 세워요.'},
+    {ico:'🚰', scene:'걸레를 빨 때 쓰는 통',
+     q:'관리는 어떻게?',
+     opts:['쓰고 그냥 둠','사용 후 깨끗이 비우고 말리기','물 가득 담아 둠','한 달 안 비움'],
+     a:1, exp:'걸레통에 물 고이면 <b>악취·곰팡이</b>. 매일 비우고 말리기.'},
+  ],
+  trash: {
+    type:'sort',
+    scene:'식당에서 나온 쓰레기를 분리배출해요',
+    q:'각 쓰레기를 어디에 버릴까요?',
+    cats:[
+      {id:'normal', name:'일반쓰레기', ico:'🗑️', desc:'종량제 봉투'},
+      {id:'food', name:'음식물', ico:'🍲', desc:'음식물 전용'},
+      {id:'recycle', name:'재활용', ico:'♻️', desc:'캔·병·플라스틱'},
+    ],
+    items:[
+      {id:'banana', name:'바나나 껍질', ico:'🍌', cat:'food'},
+      {id:'can', name:'빈 캔', ico:'🥫', cat:'recycle'},
+      {id:'bone', name:'닭뼈', ico:'🦴', cat:'normal'},
+      {id:'tissue', name:'휴지', ico:'🧻', cat:'normal'},
+      {id:'bottle', name:'유리병', ico:'🍾', cat:'recycle'},
+      {id:'apple_core', name:'사과심', ico:'🍎', cat:'food'},
+      {id:'pet', name:'페트병', ico:'🧴', cat:'recycle'},
+      {id:'plastic_bag', name:'비닐봉지', ico:'🛍️', cat:'normal'},
+      {id:'rice', name:'남은 밥', ico:'🍚', cat:'food'},
+    ],
+    exp:'음식물은 전용 봉투. 캔·병·페트는 재활용. 비닐·휴지·동물뼈는 일반쓰레기. <b>동물뼈는 음식물이 아닌 일반!</b>'
+  },
+  uniform: [
+    {ico:'👕', scene:'앞치마에 양념이 많이 묻었어요',
+     q:'어떻게 할까요?',
+     opts:['그대로 입기','깨끗한 것으로 교체 또는 빨기','그냥 벗고 일함','숨김'],
+     a:1, exp:'더러운 앞치마는 <b>위생 문제 + 손님에게 나쁜 인상</b>. 즉시 교체.'},
+    {ico:'👞', scene:'식당에서 신는 신발',
+     q:'어떤 게 맞나요?',
+     opts:['하이힐','굽 낮고 미끄럼 방지 신발','슬리퍼','운동화 (아무거나)'],
+     a:1, exp:'바닥이 미끄러워 넘어질 수 있어요. <b>미끄럼 방지 밑창</b>, 발을 덮는 신발.'},
+    {ico:'💍', scene:'손가락에 반지, 손목에 팔찌',
+     q:'출근할 때는?',
+     opts:['다 하고 가도 됨','반지·팔찌·시계는 빼고 가기','반지만 OK','목걸이는 OK'],
+     a:1, exp:'장신구는 <b>음식 오염·안전사고</b>의 원인. 모두 빼고 출근해요.'},
+  ],
+};
+
+/* ============================================================
+   데이터: 서비스 (Service)
+============================================================ */
+const SVC_DATA = {
+  pose: [
+    {ico:'', scene:'트레이(쟁반)에 음료 4잔을 담아 들어요',
+     q:'올바른 자세는?',
+     type:'pose',
+     opts:[
+       {ico:'🤲', desc:'두 손으로 균형있게 받치기'},
+       {ico:'🖐️', desc:'한 손으로 손가락 끝에 올리기'},
+     ],
+     a:0, exp:'두 손으로 균형을 잡아야 흔들림이 적고 쏟을 위험이 적어요. 트레이는 몸에 가깝게.'},
+    {ico:'', scene:'뜨거운 돌솥비빔밥을 들고 가야 해요',
+     q:'어떻게 들까요?',
+     type:'pose',
+     opts:[
+       {ico:'🧤🍲', desc:'행주·장갑으로 양쪽 받치기'},
+       {ico:'🫳🍲', desc:'맨손으로 바로 들기'},
+     ],
+     a:0, exp:'뜨거운 음식은 <b>행주나 장갑</b>으로. 맨손으로 들면 화상 위험.'},
+    {ico:'', scene:'음식을 테이블에 놓을 때',
+     q:'어디에 놓을까요?',
+     type:'pose',
+     opts:[
+       {ico:'🧍🍽️', desc:'손님 앞, 손이 닿기 좋은 곳'},
+       {ico:'📍👀', desc:'테이블 끝 모서리'},
+     ],
+     a:0, exp:'손님이 바로 먹기 편한 위치. 모서리는 떨어질 수 있어요.'},
+  ],
+  deliver: [
+    {ico:'🍲♨️', scene:'아주 뜨거운 음식을 손님께 놓을 때',
+     q:'뭐라고 말할까요?',
+     opts:['그냥 놓고 감','"뜨거우니 조심하세요"','아무 말 안 함','"알아서 조심하세요"'],
+     a:1, exp:'<b>뜨거움 안내</b>는 손님 안전을 위한 기본. 특히 어린이·노인에게는 더 꼭.'},
+    {ico:'🍴', scene:'음식과 수저를 같이 가지고 가요',
+     q:'수저는 어디에 놓을까요?',
+     opts:['음식 위에','손님의 오른쪽, 깨끗한 위치','테이블 끝','아무 데나'],
+     a:1, exp:'<b>오른손잡이 기준 오른쪽</b>. 음식 위에 놓으면 위생적이지 않아요.'},
+    {ico:'📣', scene:'음식 2개를 한 번에 가져갔는데 어느 게 누구 것인지 몰라요',
+     q:'어떻게 할까요?',
+     opts:['아무 데나 놓음','"김치찌개 주문하신 분이요?" 하고 확인','손님 얼굴만 봄','주방에 다시 다녀옴'],
+     a:1, exp:'<b>주문 내용으로 확인</b>이 가장 빠르고 정확. "~~ 주문하신 분이요?" 멘트.'},
+  ],
+  emergency: [
+    {ico:'☕💥', scene:'커피를 나르다가 바닥에 쏟았어요',
+     q:'가장 먼저 해야 할 일은?',
+     opts:[
+       '손님 치우기부터','도망가기',
+       '즉시 "죄송합니다" 사과 → 바닥 안내판 세우고 빨리 치우기','그대로 둠'],
+     a:2, exp:'① 사과 → ② 안내판(미끄러짐 방지) → ③ 치우기 → ④ 매니저 보고. 혼자 당황하지 않기.'},
+    {ico:'👶🥛', scene:'어린 손님이 음료를 엎어서 울고 있어요',
+     q:'어떻게 할까요?',
+     opts:['화를 냄','웃으며 "괜찮아요~" + 빠르게 치우고 새 음료 안내','혼냄','가만히 봄'],
+     a:1, exp:'<b>안심시키기 → 치우기 → 매니저 보고</b>. 아이·보호자가 당황하지 않도록 밝은 태도.'},
+    {ico:'🤕', scene:'손님이 넘어졌어요',
+     q:'어떻게 할까요?',
+     opts:[
+       '아무것도 안 함','"괜찮으세요?" 여쭙고 즉시 매니저·119 안내',
+       '혼자 일으키려 함','사진 찍기'],
+     a:1, exp:'다친 손님은 <b>직접 일으키지 않고</b> 매니저·구급 요청이 안전. 본인 판단은 금물.'},
+  ],
+};
+
+/* ============================================================
+   화면 전환
+============================================================ */
+function go(screen){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.getElementById('scr-'+screen);
+  if (el) el.classList.add('active');
+  window.scrollTo(0,0);
+  if (screen === 'home') updateProgress();
+  if (screen === 'reception') setRecMod(state.area.reception);
+  if (screen === 'kitchen') setKitMod(state.area.kitchen);
+  if (screen === 'cleaning') setCleMod(state.area.cleaning);
+  if (screen === 'service') setSvcMod(state.area.service);
+  if (screen === 'checklist') renderChecklist();
+  if (screen === 'exam') initExam();
+  if (screen === 'roleplay') initRoleplay();
+}
+
+/* ============================================================
+   공통: 모듈 실행
+============================================================ */
+// 시나리오형 모듈 렌더
+function runScenarios(areaKey, modKey, data, contentId, progFillId, progTxtId){
+  const container = document.getElementById(contentId);
+  const modId = areaKey + '.' + modKey;
+  state.modProg[modId] = state.modProg[modId] || {idx:0, score:0, total:data.length};
+  const prog = state.modProg[modId];
+  updateModProg(prog, progFillId, progTxtId);
+
+  if (prog.idx >= data.length){
+    renderScenarioResult(modId, prog, container, areaKey, modKey);
+    return;
+  }
+
+  const scn = data[prog.idx];
+  container.innerHTML = '';
+
+  const card = document.createElement('div');
+  card.className = 'scenario';
+
+  const head = document.createElement('div');
+  head.className = 'scenario-head';
+  head.innerHTML = '<div class="scn-ico">'+scn.ico+'</div>' +
+    '<div><div class="scn-title">상황 '+(prog.idx+1)+'/'+data.length+'</div>' +
+    '<div class="scn-text">'+scn.scene+'</div></div>';
+  card.appendChild(head);
+
+  const qd = document.createElement('div');
+  qd.className = 'scn-question';
+  qd.textContent = scn.q;
+  card.appendChild(qd);
+
+  if (scn.type === 'pose'){
+    const grid = document.createElement('div');
+    grid.className = 'pose-grid';
+    scn.opts.forEach((o,i) => {
+      const b = document.createElement('button');
+      b.className = 'pose-card';
+      b.innerHTML = '<div class="pose-img">'+o.ico+'</div><div class="pose-desc">'+o.desc+'</div>';
+      b.onclick = () => answerPose(i, scn, modId, areaKey, modKey, data, contentId, progFillId, progTxtId);
+      grid.appendChild(b);
+    });
+    card.appendChild(grid);
+  } else {
+    const list = document.createElement('div');
+    list.className = 'opt-list';
+    scn.opts.forEach((o,i) => {
+      const b = document.createElement('button');
+      b.className = 'opt';
+      b.innerHTML = '<span class="opt-num">'+(i+1)+')</span><span>'+o+'</span>';
+      b.onclick = () => answerScenario(i, scn, modId, areaKey, modKey, data, contentId, progFillId, progTxtId);
+      list.appendChild(b);
+    });
+    card.appendChild(list);
+  }
+
+  const fb = document.createElement('div');
+  fb.className = 'feedback-box';
+  fb.id = modId + '_fb';
+  card.appendChild(fb);
+
+  container.appendChild(card);
+}
+
+function answerScenario(i, scn, modId, areaKey, modKey, data, contentId, progFillId, progTxtId){
+  const prog = state.modProg[modId];
+  const btns = document.querySelectorAll('#'+contentId+' .opt');
+  btns.forEach((b,bi) => {
+    b.disabled = true;
+    if (bi === scn.a) b.classList.add('correct');
+    else if (bi === i) b.classList.add('wrong');
+  });
+  const fb = document.getElementById(modId + '_fb');
+  fb.classList.add('show');
+  if (i === scn.a){
+    prog.score++;
+    fb.classList.add('good');
+    fb.innerHTML = '✅ 잘했어요! ' + scn.exp;
+  } else {
+    fb.classList.add('bad');
+    fb.innerHTML = '❌ 다시 생각해요. ' + scn.exp;
+  }
+  setTimeout(() => {
+    prog.idx++;
+    runScenarios(areaKey, modKey, data, contentId, progFillId, progTxtId);
+  }, 2600);
+}
+function answerPose(i, scn, modId, areaKey, modKey, data, contentId, progFillId, progTxtId){
+  const prog = state.modProg[modId];
+  const btns = document.querySelectorAll('#'+contentId+' .pose-card');
+  btns.forEach((b,bi) => {
+    b.disabled = true;
+    if (bi === scn.a) b.classList.add('correct');
+    else if (bi === i) b.classList.add('wrong');
+  });
+  const fb = document.getElementById(modId + '_fb');
+  fb.classList.add('show');
+  if (i === scn.a){
+    prog.score++;
+    fb.classList.add('good');
+    fb.innerHTML = '✅ 잘했어요! ' + scn.exp;
+  } else {
+    fb.classList.add('bad');
+    fb.innerHTML = '❌ 다시 생각해요. ' + scn.exp;
+  }
+  setTimeout(() => {
+    prog.idx++;
+    runScenarios(areaKey, modKey, data, contentId, progFillId, progTxtId);
+  }, 2600);
+}
+
+function renderScenarioResult(modId, prog, container, areaKey, modKey){
+  const pct = Math.round(prog.score / prog.total * 100);
+  const passed = pct >= 70;
+  if (passed) state.completed[modId] = true;
+  container.innerHTML =
+    '<div class="result-card">' +
+    '<div class="result-total">'+prog.score+'<span class="max">/'+prog.total+'</span></div>' +
+    '<div class="result-grade '+(passed?'pass':'fail')+'">'+(passed?'🎉 모듈 완료!':'한 번 더 해볼까요?')+'</div>' +
+    '<div style="text-align:center;font-size:13.5px;color:var(--navy);line-height:1.6;">' +
+    (passed ? '이 모듈은 <b>완료</b>로 기록되었어요. 다음 모듈로 이동하세요.' : '정답이 '+Math.round(prog.total*0.7)+'개 이상이면 완료. 다시 풀어보세요.') +
+    '</div></div>' +
+    '<button class="action-btn ab-orange" onclick="retryMod(\''+areaKey+'\',\''+modKey+'\')">🔄 다시 풀기</button>' +
+    '<button class="action-btn ab-gray" style="margin-top:8px;" onclick="go(\'home\')">홈으로</button>';
+  updateProgress();
+  updateModNavDone(areaKey);
+}
+function retryMod(areaKey, modKey){
+  const modId = areaKey + '.' + modKey;
+  state.modProg[modId] = {idx:0, score:0, total:state.modProg[modId].total};
+  const handlers = {
+    reception:{data:REC_DATA[modKey], content:'recContent', fill:'recProgFill', txt:'recProgTxt'},
+    kitchen:{data:KIT_DATA[modKey], content:'kitContent', fill:'kitProgFill', txt:'kitProgTxt'},
+    cleaning:{data:CLE_DATA[modKey], content:'cleContent', fill:'cleProgFill', txt:'cleProgTxt'},
+    service:{data:SVC_DATA[modKey], content:'svcContent', fill:'svcProgFill', txt:'svcProgTxt'},
+  };
+  const h = handlers[areaKey];
+  runMod(areaKey, modKey, h.data, h.content, h.fill, h.txt);
+}
+function updateModProg(prog, fillId, txtId){
+  const fillEl = document.getElementById(fillId);
+  const txtEl = document.getElementById(txtId);
+  if (fillEl) fillEl.style.width = (prog.idx/prog.total*100)+'%';
+  if (txtEl) txtEl.textContent = prog.idx + ' / ' + prog.total;
+}
+function updateModNavDone(areaKey){
+  const prefix = areaKey === 'reception' ? 'rec' : areaKey === 'kitchen' ? 'kit' : areaKey === 'cleaning' ? 'cle' : 'svc';
+  const nav = document.getElementById(prefix + 'Nav');
+  if (!nav) return;
+  Array.from(nav.children).forEach(chip => {
+    const modKey = chip.dataset.m;
+    const modId = areaKey + '.' + modKey;
+    chip.classList.toggle('done', state.completed[modId] === true);
+  });
+}
+
+/* 분류 (sort) 모듈 */
+function runSortMod(areaKey, modKey, data, contentId, progFillId, progTxtId){
+  const modId = areaKey + '.' + modKey;
+  const container = document.getElementById(contentId);
+
+  // 매번 랜덤 섞기
+  if (!state.modProg[modId]){
+    state.modProg[modId] = {idx:0, score:0, total:data.items.length, selected:null, placed:{}};
+  }
+  const prog = state.modProg[modId];
+  updateModProg({idx:Object.keys(prog.placed).length, total:data.items.length}, progFillId, progTxtId);
+
+  // 완료 체크
+  if (Object.keys(prog.placed).length >= data.items.length){
+    renderSortResult(modId, prog, container, areaKey, modKey, data);
+    return;
+  }
+
+  container.innerHTML = '';
+  const card = document.createElement('div');
+  card.className = 'scenario';
+  card.innerHTML = '<div class="scenario-head"><div class="scn-ico">🗂️</div>' +
+    '<div><div class="scn-title">분류 과제</div>' +
+    '<div class="scn-text">'+data.scene+'</div></div></div>' +
+    '<div class="scn-question">'+data.q+'</div>' +
+    '<div style="font-size:12.5px;color:var(--gray);margin-top:6px;">① 재료를 하나 선택 → ② 아래 보관 장소를 눌러 넣기</div>';
+
+  // 아이템 그리드
+  const itemGrid = document.createElement('div');
+  itemGrid.className = 'sort-items';
+  itemGrid.style.marginTop = '14px';
+  data.items.forEach(it => {
+    const btn = document.createElement('button');
+    btn.className = 'sort-item' + (prog.placed[it.id] ? ' placed' : '') + (prog.selected === it.id ? ' selected' : '');
+    btn.innerHTML = '<div class="sort-item-ico">'+it.ico+'</div><div class="sort-item-name">'+it.name+'</div>';
+    btn.onclick = () => {
+      if (prog.placed[it.id]) return;
+      prog.selected = prog.selected === it.id ? null : it.id;
+      runSortMod(areaKey, modKey, data, contentId, progFillId, progTxtId);
+    };
+    itemGrid.appendChild(btn);
+  });
+  card.appendChild(itemGrid);
+
+  // 카테고리
+  const catWrap = document.createElement('div');
+  catWrap.className = 'sort-cats';
+  catWrap.style.marginTop = '14px';
+  data.cats.forEach(c => {
+    const placedCount = Object.values(prog.placed).filter(v => v === c.id).length;
+    const b = document.createElement('button');
+    b.className = 'sort-cat';
+    b.innerHTML = '<div class="sort-cat-ico">'+c.ico+'</div><div class="sort-cat-name">'+c.name+'</div><div class="sort-cat-count">'+c.desc+' · '+placedCount+'개</div>';
+    b.onclick = () => placeSortItem(c.id, areaKey, modKey, data, contentId, progFillId, progTxtId);
+    catWrap.appendChild(b);
+  });
+  card.appendChild(catWrap);
+
+  const fb = document.createElement('div');
+  fb.className = 'feedback-box';
+  fb.id = modId + '_fb';
+  if (prog.selected){
+    const item = data.items.find(x => x.id === prog.selected);
+    fb.classList.add('show');
+    fb.innerHTML = '선택됨: <b>'+item.ico+' '+item.name+'</b> — 아래에서 보관 장소를 눌러주세요';
+  }
+  card.appendChild(fb);
+  container.appendChild(card);
+}
+function placeSortItem(catId, areaKey, modKey, data, contentId, progFillId, progTxtId){
+  const modId = areaKey + '.' + modKey;
+  const prog = state.modProg[modId];
+  if (!prog.selected){ toast('먼저 재료를 선택하세요'); return; }
+  const item = data.items.find(x => x.id === prog.selected);
+  if (item.cat === catId){
+    prog.score++;
+    prog.placed[item.id] = catId;
+    prog.selected = null;
+    toast('✅ 맞아요! ('+item.name+')');
+  } else {
+    toast('❌ 틀렸어요. 다시 생각해 보세요');
+  }
+  runSortMod(areaKey, modKey, data, contentId, progFillId, progTxtId);
+}
+function renderSortResult(modId, prog, container, areaKey, modKey, data){
+  const pct = Math.round(prog.score / data.items.length * 100);
+  const passed = pct >= 70;
+  if (passed) state.completed[modId] = true;
+  container.innerHTML =
+    '<div class="result-card">' +
+    '<div class="result-total">'+prog.score+'<span class="max">/'+data.items.length+'</span></div>' +
+    '<div class="result-grade '+(passed?'pass':'fail')+'">'+(passed?'🎉 모듈 완료!':'한 번 더 해볼까요?')+'</div>' +
+    '<div style="text-align:center;font-size:13px;color:var(--navy);line-height:1.6;">' + data.exp + '</div></div>' +
+    '<button class="action-btn ab-orange" onclick="resetSortMod(\''+areaKey+'\',\''+modKey+'\')">🔄 다시 풀기</button>' +
+    '<button class="action-btn ab-gray" style="margin-top:8px;" onclick="go(\'home\')">홈으로</button>';
+  updateProgress();
+  updateModNavDone(areaKey);
+}
+function resetSortMod(areaKey, modKey){
+  const modId = areaKey + '.' + modKey;
+  delete state.modProg[modId];
+  retryMod(areaKey, modKey);
+}
+
+/* 통합 runMod (시나리오/분류 분기) */
+function runMod(areaKey, modKey, data, contentId, progFillId, progTxtId){
+  if (data && data.type === 'sort'){
+    runSortMod(areaKey, modKey, data, contentId, progFillId, progTxtId);
+  } else if (Array.isArray(data)){
+    runScenarios(areaKey, modKey, data, contentId, progFillId, progTxtId);
+  }
+}
+
+/* ============================================================
+   각 영역 모듈 전환
+============================================================ */
+function setRecMod(m){
+  state.area.reception = m;
+  document.querySelectorAll('#recNav .mod-chip').forEach(c => c.classList.toggle('active', c.dataset.m === m));
+  updateModNavDone('reception');
+  document.getElementById('recModLbl').textContent = {greet:'1/4', seat:'2/4', order:'3/4', complain:'4/4'}[m] + ' 모듈';
+  const modId = 'reception.' + m;
+  delete state.modProg[modId];
+  runMod('reception', m, REC_DATA[m], 'recContent', 'recProgFill', 'recProgTxt');
+}
+function setKitMod(m){
+  state.area.kitchen = m;
+  document.querySelectorAll('#kitNav .mod-chip').forEach(c => c.classList.toggle('active', c.dataset.m === m));
+  updateModNavDone('kitchen');
+  document.getElementById('kitModLbl').textContent = {dish:'1/4', food:'2/4', hygiene:'3/4', tool:'4/4'}[m] + ' 모듈';
+  const modId = 'kitchen.' + m;
+  delete state.modProg[modId];
+  runMod('kitchen', m, KIT_DATA[m], 'kitContent', 'kitProgFill', 'kitProgTxt');
+}
+function setCleMod(m){
+  state.area.cleaning = m;
+  document.querySelectorAll('#cleNav .mod-chip').forEach(c => c.classList.toggle('active', c.dataset.m === m));
+  updateModNavDone('cleaning');
+  document.getElementById('cleModLbl').textContent = {table:'1/4', floor:'2/4', trash:'3/4', uniform:'4/4'}[m] + ' 모듈';
+  const modId = 'cleaning.' + m;
+  delete state.modProg[modId];
+  runMod('cleaning', m, CLE_DATA[m], 'cleContent', 'cleProgFill', 'cleProgTxt');
+}
+function setSvcMod(m){
+  state.area.service = m;
+  document.querySelectorAll('#svcNav .mod-chip').forEach(c => c.classList.toggle('active', c.dataset.m === m));
+  updateModNavDone('service');
+  document.getElementById('svcModLbl').textContent = {pose:'1/3', deliver:'2/3', emergency:'3/3'}[m] + ' 모듈';
+  const modId = 'service.' + m;
+  delete state.modProg[modId];
+  runMod('service', m, SVC_DATA[m], 'svcContent', 'svcProgFill', 'svcProgTxt');
+}
+
+/* ============================================================
+   진행도
+============================================================ */
+function updateProgress(){
+  const areas = [
+    {key:'reception', mods:['greet','seat','order','complain'], chipId:'pChipReception', name:'응대'},
+    {key:'kitchen', mods:['dish','food','hygiene','tool'], chipId:'pChipKitchen', name:'주방'},
+    {key:'cleaning', mods:['table','floor','trash','uniform'], chipId:'pChipCleaning', name:'청소'},
+    {key:'service', mods:['pose','deliver','emergency'], chipId:'pChipService', name:'서비스'},
+  ];
+  let totalMods = 0, doneMods = 0;
+  areas.forEach(a => {
+    const done = a.mods.filter(m => state.completed[a.key+'.'+m]).length;
+    totalMods += a.mods.length;
+    doneMods += done;
+    const chip = document.getElementById(a.chipId);
+    if (chip){
+      chip.textContent = a.name + ' ' + done + '/' + a.mods.length;
+      chip.classList.toggle('done', done === a.mods.length);
+      if (done === a.mods.length){
+        chip.classList.add(a.key);
+      } else {
+        chip.classList.remove(a.key);
+      }
+    }
+  });
+  const pct = Math.round(doneMods/totalMods*100);
+  const pctEl = document.getElementById('progPct');
+  const fillEl = document.getElementById('progFill');
+  if (pctEl) pctEl.textContent = pct + '%';
+  if (fillEl) fillEl.style.width = pct + '%';
+}
+
+/* ============================================================
+   체크리스트
+============================================================ */
+const CHK = {
+  cloth: [
+    {id:'c1', text:'깨끗한 <b>유니폼</b> 또는 단정한 옷'},
+    {id:'c2', text:'<b>앞치마</b> 준비 (끈 단단히)'},
+    {id:'c3', text:'<b>미끄럼 방지</b>, 발을 덮는 신발'},
+    {id:'c4', text:'긴 머리는 <b>단단히 묶기</b> (또는 머리망)'},
+    {id:'c5', text:'<b>반지·목걸이·팔찌·시계</b> 모두 제거'},
+  ],
+  hygiene: [
+    {id:'h1', text:'손톱 짧게 자르고 <b>매니큐어 제거</b>'},
+    {id:'h2', text:'출근 전 <b>샤워·양치질</b>'},
+    {id:'h3', text:'진한 향수·화장은 피하기'},
+    {id:'h4', text:'아프거나 기침하면 <b>미리 알리기</b>'},
+    {id:'h5', text:'매장 들어가서 바로 <b>손 씻기</b> (비누 30초 이상)'},
+  ],
+  mind: [
+    {id:'m1', text:'<b>밝은 표정</b>으로 "안녕하세요" 인사'},
+    {id:'m2', text:'모르는 건 <b>솔직히 묻기</b> (혼자 추측 금지)'},
+    {id:'m3', text:'<b>실수해도 괜찮아요</b>. 사과하고 다시 하면 됨'},
+    {id:'m4', text:'손님께는 반드시 <b>높임말</b> 사용'},
+    {id:'m5', text:'동료와 <b>협력</b>하기 (혼자 다 하려 하지 않기)'},
+  ],
+  item: [
+    {id:'i1', text:'출근 시간 <b>10분 전</b> 도착'},
+    {id:'i2', text:'메모장·볼펜 (주문·전달사항 기록용)'},
+    {id:'i3', text:'필요시 <b>마스크</b>'},
+    {id:'i4', text:'가방·귀중품은 <b>지정된 사물함</b>에'},
+    {id:'i5', text:'휴대폰은 <b>진동/무음</b>, 근무 중 사용 자제'},
+  ],
+};
+function renderChecklist(){
+  const keys = ['cloth','hygiene','mind','item'];
+  const wraps = {cloth:'chkCloth', hygiene:'chkHygiene', mind:'chkMind', item:'chkItem'};
+  keys.forEach(k => {
+    const wrap = document.getElementById(wraps[k]);
+    if (!wrap) return;
+    wrap.innerHTML = '';
+    CHK[k].forEach(it => {
+      const el = document.createElement('div');
+      el.className = 'chk-item' + (state.checked[it.id] ? ' checked' : '');
+      el.innerHTML = '<div class="chk-check">'+(state.checked[it.id]?'✓':'')+'</div><div class="chk-text">'+it.text+'</div>';
+      el.onclick = () => {
+        state.checked[it.id] = !state.checked[it.id];
+        renderChecklist();
+        checkAllChecked();
+      };
+      wrap.appendChild(el);
+    });
+  });
+}
+function checkAllChecked(){
+  const all = [...CHK.cloth, ...CHK.hygiene, ...CHK.mind, ...CHK.item];
+  const done = all.filter(it => state.checked[it.id]).length;
+  if (done === all.length) toast('💯 완벽! 출근 준비 OK');
+}
+
+/* ============================================================
+   종합 모의평가
+============================================================ */
+function buildExamPool(){
+  const pool = [];
+  Object.keys(REC_DATA).forEach(k => REC_DATA[k].forEach(q => pool.push({...q, area:'응대'})));
+  Object.keys(KIT_DATA).forEach(k => { if (Array.isArray(KIT_DATA[k])) KIT_DATA[k].forEach(q => pool.push({...q, area:'주방'})); });
+  Object.keys(CLE_DATA).forEach(k => { if (Array.isArray(CLE_DATA[k])) CLE_DATA[k].forEach(q => pool.push({...q, area:'청소'})); });
+  Object.keys(SVC_DATA).forEach(k => SVC_DATA[k].forEach(q => pool.push({...q, area:'서비스'})));
+  return pool;
+}
+function initExam(){
+  const pool = buildExamPool().sort(() => Math.random() - .5);
+  state.exam = {idx:0, score:0, answered:false, questions:pool.slice(0, 10)};
+  renderExamQ();
+}
+function renderExamQ(){
+  const wrap = document.getElementById('examContent');
+  const fillEl = document.getElementById('examProgFill');
+  const txtEl = document.getElementById('examProgTxt');
+  if (state.exam.idx >= state.exam.questions.length){
+    renderExamResult();
+    return;
+  }
+  const q = state.exam.questions[state.exam.idx];
+  fillEl.style.width = (state.exam.idx/state.exam.questions.length*100)+'%';
+  txtEl.textContent = (state.exam.idx+1) + ' / ' + state.exam.questions.length;
+  wrap.innerHTML = '';
+  const card = document.createElement('div');
+  card.className = 'scenario';
+  card.innerHTML = '<div class="scenario-head"><div class="scn-ico">'+(q.ico||'❓')+'</div>' +
+    '<div><div class="scn-title">문제 '+(state.exam.idx+1)+' · '+q.area+'</div>' +
+    '<div class="scn-text">'+q.scene+'</div></div></div>' +
+    '<div class="scn-question">'+q.q+'</div>';
+  if (q.type === 'pose'){
+    const g = document.createElement('div'); g.className = 'pose-grid';
+    q.opts.forEach((o,i) => {
+      const b = document.createElement('button');
+      b.className = 'pose-card';
+      b.innerHTML = '<div class="pose-img">'+o.ico+'</div><div class="pose-desc">'+o.desc+'</div>';
+      b.onclick = () => answerExam(i, q, true);
+      g.appendChild(b);
+    });
+    card.appendChild(g);
+  } else {
+    const list = document.createElement('div'); list.className = 'opt-list';
+    q.opts.forEach((o,i) => {
+      const b = document.createElement('button');
+      b.className = 'opt';
+      b.innerHTML = '<span class="opt-num">'+(i+1)+')</span><span>'+o+'</span>';
+      b.onclick = () => answerExam(i, q, false);
+      list.appendChild(b);
+    });
+    card.appendChild(list);
+  }
+  const fb = document.createElement('div');
+  fb.className = 'feedback-box';
+  fb.id = 'examFb';
+  card.appendChild(fb);
+  wrap.appendChild(card);
+  state.exam.answered = false;
+}
+function answerExam(i, q, isPose){
+  if (state.exam.answered) return;
+  state.exam.answered = true;
+  const btns = document.querySelectorAll('#examContent ' + (isPose ? '.pose-card' : '.opt'));
+  btns.forEach((b,bi) => {
+    b.disabled = true;
+    if (bi === q.a) b.classList.add('correct');
+    else if (bi === i) b.classList.add('wrong');
+  });
+  const fb = document.getElementById('examFb');
+  fb.classList.add('show');
+  if (i === q.a){
+    state.exam.score++;
+    fb.classList.add('good');
+    fb.innerHTML = '✅ 정답! ' + q.exp;
+  } else {
+    fb.classList.add('bad');
+    fb.innerHTML = '❌ 오답. ' + q.exp;
+  }
+  setTimeout(() => { state.exam.idx++; renderExamQ(); }, 2600);
+}
+function renderExamResult(){
+  const wrap = document.getElementById('examContent');
+  const fillEl = document.getElementById('examProgFill');
+  const txtEl = document.getElementById('examProgTxt');
+  fillEl.style.width = '100%';
+  txtEl.textContent = state.exam.questions.length + ' / ' + state.exam.questions.length;
+  const score = state.exam.score;
+  const total = state.exam.questions.length;
+  const scoreOut = Math.round(score/total*100);
+  const passed = scoreOut >= 60;
+  const grade = scoreOut >= 90 ? '🏆 최우수' : scoreOut >= 75 ? '🥇 우수' : scoreOut >= 60 ? '🥈 합격' : '🥉 재도전';
+  wrap.innerHTML =
+    '<div class="result-card">' +
+    '<div class="result-total">'+scoreOut+'<span class="max">/100</span></div>' +
+    '<div class="result-grade '+(passed?'pass':'fail')+'">'+grade+'</div>' +
+    '<div style="text-align:center;font-size:13.5px;color:var(--navy);line-height:1.7;">' +
+    '정답 <b>'+score+' / '+total+'</b> 문제<br>' +
+    (passed ? '실제 식당에서도 이 정도면 자신감을 가지세요!' : '한 번 더 복습하면 금방 늘어요. 홈에서 각 영역부터 다시 연습해봐요.') +
+    '</div></div>' +
+    '<div class="btn-row">' +
+    '<button class="action-btn ab-gray" onclick="initExam()">🔄 다시 풀기</button>' +
+    '<button class="action-btn ab-orange" onclick="go(\'home\')">홈으로</button></div>';
+}
+
+/* ============================================================
+   실연연습 (Roleplay)
+   - Web Speech API (오픈 웹 표준) 기반
+   - GitHub 오픈소스 annyang.js (github.com/TalAter/annyang, MIT) 접근법 참고
+============================================================ */
+const ROLEPLAY_DATA = [
+  {area:'응대', ico:'☀️🚪',
+   scene:'아침 10시, 손님이 문을 열고 들어왔어요.',
+   customer:'안녕하세요',
+   target:'어서 오세요! 안녕하세요~',
+   keys:['어서','오세요'],
+   tip:'아침·점심·저녁 모두 "어서 오세요"가 기본. 밝은 목소리로!'},
+  {area:'응대', ico:'👨‍👩‍👧',
+   scene:'3명 가족이 식당에 들어왔어요. 아직 자리를 안내받지 않았습니다.',
+   customer:'자리 있나요?',
+   target:'네, 몇 분이세요?',
+   keys:['몇','분'],
+   tip:'먼저 인원을 확인해야 적절한 테이블을 안내할 수 있어요.'},
+  {area:'응대', ico:'📝',
+   scene:'손님이 주문을 말했어요. 실수를 막기 위해 복창(다시 말하기)으로 확인해 주세요.',
+   customer:'김치찌개 하나, 비빔밥 하나 주세요',
+   target:'네, 김치찌개 하나, 비빔밥 하나 맞으신가요?',
+   keys:['김치찌개','비빔밥','맞'],
+   tip:'주문은 꼭 복창! 손님도 안심하고 주방 실수도 줄어들어요.'},
+  {area:'응대', ico:'🧂😖',
+   scene:'손님이 음식을 드시다가 불평하셨어요. 변명은 금물!',
+   customer:'국이 너무 짜요',
+   target:'죄송합니다. 새로 가져다 드릴까요?',
+   keys:['죄송','가져다'],
+   tip:'먼저 사과 → 교체 제안. 절대 "원래 그래요" 같은 말 금지.'},
+  {area:'서비스', ico:'🍲',
+   scene:'주방에서 김치찌개가 완성됐어요. 손님 테이블에 음식을 내려놓으면서 말해 보세요.',
+   customer:'',
+   target:'주문하신 김치찌개 나왔습니다. 맛있게 드세요.',
+   keys:['김치찌개','나왔','맛있게'],
+   tip:'메뉴 이름을 말하면서 서빙 → 손님이 "내 음식 맞구나" 확인할 수 있어요.'},
+  {area:'서비스', ico:'💧😮',
+   scene:'테이블 위 컵이 쓰러져 물이 쏟아졌어요. 바로 뛰어갑니다.',
+   customer:'앗, 물 쏟았어요',
+   target:'죄송합니다. 바로 닦아 드릴게요.',
+   keys:['죄송','닦'],
+   tip:'먼저 사과 + 빠르게 행동. 손님 탓("조심하셨어야죠")은 절대 금지.'},
+  {area:'응대', ico:'👋',
+   scene:'손님이 식사와 계산을 마치고 나가는 중이에요.',
+   customer:'잘 먹었습니다',
+   target:'안녕히 가세요. 또 오세요!',
+   keys:['안녕히','또','오세요'],
+   tip:'배웅 — "또 오세요"를 덧붙이면 손님이 다시 오고 싶어해요.'},
+  {area:'주방', ico:'🧼✅',
+   scene:'설거지를 다 끝냈어요. 선배 직원에게 보고해야 합니다.',
+   customer:'',
+   target:'설거지 다 했습니다. 다음에 뭐 할까요?',
+   keys:['설거지','다','했','다음'],
+   tip:'일이 끝나면 꼭 보고 → 다음 일을 받는 습관을 기르세요.'},
+];
+
+const rpState = {
+  idx: 0,
+  listening: false,
+  recognition: null,
+  results: [],        // 각 시나리오별 상태: 'pass'|'part'|'skip'|null
+  recognized: '',
+  supported: false,
+  ttsVoice: null,
+};
+
+function rpInitRecognition(){
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { rpState.supported = false; return; }
+  rpState.supported = true;
+  const rec = new SR();
+  rec.lang = 'ko-KR';
+  rec.continuous = false;
+  rec.interimResults = false;
+  rec.maxAlternatives = 3;
+  rec.onresult = (e) => {
+    let best = '';
+    for (let i = 0; i < e.results.length; i++){
+      for (let j = 0; j < e.results[i].length; j++){
+        const t = e.results[i][j].transcript;
+        if (t.length > best.length) best = t;
+      }
+    }
+    rpState.recognized = best.trim();
+    rpEvaluateSpeech();
+  };
+  rec.onerror = (e) => {
+    rpState.listening = false;
+    rpUpdateMicUI();
+    const reasons = {
+      'no-speech':'소리가 들리지 않았어요. 다시 눌러 또박또박 말해 주세요.',
+      'audio-capture':'마이크를 찾지 못했어요. 마이크가 연결됐는지 확인해 주세요.',
+      'not-allowed':'마이크 권한이 거절됐어요. 주소창 자물쇠 → 마이크 허용으로 바꿔 주세요.',
+      'aborted':'인식이 중단됐어요.',
+    };
+    toast('⚠ ' + (reasons[e.error] || '음성 인식 오류: ' + e.error));
+  };
+  rec.onend = () => {
+    rpState.listening = false;
+    rpUpdateMicUI();
+  };
+  rpState.recognition = rec;
+}
+
+function rpPickKoreanVoice(){
+  if (rpState.ttsVoice) return rpState.ttsVoice;
+  if (!('speechSynthesis' in window)) return null;
+  const voices = speechSynthesis.getVoices();
+  const ko = voices.find(v => v.lang && v.lang.toLowerCase().startsWith('ko'));
+  if (ko) rpState.ttsVoice = ko;
+  return ko || null;
+}
+
+function rpSpeakCurrent(){
+  const s = ROLEPLAY_DATA[rpState.idx];
+  if (s && s.customer) rpSpeak(s.customer, 'rpTtsBtn');
+}
+
+function rpSpeak(text, btnId){
+  if (!text || !('speechSynthesis' in window)) return;
+  try { speechSynthesis.cancel(); } catch(_) {}
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'ko-KR';
+  u.rate = 0.95;
+  u.pitch = 1.05;
+  const v = rpPickKoreanVoice();
+  if (v) u.voice = v;
+  const btn = btnId ? document.getElementById(btnId) : null;
+  if (btn) btn.classList.add('speaking');
+  u.onend = () => { if (btn) btn.classList.remove('speaking'); };
+  u.onerror = () => { if (btn) btn.classList.remove('speaking'); };
+  speechSynthesis.speak(u);
+}
+
+function initRoleplay(){
+  if (!rpState.recognition) rpInitRecognition();
+  if ('speechSynthesis' in window && speechSynthesis.getVoices().length === 0){
+    speechSynthesis.onvoiceschanged = () => rpPickKoreanVoice();
+  }
+  if (rpState.results.length !== ROLEPLAY_DATA.length){
+    rpState.results = ROLEPLAY_DATA.map(() => null);
+  }
+  renderRoleplay();
+}
+
+function renderRoleplay(){
+  const total = ROLEPLAY_DATA.length;
+  const content = document.getElementById('rpContent');
+  document.getElementById('rpModLbl').textContent = (rpState.idx+1) + '/' + total;
+  const done = rpState.results.filter(r => r === 'pass' || r === 'part' || r === 'skip').length;
+  document.getElementById('rpProgFill').style.width = (done/total*100) + '%';
+  document.getElementById('rpProgTxt').textContent = done + ' / ' + total;
+
+  if (rpState.idx >= total){
+    rpRenderResult();
+    return;
+  }
+
+  const s = ROLEPLAY_DATA[rpState.idx];
+  const keysHtml = s.keys.map(k => '<span class="rp-key-tag" data-key="'+k+'">'+k+'</span>').join('');
+  const dialogHtml = s.customer ? (
+    '<div class="rp-dialog">' +
+      '<div class="rp-dialog-head">' +
+        '<span class="rp-dialog-label">👤 손님 (TTS)</span>' +
+        '<button class="rp-tts-btn" id="rpTtsBtn" onclick="rpSpeakCurrent()">🔊</button>' +
+      '</div>' +
+      '<div class="rp-dialog-text">"' + s.customer + '"</div>' +
+    '</div>'
+  ) : (
+    '<div class="rp-dialog" style="background:var(--amber-light);border-color:#F5DFA5;">' +
+      '<div class="rp-dialog-head"><span class="rp-dialog-label" style="color:#8A5A00;">💭 내가 먼저 말할 차례</span></div>' +
+      '<div class="rp-dialog-text" style="color:#8A5A00;">손님 멘트 없음 — 상황에 맞게 먼저 말해 보세요.</div>' +
+    '</div>'
+  );
+
+  content.innerHTML =
+    '<div class="rp-card">' +
+      '<div class="rp-area-badge">'+s.ico+' '+s.area+'</div>' +
+      '<div class="rp-scene"><b>상황:</b> ' + s.scene + '</div>' +
+      dialogHtml +
+      '<div class="rp-target">' +
+        '<div class="rp-target-label">📝 이렇게 말해 보세요</div>' +
+        '<div class="rp-target-text">"' + s.target + '"</div>' +
+        '<div class="rp-target-keys">' + keysHtml + '</div>' +
+      '</div>' +
+      '<div class="rp-mic-wrap">' +
+        '<button class="rp-mic-btn" id="rpMicBtn" onclick="rpToggleListen()" '+(rpState.supported?'':'disabled')+'>🎤</button>' +
+        '<div class="rp-mic-label" id="rpMicLabel">'+
+          (rpState.supported ? '버튼을 누르고 또박또박 말해 보세요' : '⚠ 이 브라우저는 음성 인식 미지원 — 아래 버튼으로 수동 완료 가능') +
+        '</div>' +
+      '</div>' +
+      '<div class="rp-recog empty" id="rpRecog">(여기에 내가 말한 내용이 표시됩니다)</div>' +
+      '<div id="rpScoreWrap"></div>' +
+      '<button class="rp-manual-btn" onclick="rpMarkManual()">🙋 소리내어 말했어요 (수동 완료)</button>' +
+    '</div>' +
+    '<div class="rp-footer">' +
+      '<button class="action-btn ab-gray" onclick="rpPrev()" '+(rpState.idx===0?'disabled':'')+'>⬅ 이전</button>' +
+      '<button class="action-btn ab-orange" onclick="rpNext()">다음 ➡</button>' +
+    '</div>';
+
+  rpState.recognized = '';
+  if (s.customer){
+    setTimeout(rpSpeakCurrent, 450);
+  }
+}
+
+function rpToggleListen(){
+  if (!rpState.supported) {
+    toast('⚠ 이 브라우저는 음성 인식을 지원하지 않습니다. 수동 완료를 이용해 주세요.');
+    return;
+  }
+  if (rpState.listening){
+    try { rpState.recognition.stop(); } catch(_) {}
+    rpState.listening = false;
+    rpUpdateMicUI();
+    return;
+  }
+  try { speechSynthesis.cancel(); } catch(_) {}
+  try {
+    rpState.recognition.start();
+    rpState.listening = true;
+    rpUpdateMicUI();
+  } catch(e){
+    toast('⚠ 마이크를 시작할 수 없어요: ' + e.message);
+    rpState.listening = false;
+    rpUpdateMicUI();
+  }
+}
+
+function rpUpdateMicUI(){
+  const btn = document.getElementById('rpMicBtn');
+  const label = document.getElementById('rpMicLabel');
+  if (!btn) return;
+  if (rpState.listening){
+    btn.classList.add('listening');
+    btn.textContent = '⏹';
+    if (label){ label.textContent = '🔴 듣는 중… 또박또박 말해 주세요'; label.classList.add('listening'); }
+  } else {
+    btn.classList.remove('listening');
+    btn.textContent = '🎤';
+    if (label){
+      label.textContent = rpState.supported ? '버튼을 누르고 또박또박 말해 보세요' : '⚠ 음성 인식 미지원';
+      label.classList.remove('listening');
+    }
+  }
+}
+
+function rpNormalize(t){
+  return (t || '').toLowerCase().replace(/[\s\.,!?~ㅋㅎ"'()·…]/g,'');
+}
+
+function rpEvaluateSpeech(){
+  const s = ROLEPLAY_DATA[rpState.idx];
+  const recogBox = document.getElementById('rpRecog');
+  const scoreWrap = document.getElementById('rpScoreWrap');
+  if (!s || !recogBox) return;
+  const text = rpState.recognized;
+  if (!text){
+    recogBox.className = 'rp-recog empty';
+    recogBox.textContent = '(인식된 내용 없음 — 다시 시도해 주세요)';
+    return;
+  }
+  recogBox.className = 'rp-recog';
+  recogBox.innerHTML = '🗣 "' + text + '"';
+
+  const norm = rpNormalize(text);
+  let matched = 0;
+  s.keys.forEach(k => {
+    const tag = document.querySelector('.rp-key-tag[data-key="'+k+'"]');
+    if (tag) tag.classList.remove('matched');
+    if (norm.indexOf(rpNormalize(k)) !== -1){
+      matched++;
+      if (tag) tag.classList.add('matched');
+    }
+  });
+  const ratio = matched / s.keys.length;
+  let cls, big, msg;
+  if (ratio >= 0.99){
+    cls = 'good'; big = '🎉 완벽!';
+    msg = '핵심 어구를 모두 말했어요. 식당에서 그대로 통할 멘트예요.';
+    rpState.results[rpState.idx] = 'pass';
+  } else if (ratio >= 0.5){
+    cls = 'ok'; big = '👍 거의 다 됐어요!';
+    msg = matched + '/' + s.keys.length + '개 어구를 맞췄어요. 한 번 더 말해 보면 완벽해요.';
+    rpState.results[rpState.idx] = (rpState.results[rpState.idx] === 'pass') ? 'pass' : 'part';
+  } else {
+    cls = 'bad'; big = '💪 다시 해 볼까요?';
+    msg = '목표 멘트를 다시 보고 또박또박 말해 보세요. 핵심 어구가 꼭 들어가야 해요.';
+  }
+  scoreWrap.innerHTML =
+    '<div class="rp-score ' + cls + '">' +
+      '<div class="rp-score-big">' + big + '</div>' +
+      '<div class="rp-score-txt">' + msg + '</div>' +
+      '<div class="rp-score-tip">💡 ' + s.tip + '</div>' +
+    '</div>';
+  renderRoleplayProg();
+}
+
+function renderRoleplayProg(){
+  const total = ROLEPLAY_DATA.length;
+  const done = rpState.results.filter(r => r === 'pass' || r === 'part' || r === 'skip').length;
+  document.getElementById('rpProgFill').style.width = (done/total*100) + '%';
+  document.getElementById('rpProgTxt').textContent = done + ' / ' + total;
+}
+
+function rpMarkManual(){
+  if (rpState.results[rpState.idx] !== 'pass') rpState.results[rpState.idx] = 'skip';
+  const scoreWrap = document.getElementById('rpScoreWrap');
+  scoreWrap.innerHTML =
+    '<div class="rp-score ok">' +
+      '<div class="rp-score-big">🙋 수동 완료</div>' +
+      '<div class="rp-score-txt">소리내어 말한 것으로 기록했어요. "다음 ➡" 버튼을 눌러 진행하세요.</div>' +
+    '</div>';
+  renderRoleplayProg();
+  toast('✔ 수동 완료 처리');
+}
+
+function rpPrev(){
+  if (rpState.idx > 0){
+    try { if (rpState.recognition && rpState.listening) rpState.recognition.stop(); } catch(_) {}
+    try { speechSynthesis.cancel(); } catch(_) {}
+    rpState.idx--;
+    renderRoleplay();
+  }
+}
+
+function rpNext(){
+  try { if (rpState.recognition && rpState.listening) rpState.recognition.stop(); } catch(_) {}
+  try { speechSynthesis.cancel(); } catch(_) {}
+  rpState.idx++;
+  renderRoleplay();
+}
+
+function rpRenderResult(){
+  const total = ROLEPLAY_DATA.length;
+  const pass = rpState.results.filter(r => r === 'pass').length;
+  const part = rpState.results.filter(r => r === 'part').length;
+  const skip = rpState.results.filter(r => r === 'skip').length;
+  const chips = ROLEPLAY_DATA.map((s,i) => {
+    const r = rpState.results[i];
+    const cls = r === 'pass' ? 'pass' : (r === 'part' ? 'part' : 'skip');
+    const label = r === 'pass' ? '완벽' : (r === 'part' ? '거의' : (r === 'skip' ? '수동' : '미완'));
+    return '<div class="rp-result-chip '+(r?cls:'skip')+'" style="'+(r?'':'opacity:.35;')+'">'+(i+1)+'. '+label+'</div>';
+  }).join('');
+  const scorePct = Math.round((pass*100 + part*60 + skip*50) / total);
+  const grade = scorePct >= 90 ? '🏆 최우수 말하기' : scorePct >= 75 ? '🥇 우수' : scorePct >= 60 ? '🥈 통과' : '🥉 재도전';
+  const content = document.getElementById('rpContent');
+  content.innerHTML =
+    '<div class="result-card" style="margin:0 16px 14px;">' +
+      '<div class="result-total">' + scorePct + '<span class="max">/100</span></div>' +
+      '<div class="result-grade ' + (scorePct>=60?'pass':'fail') + '">' + grade + '</div>' +
+      '<div style="text-align:center;font-size:13.5px;color:var(--navy);line-height:1.7;">' +
+        '완벽 <b>' + pass + '</b> · 거의 <b>' + part + '</b> · 수동 <b>' + skip + '</b> / 총 ' + total + '개 상황<br>' +
+        (scorePct >= 60 ? '손님 앞에서도 자신 있게 말할 수 있을 거예요!' : '목표 멘트를 보고 한 번 더 또박또박 말해 보세요.') +
+      '</div>' +
+      '<div class="rp-result-grid">' + chips + '</div>' +
+    '</div>' +
+    '<div class="btn-row" style="padding:0 16px 20px;">' +
+      '<button class="action-btn ab-gray" onclick="rpRestart()">🔄 다시 처음부터</button>' +
+      '<button class="action-btn ab-orange" onclick="go(\'home\')">홈으로</button>' +
+    '</div>';
+  document.getElementById('rpModLbl').textContent = total + '/' + total;
+  document.getElementById('rpProgFill').style.width = '100%';
+  document.getElementById('rpProgTxt').textContent = total + ' / ' + total;
+}
+
+function rpRestart(){
+  rpState.idx = 0;
+  rpState.results = ROLEPLAY_DATA.map(() => null);
+  renderRoleplay();
+}
+
+/* ============================================================
+   토스트 + 초기화
+============================================================ */
+let toastTimer;
+function toast(msg){
+  const el = document.getElementById('toast');
+  el.innerHTML = msg;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 2000);
+}
+function toggleTeacher(){
+  const p = document.getElementById('teacherPanel');
+  const b = document.getElementById('tBadge');
+  p.classList.toggle('open');
+  b.textContent = p.classList.contains('open') ? '닫기 ▲' : '열기 ▼';
+}
+function init(){
+  const d = new Date();
+  const hh = d.getHours(), mm = d.getMinutes();
+  const ampm = hh < 12 ? '오전' : '오후';
+  const h12 = hh === 0 ? 12 : hh > 12 ? hh - 12 : hh;
+  document.getElementById('sbTime').textContent = ampm + ' ' + h12 + ':' + String(mm).padStart(2,'0');
+  updateProgress();
+}
+init();
+</script>
+</body>
+</html>
