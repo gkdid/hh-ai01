@@ -32,6 +32,43 @@ section h2 .count {
  vertical-align: middle;
 }
 
+/* 접을 수 있는 카테고리 */
+details.category { margin-top: 14px; background: #fff; border: 1.5px solid #e0e6ec; border-radius: 14px; overflow: hidden; transition: box-shadow .2s; }
+details.category[open] { box-shadow: 0 6px 20px rgba(0,0,0,0.06); }
+details.category > summary {
+ cursor: pointer; list-style: none; user-select: none;
+ padding: 16px 20px; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+ background: linear-gradient(135deg, #fafbfc 0%, #eef1f6 100%);
+ font-size: 1.14em; font-weight: 700; color: #263238;
+ border-left: 6px solid #5e35b1;
+ transition: background .15s;
+}
+details.category > summary:hover { background: linear-gradient(135deg, #f0f3f8 0%, #e4e8ef 100%); }
+details.category > summary::-webkit-details-marker { display: none; }
+details.category > summary::marker { display: none; }
+details.category > summary .cat-title { flex: 1; display: flex; align-items: center; gap: 8px; }
+details.category > summary .count {
+ display: inline-block; padding: 3px 11px; border-radius: 12px;
+ background: #eceff1; color: #455a64; font-size: 0.72em; font-weight: 700;
+}
+details.category > summary .chev {
+ display: inline-block; color: #5e35b1; font-size: 0.85em;
+ transition: transform .25s ease;
+}
+details.category[open] > summary .chev { transform: rotate(90deg); }
+details.category > .grid,
+details.category > .extra-list { padding: 16px 18px 20px; }
+details.category[open] > summary { border-bottom: 1px solid #e0e6ec; }
+
+/* 상단 전체 펼침/접기 컨트롤 */
+.cat-controls { display: flex; gap: 8px; margin: 14px 0 6px; flex-wrap: wrap; justify-content: flex-end; }
+.cat-controls button {
+ background: #fff; border: 1.5px solid #cfd8dc; color: #37474f;
+ padding: 7px 14px; border-radius: 20px; font-size: 0.86em; font-weight: 700;
+ cursor: pointer; font-family: inherit; transition: all .15s;
+}
+.cat-controls button:hover { background: #eceff1; border-color: #90a4ae; }
+
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
 
 .card {
@@ -94,8 +131,12 @@ footer { text-align: center; color: #90a4ae; font-size: 0.85em; padding: 24px 0 
 </header>
 
 <main>
-<section>
- <h2>🕐 시계 읽기 <span class="count">50종</span></h2>
+<div class="cat-controls">
+ <button type="button" onclick="document.querySelectorAll("details.category").forEach(d=>d.open=true)">모두 펼치기</button>
+ <button type="button" onclick="document.querySelectorAll("details.category").forEach(d=>d.open=false)">모두 접기</button>
+</div>
+<details class="category">
+ <summary><span class="cat-title">🕐 시계 읽기 <span class="count">50종</span></span><span class="chev">▶</span></summary>
  <div class="grid">
 <a class="card c-indigo" href="clock/clock_lv01_morning/clock_lv01_morning.html">
  <span class="stripe"></span>
@@ -398,9 +439,9 @@ footer { text-align: center; color: #90a4ae; font-size: 0.85em; padding: 24px 0 
  <p>시계 시리즈</p>
 </a>
  </div>
-</section>
-<section>
- <h2>✏️ 맞춤법 <span class="count">50종</span></h2>
+</details>
+<details class="category">
+ <summary><span class="cat-title">✏️ 맞춤법 <span class="count">50종</span></span><span class="chev">▶</span></summary>
  <div class="grid">
 <a class="card c-rose" href="spelling/spelling_lv01_dwae/spelling_lv01_dwae.html">
  <span class="stripe"></span>
@@ -703,9 +744,9 @@ footer { text-align: center; color: #90a4ae; font-size: 0.85em; padding: 24px 0 
  <p>하영·미정의 생활 맞춤법</p>
 </a>
  </div>
-</section>
-<section>
- <h2>🤝 사회성과 관계 <span class="count">30종</span></h2>
+</details>
+<details class="category">
+ <summary><span class="cat-title">🤝 사회성과 관계 <span class="count">30종</span></span><span class="chev">▶</span></summary>
  <div class="grid">
 <a class="card c-green" href="social/social_lv01_intro/social_lv01_intro.html">
  <span class="stripe"></span>
@@ -888,9 +929,9 @@ footer { text-align: center; color: #90a4ae; font-size: 0.85em; padding: 24px 0 
  <p>하은·하영·주은·주현·미정·채원·예은</p>
 </a>
  </div>
-</section>
-<section>
- <h2>🏠 성인 생활 <span class="count">10종</span></h2>
+</details>
+<details class="category">
+ <summary><span class="cat-title">🏠 성인 생활 <span class="count">10종</span></span><span class="chev">▶</span></summary>
  <div class="grid">
 <a class="card c-amber" href="adult/adult_lv01_becoming/adult_lv01_becoming.html">
  <span class="stripe"></span>
@@ -953,9 +994,9 @@ footer { text-align: center; color: #90a4ae; font-size: 0.85em; padding: 24px 0 
  
 </a>
  </div>
-</section>
-<section>
- <h2>👔 직업 탐색·면접 <span class="count">20종</span></h2>
+</details>
+<details class="category">
+ <summary><span class="cat-title">👔 직업 탐색·면접 <span class="count">20종</span></span><span class="chev">▶</span></summary>
  <div class="grid">
 <a class="card c-indigo" href="career/career_lv01_cleaning/career_lv01_cleaning.html">
  <span class="stripe"></span>
@@ -1078,9 +1119,9 @@ footer { text-align: center; color: #90a4ae; font-size: 0.85em; padding: 24px 0 
  <p>면접 후·합격 준비</p>
 </a>
  </div>
-</section>
-<section>
- <h2>☕ 직업 체험 (바리스타·청소) <span class="count">20종</span></h2>
+</details>
+<details class="category">
+ <summary><span class="cat-title">☕ 직업 체험 (바리스타·청소) <span class="count">20종</span></span><span class="chev">▶</span></summary>
  <div class="grid">
 <a class="card c-brown" href="barista/barista_lv01_intro/barista_lv01_intro.html">
  <span class="stripe"></span>
@@ -1203,9 +1244,9 @@ footer { text-align: center; color: #90a4ae; font-size: 0.85em; padding: 24px 0 
  
 </a>
  </div>
-</section>
-<section>
- <h2>💰 돈 관리 <span class="count">10종</span></h2>
+</details>
+<details class="category">
+ <summary><span class="cat-title">💰 돈 관리 <span class="count">10종</span></span><span class="chev">▶</span></summary>
  <div class="grid">
 <a class="card c-lime" href="money/money_lv01_currency/money_lv01_currency.html">
  <span class="stripe"></span>
@@ -1268,9 +1309,9 @@ footer { text-align: center; color: #90a4ae; font-size: 0.85em; padding: 24px 0 
  <p>아르바이트 월급과 소비 계획</p>
 </a>
  </div>
-</section>
-<section>
- <h2>🐕 반려동물·동물 관리 <span class="count">10종</span></h2>
+</details>
+<details class="category">
+ <summary><span class="cat-title">🐕 반려동물·동물 관리 <span class="count">10종</span></span><span class="chev">▶</span></summary>
  <div class="grid">
 <a class="card c-teal" href="pet/pet_lv01_intro/pet_lv01_intro.html">
  <span class="stripe"></span>
@@ -1333,9 +1374,9 @@ footer { text-align: center; color: #90a4ae; font-size: 0.85em; padding: 24px 0 
  
 </a>
  </div>
-</section>
-<section>
- <h2>🔢 수학 <span class="count">4종</span></h2>
+</details>
+<details class="category">
+ <summary><span class="cat-title">🔢 수학 <span class="count">4종</span></span><span class="chev">▶</span></summary>
  <div class="grid">
 <a class="card c-indigo" href="math/math_basic_shapes/math_basic_shapes.html">
  <span class="stripe"></span>
@@ -1362,9 +1403,9 @@ footer { text-align: center; color: #90a4ae; font-size: 0.85em; padding: 24px 0 
  <p>직육면체·각기둥·원기둥·구 학습지</p>
 </a>
  </div>
-</section>
-<section>
- <h2>🔤 낱말 찾기 <span class="count">11종</span></h2>
+</details>
+<details class="category">
+ <summary><span class="cat-title">🔤 낱말 찾기 <span class="count">11종</span></span><span class="chev">▶</span></summary>
  <div class="grid">
 <a class="card c-magenta" href="word_search/word_search_animal/word_search_animal.html">
  <span class="stripe"></span>
@@ -1433,9 +1474,9 @@ footer { text-align: center; color: #90a4ae; font-size: 0.85em; padding: 24px 0 
  
 </a>
  </div>
-</section>
-<section>
- <h2>🎮 실전 연습앱 <span class="count">4종</span></h2>
+</details>
+<details class="category" open>
+ <summary><span class="cat-title">🎮 실전 연습앱 <span class="count">4종</span></span><span class="chev">▶</span></summary>
  <div class="grid">
 <a class="card c-orange" href="외식서비스연습앱/외식서비스연습앱.html">
  <span class="stripe"></span>
@@ -1462,9 +1503,9 @@ footer { text-align: center; color: #90a4ae; font-size: 0.85em; padding: 24px 0 
  <p>배달 앱 사용·주문·결제 시뮬레이션</p>
 </a>
  </div>
-</section>
-<section>
- <h2>📚 기타 자료 <span class="count">18종</span></h2>
+</details>
+<details class="category">
+ <summary><span class="cat-title">📚 기타 자료 <span class="count">18종</span></span><span class="chev">▶</span></summary>
  <div class="extra-list">
 <a href="praise_stickers/praise_stickers.html"><strong>📁 praise_stickers</strong> — 칭찬 스티커 — </a>
 <a href="profile/profile.html"><strong>📁 profile</strong> — sm · 자기소개</a>
@@ -1485,7 +1526,7 @@ footer { text-align: center; color: #90a4ae; font-size: 0.85em; padding: 24px 0 
 <a href="한글쓰기_학습자료.md">한글쓰기_학습자료.md<span class="ext">.md</span></a>
 <a href="한글쓰기_학습지.html">한글쓰기_학습지.html<span class="ext">.html</span></a>
  </div>
-</section>
+</details>
 </main>
 
 </body>
