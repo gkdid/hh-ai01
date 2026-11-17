@@ -12,7 +12,7 @@
   --navy:#1A2438;
   --gray:#8B95A1;
   --gray2:#B0B8C1;
-  --bg:#F5F7FB;
+  --bg:#DDE9FB;
   --line:#E5E8EB;
   --white:#FFFFFF;
   --green:#16B88E;
@@ -456,6 +456,42 @@ body{
 .opt-btn.correct{background:var(--green-light); border-color:var(--green); color:var(--green);}
 .opt-btn.wrong{background:var(--red-light); border-color:var(--red); color:var(--red);}
 .opt-btn.disabled{pointer-events:none; opacity:.6;}
+
+/* ── 주관식 입력 ── */
+.qz-input-wrap{
+  background:var(--bg);
+  border-radius:14px;
+  padding:16px 12px;
+  margin-top:10px;
+  display:flex; align-items:center; justify-content:center;
+  gap:6px; flex-wrap:wrap;
+}
+.qz-input-wrap input{
+  width:78px; padding:12px 6px;
+  font-size:28px; font-weight:800; text-align:center;
+  border:2px solid var(--line); border-radius:10px;
+  font-family:'Courier New',monospace;
+  background:#fff; color:var(--navy);
+  -moz-appearance:textfield;
+}
+.qz-input-wrap input::-webkit-outer-spin-button,
+.qz-input-wrap input::-webkit-inner-spin-button{-webkit-appearance:none; margin:0;}
+.qz-input-wrap input:focus{outline:none; border-color:var(--primary); background:#FFFCF5;}
+.qz-input-wrap input:disabled{opacity:.7;}
+.qz-input-wrap input.ok{border-color:var(--green); background:var(--green-light); color:var(--green);}
+.qz-input-wrap input.ng{border-color:var(--red); background:var(--red-light); color:var(--red);}
+.qz-input-wrap .qz-sep{font-size:28px; font-weight:800; color:var(--navy); padding:0 2px;}
+.qz-input-wrap .qz-unit{font-size:16px; font-weight:800; color:#495366; margin:0 2px 0 -2px;}
+.qz-submit-btn{
+  background:var(--primary); color:#fff; border:none;
+  border-radius:12px; padding:14px 20px;
+  font-size:15px; font-weight:700;
+  cursor:pointer; width:100%;
+  font-family:inherit; margin-top:12px;
+  transition:transform .12s;
+}
+.qz-submit-btn:active{transform:scale(.97);}
+.qz-submit-btn:disabled{background:var(--gray2); cursor:not-allowed;}
 
 .feedback-box{
   background:var(--green-light);
@@ -2042,74 +2078,57 @@ function buildQuizSet(mode, n){
   for (let i=0; i<n; i++){
     if (mode === 'easy'){
       const h = randInt(1,12); const m = 0;
-      arr.push({type:'read', h, m, prompt:'이 시계는 몇 시일까요?', correct:`${h}:00`, opts:genOpts(h, m, 'easy')});
+      arr.push({type:'read', h, m, prompt:'이 시계는 몇 시일까요?', answerType:'time12', correct:{h, m},
+        hint:'시침(짧은 바늘)이 가리키는 숫자를 봐.'});
     } else if (mode === 'medium'){
       const h = randInt(1,12); const m = [0,5,10,15,20,25,30,35,40,45,50,55][randInt(0,11)];
-      arr.push({type:'read', h, m, prompt:'이 시계는 몇 시 몇 분일까요?', correct:`${h}:${String(m).padStart(2,'0')}`, opts:genOpts(h, m, 'medium')});
+      arr.push({type:'read', h, m, prompt:'이 시계는 몇 시 몇 분일까요?', answerType:'time12', correct:{h, m},
+        hint:`분침 숫자 × 5 = 분. (분침이 ${m/5}를 가리키면 ${m}분)`});
     } else if (mode === 'hard'){
       const h = randInt(1,12); const m = randInt(1,59);
-      arr.push({type:'read', h, m, prompt:'이 시계는 몇 시 몇 분일까요?', correct:`${h}:${String(m).padStart(2,'0')}`, opts:genOpts(h, m, 'hard')});
+      arr.push({type:'read', h, m, prompt:'이 시계는 몇 시 몇 분일까요?', answerType:'time12', correct:{h, m},
+        hint:'분침 큰 눈금 1칸=5분, 작은 눈금 1칸=1분.'});
     } else if (mode === 'elapsed'){
       const sh = randInt(6, 18); const sm = [0,15,30,45][randInt(0,3)];
       const addM = [15,30,45,60,75,90,120,150][randInt(0,7)];
       const total = sh*60 + sm + addM;
       const eh = Math.floor(total/60), em = total%60;
       const hh = Math.floor(addM/60), mm = addM%60;
-      const correct = hh>0 ? `${hh}시간 ${mm}분` : `${mm}분`;
-      arr.push({type:'elapsed', sh, sm, eh, em, prompt:`${fmt(sh,sm)}부터 ${fmt(eh,em)}까지 몇 시간 몇 분이 지났을까요?`, correct, opts:genElapsedOpts(addM)});
+      arr.push({type:'elapsed', sh, sm, eh, em,
+        prompt:`${fmt(sh,sm)}부터 ${fmt(eh,em)}까지 몇 시간 몇 분이 지났을까요?`,
+        answerType:'duration', correct:{h:hh, m:mm},
+        hint:'끝에서 시작을 빼. 분이 모자라면 1시간(60분)을 빌려와!'});
     } else if (mode === 'situation'){
-      const q = genSituationQ();
-      arr.push(q);
+      arr.push(genSituationQ());
     }
   }
   return arr;
 }
-function genOpts(h, m, level){
-  const correct = `${h}:${String(m).padStart(2,'0')}`;
-  const opts = new Set([correct]);
-  while (opts.size < 4){
-    let dh = h, dm = m;
-    if (level === 'easy'){
-      dh = randInt(1,12); dm = 0;
-    } else if (level === 'medium'){
-      if (Math.random() < .5) dh = ((h + randInt(1,3) - 1 + 12) % 12) + 1;
-      if (Math.random() < .6) dm = [0,5,10,15,20,25,30,35,40,45,50,55][randInt(0,11)];
-    } else {
-      if (Math.random() < .5) dh = ((h + randInt(1,2) - 1 + 12) % 12) + 1;
-      if (Math.random() < .7) dm = Math.max(0, Math.min(59, m + randInt(-7,7)));
-    }
-    opts.add(`${dh}:${String(dm).padStart(2,'0')}`);
-  }
-  return shuffle([...opts]);
-}
-function genElapsedOpts(addM){
-  const fmt2 = v => { const hh=Math.floor(v/60), mm=v%60; return hh>0 ? `${hh}시간 ${mm}분` : `${mm}분`; };
-  const opts = new Set([fmt2(addM)]);
-  const deltas = [-30,-15,15,30,45,60];
-  shuffle(deltas);
-  for (const d of deltas){
-    const v = addM + d;
-    if (v > 0 && v < 300) opts.add(fmt2(v));
-    if (opts.size >= 4) break;
-  }
-  while (opts.size < 4){ opts.add(fmt2(addM + randInt(5, 60))); }
-  return shuffle([...opts]);
-}
 function genSituationQ(){
   const tpl = [
-    {q:'학교 시작이 08:30이에요. 7시 50분에 출발하면 몇 분 안에 도착해야 할까요?', correct:'40분', opts:['30분','40분','50분','1시간']},
-    {q:'영화가 19시에 시작해서 2시간 20분 상영이에요. 끝나는 시간은?', correct:'21:20', opts:['20:20','21:00','21:20','21:40']},
-    {q:'학원이 17시부터 19시까지예요. 수업 시간은?', correct:'2시간', opts:['1시간','1시간 30분','2시간','2시간 30분']},
-    {q:'버스가 07:35에 오고 지금은 07:20이에요. 몇 분 더 기다려야 하나요?', correct:'15분', opts:['5분','10분','15분','20분']},
-    {q:'하루에 세 번, 8시간마다 약을 먹어요. 첫 약이 08:00이면 마지막은?', correct:'24:00(00:00)', opts:['16:00','20:00','22:00','24:00(00:00)']},
-    {q:'아침 7시부터 밤 10시까지 깨어 있어요. 깨어 있는 시간은?', correct:'15시간', opts:['13시간','14시간','15시간','16시간']},
-    {q:'점심 12:30 ~ 13:10, 점심 시간은 몇 분?', correct:'40분', opts:['30분','35분','40분','45분']},
-    {q:'지금은 15:45, 30분 후는?', correct:'16:15', opts:['16:00','16:15','16:30','16:45']},
-    {q:'기상 06:30, 8시간 잠을 잤어요. 잠든 시각은?', correct:'22:30', opts:['21:30','22:00','22:30','23:00']},
-    {q:'오후 2시는 24시간제로?', correct:'14:00', opts:['12:00','14:00','16:00','20:00']}
+    {q:'학교 시작이 08:30이에요. 7시 50분에 출발하면 몇 분 안에 도착해야 할까요?',
+      answerType:'duration', correct:{h:0, m:40}, hint:'08:30 − 07:50 = 40분'},
+    {q:'영화가 19시에 시작해서 2시간 20분 상영이에요. 끝나는 시간은?',
+      answerType:'time24', correct:{h:21, m:20}, hint:'19:00 + 2시간 20분 = 21:20'},
+    {q:'학원이 17시부터 19시까지예요. 수업 시간은?',
+      answerType:'duration', correct:{h:2, m:0}, hint:'19시 − 17시 = 2시간'},
+    {q:'버스가 07:35에 오고 지금은 07:20이에요. 몇 분 더 기다려야 하나요?',
+      answerType:'duration', correct:{h:0, m:15}, hint:'07:35 − 07:20 = 15분'},
+    {q:'하루에 세 번, 8시간마다 약을 먹어요. 첫 약이 08:00이면 마지막은?',
+      answerType:'time24', correct:{h:0, m:0, alt:{h:24, m:0}}, hint:'08 + 8 + 8 = 24시 = 00시(자정)'},
+    {q:'아침 7시부터 밤 10시까지 깨어 있어요. 깨어 있는 시간은?',
+      answerType:'duration', correct:{h:15, m:0}, hint:'22시 − 7시 = 15시간'},
+    {q:'점심 12:30 ~ 13:10, 점심 시간은 몇 분?',
+      answerType:'duration', correct:{h:0, m:40}, hint:'13:10 − 12:30 = 40분'},
+    {q:'지금은 15:45, 30분 후는?',
+      answerType:'time24', correct:{h:16, m:15}, hint:'15:45 + 30분 = 16:15'},
+    {q:'기상 06:30, 8시간 잠을 잤어요. 잠든 시각은?',
+      answerType:'time24', correct:{h:22, m:30}, hint:'6:30에서 8시간 전 = 전날 밤 22:30'},
+    {q:'오후 2시는 24시간제로?',
+      answerType:'time24', correct:{h:14, m:0}, hint:'오후는 +12. 2 + 12 = 14시'}
   ];
   const pick = tpl[randInt(0, tpl.length-1)];
-  return {type:'situation', prompt:pick.q, correct:pick.correct, opts:shuffle([...pick.opts])};
+  return {type:'situation', prompt:pick.q, answerType:pick.answerType, correct:pick.correct, hint:pick.hint};
 }
 
 let quizClockApi = null;
@@ -2134,9 +2153,8 @@ function renderQuizQuestion(){
       </div>
     `;
   }
-  inner += `<div class="opt-grid" id="opt-grid">
-    ${q.opts.map(o => `<button class="opt-btn" data-opt="${o}">${o}</button>`).join('')}
-  </div>`;
+  inner += buildAnswerInput(q);
+  inner += `<button class="qz-submit-btn" id="qz-submit">정답 확인 ✔</button>`;
   card.innerHTML = inner;
 
   if (q.type === 'read'){
@@ -2144,28 +2162,85 @@ function renderQuizQuestion(){
     quizClockApi = buildClockSVG(el);
     quizClockApi.set(q.h, q.m);
   }
-
-  card.querySelectorAll('[data-opt]').forEach(b => {
-    b.addEventListener('click', () => answerQuiz(b.dataset.opt, b));
+  const hIn = document.getElementById('qz-h');
+  const mIn = document.getElementById('qz-m');
+  [hIn, mIn].forEach(inp => {
+    if (!inp) return;
+    inp.addEventListener('keydown', e => {
+      if (e.key === 'Enter'){ e.preventDefault(); submitAnswerQ(); }
+    });
   });
+  document.getElementById('qz-submit').addEventListener('click', submitAnswerQ);
+  setTimeout(() => { if (hIn) hIn.focus(); }, 100);
 }
-function answerQuiz(opt, btn){
+function buildAnswerInput(q){
+  if (q.answerType === 'time12' || q.answerType === 'time24'){
+    const maxH = q.answerType === 'time12' ? 12 : 24;
+    return `
+      <div class="qz-input-wrap">
+        <input type="number" id="qz-h" min="0" max="${maxH}" placeholder="시" inputmode="numeric">
+        <span class="qz-sep">:</span>
+        <input type="number" id="qz-m" min="0" max="59" placeholder="분" inputmode="numeric">
+      </div>
+    `;
+  }
+  if (q.answerType === 'duration'){
+    return `
+      <div class="qz-input-wrap">
+        <input type="number" id="qz-h" min="0" max="24" placeholder="0" inputmode="numeric">
+        <span class="qz-unit">시간</span>
+        <input type="number" id="qz-m" min="0" max="59" placeholder="0" inputmode="numeric">
+        <span class="qz-unit">분</span>
+      </div>
+    `;
+  }
+  return '';
+}
+function submitAnswerQ(){
   const q = State.quiz.data[State.quiz.idx];
-  const ok = opt === q.correct;
-  const grid = document.getElementById('opt-grid');
-  grid.querySelectorAll('.opt-btn').forEach(b => {
-    b.classList.add('disabled');
-    if (b.dataset.opt === q.correct) b.classList.add('correct');
-    if (b === btn && !ok) b.classList.add('wrong');
+  const hIn = document.getElementById('qz-h');
+  const mIn = document.getElementById('qz-m');
+  const hRaw = hIn ? hIn.value : '';
+  const mRaw = mIn ? mIn.value : '';
+  if (hRaw === '' && mRaw === ''){ showToast('답을 적어줘'); return; }
+  const userH = hRaw === '' ? 0 : parseInt(hRaw, 10);
+  const userM = mRaw === '' ? 0 : parseInt(mRaw, 10);
+
+  let ok = userH === q.correct.h && userM === q.correct.m;
+  if (!ok && q.correct.alt){
+    ok = userH === q.correct.alt.h && userM === q.correct.alt.m;
+  }
+
+  [hIn, mIn].forEach(inp => {
+    if (!inp) return;
+    inp.disabled = true;
+    inp.classList.add(ok ? 'ok' : 'ng');
   });
+  const btn = document.getElementById('qz-submit');
+  if (btn) btn.disabled = true;
+
   if (ok){
     State.quiz.correct++;
-    showFeedback('quiz-feedback', true, '정답이에요!', randomPraise());
+    showFeedback('quiz-feedback', true, '정답이에요!', `${randomPraise()} <br><span style="color:var(--gray);">${q.hint || ''}</span>`);
   } else {
-    showFeedback('quiz-feedback', false, '아쉬워요', `정답은 <b>${q.correct}</b>이에요. ${hintFor(q)}`);
+    showFeedback('quiz-feedback', false, '아쉬워요',
+      `정답은 <b>${formatAnswer(q)}</b>이에요. ${q.hint || hintFor(q)}`);
   }
   document.getElementById('qp-correct').textContent = State.quiz.correct;
   document.getElementById('quiz-next-wrap').style.display = 'flex';
+}
+function formatAnswer(q){
+  if (q.answerType === 'time12' || q.answerType === 'time24'){
+    return `${String(q.correct.h).padStart(2,'0')}:${String(q.correct.m).padStart(2,'0')}` +
+      (q.correct.alt ? ` (또는 ${String(q.correct.alt.h).padStart(2,'0')}:${String(q.correct.alt.m).padStart(2,'0')})` : '');
+  }
+  if (q.answerType === 'duration'){
+    const parts = [];
+    if (q.correct.h > 0) parts.push(`${q.correct.h}시간`);
+    parts.push(`${q.correct.m}분`);
+    return parts.join(' ');
+  }
+  return '';
 }
 function hintFor(q){
   if (q.type === 'read') return '시침(짧은 바늘)과 분침(긴 바늘)을 다시 한 번 보고 숫자와 비교해봐.';
