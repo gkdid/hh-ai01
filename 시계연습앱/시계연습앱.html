@@ -1,0 +1,2518 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>⏰ 시계 연습 앱</title>
+<style>
+:root{
+  --primary:#4F7DF3;
+  --primary-dark:#3B64D8;
+  --primary-light:#E8F0FE;
+  --navy:#1A2438;
+  --gray:#8B95A1;
+  --gray2:#B0B8C1;
+  --bg:#F5F7FB;
+  --line:#E5E8EB;
+  --white:#FFFFFF;
+  --green:#16B88E;
+  --green-light:#E6F7F1;
+  --red:#F04452;
+  --red-light:#FEECEC;
+  --yellow:#FFC107;
+  --orange:#FF8A3D;
+  --orange-light:#FFF1E6;
+  --purple:#8B5CF6;
+  --purple-light:#F0EBFE;
+  --pink:#FF6B9D;
+  --pink-light:#FFE8F0;
+  --mint:#3DD9D6;
+  --mint-light:#E0F9F8;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{overscroll-behavior:none;}
+body{
+  font-family:'Pretendard','Malgun Gothic','맑은 고딕',-apple-system,BlinkMacSystemFont,sans-serif;
+  background:#DCE0E5;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  color:var(--navy);
+  -webkit-font-smoothing:antialiased;
+}
+.app{
+  width:100%;
+  max-width:460px;
+  background:var(--bg);
+  min-height:100vh;
+  position:relative;
+  box-shadow:0 0 40px rgba(0,0,0,.18);
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+}
+
+/* ── 상태바 ── */
+.statusbar{
+  background:var(--white);
+  padding:8px 20px 4px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:13px;
+  font-weight:700;
+  color:var(--navy);
+}
+.statusbar .right{display:flex;gap:6px;align-items:center;}
+
+/* ── 헤더 ── */
+.hdr{
+  background:var(--white);
+  color:var(--navy);
+  padding:12px 16px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  border-bottom:1px solid var(--line);
+  min-height:52px;
+  position:sticky; top:0; z-index:10;
+}
+.hdr-back{
+  background:transparent; border:none;
+  width:32px; height:32px;
+  font-size:22px; cursor:pointer;
+  color:var(--navy);
+  display:flex; align-items:center; justify-content:center;
+}
+.hdr-back.hidden{visibility:hidden;}
+.hdr-title{font-size:17px; font-weight:700; flex:1;}
+.hdr-right{font-size:14px; color:var(--primary); font-weight:700; cursor:pointer; padding:4px 8px;}
+
+/* ── 화면 전환 ── */
+.screen{display:none; flex:1; overflow-y:auto; padding-bottom:30px;}
+.screen.active{display:block;}
+
+/* ── 홈 화면 ── */
+.home-hero{
+  background:linear-gradient(135deg,#4F7DF3 0%,#8B5CF6 100%);
+  color:#fff;
+  padding:28px 22px 32px;
+  position:relative;
+  overflow:hidden;
+}
+.home-hero::before{
+  content:''; position:absolute;
+  right:-30px; top:-30px;
+  width:160px; height:160px;
+  background:rgba(255,255,255,.1);
+  border-radius:50%;
+}
+.home-hero::after{
+  content:''; position:absolute;
+  right:40px; bottom:-40px;
+  width:100px; height:100px;
+  background:rgba(255,255,255,.08);
+  border-radius:50%;
+}
+.home-greeting{font-size:14px; opacity:.85; margin-bottom:4px;}
+.home-title{font-size:24px; font-weight:800; margin-bottom:8px; line-height:1.3;}
+.home-sub{font-size:13px; opacity:.9; line-height:1.5;}
+
+.live-clock{
+  background:rgba(255,255,255,.18);
+  backdrop-filter:blur(10px);
+  border-radius:16px;
+  padding:14px 16px;
+  margin-top:18px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  position:relative;
+  z-index:1;
+}
+.live-digital{
+  font-family:'Courier New',monospace;
+  font-size:26px; font-weight:800;
+  letter-spacing:1px;
+  flex:1;
+}
+.live-date{font-size:12px; opacity:.9; margin-top:2px; font-family:'Pretendard',sans-serif; letter-spacing:0;}
+
+.menu-section{padding:18px 16px 4px;}
+.menu-label{
+  font-size:12px; font-weight:700;
+  color:var(--gray);
+  margin-bottom:10px;
+  padding:0 4px;
+  letter-spacing:.5px;
+}
+.menu-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.menu-card{
+  background:var(--white);
+  border-radius:16px;
+  padding:16px 14px;
+  cursor:pointer;
+  transition:transform .15s, box-shadow .15s;
+  border:1.5px solid transparent;
+  text-align:left;
+  width:100%;
+  font-family:inherit;
+}
+.menu-card:active{transform:scale(.97);}
+.menu-card .mc-icon{
+  width:40px; height:40px;
+  border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px;
+  margin-bottom:10px;
+}
+.menu-card .mc-title{font-size:15px; font-weight:700; color:var(--navy); margin-bottom:3px;}
+.menu-card .mc-desc{font-size:11.5px; color:var(--gray); line-height:1.4;}
+
+.ic-blue{background:var(--primary-light); color:var(--primary);}
+.ic-green{background:var(--green-light); color:var(--green);}
+.ic-orange{background:var(--orange-light); color:var(--orange);}
+.ic-purple{background:var(--purple-light); color:var(--purple);}
+.ic-pink{background:var(--pink-light); color:var(--pink);}
+.ic-mint{background:var(--mint-light); color:var(--mint);}
+
+/* ── 공통 콘텐츠 ── */
+.content{padding:18px 16px;}
+.section-title{
+  font-size:18px; font-weight:800;
+  margin:4px 0 10px;
+  color:var(--navy);
+}
+.section-desc{
+  font-size:13.5px; color:var(--gray);
+  margin-bottom:16px; line-height:1.5;
+}
+
+/* ── 아날로그 시계 SVG ── */
+.clock-wrap{
+  background:var(--white);
+  border-radius:20px;
+  padding:16px;
+  margin-bottom:14px;
+  box-shadow:0 2px 12px rgba(0,0,0,.04);
+}
+.clock-svg{
+  width:100%; max-width:300px;
+  display:block; margin:0 auto;
+}
+.clock-face{fill:#fff; stroke:#2A3346; stroke-width:4;}
+.clock-tick-major{stroke:#2A3346; stroke-width:3; stroke-linecap:round;}
+.clock-tick-minor{stroke:#8B95A1; stroke-width:1.5; stroke-linecap:round;}
+.clock-num{
+  font-family:'Pretendard',sans-serif;
+  font-weight:800;
+  font-size:22px;
+  fill:#1A2438;
+  text-anchor:middle;
+  dominant-baseline:central;
+}
+.clock-num-min{
+  font-family:'Pretendard',sans-serif;
+  font-weight:600;
+  font-size:11px;
+  fill:#FF8A3D;
+  text-anchor:middle;
+  dominant-baseline:central;
+}
+.hand-hour{stroke:#E74C3C; stroke-width:9; stroke-linecap:round;}
+.hand-min{stroke:#2A3346; stroke-width:5; stroke-linecap:round;}
+.hand-sec{stroke:#4F7DF3; stroke-width:1.5; stroke-linecap:round;}
+.clock-center{fill:#2A3346;}
+.clock-center-dot{fill:#E74C3C;}
+
+/* ── 디지털 시계 디스플레이 ── */
+.digital-display{
+  background:linear-gradient(135deg,#1A2438 0%,#2A3346 100%);
+  color:#4FC3F7;
+  border-radius:16px;
+  padding:22px 20px;
+  text-align:center;
+  font-family:'Courier New',monospace;
+  margin-bottom:14px;
+  box-shadow:0 2px 12px rgba(0,0,0,.04);
+  position:relative;
+}
+.digital-time{font-size:52px; font-weight:800; letter-spacing:4px; line-height:1;}
+.digital-ampm{font-size:14px; color:#FFC107; margin-top:8px; letter-spacing:2px;}
+.digital-sub{font-size:12px; color:#8B95A1; margin-top:4px; font-family:'Pretendard',sans-serif; letter-spacing:0;}
+
+/* ── 설명 카드 ── */
+.info-card{
+  background:var(--white);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:10px;
+  border-left:4px solid var(--primary);
+}
+.info-card.green{border-left-color:var(--green);}
+.info-card.orange{border-left-color:var(--orange);}
+.info-card.purple{border-left-color:var(--purple);}
+.info-card.red{border-left-color:var(--red);}
+.info-card.pink{border-left-color:var(--pink);}
+.info-card h4{font-size:15px; font-weight:700; margin-bottom:6px; display:flex; align-items:center; gap:6px;}
+.info-card p{font-size:13.5px; color:#495366; line-height:1.6;}
+.info-card .highlight{background:#FFF59D; padding:0 4px; border-radius:3px; font-weight:700;}
+
+/* ── 버튼 ── */
+.btn{
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  border-radius:12px;
+  padding:14px 20px;
+  font-size:15px; font-weight:700;
+  cursor:pointer;
+  width:100%;
+  transition:transform .12s, background .15s;
+  font-family:inherit;
+}
+.btn:active{transform:scale(.97);}
+.btn:disabled{background:var(--gray2); cursor:not-allowed;}
+.btn.secondary{background:var(--white); color:var(--primary); border:1.5px solid var(--primary);}
+.btn.success{background:var(--green);}
+.btn.warn{background:var(--orange);}
+.btn.ghost{background:transparent; color:var(--primary);}
+.btn-row{display:flex; gap:8px;}
+.btn-row .btn{flex:1;}
+
+/* ── 설정/조작 ── */
+.control-card{
+  background:var(--white);
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:12px;
+}
+.control-label{
+  font-size:13px; font-weight:700;
+  color:var(--gray);
+  margin-bottom:8px;
+}
+.chip-row{display:flex; flex-wrap:wrap; gap:6px;}
+.chip{
+  background:var(--bg);
+  border:1.5px solid transparent;
+  border-radius:20px;
+  padding:7px 14px;
+  font-size:13px; font-weight:600;
+  cursor:pointer;
+  color:var(--navy);
+  font-family:inherit;
+}
+.chip.active{background:var(--primary); color:#fff; border-color:var(--primary);}
+.chip.small{padding:5px 10px; font-size:12px;}
+
+.time-picker{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  margin:8px 0 12px;
+}
+.tp-col{
+  background:var(--bg);
+  border-radius:12px;
+  padding:4px;
+  display:flex; align-items:center;
+  flex-direction:column;
+}
+.tp-btn{
+  background:transparent; border:none;
+  font-size:18px; cursor:pointer;
+  width:46px; height:30px;
+  color:var(--primary); font-weight:700;
+  font-family:inherit;
+}
+.tp-val{
+  font-size:34px; font-weight:800;
+  color:var(--navy);
+  width:70px; text-align:center;
+  padding:4px 0;
+  font-family:'Courier New',monospace;
+}
+.tp-sep{font-size:34px; font-weight:800; color:var(--navy); margin:0 -2px;}
+
+/* ── 상황 예시 리스트 ── */
+.situation-list{display:flex; flex-direction:column; gap:10px;}
+.situation-card{
+  background:var(--white);
+  border-radius:16px;
+  padding:14px;
+  display:flex; align-items:center; gap:12px;
+  cursor:pointer;
+  transition:transform .12s;
+  text-align:left;
+  width:100%; border:none;
+  font-family:inherit;
+}
+.situation-card:active{transform:scale(.98);}
+.sit-icon{
+  width:48px; height:48px;
+  border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:24px; flex-shrink:0;
+}
+.sit-body{flex:1; min-width:0;}
+.sit-time{font-size:17px; font-weight:800; color:var(--navy); font-family:'Courier New',monospace; letter-spacing:1px;}
+.sit-title{font-size:14px; font-weight:700; color:var(--navy); margin-top:2px;}
+.sit-desc{font-size:12px; color:var(--gray); margin-top:3px; line-height:1.4;}
+.sit-arrow{color:var(--gray2); font-size:20px;}
+
+/* ── 상황 상세 ── */
+.sit-detail-hero{
+  background:var(--white);
+  border-radius:20px;
+  padding:16px;
+  margin-bottom:12px;
+  text-align:center;
+}
+.sit-detail-icon{font-size:48px; margin-bottom:6px;}
+.sit-detail-title{font-size:18px; font-weight:800; margin-bottom:4px;}
+.sit-detail-story{font-size:13.5px; color:#495366; line-height:1.6; padding:0 4px;}
+
+.dual-clock{
+  display:flex; align-items:center; justify-content:space-around;
+  background:var(--white);
+  border-radius:20px;
+  padding:14px 8px;
+  margin-bottom:12px;
+  gap:4px;
+}
+.dual-clock .dc-item{flex:1; text-align:center;}
+.dual-clock .dc-svg{width:110px; height:110px; max-width:100%;}
+.dual-clock .dc-digital{
+  background:#1A2438;
+  color:#4FC3F7;
+  padding:14px 8px;
+  border-radius:12px;
+  font-family:'Courier New',monospace;
+  font-size:22px; font-weight:800;
+  letter-spacing:1.5px;
+}
+.dual-clock .dc-label{font-size:11px; color:var(--gray); margin-top:6px; font-weight:600;}
+
+/* ── 퀴즈 ── */
+.quiz-progress{
+  background:var(--white);
+  border-radius:12px;
+  padding:10px 14px;
+  margin-bottom:12px;
+  display:flex; align-items:center; gap:10px;
+  font-size:13px; font-weight:600;
+}
+.qp-bar{flex:1; height:8px; background:var(--bg); border-radius:4px; overflow:hidden;}
+.qp-fill{height:100%; background:var(--primary); transition:width .3s; border-radius:4px;}
+.qp-score{color:var(--green); font-weight:800;}
+
+.quiz-card{
+  background:var(--white);
+  border-radius:20px;
+  padding:16px;
+  margin-bottom:12px;
+  text-align:center;
+}
+.quiz-q{font-size:15px; font-weight:700; margin-bottom:12px; color:var(--navy); line-height:1.5;}
+.quiz-q .target{color:var(--primary);}
+
+.opt-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:8px;
+}
+.opt-btn{
+  background:var(--white);
+  border:2px solid var(--line);
+  border-radius:14px;
+  padding:16px 10px;
+  font-size:19px; font-weight:800;
+  cursor:pointer;
+  color:var(--navy);
+  font-family:'Courier New',monospace;
+  letter-spacing:1px;
+  transition:all .15s;
+}
+.opt-btn:hover{border-color:var(--primary);}
+.opt-btn.correct{background:var(--green-light); border-color:var(--green); color:var(--green);}
+.opt-btn.wrong{background:var(--red-light); border-color:var(--red); color:var(--red);}
+.opt-btn.disabled{pointer-events:none; opacity:.6;}
+
+.feedback-box{
+  background:var(--green-light);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:12px;
+  display:flex; align-items:center; gap:10px;
+  animation:popin .3s ease;
+}
+.feedback-box.wrong{background:var(--red-light);}
+@keyframes popin{
+  0%{transform:scale(.8); opacity:0;}
+  100%{transform:scale(1); opacity:1;}
+}
+.fb-icon{font-size:28px;}
+.fb-body{flex:1;}
+.fb-title{font-size:14px; font-weight:800; color:var(--green);}
+.feedback-box.wrong .fb-title{color:var(--red);}
+.fb-desc{font-size:12.5px; color:#495366; margin-top:2px; line-height:1.5;}
+
+/* ── 결과 화면 ── */
+.result-hero{
+  background:linear-gradient(135deg,#16B88E 0%,#3DD9D6 100%);
+  color:#fff;
+  border-radius:20px;
+  padding:24px 20px;
+  text-align:center;
+  margin-bottom:16px;
+}
+.result-hero.low{background:linear-gradient(135deg,#FF8A3D 0%,#FF6B9D 100%);}
+.result-emoji{font-size:56px; margin-bottom:8px;}
+.result-title{font-size:20px; font-weight:800; margin-bottom:4px;}
+.result-score{font-size:34px; font-weight:800; margin:8px 0;}
+.result-msg{font-size:13px; opacity:.95; line-height:1.5;}
+
+/* ── 경과시간 시각화 ── */
+.timeline{
+  background:var(--white);
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:12px;
+}
+.timeline-bar{
+  position:relative;
+  height:40px;
+  background:var(--bg);
+  border-radius:20px;
+  margin:12px 0;
+  overflow:hidden;
+}
+.timeline-fill{
+  position:absolute; top:0; left:0; bottom:0;
+  background:linear-gradient(90deg,var(--primary) 0%,var(--mint) 100%);
+  border-radius:20px;
+  transition:width .4s;
+}
+.timeline-label{
+  display:flex; justify-content:space-between;
+  font-size:12px; color:var(--gray); font-weight:600;
+  margin-top:4px;
+}
+.timeline-label span{font-family:'Courier New',monospace; color:var(--navy); font-weight:800;}
+
+/* ── 탭 (잘못된 시계 찾기 등) ── */
+.tab-row{
+  display:flex;
+  background:var(--white);
+  border-radius:12px;
+  padding:4px;
+  margin-bottom:14px;
+  gap:4px;
+}
+.tab-btn{
+  flex:1; background:transparent;
+  border:none; padding:10px;
+  font-size:13px; font-weight:700;
+  color:var(--gray); cursor:pointer;
+  border-radius:9px;
+  font-family:inherit;
+  transition:all .15s;
+}
+.tab-btn.active{background:var(--primary); color:#fff;}
+
+/* ── 잠긴 상태 ── */
+.locked{opacity:.5; pointer-events:none;}
+.badge{
+  display:inline-block;
+  background:var(--yellow);
+  color:#fff;
+  font-size:10px; font-weight:800;
+  padding:2px 6px;
+  border-radius:8px;
+  margin-left:4px;
+  vertical-align:middle;
+}
+
+/* 경과시간 전용 화면 */
+.elapsed-pair{
+  display:flex; align-items:center; gap:8px;
+  justify-content:center;
+  margin-bottom:14px;
+}
+.elapsed-pair .ep-item{flex:1; text-align:center;}
+.elapsed-pair .ep-label{font-size:12px; color:var(--gray); font-weight:700; margin-bottom:6px;}
+.elapsed-pair .ep-time{
+  background:#1A2438;
+  color:#4FC3F7;
+  border-radius:12px;
+  padding:14px 6px;
+  font-family:'Courier New',monospace;
+  font-size:22px; font-weight:800;
+  letter-spacing:1.5px;
+}
+.elapsed-pair .ep-arrow{font-size:24px; color:var(--primary); font-weight:800;}
+
+/* 드래그 가능 시계 안내 */
+.drag-hint{
+  text-align:center; font-size:12px; color:var(--gray);
+  margin-top:8px;
+  font-weight:600;
+}
+.hand-hour.draggable, .hand-min.draggable{cursor:grab;}
+.hand-hour.dragging, .hand-min.dragging{cursor:grabbing;}
+
+/* 하단 bottom nav */
+.bottom-nav{
+  display:none;
+  position:sticky; bottom:0;
+  background:var(--white);
+  border-top:1px solid var(--line);
+  padding:8px 4px;
+  justify-content:space-around;
+  z-index:5;
+}
+.bn-btn{
+  background:transparent; border:none;
+  display:flex; flex-direction:column; align-items:center;
+  gap:3px; cursor:pointer;
+  padding:4px 10px;
+  font-family:inherit;
+  color:var(--gray);
+  font-size:10px; font-weight:600;
+}
+.bn-btn.active{color:var(--primary);}
+.bn-ic{font-size:20px;}
+
+/* ── 체크 ── */
+.hint-list{
+  background:var(--white);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:12px;
+}
+.hint-list h4{font-size:14px; font-weight:800; margin-bottom:10px; color:var(--navy);}
+.hint-list ul{list-style:none; padding:0;}
+.hint-list li{
+  font-size:13.5px; color:#495366;
+  padding:6px 0 6px 22px;
+  position:relative;
+  line-height:1.5;
+}
+.hint-list li::before{
+  content:'✔'; position:absolute;
+  left:0; top:6px;
+  color:var(--green); font-weight:800;
+}
+
+/* 아날로그 → 디지털 변환 */
+.a2d-wrap .clock-svg{max-width:240px;}
+.a2d-answer{
+  background:var(--white);
+  border-radius:16px;
+  padding:14px;
+  text-align:center;
+  margin-bottom:12px;
+}
+.a2d-q{font-size:14px; color:var(--gray); font-weight:600; margin-bottom:8px;}
+.a2d-input{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:'Courier New',monospace;
+  font-size:30px; font-weight:800;
+  color:var(--navy);
+}
+.a2d-input input{
+  width:68px; padding:8px 4px;
+  font-size:30px; font-weight:800;
+  text-align:center;
+  border:2px solid var(--line);
+  border-radius:10px;
+  font-family:'Courier New',monospace;
+  color:var(--navy);
+  background:var(--bg);
+}
+.a2d-input input:focus{outline:none; border-color:var(--primary); background:#fff;}
+
+/* 하루 일과 타임라인 */
+.day-timeline{
+  background:var(--white);
+  border-radius:16px;
+  padding:14px;
+  margin-bottom:12px;
+}
+.day-row{
+  display:grid;
+  grid-template-columns:70px 1fr;
+  gap:10px;
+  padding:10px 0;
+  border-bottom:1px dashed var(--line);
+  align-items:center;
+}
+.day-row:last-child{border-bottom:none;}
+.day-time{
+  font-family:'Courier New',monospace;
+  font-size:16px; font-weight:800;
+  color:var(--primary);
+  letter-spacing:1px;
+}
+.day-event{
+  display:flex; align-items:center; gap:8px;
+  font-size:13.5px; color:var(--navy); font-weight:600;
+}
+.day-event .day-emoji{font-size:18px;}
+
+.sticky-foot{
+  position:sticky; bottom:0;
+  background:linear-gradient(180deg,rgba(245,247,251,0) 0%,var(--bg) 40%);
+  padding:14px 0 6px;
+  margin-top:6px;
+}
+
+/* 이름 편집기 숨기기 - 앱 안에서는 안 보이게 */
+#name-editor{display:none !important;}
+
+@media (max-width:360px){
+  .digital-time{font-size:42px;}
+  .tp-val{font-size:28px; width:60px;}
+  .tp-sep{font-size:28px;}
+  .opt-btn{font-size:17px;}
+}
+
+/* 롤링 피드백 */
+.toast{
+  position:fixed;
+  bottom:30px; left:50%; transform:translateX(-50%);
+  background:rgba(26,36,56,.92);
+  color:#fff;
+  padding:12px 20px;
+  border-radius:12px;
+  font-size:14px; font-weight:700;
+  z-index:999;
+  opacity:0;
+  transition:opacity .2s, transform .2s;
+  pointer-events:none;
+  max-width:360px;
+}
+.toast.show{opacity:1; transform:translateX(-50%) translateY(-6px);}
+</style>
+</head>
+<body>
+
+<div class="app" id="app">
+
+  <!-- ── 상태바 ── -->
+  <div class="statusbar">
+    <span id="sb-time">9:41</span>
+    <span class="right">📶 📡 🔋</span>
+  </div>
+
+  <!-- ─────── 홈 화면 ─────── -->
+  <section class="screen active" data-screen="home">
+    <div class="home-hero">
+      <div class="home-greeting">안녕, <span class="student-name">하은</span>!</div>
+      <div class="home-title">시계를 함께 배워요 ⏰</div>
+      <div class="home-sub">아날로그 · 디지털 · 실생활 · 실전 연습까지!</div>
+      <div class="live-clock">
+        <svg class="live-svg" viewBox="0 0 100 100" width="56" height="56" aria-hidden="true">
+          <circle cx="50" cy="50" r="46" fill="rgba(255,255,255,.95)" stroke="#fff" stroke-width="2"/>
+          <line id="lv-hour" x1="50" y1="50" x2="50" y2="28" stroke="#E74C3C" stroke-width="4" stroke-linecap="round"/>
+          <line id="lv-min"  x1="50" y1="50" x2="50" y2="18" stroke="#1A2438" stroke-width="3" stroke-linecap="round"/>
+          <line id="lv-sec"  x1="50" y1="50" x2="50" y2="14" stroke="#4F7DF3" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="50" cy="50" r="3" fill="#1A2438"/>
+        </svg>
+        <div>
+          <div class="live-digital" id="lv-digital">00:00:00</div>
+          <div class="live-date" id="lv-date">2026년 1월 1일</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-label">📚 기초 배우기</div>
+      <div class="menu-grid">
+        <button class="menu-card" data-go="learn-analog">
+          <div class="mc-icon ic-blue">🕐</div>
+          <div class="mc-title">아날로그 시계</div>
+          <div class="mc-desc">시침·분침 읽는 법</div>
+        </button>
+        <button class="menu-card" data-go="read-analog">
+          <div class="mc-icon ic-pink">🔎</div>
+          <div class="mc-title">아날로그 시각 읽기</div>
+          <div class="mc-desc">시계 보고 시간 말하기</div>
+        </button>
+        <button class="menu-card" data-go="learn-digital">
+          <div class="mc-icon ic-green">🔢</div>
+          <div class="mc-title">디지털 시계</div>
+          <div class="mc-desc">숫자로 보는 시간</div>
+        </button>
+        <button class="menu-card" data-go="convert">
+          <div class="mc-icon ic-orange">🔄</div>
+          <div class="mc-title">변환 연습</div>
+          <div class="mc-desc">아날로그 ↔ 디지털</div>
+        </button>
+        <button class="menu-card" data-go="elapsed">
+          <div class="mc-icon ic-purple">⏱️</div>
+          <div class="mc-title">경과시간</div>
+          <div class="mc-desc">얼마나 지났을까?</div>
+        </button>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-label">🌟 실생활 상황</div>
+      <div class="menu-grid">
+        <button class="menu-card" data-go="situations">
+          <div class="mc-icon ic-pink">📅</div>
+          <div class="mc-title">상황 예시</div>
+          <div class="mc-desc">학교·약속·버스…</div>
+        </button>
+        <button class="menu-card" data-go="day-plan">
+          <div class="mc-icon ic-mint">📋</div>
+          <div class="mc-title">하루 일과</div>
+          <div class="mc-desc">아침부터 저녁까지</div>
+        </button>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-label">🎯 실전 연습</div>
+      <div class="menu-grid">
+        <button class="menu-card" data-go="quiz-menu">
+          <div class="mc-icon ic-orange">🏆</div>
+          <div class="mc-title">퀴즈 챌린지</div>
+          <div class="mc-desc">레벨별 10문제</div>
+        </button>
+        <button class="menu-card" data-go="free-set">
+          <div class="mc-icon ic-purple">✋</div>
+          <div class="mc-title">직접 맞추기</div>
+          <div class="mc-desc">시계 바늘 돌리기</div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────── 아날로그 배우기 ─────── -->
+  <section class="screen" data-screen="learn-analog">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">아날로그 시계 배우기</div>
+    </div>
+    <div class="content">
+      <h2 class="section-title">🕐 시계 바늘 이해하기</h2>
+      <p class="section-desc">시계에는 <b>시침</b>(짧은 바늘)과 <b>분침</b>(긴 바늘)이 있어요. 함께 알아볼까요?</p>
+
+      <div class="clock-wrap">
+        <svg class="clock-svg" id="learn-clock" viewBox="0 0 300 300"></svg>
+        <div class="drag-hint">🖐️ 시계 바늘을 끌어서 돌려봐!</div>
+      </div>
+
+      <div class="control-card">
+        <div class="control-label">시간 선택</div>
+        <div class="time-picker">
+          <div class="tp-col">
+            <button class="tp-btn" data-tp="hour" data-dir="up">▲</button>
+            <div class="tp-val" id="tp-hour">3</div>
+            <button class="tp-btn" data-tp="hour" data-dir="down">▼</button>
+          </div>
+          <div class="tp-sep">:</div>
+          <div class="tp-col">
+            <button class="tp-btn" data-tp="min" data-dir="up">▲</button>
+            <div class="tp-val" id="tp-min">00</div>
+            <button class="tp-btn" data-tp="min" data-dir="down">▼</button>
+          </div>
+        </div>
+        <div class="control-label" style="margin-top:4px;">빠른 설정</div>
+        <div class="chip-row">
+          <button class="chip" data-preset="3:00">3시 정각</button>
+          <button class="chip" data-preset="6:30">6시 30분</button>
+          <button class="chip" data-preset="9:15">9시 15분</button>
+          <button class="chip" data-preset="12:00">12시 정각</button>
+          <button class="chip" data-preset="7:45">7시 45분</button>
+          <button class="chip" data-preset="10:50">10시 50분</button>
+        </div>
+      </div>
+
+      <div class="info-card red">
+        <h4>🔴 짧은 바늘 = 시침</h4>
+        <p>시침은 <span class="highlight">몇 시인지</span> 알려줘요. 1시간에 한 칸씩 움직여요.</p>
+      </div>
+      <div class="info-card">
+        <h4>⚫ 긴 바늘 = 분침</h4>
+        <p>분침은 <span class="highlight">몇 분인지</span> 알려줘요. 작은 칸 1개 = 1분, 큰 숫자 1칸 = 5분이에요.</p>
+      </div>
+      <div class="info-card orange">
+        <h4>🟠 바깥쪽 주황 숫자 = 분</h4>
+        <p>시계 숫자 <b>1</b>은 분으로는 <b>5분</b>, <b>2</b>는 <b>10분</b>, <b>3</b>은 <b>15분</b>…이에요.</p>
+      </div>
+
+      <div class="hint-list">
+        <h4>💡 읽는 순서</h4>
+        <ul>
+          <li>먼저 <b>짧은 바늘(시침)</b>이 가리키는 숫자를 봐요 → "몇 시"</li>
+          <li>그 다음 <b>긴 바늘(분침)</b>이 가리키는 숫자를 봐요</li>
+          <li>분침 숫자 × 5 = 몇 분 (예: 숫자 6 → 30분)</li>
+          <li>정각이면 분침이 12를 가리켜요</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────── 아날로그 시각 읽기 (전용) ─────── -->
+  <section class="screen" data-screen="read-analog">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">아날로그 시각 읽기</div>
+      <span class="hdr-right" id="ra-score">0 / 0</span>
+    </div>
+    <div class="content">
+      <h2 class="section-title">🔎 몇 시 몇 분일까?</h2>
+      <p class="section-desc">시계 바늘을 보고 몇 시 몇 분인지 숫자로 적어봐요.</p>
+
+      <div class="control-card">
+        <div class="control-label">난이도</div>
+        <div class="chip-row">
+          <button class="chip active" data-ra-diff="easy">쉬움 · 정각만</button>
+          <button class="chip" data-ra-diff="medium">보통 · 5분 단위</button>
+          <button class="chip" data-ra-diff="hard">어려움 · 1분 단위</button>
+        </div>
+      </div>
+
+      <div class="clock-wrap a2d-wrap">
+        <svg class="clock-svg" id="ra-clock" viewBox="0 0 300 300"></svg>
+      </div>
+
+      <div class="a2d-answer">
+        <div class="a2d-q">이 시계는 몇 시 몇 분일까요?</div>
+        <div class="a2d-input">
+          <input type="number" id="ra-hour" min="1" max="12" placeholder="시" inputmode="numeric">
+          <span>:</span>
+          <input type="number" id="ra-min" min="0" max="59" placeholder="분" inputmode="numeric">
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn secondary" id="btn-ra-new">다른 문제</button>
+        <button class="btn" id="btn-ra-check">확인</button>
+      </div>
+      <div id="ra-feedback" style="margin-top:12px;"></div>
+
+      <div class="info-card" style="margin-top:14px;">
+        <h4>💡 읽는 법</h4>
+        <p>① 짧은 바늘(시침)이 가리키는 숫자를 봐요 → <b>몇 시</b><br>
+        ② 긴 바늘(분침)이 가리키는 숫자를 봐요 → 그 숫자 × 5 = <b>몇 분</b><br>
+        <span class="highlight">예: 시침이 3, 분침이 6을 가리키면 → 3시 30분</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────── 디지털 배우기 ─────── -->
+  <section class="screen" data-screen="learn-digital">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">디지털 시계 배우기</div>
+    </div>
+    <div class="content">
+      <h2 class="section-title">🔢 숫자로 보는 시간</h2>
+      <p class="section-desc">디지털 시계는 숫자 두 개로 시간을 보여줘요. 왼쪽은 <b>시</b>, 오른쪽은 <b>분</b>이에요.</p>
+
+      <div class="digital-display">
+        <div class="digital-time" id="dig-time">09:30</div>
+        <div class="digital-ampm" id="dig-ampm">오전 · AM</div>
+        <div class="digital-sub" id="dig-read">아홉 시 삼십 분</div>
+      </div>
+
+      <div class="control-card">
+        <div class="control-label">시간 조절</div>
+        <div class="time-picker">
+          <div class="tp-col">
+            <button class="tp-btn" data-dtp="hour" data-dir="up">▲</button>
+            <div class="tp-val" id="dtp-hour">09</div>
+            <button class="tp-btn" data-dtp="hour" data-dir="down">▼</button>
+          </div>
+          <div class="tp-sep">:</div>
+          <div class="tp-col">
+            <button class="tp-btn" data-dtp="min" data-dir="up">▲</button>
+            <div class="tp-val" id="dtp-min">30</div>
+            <button class="tp-btn" data-dtp="min" data-dir="down">▼</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card green">
+        <h4>🔢 두 자리 숫자</h4>
+        <p>디지털 시계는 항상 <span class="highlight">두 자리</span>로 보여줘요. 9시 → <b>09</b>, 5분 → <b>05</b>로 표시해요.</p>
+      </div>
+      <div class="info-card orange">
+        <h4>☀️ 오전(AM) · 🌙 오후(PM)</h4>
+        <p>12시가 지나면 오후가 돼요. 오후 1시는 <b>13:00</b>으로 쓰기도 해요(24시간제).</p>
+      </div>
+      <div class="info-card purple">
+        <h4>⏱️ 24시간 vs 12시간</h4>
+        <p>버스·기차·비행기 시간표는 <b>24시간제</b>를 자주 써요. <b>오후 3시 = 15시</b>!</p>
+      </div>
+
+      <div class="hint-list">
+        <h4>🗣️ 읽는 방법</h4>
+        <ul>
+          <li>07:00 → "<b>일곱 시 정각</b>" 또는 "<b>7시</b>"</li>
+          <li>08:15 → "<b>여덟 시 십오 분</b>"</li>
+          <li>12:30 → "<b>열두 시 삼십 분</b>" 또는 "<b>12시 반</b>"</li>
+          <li>15:45 → "<b>오후 세 시 사십오 분</b>"</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────── 변환 연습 (아날로그 → 디지털) ─────── -->
+  <section class="screen" data-screen="convert">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">변환 연습</div>
+      <span class="hdr-right" id="convert-score">0 / 0</span>
+    </div>
+    <div class="content">
+      <div class="tab-row">
+        <button class="tab-btn active" data-conv-tab="a2d">아날로그 → 디지털</button>
+        <button class="tab-btn" data-conv-tab="d2a">디지털 → 아날로그</button>
+      </div>
+
+      <!-- a2d -->
+      <div id="conv-a2d">
+        <div class="clock-wrap a2d-wrap">
+          <svg class="clock-svg" id="conv-clock" viewBox="0 0 300 300"></svg>
+        </div>
+        <div class="a2d-answer">
+          <div class="a2d-q">이 시계는 몇 시 몇 분일까요?</div>
+          <div class="a2d-input">
+            <input type="number" id="a2d-hour" min="1" max="12" placeholder="시" inputmode="numeric">
+            <span>:</span>
+            <input type="number" id="a2d-min" min="0" max="59" placeholder="분" inputmode="numeric">
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn secondary" id="btn-a2d-new">다른 문제</button>
+          <button class="btn" id="btn-a2d-check">확인</button>
+        </div>
+        <div id="a2d-feedback" style="margin-top:12px;"></div>
+      </div>
+
+      <!-- d2a -->
+      <div id="conv-d2a" style="display:none;">
+        <div class="digital-display">
+          <div class="digital-time" id="d2a-target">07:20</div>
+          <div class="digital-sub">위 시간이 되도록 아래 시계를 맞춰봐</div>
+        </div>
+        <div class="clock-wrap">
+          <svg class="clock-svg" id="d2a-clock" viewBox="0 0 300 300"></svg>
+          <div class="drag-hint">🖐️ 바늘을 끌어서 맞추기 · 아래 버튼으로도 조절</div>
+        </div>
+        <div class="control-card">
+          <div class="time-picker">
+            <div class="tp-col">
+              <button class="tp-btn" data-d2a="hour" data-dir="up">▲</button>
+              <div class="tp-val" id="d2a-hour">12</div>
+              <button class="tp-btn" data-d2a="hour" data-dir="down">▼</button>
+            </div>
+            <div class="tp-sep">:</div>
+            <div class="tp-col">
+              <button class="tp-btn" data-d2a="min" data-dir="up">▲</button>
+              <div class="tp-val" id="d2a-min">00</div>
+              <button class="tp-btn" data-d2a="min" data-dir="down">▼</button>
+            </div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn secondary" id="btn-d2a-new">다른 문제</button>
+          <button class="btn" id="btn-d2a-check">확인</button>
+        </div>
+        <div id="d2a-feedback" style="margin-top:12px;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────── 경과 시간 ─────── -->
+  <section class="screen" data-screen="elapsed">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">경과 시간 계산</div>
+    </div>
+    <div class="content">
+      <h2 class="section-title">⏱️ 얼마나 지났을까?</h2>
+      <p class="section-desc">시작 시간과 끝 시간을 보고 <b>몇 시간 몇 분이 지났는지</b> 알아봐요.</p>
+
+      <div class="elapsed-pair">
+        <div class="ep-item">
+          <div class="ep-label">시작</div>
+          <div class="ep-time" id="el-start">09:00</div>
+        </div>
+        <div class="ep-arrow">→</div>
+        <div class="ep-item">
+          <div class="ep-label">끝</div>
+          <div class="ep-time" id="el-end">11:30</div>
+        </div>
+      </div>
+
+      <div class="dual-clock">
+        <div class="dc-item">
+          <svg class="dc-svg" id="el-clock-start" viewBox="0 0 300 300"></svg>
+          <div class="dc-label">시작 시간</div>
+        </div>
+        <div class="dc-item">
+          <svg class="dc-svg" id="el-clock-end" viewBox="0 0 300 300"></svg>
+          <div class="dc-label">끝 시간</div>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <div style="font-size:13px; font-weight:700; color:var(--navy);">경과 시간: <span id="el-result" style="color:var(--primary); font-weight:800;">2시간 30분</span></div>
+        <div class="timeline-bar">
+          <div class="timeline-fill" id="el-fill" style="width:100%;"></div>
+        </div>
+        <div class="timeline-label"><span id="el-start-lbl">09:00</span><span id="el-end-lbl">11:30</span></div>
+      </div>
+
+      <div class="control-card">
+        <div class="control-label">예시 문제</div>
+        <div class="chip-row">
+          <button class="chip" data-el="9:00|11:30">학교 수업</button>
+          <button class="chip" data-el="7:30|8:10">등교 준비</button>
+          <button class="chip" data-el="13:00|15:45">영화 관람</button>
+          <button class="chip" data-el="18:00|19:20">저녁 식사</button>
+          <button class="chip" data-el="20:00|22:15">책 읽기</button>
+          <button class="chip" data-el="6:40|7:25">아침 준비</button>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h4>💡 계산 팁</h4>
+        <p>① <b>시</b>부터 빼요 (끝 시 − 시작 시)<br>
+        ② <b>분</b>도 빼요. 분이 부족하면 1시간을 60분으로 바꿔서 빌려와요.<br>
+        <span class="highlight">예: 11:00 − 9:30 → 10:60 − 9:30 = 1시간 30분</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────── 상황 예시 (리스트) ─────── -->
+  <section class="screen" data-screen="situations">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">실생활 상황 예시</div>
+    </div>
+    <div class="content">
+      <p class="section-desc">실제 생활에서 시계를 쓰는 <b>12가지 상황</b>이에요. 하나씩 눌러보세요.</p>
+      <div class="situation-list" id="situation-list"></div>
+    </div>
+  </section>
+
+  <!-- ─────── 상황 상세 ─────── -->
+  <section class="screen" data-screen="situation-detail">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title" id="sd-title">상황</div>
+    </div>
+    <div class="content" id="sd-content"></div>
+  </section>
+
+  <!-- ─────── 하루 일과 ─────── -->
+  <section class="screen" data-screen="day-plan">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">하루 일과표</div>
+    </div>
+    <div class="content">
+      <h2 class="section-title">📋 <span class="student-name">주은</span>이의 하루</h2>
+      <p class="section-desc">아침부터 저녁까지, 시간에 맞춰 무엇을 하는지 살펴봐요.</p>
+
+      <div class="day-timeline" id="day-plan-list"></div>
+
+      <div class="info-card green">
+        <h4>🌟 생각해 볼 질문</h4>
+        <p>• 학교에 가는 시간은 몇 시인가요?<br>
+        • 점심 식사부터 하교까지 몇 시간 걸릴까요?<br>
+        • 저녁 식사 후 잠자기까지 얼마나 남았나요?</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────── 퀴즈 메뉴 ─────── -->
+  <section class="screen" data-screen="quiz-menu">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">퀴즈 챌린지</div>
+    </div>
+    <div class="content">
+      <h2 class="section-title">🏆 레벨을 골라봐</h2>
+      <p class="section-desc">레벨별로 10문제씩 풀어요. 다 맞으면 별을 받아요!</p>
+
+      <button class="menu-card" style="display:block; width:100%; margin-bottom:10px;" data-quiz="easy">
+        <div class="mc-icon ic-green" style="display:inline-flex; vertical-align:middle; margin-right:10px; margin-bottom:0;">🟢</div>
+        <div style="display:inline-block; vertical-align:middle;">
+          <div class="mc-title">쉬움 · 정각만</div>
+          <div class="mc-desc">3시, 6시, 9시… 정각 시간 읽기</div>
+        </div>
+      </button>
+
+      <button class="menu-card" style="display:block; width:100%; margin-bottom:10px;" data-quiz="medium">
+        <div class="mc-icon ic-blue" style="display:inline-flex; vertical-align:middle; margin-right:10px; margin-bottom:0;">🔵</div>
+        <div style="display:inline-block; vertical-align:middle;">
+          <div class="mc-title">보통 · 5분 단위</div>
+          <div class="mc-desc">7:15, 8:30, 10:45 같은 시간</div>
+        </div>
+      </button>
+
+      <button class="menu-card" style="display:block; width:100%; margin-bottom:10px;" data-quiz="hard">
+        <div class="mc-icon ic-orange" style="display:inline-flex; vertical-align:middle; margin-right:10px; margin-bottom:0;">🟠</div>
+        <div style="display:inline-block; vertical-align:middle;">
+          <div class="mc-title">어려움 · 분 단위</div>
+          <div class="mc-desc">1분 단위까지 정확히 읽기</div>
+        </div>
+      </button>
+
+      <button class="menu-card" style="display:block; width:100%; margin-bottom:10px;" data-quiz="elapsed">
+        <div class="mc-icon ic-purple" style="display:inline-flex; vertical-align:middle; margin-right:10px; margin-bottom:0;">⏳</div>
+        <div style="display:inline-block; vertical-align:middle;">
+          <div class="mc-title">경과시간 퀴즈</div>
+          <div class="mc-desc">얼마나 지났는지 계산하기</div>
+        </div>
+      </button>
+
+      <button class="menu-card" style="display:block; width:100%; margin-bottom:10px;" data-quiz="situation">
+        <div class="mc-icon ic-pink" style="display:inline-flex; vertical-align:middle; margin-right:10px; margin-bottom:0;">💬</div>
+        <div style="display:inline-block; vertical-align:middle;">
+          <div class="mc-title">상황 퀴즈</div>
+          <div class="mc-desc">"8시 등교" 같은 실생활 문제</div>
+        </div>
+      </button>
+    </div>
+  </section>
+
+  <!-- ─────── 퀴즈 실행 ─────── -->
+  <section class="screen" data-screen="quiz-play">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title" id="quiz-title">퀴즈</div>
+      <span class="hdr-right" id="quiz-hdr-score">1 / 10</span>
+    </div>
+    <div class="content">
+      <div class="quiz-progress">
+        <span>진행도</span>
+        <div class="qp-bar"><div class="qp-fill" id="qp-fill" style="width:10%;"></div></div>
+        <span class="qp-score"><span id="qp-correct">0</span>✨</span>
+      </div>
+
+      <div class="quiz-card" id="quiz-card">
+        <!-- 동적으로 채워짐 -->
+      </div>
+
+      <div id="quiz-feedback"></div>
+
+      <div class="btn-row" id="quiz-next-wrap" style="display:none;">
+        <button class="btn" id="btn-quiz-next">다음 문제 ▶</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─────── 퀴즈 결과 ─────── -->
+  <section class="screen" data-screen="quiz-result">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">퀴즈 결과</div>
+    </div>
+    <div class="content">
+      <div class="result-hero" id="result-hero">
+        <div class="result-emoji" id="result-emoji">🎉</div>
+        <div class="result-title" id="result-title">훌륭해요!</div>
+        <div class="result-score"><span id="result-score">0</span> / 10</div>
+        <div class="result-msg" id="result-msg">정말 잘했어요!</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn secondary" data-go="quiz-menu">다른 퀴즈</button>
+        <button class="btn" id="btn-quiz-again">다시 풀기</button>
+      </div>
+
+      <button class="btn ghost" style="margin-top:10px;" data-go="home">홈으로 돌아가기</button>
+    </div>
+  </section>
+
+  <!-- ─────── 직접 맞추기 (자유 설정) ─────── -->
+  <section class="screen" data-screen="free-set">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">직접 맞추기</div>
+    </div>
+    <div class="content">
+      <h2 class="section-title">✋ 시계 바늘 돌리기</h2>
+      <p class="section-desc">제시된 시간이 되도록 시계 바늘을 끌어서 맞춰봐요. 아래에 디지털로도 같이 나타나요.</p>
+
+      <div class="digital-display">
+        <div style="font-size:12px; color:#8B95A1; margin-bottom:6px; letter-spacing:0; font-family:'Pretendard',sans-serif;">목표 시간</div>
+        <div class="digital-time" id="free-target">10:25</div>
+      </div>
+
+      <div class="clock-wrap">
+        <svg class="clock-svg" id="free-clock" viewBox="0 0 300 300"></svg>
+        <div class="drag-hint">🖐️ 바늘을 끌어서 돌려봐</div>
+      </div>
+
+      <div class="dual-clock">
+        <div class="dc-item" style="flex:none;">
+          <div class="dc-label" style="margin-top:0; margin-bottom:6px;">지금 맞춘 시간</div>
+          <div class="dc-digital" id="free-current">00:00</div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn secondary" id="btn-free-new">다른 시간</button>
+        <button class="btn" id="btn-free-check">정답 확인</button>
+      </div>
+      <div id="free-feedback" style="margin-top:12px;"></div>
+    </div>
+  </section>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ======================================================
+   시계 연습 앱 — 메인 스크립트
+   ====================================================== */
+
+/* ---- 공통 상태 ---- */
+const State = {
+  screenStack: ['home'],
+  learn: {hour:3, min:0},
+  digital: {hour:9, min:30},
+  d2a: {targetH:7, targetM:20, curH:12, curM:0},
+  free: {targetH:10, targetM:25, curH:12, curM:0},
+  a2d: {h:3, m:0},
+  convertScore: {c:0, t:0},
+  quiz: {mode:'', idx:0, correct:0, data:[], current:null},
+};
+
+/* ---- 화면 전환 ---- */
+function showScreen(name, push=true){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const target = document.querySelector(`[data-screen="${name}"]`);
+  if (!target) return;
+  target.classList.add('active');
+  if (push && State.screenStack[State.screenStack.length-1] !== name){
+    State.screenStack.push(name);
+  }
+  window.scrollTo(0, 0);
+  if (document.querySelector('.app')) document.querySelector('.app').scrollTop = 0;
+  // 화면별 초기화
+  onEnter(name);
+}
+function goBack(){
+  if (State.screenStack.length <= 1){ showScreen('home', false); return; }
+  State.screenStack.pop();
+  const prev = State.screenStack[State.screenStack.length-1];
+  showScreen(prev, false);
+}
+function onEnter(name){
+  if (name === 'learn-analog'){ renderLearnClock(); }
+  else if (name === 'learn-digital'){ renderDigital(); }
+  else if (name === 'convert'){ initConvert(); }
+  else if (name === 'elapsed'){ renderElapsed(); }
+  else if (name === 'situations'){ renderSituationList(); }
+  else if (name === 'day-plan'){ renderDayPlan(); }
+  else if (name === 'free-set'){ initFreeSet(); }
+  else if (name === 'read-analog'){ initReadAnalog(); }
+  else if (name === 'home'){ /* nothing */ }
+}
+
+document.querySelectorAll('[data-go]').forEach(btn => {
+  btn.addEventListener('click', () => showScreen(btn.dataset.go));
+});
+document.querySelectorAll('[data-back]').forEach(btn => {
+  btn.addEventListener('click', goBack);
+});
+
+/* ---- 토스트 ---- */
+const toast = document.getElementById('toast');
+let toastTimer;
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 1600);
+}
+
+/* ======================================================
+   라이브 시계 (홈)
+   ====================================================== */
+function updateLive(){
+  const d = new Date();
+  const h = d.getHours(), m = d.getMinutes(), s = d.getSeconds();
+  const sb = document.getElementById('sb-time');
+  if (sb) sb.textContent = `${h}:${String(m).padStart(2,'0')}`;
+  const dig = document.getElementById('lv-digital');
+  if (dig) dig.textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  const dl = document.getElementById('lv-date');
+  if (dl){
+    const day = ['일','월','화','수','목','금','토'][d.getDay()];
+    dl.textContent = `${d.getFullYear()}년 ${d.getMonth()+1}월 ${d.getDate()}일 (${day})`;
+  }
+  const hDeg = (h%12)*30 + m*0.5;
+  const mDeg = m*6 + s*0.1;
+  const sDeg = s*6;
+  const lh = document.getElementById('lv-hour');
+  const lm = document.getElementById('lv-min');
+  const ls = document.getElementById('lv-sec');
+  if (lh) lh.setAttribute('transform', `rotate(${hDeg} 50 50)`);
+  if (lm) lm.setAttribute('transform', `rotate(${mDeg} 50 50)`);
+  if (ls) ls.setAttribute('transform', `rotate(${sDeg} 50 50)`);
+}
+setInterval(updateLive, 1000);
+updateLive();
+
+/* ======================================================
+   SVG 시계 그리기 (공통)
+   ====================================================== */
+function buildClockSVG(svgEl, options={}){
+  const opts = Object.assign({
+    size: 300, showMinNumbers: true, showSeconds: false,
+    draggable: false, onChange: null
+  }, options);
+  const cx = 150, cy = 150;
+  const r = 140;
+  // 초기화
+  svgEl.setAttribute('viewBox', `0 0 300 300`);
+  svgEl.innerHTML = '';
+
+  // 바깥 테두리 + 내부 배경
+  const bg = svg('circle', {cx, cy, r:r, class:'clock-face'});
+  svgEl.appendChild(bg);
+
+  // 안쪽 연한 원
+  svgEl.appendChild(svg('circle', {cx, cy, r:r-6, fill:'#FAFBFD', stroke:'none'}));
+
+  // 분 눈금 (60개)
+  for (let i=0; i<60; i++){
+    const angle = (i*6 - 90) * Math.PI/180;
+    const isHour = i % 5 === 0;
+    const inner = r - (isHour ? 18 : 10);
+    const outer = r - 4;
+    const x1 = cx + inner * Math.cos(angle);
+    const y1 = cy + inner * Math.sin(angle);
+    const x2 = cx + outer * Math.cos(angle);
+    const y2 = cy + outer * Math.sin(angle);
+    svgEl.appendChild(svg('line', {
+      x1, y1, x2, y2,
+      class: isHour ? 'clock-tick-major' : 'clock-tick-minor'
+    }));
+  }
+
+  // 시 숫자 1~12 (큰 글자)
+  for (let i=1; i<=12; i++){
+    const angle = (i*30 - 90) * Math.PI/180;
+    const nr = r - 36;
+    const x = cx + nr * Math.cos(angle);
+    const y = cy + nr * Math.sin(angle);
+    const t = svg('text', {x, y, class:'clock-num'});
+    t.textContent = i;
+    svgEl.appendChild(t);
+  }
+
+  // 분 숫자 (주황) — 시 숫자 위치마다 5분 단위
+  if (opts.showMinNumbers){
+    for (let i=1; i<=12; i++){
+      const angle = (i*30 - 90) * Math.PI/180;
+      const nr = r - 15;
+      const x = cx + nr * Math.cos(angle);
+      const y = cy + nr * Math.sin(angle);
+      const t = svg('text', {x, y, class:'clock-num-min'});
+      t.textContent = i*5 === 60 ? 0 : i*5;
+      svgEl.appendChild(t);
+    }
+  }
+
+  // 분침 (뒤)
+  const minHand = svg('line', {
+    x1:cx, y1:cy, x2:cx, y2:cy - (r-28),
+    class:'hand-min' + (opts.draggable ? ' draggable' : ''),
+    'data-hand':'min'
+  });
+  svgEl.appendChild(minHand);
+
+  // 시침 (앞)
+  const hourHand = svg('line', {
+    x1:cx, y1:cy, x2:cx, y2:cy - (r-55),
+    class:'hand-hour' + (opts.draggable ? ' draggable' : ''),
+    'data-hand':'hour'
+  });
+  svgEl.appendChild(hourHand);
+
+  // 초침 (옵션)
+  let secHand = null;
+  if (opts.showSeconds){
+    secHand = svg('line', {
+      x1:cx, y1:cy, x2:cx, y2:cy - (r-10),
+      class:'hand-sec', 'data-hand':'sec'
+    });
+    svgEl.appendChild(secHand);
+  }
+
+  // 중심점
+  svgEl.appendChild(svg('circle', {cx, cy, r:9, class:'clock-center'}));
+  svgEl.appendChild(svg('circle', {cx, cy, r:3.5, class:'clock-center-dot'}));
+
+  const api = {
+    svg: svgEl,
+    hourHand, minHand, secHand,
+    set(h, m, s=0){
+      const hDeg = ((h%12) + m/60) * 30;
+      const mDeg = m * 6 + (s/60)*6;
+      const sDeg = s * 6;
+      hourHand.setAttribute('transform', `rotate(${hDeg} ${cx} ${cy})`);
+      minHand.setAttribute('transform', `rotate(${mDeg} ${cx} ${cy})`);
+      if (secHand) secHand.setAttribute('transform', `rotate(${sDeg} ${cx} ${cy})`);
+    }
+  };
+
+  if (opts.draggable){
+    enableDrag(svgEl, api, opts);
+  }
+  return api;
+}
+function svg(name, attrs){
+  const el = document.createElementNS('http://www.w3.org/2000/svg', name);
+  for (const k in attrs) el.setAttribute(k, attrs[k]);
+  return el;
+}
+
+/* ---- 바늘 드래그 ---- */
+function enableDrag(svgEl, api, opts){
+  let dragging = null;
+  const cx = 150, cy = 150;
+  function toSvgPoint(evt){
+    const pt = svgEl.createSVGPoint();
+    const t = evt.touches ? evt.touches[0] : evt;
+    pt.x = t.clientX; pt.y = t.clientY;
+    const ctm = svgEl.getScreenCTM();
+    if (!ctm) return {x:0,y:0};
+    const p = pt.matrixTransform(ctm.inverse());
+    return {x:p.x, y:p.y};
+  }
+  function angleFromPoint(p){
+    const dx = p.x - cx, dy = p.y - cy;
+    let deg = Math.atan2(dy, dx) * 180 / Math.PI + 90;
+    if (deg < 0) deg += 360;
+    return deg;
+  }
+  function pick(evt){
+    const target = evt.target;
+    if (target && target.getAttribute && target.getAttribute('data-hand')){
+      return target.getAttribute('data-hand');
+    }
+    // 클릭 지점 근처의 바늘 추정 - 분침 우선
+    const p = toSvgPoint(evt);
+    const d = Math.sqrt((p.x-cx)**2 + (p.y-cy)**2);
+    if (d > 20 && d < 130) return 'min';
+    if (d >= 10 && d <= 90) return 'hour';
+    return null;
+  }
+  function onDown(evt){
+    const which = pick(evt);
+    if (!which) return;
+    dragging = which;
+    api[which === 'hour' ? 'hourHand' : 'minHand'].classList.add('dragging');
+    evt.preventDefault();
+  }
+  function onMove(evt){
+    if (!dragging) return;
+    const p = toSvgPoint(evt);
+    const deg = angleFromPoint(p);
+    if (dragging === 'min'){
+      let m = Math.round(deg / 6) % 60;
+      if (m === 60) m = 0;
+      opts.onChange && opts.onChange('min', m);
+    } else {
+      let h = deg / 30;
+      let whole = Math.floor(h) % 12;
+      if (whole === 0) whole = 12;
+      // 시침이 다음 시간 쪽으로 넘어가지 않도록 반올림
+      opts.onChange && opts.onChange('hour', whole);
+    }
+    evt.preventDefault();
+  }
+  function onUp(){
+    if (dragging){
+      api.hourHand.classList.remove('dragging');
+      api.minHand.classList.remove('dragging');
+    }
+    dragging = null;
+  }
+  svgEl.addEventListener('mousedown', onDown);
+  svgEl.addEventListener('touchstart', onDown, {passive:false});
+  window.addEventListener('mousemove', onMove);
+  window.addEventListener('touchmove', onMove, {passive:false});
+  window.addEventListener('mouseup', onUp);
+  window.addEventListener('touchend', onUp);
+}
+
+/* ======================================================
+   아날로그 배우기 화면
+   ====================================================== */
+let learnClockApi = null;
+function renderLearnClock(){
+  const el = document.getElementById('learn-clock');
+  if (!learnClockApi){
+    learnClockApi = buildClockSVG(el, {
+      draggable: true,
+      onChange: (type, val) => {
+        if (type === 'hour'){ State.learn.hour = val; }
+        else { State.learn.min = val; }
+        syncLearnUI();
+      }
+    });
+  }
+  syncLearnUI();
+}
+function syncLearnUI(){
+  const h = State.learn.hour, m = State.learn.min;
+  learnClockApi.set(h, m);
+  document.getElementById('tp-hour').textContent = h;
+  document.getElementById('tp-min').textContent = String(m).padStart(2,'0');
+}
+document.querySelectorAll('[data-tp]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const t = btn.dataset.tp, d = btn.dataset.dir === 'up' ? 1 : -1;
+    if (t === 'hour'){
+      State.learn.hour = ((State.learn.hour - 1 + d + 12) % 12) + 1;
+    } else {
+      State.learn.min = (State.learn.min + d*5 + 60) % 60;
+    }
+    syncLearnUI();
+  });
+});
+document.querySelectorAll('[data-preset]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const [h, m] = btn.dataset.preset.split(':').map(Number);
+    State.learn.hour = h; State.learn.min = m;
+    syncLearnUI();
+    document.querySelectorAll('[data-preset]').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+/* ======================================================
+   디지털 배우기 화면
+   ====================================================== */
+function renderDigital(){
+  const h = State.digital.hour, m = State.digital.min;
+  const h24 = h;
+  const h12 = ((h-1 + 12) % 12) + 1;
+  const ampm = h < 12 ? '오전 · AM' : '오후 · PM';
+  document.getElementById('dig-time').textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+  document.getElementById('dig-ampm').textContent = ampm;
+  document.getElementById('dig-read').textContent = koreanTime(h, m);
+  document.getElementById('dtp-hour').textContent = String(h).padStart(2,'0');
+  document.getElementById('dtp-min').textContent = String(m).padStart(2,'0');
+}
+function koreanTime(h, m){
+  const hh = ['영','한','두','세','네','다섯','여섯','일곱','여덟','아홉','열','열한','열두'];
+  const hourWord = hh[((h-1+12)%12)+1] || hh[h%12];
+  const ampm = h < 12 ? '오전' : '오후';
+  if (m === 0) return `${ampm} ${hourWord} 시 정각`;
+  if (m === 30) return `${ampm} ${hourWord} 시 삼십 분`;
+  return `${ampm} ${hourWord} 시 ${m}분`;
+}
+document.querySelectorAll('[data-dtp]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const t = btn.dataset.dtp, d = btn.dataset.dir === 'up' ? 1 : -1;
+    if (t === 'hour'){
+      State.digital.hour = (State.digital.hour + d + 24) % 24;
+    } else {
+      State.digital.min = (State.digital.min + d*5 + 60) % 60;
+    }
+    renderDigital();
+  });
+});
+
+/* ======================================================
+   변환 연습 (아날로그 → 디지털, 디지털 → 아날로그)
+   ====================================================== */
+let convClockApi = null, d2aClockApi = null;
+let currentConvTab = 'a2d';
+
+document.querySelectorAll('[data-conv-tab]').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('[data-conv-tab]').forEach(x => x.classList.remove('active'));
+    t.classList.add('active');
+    currentConvTab = t.dataset.convTab;
+    document.getElementById('conv-a2d').style.display = currentConvTab === 'a2d' ? 'block' : 'none';
+    document.getElementById('conv-d2a').style.display = currentConvTab === 'd2a' ? 'block' : 'none';
+    initConvert();
+  });
+});
+
+function initConvert(){
+  if (currentConvTab === 'a2d'){
+    if (!convClockApi){
+      convClockApi = buildClockSVG(document.getElementById('conv-clock'));
+    }
+    newA2dQuestion();
+  } else {
+    if (!d2aClockApi){
+      d2aClockApi = buildClockSVG(document.getElementById('d2a-clock'), {
+        draggable: true,
+        onChange: (type, val) => {
+          if (type === 'hour') State.d2a.curH = val;
+          else State.d2a.curM = val;
+          syncD2aUI();
+        }
+      });
+    }
+    newD2aQuestion();
+  }
+  updateConvertScore();
+}
+function updateConvertScore(){
+  document.getElementById('convert-score').textContent = `${State.convertScore.c} / ${State.convertScore.t}`;
+}
+
+/* --- a2d: 시계가 나오고 숫자를 입력 --- */
+function newA2dQuestion(){
+  const h = randInt(1, 12);
+  const m = [0,5,10,15,20,25,30,35,40,45,50,55][randInt(0,11)];
+  State.a2d = {h, m};
+  convClockApi.set(h, m);
+  document.getElementById('a2d-hour').value = '';
+  document.getElementById('a2d-min').value = '';
+  document.getElementById('a2d-feedback').innerHTML = '';
+}
+document.getElementById('btn-a2d-new').addEventListener('click', newA2dQuestion);
+document.getElementById('btn-a2d-check').addEventListener('click', () => {
+  const h = parseInt(document.getElementById('a2d-hour').value, 10);
+  const m = parseInt(document.getElementById('a2d-min').value, 10);
+  if (isNaN(h) || isNaN(m)){ showToast('시와 분을 모두 적어줘'); return; }
+  State.convertScore.t++;
+  const ok = (h === State.a2d.h || (h===12 && State.a2d.h===12)) && m === State.a2d.m;
+  if (ok){
+    State.convertScore.c++;
+    showFeedback('a2d-feedback', true, '정확해요!', `정답: ${State.a2d.h}시 ${State.a2d.m}분`);
+  } else {
+    showFeedback('a2d-feedback', false, '아쉬워요', `정답은 ${State.a2d.h}시 ${State.a2d.m}분이에요. 시침의 위치와 분침 숫자 × 5를 확인해봐.`);
+  }
+  updateConvertScore();
+});
+
+/* --- d2a: 목표 디지털 → 아날로그 맞추기 --- */
+function newD2aQuestion(){
+  const h = randInt(1, 12);
+  const m = [0,5,10,15,20,25,30,35,40,45,50,55][randInt(0,11)];
+  State.d2a.targetH = h; State.d2a.targetM = m;
+  State.d2a.curH = 12; State.d2a.curM = 0;
+  document.getElementById('d2a-target').textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+  document.getElementById('d2a-feedback').innerHTML = '';
+  syncD2aUI();
+}
+function syncD2aUI(){
+  d2aClockApi.set(State.d2a.curH, State.d2a.curM);
+  document.getElementById('d2a-hour').textContent = State.d2a.curH;
+  document.getElementById('d2a-min').textContent = String(State.d2a.curM).padStart(2,'0');
+}
+document.querySelectorAll('[data-d2a]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const t = btn.dataset.d2a, d = btn.dataset.dir === 'up' ? 1 : -1;
+    if (t === 'hour'){
+      State.d2a.curH = ((State.d2a.curH - 1 + d + 12) % 12) + 1;
+    } else {
+      State.d2a.curM = (State.d2a.curM + d*5 + 60) % 60;
+    }
+    syncD2aUI();
+  });
+});
+document.getElementById('btn-d2a-new').addEventListener('click', newD2aQuestion);
+document.getElementById('btn-d2a-check').addEventListener('click', () => {
+  State.convertScore.t++;
+  const ok = State.d2a.curH === State.d2a.targetH && Math.abs(State.d2a.curM - State.d2a.targetM) <= 1;
+  if (ok){
+    State.convertScore.c++;
+    showFeedback('d2a-feedback', true, '정확해요!', `시침과 분침을 완벽히 맞췄어요 ⭐`);
+  } else {
+    showFeedback('d2a-feedback', false, '조금 달라요', `목표는 ${State.d2a.targetH}시 ${State.d2a.targetM}분. 지금은 ${State.d2a.curH}시 ${State.d2a.curM}분이에요.`);
+  }
+  updateConvertScore();
+});
+
+/* ======================================================
+   경과 시간 화면
+   ====================================================== */
+let elStartApi = null, elEndApi = null;
+function renderElapsed(){
+  if (!elStartApi){
+    elStartApi = buildClockSVG(document.getElementById('el-clock-start'));
+    elEndApi = buildClockSVG(document.getElementById('el-clock-end'));
+  }
+  setElapsed(9, 0, 11, 30);
+}
+function setElapsed(sh, sm, eh, em){
+  document.getElementById('el-start').textContent = fmt(sh, sm);
+  document.getElementById('el-end').textContent = fmt(eh, em);
+  document.getElementById('el-start-lbl').textContent = fmt(sh, sm);
+  document.getElementById('el-end-lbl').textContent = fmt(eh, em);
+  elStartApi.set(sh%12, sm);
+  elEndApi.set(eh%12, em);
+  const total = (eh*60 + em) - (sh*60 + sm);
+  const hh = Math.floor(total/60), mm = total%60;
+  let txt = '';
+  if (hh > 0) txt += `${hh}시간 `;
+  txt += `${mm}분`;
+  document.getElementById('el-result').textContent = txt;
+  document.getElementById('el-fill').style.width = '100%';
+}
+function fmt(h,m){ return `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`; }
+document.querySelectorAll('[data-el]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const [a,b] = btn.dataset.el.split('|');
+    const [sh,sm] = a.split(':').map(Number);
+    const [eh,em] = b.split(':').map(Number);
+    setElapsed(sh,sm,eh,em);
+    document.querySelectorAll('[data-el]').forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+  });
+});
+
+/* ======================================================
+   상황 예시 데이터
+   ====================================================== */
+const SITUATIONS = [
+  {
+    icon:'🏫', iconBg:'ic-blue', time:'08:30', title:'학교 등교 시간',
+    desc:'매일 아침, 교실에 도착해야 하는 시간',
+    story:'<span class="student-name">하은</span>이는 매일 아침 8시 30분까지 교실에 도착해야 해요. 지각하지 않으려면 집에서 7시 50분쯤 출발해요. 버스로 25분 걸리고, 교문에서 교실까지 5분 더 걸리거든요.',
+    questions:[
+      {q:'하은이가 집에서 출발해야 하는 시간은?', a:'07:50'},
+      {q:'버스에서 내린 시간이 8시 15분이면, 교실까지 몇 분 걸릴까요?', a:'5분'}
+    ]
+  },
+  {
+    icon:'🥗', iconBg:'ic-orange', time:'12:30', title:'학교 점심 시간',
+    desc:'급식실에서 점심을 먹는 시간',
+    story:'급식 시간은 12시 30분부터 13시 10분까지예요. <span class="student-name">주은</span>이는 12시 35분에 급식실에 도착했어요. 식사를 20분 동안 하고, 나머지 시간엔 친구들과 이야기해요.',
+    questions:[
+      {q:'급식 시간은 총 몇 분?', a:'40분'},
+      {q:'주은이가 식사를 마친 시간은?', a:'12:55'}
+    ]
+  },
+  {
+    icon:'🏠', iconBg:'ic-green', time:'15:40', title:'하교 시간',
+    desc:'수업을 마치고 집으로 돌아오는 시간',
+    story:'<span class="student-name">하영</span>이는 7교시가 끝나는 15시 40분에 하교해요. 교문에서 친구와 10분 수다 떨고, 20분 걸어서 집에 도착해요.',
+    questions:[
+      {q:'하영이가 집에 도착하는 시간은?', a:'16:10'}
+    ]
+  },
+  {
+    icon:'📚', iconBg:'ic-purple', time:'17:00', title:'학원 시간',
+    desc:'방과 후 학원에 가는 시간',
+    story:'<span class="student-name">주현</span>이는 매주 화요일 17시부터 19시까지 수학 학원에 가요. 학원까지 버스로 15분이 걸려서, 16시 45분 버스를 타야 해요.',
+    questions:[
+      {q:'학원 수업 시간은 몇 시간?', a:'2시간'},
+      {q:'주현이가 집에서 나와야 하는 시간은?', a:'16:40쯤'}
+    ]
+  },
+  {
+    icon:'☕', iconBg:'ic-pink', time:'16:20', title:'카페에서 만남',
+    desc:'친구와 카페에서 약속한 시간',
+    story:'<span class="student-name">미정</span>이와 <span class="student-name">채원</span>이는 16시 20분에 카페에서 만나기로 했어요. 미정이는 10분 일찍 도착했고, 채원이는 5분 늦었어요.',
+    questions:[
+      {q:'미정이가 도착한 시간은?', a:'16:10'},
+      {q:'채원이가 도착한 시간은?', a:'16:25'},
+      {q:'두 사람이 서로 기다린 시간은?', a:'미정 15분, 채원 0분'}
+    ]
+  },
+  {
+    icon:'🚌', iconBg:'ic-mint', time:'07:35', title:'버스 도착 시간',
+    desc:'정류장에서 기다리는 버스 시간',
+    story:'학교 가는 버스는 07:20, 07:35, 07:50에 도착해요. <span class="student-name">예은</span>이는 07:30에 정류장에 도착했어요.',
+    questions:[
+      {q:'예은이가 탈 수 있는 가장 빠른 버스는?', a:'07:35'},
+      {q:'얼마나 기다려야 할까요?', a:'5분'}
+    ]
+  },
+  {
+    icon:'🎬', iconBg:'ic-blue', time:'19:00', title:'영화 시작 시간',
+    desc:'극장에서 영화 상영이 시작되는 시간',
+    story:'영화는 19시에 시작해서 상영 시간이 2시간 20분이에요. <span class="student-name">하은</span>이는 영화 시작 15분 전에 극장에 도착하려고 해요.',
+    questions:[
+      {q:'영화가 끝나는 시간은?', a:'21:20'},
+      {q:'하은이가 극장에 도착해야 하는 시간은?', a:'18:45'}
+    ]
+  },
+  {
+    icon:'💊', iconBg:'ic-red', time:'08:00·14:00·20:00', title:'약 먹는 시간',
+    desc:'하루 세 번, 정해진 시간에 먹는 약',
+    story:'<span class="student-name">주은</span>이는 하루 세 번, 8시간 간격으로 약을 먹어야 해요. 아침 8시에 먹었다면 다음 약은 언제 먹을까요?',
+    questions:[
+      {q:'두 번째 약 먹는 시간은?', a:'16:00'},
+      {q:'세 번째 약 먹는 시간은?', a:'24:00'}
+    ]
+  },
+  {
+    icon:'🏃', iconBg:'ic-orange', time:'06:30', title:'아침 운동',
+    desc:'아침에 운동하는 시간',
+    story:'<span class="student-name">주현</span>이는 매일 아침 6시 30분에 일어나서 45분 동안 운동해요. 운동 후 샤워 20분, 아침 식사 15분이 걸려요.',
+    questions:[
+      {q:'운동이 끝나는 시간은?', a:'07:15'},
+      {q:'아침 식사를 시작하는 시간은?', a:'07:35'}
+    ]
+  },
+  {
+    icon:'🚇', iconBg:'ic-purple', time:'18:15', title:'지하철 환승',
+    desc:'지하철을 갈아타는 시간',
+    story:'<span class="student-name">하영</span>이는 18시 15분에 2호선에 탔어요. 15분 후 환승역에 도착해 4호선으로 갈아타요. 환승은 7분 걸려요.',
+    questions:[
+      {q:'환승역 도착 시간은?', a:'18:30'},
+      {q:'4호선 승차 시간은?', a:'18:37쯤'}
+    ]
+  },
+  {
+    icon:'📞', iconBg:'ic-mint', time:'21:00', title:'가족과 영상통화',
+    desc:'저녁에 가족과 영상통화 약속',
+    story:'<span class="student-name">미정</span>이는 매일 저녁 9시에 할머니께 영상통화를 걸어요. 통화는 보통 20분 정도 해요.',
+    questions:[
+      {q:'통화가 끝나는 시간은?', a:'21:20'},
+      {q:'오후 9시는 24시간제로?', a:'21:00'}
+    ]
+  },
+  {
+    icon:'😴', iconBg:'ic-blue', time:'22:30', title:'잠자는 시간',
+    desc:'하루를 마치고 자는 시간',
+    story:'<span class="student-name">채원</span>이는 22시 30분에 잠들어서 아침 6시 30분에 일어나요.',
+    questions:[
+      {q:'채원이는 몇 시간 자나요?', a:'8시간'},
+      {q:'자정(24:00)까지는 몇 시간 남았나요?', a:'1시간 30분'}
+    ]
+  }
+];
+
+function renderSituationList(){
+  const list = document.getElementById('situation-list');
+  list.innerHTML = SITUATIONS.map((s, i) => `
+    <button class="situation-card" data-sit="${i}">
+      <div class="sit-icon ${s.iconBg}">${s.icon}</div>
+      <div class="sit-body">
+        <div class="sit-time">${s.time}</div>
+        <div class="sit-title">${s.title}</div>
+        <div class="sit-desc">${s.desc}</div>
+      </div>
+      <div class="sit-arrow">›</div>
+    </button>
+  `).join('');
+  list.querySelectorAll('[data-sit]').forEach(b => {
+    b.addEventListener('click', () => openSituation(parseInt(b.dataset.sit,10)));
+  });
+  applyNameReplacements();
+}
+
+function openSituation(idx){
+  const s = SITUATIONS[idx];
+  document.getElementById('sd-title').textContent = s.title;
+  // 시간 파싱(여러 개면 첫 번째)
+  const firstTime = s.time.split('·')[0].trim();
+  const [th, tm] = firstTime.split(':').map(Number);
+  document.getElementById('sd-content').innerHTML = `
+    <div class="sit-detail-hero">
+      <div class="sit-detail-icon">${s.icon}</div>
+      <div class="sit-detail-title">${s.title}</div>
+      <div class="sit-detail-story">${s.story}</div>
+    </div>
+
+    <div class="dual-clock">
+      <div class="dc-item">
+        <svg class="dc-svg" id="sd-clock" viewBox="0 0 300 300"></svg>
+        <div class="dc-label">아날로그</div>
+      </div>
+      <div class="dc-item">
+        <div class="dc-digital">${firstTime}</div>
+        <div class="dc-label">디지털</div>
+      </div>
+    </div>
+
+    <div class="info-card pink">
+      <h4>🤔 생각해볼 질문</h4>
+      ${s.questions.map(q => `
+        <p style="margin-bottom:8px;"><b>Q.</b> ${q.q}<br>
+        <span style="color:var(--primary); font-weight:700;">A.</span> <span class="qa-hidden" data-a="${q.a}" style="background:#E8F0FE; color:#E8F0FE; padding:0 4px; border-radius:3px; cursor:pointer; user-select:none;">탭하면 보여요</span></p>
+      `).join('')}
+    </div>
+
+    <div class="info-card">
+      <h4>⏰ 시간 비교</h4>
+      <p>이 시간은 <b>${th < 12 ? '오전' : '오후'}</b>이고, 12시간제로는 <b>${((th-1+12)%12)+1}시 ${String(tm).padStart(2,'0')}분</b>, 24시간제로는 <b>${firstTime}</b>이에요.</p>
+    </div>
+
+    <button class="btn secondary" data-back>목록으로 돌아가기</button>
+  `;
+  // 시계 그리기
+  const sdApi = buildClockSVG(document.getElementById('sd-clock'));
+  sdApi.set(th%12, tm);
+  // 답 토글
+  document.querySelectorAll('.qa-hidden').forEach(a => {
+    a.addEventListener('click', () => {
+      a.textContent = a.dataset.a;
+      a.style.background = '#FFF59D';
+      a.style.color = 'var(--navy)';
+    });
+  });
+  document.querySelector('#sd-content [data-back]').addEventListener('click', goBack);
+  showScreen('situation-detail');
+  applyNameReplacements();
+}
+
+/* ======================================================
+   하루 일과
+   ====================================================== */
+const DAY_PLAN = [
+  {time:'07:00', emoji:'⏰', event:'기상 (일어나기)'},
+  {time:'07:20', emoji:'🚿', event:'세수 · 양치 · 옷 갈아입기'},
+  {time:'07:45', emoji:'🍳', event:'아침 식사'},
+  {time:'08:10', emoji:'🚌', event:'집에서 출발 → 등교'},
+  {time:'08:30', emoji:'🏫', event:'학교 도착 · 조회'},
+  {time:'09:00', emoji:'📖', event:'1교시 수업 시작'},
+  {time:'12:30', emoji:'🥗', event:'점심 식사'},
+  {time:'13:30', emoji:'📚', event:'오후 수업'},
+  {time:'15:40', emoji:'🎒', event:'하교'},
+  {time:'16:00', emoji:'🍪', event:'간식 먹고 쉬기'},
+  {time:'17:00', emoji:'✏️', event:'숙제 · 복습'},
+  {time:'18:30', emoji:'🍚', event:'저녁 식사'},
+  {time:'19:30', emoji:'📺', event:'자유 시간 · TV·게임'},
+  {time:'21:00', emoji:'🚿', event:'샤워'},
+  {time:'21:30', emoji:'📔', event:'일기 쓰기 · 내일 준비'},
+  {time:'22:30', emoji:'😴', event:'잠자리에 들기'},
+];
+function renderDayPlan(){
+  const el = document.getElementById('day-plan-list');
+  el.innerHTML = DAY_PLAN.map(r => `
+    <div class="day-row">
+      <div class="day-time">${r.time}</div>
+      <div class="day-event"><span class="day-emoji">${r.emoji}</span>${r.event}</div>
+    </div>
+  `).join('');
+  applyNameReplacements();
+}
+
+/* ======================================================
+   퀴즈 모드
+   ====================================================== */
+const QUIZ_TITLES = {
+  easy:'쉬움 · 정각 읽기',
+  medium:'보통 · 5분 단위',
+  hard:'어려움 · 분 단위',
+  elapsed:'경과시간 퀴즈',
+  situation:'상황 퀴즈'
+};
+document.querySelectorAll('[data-quiz]').forEach(b => {
+  b.addEventListener('click', () => startQuiz(b.dataset.quiz));
+});
+function startQuiz(mode){
+  State.quiz.mode = mode;
+  State.quiz.idx = 0;
+  State.quiz.correct = 0;
+  State.quiz.data = buildQuizSet(mode, 10);
+  document.getElementById('quiz-title').textContent = QUIZ_TITLES[mode] || '퀴즈';
+  showScreen('quiz-play');
+  renderQuizQuestion();
+}
+function buildQuizSet(mode, n){
+  const arr = [];
+  for (let i=0; i<n; i++){
+    if (mode === 'easy'){
+      const h = randInt(1,12); const m = 0;
+      arr.push({type:'read', h, m, prompt:'이 시계는 몇 시일까요?', correct:`${h}:00`, opts:genOpts(h, m, 'easy')});
+    } else if (mode === 'medium'){
+      const h = randInt(1,12); const m = [0,5,10,15,20,25,30,35,40,45,50,55][randInt(0,11)];
+      arr.push({type:'read', h, m, prompt:'이 시계는 몇 시 몇 분일까요?', correct:`${h}:${String(m).padStart(2,'0')}`, opts:genOpts(h, m, 'medium')});
+    } else if (mode === 'hard'){
+      const h = randInt(1,12); const m = randInt(1,59);
+      arr.push({type:'read', h, m, prompt:'이 시계는 몇 시 몇 분일까요?', correct:`${h}:${String(m).padStart(2,'0')}`, opts:genOpts(h, m, 'hard')});
+    } else if (mode === 'elapsed'){
+      const sh = randInt(6, 18); const sm = [0,15,30,45][randInt(0,3)];
+      const addM = [15,30,45,60,75,90,120,150][randInt(0,7)];
+      const total = sh*60 + sm + addM;
+      const eh = Math.floor(total/60), em = total%60;
+      const hh = Math.floor(addM/60), mm = addM%60;
+      const correct = hh>0 ? `${hh}시간 ${mm}분` : `${mm}분`;
+      arr.push({type:'elapsed', sh, sm, eh, em, prompt:`${fmt(sh,sm)}부터 ${fmt(eh,em)}까지 몇 시간 몇 분이 지났을까요?`, correct, opts:genElapsedOpts(addM)});
+    } else if (mode === 'situation'){
+      const q = genSituationQ();
+      arr.push(q);
+    }
+  }
+  return arr;
+}
+function genOpts(h, m, level){
+  const correct = `${h}:${String(m).padStart(2,'0')}`;
+  const opts = new Set([correct]);
+  while (opts.size < 4){
+    let dh = h, dm = m;
+    if (level === 'easy'){
+      dh = randInt(1,12); dm = 0;
+    } else if (level === 'medium'){
+      if (Math.random() < .5) dh = ((h + randInt(1,3) - 1 + 12) % 12) + 1;
+      if (Math.random() < .6) dm = [0,5,10,15,20,25,30,35,40,45,50,55][randInt(0,11)];
+    } else {
+      if (Math.random() < .5) dh = ((h + randInt(1,2) - 1 + 12) % 12) + 1;
+      if (Math.random() < .7) dm = Math.max(0, Math.min(59, m + randInt(-7,7)));
+    }
+    opts.add(`${dh}:${String(dm).padStart(2,'0')}`);
+  }
+  return shuffle([...opts]);
+}
+function genElapsedOpts(addM){
+  const fmt2 = v => { const hh=Math.floor(v/60), mm=v%60; return hh>0 ? `${hh}시간 ${mm}분` : `${mm}분`; };
+  const opts = new Set([fmt2(addM)]);
+  const deltas = [-30,-15,15,30,45,60];
+  shuffle(deltas);
+  for (const d of deltas){
+    const v = addM + d;
+    if (v > 0 && v < 300) opts.add(fmt2(v));
+    if (opts.size >= 4) break;
+  }
+  while (opts.size < 4){ opts.add(fmt2(addM + randInt(5, 60))); }
+  return shuffle([...opts]);
+}
+function genSituationQ(){
+  const tpl = [
+    {q:'학교 시작이 08:30이에요. 7시 50분에 출발하면 몇 분 안에 도착해야 할까요?', correct:'40분', opts:['30분','40분','50분','1시간']},
+    {q:'영화가 19시에 시작해서 2시간 20분 상영이에요. 끝나는 시간은?', correct:'21:20', opts:['20:20','21:00','21:20','21:40']},
+    {q:'학원이 17시부터 19시까지예요. 수업 시간은?', correct:'2시간', opts:['1시간','1시간 30분','2시간','2시간 30분']},
+    {q:'버스가 07:35에 오고 지금은 07:20이에요. 몇 분 더 기다려야 하나요?', correct:'15분', opts:['5분','10분','15분','20분']},
+    {q:'하루에 세 번, 8시간마다 약을 먹어요. 첫 약이 08:00이면 마지막은?', correct:'24:00(00:00)', opts:['16:00','20:00','22:00','24:00(00:00)']},
+    {q:'아침 7시부터 밤 10시까지 깨어 있어요. 깨어 있는 시간은?', correct:'15시간', opts:['13시간','14시간','15시간','16시간']},
+    {q:'점심 12:30 ~ 13:10, 점심 시간은 몇 분?', correct:'40분', opts:['30분','35분','40분','45분']},
+    {q:'지금은 15:45, 30분 후는?', correct:'16:15', opts:['16:00','16:15','16:30','16:45']},
+    {q:'기상 06:30, 8시간 잠을 잤어요. 잠든 시각은?', correct:'22:30', opts:['21:30','22:00','22:30','23:00']},
+    {q:'오후 2시는 24시간제로?', correct:'14:00', opts:['12:00','14:00','16:00','20:00']}
+  ];
+  const pick = tpl[randInt(0, tpl.length-1)];
+  return {type:'situation', prompt:pick.q, correct:pick.correct, opts:shuffle([...pick.opts])};
+}
+
+let quizClockApi = null;
+function renderQuizQuestion(){
+  const q = State.quiz.data[State.quiz.idx];
+  const card = document.getElementById('quiz-card');
+  document.getElementById('qp-fill').style.width = `${(State.quiz.idx+1)/State.quiz.data.length*100}%`;
+  document.getElementById('qp-correct').textContent = State.quiz.correct;
+  document.getElementById('quiz-hdr-score').textContent = `${State.quiz.idx+1} / ${State.quiz.data.length}`;
+  document.getElementById('quiz-feedback').innerHTML = '';
+  document.getElementById('quiz-next-wrap').style.display = 'none';
+
+  let inner = `<div class="quiz-q">${q.prompt}</div>`;
+  if (q.type === 'read'){
+    inner += `<svg class="clock-svg" id="quiz-clock" viewBox="0 0 300 300"></svg>`;
+  } else if (q.type === 'elapsed'){
+    inner += `
+      <div class="elapsed-pair" style="margin:10px 0 14px;">
+        <div class="ep-item"><div class="ep-label">시작</div><div class="ep-time" style="font-size:20px;">${fmt(q.sh,q.sm)}</div></div>
+        <div class="ep-arrow">→</div>
+        <div class="ep-item"><div class="ep-label">끝</div><div class="ep-time" style="font-size:20px;">${fmt(q.eh,q.em)}</div></div>
+      </div>
+    `;
+  }
+  inner += `<div class="opt-grid" id="opt-grid">
+    ${q.opts.map(o => `<button class="opt-btn" data-opt="${o}">${o}</button>`).join('')}
+  </div>`;
+  card.innerHTML = inner;
+
+  if (q.type === 'read'){
+    const el = document.getElementById('quiz-clock');
+    quizClockApi = buildClockSVG(el);
+    quizClockApi.set(q.h, q.m);
+  }
+
+  card.querySelectorAll('[data-opt]').forEach(b => {
+    b.addEventListener('click', () => answerQuiz(b.dataset.opt, b));
+  });
+}
+function answerQuiz(opt, btn){
+  const q = State.quiz.data[State.quiz.idx];
+  const ok = opt === q.correct;
+  const grid = document.getElementById('opt-grid');
+  grid.querySelectorAll('.opt-btn').forEach(b => {
+    b.classList.add('disabled');
+    if (b.dataset.opt === q.correct) b.classList.add('correct');
+    if (b === btn && !ok) b.classList.add('wrong');
+  });
+  if (ok){
+    State.quiz.correct++;
+    showFeedback('quiz-feedback', true, '정답이에요!', randomPraise());
+  } else {
+    showFeedback('quiz-feedback', false, '아쉬워요', `정답은 <b>${q.correct}</b>이에요. ${hintFor(q)}`);
+  }
+  document.getElementById('qp-correct').textContent = State.quiz.correct;
+  document.getElementById('quiz-next-wrap').style.display = 'flex';
+}
+function hintFor(q){
+  if (q.type === 'read') return '시침(짧은 바늘)과 분침(긴 바늘)을 다시 한 번 보고 숫자와 비교해봐.';
+  if (q.type === 'elapsed') return '끝 시간에서 시작 시간을 빼면 돼. 분이 모자라면 1시간(60분)을 빌려와!';
+  return '시간 계산을 다시 한 번 해보자.';
+}
+document.getElementById('btn-quiz-next').addEventListener('click', () => {
+  State.quiz.idx++;
+  if (State.quiz.idx >= State.quiz.data.length){
+    showResult();
+  } else {
+    renderQuizQuestion();
+  }
+});
+document.getElementById('btn-quiz-again').addEventListener('click', () => startQuiz(State.quiz.mode));
+
+function showResult(){
+  const c = State.quiz.correct, t = State.quiz.data.length;
+  const rate = c / t;
+  document.getElementById('result-score').textContent = c;
+  const hero = document.getElementById('result-hero');
+  hero.classList.toggle('low', rate < 0.6);
+  if (rate === 1){
+    document.getElementById('result-emoji').textContent = '🏆';
+    document.getElementById('result-title').textContent = '완벽해요!';
+    document.getElementById('result-msg').textContent = '모든 문제를 다 맞혔어요. 정말 최고예요!';
+  } else if (rate >= 0.8){
+    document.getElementById('result-emoji').textContent = '🌟';
+    document.getElementById('result-title').textContent = '아주 잘했어요!';
+    document.getElementById('result-msg').textContent = '거의 다 맞았어요. 조금만 더 연습하면 완벽!';
+  } else if (rate >= 0.6){
+    document.getElementById('result-emoji').textContent = '👏';
+    document.getElementById('result-title').textContent = '잘했어요!';
+    document.getElementById('result-msg').textContent = '잘 하고 있어요. 틀린 문제는 다시 한 번 풀어봐요.';
+  } else {
+    document.getElementById('result-emoji').textContent = '💪';
+    document.getElementById('result-title').textContent = '다시 도전!';
+    document.getElementById('result-msg').textContent = '괜찮아요. 처음엔 어려워요. 다시 도전하면 더 잘할 거예요.';
+  }
+  showScreen('quiz-result');
+}
+
+/* ======================================================
+   아날로그 시각 읽기 (전용)
+   ====================================================== */
+let raClockApi = null;
+State.ra = {h:3, m:0, diff:'easy', c:0, t:0};
+function initReadAnalog(){
+  if (!raClockApi){
+    raClockApi = buildClockSVG(document.getElementById('ra-clock'));
+    document.querySelectorAll('[data-ra-diff]').forEach(b => {
+      b.addEventListener('click', () => {
+        document.querySelectorAll('[data-ra-diff]').forEach(c => c.classList.remove('active'));
+        b.classList.add('active');
+        State.ra.diff = b.dataset.raDiff;
+        newRaQuestion();
+      });
+    });
+    document.getElementById('btn-ra-new').addEventListener('click', newRaQuestion);
+    document.getElementById('btn-ra-check').addEventListener('click', checkRa);
+    // Enter 키로 제출
+    ['ra-hour','ra-min'].forEach(id => {
+      document.getElementById(id).addEventListener('keydown', e => {
+        if (e.key === 'Enter'){ e.preventDefault(); checkRa(); }
+      });
+    });
+  }
+  newRaQuestion();
+  updateRaScore();
+}
+function newRaQuestion(){
+  const h = randInt(1, 12);
+  let m;
+  if (State.ra.diff === 'easy'){ m = 0; }
+  else if (State.ra.diff === 'medium'){
+    m = [0,5,10,15,20,25,30,35,40,45,50,55][randInt(0,11)];
+  } else {
+    m = randInt(0, 59);
+  }
+  State.ra.h = h; State.ra.m = m;
+  raClockApi.set(h, m);
+  document.getElementById('ra-hour').value = '';
+  document.getElementById('ra-min').value = '';
+  document.getElementById('ra-feedback').innerHTML = '';
+  setTimeout(() => document.getElementById('ra-hour').focus(), 100);
+}
+function updateRaScore(){
+  document.getElementById('ra-score').textContent = `${State.ra.c} / ${State.ra.t}`;
+}
+function checkRa(){
+  const h = parseInt(document.getElementById('ra-hour').value, 10);
+  const m = parseInt(document.getElementById('ra-min').value, 10);
+  if (isNaN(h) || isNaN(m)){ showToast('시와 분을 모두 적어줘'); return; }
+  State.ra.t++;
+  const ok = h === State.ra.h && m === State.ra.m;
+  if (ok){
+    State.ra.c++;
+    showFeedback('ra-feedback', true, '정확해요!', `${randomPraise()} 다음 문제도 도전!`);
+    setTimeout(newRaQuestion, 1500);
+  } else {
+    showFeedback('ra-feedback', false, '아쉬워요',
+      `정답은 <b>${State.ra.h}시 ${State.ra.m}분</b>이에요. 짧은 바늘이 가리키는 숫자와 긴 바늘 숫자 × 5를 다시 확인해봐.`);
+  }
+  updateRaScore();
+}
+
+/* ======================================================
+   직접 맞추기 (자유 설정)
+   ====================================================== */
+let freeClockApi = null;
+function initFreeSet(){
+  if (!freeClockApi){
+    freeClockApi = buildClockSVG(document.getElementById('free-clock'), {
+      draggable: true,
+      onChange: (type, val) => {
+        if (type === 'hour') State.free.curH = val;
+        else State.free.curM = val;
+        syncFreeUI();
+      }
+    });
+  }
+  newFreeTarget();
+}
+function newFreeTarget(){
+  const h = randInt(1,12);
+  const m = [0,5,10,15,20,25,30,35,40,45,50,55][randInt(0,11)];
+  State.free.targetH = h; State.free.targetM = m;
+  State.free.curH = 12; State.free.curM = 0;
+  document.getElementById('free-target').textContent = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+  document.getElementById('free-feedback').innerHTML = '';
+  syncFreeUI();
+}
+function syncFreeUI(){
+  freeClockApi.set(State.free.curH, State.free.curM);
+  document.getElementById('free-current').textContent =
+    `${String(State.free.curH).padStart(2,'0')}:${String(State.free.curM).padStart(2,'0')}`;
+}
+document.getElementById('btn-free-new').addEventListener('click', newFreeTarget);
+document.getElementById('btn-free-check').addEventListener('click', () => {
+  const ok = State.free.curH === State.free.targetH && Math.abs(State.free.curM - State.free.targetM) <= 1;
+  if (ok){
+    showFeedback('free-feedback', true, '정확해요!', '시계 바늘을 정확히 맞췄어요. 멋져요! ⭐');
+  } else {
+    showFeedback('free-feedback', false, '조금 달라요',
+      `목표 ${State.free.targetH}:${String(State.free.targetM).padStart(2,'0')} · 지금 ${State.free.curH}:${String(State.free.curM).padStart(2,'0')}`);
+  }
+});
+
+/* ======================================================
+   공통: 피드백 박스
+   ====================================================== */
+function showFeedback(elId, ok, title, desc){
+  const el = document.getElementById(elId);
+  el.innerHTML = `
+    <div class="feedback-box ${ok ? '' : 'wrong'}">
+      <div class="fb-icon">${ok ? '✅' : '🤔'}</div>
+      <div class="fb-body">
+        <div class="fb-title">${title}</div>
+        <div class="fb-desc">${desc}</div>
+      </div>
+    </div>
+  `;
+}
+function randomPraise(){
+  const arr = ['정말 멋져요!','훌륭해요 ⭐','잘했어요 👏','완벽해요!','최고예요!','대단해요 🎉','그렇지!','아주 좋아요!'];
+  return arr[randInt(0, arr.length-1)];
+}
+
+/* ======================================================
+   유틸
+   ====================================================== */
+function randInt(a, b){ return Math.floor(Math.random() * (b-a+1)) + a; }
+function shuffle(arr){
+  for (let i=arr.length-1; i>0; i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+/* ---- 이름 편집기에서 바꾼 이름 반영을 위해 .student-name도 교체 ---- */
+function applyNameReplacements(){
+  // 이름 편집기에서 수정된 .sn 요소의 텍스트를 가져와 .student-name에 반영
+  // (여기서는 기본값 유지, 편집기에 의해 자동 wrap되도록 하단 snippet이 처리)
+}
+
+/* ---- 뒤로가기 버튼 처리(일부 상황상세의 뒤로가기) ---- */
+document.addEventListener('click', (e) => {
+  const t = e.target.closest('[data-back]');
+  if (t && !t.dataset.boundBack){
+    // 이미 바인딩된 건 제외 (상세에서 동적 생성 시)
+  }
+});
+
+</script>
+
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: fixed; top: 10px; right: 10px; z-index: 999; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; max-width: 360px; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12); font-size: 0.88em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238;
+  display: block !important; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+#name-editor.collapsed { padding: 6px 10px; }
+#name-editor.collapsed .ne-row, #name-editor.collapsed .ne-actions, #name-editor.collapsed .ne-hint { display: none; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none !important; } .sn.changed { background: transparent; padding: 0; } }
+@media (max-width: 500px){
+  #name-editor { top: auto; bottom: 10px; right: 10px; left: 10px; max-width: none; }
+}
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function rewrapNewContent(){
+    // 동적으로 추가되는 상황 상세 내용도 감지
+    wrap(document.body);
+    bindInputs();
+  }
+  function bindInputs(){
+    var panel = document.getElementById('name-editor');
+    if (!panel) return;
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].__bound) continue;
+      inputs[i].__bound = true;
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    panel.className = 'collapsed';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title" style="cursor:pointer;" id="ne-toggle">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(이름 ' + detected.length + '명 · 탭하여 펼치기)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    document.body.appendChild(panel);
+    bindInputs();
+    document.getElementById('ne-toggle').addEventListener('click', function(){
+      panel.classList.toggle('collapsed');
+    });
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      var inputs = panel.querySelectorAll('input');
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+    // 동적 콘텐츠 감지
+    var observer = new MutationObserver(function(mutations){
+      var changed = false;
+      mutations.forEach(function(mu){
+        if (mu.addedNodes && mu.addedNodes.length){
+          mu.addedNodes.forEach(function(nd){
+            if (nd.nodeType === 1 && nd.id !== 'name-editor'){ changed = true; }
+          });
+        }
+      });
+      if (changed){
+        // 새로 추가된 노드만 wrap
+        setTimeout(function(){
+          var all = document.querySelectorAll('.sit-detail-story, .day-event, .home-greeting, .section-title');
+          // 전체를 다시 검사(가볍게)
+          wrap(document.body);
+          // 입력값 유지
+          var panel = document.getElementById('name-editor');
+          if (panel){
+            var inputs = panel.querySelectorAll('input');
+            for (var i=0; i<inputs.length; i++){
+              var orig = inputs[i].getAttribute('data-original');
+              var v = inputs[i].value || orig;
+              if (v !== orig){
+                var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+                for (var j = 0; j < spans.length; j++) {
+                  spans[j].textContent = v;
+                  spans[j].classList.add('changed');
+                }
+              }
+            }
+          }
+        }, 30);
+      }
+    });
+    observer.observe(document.body, {childList:true, subtree:true});
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

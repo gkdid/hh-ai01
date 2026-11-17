@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>✏️ 맞춤법 연습 앱</title>
+<style>
+:root{
+  --primary:#F76B5E;
+  --primary-dark:#E04437;
+  --primary-light:#FFECEA;
+  --navy:#1A2438;
+  --gray:#8B95A1;
+  --gray2:#B0B8C1;
+  --bg:#FDF8F5;
+  --line:#EDE5E1;
+  --white:#FFFFFF;
+  --green:#16B88E;
+  --green-light:#E6F7F1;
+  --red:#F04452;
+  --red-light:#FEECEC;
+  --yellow:#FFC107;
+  --yellow-light:#FFF9E6;
+  --blue:#4F7DF3;
+  --blue-light:#E8F0FE;
+  --orange:#FF8A3D;
+  --orange-light:#FFF1E6;
+  --purple:#8B5CF6;
+  --purple-light:#F0EBFE;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{
+  font-family:'Pretendard','Malgun Gothic','맑은 고딕',-apple-system,sans-serif;
+  background:#DCE0E5;
+  min-height:100vh;
+  display:flex; justify-content:center;
+  color:var(--navy);
+  -webkit-font-smoothing:antialiased;
+}
+.app{
+  width:100%; max-width:460px;
+  background:var(--bg);
+  min-height:100vh; position:relative;
+  box-shadow:0 0 40px rgba(0,0,0,.18);
+  display:flex; flex-direction:column;
+  overflow:hidden;
+}
+.statusbar{
+  background:var(--white);
+  padding:8px 20px 4px;
+  display:flex; justify-content:space-between;
+  font-size:13px; font-weight:700;
+}
+.hdr{
+  background:var(--white);
+  padding:12px 16px;
+  display:flex; align-items:center; gap:10px;
+  border-bottom:1px solid var(--line);
+  min-height:52px;
+  position:sticky; top:0; z-index:10;
+}
+.hdr-back{
+  background:transparent; border:none;
+  width:32px; height:32px;
+  font-size:22px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+}
+.hdr-title{font-size:17px; font-weight:700; flex:1;}
+.hdr-right{font-size:13px; color:var(--primary); font-weight:700; padding:4px 8px;}
+
+.screen{display:none; flex:1; overflow-y:auto; padding-bottom:30px;}
+.screen.active{display:block;}
+
+/* ─── 홈 히어로 ─── */
+.home-hero{
+  background:linear-gradient(135deg,#F76B5E 0%,#FFB347 100%);
+  color:#fff;
+  padding:28px 22px 26px;
+  position:relative; overflow:hidden;
+}
+.home-hero::before{
+  content:'✏️'; position:absolute;
+  right:-10px; top:-10px;
+  font-size:120px; opacity:.15;
+}
+.home-greeting{font-size:14px; opacity:.9; margin-bottom:4px;}
+.home-title{font-size:24px; font-weight:800; margin-bottom:8px; line-height:1.3;}
+.home-sub{font-size:13px; opacity:.95; line-height:1.5;}
+
+.stats-row{
+  display:flex; gap:10px;
+  margin:14px 16px 0;
+  background:var(--white);
+  border-radius:16px;
+  padding:12px;
+}
+.stat-item{flex:1; text-align:center;}
+.stat-val{font-size:22px; font-weight:800; color:var(--primary);}
+.stat-lbl{font-size:11px; color:var(--gray); margin-top:2px;}
+.stat-sep{width:1px; background:var(--line);}
+
+.menu-section{padding:18px 16px 4px;}
+.menu-label{
+  font-size:12px; font-weight:700; color:var(--gray);
+  margin-bottom:10px; padding:0 4px; letter-spacing:.5px;
+}
+.menu-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+.menu-card{
+  background:var(--white);
+  border-radius:16px;
+  padding:16px 14px;
+  cursor:pointer;
+  text-align:left;
+  width:100%; border:none;
+  font-family:inherit;
+  transition:transform .12s;
+}
+.menu-card:active{transform:scale(.97);}
+.menu-card.wide{grid-column:1 / span 2;}
+.mc-icon{
+  width:40px; height:40px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px; margin-bottom:10px;
+}
+.mc-title{font-size:15px; font-weight:700; margin-bottom:3px;}
+.mc-desc{font-size:11.5px; color:var(--gray); line-height:1.4;}
+.ic-red{background:var(--primary-light); color:var(--primary);}
+.ic-green{background:var(--green-light); color:var(--green);}
+.ic-blue{background:var(--blue-light); color:var(--blue);}
+.ic-orange{background:var(--orange-light); color:var(--orange);}
+.ic-purple{background:var(--purple-light); color:var(--purple);}
+.ic-yellow{background:var(--yellow-light); color:#D97706;}
+
+.content{padding:18px 16px;}
+.section-title{font-size:18px; font-weight:800; margin:4px 0 10px;}
+.section-desc{font-size:13.5px; color:var(--gray); margin-bottom:16px; line-height:1.5;}
+
+/* ─── 주제 리스트 ─── */
+.topic-list{display:flex; flex-direction:column; gap:10px;}
+.topic-card{
+  background:var(--white);
+  border-radius:16px;
+  padding:14px;
+  display:flex; align-items:center; gap:12px;
+  cursor:pointer; text-align:left;
+  width:100%; border:none;
+  font-family:inherit;
+  transition:transform .12s;
+}
+.topic-card:active{transform:scale(.98);}
+.topic-num{
+  width:36px; height:36px; border-radius:50%;
+  background:var(--primary-light); color:var(--primary);
+  display:flex; align-items:center; justify-content:center;
+  font-size:14px; font-weight:800;
+  flex-shrink:0;
+}
+.topic-body{flex:1; min-width:0;}
+.topic-title{font-size:15px; font-weight:800; color:var(--navy);}
+.topic-pair{
+  font-size:13px; color:var(--primary); font-weight:700;
+  margin-top:2px;
+  display:flex; align-items:center; gap:6px;
+}
+.topic-vs{color:var(--gray2); font-weight:400;}
+.topic-arrow{color:var(--gray2); font-size:20px;}
+
+/* ─── 주제 상세 ─── */
+.topic-hero{
+  background:var(--white);
+  border-radius:20px;
+  padding:18px 16px;
+  margin-bottom:14px;
+  text-align:center;
+}
+.th-emoji{font-size:42px; margin-bottom:6px;}
+.th-title{font-size:20px; font-weight:800; margin-bottom:6px;}
+.th-vs{
+  display:flex; justify-content:center; align-items:center; gap:14px;
+  margin:10px 0;
+}
+.th-word{
+  font-size:28px; font-weight:800;
+  padding:8px 18px;
+  border-radius:12px;
+  background:var(--green-light);
+  color:var(--green);
+}
+.th-word.wrong{background:var(--red-light); color:var(--red);}
+.th-vs-sep{font-size:22px; color:var(--gray);}
+
+.info-card{
+  background:var(--white);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:10px;
+  border-left:4px solid var(--primary);
+}
+.info-card.green{border-left-color:var(--green);}
+.info-card.red{border-left-color:var(--red);}
+.info-card.blue{border-left-color:var(--blue);}
+.info-card.yellow{border-left-color:var(--yellow);}
+.info-card.purple{border-left-color:var(--purple);}
+.info-card h4{font-size:15px; font-weight:800; margin-bottom:8px;}
+.info-card p{font-size:13.5px; color:#495366; line-height:1.6;}
+.info-card .ok{color:var(--green); font-weight:800;}
+.info-card .no{color:var(--red); font-weight:800; text-decoration:line-through;}
+.info-card .highlight{background:#FFF59D; padding:0 4px; border-radius:3px;}
+
+.example-row{
+  display:flex; align-items:center; gap:8px;
+  padding:6px 0;
+  font-size:14px; line-height:1.5;
+}
+.example-row .em{font-size:18px; width:24px; text-align:center;}
+
+/* ─── 버튼 ─── */
+.btn{
+  background:var(--primary);
+  color:#fff; border:none;
+  border-radius:12px;
+  padding:14px 20px;
+  font-size:15px; font-weight:700;
+  cursor:pointer; width:100%;
+  font-family:inherit;
+  transition:transform .12s;
+}
+.btn:active{transform:scale(.97);}
+.btn:disabled{background:var(--gray2);}
+.btn.secondary{background:var(--white); color:var(--primary); border:1.5px solid var(--primary);}
+.btn.success{background:var(--green);}
+.btn.ghost{background:transparent; color:var(--primary);}
+.btn-row{display:flex; gap:8px;}
+.btn-row .btn{flex:1;}
+
+/* ─── 퀴즈 ─── */
+.quiz-progress{
+  background:var(--white);
+  border-radius:12px;
+  padding:10px 14px;
+  margin-bottom:12px;
+  display:flex; align-items:center; gap:10px;
+  font-size:13px; font-weight:600;
+}
+.qp-bar{flex:1; height:8px; background:var(--bg); border-radius:4px; overflow:hidden;}
+.qp-fill{height:100%; background:var(--primary); border-radius:4px; transition:width .3s;}
+.qp-score{color:var(--green); font-weight:800;}
+
+.quiz-card{
+  background:var(--white);
+  border-radius:20px;
+  padding:18px 16px;
+  margin-bottom:12px;
+}
+.quiz-type{
+  display:inline-block;
+  background:var(--primary-light);
+  color:var(--primary);
+  font-size:11px; font-weight:800;
+  padding:3px 10px;
+  border-radius:12px;
+  margin-bottom:10px;
+}
+.quiz-prompt{
+  font-size:16px; font-weight:700;
+  line-height:1.6; color:var(--navy);
+  margin-bottom:14px;
+}
+.quiz-sentence{
+  background:var(--yellow-light);
+  padding:14px;
+  border-radius:12px;
+  font-size:17px; line-height:1.7;
+  text-align:center;
+  margin-bottom:14px;
+  font-weight:600;
+  border:1.5px dashed var(--yellow);
+}
+.quiz-blank{
+  display:inline-block;
+  min-width:60px;
+  text-align:center;
+  padding:2px 8px;
+  margin:0 3px;
+  border-bottom:2.5px solid var(--primary);
+  font-weight:800;
+  color:var(--primary);
+}
+.quiz-blank.filled{border-bottom-color:var(--green); color:var(--green);}
+.quiz-blank.wrong-fill{border-bottom-color:var(--red); color:var(--red);}
+
+.opt-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:8px;
+}
+.opt-btn{
+  background:var(--white);
+  border:2px solid var(--line);
+  border-radius:14px;
+  padding:16px 10px;
+  font-size:17px; font-weight:800;
+  cursor:pointer; color:var(--navy);
+  font-family:inherit;
+  transition:all .15s;
+}
+.opt-btn:active{transform:scale(.96);}
+.opt-btn.correct{background:var(--green-light); border-color:var(--green); color:var(--green);}
+.opt-btn.wrong{background:var(--red-light); border-color:var(--red); color:var(--red);}
+.opt-btn.disabled{pointer-events:none; opacity:.65;}
+
+.opt-list{display:flex; flex-direction:column; gap:10px;}
+.opt-list .opt-btn{text-align:left; padding:14px 16px; font-size:15px;}
+
+.feedback-box{
+  background:var(--green-light);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:12px;
+  animation:popin .3s ease;
+}
+.feedback-box.wrong{background:var(--red-light);}
+@keyframes popin{
+  0%{transform:scale(.85); opacity:0;}
+  100%{transform:scale(1); opacity:1;}
+}
+.fb-head{display:flex; align-items:center; gap:10px; margin-bottom:6px;}
+.fb-icon{font-size:24px;}
+.fb-title{font-size:15px; font-weight:800; color:var(--green);}
+.feedback-box.wrong .fb-title{color:var(--red);}
+.fb-desc{font-size:13px; color:#495366; line-height:1.6;}
+.fb-desc b{color:var(--navy);}
+
+/* ─── 결과 ─── */
+.result-hero{
+  background:linear-gradient(135deg,#16B88E 0%,#3DD9D6 100%);
+  color:#fff;
+  border-radius:20px;
+  padding:24px 20px;
+  text-align:center;
+  margin-bottom:16px;
+}
+.result-hero.low{background:linear-gradient(135deg,#F76B5E 0%,#FFB347 100%);}
+.result-emoji{font-size:56px; margin-bottom:8px;}
+.result-title{font-size:20px; font-weight:800; margin-bottom:4px;}
+.result-score{font-size:34px; font-weight:800; margin:8px 0;}
+.result-msg{font-size:13px; opacity:.95; line-height:1.5;}
+
+.wrong-review{
+  background:var(--white);
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:12px;
+}
+.wrong-review h4{font-size:14px; font-weight:800; margin-bottom:10px;}
+.wrong-item{
+  padding:8px 0;
+  border-bottom:1px dashed var(--line);
+  font-size:13px; line-height:1.5;
+}
+.wrong-item:last-child{border-bottom:none;}
+.wrong-item .wi-q{color:var(--navy); font-weight:600; margin-bottom:3px;}
+.wrong-item .wi-a{color:var(--green); font-weight:700;}
+.wrong-item .wi-y{color:var(--red); text-decoration:line-through;}
+
+#name-editor{display:none !important;}
+.toast{
+  position:fixed;
+  bottom:30px; left:50%; transform:translateX(-50%);
+  background:rgba(26,36,56,.92); color:#fff;
+  padding:12px 20px; border-radius:12px;
+  font-size:14px; font-weight:700;
+  z-index:999; opacity:0;
+  transition:opacity .2s, transform .2s;
+  pointer-events:none;
+}
+.toast.show{opacity:1; transform:translateX(-50%) translateY(-6px);}
+
+@media (max-width:360px){
+  .th-word{font-size:22px; padding:6px 14px;}
+  .opt-btn{font-size:15px;}
+}
+</style>
+</head>
+<body>
+
+<div class="app" id="app">
+
+  <div class="statusbar">
+    <span id="sb-time">9:41</span>
+    <span>📶 📡 🔋</span>
+  </div>
+
+  <!-- ─── 홈 ─── -->
+  <section class="screen active" data-screen="home">
+    <div class="home-hero">
+      <div class="home-greeting">안녕, <span class="student-name">하영</span>!</div>
+      <div class="home-title">맞춤법 마스터하기 ✏️</div>
+      <div class="home-sub">자주 틀리는 맞춤법을 재미있게 배워봐요!</div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-val" id="stat-topics">15</div>
+        <div class="stat-lbl">학습 주제</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <div class="stat-val" id="stat-star">0</div>
+        <div class="stat-lbl">맞힌 문제</div>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <div class="stat-val" id="stat-streak">0</div>
+        <div class="stat-lbl">연속 정답</div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-label">📖 배우기</div>
+      <div class="menu-grid">
+        <button class="menu-card wide" data-go="topics">
+          <div class="mc-icon ic-red">📚</div>
+          <div class="mc-title">맞춤법 주제 15가지</div>
+          <div class="mc-desc">되·돼, 않·안, 왠·웬 등 자주 틀리는 맞춤법을 하나씩 익혀요</div>
+        </button>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-label">🎯 연습하기</div>
+      <div class="menu-grid">
+        <button class="menu-card" data-quiz="ox">
+          <div class="mc-icon ic-green">⭕</div>
+          <div class="mc-title">OX 퀴즈</div>
+          <div class="mc-desc">맞다 vs 틀리다</div>
+        </button>
+        <button class="menu-card" data-quiz="choose">
+          <div class="mc-icon ic-blue">🔤</div>
+          <div class="mc-title">둘 중 고르기</div>
+          <div class="mc-desc">바른 표기 찾기</div>
+        </button>
+        <button class="menu-card" data-quiz="blank">
+          <div class="mc-icon ic-orange">⬜</div>
+          <div class="mc-title">빈칸 채우기</div>
+          <div class="mc-desc">문장에 넣기</div>
+        </button>
+        <button class="menu-card" data-quiz="mixed">
+          <div class="mc-icon ic-purple">🎲</div>
+          <div class="mc-title">종합 챌린지</div>
+          <div class="mc-desc">랜덤 20문제</div>
+        </button>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-label">💡 자주 틀리는 표현</div>
+      <div class="menu-grid">
+        <button class="menu-card wide" data-go="cheatsheet">
+          <div class="mc-icon ic-yellow">⚡</div>
+          <div class="mc-title">치트시트</div>
+          <div class="mc-desc">한눈에 보는 올바른 맞춤법 정리</div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 주제 리스트 ─── -->
+  <section class="screen" data-screen="topics">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">맞춤법 주제 15가지</div>
+    </div>
+    <div class="content">
+      <p class="section-desc">자주 틀리는 맞춤법 15가지를 골라서 공부해봐요.</p>
+      <div class="topic-list" id="topic-list"></div>
+    </div>
+  </section>
+
+  <!-- ─── 주제 상세 ─── -->
+  <section class="screen" data-screen="topic-detail">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title" id="td-title">주제</div>
+      <span class="hdr-right" data-go="topics">목록</span>
+    </div>
+    <div class="content" id="td-content"></div>
+  </section>
+
+  <!-- ─── 퀴즈 ─── -->
+  <section class="screen" data-screen="quiz-play">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title" id="quiz-title">퀴즈</div>
+      <span class="hdr-right" id="quiz-hdr-score">1 / 10</span>
+    </div>
+    <div class="content">
+      <div class="quiz-progress">
+        <span>진행도</span>
+        <div class="qp-bar"><div class="qp-fill" id="qp-fill" style="width:10%;"></div></div>
+        <span class="qp-score"><span id="qp-correct">0</span>✨</span>
+      </div>
+      <div class="quiz-card" id="quiz-card"></div>
+      <div id="quiz-feedback"></div>
+      <div class="btn-row" id="quiz-next-wrap" style="display:none;">
+        <button class="btn" id="btn-quiz-next">다음 문제 ▶</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 결과 ─── -->
+  <section class="screen" data-screen="quiz-result">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">퀴즈 결과</div>
+    </div>
+    <div class="content">
+      <div class="result-hero" id="result-hero">
+        <div class="result-emoji" id="result-emoji">🎉</div>
+        <div class="result-title" id="result-title">훌륭해요!</div>
+        <div class="result-score"><span id="result-score">0</span> / <span id="result-total">10</span></div>
+        <div class="result-msg" id="result-msg">정말 잘했어요!</div>
+      </div>
+
+      <div class="wrong-review" id="wrong-review" style="display:none;">
+        <h4>📝 틀린 문제 다시 보기</h4>
+        <div id="wrong-list"></div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn secondary" data-go="home">홈</button>
+        <button class="btn" id="btn-quiz-again">다시 풀기</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 치트시트 ─── -->
+  <section class="screen" data-screen="cheatsheet">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">맞춤법 치트시트</div>
+    </div>
+    <div class="content" id="cheat-content"></div>
+  </section>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =======================================================
+   맞춤법 연습 앱
+   ======================================================= */
+const State = {
+  stack: ['home'],
+  stats: {star:0, streak:0, bestStreak:0},
+  quiz: {mode:'', idx:0, correct:0, data:[], wrongs:[]}
+};
+
+/* ─ 주제 데이터 ─ */
+const TOPICS = [
+  {
+    id:'dwae', emoji:'💬', title:'되 vs 돼',
+    pair:['되다','되어 → 돼'],
+    rule:'"되"는 그 자체로 끝맺을 수 없어요. "돼"는 "되어"의 줄임말이에요.',
+    tip:'문장 끝에서 "되" 자리에 "하"를 넣어보고, "해"를 넣으면 자연스럽다면 "돼"!',
+    examples:[
+      {ok:'안 돼', no:'안 되', hint:'"안 해"로 바꿔보면 자연스러움 → 돼'},
+      {ok:'그렇게 하면 돼', no:'그렇게 하면 되', hint:'"하면 해"로 되어 자연스러움 → 돼'},
+      {ok:'늦으면 안 돼', no:'늦으면 안 되', hint:'끝맺음에는 "돼"'},
+      {ok:'어떻게 되는 거야?', no:'어떻게 돼는 거야?', hint:'중간에는 "되"'}
+    ],
+    qs:[
+      {s:'숙제 다 했어? ___!', opts:['됐어','댔어'], a:0},
+      {s:'그렇게 하면 안 ___', opts:['되','돼'], a:1},
+      {s:'이렇게 하면 ___요', opts:['돼','되'], a:0},
+      {s:'언제 ___?', opts:['돼','되'], a:0}
+    ]
+  },
+  {
+    id:'anh', emoji:'🚫', title:'않 vs 안',
+    pair:['아니하- → 않','아니 → 안'],
+    rule:'"안"은 짧게 부정할 때 (= 아니), "않"은 길게 부정할 때 (= 아니하)에 써요.',
+    tip:'빼고 읽어봐! 말이 되면 "안", 말이 안 되면 "않".',
+    examples:[
+      {ok:'안 가다', no:'않 가다', hint:'"가다"만으로도 말 됨 → 안'},
+      {ok:'가지 않다', no:'가지 안다', hint:'"가지 다"는 이상함 → 않'},
+      {ok:'먹지 않았어', no:'먹지 안았어', hint:'않 뒤에는 았/었'},
+      {ok:'안 먹어', no:'않 먹어', hint:'짧게 부정 → 안'}
+    ],
+    qs:[
+      {s:'비가 ___ 와요', opts:['안','않'], a:0},
+      {s:'공부를 하지 ___', opts:['안아','않아'], a:1},
+      {s:'오지 ___ 아서 걱정했어', opts:['안','않'], a:1},
+      {s:'___ 먹을래', opts:['안','않'], a:0}
+    ]
+  },
+  {
+    id:'ihi', emoji:'🗣️', title:'-이 vs -히',
+    pair:['솔직히','깨끗이'],
+    rule:'받침이 "ㄱ"이면 "이", 받침이 "ㅅ·ㅆ"이면 "이"로 많이 써요. "히"는 단독으로 "-하다"가 붙는 말 뒤에 주로.',
+    tip:'"-하다"가 자연스러우면 "히"! (예: 솔직하다 → 솔직히)',
+    examples:[
+      {ok:'솔직히', no:'솔직이', hint:'솔직하다 → 히'},
+      {ok:'깨끗이', no:'깨끗히', hint:'ㅅ받침 → 이'},
+      {ok:'꼼꼼히', no:'꼼꼼이', hint:'꼼꼼하다 → 히'},
+      {ok:'틈틈이', no:'틈틈히', hint:'틈틈이는 "이"'}
+    ],
+    qs:[
+      {s:'___ 말해봐', opts:['솔직히','솔직이'], a:0},
+      {s:'책상을 ___ 닦았어', opts:['깨끗히','깨끗이'], a:1},
+      {s:'___ 공부했어', opts:['꼼꼼이','꼼꼼히'], a:1},
+      {s:'___ 운동해요', opts:['틈틈이','틈틈히'], a:0}
+    ]
+  },
+  {
+    id:'wen', emoji:'🤷', title:'왠 vs 웬',
+    pair:['왠지(왜인지)','웬(어떤/뜻밖의)'],
+    rule:'"왠지" 하나만 "왠". 나머지는 거의 다 "웬".',
+    tip:'"왜인지"로 풀어 자연스러우면 "왠지", 그 외는 "웬".',
+    examples:[
+      {ok:'왠지 슬프다', no:'웬지 슬프다', hint:'"왜인지"로 바꿔도 됨 → 왠지'},
+      {ok:'웬일이야?', no:'왠일이야?', hint:'"어떤 일"의 뜻 → 웬'},
+      {ok:'웬 떡이야', no:'왠 떡이야', hint:'뜻밖의 → 웬'},
+      {ok:'웬만하면', no:'왠만하면', hint:'웬만은 "웬"'}
+    ],
+    qs:[
+      {s:'오늘 ___ 피곤하네', opts:['왠지','웬지'], a:0},
+      {s:'이게 ___ 떡이야!', opts:['왠','웬'], a:1},
+      {s:'___ 만하면 가자', opts:['왠','웬'], a:1},
+      {s:'네가 ___ 일로 왔어?', opts:['왠','웬'], a:1}
+    ]
+  },
+  {
+    id:'natda', emoji:'🤒', title:'낫다 vs 낳다',
+    pair:['낫다(병이 낫다/더 낫다)','낳다(아이를 낳다)'],
+    rule:'"낫다"는 병이 낫거나, 더 좋을 때. "낳다"는 자식·새끼를 낳을 때. 완전 달라요!',
+    tip:'"낳다"는 출산에만! 병이 나았다 = "나았다".',
+    examples:[
+      {ok:'감기가 다 나았어', no:'감기가 다 낳았어', hint:'병 회복 → 낫다 → 나았어'},
+      {ok:'이게 더 나아', no:'이게 더 낳아', hint:'더 좋음 → 낫다'},
+      {ok:'엄마가 동생을 낳았어', no:'엄마가 동생을 낫았어', hint:'출산 → 낳다'},
+      {ok:'나아지고 있어', no:'낳아지고 있어', hint:'회복 → 나아지다'}
+    ],
+    qs:[
+      {s:'감기가 다 ___어', opts:['나았','낳았'], a:0},
+      {s:'고양이가 새끼를 ___다', opts:['낫','낳'], a:1},
+      {s:'이게 더 ___다', opts:['낫','낳'], a:0},
+      {s:'점점 ___지고 있어', opts:['나아','낳아'], a:0}
+    ]
+  },
+  {
+    id:'butchida', emoji:'📎', title:'붙이다 vs 부치다',
+    pair:['붙이다(접착)','부치다(편지·전)'],
+    rule:'"붙이다"는 뭔가를 "붙게 하다". "부치다"는 편지·소포를 보내거나, 전을 부치거나(요리).',
+    tip:'풀이나 테이프면 "붙이다", 우체국·요리면 "부치다"!',
+    examples:[
+      {ok:'우표를 붙여요', no:'우표를 부쳐요', hint:'우표를 "붙게 하다" → 붙이다'},
+      {ok:'편지를 부쳐요', no:'편지를 붙여요', hint:'보내다 → 부치다'},
+      {ok:'전을 부쳐 먹었어', no:'전을 붙여 먹었어', hint:'요리 → 부치다'},
+      {ok:'포스터를 붙였어', no:'포스터를 부쳤어', hint:'벽에 붙게 → 붙이다'}
+    ],
+    qs:[
+      {s:'봉투에 우표를 ___다', opts:['붙이','부치'], a:0},
+      {s:'소포를 ___다', opts:['붙이','부치'], a:1},
+      {s:'계란 ___ 먹자', opts:['붙여','부쳐'], a:1},
+      {s:'종이에 스티커를 ___다', opts:['붙이','부치'], a:0}
+    ]
+  },
+  {
+    id:'myeochil', emoji:'📅', title:'며칠 vs 몇 일',
+    pair:['며칠 (O)','몇 일 (X)'],
+    rule:'항상 "며칠"! "몇 일"은 틀린 표기예요.',
+    tip:'헷갈리지 마세요. 날짜든 기간이든 "며칠" 하나만 기억!',
+    examples:[
+      {ok:'오늘이 며칠이야?', no:'오늘이 몇 일이야?', hint:'날짜 묻기 → 며칠'},
+      {ok:'며칠 걸려?', no:'몇 일 걸려?', hint:'기간 → 며칠'},
+      {ok:'며칠 전에', no:'몇 일 전에', hint:'며칠'},
+      {ok:'며칠간', no:'몇 일간', hint:'며칠간'}
+    ],
+    qs:[
+      {s:'오늘이 ___이야?', opts:['며칠','몇 일'], a:0},
+      {s:'___ 걸려?', opts:['몇 일','며칠'], a:1},
+      {s:'___ 전에 봤어', opts:['며칠','몇 일'], a:0},
+      {s:'___ 동안 아팠어', opts:['몇 일','며칠'], a:1}
+    ]
+  },
+  {
+    id:'eyo', emoji:'🎓', title:'-에요 vs -예요',
+    pair:['받침 있음 + 이에요','받침 없음 + 예요'],
+    rule:'앞 단어에 받침이 있으면 "이에요", 받침이 없으면 "예요".',
+    tip:'책 → 책이에요 / 나무 → 나무예요',
+    examples:[
+      {ok:'연필이에요', no:'연필예요', hint:'"연필" 받침 ㄹ → 이에요'},
+      {ok:'친구예요', no:'친구이에요', hint:'"친구" 받침 없음 → 예요'},
+      {ok:'누구예요?', no:'누구이에요?', hint:'누구 받침 없음 → 예요'},
+      {ok:'오빠예요', no:'오빠이에요', hint:'오빠 받침 없음 → 예요'}
+    ],
+    qs:[
+      {s:'이건 책상___', opts:['이에요','예요'], a:0},
+      {s:'저는 학생___', opts:['예요','이에요'], a:1},
+      {s:'오늘은 월요일___', opts:['이에요','예요'], a:0},
+      {s:'친구___', opts:['예요','이에요'], a:0}
+    ]
+  },
+  {
+    id:'dedae', emoji:'🗨️', title:'-데 vs -대',
+    pair:['-데: 내가 봤다','-대: 남이 그랬다'],
+    rule:'"-데"는 내가 직접 경험. "-대"는 남에게 들은 얘기를 전할 때.',
+    tip:'내가 직접? → 데 / 남한테 들음? → 대 (대신 "라고 해"로 바꿀 수 있음)',
+    examples:[
+      {ok:'그 영화 재미있데', no:'그 영화 재미있대', hint:'내가 직접 봤을 때 → 데'},
+      {ok:'친구가 재미있대', no:'친구가 재미있데', hint:'친구한테 들음 → 대'},
+      {ok:'엄마가 오신대', no:'엄마가 오신데', hint:'전달 → 대'},
+      {ok:'내가 가봤는데 멋있데', no:'내가 가봤는데 멋있대', hint:'내 경험 → 데'}
+    ],
+    qs:[
+      {s:'언니가 선생님이 ___', opts:['되신데','되신대'], a:1},
+      {s:'내가 어제 가봤는데 참 좋___', opts:['데','대'], a:0},
+      {s:'친구가 그 가게 비싸___', opts:['대','데'], a:0},
+      {s:'(내가 본 후) 이 책 재미있___', opts:['데','대'], a:0}
+    ]
+  },
+  {
+    id:'bandeushi', emoji:'✅', title:'반드시 vs 반듯이',
+    pair:['반드시(꼭)','반듯이(똑바로)'],
+    rule:'"반드시" = 꼭, 틀림없이. "반듯이" = 똑바르게, 기울지 않게.',
+    tip:'"반드시"는 의지, "반듯이"는 모양새!',
+    examples:[
+      {ok:'반드시 이길 거야', no:'반듯이 이길 거야', hint:'꼭 → 반드시'},
+      {ok:'반듯이 앉아', no:'반드시 앉아', hint:'자세 → 반듯이'},
+      {ok:'반드시 약속을 지킬게', no:'반듯이 약속을 지킬게', hint:'꼭 → 반드시'},
+      {ok:'허리를 반듯이 펴', no:'허리를 반드시 펴', hint:'모양 → 반듯이'}
+    ],
+    qs:[
+      {s:'___ 10시까지 올게', opts:['반드시','반듯이'], a:0},
+      {s:'책상 위에 ___ 놓아', opts:['반드시','반듯이'], a:1},
+      {s:'___ 합격할 거야', opts:['반드시','반듯이'], a:0},
+      {s:'자세를 ___ 해봐', opts:['반드시','반듯이'], a:1}
+    ]
+  },
+  {
+    id:'dareuda', emoji:'🔀', title:'다르다 vs 틀리다',
+    pair:['다르다(같지 않다)','틀리다(옳지 않다)'],
+    rule:'"다르다"는 비교해서 같지 않을 때. "틀리다"는 정답이 아닐 때.',
+    tip:'답이 맞냐 틀리냐 → 틀리다 / 색깔·모양이 같냐 다르냐 → 다르다',
+    examples:[
+      {ok:'모양이 서로 달라', no:'모양이 서로 틀려', hint:'비교 → 다르다'},
+      {ok:'답이 틀렸어', no:'답이 달랐어', hint:'오답 → 틀리다'},
+      {ok:'너와 나는 달라', no:'너와 나는 틀려', hint:'비교 → 다르다'},
+      {ok:'계산이 틀렸다', no:'계산이 다르다', hint:'오답 → 틀리다'}
+    ],
+    qs:[
+      {s:'둘의 성격이 많이 ___', opts:['달라','틀려'], a:0},
+      {s:'이 수학 문제 답이 ___', opts:['달라','틀려'], a:1},
+      {s:'생각이 서로 ___', opts:['틀려','달라'], a:1},
+      {s:'네 말이 ___어', opts:['틀렸','달랐'], a:0}
+    ]
+  },
+  {
+    id:'galgeyo', emoji:'🚶', title:'-ㄹ게 vs -ㄹ께',
+    pair:['할게요 (O)','할께요 (X)'],
+    rule:'항상 "-게요"! "께요"는 잘못된 표기예요.',
+    tip:'소리는 "께"처럼 나도 쓸 때는 "게"!',
+    examples:[
+      {ok:'내가 할게', no:'내가 할께', hint:'항상 게'},
+      {ok:'먼저 갈게요', no:'먼저 갈께요', hint:'게요'},
+      {ok:'기다릴게', no:'기다릴께', hint:'게'},
+      {ok:'연락할게요', no:'연락할께요', hint:'게요'}
+    ],
+    qs:[
+      {s:'내일 전화___', opts:['할게','할께'], a:0},
+      {s:'먼저 ___', opts:['갈께','갈게'], a:1},
+      {s:'꼭 ___요', opts:['기다릴게','기다릴께'], a:0},
+      {s:'집에서 ___요', opts:['쉴게','쉴께'], a:0}
+    ]
+  },
+  {
+    id:'isseum', emoji:'📝', title:'있음 vs 있슴',
+    pair:['있음 (O)','있슴 (X)'],
+    rule:'명사형 "-음"은 받침 유무에 따라 "-음" 또는 "-ㅁ". "-슴"은 틀림!',
+    tip:'"있음·없음·먹음·했음" 모두 "ㅁ".',
+    examples:[
+      {ok:'가능성 있음', no:'가능성 있슴', hint:'있음'},
+      {ok:'참석했음', no:'참석했슴', hint:'했음'},
+      {ok:'먹었음', no:'먹었슴', hint:'먹었음'},
+      {ok:'재미없음', no:'재미없슴', hint:'없음'}
+    ],
+    qs:[
+      {s:'숙제 다 ___', opts:['했음','했슴'], a:0},
+      {s:'할 일이 ___', opts:['있슴','있음'], a:1},
+      {s:'답을 모르겠___', opts:['음','슴'], a:0},
+      {s:'사랑합니다 → 사랑___', opts:['함','합'], a:0}
+    ]
+  },
+  {
+    id:'tuida', emoji:'🏃', title:'띄다 vs 띠다',
+    pair:['띄다(사이를·눈에)','띠다(색을·사명을)'],
+    rule:'"띄다"는 사이를 벌리다/눈에 들어오다. "띠다"는 색을 띠다, 사명을 띠다 등.',
+    tip:'"띄어쓰기" = 공백을 띄우는 것 → 띄다',
+    examples:[
+      {ok:'띄어 써요', no:'띠어 써요', hint:'공백 → 띄다'},
+      {ok:'붉은빛을 띠다', no:'붉은빛을 띄다', hint:'색 → 띠다'},
+      {ok:'눈에 띄는 옷', no:'눈에 띠는 옷', hint:'눈에 → 띄다'},
+      {ok:'미소를 띠다', no:'미소를 띄다', hint:'표정 → 띠다'}
+    ],
+    qs:[
+      {s:'단어 사이를 ___ 쓰세요', opts:['띄어','띠어'], a:0},
+      {s:'얼굴에 미소를 ___', opts:['띠었다','띄었다'], a:0},
+      {s:'눈에 ___는 빨간 모자', opts:['띠','띄'], a:1},
+      {s:'노란빛을 ___', opts:['띠다','띄다'], a:0}
+    ]
+  },
+  {
+    id:'baenda', emoji:'🚪', title:'봬요 vs 뵈요',
+    pair:['봬요(뵈어요)','뵈요 (X)'],
+    rule:'"뵈어요"의 줄임말은 "봬요". "뵈요"는 틀린 표기!',
+    tip:'"하+어=해"처럼 "뵈+어=봬". 끝에는 "봬요".',
+    examples:[
+      {ok:'내일 봬요', no:'내일 뵈요', hint:'뵈어요 → 봬요'},
+      {ok:'다시 뵙겠습니다', no:'다시 봽겠습니다', hint:'뵙다'},
+      {ok:'자주 뵐 수 있어요', no:'자주 뵐 수 있어요', hint:'중간엔 뵈'},
+      {ok:'안녕히 계세요, 또 봬요', no:'안녕히 계세요, 또 뵈요', hint:'끝은 봬요'}
+    ],
+    qs:[
+      {s:'다음에 ___', opts:['뵈요','봬요'], a:1},
+      {s:'오랜만에 ___네요', opts:['뵙','봽'], a:0},
+      {s:'내일 학교에서 ___', opts:['봬요','뵈요'], a:0},
+      {s:'자주 ___ 수 있어요', opts:['뵈','봬'], a:0}
+    ]
+  }
+];
+
+/* ─ 스크린 전환 ─ */
+function show(name, push=true){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.querySelector(`[data-screen="${name}"]`);
+  if (!el) return;
+  el.classList.add('active');
+  if (push && State.stack[State.stack.length-1] !== name) State.stack.push(name);
+  const app = document.querySelector('.app');
+  if (app) app.scrollTop = 0;
+  window.scrollTo(0,0);
+  if (name === 'topics') renderTopics();
+  if (name === 'cheatsheet') renderCheatsheet();
+  if (name === 'home') updateStats();
+}
+function back(){
+  if (State.stack.length <= 1){ show('home', false); return; }
+  State.stack.pop();
+  show(State.stack[State.stack.length-1], false);
+}
+document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', ()=>show(b.dataset.go)));
+document.querySelectorAll('[data-back]').forEach(b => b.addEventListener('click', back));
+document.querySelectorAll('[data-quiz]').forEach(b => b.addEventListener('click', ()=>startQuiz(b.dataset.quiz)));
+
+function updateStats(){
+  document.getElementById('stat-star').textContent = State.stats.star;
+  document.getElementById('stat-streak').textContent = State.stats.bestStreak;
+}
+
+/* ─ 주제 리스트 ─ */
+function renderTopics(){
+  const list = document.getElementById('topic-list');
+  list.innerHTML = TOPICS.map((t, i) => `
+    <button class="topic-card" data-topic="${t.id}">
+      <div class="topic-num">${i+1}</div>
+      <div class="topic-body">
+        <div class="topic-title">${t.emoji} ${t.title}</div>
+        <div class="topic-pair">
+          <span>${t.pair[0]}</span>
+          <span class="topic-vs">vs</span>
+          <span>${t.pair[1]}</span>
+        </div>
+      </div>
+      <div class="topic-arrow">›</div>
+    </button>
+  `).join('');
+  list.querySelectorAll('[data-topic]').forEach(b => {
+    b.addEventListener('click', () => openTopic(b.dataset.topic));
+  });
+}
+
+function openTopic(id){
+  const t = TOPICS.find(x => x.id === id);
+  if (!t) return;
+  document.getElementById('td-title').textContent = t.title;
+  const examples = t.examples.map(e => `
+    <div class="example-row">
+      <span class="em">✅</span>
+      <span><span class="ok">${e.ok}</span></span>
+    </div>
+    <div class="example-row">
+      <span class="em">❌</span>
+      <span><span class="no">${e.no}</span> &nbsp; <span style="color:var(--gray); font-size:12px;">— ${e.hint}</span></span>
+    </div>
+  `).join('');
+
+  // 미니 퀴즈
+  const miniQs = t.qs.map((q, i) => `
+    <div style="margin-bottom:12px;">
+      <div style="font-size:14px; margin-bottom:8px;">Q${i+1}. ${q.s}</div>
+      <div class="opt-grid" data-mini="${i}" data-a="${q.a}">
+        ${q.opts.map((o, j) => `<button class="opt-btn" data-choice="${j}">${o}</button>`).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  document.getElementById('td-content').innerHTML = `
+    <div class="topic-hero">
+      <div class="th-emoji">${t.emoji}</div>
+      <div class="th-title">${t.title}</div>
+      <div class="th-vs">
+        <div class="th-word">${t.pair[0].split(/\(|→/)[0].trim()}</div>
+        <div class="th-vs-sep">vs</div>
+        <div class="th-word">${t.pair[1].split(/\(|→/)[0].trim()}</div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h4>📏 규칙</h4>
+      <p>${t.rule}</p>
+    </div>
+
+    <div class="info-card yellow">
+      <h4>💡 꿀팁</h4>
+      <p>${t.tip}</p>
+    </div>
+
+    <div class="info-card green">
+      <h4>🔍 예시</h4>
+      ${examples}
+    </div>
+
+    <div class="info-card blue">
+      <h4>✍️ 바로 풀어보기</h4>
+      ${miniQs}
+    </div>
+
+    <button class="btn" id="btn-topic-quiz">이 주제 퀴즈 10문제 풀기 ▶</button>
+  `;
+  // 미니 퀴즈 이벤트
+  document.querySelectorAll('[data-mini]').forEach(group => {
+    const correct = parseInt(group.dataset.a, 10);
+    group.querySelectorAll('[data-choice]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const c = parseInt(btn.dataset.choice, 10);
+        group.querySelectorAll('.opt-btn').forEach((b, i) => {
+          b.classList.add('disabled');
+          if (i === correct) b.classList.add('correct');
+          if (i === c && c !== correct) b.classList.add('wrong');
+        });
+      });
+    });
+  });
+  document.getElementById('btn-topic-quiz').addEventListener('click', () => startTopicQuiz(id));
+  show('topic-detail');
+}
+
+/* ─ 퀴즈 로직 ─ */
+function startQuiz(mode){
+  State.quiz.mode = mode;
+  State.quiz.idx = 0;
+  State.quiz.correct = 0;
+  State.quiz.wrongs = [];
+  State.quiz.data = buildQuiz(mode);
+  const titles = {ox:'OX 퀴즈', choose:'둘 중 고르기', blank:'빈칸 채우기', mixed:'종합 챌린지'};
+  document.getElementById('quiz-title').textContent = titles[mode] || '퀴즈';
+  show('quiz-play');
+  renderQ();
+}
+function startTopicQuiz(topicId){
+  State.quiz.mode = 'topic:' + topicId;
+  State.quiz.idx = 0;
+  State.quiz.correct = 0;
+  State.quiz.wrongs = [];
+  State.quiz.data = buildTopicQuiz(topicId, 10);
+  const t = TOPICS.find(x => x.id === topicId);
+  document.getElementById('quiz-title').textContent = `${t.emoji} ${t.title}`;
+  show('quiz-play');
+  renderQ();
+}
+function buildTopicQuiz(id, n){
+  const t = TOPICS.find(x => x.id === id);
+  const pool = [];
+  // 규칙 기반 미니 퀴즈 확장
+  for (let i=0; i<n; i++){
+    const q = t.qs[i % t.qs.length];
+    // 랜덤 셔플
+    const shuffled = Math.random() < 0.5;
+    const opts = shuffled ? [q.opts[1], q.opts[0]] : [...q.opts];
+    const a = shuffled ? (q.a === 0 ? 1 : 0) : q.a;
+    pool.push({type:'blank', s:q.s, opts, a, topic:t.title, explain:t.rule});
+  }
+  return pool;
+}
+function buildQuiz(mode){
+  const pool = [];
+  if (mode === 'ox'){
+    // 한 문장에 정답/오답을 무작위로 제시
+    const picks = [...TOPICS];
+    shuffle(picks);
+    for (let i=0; i<10; i++){
+      const t = picks[i % picks.length];
+      const ex = t.examples[randInt(0, t.examples.length-1)];
+      const useWrong = Math.random() < 0.5;
+      const shown = useWrong ? ex.no : ex.ok;
+      pool.push({
+        type:'ox',
+        prompt:'이 표현은 맞을까요, 틀릴까요?',
+        sentence:shown,
+        correct:useWrong ? 'X' : 'O',
+        explain:`올바른 표기는 "${ex.ok}"이에요. (${ex.hint})`,
+        topic:t.title
+      });
+    }
+  } else if (mode === 'choose'){
+    const picks = [...TOPICS];
+    shuffle(picks);
+    for (let i=0; i<10; i++){
+      const t = picks[i % picks.length];
+      const ex = t.examples[randInt(0, t.examples.length-1)];
+      const shuffled = Math.random() < 0.5;
+      const opts = shuffled ? [ex.no, ex.ok] : [ex.ok, ex.no];
+      const a = opts.indexOf(ex.ok);
+      pool.push({
+        type:'choose',
+        prompt:'어느 쪽이 올바른 표기일까요?',
+        opts, a,
+        explain:`"${ex.ok}"이 올바른 표기예요. (${ex.hint})`,
+        topic:t.title
+      });
+    }
+  } else if (mode === 'blank'){
+    const picks = [...TOPICS];
+    shuffle(picks);
+    for (let i=0; i<10; i++){
+      const t = picks[i % picks.length];
+      const q = t.qs[randInt(0, t.qs.length-1)];
+      const shuffled = Math.random() < 0.5;
+      const opts = shuffled ? [q.opts[1], q.opts[0]] : [...q.opts];
+      const a = shuffled ? (q.a === 0 ? 1 : 0) : q.a;
+      pool.push({
+        type:'blank',
+        s:q.s, opts, a,
+        topic:t.title, explain:t.rule
+      });
+    }
+  } else if (mode === 'mixed'){
+    for (let i=0; i<20; i++){
+      const types = ['ox','choose','blank'];
+      const sub = types[i % 3];
+      pool.push(buildQuiz(sub)[0]);
+    }
+    // 재귀 호출 때문에 다시 섞음
+    shuffle(pool);
+  }
+  return pool;
+}
+
+function renderQ(){
+  const q = State.quiz.data[State.quiz.idx];
+  const total = State.quiz.data.length;
+  document.getElementById('qp-fill').style.width = `${(State.quiz.idx+1)/total*100}%`;
+  document.getElementById('qp-correct').textContent = State.quiz.correct;
+  document.getElementById('quiz-hdr-score').textContent = `${State.quiz.idx+1} / ${total}`;
+  document.getElementById('quiz-feedback').innerHTML = '';
+  document.getElementById('quiz-next-wrap').style.display = 'none';
+  const card = document.getElementById('quiz-card');
+
+  let html = `<div class="quiz-type">${q.topic || '맞춤법'}</div>`;
+  if (q.type === 'ox'){
+    html += `
+      <div class="quiz-prompt">${q.prompt}</div>
+      <div class="quiz-sentence">${q.sentence}</div>
+      <div class="opt-grid">
+        <button class="opt-btn" data-ans="O">⭕ 맞다</button>
+        <button class="opt-btn" data-ans="X">❌ 틀리다</button>
+      </div>
+    `;
+  } else if (q.type === 'choose'){
+    html += `
+      <div class="quiz-prompt">${q.prompt}</div>
+      <div class="opt-list">
+        ${q.opts.map((o, i) => `<button class="opt-btn" data-ans="${i}">${o}</button>`).join('')}
+      </div>
+    `;
+  } else if (q.type === 'blank'){
+    const sentence = q.s.replace('___', '<span class="quiz-blank">___</span>');
+    html += `
+      <div class="quiz-prompt">빈칸에 들어갈 올바른 표기를 고르세요.</div>
+      <div class="quiz-sentence">${sentence}</div>
+      <div class="opt-grid">
+        ${q.opts.map((o, i) => `<button class="opt-btn" data-ans="${i}">${o}</button>`).join('')}
+      </div>
+    `;
+  }
+  card.innerHTML = html;
+
+  card.querySelectorAll('.opt-btn').forEach(btn => {
+    btn.addEventListener('click', () => answer(btn));
+  });
+}
+function answer(btn){
+  const q = State.quiz.data[State.quiz.idx];
+  const userAns = btn.dataset.ans;
+  let ok;
+  if (q.type === 'ox'){ ok = userAns === q.correct; }
+  else { ok = parseInt(userAns, 10) === q.a; }
+
+  const card = document.getElementById('quiz-card');
+  card.querySelectorAll('.opt-btn').forEach(b => {
+    b.classList.add('disabled');
+    if (q.type === 'ox'){
+      if (b.dataset.ans === q.correct) b.classList.add('correct');
+    } else {
+      if (parseInt(b.dataset.ans, 10) === q.a) b.classList.add('correct');
+    }
+  });
+  if (!ok){ btn.classList.add('wrong'); }
+  if (q.type === 'blank'){
+    card.querySelectorAll('.quiz-blank').forEach(bl => {
+      const correctText = q.opts[q.a];
+      bl.textContent = correctText;
+      bl.classList.add('filled');
+    });
+  }
+
+  if (ok){
+    State.quiz.correct++;
+    State.stats.star++;
+    State.stats.streak++;
+    if (State.stats.streak > State.stats.bestStreak) State.stats.bestStreak = State.stats.streak;
+    showFb(true, '정답이에요!', q.explain);
+  } else {
+    State.stats.streak = 0;
+    State.quiz.wrongs.push(q);
+    showFb(false, '아쉬워요', q.explain);
+  }
+  document.getElementById('qp-correct').textContent = State.quiz.correct;
+  document.getElementById('quiz-next-wrap').style.display = 'flex';
+}
+function showFb(ok, title, desc){
+  document.getElementById('quiz-feedback').innerHTML = `
+    <div class="feedback-box ${ok ? '' : 'wrong'}">
+      <div class="fb-head">
+        <div class="fb-icon">${ok ? '✨' : '🤔'}</div>
+        <div class="fb-title">${title}</div>
+      </div>
+      <div class="fb-desc">${desc}</div>
+    </div>
+  `;
+}
+document.getElementById('btn-quiz-next').addEventListener('click', () => {
+  State.quiz.idx++;
+  if (State.quiz.idx >= State.quiz.data.length){
+    showResult();
+  } else {
+    renderQ();
+  }
+});
+function showResult(){
+  const c = State.quiz.correct, t = State.quiz.data.length;
+  const rate = c/t;
+  document.getElementById('result-score').textContent = c;
+  document.getElementById('result-total').textContent = t;
+  const hero = document.getElementById('result-hero');
+  hero.classList.toggle('low', rate < 0.6);
+  const map = [
+    [1,'🏆','완벽해요!','모든 문제를 다 맞혔어요. 최고예요!'],
+    [0.8,'🌟','아주 잘했어요!','거의 다 맞았어요. 조금만 더!'],
+    [0.6,'👏','잘했어요!','잘 하고 있어요. 틀린 문제를 다시 봐요.'],
+    [0,'💪','다시 도전!','처음엔 어려워요. 다시 해봐요!']
+  ];
+  for (const [th, em, ti, msg] of map){
+    if (rate >= th){
+      document.getElementById('result-emoji').textContent = em;
+      document.getElementById('result-title').textContent = ti;
+      document.getElementById('result-msg').textContent = msg;
+      break;
+    }
+  }
+  const wr = document.getElementById('wrong-review');
+  if (State.quiz.wrongs.length){
+    wr.style.display = 'block';
+    document.getElementById('wrong-list').innerHTML = State.quiz.wrongs.map(q => {
+      let qt = '';
+      if (q.type === 'ox'){
+        qt = `<div class="wi-q">문장: "${q.sentence}" (${q.correct === 'O' ? '맞음' : '틀림'})</div>`;
+      } else if (q.type === 'choose'){
+        qt = `<div class="wi-q">정답: ${q.opts[q.a]} <span class="wi-y">(${q.opts.find((_,i) => i!==q.a)})</span></div>`;
+      } else {
+        qt = `<div class="wi-q">${q.s.replace('___', '<b>'+q.opts[q.a]+'</b>')}</div>`;
+      }
+      return `<div class="wrong-item">${qt}<div style="color:var(--gray); font-size:12px; margin-top:3px;">${q.explain}</div></div>`;
+    }).join('');
+  } else {
+    wr.style.display = 'none';
+  }
+  show('quiz-result');
+}
+document.getElementById('btn-quiz-again').addEventListener('click', () => {
+  const m = State.quiz.mode;
+  if (m.startsWith('topic:')){
+    startTopicQuiz(m.slice(6));
+  } else {
+    startQuiz(m);
+  }
+});
+
+/* ─ 치트시트 ─ */
+function renderCheatsheet(){
+  const html = TOPICS.map(t => `
+    <div class="info-card">
+      <h4>${t.emoji} ${t.title}</h4>
+      <p style="margin-bottom:6px;">${t.rule}</p>
+      <p style="font-size:12.5px; color:var(--gray);">${t.examples.slice(0,2).map(e => `<span class="ok">${e.ok}</span>`).join(' · ')} ↔ ${t.examples.slice(0,2).map(e => `<span class="no">${e.no}</span>`).join(' · ')}</p>
+    </div>
+  `).join('');
+  document.getElementById('cheat-content').innerHTML = html;
+}
+
+/* ─ 유틸 ─ */
+function randInt(a, b){ return Math.floor(Math.random()*(b-a+1)) + a; }
+function shuffle(arr){
+  for (let i=arr.length-1; i>0; i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+/* ─ 상태바 시계 ─ */
+function tick(){
+  const d = new Date();
+  document.getElementById('sb-time').textContent = `${d.getHours()}:${String(d.getMinutes()).padStart(2,'0')}`;
+}
+setInterval(tick, 10000); tick();
+
+updateStats();
+</script>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: fixed; top: 10px; right: 10px; z-index: 999; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; max-width: 360px; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12); font-size: 0.88em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238;
+  display: block !important; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+#name-editor.collapsed { padding: 6px 10px; }
+#name-editor.collapsed .ne-row, #name-editor.collapsed .ne-actions, #name-editor.collapsed .ne-hint { display: none; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none !important; } .sn.changed { background: transparent; padding: 0; } }
+@media (max-width: 500px){
+  #name-editor { top: auto; bottom: 10px; right: 10px; left: 10px; max-width: none; }
+}
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function bindInputs(){
+    var panel = document.getElementById('name-editor');
+    if (!panel) return;
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].__bound) continue;
+      inputs[i].__bound = true;
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    panel.className = 'collapsed';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title" style="cursor:pointer;" id="ne-toggle">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(이름 ' + detected.length + '명 · 탭하여 펼치기)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    document.body.appendChild(panel);
+    bindInputs();
+    document.getElementById('ne-toggle').addEventListener('click', function(){
+      panel.classList.toggle('collapsed');
+    });
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      var inputs = panel.querySelectorAll('input');
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+    var observer = new MutationObserver(function(mutations){
+      var changed = false;
+      mutations.forEach(function(mu){
+        if (mu.addedNodes && mu.addedNodes.length){
+          mu.addedNodes.forEach(function(nd){
+            if (nd.nodeType === 1 && nd.id !== 'name-editor') changed = true;
+          });
+        }
+      });
+      if (changed){
+        setTimeout(function(){
+          wrap(document.body);
+          var panel = document.getElementById('name-editor');
+          if (panel){
+            var inputs = panel.querySelectorAll('input');
+            for (var i=0; i<inputs.length; i++){
+              var orig = inputs[i].getAttribute('data-original');
+              var v = inputs[i].value || orig;
+              if (v !== orig){
+                var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+                for (var j = 0; j < spans.length; j++) {
+                  spans[j].textContent = v;
+                  spans[j].classList.add('changed');
+                }
+              }
+            }
+          }
+        }, 30);
+      }
+    });
+    observer.observe(document.body, {childList:true, subtree:true});
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>

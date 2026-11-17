@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>🎙️ 받아쓰기 연습 앱</title>
+<style>
+:root{
+  --primary:#6C5CE7;
+  --primary-dark:#5347D1;
+  --primary-light:#EEEBFD;
+  --navy:#1A2438;
+  --gray:#8B95A1;
+  --gray2:#B0B8C1;
+  --bg:#F7F6FD;
+  --line:#EBE9F5;
+  --white:#FFFFFF;
+  --green:#16B88E;
+  --green-light:#E6F7F1;
+  --red:#F04452;
+  --red-light:#FEECEC;
+  --yellow:#FFC107;
+  --yellow-light:#FFF9E6;
+  --blue:#4F7DF3;
+  --blue-light:#E8F0FE;
+  --orange:#FF8A3D;
+  --orange-light:#FFF1E6;
+  --pink:#FF6B9D;
+  --pink-light:#FFE8F0;
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+body{
+  font-family:'Pretendard','Malgun Gothic','맑은 고딕',-apple-system,sans-serif;
+  background:#DCE0E5;
+  min-height:100vh;
+  display:flex; justify-content:center;
+  color:var(--navy);
+  -webkit-font-smoothing:antialiased;
+}
+.app{
+  width:100%; max-width:460px;
+  background:var(--bg);
+  min-height:100vh; position:relative;
+  box-shadow:0 0 40px rgba(0,0,0,.18);
+  display:flex; flex-direction:column;
+  overflow:hidden;
+}
+.statusbar{
+  background:var(--white);
+  padding:8px 20px 4px;
+  display:flex; justify-content:space-between;
+  font-size:13px; font-weight:700;
+}
+.hdr{
+  background:var(--white);
+  padding:12px 16px;
+  display:flex; align-items:center; gap:10px;
+  border-bottom:1px solid var(--line);
+  min-height:52px;
+  position:sticky; top:0; z-index:10;
+}
+.hdr-back{background:transparent; border:none; width:32px; height:32px; font-size:22px; cursor:pointer;}
+.hdr-title{font-size:17px; font-weight:700; flex:1;}
+.hdr-right{font-size:13px; color:var(--primary); font-weight:700; padding:4px 8px; cursor:pointer;}
+.screen{display:none; flex:1; overflow-y:auto; padding-bottom:30px;}
+.screen.active{display:block;}
+
+/* ─── 홈 ─── */
+.home-hero{
+  background:linear-gradient(135deg,#6C5CE7 0%,#FF6B9D 100%);
+  color:#fff;
+  padding:28px 22px 26px;
+  position:relative; overflow:hidden;
+}
+.home-hero::before{
+  content:'🎙️'; position:absolute;
+  right:-10px; top:-10px;
+  font-size:120px; opacity:.18;
+}
+.home-greeting{font-size:14px; opacity:.9;}
+.home-title{font-size:24px; font-weight:800; margin:4px 0 8px; line-height:1.3;}
+.home-sub{font-size:13px; opacity:.95; line-height:1.5;}
+
+.voice-status{
+  background:var(--white);
+  border-radius:16px;
+  padding:14px;
+  margin:14px 16px 0;
+  display:flex; align-items:center; gap:12px;
+  font-size:13px;
+}
+.vs-icon{font-size:24px;}
+.vs-body{flex:1;}
+.vs-title{font-weight:800; color:var(--navy);}
+.vs-desc{font-size:12px; color:var(--gray); margin-top:2px;}
+.vs-ok{color:var(--green); font-weight:700;}
+.vs-ng{color:var(--red); font-weight:700;}
+
+.menu-section{padding:18px 16px 4px;}
+.menu-label{font-size:12px; font-weight:700; color:var(--gray); margin-bottom:10px; padding:0 4px; letter-spacing:.5px;}
+.menu-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+.menu-card{
+  background:var(--white);
+  border-radius:16px;
+  padding:16px 14px;
+  cursor:pointer; text-align:left;
+  width:100%; border:none;
+  font-family:inherit;
+  transition:transform .12s;
+}
+.menu-card:active{transform:scale(.97);}
+.menu-card.wide{grid-column:1 / span 2;}
+.mc-icon{
+  width:40px; height:40px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px; margin-bottom:10px;
+}
+.mc-title{font-size:15px; font-weight:700; margin-bottom:3px;}
+.mc-desc{font-size:11.5px; color:var(--gray); line-height:1.4;}
+.ic-purple{background:var(--primary-light); color:var(--primary);}
+.ic-green{background:var(--green-light); color:var(--green);}
+.ic-blue{background:var(--blue-light); color:var(--blue);}
+.ic-orange{background:var(--orange-light); color:var(--orange);}
+.ic-pink{background:var(--pink-light); color:var(--pink);}
+.ic-yellow{background:var(--yellow-light); color:#D97706;}
+
+.level-pill{
+  display:inline-block;
+  background:var(--primary-light);
+  color:var(--primary);
+  font-size:10px; font-weight:800;
+  padding:2px 8px; border-radius:10px;
+  margin-top:6px;
+}
+
+.content{padding:18px 16px;}
+
+/* ─── 설정 화면 ─── */
+.setting-card{
+  background:var(--white);
+  border-radius:14px;
+  padding:14px;
+  margin-bottom:10px;
+}
+.setting-row{
+  display:flex; align-items:center; gap:10px;
+  padding:6px 0;
+}
+.setting-label{flex:1; font-size:14px; font-weight:600;}
+.chip-row{display:flex; gap:6px; flex-wrap:wrap;}
+.chip{
+  background:var(--bg); border:1.5px solid transparent;
+  border-radius:16px;
+  padding:6px 12px;
+  font-size:12.5px; font-weight:600;
+  cursor:pointer;
+  font-family:inherit;
+  color:var(--navy);
+}
+.chip.active{background:var(--primary); color:#fff; border-color:var(--primary);}
+.slider-wrap{display:flex; align-items:center; gap:10px; margin-top:6px;}
+.slider-wrap input[type=range]{flex:1;}
+
+/* ─── 받아쓰기 플레이 ─── */
+.play-head{
+  background:var(--white);
+  border-radius:16px;
+  padding:14px 16px;
+  margin-bottom:12px;
+  display:flex; align-items:center; gap:12px;
+}
+.play-count{
+  background:var(--primary-light);
+  color:var(--primary);
+  font-weight:800; font-size:14px;
+  padding:6px 12px;
+  border-radius:12px;
+}
+.play-level{flex:1;}
+.pl-label{font-size:11px; color:var(--gray);}
+.pl-title{font-size:14px; font-weight:800;}
+
+.listen-card{
+  background:linear-gradient(135deg,#6C5CE7 0%,#5347D1 100%);
+  color:#fff;
+  border-radius:20px;
+  padding:26px 20px;
+  text-align:center;
+  margin-bottom:12px;
+  position:relative;
+  overflow:hidden;
+}
+.listen-card::before{
+  content:''; position:absolute;
+  width:200px; height:200px;
+  border-radius:50%;
+  background:rgba(255,255,255,.1);
+  top:-100px; right:-50px;
+}
+.listen-icon{
+  width:80px; height:80px;
+  border-radius:50%;
+  background:rgba(255,255,255,.2);
+  margin:0 auto 12px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:42px;
+  position:relative;
+  z-index:1;
+  cursor:pointer;
+  transition:transform .15s;
+}
+.listen-icon:active{transform:scale(.95);}
+.listen-icon.playing{
+  animation:pulse 1s ease-in-out infinite;
+  background:rgba(255,255,255,.3);
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.08);}
+}
+.listen-title{font-size:16px; font-weight:800; margin-bottom:4px; position:relative; z-index:1;}
+.listen-sub{font-size:12px; opacity:.85; position:relative; z-index:1;}
+
+.action-row{
+  display:flex; gap:8px;
+  justify-content:center;
+  margin-top:14px; position:relative; z-index:1;
+}
+.action-btn{
+  background:rgba(255,255,255,.2);
+  color:#fff; border:none;
+  padding:10px 16px;
+  border-radius:20px;
+  font-size:13px; font-weight:700;
+  cursor:pointer; font-family:inherit;
+  display:flex; align-items:center; gap:6px;
+}
+.action-btn:active{background:rgba(255,255,255,.3);}
+
+/* 답 입력 */
+.answer-card{
+  background:var(--white);
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:12px;
+}
+.answer-label{font-size:13px; font-weight:800; color:var(--navy); margin-bottom:8px;}
+.answer-input{
+  width:100%;
+  padding:12px 14px;
+  border:2px solid var(--line);
+  border-radius:12px;
+  font-size:16px; font-weight:500;
+  font-family:inherit;
+  resize:none;
+  min-height:80px;
+  color:var(--navy);
+  background:#FAFAFC;
+}
+.answer-input:focus{outline:none; border-color:var(--primary); background:#fff;}
+.ans-hint{font-size:11px; color:var(--gray); margin-top:6px;}
+
+/* 타이머 */
+.timer-card{
+  background:var(--white);
+  border-radius:16px;
+  padding:14px;
+  margin-bottom:12px;
+  text-align:center;
+}
+.timer-label{font-size:12px; color:var(--gray); font-weight:600;}
+.timer-val{
+  font-size:36px; font-weight:800;
+  color:var(--primary);
+  font-family:'Courier New',monospace;
+  letter-spacing:2px;
+  margin:4px 0;
+}
+.timer-val.warn{color:var(--orange);}
+.timer-val.red{color:var(--red);}
+.timer-bar{
+  height:8px; background:var(--bg);
+  border-radius:4px; overflow:hidden;
+}
+.timer-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--primary) 0%,var(--pink) 100%);
+  border-radius:4px;
+  transition:width 1s linear;
+}
+.timer-fill.warn{background:linear-gradient(90deg,var(--orange) 0%,var(--yellow) 100%);}
+.timer-fill.red{background:var(--red);}
+
+/* 정답 공개 */
+.reveal-card{
+  background:var(--white);
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:12px;
+  border-left:5px solid var(--green);
+}
+.reveal-label{font-size:12px; color:var(--gray); font-weight:700;}
+.reveal-ans{
+  font-size:19px; font-weight:800;
+  color:var(--navy);
+  margin:8px 0;
+  line-height:1.5;
+}
+.reveal-mine{
+  font-size:14px;
+  color:var(--navy);
+  margin-top:10px;
+  padding-top:10px;
+  border-top:1px dashed var(--line);
+  line-height:1.6;
+}
+.reveal-mine b{color:var(--gray); font-size:11px; display:block; margin-bottom:3px; font-weight:700;}
+.match{background:var(--green-light); color:var(--green); padding:0 2px; border-radius:3px; font-weight:700;}
+.diff{background:var(--red-light); color:var(--red); padding:0 2px; border-radius:3px; font-weight:700; text-decoration:underline;}
+
+/* 버튼 */
+.btn{
+  background:var(--primary); color:#fff; border:none;
+  border-radius:12px;
+  padding:14px 20px;
+  font-size:15px; font-weight:700;
+  cursor:pointer; width:100%;
+  font-family:inherit;
+  transition:transform .12s;
+}
+.btn:active{transform:scale(.97);}
+.btn:disabled{background:var(--gray2); cursor:not-allowed;}
+.btn.secondary{background:var(--white); color:var(--primary); border:1.5px solid var(--primary);}
+.btn.success{background:var(--green);}
+.btn.ghost{background:transparent; color:var(--primary);}
+.btn-row{display:flex; gap:8px;}
+.btn-row .btn{flex:1;}
+
+/* 피드백 */
+.feedback{
+  background:var(--green-light);
+  border-radius:14px;
+  padding:14px 16px;
+  margin-bottom:12px;
+  display:flex; align-items:center; gap:10px;
+  animation:popin .3s ease;
+}
+.feedback.partial{background:var(--yellow-light);}
+.feedback.wrong{background:var(--red-light);}
+@keyframes popin{
+  0%{transform:scale(.85); opacity:0;}
+  100%{transform:scale(1); opacity:1;}
+}
+.fb-icon{font-size:28px;}
+.fb-title{font-size:14px; font-weight:800; color:var(--green);}
+.feedback.partial .fb-title{color:#D97706;}
+.feedback.wrong .fb-title{color:var(--red);}
+.fb-desc{font-size:12px; color:#495366; margin-top:2px;}
+
+/* ─── 레벨 선택 ─── */
+.level-list{display:flex; flex-direction:column; gap:10px;}
+.level-card{
+  background:var(--white);
+  border-radius:16px;
+  padding:14px;
+  display:flex; align-items:center; gap:12px;
+  cursor:pointer; text-align:left;
+  width:100%; border:none;
+  font-family:inherit;
+}
+.lv-badge{
+  width:46px; height:46px;
+  border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px; flex-shrink:0;
+}
+.lv-body{flex:1;}
+.lv-title{font-size:15px; font-weight:800;}
+.lv-desc{font-size:12px; color:var(--gray); margin-top:2px; line-height:1.4;}
+.lv-stat{font-size:11px; color:var(--primary); font-weight:700; margin-top:4px;}
+.lv-arrow{color:var(--gray2); font-size:20px;}
+
+/* ─── 결과 ─── */
+.result-hero{
+  background:linear-gradient(135deg,#16B88E 0%,#3DD9D6 100%);
+  color:#fff;
+  border-radius:20px;
+  padding:24px 20px;
+  text-align:center;
+  margin-bottom:16px;
+}
+.result-hero.low{background:linear-gradient(135deg,#6C5CE7 0%,#FF6B9D 100%);}
+.result-emoji{font-size:56px; margin-bottom:8px;}
+.result-title{font-size:20px; font-weight:800; margin-bottom:4px;}
+.result-score{font-size:34px; font-weight:800; margin:8px 0;}
+.result-msg{font-size:13px; opacity:.95; line-height:1.5;}
+
+.review-list{display:flex; flex-direction:column; gap:10px;}
+.review-item{
+  background:var(--white);
+  border-radius:14px;
+  padding:14px;
+  border-left:4px solid var(--green);
+}
+.review-item.wrong{border-left-color:var(--red);}
+.ri-num{font-size:11px; color:var(--gray); font-weight:700;}
+.ri-ans{font-size:14px; font-weight:800; margin:4px 0;}
+.ri-mine{font-size:13px; color:#495366;}
+
+#name-editor{display:none !important;}
+.toast{
+  position:fixed; bottom:30px; left:50%; transform:translateX(-50%);
+  background:rgba(26,36,56,.92); color:#fff;
+  padding:12px 20px; border-radius:12px;
+  font-size:14px; font-weight:700;
+  z-index:999; opacity:0;
+  transition:opacity .2s, transform .2s;
+  pointer-events:none;
+  max-width:360px; text-align:center;
+}
+.toast.show{opacity:1; transform:translateX(-50%) translateY(-6px);}
+</style>
+</head>
+<body>
+
+<div class="app" id="app">
+  <div class="statusbar">
+    <span id="sb-time">9:41</span>
+    <span>📶 📡 🔋</span>
+  </div>
+
+  <!-- ─── 홈 ─── -->
+  <section class="screen active" data-screen="home">
+    <div class="home-hero">
+      <div class="home-greeting">안녕, <span class="student-name">주은</span>!</div>
+      <div class="home-title">받아쓰기 연습 🎙️</div>
+      <div class="home-sub">문장을 듣고, 보지 않고 받아 적어봐요!</div>
+    </div>
+
+    <div class="voice-status" id="voice-status">
+      <div class="vs-icon">🔊</div>
+      <div class="vs-body">
+        <div class="vs-title">음성 지원 확인 중…</div>
+        <div class="vs-desc">브라우저가 한국어 음성을 지원해야 해요</div>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-label">📚 레벨별 받아쓰기</div>
+      <div class="menu-grid">
+        <button class="menu-card wide" data-go="levels">
+          <div class="mc-icon ic-purple">🎯</div>
+          <div class="mc-title">레벨 선택하기</div>
+          <div class="mc-desc">초급·중급·고급·관용·속담까지 단계별로 받아쓰기</div>
+        </button>
+        <button class="menu-card" data-quick="basic">
+          <div class="mc-icon ic-green">🌱</div>
+          <div class="mc-title">빠른 시작 · 초급</div>
+          <div class="mc-desc">짧은 문장 5개</div>
+        </button>
+        <button class="menu-card" data-quick="mid">
+          <div class="mc-icon ic-blue">💧</div>
+          <div class="mc-title">빠른 시작 · 중급</div>
+          <div class="mc-desc">보통 문장 5개</div>
+        </button>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-label">⚙️ 설정</div>
+      <div class="menu-grid">
+        <button class="menu-card wide" data-go="settings">
+          <div class="mc-icon ic-orange">🎚️</div>
+          <div class="mc-title">음성·시간 설정</div>
+          <div class="mc-desc">읽기 속도, 답 쓰는 시간, 반복 횟수를 조절해요</div>
+        </button>
+      </div>
+    </div>
+
+    <div class="menu-section">
+      <div class="menu-label">💡 도움말</div>
+      <div class="menu-grid">
+        <button class="menu-card wide" data-go="howto">
+          <div class="mc-icon ic-yellow">📖</div>
+          <div class="mc-title">사용 방법</div>
+          <div class="mc-desc">받아쓰기는 이렇게 하면 돼요</div>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 레벨 선택 ─── -->
+  <section class="screen" data-screen="levels">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">레벨 선택</div>
+    </div>
+    <div class="content">
+      <div class="level-list" id="level-list"></div>
+    </div>
+  </section>
+
+  <!-- ─── 설정 ─── -->
+  <section class="screen" data-screen="settings">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">음성·시간 설정</div>
+    </div>
+    <div class="content">
+      <div class="setting-card">
+        <div class="setting-label">🔉 읽기 속도</div>
+        <div class="chip-row" style="margin-top:6px;">
+          <button class="chip" data-rate="0.6">아주 느리게</button>
+          <button class="chip active" data-rate="0.8">느리게</button>
+          <button class="chip" data-rate="1.0">보통</button>
+          <button class="chip" data-rate="1.2">빠르게</button>
+        </div>
+      </div>
+
+      <div class="setting-card">
+        <div class="setting-label">🔁 반복 횟수 (자동 반복)</div>
+        <div class="chip-row" style="margin-top:6px;">
+          <button class="chip" data-repeat="1">1번</button>
+          <button class="chip active" data-repeat="2">2번</button>
+          <button class="chip" data-repeat="3">3번</button>
+          <button class="chip" data-repeat="0">반복 없음</button>
+        </div>
+      </div>
+
+      <div class="setting-card">
+        <div class="setting-label">⏱️ 답 쓰는 시간 (문장당)</div>
+        <div class="chip-row" style="margin-top:6px;">
+          <button class="chip" data-time="15">15초</button>
+          <button class="chip active" data-time="25">25초</button>
+          <button class="chip" data-time="40">40초</button>
+          <button class="chip" data-time="60">60초</button>
+          <button class="chip" data-time="0">제한 없음</button>
+        </div>
+      </div>
+
+      <div class="setting-card">
+        <div class="setting-label">🎤 음성 선택 (사용 가능한 한국어)</div>
+        <div id="voice-list" class="chip-row" style="margin-top:6px;"></div>
+      </div>
+
+      <button class="btn secondary" id="btn-test-voice">🔊 "안녕하세요, 받아쓰기 시작할게요" 테스트</button>
+    </div>
+  </section>
+
+  <!-- ─── 사용법 ─── -->
+  <section class="screen" data-screen="howto">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">사용 방법</div>
+    </div>
+    <div class="content">
+      <div class="setting-card" style="line-height:1.7; font-size:14px;">
+        <h3 style="margin-bottom:10px;">🎙️ 받아쓰기 순서</h3>
+        <p>① <b>▶ 재생 버튼</b>을 누르면 문장을 읽어줘요. (설정에 따라 자동 반복)</p>
+        <p>② <b>답 쓰는 칸</b>이 열리면, 들은 문장을 그대로 적어요.</p>
+        <p>③ 시간이 다 되거나 <b>제출</b>을 누르면 <b>정답</b>이 공개돼요.</p>
+        <p>④ 다음 문장으로 넘어가며 총 5~10문장을 풀어요.</p>
+      </div>
+      <div class="setting-card">
+        <h3 style="margin-bottom:6px; font-size:14px;">💡 꿀팁</h3>
+        <p style="font-size:13px; line-height:1.6;">• 끝까지 듣고 머리 속으로 문장을 정리한 뒤 적어보세요.<br>
+        • 처음엔 짧은 문장부터! 받아쓰기 속도는 설정에서 조절해요.<br>
+        • 띄어쓰기와 맞춤법까지 정확히 적어보세요.</p>
+      </div>
+      <div class="setting-card">
+        <h3 style="margin-bottom:6px; font-size:14px;">🔊 소리가 안 나와요</h3>
+        <p style="font-size:13px; line-height:1.6;">브라우저가 음성 재생을 막는 경우가 있어요. 처음 재생 버튼은 꼭 <b>탭/클릭</b>해서 눌러주세요.<br>
+        만약 그래도 소리가 안 나오면 다른 브라우저(Chrome, Safari 등)를 사용해보세요.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 받아쓰기 플레이 ─── -->
+  <section class="screen" data-screen="play">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title" id="play-title">받아쓰기</div>
+      <span class="hdr-right" id="play-count-txt">1 / 5</span>
+    </div>
+    <div class="content">
+      <div class="play-head">
+        <div class="play-count" id="play-num">1</div>
+        <div class="play-level">
+          <div class="pl-label" id="play-level-label">레벨</div>
+          <div class="pl-title" id="play-level-title">초급 받아쓰기</div>
+        </div>
+      </div>
+
+      <div class="listen-card">
+        <div class="listen-icon" id="listen-btn">▶</div>
+        <div class="listen-title" id="listen-title">▶ 탭해서 문장 듣기</div>
+        <div class="listen-sub" id="listen-sub">음성을 듣고 아래 칸에 받아 적어요</div>
+        <div class="action-row">
+          <button class="action-btn" id="btn-slow">🐢 느리게 한 번 더</button>
+          <button class="action-btn" id="btn-repeat">🔁 다시 듣기</button>
+        </div>
+      </div>
+
+      <div class="timer-card" id="timer-card" style="display:none;">
+        <div class="timer-label">답 쓰는 시간</div>
+        <div class="timer-val" id="timer-val">25초</div>
+        <div class="timer-bar"><div class="timer-fill" id="timer-fill" style="width:100%;"></div></div>
+      </div>
+
+      <div class="answer-card" id="answer-card" style="display:none;">
+        <div class="answer-label">✍️ 들은 문장을 적어보세요</div>
+        <textarea class="answer-input" id="answer-input" rows="3" placeholder="여기에 받아쓰기…" inputmode="text"></textarea>
+        <div class="ans-hint">띄어쓰기와 맞춤법까지 정확히 적어보세요</div>
+      </div>
+
+      <div id="reveal-wrap"></div>
+
+      <div class="btn-row" id="submit-wrap" style="display:none;">
+        <button class="btn secondary" id="btn-skip">건너뛰기</button>
+        <button class="btn" id="btn-submit">제출 · 정답 보기</button>
+      </div>
+      <div class="btn-row" id="next-wrap" style="display:none;">
+        <button class="btn" id="btn-next">다음 문장 ▶</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── 결과 ─── -->
+  <section class="screen" data-screen="result">
+    <div class="hdr">
+      <button class="hdr-back" data-back>←</button>
+      <div class="hdr-title">받아쓰기 결과</div>
+    </div>
+    <div class="content">
+      <div class="result-hero" id="result-hero">
+        <div class="result-emoji" id="result-emoji">🎉</div>
+        <div class="result-title" id="result-title">훌륭해요!</div>
+        <div class="result-score"><span id="result-correct">0</span> / <span id="result-total">5</span></div>
+        <div class="result-msg" id="result-msg">정말 잘했어요!</div>
+      </div>
+
+      <div style="font-size:14px; font-weight:800; margin-bottom:10px;">📝 내가 쓴 받아쓰기</div>
+      <div class="review-list" id="review-list"></div>
+
+      <div class="btn-row" style="margin-top:14px;">
+        <button class="btn secondary" data-go="home">홈</button>
+        <button class="btn" id="btn-again">다시 풀기</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* =======================================================
+   받아쓰기 연습 앱
+   ======================================================= */
+const State = {
+  stack:['home'],
+  settings:{rate:0.8, repeat:2, timeLimit:25, voiceIdx:-1},
+  play:{level:'', items:[], idx:0, answers:[], timer:null, timeLeft:0, awaiting:false}
+};
+
+/* ─ 받아쓰기 문장 데이터 ─ */
+const LEVELS = [
+  {
+    id:'basic', emoji:'🌱', color:'ic-green',
+    title:'초급 · 짧은 문장',
+    desc:'5~10글자 내외, 단순한 문장',
+    sentences:[
+      '오늘은 비가 와요.',
+      '친구와 학교에 갔어요.',
+      '점심에 밥을 먹었어요.',
+      '엄마가 요리를 해요.',
+      '동생이 그림을 그려요.',
+      '우리 집은 아파트예요.',
+      '나는 책을 좋아해요.',
+      '토요일에 놀러 갔어요.',
+      '저녁에 산책을 해요.',
+      '학교 운동장이 넓어요.'
+    ]
+  },
+  {
+    id:'mid', emoji:'💧', color:'ic-blue',
+    title:'중급 · 보통 문장',
+    desc:'10~20글자, 접속사·형용사 포함',
+    sentences:[
+      '오늘 날씨가 맑아서 기분이 좋아요.',
+      '숙제를 다 하고 나서 게임을 했어요.',
+      '지하철을 타고 할머니 댁에 갔어요.',
+      '친구들과 떡볶이를 맛있게 먹었어요.',
+      '시험 공부를 열심히 해야 해요.',
+      '내일은 학교에 일찍 가야 해요.',
+      '동생이 울어서 엄마가 달래주었어요.',
+      '도서관에서 책을 세 권 빌렸어요.',
+      '주말에는 가족과 영화를 보기로 했어요.',
+      '선생님께서 친절하게 설명해 주셨어요.'
+    ]
+  },
+  {
+    id:'advanced', emoji:'🌳', color:'ic-orange',
+    title:'고급 · 긴 문장',
+    desc:'20글자 이상, 복합문·설명문',
+    sentences:[
+      '내일은 아침 일찍 일어나서 운동을 하기로 결심했어요.',
+      '친구가 전학 간다고 해서 정말 아쉽고 슬펐어요.',
+      '방학 동안 여러 가지 책을 읽으며 많은 것을 배웠어요.',
+      '어제 저녁에는 가족과 함께 맛있는 삼겹살을 먹었어요.',
+      '요즘 날씨가 쌀쌀해져서 따뜻한 옷을 꺼내 입어야 해요.',
+      '수학 문제를 풀다가 모르는 부분은 선생님께 여쭤봤어요.',
+      '시험이 끝나면 친구들과 함께 놀이공원에 가려고 해요.',
+      '매일 꾸준히 운동하면 건강에도 좋고 공부도 잘돼요.',
+      '엄마의 생신에 직접 쓴 편지와 꽃을 선물로 드렸어요.',
+      '지난 주말에 가족 모두가 모여서 즐거운 시간을 보냈어요.'
+    ]
+  },
+  {
+    id:'spelling', emoji:'🎯', color:'ic-purple',
+    title:'맞춤법 집중 받아쓰기',
+    desc:'헷갈리는 맞춤법이 들어간 문장',
+    sentences:[
+      '이렇게 하면 돼요.',
+      '오늘 왠지 피곤하네요.',
+      '친구가 영화 재미있대요.',
+      '감기가 이제 다 나았어요.',
+      '솔직히 말하면 조금 긴장돼요.',
+      '편지에 우표를 붙여서 부쳤어요.',
+      '내일 다시 봬요.',
+      '며칠 전에 그 소식을 들었어요.',
+      '반드시 약속을 지킬게요.',
+      '모양이 서로 많이 달라요.'
+    ]
+  },
+  {
+    id:'daily', emoji:'🏫', color:'ic-pink',
+    title:'생활 속 받아쓰기',
+    desc:'학교·가족·친구 생활 문장',
+    sentences:[
+      '점심시간에 급식실에서 밥을 먹었어요.',
+      '친구에게 생일 축하 메시지를 보냈어요.',
+      '오후 네 시에 학원에서 만나기로 했어요.',
+      '버스에서 어르신께 자리를 양보했어요.',
+      '동생과 함께 설거지를 깨끗이 했어요.',
+      '친구의 부탁을 흔쾌히 들어주었어요.',
+      '수업 시간에는 집중해서 들어야 해요.',
+      '방 청소를 하고 책상도 정리했어요.',
+      '학교 끝나고 도서관에 들렀다 왔어요.',
+      '친구에게 미안하다고 사과했어요.'
+    ]
+  },
+  {
+    id:'idiom', emoji:'🧠', color:'ic-yellow',
+    title:'관용 표현 · 속담',
+    desc:'자주 쓰는 속담과 관용구',
+    sentences:[
+      '백지장도 맞들면 낫다.',
+      '가는 말이 고와야 오는 말이 곱다.',
+      '티끌 모아 태산이라는 말이 있어요.',
+      '발 없는 말이 천 리를 간다.',
+      '천 리 길도 한 걸음부터 시작해요.',
+      '공든 탑이 무너지랴.',
+      '열 번 찍어 안 넘어가는 나무 없다.',
+      '서두르면 일을 그르칠 수 있어요.',
+      '가랑비에 옷 젖는 줄 모른다.',
+      '우물을 파도 한 우물을 파라.'
+    ]
+  }
+];
+
+/* ─ 음성 지원 ─ */
+let voices = [];
+let koreanVoices = [];
+function loadVoices(){
+  voices = speechSynthesis.getVoices();
+  koreanVoices = voices.filter(v => /ko[-_]?KR|ko$|korean/i.test(v.lang + '_' + v.name));
+  const vs = document.getElementById('voice-status');
+  if (koreanVoices.length > 0){
+    vs.innerHTML = `
+      <div class="vs-icon">✅</div>
+      <div class="vs-body">
+        <div class="vs-title vs-ok">음성 재생 가능 (${koreanVoices.length}개)</div>
+        <div class="vs-desc">한국어 음성으로 받아쓰기를 할 수 있어요</div>
+      </div>
+    `;
+    renderVoiceList();
+  } else if (voices.length === 0){
+    vs.innerHTML = `
+      <div class="vs-icon">⏳</div>
+      <div class="vs-body">
+        <div class="vs-title">음성 목록 불러오는 중…</div>
+        <div class="vs-desc">잠시만 기다려주세요</div>
+      </div>
+    `;
+  } else {
+    vs.innerHTML = `
+      <div class="vs-icon">⚠️</div>
+      <div class="vs-body">
+        <div class="vs-title vs-ng">한국어 음성이 없어요</div>
+        <div class="vs-desc">기본 음성으로 재생되거나 들리지 않을 수 있어요</div>
+      </div>
+    `;
+    renderVoiceList();
+  }
+}
+function renderVoiceList(){
+  const el = document.getElementById('voice-list');
+  if (!el) return;
+  const list = koreanVoices.length ? koreanVoices : voices.slice(0, 8);
+  el.innerHTML = list.map((v, i) => `
+    <button class="chip ${i === 0 ? 'active' : ''}" data-voice="${i}">${v.name.replace(/Microsoft |Google /, '').slice(0, 14)}</button>
+  `).join('');
+  State.settings.voiceIdx = 0;
+  el.querySelectorAll('[data-voice]').forEach(b => {
+    b.addEventListener('click', () => {
+      el.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+      b.classList.add('active');
+      State.settings.voiceIdx = parseInt(b.dataset.voice, 10);
+    });
+  });
+}
+if (typeof speechSynthesis !== 'undefined'){
+  loadVoices();
+  speechSynthesis.onvoiceschanged = loadVoices;
+} else {
+  document.getElementById('voice-status').innerHTML = `
+    <div class="vs-icon">❌</div>
+    <div class="vs-body">
+      <div class="vs-title vs-ng">이 브라우저는 음성 재생을 지원하지 않아요</div>
+      <div class="vs-desc">Chrome, Safari, Edge에서 사용해주세요</div>
+    </div>
+  `;
+}
+
+function speak(text, onEnd){
+  if (typeof speechSynthesis === 'undefined'){ onEnd && onEnd(); return; }
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'ko-KR';
+  u.rate = State.settings.rate;
+  u.pitch = 1.0;
+  const voiceList = koreanVoices.length ? koreanVoices : voices;
+  if (voiceList[State.settings.voiceIdx]) u.voice = voiceList[State.settings.voiceIdx];
+  else if (voiceList[0]) u.voice = voiceList[0];
+  u.onend = () => { onEnd && onEnd(); };
+  u.onerror = () => { onEnd && onEnd(); };
+  speechSynthesis.speak(u);
+}
+
+/* ─ 스크린 ─ */
+function show(name, push=true){
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  const el = document.querySelector(`[data-screen="${name}"]`);
+  if (!el) return;
+  el.classList.add('active');
+  if (push && State.stack[State.stack.length-1] !== name) State.stack.push(name);
+  const app = document.querySelector('.app');
+  if (app) app.scrollTop = 0;
+  if (name === 'levels') renderLevels();
+}
+function back(){
+  // 플레이 중이면 음성 취소
+  if (typeof speechSynthesis !== 'undefined') speechSynthesis.cancel();
+  if (State.play.timer){ clearInterval(State.play.timer); State.play.timer = null; }
+  if (State.stack.length <= 1){ show('home', false); return; }
+  State.stack.pop();
+  show(State.stack[State.stack.length-1], false);
+}
+document.querySelectorAll('[data-go]').forEach(b => b.addEventListener('click', ()=>show(b.dataset.go)));
+document.querySelectorAll('[data-back]').forEach(b => b.addEventListener('click', back));
+document.querySelectorAll('[data-quick]').forEach(b => b.addEventListener('click', ()=> startLevel(b.dataset.quick, 5)));
+
+/* ─ 설정 ─ */
+document.querySelectorAll('[data-rate]').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('[data-rate]').forEach(c => c.classList.remove('active'));
+    b.classList.add('active');
+    State.settings.rate = parseFloat(b.dataset.rate);
+  });
+});
+document.querySelectorAll('[data-repeat]').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('[data-repeat]').forEach(c => c.classList.remove('active'));
+    b.classList.add('active');
+    State.settings.repeat = parseInt(b.dataset.repeat, 10);
+  });
+});
+document.querySelectorAll('[data-time]').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('[data-time]').forEach(c => c.classList.remove('active'));
+    b.classList.add('active');
+    State.settings.timeLimit = parseInt(b.dataset.time, 10);
+  });
+});
+document.getElementById('btn-test-voice').addEventListener('click', () => {
+  speak('안녕하세요. 받아쓰기 연습을 시작할게요.');
+});
+
+/* ─ 레벨 리스트 ─ */
+function renderLevels(){
+  const list = document.getElementById('level-list');
+  list.innerHTML = LEVELS.map(l => `
+    <button class="level-card" data-level="${l.id}">
+      <div class="lv-badge ${l.color}">${l.emoji}</div>
+      <div class="lv-body">
+        <div class="lv-title">${l.title}</div>
+        <div class="lv-desc">${l.desc}</div>
+        <div class="lv-stat">문장 ${l.sentences.length}개 수록</div>
+      </div>
+      <div class="lv-arrow">›</div>
+    </button>
+  `).join('');
+  list.querySelectorAll('[data-level]').forEach(b => {
+    b.addEventListener('click', () => startLevel(b.dataset.level, 10));
+  });
+}
+
+/* ─ 받아쓰기 시작 ─ */
+function startLevel(levelId, count){
+  const lv = LEVELS.find(l => l.id === levelId);
+  if (!lv){ showToast('레벨을 찾을 수 없어요'); return; }
+  State.play.level = levelId;
+  const pool = [...lv.sentences];
+  shuffle(pool);
+  State.play.items = pool.slice(0, Math.min(count, pool.length));
+  State.play.idx = 0;
+  State.play.answers = [];
+  document.getElementById('play-level-title').textContent = lv.title;
+  document.getElementById('play-level-label').textContent = lv.desc;
+  show('play');
+  renderPlay();
+}
+
+function renderPlay(){
+  const idx = State.play.idx;
+  const total = State.play.items.length;
+  const sentence = State.play.items[idx];
+  document.getElementById('play-num').textContent = idx + 1;
+  document.getElementById('play-count-txt').textContent = `${idx+1} / ${total}`;
+  document.getElementById('listen-title').textContent = '▶ 탭해서 문장 듣기';
+  document.getElementById('listen-sub').textContent = '음성을 듣고 아래 칸에 받아 적어요';
+  document.getElementById('listen-btn').classList.remove('playing');
+  document.getElementById('listen-btn').textContent = '▶';
+  document.getElementById('answer-card').style.display = 'none';
+  document.getElementById('timer-card').style.display = 'none';
+  document.getElementById('submit-wrap').style.display = 'none';
+  document.getElementById('next-wrap').style.display = 'none';
+  document.getElementById('reveal-wrap').innerHTML = '';
+  document.getElementById('answer-input').value = '';
+  State.play.awaiting = false;
+}
+
+/* ─ 재생 ─ */
+function playSentence(slow=false){
+  const idx = State.play.idx;
+  const sentence = State.play.items[idx];
+  if (!sentence) return;
+  const btn = document.getElementById('listen-btn');
+  btn.classList.add('playing');
+  btn.textContent = '🔊';
+  document.getElementById('listen-title').textContent = '📢 읽고 있어요…';
+  document.getElementById('listen-sub').textContent = '끝까지 집중해서 들어보세요';
+
+  const origRate = State.settings.rate;
+  if (slow){ State.settings.rate = Math.max(0.5, origRate - 0.2); }
+
+  let remaining = Math.max(1, slow ? 1 : (State.settings.repeat || 1));
+  function playOnce(){
+    speak(sentence, () => {
+      remaining--;
+      if (remaining > 0){
+        setTimeout(playOnce, 700);
+      } else {
+        if (slow) State.settings.rate = origRate;
+        btn.classList.remove('playing');
+        btn.textContent = '✏️';
+        document.getElementById('listen-title').textContent = '이제 답을 적어보세요';
+        document.getElementById('listen-sub').textContent = '시간이 끝나면 정답이 공개돼요';
+        openAnswerPhase();
+      }
+    });
+  }
+  playOnce();
+}
+document.getElementById('listen-btn').addEventListener('click', () => {
+  if (!State.play.awaiting) playSentence(false);
+});
+document.getElementById('btn-repeat').addEventListener('click', () => {
+  // 바로 재생(반복 설정과 별개로 한 번)
+  speechSynthesis.cancel();
+  const btn = document.getElementById('listen-btn');
+  btn.classList.add('playing');
+  speak(State.play.items[State.play.idx], () => { btn.classList.remove('playing'); });
+});
+document.getElementById('btn-slow').addEventListener('click', () => {
+  speechSynthesis.cancel();
+  const origRate = State.settings.rate;
+  State.settings.rate = Math.max(0.5, origRate - 0.3);
+  const btn = document.getElementById('listen-btn');
+  btn.classList.add('playing');
+  speak(State.play.items[State.play.idx], () => {
+    btn.classList.remove('playing');
+    State.settings.rate = origRate;
+  });
+});
+
+/* ─ 답 쓰기 단계 ─ */
+function openAnswerPhase(){
+  State.play.awaiting = true;
+  document.getElementById('answer-card').style.display = 'block';
+  document.getElementById('submit-wrap').style.display = 'flex';
+  const input = document.getElementById('answer-input');
+  input.value = '';
+  setTimeout(() => input.focus(), 100);
+
+  const lim = State.settings.timeLimit;
+  if (lim > 0){
+    document.getElementById('timer-card').style.display = 'block';
+    startTimer(lim);
+  }
+}
+function startTimer(sec){
+  if (State.play.timer) clearInterval(State.play.timer);
+  State.play.timeLeft = sec;
+  updateTimerUI(sec, sec);
+  State.play.timer = setInterval(() => {
+    State.play.timeLeft--;
+    updateTimerUI(State.play.timeLeft, sec);
+    if (State.play.timeLeft <= 0){
+      clearInterval(State.play.timer);
+      State.play.timer = null;
+      submitAnswer(true);
+    }
+  }, 1000);
+}
+function updateTimerUI(left, total){
+  const val = document.getElementById('timer-val');
+  const fill = document.getElementById('timer-fill');
+  val.textContent = `${left}초`;
+  const pct = Math.max(0, left/total*100);
+  fill.style.width = pct + '%';
+  val.classList.toggle('warn', left <= Math.ceil(total*0.4) && left > Math.ceil(total*0.2));
+  val.classList.toggle('red', left <= Math.ceil(total*0.2));
+  fill.classList.toggle('warn', left <= Math.ceil(total*0.4) && left > Math.ceil(total*0.2));
+  fill.classList.toggle('red', left <= Math.ceil(total*0.2));
+}
+
+/* ─ 제출 → 정답 공개 ─ */
+function submitAnswer(timeout=false){
+  if (State.play.timer){ clearInterval(State.play.timer); State.play.timer = null; }
+  const user = document.getElementById('answer-input').value.trim();
+  const correct = State.play.items[State.play.idx];
+  State.play.answers.push({correct, user, timeout});
+
+  document.getElementById('timer-card').style.display = 'none';
+  document.getElementById('answer-card').style.display = 'none';
+  document.getElementById('submit-wrap').style.display = 'none';
+
+  const score = compareAnswer(user, correct);
+  const marked = highlightDiff(user || '(미입력)', correct);
+
+  // 정답 TTS 재생
+  speak(correct);
+
+  let fbClass = 'wrong', fbIcon = '🤔', fbTitle = '아쉬워요', fbDesc = '다시 한 번 들어보세요';
+  if (score.exact){ fbClass = ''; fbIcon = '✨'; fbTitle = '완벽해요!'; fbDesc = '정확히 받아 적었어요'; }
+  else if (score.rate >= 0.85){ fbClass = 'partial'; fbIcon = '👍'; fbTitle = '거의 다 맞았어요'; fbDesc = `${Math.round(score.rate*100)}% 일치해요. 작은 차이만 확인해 봐요`; }
+  else if (score.rate >= 0.5){ fbClass = 'partial'; fbIcon = '💪'; fbTitle = '조금만 더!'; fbDesc = `${Math.round(score.rate*100)}% 일치해요`; }
+
+  const html = `
+    <div class="feedback ${fbClass}">
+      <div class="fb-icon">${fbIcon}</div>
+      <div>
+        <div class="fb-title">${fbTitle}${timeout ? ' (시간 종료)' : ''}</div>
+        <div class="fb-desc">${fbDesc}</div>
+      </div>
+    </div>
+    <div class="reveal-card">
+      <div class="reveal-label">✅ 정답</div>
+      <div class="reveal-ans">${escapeHtml(correct)}</div>
+      <div class="reveal-mine"><b>내가 쓴 답</b>${marked}</div>
+    </div>
+  `;
+  document.getElementById('reveal-wrap').innerHTML = html;
+  document.getElementById('next-wrap').style.display = 'flex';
+  if (State.play.idx >= State.play.items.length - 1){
+    document.getElementById('btn-next').textContent = '결과 보기 🏁';
+  } else {
+    document.getElementById('btn-next').textContent = '다음 문장 ▶';
+  }
+}
+document.getElementById('btn-submit').addEventListener('click', () => submitAnswer(false));
+document.getElementById('btn-skip').addEventListener('click', () => submitAnswer(false));
+document.getElementById('btn-next').addEventListener('click', () => {
+  State.play.idx++;
+  if (State.play.idx >= State.play.items.length){
+    showResult();
+  } else {
+    renderPlay();
+  }
+});
+
+/* ─ 비교 로직 ─ */
+function normalize(s){
+  return (s||'').replace(/\s+/g, '').replace(/[.,!?~·'"()[\]{}:;]/g, '');
+}
+function compareAnswer(user, correct){
+  const u = normalize(user), c = normalize(correct);
+  if (u === c) return {exact:true, rate:1};
+  const dist = levenshtein(u, c);
+  const rate = c.length === 0 ? 0 : Math.max(0, 1 - dist / c.length);
+  return {exact:false, rate};
+}
+function levenshtein(a, b){
+  if (a === b) return 0;
+  if (!a.length) return b.length;
+  if (!b.length) return a.length;
+  const dp = [];
+  for (let i=0; i<=a.length; i++) dp[i] = [i];
+  for (let j=0; j<=b.length; j++) dp[0][j] = j;
+  for (let i=1; i<=a.length; i++){
+    for (let j=1; j<=b.length; j++){
+      dp[i][j] = a[i-1] === b[j-1]
+        ? dp[i-1][j-1]
+        : 1 + Math.min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]);
+    }
+  }
+  return dp[a.length][b.length];
+}
+function highlightDiff(user, correct){
+  const u = user || '';
+  // 글자별 비교: 띄어쓰기도 반영
+  const cNorm = normalize(correct);
+  const uNorm = normalize(u);
+  // 사용자 입력 원문을 그대로 보여주며 정답 글자 세트와의 대조
+  // 간단한 색칠: 글자별 일치 여부
+  let result = '';
+  for (let i=0; i<u.length; i++){
+    const ch = u[i];
+    if (ch === ' '){ result += ' '; continue; }
+    if (cNorm.includes(ch)){ result += `<span class="match">${escapeHtml(ch)}</span>`; }
+    else { result += `<span class="diff">${escapeHtml(ch)}</span>`; }
+  }
+  if (!u) return '<div style="color:var(--gray); font-style:italic; margin-top:4px;">(쓴 답이 없어요)</div>';
+  return '<div style="margin-top:4px; letter-spacing:1px;">' + result + '</div>';
+}
+function escapeHtml(s){
+  return (s||'').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+/* ─ 결과 ─ */
+function showResult(){
+  const correctCount = State.play.answers.filter(a => normalize(a.user) === normalize(a.correct)).length;
+  const total = State.play.answers.length;
+  const rate = total ? correctCount / total : 0;
+  document.getElementById('result-correct').textContent = correctCount;
+  document.getElementById('result-total').textContent = total;
+  const hero = document.getElementById('result-hero');
+  hero.classList.toggle('low', rate < 0.6);
+  const map = [
+    [1,'🏆','완벽해요!','문장을 하나도 틀리지 않았어요. 받아쓰기 왕!'],
+    [0.8,'🌟','아주 잘했어요!','거의 다 맞았어요. 집중력이 대단해요!'],
+    [0.6,'👏','잘했어요!','절반 넘게 맞췄어요. 계속 연습해봐요!'],
+    [0,'💪','다시 도전!','처음엔 어려울 수 있어요. 한 번 더 해볼까요?']
+  ];
+  for (const [th, em, ti, ms] of map){
+    if (rate >= th){
+      document.getElementById('result-emoji').textContent = em;
+      document.getElementById('result-title').textContent = ti;
+      document.getElementById('result-msg').textContent = ms;
+      break;
+    }
+  }
+  document.getElementById('review-list').innerHTML = State.play.answers.map((a, i) => {
+    const ok = normalize(a.user) === normalize(a.correct);
+    return `
+      <div class="review-item ${ok ? '' : 'wrong'}">
+        <div class="ri-num">문장 ${i+1} ${ok ? '✅' : '❌'}</div>
+        <div class="ri-ans">정답: ${escapeHtml(a.correct)}</div>
+        <div class="ri-mine">내 답: ${a.user ? escapeHtml(a.user) : '<span style="color:var(--gray); font-style:italic;">(미입력)</span>'}</div>
+      </div>
+    `;
+  }).join('');
+  show('result');
+}
+document.getElementById('btn-again').addEventListener('click', () => startLevel(State.play.level, State.play.items.length));
+
+/* ─ 유틸 ─ */
+function shuffle(arr){
+  for (let i=arr.length-1; i>0; i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+const toast = document.getElementById('toast');
+let toastT;
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastT);
+  toastT = setTimeout(() => toast.classList.remove('show'), 1800);
+}
+
+/* ─ 상태바 ─ */
+function tick(){
+  const d = new Date();
+  document.getElementById('sb-time').textContent = `${d.getHours()}:${String(d.getMinutes()).padStart(2,'0')}`;
+}
+setInterval(tick, 10000); tick();
+</script>
+
+<!-- NAME_EDITOR_START -->
+<style>
+#name-editor { position: fixed; top: 10px; right: 10px; z-index: 999; background: #fff; border: 1.5px solid #cfd8dc;
+  padding: 10px 14px; max-width: 360px; border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12); font-size: 0.88em;
+  font-family: 'Noto Sans KR','Malgun Gothic',sans-serif; color: #263238;
+  display: block !important; }
+#name-editor .ne-title { font-weight: 700; margin-bottom: 6px; }
+#name-editor .ne-hint { font-weight: 400; color: #78909c; font-size: 0.85em; margin-left: 6px; }
+#name-editor .ne-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 6px; }
+#name-editor .ne-cell { display: flex; align-items: center; gap: 4px; background: #f5f7f9;
+  padding: 4px 6px; border-radius: 4px; }
+#name-editor .ne-orig { font-weight: 700; color: #37474f; min-width: 30px; }
+#name-editor input { flex: 1; min-width: 0; padding: 3px 6px; border: 1px solid #b0bec5;
+  border-radius: 4px; font: inherit; }
+#name-editor .ne-actions { margin-top: 6px; display: flex; gap: 8px; }
+#name-editor button { background: #eceff1; border: 1px solid #b0bec5; padding: 3px 10px;
+  border-radius: 4px; cursor: pointer; font: inherit; font-size: 0.9em; color: #263238; }
+#name-editor button:hover { background: #cfd8dc; }
+#name-editor.collapsed { padding: 6px 10px; }
+#name-editor.collapsed .ne-row, #name-editor.collapsed .ne-actions, #name-editor.collapsed .ne-hint { display: none; }
+.sn.changed { background: #fff59d; padding: 0 2px; border-radius: 2px; }
+@media print { #name-editor { display: none !important; } .sn.changed { background: transparent; padding: 0; } }
+@media (max-width: 500px){
+  #name-editor { top: auto; bottom: 10px; right: 10px; left: 10px; max-width: none; }
+}
+</style>
+<script>
+(function() {
+  var STUDENTS = ['하은','하영','주은','주현','미정','채원','예은'];
+  var found = {};
+  function wrap(node) {
+    if (node.nodeType === 3) {
+      var text = node.nodeValue;
+      var re = new RegExp('(' + STUDENTS.join('|') + ')', 'g');
+      if (!re.test(text)) return;
+      var parent = node.parentNode;
+      var frag = document.createDocumentFragment();
+      var last = 0; re.lastIndex = 0; var m;
+      while ((m = re.exec(text)) !== null) {
+        if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var span = document.createElement('span');
+        span.className = 'sn';
+        span.setAttribute('data-original', m[1]);
+        span.textContent = m[1];
+        frag.appendChild(span);
+        found[m[1]] = true;
+        last = m.index + m[1].length;
+      }
+      if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      parent.replaceChild(frag, node);
+    } else if (node.nodeType === 1 &&
+        ['SCRIPT','STYLE','INPUT','TEXTAREA','BUTTON'].indexOf(node.tagName) === -1 &&
+        node.id !== 'name-editor') {
+      var kids = Array.prototype.slice.call(node.childNodes);
+      for (var i = 0; i < kids.length; i++) wrap(kids[i]);
+    }
+  }
+  function bindInputs(){
+    var panel = document.getElementById('name-editor');
+    if (!panel) return;
+    var inputs = panel.querySelectorAll('input');
+    for (var i = 0; i < inputs.length; i++) {
+      if (inputs[i].__bound) continue;
+      inputs[i].__bound = true;
+      inputs[i].addEventListener('input', function(e) {
+        var orig = e.target.getAttribute('data-original');
+        var v = e.target.value || orig;
+        var spans = document.querySelectorAll('.sn[data-original="' + orig + '"]');
+        for (var j = 0; j < spans.length; j++) {
+          spans[j].textContent = v;
+          if (v !== orig) spans[j].classList.add('changed');
+          else spans[j].classList.remove('changed');
+        }
+      });
+    }
+  }
+  function editor(detected) {
+    if (detected.length === 0) return;
+    var panel = document.createElement('div');
+    panel.id = 'name-editor';
+    panel.className = 'collapsed';
+    var cells = detected.map(function(n) {
+      return '<label class="ne-cell"><span class="ne-orig">' + n + '</span> → ' +
+             '<input type="text" data-original="' + n + '" value="' + n + '" maxlength="6"></label>';
+    }).join('');
+    panel.innerHTML =
+      '<div class="ne-title" style="cursor:pointer;" id="ne-toggle">✏️ 학생 이름 바꾸기 ' +
+      '<span class="ne-hint">(이름 ' + detected.length + '명 · 탭하여 펼치기)</span></div>' +
+      '<div class="ne-row">' + cells + '</div>' +
+      '<div class="ne-actions">' +
+      '<button type="button" id="ne-reset">원래대로</button>' +
+      '<button type="button" id="ne-hide">패널 숨기기</button></div>';
+    document.body.appendChild(panel);
+    bindInputs();
+    document.getElementById('ne-toggle').addEventListener('click', function(){
+      panel.classList.toggle('collapsed');
+    });
+    document.getElementById('ne-reset').addEventListener('click', function() {
+      var inputs = panel.querySelectorAll('input');
+      for (var i = 0; i < inputs.length; i++) {
+        inputs[i].value = inputs[i].getAttribute('data-original');
+        var evt = document.createEvent('Event'); evt.initEvent('input', true, true);
+        inputs[i].dispatchEvent(evt);
+      }
+    });
+    document.getElementById('ne-hide').addEventListener('click', function() {
+      panel.style.display = 'none';
+    });
+  }
+  function init() {
+    wrap(document.body);
+    var detected = STUDENTS.filter(function(n) { return found[n]; });
+    editor(detected);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+<!-- NAME_EDITOR_END -->
+
+</body>
+</html>
