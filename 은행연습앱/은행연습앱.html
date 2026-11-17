@@ -35,7 +35,7 @@ body{
 .app{
   width:100%;
   max-width:460px;
-  background:var(--white);
+  background:#E6F0FB;
   min-height:100vh;
   position:relative;
   box-shadow:0 0 40px rgba(0,0,0,.18);
@@ -233,18 +233,24 @@ body{
 }
 .qm{
   text-align:center;
-  padding:8px 4px;
+  padding:12px 4px;
   cursor:pointer;
-  border-radius:12px;
-  transition:background .1s;
+  border-radius:14px;
+  transition:transform .12s, box-shadow .15s;
+  border:2px solid transparent;
+  box-shadow:0 2px 6px rgba(0,0,0,0.06);
 }
-.qm:hover{background:var(--blue-light);}
+.qm:active{transform:translateY(2px);}
+.qm:nth-child(1){background:#E7EFFD;border-color:#8FB0F5;}
+.qm:nth-child(2){background:#DFF5EC;border-color:#6DD5B3;}
+.qm:nth-child(3){background:#FFEBD6;border-color:#FFB876;}
+.qm:nth-child(4){background:#EDE4FC;border-color:#B296F3;}
 .qm-ico{
   font-size:26px;
   margin-bottom:6px;
   display:block;
 }
-.qm-name{font-size:12.5px;font-weight:600;color:var(--navy);}
+.qm-name{font-size:12px;font-weight:700;color:var(--navy);}
 
 /* 미션박스 */
 .mission-box{

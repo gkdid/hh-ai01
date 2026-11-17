@@ -7,7 +7,7 @@
 <style>
 :root{
   --coffee:#6F4E37;--coffee-dark:#3E2723;--espresso:#2E1A0D;
-  --latte:#D7B899;--cream:#FFF8E7;--milk:#FFFAF2;--caramel:#C48355;
+  --latte:#D7B899;--cream:#FFF8E7;--milk:#F5E8D0;--caramel:#C48355;
   --navy:#191F28;--gray:#8B95A1;--gray2:#B0B8C1;
   --bg:#F2EEE8;--line:#E5DED3;--white:#FFFFFF;
   --green:#00A86B;--green-light:#E6F7EF;--red:#E53935;--red-light:#FEECEC;
@@ -60,12 +60,20 @@ body{font-family:'Pretendard','Malgun Gothic',-apple-system,sans-serif;backgroun
 .progress-fill{height:100%;background:linear-gradient(90deg,var(--coffee),var(--caramel));border-radius:4px;transition:width .4s;}
 
 .main-menu{margin:0 16px 20px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-.menu-card{background:#fff;border-radius:18px;padding:18px 16px;border:1.5px solid var(--line);cursor:pointer;transition:all .15s;display:flex;flex-direction:column;gap:6px;position:relative;overflow:hidden;min-height:116px;}
-.menu-card:active{transform:scale(.98);}
-.menu-card:hover{box-shadow:0 8px 16px rgba(62,39,35,.1);border-color:var(--coffee);}
+.menu-card{background:#fff;border-radius:18px;padding:18px 16px;border:2.5px solid var(--line);cursor:pointer;transition:all .15s;display:flex;flex-direction:column;gap:6px;position:relative;overflow:hidden;min-height:116px;box-shadow:0 3px 10px rgba(62,39,35,0.08);}
+.menu-card:active{transform:translateY(2px);box-shadow:0 1px 4px rgba(62,39,35,0.1);}
+.menu-card:hover{box-shadow:0 8px 16px rgba(62,39,35,.1);}
 .menu-card .mc-ico{font-size:36px;line-height:1;margin-bottom:4px;}
 .menu-card h3{font-size:16px;font-weight:800;color:var(--espresso);}
 .menu-card p{font-size:12px;color:var(--gray);line-height:1.4;}
+.menu-card.theory{background:#E7EFFD;border-color:#8FB0F5;}
+.menu-card.theory h3{color:#2B5FD4;}
+.menu-card.machine{background:#FFEBD6;border-color:#FFB876;}
+.menu-card.machine h3{color:#B35C14;}
+.menu-card.exam{background:#DFF5EC;border-color:#6DD5B3;}
+.menu-card.exam h3{color:#0E6F50;}
+.menu-card.checklist{background:#EDE4FC;border-color:#B296F3;}
+.menu-card.checklist h3{color:#6238CA;}
 .menu-card.wide{grid-column:span 2;flex-direction:row;align-items:center;gap:14px;background:linear-gradient(135deg,#3E2723 0%,#5D4037 100%);color:#fff;border-color:transparent;min-height:auto;}
 .menu-card.wide .mc-ico{font-size:40px;flex-shrink:0;margin-bottom:0;background:rgba(255,255,255,.14);width:54px;height:54px;border-radius:14px;display:flex;align-items:center;justify-content:center;}
 .menu-card.wide h3{color:#fff;}
@@ -392,22 +400,22 @@ body{font-family:'Pretendard','Malgun Gothic',-apple-system,sans-serif;backgroun
         <div class="mc-ico">⚙️</div>
         <div><h3>단계별 시뮬레이션</h3><p>6단계 물리 기반 연동 연습 (메인)</p></div>
       </div>
-      <div class="menu-card" onclick="go('theory')">
+      <div class="menu-card theory" onclick="go('theory')">
         <div class="mc-ico">📚</div>
         <h3>이론학습</h3>
         <p>용어 카드 + 퀴즈</p>
       </div>
-      <div class="menu-card" onclick="go('machine')">
+      <div class="menu-card machine" onclick="go('machine')">
         <div class="mc-ico">☕</div>
         <h3>머신 시연</h3>
         <p>자유 조작 모드</p>
       </div>
-      <div class="menu-card" onclick="go('exam')">
+      <div class="menu-card exam" onclick="go('exam')">
         <div class="mc-ico">⏱️</div>
         <h3>모의시험</h3>
         <p>15분 전체 시연</p>
       </div>
-      <div class="menu-card" onclick="go('checklist')">
+      <div class="menu-card checklist" onclick="go('checklist')">
         <div class="mc-ico">📋</div>
         <h3>복장·위생</h3>
         <p>시험장 체크</p>
