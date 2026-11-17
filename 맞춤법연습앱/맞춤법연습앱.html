@@ -111,25 +111,37 @@ body{
   padding:16px 14px;
   cursor:pointer;
   text-align:left;
-  width:100%; border:none;
+  width:100%;
+  border:2.5px solid transparent;
   font-family:inherit;
-  transition:transform .12s;
+  transition:transform .12s, box-shadow .15s;
+  box-shadow:0 3px 10px rgba(26,36,56,0.08);
 }
-.menu-card:active{transform:scale(.97);}
+.menu-card:active{transform:translateY(2px); box-shadow:0 1px 4px rgba(26,36,56,0.1);}
 .menu-card.wide{grid-column:1 / span 2;}
 .mc-icon{
-  width:40px; height:40px; border-radius:12px;
+  width:44px; height:44px; border-radius:50%;
   display:flex; align-items:center; justify-content:center;
   font-size:22px; margin-bottom:10px;
+  background:#fff;
+  box-shadow:0 2px 4px rgba(26,36,56,0.08);
 }
-.mc-title{font-size:15px; font-weight:700; margin-bottom:3px;}
-.mc-desc{font-size:11.5px; color:var(--gray); line-height:1.4;}
-.ic-red{background:var(--primary-light); color:var(--primary);}
-.ic-green{background:var(--green-light); color:var(--green);}
-.ic-blue{background:var(--blue-light); color:var(--blue);}
-.ic-orange{background:var(--orange-light); color:var(--orange);}
-.ic-purple{background:var(--purple-light); color:var(--purple);}
-.ic-yellow{background:var(--yellow-light); color:#D97706;}
+.mc-title{font-size:15px; font-weight:800; margin-bottom:3px; color:var(--navy);}
+.mc-desc{font-size:11.5px; color:#495366; line-height:1.4; font-weight:500;}
+.ic-red{color:var(--primary);}
+.ic-green{color:var(--green);}
+.ic-blue{color:var(--blue);}
+.ic-orange{color:var(--orange);}
+.ic-purple{color:var(--purple);}
+.ic-yellow{color:#D97706;}
+
+/* 색상별 카드 테마 */
+.menu-card:has(.ic-red){ background:#FFE1DC; border-color:#FF9F91; }
+.menu-card:has(.ic-green){ background:#DFF5EC; border-color:#6DD5B3; }
+.menu-card:has(.ic-blue){ background:#E7EFFD; border-color:#8FB0F5; }
+.menu-card:has(.ic-orange){ background:#FFEBD6; border-color:#FFB876; }
+.menu-card:has(.ic-purple){ background:#EDE4FC; border-color:#B296F3; }
+.menu-card:has(.ic-yellow){ background:#FFF2C9; border-color:#F3C84B; }
 
 .content{padding:18px 16px;}
 .section-title{font-size:18px; font-weight:800; margin:4px 0 10px;}
